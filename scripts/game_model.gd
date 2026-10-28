@@ -21,6 +21,7 @@ func _init(store):
     inventory[1] = "HPPotionSmall"
     rng.randomize()
 func equip(index: int, slot: String) -> bool:
+    if phase == "fight": return false
     if index < 0 or index >= 12 or not gear.has(slot): return false
     var id: String = inventory[index]
     if id == "" or not data.items.has(id): return false
@@ -32,6 +33,7 @@ func equip(index: int, slot: String) -> bool:
     inventory[index] = old
     return true
 func unequip(slot: String) -> bool:
+    if phase == "fight": return false
     if not gear.has(slot) or gear[slot] == "": return false
     var index = inventory.find("")
     if index < 0: return false
@@ -63,23 +65,40 @@ func stats() -> Dictionary:
             elif c == "D": result.defense += v
             elif c == "L": result.luck += v
     return result
-func start_first() -> void:
-    enemy = data.enemies["enemy1_normal"].duplicate()
+func start_encounter(enemy_id: String, restore_hp: bool = true) -> bool:
+    if not data.enemies.has(enemy_id):
+        return false
+    enemy = data.enemies[enemy_id].duplicate()
     enemy_hp = int(enemy.BaseHP)
-    hp = max_hp
+    if restore_hp:
+        hp = max_hp
     phase = "fight"
     turn = "finn"
     loot.clear()
-func attack_once() -> Dictionary:
+
+    return true
+
+func start_first() -> void:
+    start_encounter("enemy1_normal")
+# Original Fight computes damage before starting the attack animation;
+# HitAnimation applies it at the hit label.
+func prepare_attack() -> Dictionary:
     if phase != "fight": return {}
     var f = stats()
-    var e = {"attack": int(enemy.BaseAttack), "defense": int(enemy.BaseDefense), "luck": int(enemy.BaseLuck), "element": "N", "is_finn": false, "has_weapon": false}
+    var e = {"attack": int(enemy.BaseAttack), "defense": int(enemy.BaseDefense), "luck": int(enemy.BaseLuck), "element": _element(str(enemy.Element)), "is_finn": false, "has_weapon": false}
     var attack = f if turn == "finn" else e
     var defense = e if turn == "finn" else f
     if turn == "finn" and gear.weapon != "": attack.element = _element(data.items[gear.weapon].Element)
     if turn == "enemy" and gear.shield != "": defense.element = _element(data.items[gear.shield].Element)
-    var result = Damage.calculate(attack, defense, rng.randf(), rng.randf(), rng.randf())
+    var evade_roll = rng.randf()
+    # The AS3 only calls the critical RNG for Finn with a weapon.
+    var crit_roll = rng.randf() if turn == "finn" and gear.weapon != "" else 1.0
+    var result = Damage.calculate(attack, defense, evade_roll, crit_roll, rng.randf())
     result["attacker"] = turn
+    return result
+
+func apply_attack(result: Dictionary) -> void:
+    if result.is_empty() or phase != "fight" or result.attacker != turn: return
     if turn == "finn":
         enemy_hp = maxi(0, enemy_hp - result.damage)
         if enemy_hp == 0:
@@ -90,6 +109,10 @@ func attack_once() -> Dictionary:
         hp = maxi(0, hp - result.damage)
         if hp == 0: phase = "defeat"
         else: turn = "finn"
+
+func attack_once() -> Dictionary:
+    var result = prepare_attack()
+    apply_attack(result)
     return result
 func _element(value: String) -> String:
     return value if value == "F" or value == "I" else "N"
@@ -117,5 +140,3 @@ func find_recipe(a: String, b: String) -> Dictionary:
     for row in data.recipes:
         if (row.item1 == a and row.item2 == b) or (row.item1 == b and row.item2 == a): return row
     return {}
-
-

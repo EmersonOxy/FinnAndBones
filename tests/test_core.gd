@@ -39,6 +39,10 @@ func _initialize() -> void:
     check(r.evaded and r.damage == 0, "evasão")
     game.start_first()
     check(game.enemy_hp == 38 and game.turn == "finn", "primeiro encontro")
+    var locked_game = Model.new(data)
+    locked_game.equip(0, "weapon")
+    locked_game.start_first()
+    check(not locked_game.equip(0, "weapon") and not locked_game.unequip("weapon"), "equipamento bloqueado durante combate")
     var rewards = game.choose_loot()
     check(rewards.size() == 3 and rewards.has("MaxHPRing") and rewards.has("ShieldSimple") and rewards.has("LuckPotionSmall"), "primeiro loot sem reposição")
     game.phase = "victory"
