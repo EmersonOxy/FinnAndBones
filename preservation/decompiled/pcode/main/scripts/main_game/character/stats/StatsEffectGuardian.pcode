@@ -1,0 +1,191 @@
+package main_game.character.stats
+{
+   import main_game.items.Item;
+   
+   public class StatsEffectGuardian
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var stats:Stats;
+      
+      public function StatsEffectGuardian(param1:Stats)
+      {
+         method
+            name null
+            param QName(PackageNamespace("main_game.character.stats"),"Stats")
+            returns null
+            
+            body
+               maxstack 2
+               localcount 2
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlocal1
+                  initproperty QName(PrivateNamespace(null,"153"),"stats")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function removeEfectsOfItem(param1:Item) : void
+      {
+         trait method QName(PackageNamespace(""),"removeEfectsOfItem")
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace("main_game.items"),"Item")
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 2
+                  localcount 2
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal1
+                     pushnull
+                     ifeq ofs002d
+                     getlocal1
+                     callproperty QName(PackageNamespace(""),"getPrimaryModifier"), 0
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"153"),"stats")
+                     callpropvoid QName(Namespace("main_game.items.modifiers:IModifier"),"disaffect"), 1
+                     getlocal1
+                     callproperty QName(PackageNamespace(""),"getSecondaryModifier"), 0
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"153"),"stats")
+                     callpropvoid QName(Namespace("main_game.items.modifiers:IModifier"),"disaffect"), 1
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"153"),"stats")
+                     getproperty QName(PackageNamespace(""),"onChange")
+                     callpropvoid QName(PackageNamespace(""),"emit"), 0
+            ofs002d:
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function addEfectsOfItem(param1:Item) : void
+         {
+            trait method QName(PackageNamespace(""),"addEfectsOfItem")
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace("main_game.items"),"Item")
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 2
+                     localcount 2
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal1
+                        pushnull
+                        ifeq ofs002d
+                        getlocal1
+                        callproperty QName(PackageNamespace(""),"getPrimaryModifier"), 0
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"153"),"stats")
+                        callpropvoid QName(Namespace("main_game.items.modifiers:IModifier"),"affect"), 1
+                        getlocal1
+                        callproperty QName(PackageNamespace(""),"getSecondaryModifier"), 0
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"153"),"stats")
+                        callpropvoid QName(Namespace("main_game.items.modifiers:IModifier"),"affect"), 1
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"153"),"stats")
+                        getproperty QName(PackageNamespace(""),"onChange")
+                        callpropvoid QName(PackageNamespace(""),"emit"), 0
+               ofs002d:
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function clear() : void
+            {
+               trait method QName(PackageNamespace(""),"clear")
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 2
+                        localcount 1
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           pushnull
+                           setproperty QName(PrivateNamespace(null,"153"),"stats")
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+            }
+         }
+         
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 2
+               localcount 1
+               initscopedepth 1
+               maxscopedepth 3
+               
+               code
+                  getlocal0
+                  pushscope
+                  findpropstrict Multiname("StatsEffectGuardian",[PackageNamespace("main_game.character.stats")])
+                  getlex QName(PackageNamespace(""),"Object")
+                  pushscope
+                  getlex QName(PackageNamespace(""),"Object")
+                  newclass 258
+                  popscope
+                  initproperty QName(PackageNamespace("main_game.character.stats"),"StatsEffectGuardian")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+         

@@ -1,0 +1,139 @@
+package main_game.mixer
+{
+   import main_game.items.Item;
+   
+   public class MixResult
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var _item:Item;
+      
+      private var _recipe:Recipe;
+      
+      public function MixResult(param1:Item, param2:Recipe = null)
+      {
+         method
+            name null
+            flag HAS_OPTIONAL
+            param QName(PackageNamespace("main_game.items"),"Item")
+            param QName(PackageNamespace("main_game.mixer"),"Recipe")
+            optional Null()
+            returns null
+            
+            body
+               maxstack 2
+               localcount 3
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlocal1
+                  initproperty QName(PrivateNamespace(null,"99"),"_item")
+                  getlocal0
+                  getlocal2
+                  initproperty QName(PrivateNamespace(null,"99"),"_recipe")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function get recipe() : Recipe
+      {
+         trait getter QName(PackageNamespace(""),"recipe")
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace("main_game.mixer"),"Recipe")
+               
+               body
+                  maxstack 1
+                  localcount 1
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"99"),"_recipe")
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function get item() : Item
+         {
+            trait getter QName(PackageNamespace(""),"item")
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace("main_game.items"),"Item")
+                  
+                  body
+                     maxstack 1
+                     localcount 1
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"99"),"_item")
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+         }
+      }
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 1
+            maxscopedepth 3
+            
+            code
+               getlocal0
+               pushscope
+               findpropstrict Multiname("MixResult",[PackageNamespace("main_game.mixer")])
+               getlex QName(PackageNamespace(""),"Object")
+               pushscope
+               getlex QName(PackageNamespace(""),"Object")
+               newclass 172
+               popscope
+               initproperty QName(PackageNamespace("main_game.mixer"),"MixResult")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      

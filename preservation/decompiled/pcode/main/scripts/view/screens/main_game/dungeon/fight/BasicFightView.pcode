@@ -1,0 +1,928 @@
+package view.screens.main_game.dungeon.fight
+{
+   import cb.actions.Functor;
+   import cb.conditions.EndAnimation;
+   import cb.display.SmartMC;
+   import flash.display.MovieClip;
+   import flash.events.TimerEvent;
+   import flash.utils.Dictionary;
+   import flash.utils.Timer;
+   import main_game.character.Enemy;
+   import main_game.character.Fighter;
+   import main_game.dungeon.Damage;
+   import main_game.dungeon.IFight;
+   import util.Util;
+   import view.figthers.FighterView;
+   import view.screens.main_game.dungeon.BackgroundView;
+   import view.screens.main_game.dungeon.InnerDungeonView;
+   
+   public class BasicFightView implements InnerDungeonView
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      protected var bg:BackgroundView;
+      
+      protected var fight:IFight;
+      
+      protected var enemy:Enemy;
+      
+      protected var views:Dictionary;
+      
+      protected var timer:Timer;
+      
+      public function BasicFightView(param1:IFight, param2:BackgroundView, ... rest)
+      {
+         method
+            name null
+            flag NEED_REST
+            param QName(PackageNamespace("main_game.dungeon"),"IFight")
+            param QName(PackageNamespace("view.screens.main_game.dungeon"),"BackgroundView")
+            returns null
+            
+            body
+               maxstack 2
+               localcount 4
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlocal1
+                  initproperty QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"fight")
+                  getlocal0
+                  getlocal2
+                  initproperty QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"bg")
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("flash.utils"),"Dictionary")
+                  constructprop QName(PackageNamespace("flash.utils"),"Dictionary"), 0
+                  initproperty QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"views")
+                  getlocal0
+                  getlocal3
+                  callpropvoid QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"initializeViews"), 1
+                  getlocal0
+                  callpropvoid QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"initialize"), 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      protected function getFightConfig() : Object
+      {
+         trait method QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"getFightConfig")
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace(""),"Object")
+               
+               body
+                  maxstack 2
+                  localcount 1
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlex QName(PackageNamespace(""),"main")
+                     getproperty QName(PackageNamespace(""),"config")
+                     pushstring "FightConfig"
+                     callproperty QName(PackageNamespace(""),"get"), 1
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         protected function initializeViews(param1:Array) : void
+         {
+            trait method QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"initializeViews")
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace(""),"Array")
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 2
+                     localcount 2
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        findpropstrict QName(PackageNamespace(""),"Error")
+                        pushstring "Must implement"
+                        constructprop QName(PackageNamespace(""),"Error"), 1
+                        throw
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            protected function initialize() : void
+            {
+               trait method QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"initialize")
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 2
+                        localcount 1
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getproperty QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"fight")
+                           getproperty QName(Namespace("main_game.dungeon:IFight"),"onHit")
+                           getlocal0
+                           getproperty QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"onHit")
+                           callpropvoid QName(PackageNamespace(""),"add"), 1
+                           getlocal0
+                           getproperty QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"fight")
+                           getproperty QName(Namespace("main_game.dungeon:IFight"),"onEnter")
+                           getlocal0
+                           getproperty QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"enter")
+                           callpropvoid QName(PackageNamespace(""),"add"), 1
+                           getlocal0
+                           getproperty QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"fight")
+                           getproperty QName(Namespace("main_game.dungeon:IFight"),"onExit")
+                           getlocal0
+                           getproperty QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"leave")
+                           callpropvoid QName(PackageNamespace(""),"add"), 1
+                           getlocal0
+                           getproperty QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"fight")
+                           getproperty QName(Namespace("main_game.dungeon:IFight"),"onWin")
+                           getlocal0
+                           getproperty QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"won")
+                           callpropvoid QName(PackageNamespace(""),"add"), 1
+                           getlocal0
+                           getproperty QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"fight")
+                           getproperty QName(Namespace("main_game.dungeon:IFight"),"onLose")
+                           getlocal0
+                           getproperty QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"lose")
+                           callpropvoid QName(PackageNamespace(""),"add"), 1
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               protected function won() : void
+               {
+                  trait method QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"won")
+                     dispid 0
+                     method
+                        name null
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 2
+                           localcount 1
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              findpropstrict QName(PackageNamespace(""),"Error")
+                              pushstring "Must implement"
+                              constructprop QName(PackageNamespace(""),"Error"), 1
+                              throw
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  protected function lose() : void
+                  {
+                     trait method QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"lose")
+                        dispid 0
+                        method
+                           name null
+                           returns QName(PackageNamespace(""),"void")
+                           
+                           body
+                              maxstack 2
+                              localcount 1
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 findpropstrict QName(PackageNamespace(""),"Error")
+                                 pushstring "Must implement"
+                                 constructprop QName(PackageNamespace(""),"Error"), 1
+                                 throw
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     protected function countdown(param1:Function) : void
+                     {
+                        trait method QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"countdown")
+                           dispid 0
+                           method
+                              name null
+                              flag NEED_ACTIVATION
+                              param QName(PackageNamespace(""),"Function")
+                              returns QName(PackageNamespace(""),"void")
+                              
+                              body
+                                 maxstack 5
+                                 localcount 3
+                                 initscopedepth 5
+                                 maxscopedepth 7
+                                 trait slot QName(PackageInternalNs("view.screens.main_game.dungeon.fight"),"next")
+                                    slotid 1
+                                    type QName(PackageNamespace(""),"Function")
+                                 end ; trait
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    newactivation
+                                    dup
+                                    setlocal2
+                                    pushscope
+                                    getscopeobject 1
+                                    getlocal1
+                                    setslot 1
+                                    getlocal0
+                                    getproperty QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"bg")
+                                    getproperty QName(PackageNamespace(""),"enemyHud")
+                                    getlocal0
+                                    getproperty QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"enemy")
+                                    callpropvoid QName(PackageNamespace(""),"changeFighter"), 1
+                                    getlocal0
+                                    findpropstrict QName(PackageNamespace("flash.utils"),"Timer")
+                                    pushbyte 100
+                                    getlocal0
+                                    callproperty QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"getFightConfig"), 0
+                                    getproperty Multiname("countdown",[PrivateNamespace(null,"113"),PackageNamespace(""),ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),PackageInternalNs("view.screens.main_game.dungeon.fight"),PrivateNamespace(null,"284"),PackageNamespace("view.screens.main_game.dungeon.fight"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("view.screens.main_game.dungeon.fight:BasicFightView")])
+                                    pushbyte 10
+                                    multiply
+                                    constructprop QName(PackageNamespace("flash.utils"),"Timer"), 2
+                                    setproperty QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"timer")
+                                    getlocal0
+                                    getproperty QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"timer")
+                                    getlex QName(PackageNamespace("flash.events"),"TimerEvent")
+                                    getproperty QName(PackageNamespace(""),"TIMER_COMPLETE")
+                                    newfunction 1909
+                                    callpropvoid QName(PackageNamespace(""),"addEventListener"), 2
+                                    getlocal0
+                                    getproperty QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"timer")
+                                    callpropvoid QName(PackageNamespace(""),"start"), 0
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        protected function enter(param1:Function) : void
+                        {
+                           trait method QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"enter")
+                              dispid 0
+                              method
+                                 name null
+                                 param QName(PackageNamespace(""),"Function")
+                                 returns QName(PackageNamespace(""),"void")
+                                 
+                                 body
+                                    maxstack 2
+                                    localcount 2
+                                    initscopedepth 4
+                                    maxscopedepth 5
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       getlocal0
+                                       getlocal1
+                                       callpropvoid QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"countdown"), 1
+                                       returnvoid
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           protected function leave(param1:Function) : void
+                           {
+                              trait method QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"leave")
+                                 dispid 0
+                                 method
+                                    name null
+                                    param QName(PackageNamespace(""),"Function")
+                                    returns QName(PackageNamespace(""),"void")
+                                    
+                                    body
+                                       maxstack 2
+                                       localcount 2
+                                       initscopedepth 4
+                                       maxscopedepth 5
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          getlocal0
+                                          getproperty QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"bg")
+                                          getproperty QName(PackageNamespace(""),"enemyHud")
+                                          pushnull
+                                          callpropvoid QName(PackageNamespace(""),"changeFighter"), 1
+                                          getlocal1
+                                          getglobalscope
+                                          call 0
+                                          pop
+                                          returnvoid
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                              
+                              protected function onHit(param1:Fighter, param2:Fighter, param3:Damage, param4:Function) : void
+                              {
+                                 trait method QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"onHit")
+                                    dispid 0
+                                    method
+                                       name null
+                                       flag NEED_ACTIVATION
+                                       param QName(PackageNamespace("main_game.character"),"Fighter")
+                                       param QName(PackageNamespace("main_game.character"),"Fighter")
+                                       param QName(PackageNamespace("main_game.dungeon"),"Damage")
+                                       param QName(PackageNamespace(""),"Function")
+                                       returns QName(PackageNamespace(""),"void")
+                                       
+                                       body
+                                          maxstack 5
+                                          localcount 6
+                                          initscopedepth 5
+                                          maxscopedepth 7
+                                          trait slot QName(PackageInternalNs("view.screens.main_game.dungeon.fight"),"hitter")
+                                             slotid 1
+                                             type QName(PackageNamespace("main_game.character"),"Fighter")
+                                          end ; trait
+                                          trait slot QName(PackageInternalNs("view.screens.main_game.dungeon.fight"),"reciver")
+                                             slotid 2
+                                             type QName(PackageNamespace("main_game.character"),"Fighter")
+                                          end ; trait
+                                          trait slot QName(PackageInternalNs("view.screens.main_game.dungeon.fight"),"damage")
+                                             slotid 3
+                                             type QName(PackageNamespace("main_game.dungeon"),"Damage")
+                                          end ; trait
+                                          trait slot QName(PackageInternalNs("view.screens.main_game.dungeon.fight"),"atEnd")
+                                             slotid 4
+                                             type QName(PackageNamespace(""),"Function")
+                                          end ; trait
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             newactivation
+                                             dup
+                                             setlocal 5
+                                             pushscope
+                                             getscopeobject 1
+                                             getlocal1
+                                             setslot 1
+                                             getscopeobject 1
+                                             getlocal2
+                                             setslot 2
+                                             getscopeobject 1
+                                             getlocal3
+                                             setslot 3
+                                             getscopeobject 1
+                                             getlocal 4
+                                             setslot 4
+                                             getlocal0
+                                             findpropstrict QName(PackageNamespace("flash.utils"),"Timer")
+                                             pushbyte 100
+                                             getlocal0
+                                             callproperty QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"getFightConfig"), 0
+                                             getproperty Multiname("cooldown",[PrivateNamespace(null,"113"),PackageNamespace(""),ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),PackageInternalNs("view.screens.main_game.dungeon.fight"),PrivateNamespace(null,"284"),PackageNamespace("view.screens.main_game.dungeon.fight"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("view.screens.main_game.dungeon.fight:BasicFightView")])
+                                             pushbyte 10
+                                             multiply
+                                             constructprop QName(PackageNamespace("flash.utils"),"Timer"), 2
+                                             setproperty QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"timer")
+                                             getlocal0
+                                             getproperty QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"timer")
+                                             getlex QName(PackageNamespace("flash.events"),"TimerEvent")
+                                             getproperty QName(PackageNamespace(""),"TIMER_COMPLETE")
+                                             newfunction 1913
+                                             callpropvoid QName(PackageNamespace(""),"addEventListener"), 2
+                                             getlocal0
+                                             getproperty QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"timer")
+                                             callpropvoid QName(PackageNamespace(""),"start"), 0
+                                             returnvoid
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                 }
+                                 
+                                 private function showFeedback(param1:Fighter, param2:Fighter, param3:Damage) : void
+                                 {
+                                    trait method QName(PrivateNamespace(null,"113"),"showFeedback")
+                                       dispid 0
+                                       method
+                                          name null
+                                          flag NEED_ACTIVATION
+                                          param QName(PackageNamespace("main_game.character"),"Fighter")
+                                          param QName(PackageNamespace("main_game.character"),"Fighter")
+                                          param QName(PackageNamespace("main_game.dungeon"),"Damage")
+                                          returns QName(PackageNamespace(""),"void")
+                                          
+                                          body
+                                             maxstack 4
+                                             localcount 7
+                                             initscopedepth 5
+                                             maxscopedepth 7
+                                             trait slot QName(PackageInternalNs("view.screens.main_game.dungeon.fight"),"hitter")
+                                                slotid 1
+                                                type QName(PackageNamespace("main_game.character"),"Fighter")
+                                             end ; trait
+                                             trait slot QName(PackageInternalNs("view.screens.main_game.dungeon.fight"),"reciver")
+                                                slotid 2
+                                                type QName(PackageNamespace("main_game.character"),"Fighter")
+                                             end ; trait
+                                             trait slot QName(PackageInternalNs("view.screens.main_game.dungeon.fight"),"damage")
+                                                slotid 3
+                                                type QName(PackageNamespace("main_game.dungeon"),"Damage")
+                                             end ; trait
+                                             trait slot QName(PackageInternalNs("view.screens.main_game.dungeon.fight"),"finnFeedbacks")
+                                                slotid 4
+                                                type QName(PackageNamespace(""),"Array")
+                                             end ; trait
+                                             trait slot QName(PackageInternalNs("view.screens.main_game.dungeon.fight"),"enemyFeedbacks")
+                                                slotid 5
+                                                type QName(PackageNamespace(""),"Array")
+                                             end ; trait
+                                             trait slot QName(PackageInternalNs("view.screens.main_game.dungeon.fight"),"number")
+                                                slotid 6
+                                                type QName(PackageNamespace("flash.display"),"MovieClip")
+                                             end ; trait
+                                             trait slot QName(PackageInternalNs("view.screens.main_game.dungeon.fight"),"hitterView")
+                                                slotid 7
+                                                type QName(PackageNamespace("view.figthers"),"FighterView")
+                                             end ; trait
+                                             trait slot QName(PackageInternalNs("view.screens.main_game.dungeon.fight"),"smart_mc")
+                                                slotid 8
+                                                type QName(PackageNamespace("cb.display"),"SmartMC")
+                                             end ; trait
+                                             trait slot QName(PackageInternalNs("view.screens.main_game.dungeon.fight"),"fFeedback")
+                                                slotid 9
+                                                type QName(PackageNamespace("flash.display"),"MovieClip")
+                                             end ; trait
+                                             trait slot QName(PackageInternalNs("view.screens.main_game.dungeon.fight"),"eFeedback")
+                                                slotid 10
+                                                type QName(PackageNamespace("flash.display"),"MovieClip")
+                                             end ; trait
+                                             
+                                             code
+                                                getlocal0
+                                                pushscope
+                                                newactivation
+                                                dup
+                                                setlocal 4
+                                                pushscope
+                                                getscopeobject 1
+                                                pushnull
+                                                coerce QName(PackageNamespace(""),"Array")
+                                                setslot 4
+                                                getscopeobject 1
+                                                pushnull
+                                                coerce QName(PackageNamespace(""),"Array")
+                                                setslot 5
+                                                getscopeobject 1
+                                                pushnull
+                                                coerce QName(PackageNamespace("flash.display"),"MovieClip")
+                                                setslot 6
+                                                getscopeobject 1
+                                                pushnull
+                                                coerce QName(PackageNamespace("cb.display"),"SmartMC")
+                                                setslot 8
+                                                getscopeobject 1
+                                                pushnull
+                                                coerce QName(PackageNamespace("flash.display"),"MovieClip")
+                                                setslot 9
+                                                getscopeobject 1
+                                                pushnull
+                                                coerce QName(PackageNamespace("flash.display"),"MovieClip")
+                                                setslot 10
+                                                getscopeobject 1
+                                                getlocal1
+                                                setslot 1
+                                                getscopeobject 1
+                                                getlocal2
+                                                setslot 2
+                                                getscopeobject 1
+                                                getlocal3
+                                                setslot 3
+                                                getscopeobject 1
+                                                getlex QName(PackageNamespace(""),"main")
+                                                getproperty QName(PackageNamespace(""),"swfLoader")
+                                                pushstring "assets.numberHealth2"
+                                                callproperty QName(PackageNamespace(""),"getObject"), 1
+                                                getlex QName(PackageNamespace("flash.display"),"MovieClip")
+                                                astypelate
+                                                coerce QName(PackageNamespace("flash.display"),"MovieClip")
+                                                setslot 6
+                                                getscopeobject 1
+                                                getslot 6
+                                                getproperty Multiname("container",[PrivateNamespace(null,"113"),PackageNamespace(""),ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),PackageInternalNs("view.screens.main_game.dungeon.fight"),PrivateNamespace(null,"284"),PackageNamespace("view.screens.main_game.dungeon.fight"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("view.screens.main_game.dungeon.fight:BasicFightView")])
+                                                getproperty Multiname("title",[PrivateNamespace(null,"113"),PackageNamespace(""),ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),PackageInternalNs("view.screens.main_game.dungeon.fight"),PrivateNamespace(null,"284"),PackageNamespace("view.screens.main_game.dungeon.fight"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("view.screens.main_game.dungeon.fight:BasicFightView")])
+                                                getproperty Multiname("title",[PrivateNamespace(null,"113"),PackageNamespace(""),ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),PackageInternalNs("view.screens.main_game.dungeon.fight"),PrivateNamespace(null,"284"),PackageNamespace("view.screens.main_game.dungeon.fight"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("view.screens.main_game.dungeon.fight:BasicFightView")])
+                                                getscopeobject 1
+                                                getslot 3
+                                                callproperty QName(PackageNamespace(""),"stringValue"), 0
+                                                setproperty Multiname("text",[PrivateNamespace(null,"113"),PackageNamespace(""),ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),PackageInternalNs("view.screens.main_game.dungeon.fight"),PrivateNamespace(null,"284"),PackageNamespace("view.screens.main_game.dungeon.fight"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("view.screens.main_game.dungeon.fight:BasicFightView")])
+                                                getscopeobject 1
+                                                getlocal0
+                                                getproperty QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"views")
+                                                getscopeobject 1
+                                                getslot 2
+                                                getproperty MultinameL([PrivateNamespace(null,"113"),PackageNamespace(""),ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),PackageInternalNs("view.screens.main_game.dungeon.fight"),PrivateNamespace(null,"284"),PackageNamespace("view.screens.main_game.dungeon.fight"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("view.screens.main_game.dungeon.fight:BasicFightView")])
+                                                getlex QName(PackageNamespace("view.figthers"),"FighterView")
+                                                astypelate
+                                                coerce QName(PackageNamespace("view.figthers"),"FighterView")
+                                                setslot 7
+                                                getscopeobject 1
+                                                getslot 6
+                                                getscopeobject 1
+                                                getslot 7
+                                                getproperty QName(PackageNamespace(""),"x")
+                                                setproperty QName(PackageNamespace(""),"x")
+                                                getscopeobject 1
+                                                getslot 6
+                                                getscopeobject 1
+                                                getslot 7
+                                                getproperty QName(PackageNamespace(""),"y")
+                                                setproperty QName(PackageNamespace(""),"y")
+                                                getscopeobject 1
+                                                getslot 1
+                                                callproperty QName(PackageNamespace(""),"isFinn"), 0
+                                                iffalse ofs00e3
+                                                getscopeobject 1
+                                                getslot 6
+                                                pushbyte -1
+                                                setproperty QName(PackageNamespace(""),"scaleX")
+                                                getscopeobject 1
+                                                getslot 6
+                                                getproperty Multiname("container",[PrivateNamespace(null,"113"),PackageNamespace(""),ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),PackageInternalNs("view.screens.main_game.dungeon.fight"),PrivateNamespace(null,"284"),PackageNamespace("view.screens.main_game.dungeon.fight"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("view.screens.main_game.dungeon.fight:BasicFightView")])
+                                                getproperty Multiname("title",[PrivateNamespace(null,"113"),PackageNamespace(""),ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),PackageInternalNs("view.screens.main_game.dungeon.fight"),PrivateNamespace(null,"284"),PackageNamespace("view.screens.main_game.dungeon.fight"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("view.screens.main_game.dungeon.fight:BasicFightView")])
+                                                pushbyte -1
+                                                setproperty Multiname("scaleX",[PrivateNamespace(null,"113"),PackageNamespace(""),ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),PackageInternalNs("view.screens.main_game.dungeon.fight"),PrivateNamespace(null,"284"),PackageNamespace("view.screens.main_game.dungeon.fight"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("view.screens.main_game.dungeon.fight:BasicFightView")])
+                                                getscopeobject 1
+                                                getscopeobject 1
+                                                getslot 3
+                                                callproperty QName(PackageNamespace(""),"getHitterFeedback"), 0
+                                                coerce QName(PackageNamespace(""),"Array")
+                                                setslot 4
+                                                getscopeobject 1
+                                                getscopeobject 1
+                                                getslot 3
+                                                callproperty QName(PackageNamespace(""),"getDefenderFeedback"), 0
+                                                coerce QName(PackageNamespace(""),"Array")
+                                                setslot 5
+                                                jump ofs0110
+                                       ofs00e3:
+                                                getscopeobject 1
+                                                getslot 6
+                                                getscopeobject 1
+                                                getslot 6
+                                                getproperty QName(PackageNamespace(""),"x")
+                                                pushbyte 50
+                                                subtract
+                                                setproperty QName(PackageNamespace(""),"x")
+                                                getscopeobject 1
+                                                getscopeobject 1
+                                                getslot 3
+                                                callproperty QName(PackageNamespace(""),"getHitterFeedback"), 0
+                                                coerce QName(PackageNamespace(""),"Array")
+                                                setslot 5
+                                                getscopeobject 1
+                                                getscopeobject 1
+                                                getslot 3
+                                                callproperty QName(PackageNamespace(""),"getDefenderFeedback"), 0
+                                                coerce QName(PackageNamespace(""),"Array")
+                                                setslot 4
+                                       ofs0110:
+                                                getscopeobject 1
+                                                getslot 6
+                                                pushbyte 1
+                                                callpropvoid QName(PackageNamespace(""),"gotoAndPlay"), 1
+                                                getlocal0
+                                                getproperty QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"bg")
+                                                getproperty QName(PackageNamespace(""),"arena")
+                                                getscopeobject 1
+                                                getslot 6
+                                                callpropvoid QName(PackageNamespace(""),"addChild"), 1
+                                                getscopeobject 1
+                                                findpropstrict QName(PackageNamespace("cb.display"),"SmartMC")
+                                                getscopeobject 1
+                                                getslot 6
+                                                constructprop QName(PackageNamespace("cb.display"),"SmartMC"), 1
+                                                coerce QName(PackageNamespace("cb.display"),"SmartMC")
+                                                setslot 8
+                                                getscopeobject 1
+                                                getslot 8
+                                                findpropstrict QName(PackageNamespace("cb.conditions"),"EndAnimation")
+                                                constructprop QName(PackageNamespace("cb.conditions"),"EndAnimation"), 0
+                                                getlex QName(PackageNamespace("cb.actions"),"Functor")
+                                                newfunction 1915
+                                                callproperty QName(PackageNamespace(""),"wrap"), 1
+                                                callpropvoid QName(PackageNamespace(""),"trigger"), 2
+                                                pushbyte 0
+                                                setlocal 5
+                                                getscopeobject 1
+                                                getslot 4
+                                                coerce_a
+                                                setlocal 6
+                                                jump ofs017a
+                                       ofs0162:
+                                                label
+                                                getscopeobject 1
+                                                getlocal 6
+                                                getlocal 5
+                                                nextvalue
+                                                coerce QName(PackageNamespace("flash.display"),"MovieClip")
+                                                setslot 9
+                                                getlocal0
+                                                getproperty QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"bg")
+                                                getscopeobject 1
+                                                getslot 9
+                                                callpropvoid QName(PackageNamespace(""),"addFinnFeddback"), 1
+                                       ofs017a:
+                                                hasnext2 6, 5
+                                                iftrue ofs0162
+                                                kill 6
+                                                kill 5
+                                                pushbyte 0
+                                                setlocal 5
+                                                getscopeobject 1
+                                                getslot 5
+                                                coerce_a
+                                                setlocal 6
+                                                jump ofs01ac
+                                       ofs0194:
+                                                label
+                                                getscopeobject 1
+                                                getlocal 6
+                                                getlocal 5
+                                                nextvalue
+                                                coerce QName(PackageNamespace("flash.display"),"MovieClip")
+                                                setslot 10
+                                                getlocal0
+                                                getproperty QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"bg")
+                                                getscopeobject 1
+                                                getslot 10
+                                                callpropvoid QName(PackageNamespace(""),"addEnemyFeddback"), 1
+                                       ofs01ac:
+                                                hasnext2 6, 5
+                                                iftrue ofs0194
+                                                kill 6
+                                                kill 5
+                                                returnvoid
+                                             end ; code
+                                          end ; body
+                                       end ; method
+                                    }
+                                    
+                                    protected function removeTimer() : void
+                                    {
+                                       trait method QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"removeTimer")
+                                          dispid 0
+                                          method
+                                             name null
+                                             returns QName(PackageNamespace(""),"void")
+                                             
+                                             body
+                                                maxstack 2
+                                                localcount 1
+                                                initscopedepth 4
+                                                maxscopedepth 5
+                                                
+                                                code
+                                                   getlocal0
+                                                   pushscope
+                                                   getlocal0
+                                                   getproperty QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"timer")
+                                                   pushnull
+                                                   ifeq ofs0013
+                                                   getlocal0
+                                                   getproperty QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"timer")
+                                                   callpropvoid QName(PackageNamespace(""),"stop"), 0
+                                          ofs0013:
+                                                   getlocal0
+                                                   pushnull
+                                                   setproperty QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"timer")
+                                                   returnvoid
+                                                end ; code
+                                             end ; body
+                                          end ; method
+                                       }
+                                       
+                                       public function pause() : void
+                                       {
+                                          trait method QName(PackageNamespace(""),"pause")
+                                             dispid 0
+                                             method
+                                                name null
+                                                returns QName(PackageNamespace(""),"void")
+                                                
+                                                body
+                                                   maxstack 2
+                                                   localcount 4
+                                                   initscopedepth 4
+                                                   maxscopedepth 5
+                                                   
+                                                   code
+                                                      getlocal0
+                                                      pushscope
+                                                      pushnull
+                                                      coerce QName(PackageNamespace("view.figthers"),"FighterView")
+                                                      setlocal1
+                                                      getlocal0
+                                                      getproperty QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"timer")
+                                                      pushnull
+                                                      ifeq ofs0017
+                                                      getlocal0
+                                                      getproperty QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"timer")
+                                                      callpropvoid QName(PackageNamespace(""),"stop"), 0
+                                             ofs0017:
+                                                      getlocal0
+                                                      getproperty QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"bg")
+                                                      callpropvoid QName(PackageNamespace(""),"pauseScroll"), 0
+                                                      pushbyte 0
+                                                      setlocal2
+                                                      getlocal0
+                                                      getproperty QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"views")
+                                                      coerce_a
+                                                      setlocal3
+                                                      jump ofs0038
+                                             ofs002c:
+                                                      label
+                                                      getlocal3
+                                                      getlocal2
+                                                      nextvalue
+                                                      coerce QName(PackageNamespace("view.figthers"),"FighterView")
+                                                      setlocal1
+                                                      getlocal1
+                                                      callpropvoid QName(PackageNamespace(""),"pause"), 0
+                                             ofs0038:
+                                                      hasnext2 3, 2
+                                                      iftrue ofs002c
+                                                      kill 3
+                                                      kill 2
+                                                      returnvoid
+                                                   end ; code
+                                                end ; body
+                                             end ; method
+                                          }
+                                          
+                                          public function resume() : void
+                                          {
+                                             trait method QName(PackageNamespace(""),"resume")
+                                                dispid 0
+                                                method
+                                                   name null
+                                                   returns QName(PackageNamespace(""),"void")
+                                                   
+                                                   body
+                                                      maxstack 2
+                                                      localcount 4
+                                                      initscopedepth 4
+                                                      maxscopedepth 5
+                                                      
+                                                      code
+                                                         getlocal0
+                                                         pushscope
+                                                         pushnull
+                                                         coerce QName(PackageNamespace("view.figthers"),"FighterView")
+                                                         setlocal1
+                                                         getlocal0
+                                                         getproperty QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"timer")
+                                                         pushnull
+                                                         ifeq ofs0017
+                                                         getlocal0
+                                                         getproperty QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"timer")
+                                                         callpropvoid QName(PackageNamespace(""),"start"), 0
+                                                ofs0017:
+                                                         getlocal0
+                                                         getproperty QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"bg")
+                                                         callpropvoid QName(PackageNamespace(""),"resumeScroll"), 0
+                                                         pushbyte 0
+                                                         setlocal2
+                                                         getlocal0
+                                                         getproperty QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"views")
+                                                         coerce_a
+                                                         setlocal3
+                                                         jump ofs0038
+                                                ofs002c:
+                                                         label
+                                                         getlocal3
+                                                         getlocal2
+                                                         nextvalue
+                                                         coerce QName(PackageNamespace("view.figthers"),"FighterView")
+                                                         setlocal1
+                                                         getlocal1
+                                                         callpropvoid QName(PackageNamespace(""),"resume"), 0
+                                                ofs0038:
+                                                         hasnext2 3, 2
+                                                         iftrue ofs002c
+                                                         kill 3
+                                                         kill 2
+                                                         returnvoid
+                                                      end ; code
+                                                   end ; body
+                                                end ; method
+                                             }
+                                             
+                                             public function clear() : void
+                                             {
+                                                trait method QName(PackageNamespace(""),"clear")
+                                                   dispid 0
+                                                   method
+                                                      name null
+                                                      returns QName(PackageNamespace(""),"void")
+                                                      
+                                                      body
+                                                         maxstack 2
+                                                         localcount 1
+                                                         initscopedepth 4
+                                                         maxscopedepth 5
+                                                         
+                                                         code
+                                                            getlocal0
+                                                            pushscope
+                                                            getlocal0
+                                                            callpropvoid QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"removeTimer"), 0
+                                                            getlocal0
+                                                            pushnull
+                                                            setproperty QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"bg")
+                                                            getlocal0
+                                                            pushnull
+                                                            setproperty QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"views")
+                                                            getlocal0
+                                                            pushnull
+                                                            setproperty QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"enemy")
+                                                            returnvoid
+                                                         end ; code
+                                                      end ; body
+                                                   end ; method
+                                                }
+                                             }
+                                          }
+                                          
+                                          method
+                                             name null
+                                             returns null
+                                             
+                                             body
+                                                maxstack 2
+                                                localcount 1
+                                                initscopedepth 1
+                                                maxscopedepth 3
+                                                
+                                                code
+                                                   getlocal0
+                                                   pushscope
+                                                   findpropstrict Multiname("BasicFightView",[PackageNamespace("view.screens.main_game.dungeon.fight")])
+                                                   getlex QName(PackageNamespace(""),"Object")
+                                                   pushscope
+                                                   getlex QName(PackageNamespace(""),"Object")
+                                                   newclass 194
+                                                   popscope
+                                                   initproperty QName(PackageNamespace("view.screens.main_game.dungeon.fight"),"BasicFightView")
+                                                   returnvoid
+                                                end ; code
+                                             end ; body
+                                          end ; method
+                                          

@@ -1,0 +1,661 @@
+package cb.media
+{
+   import cb.data.TextLoader;
+   import cb.signals.Signal;
+   import flash.events.Event;
+   import flash.events.IOErrorEvent;
+   import flash.net.URLRequest;
+   import flash.utils.Dictionary;
+   import jh.PackedResources;
+   
+   public class SoundLoader
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var s:cbSound;
+      
+      private var bulk:int;
+      
+      private var total:int;
+      
+      public var data:Dictionary;
+      
+      private var textLoader:TextLoader;
+      
+      private var totalBytesLoaded:int;
+      
+      private var textToLoad:String;
+      
+      private var resource:PackedResources;
+      
+      private var mediaUrl:String;
+      
+      public var loaded:Signal;
+      
+      public var progress:Signal;
+      
+      private var loadedSoFar:int;
+      
+      public function SoundLoader(param1:String, param2:String = null)
+      {
+         method
+            name null
+            flag HAS_OPTIONAL
+            param QName(PackageNamespace(""),"String")
+            param QName(PackageNamespace(""),"String")
+            optional Null()
+            returns null
+            
+            body
+               maxstack 2
+               localcount 3
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  pushbyte 0
+                  initproperty QName(PrivateNamespace(null,"30"),"bulk")
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("flash.utils"),"Dictionary")
+                  constructprop QName(PackageNamespace("flash.utils"),"Dictionary"), 0
+                  initproperty QName(PackageNamespace(""),"data")
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("cb.signals"),"Signal")
+                  constructprop QName(PackageNamespace("cb.signals"),"Signal"), 0
+                  initproperty QName(PackageNamespace(""),"loaded")
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("cb.signals"),"Signal")
+                  constructprop QName(PackageNamespace("cb.signals"),"Signal"), 0
+                  initproperty QName(PackageNamespace(""),"progress")
+                  getlocal0
+                  getlocal1
+                  initproperty QName(PrivateNamespace(null,"30"),"textToLoad")
+                  getlocal2
+                  pushnull
+                  ifne ofs003b
+                  getlocal0
+                  pushstring ""
+                  initproperty QName(PrivateNamespace(null,"30"),"mediaUrl")
+                  jump ofs0040
+         ofs003b:
+                  getlocal0
+                  getlocal2
+                  initproperty QName(PrivateNamespace(null,"30"),"mediaUrl")
+         ofs0040:
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function load(param1:PackedResources = null) : void
+      {
+         trait method QName(PackageNamespace(""),"load")
+            dispid 0
+            method
+               name null
+               flag HAS_OPTIONAL
+               param QName(PackageNamespace("jh"),"PackedResources")
+               optional Null()
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 4
+                  localcount 2
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     getlocal1
+                     setproperty QName(PrivateNamespace(null,"30"),"resource")
+                     getlocal0
+                     findpropstrict QName(PackageNamespace("cb.data"),"TextLoader")
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"30"),"mediaUrl")
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"30"),"textToLoad")
+                     add
+                     constructprop QName(PackageNamespace("cb.data"),"TextLoader"), 1
+                     initproperty QName(PrivateNamespace(null,"30"),"textLoader")
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"30"),"textLoader")
+                     getproperty QName(PackageNamespace(""),"loaded")
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"30"),"textLoaded")
+                     callpropvoid QName(PackageNamespace(""),"add"), 1
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"30"),"textLoader")
+                     getlocal1
+                     callpropvoid QName(PackageNamespace(""),"load"), 1
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         private function textLoaded(param1:TextLoader) : void
+         {
+            trait method QName(PrivateNamespace(null,"30"),"textLoaded")
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace("cb.data"),"TextLoader")
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 3
+                     localcount 7
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        pushnull
+                        coerce_s
+                        setlocal2
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"30"),"textLoader")
+                        getproperty QName(PackageNamespace(""),"loaded")
+                        callpropvoid QName(PackageNamespace(""),"clear"), 0
+                        pushbyte 0
+                        setlocal3
+                        getlocal1
+                        getproperty QName(PackageNamespace(""),"data")
+                        coerce_a
+                        setlocal 4
+                        jump ofs0041
+               ofs001e:
+                        label
+                        getlocal 4
+                        getlocal3
+                        nextvalue
+                        coerce_s
+                        setlocal2
+                        getlocal2
+                        pushstring ""
+                        ifeq ofs0041
+                        getlocal0
+                        dup
+                        setlocal 5
+                        getproperty QName(PrivateNamespace(null,"30"),"total")
+                        increment_i
+                        setlocal 6
+                        getlocal 5
+                        getlocal 6
+                        setproperty QName(PrivateNamespace(null,"30"),"total")
+                        kill 6
+                        kill 5
+               ofs0041:
+                        hasnext2 4, 3
+                        iftrue ofs001e
+                        kill 4
+                        kill 3
+                        pushbyte 0
+                        setlocal3
+                        getlocal1
+                        getproperty QName(PackageNamespace(""),"data")
+                        coerce_a
+                        setlocal 4
+                        jump ofs0073
+               ofs005a:
+                        label
+                        getlocal 4
+                        getlocal3
+                        nextvalue
+                        coerce_s
+                        setlocal2
+                        getlocal2
+                        pushstring ""
+                        ifeq ofs0073
+                        getlocal0
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"30"),"mediaUrl")
+                        getlocal2
+                        add
+                        callpropvoid QName(PrivateNamespace(null,"30"),"loadSound"), 1
+               ofs0073:
+                        hasnext2 4, 3
+                        iftrue ofs005a
+                        kill 4
+                        kill 3
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            private function loadSound(param1:String, param2:Array = null) : void
+            {
+               trait method QName(PrivateNamespace(null,"30"),"loadSound")
+                  dispid 0
+                  method
+                     name null
+                     flag HAS_OPTIONAL
+                     param QName(PackageNamespace(""),"String")
+                     param QName(PackageNamespace(""),"Array")
+                     optional Null()
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 7
+                        localcount 7
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           pushnull
+                           coerce QName(PackageNamespace(""),"Class")
+                           setlocal 6
+                           getlocal1
+                           getlocal1
+                           pushstring "/"
+                           callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"lastIndexOf"), 1
+                           pushbyte 1
+                           add
+                           getlocal1
+                           pushstring "."
+                           getlocal1
+                           pushstring "/"
+                           callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"lastIndexOf"), 1
+                           callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"indexOf"), 2
+                           callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"slice"), 2
+                           coerce_s
+                           setlocal3
+                           getlocal1
+                           pushstring ","
+                           callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"split"), 1
+                           coerce QName(PackageNamespace(""),"Array")
+                           setlocal 4
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"30"),"resource")
+                           iffalse ofs0075
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"30"),"resource")
+                           getlocal 4
+                           pushbyte 0
+                           getproperty MultinameL([PrivateNamespace(null,"30"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"196"),PackageNamespace("cb.media"),PackageInternalNs("cb.media"),ProtectedNamespace("cb.media:SoundLoader"),StaticProtectedNs("cb.media:SoundLoader")])
+                           callproperty QName(PackageNamespace(""),"get"), 1
+                           getlex QName(PackageNamespace(""),"Class")
+                           astypelate
+                           coerce QName(PackageNamespace(""),"Class")
+                           setlocal 6
+                           getlocal0
+                           getproperty QName(PackageNamespace(""),"data")
+                           getlocal3
+                           findpropstrict QName(PackageNamespace("cb.media"),"cbSound")
+                           getlocal3
+                           constructprop QName(PackageNamespace("cb.media"),"cbSound"), 1
+                           setproperty MultinameL([PrivateNamespace(null,"30"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"196"),PackageNamespace("cb.media"),PackageInternalNs("cb.media"),ProtectedNamespace("cb.media:SoundLoader"),StaticProtectedNs("cb.media:SoundLoader")])
+                           getlocal0
+                           getproperty QName(PackageNamespace(""),"data")
+                           getlocal3
+                           getproperty MultinameL([PrivateNamespace(null,"30"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"196"),PackageNamespace("cb.media"),PackageInternalNs("cb.media"),ProtectedNamespace("cb.media:SoundLoader"),StaticProtectedNs("cb.media:SoundLoader")])
+                           getlocal 6
+                           construct 0
+                           callpropvoid Multiname("setSound",[PrivateNamespace(null,"30"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"196"),PackageNamespace("cb.media"),PackageInternalNs("cb.media"),ProtectedNamespace("cb.media:SoundLoader"),StaticProtectedNs("cb.media:SoundLoader")]), 1
+                           jump ofs00a5
+                  ofs0075:
+                           getlocal0
+                           getproperty QName(PackageNamespace(""),"data")
+                           getlocal3
+                           findpropstrict QName(PackageNamespace("cb.media"),"cbSound")
+                           getlocal3
+                           findpropstrict QName(PackageNamespace("flash.net"),"URLRequest")
+                           getlocal 4
+                           pushbyte 0
+                           getproperty MultinameL([PrivateNamespace(null,"30"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"196"),PackageNamespace("cb.media"),PackageInternalNs("cb.media"),ProtectedNamespace("cb.media:SoundLoader"),StaticProtectedNs("cb.media:SoundLoader")])
+                           constructprop QName(PackageNamespace("flash.net"),"URLRequest"), 1
+                           constructprop QName(PackageNamespace("cb.media"),"cbSound"), 2
+                           setproperty MultinameL([PrivateNamespace(null,"30"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"196"),PackageNamespace("cb.media"),PackageInternalNs("cb.media"),ProtectedNamespace("cb.media:SoundLoader"),StaticProtectedNs("cb.media:SoundLoader")])
+                           getlocal0
+                           getproperty QName(PackageNamespace(""),"data")
+                           getlocal3
+                           getproperty MultinameL([PrivateNamespace(null,"30"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"196"),PackageNamespace("cb.media"),PackageInternalNs("cb.media"),ProtectedNamespace("cb.media:SoundLoader"),StaticProtectedNs("cb.media:SoundLoader")])
+                           getproperty Multiname("progress",[PrivateNamespace(null,"30"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"196"),PackageNamespace("cb.media"),PackageInternalNs("cb.media"),ProtectedNamespace("cb.media:SoundLoader"),StaticProtectedNs("cb.media:SoundLoader")])
+                           getlocal0
+                           getproperty QName(PackageNamespace(""),"progress")
+                           getproperty QName(PackageNamespace(""),"emit")
+                           callpropvoid Multiname("add",[PrivateNamespace(null,"30"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"196"),PackageNamespace("cb.media"),PackageInternalNs("cb.media"),ProtectedNamespace("cb.media:SoundLoader"),StaticProtectedNs("cb.media:SoundLoader")]), 1
+                  ofs00a5:
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"30"),"completeHandler")
+                           coerce QName(PackageNamespace(""),"Function")
+                           setlocal 5
+                           getlocal2
+                           iffalse ofs00bf
+                           getlocal2
+                           coerce QName(PackageNamespace(""),"Array")
+                           setlocal 4
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"30"),"completeOneHandler")
+                           coerce QName(PackageNamespace(""),"Function")
+                           setlocal 5
+                  ofs00bf:
+                           getlocal0
+                           getproperty QName(PackageNamespace(""),"data")
+                           getlocal3
+                           getproperty MultinameL([PrivateNamespace(null,"30"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"196"),PackageNamespace("cb.media"),PackageInternalNs("cb.media"),ProtectedNamespace("cb.media:SoundLoader"),StaticProtectedNs("cb.media:SoundLoader")])
+                           getlocal 4
+                           pushbyte 1
+                           getproperty MultinameL([PrivateNamespace(null,"30"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"196"),PackageNamespace("cb.media"),PackageInternalNs("cb.media"),ProtectedNamespace("cb.media:SoundLoader"),StaticProtectedNs("cb.media:SoundLoader")])
+                           iffalse ofs00de
+                           getlocal 4
+                           pushbyte 1
+                           getproperty MultinameL([PrivateNamespace(null,"30"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"196"),PackageNamespace("cb.media"),PackageInternalNs("cb.media"),ProtectedNamespace("cb.media:SoundLoader"),StaticProtectedNs("cb.media:SoundLoader")])
+                           coerce_a
+                           jump ofs00e1
+                  ofs00de:
+                           pushbyte 1
+                           coerce_a
+                  ofs00e1:
+                           setproperty Multiname("volume",[PrivateNamespace(null,"30"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"196"),PackageNamespace("cb.media"),PackageInternalNs("cb.media"),ProtectedNamespace("cb.media:SoundLoader"),StaticProtectedNs("cb.media:SoundLoader")])
+                           getlocal0
+                           getproperty QName(PackageNamespace(""),"data")
+                           getlocal3
+                           getproperty MultinameL([PrivateNamespace(null,"30"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"196"),PackageNamespace("cb.media"),PackageInternalNs("cb.media"),ProtectedNamespace("cb.media:SoundLoader"),StaticProtectedNs("cb.media:SoundLoader")])
+                           getlocal 4
+                           pushbyte 1
+                           getproperty MultinameL([PrivateNamespace(null,"30"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"196"),PackageNamespace("cb.media"),PackageInternalNs("cb.media"),ProtectedNamespace("cb.media:SoundLoader"),StaticProtectedNs("cb.media:SoundLoader")])
+                           iffalse ofs0103
+                           getlocal 4
+                           pushbyte 1
+                           getproperty MultinameL([PrivateNamespace(null,"30"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"196"),PackageNamespace("cb.media"),PackageInternalNs("cb.media"),ProtectedNamespace("cb.media:SoundLoader"),StaticProtectedNs("cb.media:SoundLoader")])
+                           coerce_a
+                           jump ofs0106
+                  ofs0103:
+                           pushbyte 1
+                           coerce_a
+                  ofs0106:
+                           setproperty Multiname("originalVolume",[PrivateNamespace(null,"30"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"196"),PackageNamespace("cb.media"),PackageInternalNs("cb.media"),ProtectedNamespace("cb.media:SoundLoader"),StaticProtectedNs("cb.media:SoundLoader")])
+                           getlocal0
+                           getproperty QName(PackageNamespace(""),"data")
+                           getlocal3
+                           getproperty MultinameL([PrivateNamespace(null,"30"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"196"),PackageNamespace("cb.media"),PackageInternalNs("cb.media"),ProtectedNamespace("cb.media:SoundLoader"),StaticProtectedNs("cb.media:SoundLoader")])
+                           getlocal 4
+                           pushbyte 2
+                           getproperty MultinameL([PrivateNamespace(null,"30"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"196"),PackageNamespace("cb.media"),PackageInternalNs("cb.media"),ProtectedNamespace("cb.media:SoundLoader"),StaticProtectedNs("cb.media:SoundLoader")])
+                           iffalse ofs0128
+                           getlocal 4
+                           pushbyte 2
+                           getproperty MultinameL([PrivateNamespace(null,"30"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"196"),PackageNamespace("cb.media"),PackageInternalNs("cb.media"),ProtectedNamespace("cb.media:SoundLoader"),StaticProtectedNs("cb.media:SoundLoader")])
+                           coerce_a
+                           jump ofs012b
+                  ofs0128:
+                           pushbyte 0
+                           coerce_a
+                  ofs012b:
+                           setproperty Multiname("startMilliseconds",[PrivateNamespace(null,"30"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"196"),PackageNamespace("cb.media"),PackageInternalNs("cb.media"),ProtectedNamespace("cb.media:SoundLoader"),StaticProtectedNs("cb.media:SoundLoader")])
+                           getlocal0
+                           getproperty QName(PackageNamespace(""),"data")
+                           getlocal3
+                           getproperty MultinameL([PrivateNamespace(null,"30"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"196"),PackageNamespace("cb.media"),PackageInternalNs("cb.media"),ProtectedNamespace("cb.media:SoundLoader"),StaticProtectedNs("cb.media:SoundLoader")])
+                           getlocal 4
+                           pushbyte 3
+                           getproperty MultinameL([PrivateNamespace(null,"30"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"196"),PackageNamespace("cb.media"),PackageInternalNs("cb.media"),ProtectedNamespace("cb.media:SoundLoader"),StaticProtectedNs("cb.media:SoundLoader")])
+                           iffalse ofs014d
+                           getlocal 4
+                           pushbyte 3
+                           getproperty MultinameL([PrivateNamespace(null,"30"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"196"),PackageNamespace("cb.media"),PackageInternalNs("cb.media"),ProtectedNamespace("cb.media:SoundLoader"),StaticProtectedNs("cb.media:SoundLoader")])
+                           coerce_a
+                           jump ofs0150
+                  ofs014d:
+                           pushbyte 0
+                           coerce_a
+                  ofs0150:
+                           setproperty Multiname("endMilliseconds",[PrivateNamespace(null,"30"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"196"),PackageNamespace("cb.media"),PackageInternalNs("cb.media"),ProtectedNamespace("cb.media:SoundLoader"),StaticProtectedNs("cb.media:SoundLoader")])
+                           getlocal0
+                           getproperty QName(PackageNamespace(""),"data")
+                           getlocal3
+                           getproperty MultinameL([PrivateNamespace(null,"30"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"196"),PackageNamespace("cb.media"),PackageInternalNs("cb.media"),ProtectedNamespace("cb.media:SoundLoader"),StaticProtectedNs("cb.media:SoundLoader")])
+                           getlex QName(PackageNamespace("flash.events"),"IOErrorEvent")
+                           getproperty QName(PackageNamespace(""),"IO_ERROR")
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"30"),"ioError")
+                           callpropvoid Multiname("addEventListener",[PrivateNamespace(null,"30"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"196"),PackageNamespace("cb.media"),PackageInternalNs("cb.media"),ProtectedNamespace("cb.media:SoundLoader"),StaticProtectedNs("cb.media:SoundLoader")]), 2
+                           getlocal0
+                           getproperty QName(PackageNamespace(""),"data")
+                           getlocal3
+                           getproperty MultinameL([PrivateNamespace(null,"30"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"196"),PackageNamespace("cb.media"),PackageInternalNs("cb.media"),ProtectedNamespace("cb.media:SoundLoader"),StaticProtectedNs("cb.media:SoundLoader")])
+                           getlex QName(PackageNamespace("flash.events"),"Event")
+                           getproperty QName(PackageNamespace(""),"COMPLETE")
+                           getlocal 5
+                           callpropvoid Multiname("addEventListener",[PrivateNamespace(null,"30"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"196"),PackageNamespace("cb.media"),PackageInternalNs("cb.media"),ProtectedNamespace("cb.media:SoundLoader"),StaticProtectedNs("cb.media:SoundLoader")]), 2
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"30"),"resource")
+                           iffalse ofs0189
+                           getlocal 5
+                           getglobalscope
+                           call 0
+                           pop
+                  ofs0189:
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               private function ioError(param1:IOErrorEvent) : void
+               {
+                  trait method QName(PrivateNamespace(null,"30"),"ioError")
+                     dispid 0
+                     method
+                        name null
+                        param QName(PackageNamespace("flash.events"),"IOErrorEvent")
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 3
+                           localcount 2
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              findpropstrict QName(PackageNamespace(""),"Error")
+                              pushstring "error loading file: "
+                              getlocal1
+                              getproperty QName(PackageNamespace(""),"text")
+                              add
+                              constructprop QName(PackageNamespace(""),"Error"), 1
+                              throw
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  private function completeOneHandler(param1:Event = null) : void
+                  {
+                     trait method QName(PrivateNamespace(null,"30"),"completeOneHandler")
+                        dispid 0
+                        method
+                           name null
+                           flag HAS_OPTIONAL
+                           param QName(PackageNamespace("flash.events"),"Event")
+                           optional Null()
+                           returns QName(PackageNamespace(""),"void")
+                           
+                           body
+                              maxstack 3
+                              localcount 2
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal1
+                                 getproperty QName(PackageNamespace(""),"currentTarget")
+                                 getlex QName(PackageNamespace("flash.events"),"IOErrorEvent")
+                                 getproperty QName(PackageNamespace(""),"IO_ERROR")
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"30"),"ioError")
+                                 callpropvoid Multiname("removeEventListener",[PrivateNamespace(null,"30"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"196"),PackageNamespace("cb.media"),PackageInternalNs("cb.media"),ProtectedNamespace("cb.media:SoundLoader"),StaticProtectedNs("cb.media:SoundLoader")]), 2
+                                 getlocal1
+                                 getproperty QName(PackageNamespace(""),"currentTarget")
+                                 getlex QName(PackageNamespace("flash.events"),"Event")
+                                 getproperty QName(PackageNamespace(""),"COMPLETE")
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"30"),"completeOneHandler")
+                                 callpropvoid Multiname("removeEventListener",[PrivateNamespace(null,"30"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"196"),PackageNamespace("cb.media"),PackageInternalNs("cb.media"),ProtectedNamespace("cb.media:SoundLoader"),StaticProtectedNs("cb.media:SoundLoader")]), 2
+                                 getlocal0
+                                 getproperty QName(PackageNamespace(""),"loaded")
+                                 getlocal0
+                                 callpropvoid QName(PackageNamespace(""),"emit"), 1
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     private function completeHandler(param1:Event = null) : void
+                     {
+                        trait method QName(PrivateNamespace(null,"30"),"completeHandler")
+                           dispid 0
+                           method
+                              name null
+                              flag HAS_OPTIONAL
+                              param QName(PackageNamespace("flash.events"),"Event")
+                              optional Null()
+                              returns QName(PackageNamespace(""),"void")
+                              
+                              body
+                                 maxstack 3
+                                 localcount 4
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    getlocal1
+                                    getproperty QName(PackageNamespace(""),"currentTarget")
+                                    getlex QName(PackageNamespace("flash.events"),"IOErrorEvent")
+                                    getproperty QName(PackageNamespace(""),"IO_ERROR")
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"30"),"ioError")
+                                    callpropvoid Multiname("removeEventListener",[PrivateNamespace(null,"30"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"196"),PackageNamespace("cb.media"),PackageInternalNs("cb.media"),ProtectedNamespace("cb.media:SoundLoader"),StaticProtectedNs("cb.media:SoundLoader")]), 2
+                                    getlocal1
+                                    getproperty QName(PackageNamespace(""),"currentTarget")
+                                    getlex QName(PackageNamespace("flash.events"),"Event")
+                                    getproperty QName(PackageNamespace(""),"COMPLETE")
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"30"),"completeHandler")
+                                    callpropvoid Multiname("removeEventListener",[PrivateNamespace(null,"30"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"196"),PackageNamespace("cb.media"),PackageInternalNs("cb.media"),ProtectedNamespace("cb.media:SoundLoader"),StaticProtectedNs("cb.media:SoundLoader")]), 2
+                                    getlocal0
+                                    dup
+                                    setlocal2
+                                    getproperty QName(PrivateNamespace(null,"30"),"bulk")
+                                    increment_i
+                                    setlocal3
+                                    getlocal2
+                                    getlocal3
+                                    setproperty QName(PrivateNamespace(null,"30"),"bulk")
+                                    kill 3
+                                    kill 2
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"30"),"bulk")
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"30"),"total")
+                                    ifne ofs004a
+                                    getlocal0
+                                    getproperty QName(PackageNamespace(""),"loaded")
+                                    getlocal0
+                                    callpropvoid QName(PackageNamespace(""),"emit"), 1
+                           ofs004a:
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        public function loadOne(param1:String, param2:Number, param3:Number, param4:Number) : void
+                        {
+                           trait method QName(PackageNamespace(""),"loadOne")
+                              dispid 0
+                              method
+                                 name null
+                                 param QName(PackageNamespace(""),"String")
+                                 param QName(PackageNamespace(""),"Number")
+                                 param QName(PackageNamespace(""),"Number")
+                                 param QName(PackageNamespace(""),"Number")
+                                 returns QName(PackageNamespace(""),"void")
+                                 
+                                 body
+                                    maxstack 6
+                                    localcount 5
+                                    initscopedepth 4
+                                    maxscopedepth 5
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       getlocal0
+                                       getlocal1
+                                       pushbyte 0
+                                       getlocal2
+                                       getlocal3
+                                       getlocal 4
+                                       newarray 4
+                                       callpropvoid QName(PrivateNamespace(null,"30"),"loadSound"), 2
+                                       returnvoid
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                        }
+                     }
+                     
+                     method
+                        name null
+                        returns null
+                        
+                        body
+                           maxstack 2
+                           localcount 1
+                           initscopedepth 1
+                           maxscopedepth 3
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              findpropstrict Multiname("SoundLoader",[PackageNamespace("cb.media")])
+                              getlex QName(PackageNamespace(""),"Object")
+                              pushscope
+                              getlex QName(PackageNamespace(""),"Object")
+                              newclass 38
+                              popscope
+                              initproperty QName(PackageNamespace("cb.media"),"SoundLoader")
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                     

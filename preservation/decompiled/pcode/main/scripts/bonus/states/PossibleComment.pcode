@@ -1,0 +1,131 @@
+package bonus.states
+{
+   import bonus.errors.CommentError;
+   
+   public class PossibleComment extends BaseState
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 5
+            maxscopedepth 6
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function PossibleComment(param1:BaseState)
+      {
+         method
+            name null
+            param QName(PackageNamespace("bonus.states"),"BaseState")
+            returns null
+            
+            body
+               maxstack 4
+               localcount 2
+               initscopedepth 6
+               maxscopedepth 7
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  pushnull
+                  pushnull
+                  getlocal1
+                  constructsuper 3
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      override protected function onMisc(param1:String) : BaseState
+      {
+         trait method QName(ProtectedNamespace("bonus.states:PossibleComment"),"onMisc")
+            flag OVERRIDE
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace(""),"String")
+               returns QName(PackageNamespace("bonus.states"),"BaseState")
+               
+               body
+                  maxstack 3
+                  localcount 2
+                  initscopedepth 6
+                  maxscopedepth 7
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal1
+                     pushstring "*"
+                     ifne ofs0015
+                     findpropstrict QName(PackageNamespace("bonus.states"),"MultipleLineComment")
+                     getlex QName(ProtectedNamespace("bonus.states:BaseState"),"parent")
+                     constructprop QName(PackageNamespace("bonus.states"),"MultipleLineComment"), 1
+                     returnvalue
+            ofs0015:
+                     getlocal1
+                     pushstring "/"
+                     ifne ofs0028
+                     findpropstrict QName(PackageNamespace("bonus.states"),"OneLineComment")
+                     getlex QName(ProtectedNamespace("bonus.states:BaseState"),"parent")
+                     constructprop QName(PackageNamespace("bonus.states"),"OneLineComment"), 1
+                     returnvalue
+            ofs0028:
+                     findpropstrict QName(PackageNamespace("bonus.errors"),"CommentError")
+                     getlocal1
+                     getlex QName(ProtectedNamespace("bonus.states:BaseState"),"stream")
+                     callproperty QName(PackageNamespace(""),"getLineNumber"), 0
+                     constructprop QName(PackageNamespace("bonus.errors"),"CommentError"), 2
+                     throw
+                  end ; code
+               end ; body
+            end ; method
+         }
+      }
+   }
+   
+   method
+      name null
+      returns null
+      
+      body
+         maxstack 2
+         localcount 1
+         initscopedepth 1
+         maxscopedepth 5
+         
+         code
+            getlocal0
+            pushscope
+            findpropstrict Multiname("PossibleComment",[PackageNamespace("bonus.states")])
+            getlex QName(PackageNamespace(""),"Object")
+            pushscope
+            getlex QName(PackageNamespace("flash.events"),"EventDispatcher")
+            pushscope
+            getlex QName(PackageNamespace("bonus.states"),"BaseState")
+            pushscope
+            getlex QName(PackageNamespace("bonus.states"),"BaseState")
+            newclass 275
+            popscope
+            popscope
+            popscope
+            initproperty QName(PackageNamespace("bonus.states"),"PossibleComment")
+            returnvoid
+         end ; code
+      end ; body
+   end ; method
+   

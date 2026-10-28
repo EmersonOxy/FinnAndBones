@@ -1,0 +1,489 @@
+package view.screens.main_game.dungeon.fight
+{
+   import main_game.character.CharacterFactory;
+   import main_game.dungeon.Dungeon;
+   import main_game.dungeon.IFight;
+   import view.figthers.FighterView;
+   import view.figthers.FinnView;
+   import view.figthers.animations.IFighterAnimation;
+   import view.figthers.animations.IdleAnimation;
+   import view.figthers.animations.RunAnimation;
+   import view.screens.main_game.dungeon.BackgroundView;
+   
+   public class FightView extends BasicFightView
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 4
+            maxscopedepth 5
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function FightView(param1:IFight, param2:FighterView, param3:BackgroundView)
+      {
+         method
+            name null
+            param QName(PackageNamespace("main_game.dungeon"),"IFight")
+            param QName(PackageNamespace("view.figthers"),"FighterView")
+            param QName(PackageNamespace("view.screens.main_game.dungeon"),"BackgroundView")
+            returns null
+            
+            body
+               maxstack 4
+               localcount 4
+               initscopedepth 5
+               maxscopedepth 6
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  getlocal1
+                  getlocal3
+                  getlocal2
+                  constructsuper 3
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      override protected function initializeViews(param1:Array) : void
+      {
+         trait method QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:FightView"),"initializeViews")
+            flag OVERRIDE
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace(""),"Array")
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 4
+                  localcount 3
+                  initscopedepth 5
+                  maxscopedepth 6
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal1
+                     pushbyte 0
+                     getproperty MultinameL([PrivateNamespace(null,"114"),PrivateNamespace(null,"285"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon.fight"),PackageInternalNs("view.screens.main_game.dungeon.fight"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon.fight:FightView"),StaticProtectedNs("view.screens.main_game.dungeon.fight:FightView"),StaticProtectedNs("view.screens.main_game.dungeon.fight:BasicFightView")])
+                     coerce QName(PackageNamespace("view.figthers"),"FinnView")
+                     setlocal2
+                     getlex QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"views")
+                     getlex QName(PackageNamespace(""),"main")
+                     getproperty QName(PackageNamespace(""),"game")
+                     callproperty QName(PackageNamespace(""),"getFinn"), 0
+                     getlocal2
+                     setproperty MultinameL([PrivateNamespace(null,"114"),PrivateNamespace(null,"285"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon.fight"),PackageInternalNs("view.screens.main_game.dungeon.fight"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon.fight:FightView"),StaticProtectedNs("view.screens.main_game.dungeon.fight:FightView"),StaticProtectedNs("view.screens.main_game.dungeon.fight:BasicFightView")])
+                     getlex QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"views")
+                     getlex QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"fight")
+                     callproperty QName(Namespace("main_game.dungeon:IFight"),"getEnemy"), 0
+                     getlex QName(PackageNamespace("main_game.character"),"CharacterFactory")
+                     callproperty QName(PackageNamespace(""),"getInstance"), 0
+                     getlex QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"fight")
+                     callproperty QName(Namespace("main_game.dungeon:IFight"),"getEnemy"), 0
+                     callproperty QName(PackageNamespace(""),"getEnemyView"), 1
+                     setproperty MultinameL([PrivateNamespace(null,"114"),PrivateNamespace(null,"285"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon.fight"),PackageInternalNs("view.screens.main_game.dungeon.fight"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon.fight:FightView"),StaticProtectedNs("view.screens.main_game.dungeon.fight:FightView"),StaticProtectedNs("view.screens.main_game.dungeon.fight:BasicFightView")])
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         private function get finnView() : FinnView
+         {
+            trait getter QName(PrivateNamespace(null,"114"),"finnView")
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace("view.figthers"),"FinnView")
+                  
+                  body
+                     maxstack 2
+                     localcount 1
+                     initscopedepth 5
+                     maxscopedepth 6
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlex QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"views")
+                        getlex QName(PackageNamespace(""),"main")
+                        getproperty QName(PackageNamespace(""),"game")
+                        callproperty QName(PackageNamespace(""),"getFinn"), 0
+                        getproperty MultinameL([PrivateNamespace(null,"114"),PrivateNamespace(null,"285"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon.fight"),PackageInternalNs("view.screens.main_game.dungeon.fight"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon.fight:FightView"),StaticProtectedNs("view.screens.main_game.dungeon.fight:FightView"),StaticProtectedNs("view.screens.main_game.dungeon.fight:BasicFightView")])
+                        getlex QName(PackageNamespace("view.figthers"),"FinnView")
+                        astypelate
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            override protected function initialize() : void
+            {
+               trait method QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:FightView"),"initialize")
+                  flag OVERRIDE
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 5
+                        localcount 2
+                        initscopedepth 5
+                        maxscopedepth 6
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           findproperty QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"enemy")
+                           getlex QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"fight")
+                           callproperty QName(Namespace("main_game.dungeon:IFight"),"getEnemy"), 0
+                           initproperty QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"enemy")
+                           getlex QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"views")
+                           getlex QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"enemy")
+                           getproperty MultinameL([PrivateNamespace(null,"114"),PrivateNamespace(null,"285"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon.fight"),PackageInternalNs("view.screens.main_game.dungeon.fight"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon.fight:FightView"),StaticProtectedNs("view.screens.main_game.dungeon.fight:FightView"),StaticProtectedNs("view.screens.main_game.dungeon.fight:BasicFightView")])
+                           coerce QName(PackageNamespace("view.figthers"),"FighterView")
+                           setlocal1
+                           getlocal1
+                           getlex QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"bg")
+                           getproperty QName(PackageNamespace(""),"arena")
+                           callpropvoid QName(PackageNamespace(""),"putIn"), 1
+                           getlocal1
+                           getlex QName(PackageNamespace("main_game.dungeon"),"Dungeon")
+                           getproperty QName(PackageNamespace(""),"DungeonConfig")
+                           pushstring "height_fighters"
+                           getproperty MultinameL([PrivateNamespace(null,"114"),PrivateNamespace(null,"285"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon.fight"),PackageInternalNs("view.screens.main_game.dungeon.fight"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon.fight:FightView"),StaticProtectedNs("view.screens.main_game.dungeon.fight:FightView"),StaticProtectedNs("view.screens.main_game.dungeon.fight:BasicFightView")])
+                           setproperty QName(PackageNamespace(""),"y")
+                           getlocal1
+                           getlex QName(PackageNamespace("main_game.dungeon"),"Dungeon")
+                           getproperty QName(PackageNamespace(""),"DungeonConfig")
+                           pushstring "position_enemy"
+                           getproperty MultinameL([PrivateNamespace(null,"114"),PrivateNamespace(null,"285"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon.fight"),PackageInternalNs("view.screens.main_game.dungeon.fight"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon.fight:FightView"),StaticProtectedNs("view.screens.main_game.dungeon.fight:FightView"),StaticProtectedNs("view.screens.main_game.dungeon.fight:BasicFightView")])
+                           getlex QName(PackageNamespace("main_game.dungeon"),"Dungeon")
+                           getproperty QName(PackageNamespace(""),"DungeonConfig")
+                           pushstring "lenght_step"
+                           getproperty MultinameL([PrivateNamespace(null,"114"),PrivateNamespace(null,"285"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon.fight"),PackageInternalNs("view.screens.main_game.dungeon.fight"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon.fight:FightView"),StaticProtectedNs("view.screens.main_game.dungeon.fight:FightView"),StaticProtectedNs("view.screens.main_game.dungeon.fight:BasicFightView")])
+                           getlex QName(PackageNamespace("main_game.dungeon"),"Dungeon")
+                           getproperty QName(PackageNamespace(""),"DungeonConfig")
+                           pushstring "steps_to_find_enemy"
+                           getproperty MultinameL([PrivateNamespace(null,"114"),PrivateNamespace(null,"285"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon.fight"),PackageInternalNs("view.screens.main_game.dungeon.fight"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon.fight:FightView"),StaticProtectedNs("view.screens.main_game.dungeon.fight:FightView"),StaticProtectedNs("view.screens.main_game.dungeon.fight:BasicFightView")])
+                           multiply
+                           add
+                           setproperty QName(PackageNamespace(""),"x")
+                           getlocal1
+                           getlocal1
+                           getproperty QName(PackageNamespace(""),"x")
+                           getlex QName(PackageNamespace("main_game.dungeon"),"Dungeon")
+                           getproperty QName(PackageNamespace(""),"DungeonConfig")
+                           pushstring "end_lenght_step"
+                           getproperty MultinameL([PrivateNamespace(null,"114"),PrivateNamespace(null,"285"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon.fight"),PackageInternalNs("view.screens.main_game.dungeon.fight"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon.fight:FightView"),StaticProtectedNs("view.screens.main_game.dungeon.fight:FightView"),StaticProtectedNs("view.screens.main_game.dungeon.fight:BasicFightView")])
+                           add
+                           setproperty QName(PackageNamespace(""),"x")
+                           getlex QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"fight")
+                           callproperty QName(Namespace("main_game.dungeon:IFight"),"isFirst"), 0
+                           iftrue ofs008f
+                           getlocal1
+                           getlocal1
+                           getproperty QName(PackageNamespace(""),"x")
+                           getlex QName(PackageNamespace("main_game.dungeon"),"Dungeon")
+                           getproperty QName(PackageNamespace(""),"DungeonConfig")
+                           pushstring "start_lenght_step"
+                           getproperty MultinameL([PrivateNamespace(null,"114"),PrivateNamespace(null,"285"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon.fight"),PackageInternalNs("view.screens.main_game.dungeon.fight"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon.fight:FightView"),StaticProtectedNs("view.screens.main_game.dungeon.fight:FightView"),StaticProtectedNs("view.screens.main_game.dungeon.fight:BasicFightView")])
+                           add
+                           setproperty QName(PackageNamespace(""),"x")
+                  ofs008f:
+                           getlocal1
+                           findpropstrict QName(PackageNamespace("view.figthers.animations"),"IdleAnimation")
+                           constructprop QName(PackageNamespace("view.figthers.animations"),"IdleAnimation"), 0
+                           callpropvoid QName(PackageNamespace(""),"animate"), 1
+                           getlocal0
+                           callsupervoid QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"initialize"), 0
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               override protected function won() : void
+               {
+                  trait method QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:FightView"),"won")
+                     flag OVERRIDE
+                     dispid 0
+                     method
+                        name null
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 1
+                           localcount 1
+                           initscopedepth 5
+                           maxscopedepth 6
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlex QName(PackageNamespace(""),"main")
+                              getproperty QName(PackageNamespace(""),"game")
+                              callproperty QName(PackageNamespace(""),"getDungeon"), 0
+                              callpropvoid QName(PackageNamespace(""),"wonFight"), 0
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  override protected function lose() : void
+                  {
+                     trait method QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:FightView"),"lose")
+                        flag OVERRIDE
+                        dispid 0
+                        method
+                           name null
+                           returns QName(PackageNamespace(""),"void")
+                           
+                           body
+                              maxstack 1
+                              localcount 1
+                              initscopedepth 5
+                              maxscopedepth 6
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlex QName(PackageNamespace(""),"main")
+                                 getproperty QName(PackageNamespace(""),"game")
+                                 callproperty QName(PackageNamespace(""),"getDungeon"), 0
+                                 callpropvoid QName(PackageNamespace(""),"lostFight"), 0
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     private function moveEnemy(param1:Number) : void
+                     {
+                        trait method QName(PrivateNamespace(null,"114"),"moveEnemy")
+                           dispid 0
+                           method
+                              name null
+                              param QName(PackageNamespace(""),"Number")
+                              returns QName(PackageNamespace(""),"void")
+                              
+                              body
+                                 maxstack 3
+                                 localcount 2
+                                 initscopedepth 5
+                                 maxscopedepth 6
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    getlex QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"views")
+                                    getlex QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"enemy")
+                                    getproperty MultinameL([PrivateNamespace(null,"114"),PrivateNamespace(null,"285"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon.fight"),PackageInternalNs("view.screens.main_game.dungeon.fight"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon.fight:FightView"),StaticProtectedNs("view.screens.main_game.dungeon.fight:FightView"),StaticProtectedNs("view.screens.main_game.dungeon.fight:BasicFightView")])
+                                    getlex QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"views")
+                                    getlex QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"enemy")
+                                    getproperty MultinameL([PrivateNamespace(null,"114"),PrivateNamespace(null,"285"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon.fight"),PackageInternalNs("view.screens.main_game.dungeon.fight"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon.fight:FightView"),StaticProtectedNs("view.screens.main_game.dungeon.fight:FightView"),StaticProtectedNs("view.screens.main_game.dungeon.fight:BasicFightView")])
+                                    getproperty Multiname("x",[PrivateNamespace(null,"114"),PrivateNamespace(null,"285"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon.fight"),PackageInternalNs("view.screens.main_game.dungeon.fight"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon.fight:FightView"),StaticProtectedNs("view.screens.main_game.dungeon.fight:FightView"),StaticProtectedNs("view.screens.main_game.dungeon.fight:BasicFightView")])
+                                    getlocal1
+                                    subtract
+                                    setproperty Multiname("x",[PrivateNamespace(null,"114"),PrivateNamespace(null,"285"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon.fight"),PackageInternalNs("view.screens.main_game.dungeon.fight"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon.fight:FightView"),StaticProtectedNs("view.screens.main_game.dungeon.fight:FightView"),StaticProtectedNs("view.screens.main_game.dungeon.fight:BasicFightView")])
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        override protected function enter(param1:Function) : void
+                        {
+                           trait method QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:FightView"),"enter")
+                              flag OVERRIDE
+                              dispid 0
+                              method
+                                 name null
+                                 flag NEED_ACTIVATION
+                                 param QName(PackageNamespace(""),"Function")
+                                 returns QName(PackageNamespace(""),"void")
+                                 
+                                 body
+                                    maxstack 4
+                                    localcount 3
+                                    initscopedepth 6
+                                    maxscopedepth 8
+                                    trait slot QName(PackageInternalNs("view.screens.main_game.dungeon.fight"),"callback")
+                                       slotid 1
+                                       type QName(PackageNamespace(""),"Function")
+                                    end ; trait
+                                    trait slot QName(PackageInternalNs("view.screens.main_game.dungeon.fight"),"steps")
+                                       slotid 2
+                                       type QName(PackageNamespace(""),"Number")
+                                    end ; trait
+                                    trait slot QName(PackageInternalNs("view.screens.main_game.dungeon.fight"),"walk")
+                                       slotid 3
+                                       type QName(PackageNamespace("view.figthers.animations"),"RunAnimation")
+                                    end ; trait
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       newactivation
+                                       dup
+                                       setlocal2
+                                       pushscope
+                                       getscopeobject 1
+                                       getlocal1
+                                       setslot 1
+                                       getscopeobject 1
+                                       getlex QName(PackageNamespace("main_game.dungeon"),"Dungeon")
+                                       getproperty QName(PackageNamespace(""),"DungeonConfig")
+                                       pushstring "steps_to_find_enemy"
+                                       getproperty MultinameL([PrivateNamespace(null,"114"),PrivateNamespace(null,"285"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon.fight"),PackageInternalNs("view.screens.main_game.dungeon.fight"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon.fight:FightView"),StaticProtectedNs("view.screens.main_game.dungeon.fight:FightView"),StaticProtectedNs("view.screens.main_game.dungeon.fight:BasicFightView")])
+                                       convert_d
+                                       setslot 2
+                                       getscopeobject 1
+                                       findpropstrict QName(PackageNamespace("view.figthers.animations"),"RunAnimation")
+                                       getscopeobject 1
+                                       getslot 2
+                                       getlex QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"fight")
+                                       callproperty QName(Namespace("main_game.dungeon:IFight"),"isFirst"), 0
+                                       not
+                                       constructprop QName(PackageNamespace("view.figthers.animations"),"RunAnimation"), 2
+                                       coerce QName(PackageNamespace("view.figthers.animations"),"RunAnimation")
+                                       setslot 3
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"114"),"finnView")
+                                       getscopeobject 1
+                                       getslot 3
+                                       callpropvoid QName(PackageNamespace(""),"animate"), 1
+                                       getscopeobject 1
+                                       getslot 3
+                                       callproperty QName(PackageNamespace(""),"getAtFinish"), 0
+                                       newfunction 1930
+                                       callpropvoid QName(PackageNamespace(""),"add"), 1
+                                       getlex QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"bg")
+                                       getproperty QName(PackageNamespace(""),"onMove")
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"114"),"moveEnemy")
+                                       callpropvoid QName(PackageNamespace(""),"add"), 1
+                                       getlex QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"bg")
+                                       callpropvoid QName(PackageNamespace(""),"beginScroll"), 0
+                                       returnvoid
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           private function atEndEnter(param1:Function) : void
+                           {
+                              trait method QName(PrivateNamespace(null,"114"),"atEndEnter")
+                                 dispid 0
+                                 method
+                                    name null
+                                    param QName(PackageNamespace(""),"Function")
+                                    returns QName(PackageNamespace(""),"void")
+                                    
+                                    body
+                                       maxstack 2
+                                       localcount 2
+                                       initscopedepth 5
+                                       maxscopedepth 6
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          getlex QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"bg")
+                                          callpropvoid QName(PackageNamespace(""),"endScroll"), 0
+                                          getlex QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"bg")
+                                          getproperty QName(PackageNamespace(""),"onMove")
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"114"),"moveEnemy")
+                                          callpropvoid QName(PackageNamespace(""),"remove"), 1
+                                          getlocal0
+                                          getlocal1
+                                          callsupervoid QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"enter"), 1
+                                          returnvoid
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                              
+                              override public function clear() : void
+                              {
+                                 trait method QName(PackageNamespace(""),"clear")
+                                    flag OVERRIDE
+                                    dispid 0
+                                    method
+                                       name null
+                                       returns QName(PackageNamespace(""),"void")
+                                       
+                                       body
+                                          maxstack 2
+                                          localcount 1
+                                          initscopedepth 5
+                                          maxscopedepth 6
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             getlex QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"views")
+                                             getlex QName(ProtectedNamespace("view.screens.main_game.dungeon.fight:BasicFightView"),"enemy")
+                                             getproperty MultinameL([PrivateNamespace(null,"114"),PrivateNamespace(null,"285"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon.fight"),PackageInternalNs("view.screens.main_game.dungeon.fight"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon.fight:FightView"),StaticProtectedNs("view.screens.main_game.dungeon.fight:FightView"),StaticProtectedNs("view.screens.main_game.dungeon.fight:BasicFightView")])
+                                             getlex QName(PackageNamespace("view.figthers"),"FighterView")
+                                             astypelate
+                                             callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                             getlocal0
+                                             callsupervoid QName(PackageNamespace(""),"clear"), 0
+                                             returnvoid
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                 }
+                              }
+                           }
+                           
+                           method
+                              name null
+                              returns null
+                              
+                              body
+                                 maxstack 2
+                                 localcount 1
+                                 initscopedepth 1
+                                 maxscopedepth 4
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    findpropstrict Multiname("FightView",[PackageNamespace("view.screens.main_game.dungeon.fight")])
+                                    getlex QName(PackageNamespace(""),"Object")
+                                    pushscope
+                                    getlex QName(PackageNamespace("view.screens.main_game.dungeon.fight"),"BasicFightView")
+                                    pushscope
+                                    getlex QName(PackageNamespace("view.screens.main_game.dungeon.fight"),"BasicFightView")
+                                    newclass 195
+                                    popscope
+                                    popscope
+                                    initproperty QName(PackageNamespace("view.screens.main_game.dungeon.fight"),"FightView")
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                           

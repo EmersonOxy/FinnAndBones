@@ -1,0 +1,641 @@
+package cb.utils
+{
+   public dynamic class cbArray extends Array
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 4
+            maxscopedepth 5
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function cbArray(... rest)
+      {
+         method
+            name null
+            flag NEED_REST
+            returns QName(PackageNamespace(""),"void")
+            
+            body
+               maxstack 4
+               localcount 6
+               initscopedepth 5
+               maxscopedepth 6
+               
+               code
+                  getlocal0
+                  pushscope
+                  pushnan
+                  setlocal3
+                  pushbyte 0
+                  convert_u
+                  setlocal 4
+                  pushbyte 0
+                  setlocal 5
+                  getlocal0
+                  constructsuper 0
+                  getlocal1
+                  getproperty QName(PackageNamespace(""),"length")
+                  convert_u
+                  setlocal2
+                  getlocal2
+                  pushbyte 1
+                  equals
+                  dup
+                  iffalse ofs0029
+                  pop
+                  getlocal1
+                  pushbyte 0
+                  getproperty MultinameL([PrivateNamespace(null,"239"),PackageNamespace("cb.utils"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace(""),PrivateNamespace(null,"240"),PackageInternalNs("cb.utils"),ProtectedNamespace("cb.utils:cbArray"),StaticProtectedNs("cb.utils:cbArray")])
+                  getlex QName(PackageNamespace(""),"Number")
+                  istypelate
+         ofs0029:
+                  iffalse ofs005c
+                  getlocal1
+                  pushbyte 0
+                  getproperty MultinameL([PrivateNamespace(null,"239"),PackageNamespace("cb.utils"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace(""),PrivateNamespace(null,"240"),PackageInternalNs("cb.utils"),ProtectedNamespace("cb.utils:cbArray"),StaticProtectedNs("cb.utils:cbArray")])
+                  convert_d
+                  setlocal3
+                  getlocal3
+                  convert_u
+                  dup
+                  setlocal 4
+                  getlocal3
+                  ifeq ofs0050
+                  findpropstrict QName(PackageNamespace(""),"RangeError")
+                  pushstring "Array index is not a 32-bit unsigned integer ("
+                  getlocal3
+                  add
+                  pushstring ")"
+                  add
+                  constructprop QName(PackageNamespace(""),"RangeError"), 1
+                  throw
+         ofs0050:
+                  findproperty QName(PackageNamespace(""),"length")
+                  getlocal 4
+                  initproperty QName(PackageNamespace(""),"length")
+                  jump ofs0081
+         ofs005c:
+                  findproperty QName(PackageNamespace(""),"length")
+                  getlocal2
+                  initproperty QName(PackageNamespace(""),"length")
+                  pushbyte 0
+                  setlocal 5
+                  jump ofs007a
+         ofs006b:
+                  label
+                  getlocal0
+                  getlocal 5
+                  getlocal1
+                  getlocal 5
+                  getproperty MultinameL([PrivateNamespace(null,"239"),PackageNamespace("cb.utils"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace(""),PrivateNamespace(null,"240"),PackageInternalNs("cb.utils"),ProtectedNamespace("cb.utils:cbArray"),StaticProtectedNs("cb.utils:cbArray")])
+                  initproperty MultinameL([PrivateNamespace(null,"239"),PackageNamespace("cb.utils"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace(""),PrivateNamespace(null,"240"),PackageInternalNs("cb.utils"),ProtectedNamespace("cb.utils:cbArray"),StaticProtectedNs("cb.utils:cbArray")])
+                  inclocal_i 5
+         ofs007a:
+                  getlocal 5
+                  getlocal2
+                  iflt ofs006b
+         ofs0081:
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public static function createFromArray(param1:Array) : cbArray
+      {
+         trait method QName(PackageNamespace(""),"createFromArray")
+            flag FINAL
+            dispid 3
+            method
+               name null
+               param QName(PackageNamespace(""),"Array")
+               returns QName(PackageNamespace("cb.utils"),"cbArray")
+               
+               body
+                  maxstack 2
+                  localcount 6
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     pushundefined
+                     coerce_a
+                     setlocal3
+                     getlocal0
+                     construct 0
+                     coerce QName(PackageNamespace("cb.utils"),"cbArray")
+                     setlocal2
+                     pushbyte 0
+                     setlocal 4
+                     getlocal1
+                     coerce_a
+                     setlocal 5
+                     jump ofs0025
+            ofs0017:
+                     label
+                     getlocal 5
+                     getlocal 4
+                     nextvalue
+                     coerce_a
+                     setlocal3
+                     getlocal2
+                     getlocal3
+                     callpropvoid QName(Namespace("http://adobe.com/AS3/2006/builtin"),"push"), 1
+            ofs0025:
+                     hasnext2 5, 4
+                     iftrue ofs0017
+                     kill 5
+                     kill 4
+                     getlocal2
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function shuffle() : cbArray
+         {
+            trait method QName(PackageNamespace(""),"shuffle")
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace("cb.utils"),"cbArray")
+                  
+                  body
+                     maxstack 6
+                     localcount 3
+                     initscopedepth 5
+                     maxscopedepth 6
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        callproperty QName(PackageNamespace(""),"clone"), 0
+                        coerce QName(PackageNamespace("cb.utils"),"cbArray")
+                        setlocal1
+                        findpropstrict QName(PackageNamespace("cb.utils"),"cbArray")
+                        constructprop QName(PackageNamespace("cb.utils"),"cbArray"), 0
+                        coerce QName(PackageNamespace("cb.utils"),"cbArray")
+                        setlocal2
+                        jump ofs003c
+               ofs0016:
+                        label
+                        getlocal2
+                        getlocal1
+                        getlex QName(PackageNamespace(""),"Math")
+                        getlex QName(PackageNamespace(""),"Math")
+                        callproperty QName(PackageNamespace(""),"random"), 0
+                        getlocal1
+                        getproperty QName(PackageNamespace(""),"length")
+                        decrement
+                        multiply
+                        callproperty QName(PackageNamespace(""),"round"), 1
+                        pushbyte 1
+                        callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"splice"), 2
+                        pushbyte 0
+                        getproperty MultinameL([PrivateNamespace(null,"239"),PackageNamespace("cb.utils"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace(""),PrivateNamespace(null,"240"),PackageInternalNs("cb.utils"),ProtectedNamespace("cb.utils:cbArray"),StaticProtectedNs("cb.utils:cbArray")])
+                        callpropvoid QName(Namespace("http://adobe.com/AS3/2006/builtin"),"push"), 1
+               ofs003c:
+                        getlocal1
+                        getproperty QName(PackageNamespace(""),"length")
+                        pushbyte 0
+                        ifgt ofs0016
+                        getlocal2
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function pushIfNotPresent(param1:*) : void
+            {
+               trait method QName(PackageNamespace(""),"pushIfNotPresent")
+                  dispid 0
+                  method
+                     name null
+                     param null
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 2
+                        localcount 2
+                        initscopedepth 5
+                        maxscopedepth 6
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           findpropstrict QName(Namespace("http://adobe.com/AS3/2006/builtin"),"indexOf")
+                           getlocal1
+                           callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"indexOf"), 1
+                           pushbyte 0
+                           ifnlt ofs0018
+                           findpropstrict QName(Namespace("http://adobe.com/AS3/2006/builtin"),"push")
+                           getlocal1
+                           callpropvoid QName(Namespace("http://adobe.com/AS3/2006/builtin"),"push"), 1
+                  ofs0018:
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function remove(param1:*, param2:* = null) : void
+               {
+                  trait method QName(PackageNamespace(""),"remove")
+                     dispid 0
+                     method
+                        name null
+                        flag HAS_OPTIONAL
+                        param null
+                        param null
+                        optional Null()
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 3
+                           localcount 4
+                           initscopedepth 5
+                           maxscopedepth 6
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              pushbyte 0
+                              setlocal3
+                              getlocal2
+                              pushnull
+                              ifne ofs0019
+                              findpropstrict QName(Namespace("http://adobe.com/AS3/2006/builtin"),"indexOf")
+                              getlocal1
+                              callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"indexOf"), 1
+                              convert_i
+                              setlocal3
+                              jump ofs0022
+                     ofs0019:
+                              getlocal0
+                              getlocal1
+                              getlocal2
+                              callproperty QName(PackageNamespace(""),"indexOfField"), 2
+                              convert_i
+                              setlocal3
+                     ofs0022:
+                              getlocal3
+                              pushbyte 0
+                              ifnlt ofs002a
+                              returnvoid
+                     ofs002a:
+                              findpropstrict QName(Namespace("http://adobe.com/AS3/2006/builtin"),"splice")
+                              getlocal3
+                              pushbyte 1
+                              callpropvoid QName(Namespace("http://adobe.com/AS3/2006/builtin"),"splice"), 2
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function indexOfField(param1:*, param2:*) : int
+                  {
+                     trait method QName(PackageNamespace(""),"indexOfField")
+                        dispid 0
+                        method
+                           name null
+                           param null
+                           param null
+                           returns QName(PackageNamespace(""),"int")
+                           
+                           body
+                              maxstack 3
+                              localcount 4
+                              initscopedepth 5
+                              maxscopedepth 6
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 pushbyte 0
+                                 setlocal3
+                                 jump ofs001c
+                        ofs0009:
+                                 label
+                                 getlocal1
+                                 getlocal0
+                                 getlocal3
+                                 getproperty MultinameL([PrivateNamespace(null,"239"),PackageNamespace("cb.utils"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace(""),PrivateNamespace(null,"240"),PackageInternalNs("cb.utils"),ProtectedNamespace("cb.utils:cbArray"),StaticProtectedNs("cb.utils:cbArray")])
+                                 getlocal2
+                                 getproperty MultinameL([PrivateNamespace(null,"239"),PackageNamespace("cb.utils"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace(""),PrivateNamespace(null,"240"),PackageInternalNs("cb.utils"),ProtectedNamespace("cb.utils:cbArray"),StaticProtectedNs("cb.utils:cbArray")])
+                                 ifstrictne ofs001a
+                                 getlocal3
+                                 returnvalue
+                        ofs001a:
+                                 inclocal_i 3
+                        ofs001c:
+                                 getlocal3
+                                 getlex QName(PackageNamespace(""),"length")
+                                 iflt ofs0009
+                                 pushbyte -1
+                                 returnvalue
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     public function indexOfMethodValue(param1:*, param2:String) : int
+                     {
+                        trait method QName(PackageNamespace(""),"indexOfMethodValue")
+                           dispid 0
+                           method
+                              name null
+                              param null
+                              param QName(PackageNamespace(""),"String")
+                              returns QName(PackageNamespace(""),"int")
+                              
+                              body
+                                 maxstack 3
+                                 localcount 5
+                                 initscopedepth 5
+                                 maxscopedepth 6
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    pushbyte 0
+                                    setlocal3
+                                    jump ofs0025
+                           ofs0009:
+                                    label
+                                    getlocal1
+                                    getlocal0
+                                    getlocal3
+                                    getproperty MultinameL([PrivateNamespace(null,"239"),PackageNamespace("cb.utils"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace(""),PrivateNamespace(null,"240"),PackageInternalNs("cb.utils"),ProtectedNamespace("cb.utils:cbArray"),StaticProtectedNs("cb.utils:cbArray")])
+                                    dup
+                                    setlocal 4
+                                    getlocal2
+                                    getproperty MultinameL([PrivateNamespace(null,"239"),PackageNamespace("cb.utils"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace(""),PrivateNamespace(null,"240"),PackageInternalNs("cb.utils"),ProtectedNamespace("cb.utils:cbArray"),StaticProtectedNs("cb.utils:cbArray")])
+                                    getlocal 4
+                                    call 0
+                                    kill 4
+                                    ifstrictne ofs0023
+                                    getlocal3
+                                    returnvalue
+                           ofs0023:
+                                    inclocal_i 3
+                           ofs0025:
+                                    getlocal3
+                                    getlex QName(PackageNamespace(""),"length")
+                                    iflt ofs0009
+                                    pushbyte -1
+                                    returnvalue
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        public function findFirstOfField(param1:*, param2:*) : *
+                        {
+                           trait method QName(PackageNamespace(""),"findFirstOfField")
+                              dispid 0
+                              method
+                                 name null
+                                 param null
+                                 param null
+                                 returns null
+                                 
+                                 body
+                                    maxstack 3
+                                    localcount 4
+                                    initscopedepth 5
+                                    maxscopedepth 6
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       pushbyte 0
+                                       setlocal3
+                                       jump ofs0020
+                              ofs0009:
+                                       label
+                                       getlocal1
+                                       getlocal0
+                                       getlocal3
+                                       getproperty MultinameL([PrivateNamespace(null,"239"),PackageNamespace("cb.utils"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace(""),PrivateNamespace(null,"240"),PackageInternalNs("cb.utils"),ProtectedNamespace("cb.utils:cbArray"),StaticProtectedNs("cb.utils:cbArray")])
+                                       getlocal2
+                                       getproperty MultinameL([PrivateNamespace(null,"239"),PackageNamespace("cb.utils"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace(""),PrivateNamespace(null,"240"),PackageInternalNs("cb.utils"),ProtectedNamespace("cb.utils:cbArray"),StaticProtectedNs("cb.utils:cbArray")])
+                                       ifstrictne ofs001e
+                                       getlocal0
+                                       getlocal3
+                                       getproperty MultinameL([PrivateNamespace(null,"239"),PackageNamespace("cb.utils"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace(""),PrivateNamespace(null,"240"),PackageInternalNs("cb.utils"),ProtectedNamespace("cb.utils:cbArray"),StaticProtectedNs("cb.utils:cbArray")])
+                                       returnvalue
+                              ofs001e:
+                                       inclocal_i 3
+                              ofs0020:
+                                       getlocal3
+                                       getlex QName(PackageNamespace(""),"length")
+                                       iflt ofs0009
+                                       pushnull
+                                       returnvalue
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           public function findFirstFromMethodValue(param1:*, param2:String) : *
+                           {
+                              trait method QName(PackageNamespace(""),"findFirstFromMethodValue")
+                                 dispid 0
+                                 method
+                                    name null
+                                    param null
+                                    param QName(PackageNamespace(""),"String")
+                                    returns null
+                                    
+                                    body
+                                       maxstack 3
+                                       localcount 5
+                                       initscopedepth 5
+                                       maxscopedepth 6
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          pushbyte 0
+                                          setlocal3
+                                          jump ofs0029
+                                 ofs0009:
+                                          label
+                                          getlocal1
+                                          getlocal0
+                                          getlocal3
+                                          getproperty MultinameL([PrivateNamespace(null,"239"),PackageNamespace("cb.utils"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace(""),PrivateNamespace(null,"240"),PackageInternalNs("cb.utils"),ProtectedNamespace("cb.utils:cbArray"),StaticProtectedNs("cb.utils:cbArray")])
+                                          dup
+                                          setlocal 4
+                                          getlocal2
+                                          getproperty MultinameL([PrivateNamespace(null,"239"),PackageNamespace("cb.utils"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace(""),PrivateNamespace(null,"240"),PackageInternalNs("cb.utils"),ProtectedNamespace("cb.utils:cbArray"),StaticProtectedNs("cb.utils:cbArray")])
+                                          getlocal 4
+                                          call 0
+                                          kill 4
+                                          ifstrictne ofs0027
+                                          getlocal0
+                                          getlocal3
+                                          getproperty MultinameL([PrivateNamespace(null,"239"),PackageNamespace("cb.utils"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace(""),PrivateNamespace(null,"240"),PackageInternalNs("cb.utils"),ProtectedNamespace("cb.utils:cbArray"),StaticProtectedNs("cb.utils:cbArray")])
+                                          returnvalue
+                                 ofs0027:
+                                          inclocal_i 3
+                                 ofs0029:
+                                          getlocal3
+                                          getlex QName(PackageNamespace(""),"length")
+                                          iflt ofs0009
+                                          pushnull
+                                          returnvalue
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                              
+                              public function clone() : cbArray
+                              {
+                                 trait method QName(PackageNamespace(""),"clone")
+                                    dispid 0
+                                    method
+                                       name null
+                                       returns QName(PackageNamespace("cb.utils"),"cbArray")
+                                       
+                                       body
+                                          maxstack 3
+                                          localcount 3
+                                          initscopedepth 5
+                                          maxscopedepth 6
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             findpropstrict QName(PackageNamespace("cb.utils"),"cbArray")
+                                             constructprop QName(PackageNamespace("cb.utils"),"cbArray"), 0
+                                             coerce QName(PackageNamespace("cb.utils"),"cbArray")
+                                             setlocal1
+                                             pushbyte 0
+                                             setlocal2
+                                             jump ofs001e
+                                    ofs0011:
+                                             label
+                                             getlocal1
+                                             getlocal0
+                                             getlocal2
+                                             getproperty MultinameL([PrivateNamespace(null,"239"),PackageNamespace("cb.utils"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace(""),PrivateNamespace(null,"240"),PackageInternalNs("cb.utils"),ProtectedNamespace("cb.utils:cbArray"),StaticProtectedNs("cb.utils:cbArray")])
+                                             callpropvoid QName(Namespace("http://adobe.com/AS3/2006/builtin"),"push"), 1
+                                             inclocal_i 2
+                                    ofs001e:
+                                             getlocal2
+                                             getlex QName(PackageNamespace(""),"length")
+                                             iflt ofs0011
+                                             getlocal1
+                                             returnvalue
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                 }
+                                 
+                                 public function subtract(param1:Array) : cbArray
+                                 {
+                                    trait method QName(PackageNamespace(""),"subtract")
+                                       dispid 0
+                                       method
+                                          name null
+                                          param QName(PackageNamespace(""),"Array")
+                                          returns QName(PackageNamespace("cb.utils"),"cbArray")
+                                          
+                                          body
+                                             maxstack 3
+                                             localcount 5
+                                             initscopedepth 5
+                                             maxscopedepth 6
+                                             
+                                             code
+                                                getlocal0
+                                                pushscope
+                                                pushbyte 0
+                                                setlocal 4
+                                                getlocal0
+                                                callproperty QName(PackageNamespace(""),"clone"), 0
+                                                coerce QName(PackageNamespace("cb.utils"),"cbArray")
+                                                setlocal2
+                                                pushbyte 0
+                                                setlocal3
+                                                jump ofs0035
+                                       ofs0015:
+                                                label
+                                                getlocal2
+                                                getlocal1
+                                                getlocal3
+                                                getproperty MultinameL([PrivateNamespace(null,"239"),PackageNamespace("cb.utils"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace(""),PrivateNamespace(null,"240"),PackageInternalNs("cb.utils"),ProtectedNamespace("cb.utils:cbArray"),StaticProtectedNs("cb.utils:cbArray")])
+                                                callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"indexOf"), 1
+                                                convert_i
+                                                dup
+                                                setlocal 4
+                                                pushbyte 0
+                                                ifnge ofs0033
+                                                getlocal2
+                                                getlocal 4
+                                                pushbyte 1
+                                                callpropvoid QName(Namespace("http://adobe.com/AS3/2006/builtin"),"splice"), 2
+                                       ofs0033:
+                                                inclocal_i 3
+                                       ofs0035:
+                                                getlocal3
+                                                getlocal1
+                                                getproperty QName(PackageNamespace(""),"length")
+                                                iflt ofs0015
+                                                getlocal2
+                                                returnvalue
+                                             end ; code
+                                          end ; body
+                                       end ; method
+                                    }
+                                 }
+                              }
+                              
+                              method
+                                 name null
+                                 returns null
+                                 
+                                 body
+                                    maxstack 2
+                                    localcount 1
+                                    initscopedepth 1
+                                    maxscopedepth 4
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       findpropstrict Multiname("cbArray",[PackageNamespace("cb.utils")])
+                                       getlex QName(PackageNamespace(""),"Object")
+                                       pushscope
+                                       getlex QName(PackageNamespace(""),"Array")
+                                       pushscope
+                                       getlex QName(PackageNamespace(""),"Array")
+                                       newclass 111
+                                       popscope
+                                       popscope
+                                       initproperty QName(PackageNamespace("cb.utils"),"cbArray")
+                                       returnvoid
+                                    end ; code
+                                 end ; body
+                              end ; method
+                              

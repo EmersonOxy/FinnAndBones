@@ -1,0 +1,55 @@
+package main_game.item_containers
+{
+   import cb.signals.Signal;
+   import drag_and_drop.IDragContainer;
+   import main_game.items.Item;
+   
+   public interface ISlot extends IDragContainer
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 0
+            localcount 1
+            initscopedepth 4
+            maxscopedepth 4
+            
+            code
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      function get onChange() : Signal;
+      
+      function isEmpty() : Boolean;
+      
+      function getContent() : Item;
+   }
+}
+
+method
+   name null
+   returns null
+   
+   body
+      maxstack 2
+      localcount 1
+      initscopedepth 1
+      maxscopedepth 2
+      
+      code
+         getlocal0
+         pushscope
+         findpropstrict Multiname("ISlot",[PackageNamespace("main_game.item_containers")])
+         pushnull
+         newclass 161
+         initproperty QName(PackageNamespace("main_game.item_containers"),"ISlot")
+         returnvoid
+      end ; code
+   end ; body
+end ; method
+

@@ -1,0 +1,371 @@
+package view.figthers
+{
+   import cb.utils.Tween;
+   import flash.display.DisplayObjectContainer;
+   import flash.display.MovieClip;
+   import main_game.character.Fighter;
+   import main_game.character.stats.HealthStat;
+   import main_game.character.stats.StatType;
+   import main_game.character.stats.Stats;
+   import view.screens.main_game.BarView;
+   
+   public class HudView
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      protected var stats:Stats;
+      
+      protected var mc:MovieClip;
+      
+      protected var bar:BarView;
+      
+      private var setter:HudSetter;
+      
+      public function HudView(param1:Class, param2:HudSetter)
+      {
+         method
+            name null
+            param QName(PackageNamespace(""),"Class")
+            param QName(PackageNamespace("view.figthers"),"HudSetter")
+            returns null
+            
+            body
+               maxstack 2
+               localcount 3
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlocal1
+                  construct 0
+                  initproperty QName(ProtectedNamespace("view.figthers:HudView"),"mc")
+                  getlocal0
+                  getlocal2
+                  initproperty QName(PrivateNamespace(null,"155"),"setter")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function changeFighter(param1:Fighter) : void
+      {
+         trait method QName(PackageNamespace(""),"changeFighter")
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace("main_game.character"),"Fighter")
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 3
+                  localcount 2
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     getproperty QName(ProtectedNamespace("view.figthers:HudView"),"stats")
+                     pushnull
+                     ifeq ofs001a
+                     getlocal0
+                     getproperty QName(ProtectedNamespace("view.figthers:HudView"),"stats")
+                     getproperty QName(PackageNamespace(""),"onChange")
+                     getlocal0
+                     getproperty QName(PackageNamespace(""),"refresh")
+                     callpropvoid QName(PackageNamespace(""),"remove"), 1
+            ofs001a:
+                     getlocal1
+                     pushnull
+                     ifeq ofs0048
+                     getlocal0
+                     getlocal1
+                     getproperty QName(PackageNamespace(""),"stats")
+                     setproperty QName(ProtectedNamespace("view.figthers:HudView"),"stats")
+                     getlocal0
+                     getproperty QName(ProtectedNamespace("view.figthers:HudView"),"stats")
+                     getproperty QName(PackageNamespace(""),"onChange")
+                     getlocal0
+                     getproperty QName(PackageNamespace(""),"refresh")
+                     callpropvoid QName(PackageNamespace(""),"add"), 1
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"155"),"setter")
+                     getlocal0
+                     getproperty QName(ProtectedNamespace("view.figthers:HudView"),"mc")
+                     getlocal1
+                     callpropvoid QName(PackageNamespace(""),"setNameAndLevel"), 2
+                     jump ofs004d
+            ofs0048:
+                     getlocal0
+                     pushnull
+                     setproperty QName(ProtectedNamespace("view.figthers:HudView"),"stats")
+            ofs004d:
+                     getlocal0
+                     callpropvoid QName(PackageNamespace(""),"refresh"), 0
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function initialize(param1:DisplayObjectContainer) : void
+         {
+            trait method QName(PackageNamespace(""),"initialize")
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace("flash.display"),"DisplayObjectContainer")
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 5
+                     localcount 2
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        getproperty QName(ProtectedNamespace("view.figthers:HudView"),"mc")
+                        pushbyte 0
+                        setproperty QName(PackageNamespace(""),"x")
+                        getlocal0
+                        getproperty QName(ProtectedNamespace("view.figthers:HudView"),"mc")
+                        pushbyte 0
+                        setproperty QName(PackageNamespace(""),"y")
+                        getlocal1
+                        getlocal0
+                        getproperty QName(ProtectedNamespace("view.figthers:HudView"),"mc")
+                        callpropvoid QName(PackageNamespace(""),"addChild"), 1
+                        getlocal0
+                        findpropstrict QName(PackageNamespace("view.screens.main_game"),"BarView")
+                        getlocal0
+                        getproperty QName(ProtectedNamespace("view.figthers:HudView"),"mc")
+                        getproperty Multiname("bar",[PrivateNamespace(null,"155"),ProtectedNamespace("view.figthers:HudView"),PackageNamespace(""),PackageNamespace("view.figthers"),PrivateNamespace(null,"312"),PackageInternalNs("view.figthers"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("view.figthers:HudView")])
+                        getlex QName(PackageNamespace(""),"main")
+                        getproperty QName(PackageNamespace(""),"locale")
+                        pushstring "health_status"
+                        constructprop QName(PackageNamespace("view.screens.main_game"),"BarView"), 3
+                        setproperty QName(ProtectedNamespace("view.figthers:HudView"),"bar")
+                        getlocal0
+                        callpropvoid QName(PackageNamespace(""),"refresh"), 0
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function refresh() : void
+            {
+               trait method QName(PackageNamespace(""),"refresh")
+                  dispid 0
+                  method
+                     name null
+                     flag NEED_ACTIVATION
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 5
+                        localcount 2
+                        initscopedepth 5
+                        maxscopedepth 7
+                        trait slot QName(PackageInternalNs("view.figthers"),"health")
+                           slotid 1
+                           type QName(PackageNamespace("main_game.character.stats"),"HealthStat")
+                        end ; trait
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           newactivation
+                           dup
+                           setlocal1
+                           pushscope
+                           getscopeobject 1
+                           pushnull
+                           coerce QName(PackageNamespace("main_game.character.stats"),"HealthStat")
+                           setslot 1
+                           getlex QName(PackageNamespace("cb.utils"),"Tween")
+                           getlocal0
+                           getproperty QName(ProtectedNamespace("view.figthers:HudView"),"bar")
+                           callpropvoid QName(PackageNamespace(""),"killTweensOf"), 1
+                           getlocal0
+                           getproperty QName(ProtectedNamespace("view.figthers:HudView"),"stats")
+                           pushnull
+                           ifeq ofs0063
+                           getscopeobject 1
+                           getlocal0
+                           callproperty QName(PrivateNamespace(null,"155"),"getHealth"), 0
+                           coerce QName(PackageNamespace("main_game.character.stats"),"HealthStat")
+                           setslot 1
+                           getlocal0
+                           getproperty QName(ProtectedNamespace("view.figthers:HudView"),"bar")
+                           getscopeobject 1
+                           getslot 1
+                           callproperty QName(PackageNamespace(""),"getUpperBound"), 0
+                           callproperty QName(PackageNamespace(""),"getValue"), 0
+                           setproperty QName(PackageNamespace(""),"total")
+                           getlex QName(PackageNamespace("cb.utils"),"Tween")
+                           getlocal0
+                           getproperty QName(ProtectedNamespace("view.figthers:HudView"),"bar")
+                           pushshort 300
+                           pushstring "current"
+                           getscopeobject 1
+                           getslot 1
+                           callproperty QName(PackageNamespace(""),"getValue"), 0
+                           newobject 1
+                           newfunction 2486
+                           callpropvoid QName(PackageNamespace(""),"to"), 4
+                           jump ofs0075
+                  ofs0063:
+                           getlocal0
+                           getproperty QName(ProtectedNamespace("view.figthers:HudView"),"bar")
+                           pushbyte 100
+                           setproperty QName(PackageNamespace(""),"total")
+                           getlocal0
+                           getproperty QName(ProtectedNamespace("view.figthers:HudView"),"bar")
+                           pushbyte 0
+                           setproperty QName(PackageNamespace(""),"current")
+                  ofs0075:
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"155"),"setter")
+                           getlocal0
+                           getproperty QName(ProtectedNamespace("view.figthers:HudView"),"mc")
+                           getlocal0
+                           getproperty QName(ProtectedNamespace("view.figthers:HudView"),"stats")
+                           callpropvoid QName(PackageNamespace(""),"setHud"), 2
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function clear() : void
+               {
+                  trait method QName(PackageNamespace(""),"clear")
+                     dispid 0
+                     method
+                        name null
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 2
+                           localcount 1
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlex QName(PackageNamespace("cb.utils"),"Tween")
+                              getlocal0
+                              getproperty QName(ProtectedNamespace("view.figthers:HudView"),"bar")
+                              callpropvoid QName(PackageNamespace(""),"killTweensOf"), 1
+                              getlocal0
+                              getproperty QName(ProtectedNamespace("view.figthers:HudView"),"stats")
+                              pushnull
+                              ifeq ofs0025
+                              getlocal0
+                              getproperty QName(ProtectedNamespace("view.figthers:HudView"),"stats")
+                              getproperty QName(PackageNamespace(""),"onChange")
+                              getlocal0
+                              getproperty QName(PackageNamespace(""),"refresh")
+                              callpropvoid QName(PackageNamespace(""),"remove"), 1
+                     ofs0025:
+                              getlocal0
+                              pushnull
+                              initproperty QName(ProtectedNamespace("view.figthers:HudView"),"stats")
+                              getlocal0
+                              pushnull
+                              initproperty QName(ProtectedNamespace("view.figthers:HudView"),"mc")
+                              getlocal0
+                              getproperty QName(ProtectedNamespace("view.figthers:HudView"),"bar")
+                              callpropvoid QName(PackageNamespace(""),"clear"), 0
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  private function getHealth() : HealthStat
+                  {
+                     trait method QName(PrivateNamespace(null,"155"),"getHealth")
+                        dispid 0
+                        method
+                           name null
+                           returns QName(PackageNamespace("main_game.character.stats"),"HealthStat")
+                           
+                           body
+                              maxstack 2
+                              localcount 1
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal0
+                                 getproperty QName(ProtectedNamespace("view.figthers:HudView"),"stats")
+                                 getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                                 getproperty QName(PackageNamespace(""),"HEALTH")
+                                 callproperty QName(PackageNamespace(""),"getStat"), 1
+                                 getlex QName(PackageNamespace("main_game.character.stats"),"HealthStat")
+                                 astypelate
+                                 returnvalue
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                  }
+               }
+               
+               method
+                  name null
+                  returns null
+                  
+                  body
+                     maxstack 2
+                     localcount 1
+                     initscopedepth 1
+                     maxscopedepth 3
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        findpropstrict Multiname("HudView",[PackageNamespace("view.figthers")])
+                        getlex QName(PackageNamespace(""),"Object")
+                        pushscope
+                        getlex QName(PackageNamespace(""),"Object")
+                        newclass 265
+                        popscope
+                        initproperty QName(PackageNamespace("view.figthers"),"HudView")
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+               

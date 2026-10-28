@@ -1,0 +1,149 @@
+package view.screens.main_game.dungeon
+{
+   import flash.display.MovieClip;
+   import util.ProbabilisticSet;
+   
+   public class BackgroundSet
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public var types:ProbabilisticSet;
+      
+      public function BackgroundSet(param1:Array)
+      {
+         method
+            name null
+            param QName(PackageNamespace(""),"Array")
+            returns null
+            
+            body
+               maxstack 3
+               localcount 5
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  pushnull
+                  coerce_s
+                  setlocal2
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("util"),"ProbabilisticSet")
+                  constructprop QName(PackageNamespace("util"),"ProbabilisticSet"), 0
+                  initproperty QName(PackageNamespace(""),"types")
+                  pushbyte 0
+                  setlocal3
+                  getlocal1
+                  coerce_a
+                  setlocal 4
+                  jump ofs002e
+         ofs001c:
+                  label
+                  getlocal 4
+                  getlocal3
+                  nextvalue
+                  coerce_s
+                  setlocal2
+                  getlocal0
+                  getproperty QName(PackageNamespace(""),"types")
+                  getlocal2
+                  pushbyte 1
+                  callpropvoid QName(PackageNamespace(""),"add"), 2
+         ofs002e:
+                  hasnext2 4, 3
+                  iftrue ofs001c
+                  kill 4
+                  kill 3
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function getBackground() : MovieClip
+      {
+         trait method QName(PackageNamespace(""),"getBackground")
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace("flash.display"),"MovieClip")
+               
+               body
+                  maxstack 3
+                  localcount 3
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     getproperty QName(PackageNamespace(""),"types")
+                     callproperty QName(PackageNamespace(""),"getElement"), 0
+                     getlex QName(PackageNamespace(""),"String")
+                     astypelate
+                     coerce_s
+                     setlocal1
+                     getlex QName(PackageNamespace(""),"main")
+                     getproperty QName(PackageNamespace(""),"swfLoader")
+                     pushstring "assets."
+                     getlocal1
+                     add
+                     callproperty QName(PackageNamespace(""),"getClass"), 1
+                     coerce QName(PackageNamespace(""),"Class")
+                     setlocal2
+                     getlocal2
+                     construct 0
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+      }
+   }
+   
+   method
+      name null
+      returns null
+      
+      body
+         maxstack 2
+         localcount 1
+         initscopedepth 1
+         maxscopedepth 3
+         
+         code
+            getlocal0
+            pushscope
+            findpropstrict Multiname("BackgroundSet",[PackageNamespace("view.screens.main_game.dungeon")])
+            getlex QName(PackageNamespace(""),"Object")
+            pushscope
+            getlex QName(PackageNamespace(""),"Object")
+            newclass 268
+            popscope
+            initproperty QName(PackageNamespace("view.screens.main_game.dungeon"),"BackgroundSet")
+            returnvoid
+         end ; code
+      end ; body
+   end ; method
+   

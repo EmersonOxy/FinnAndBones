@@ -1,0 +1,227 @@
+package bonus.states
+{
+   public class ArrayStringDefinition extends BaseState
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 5
+            maxscopedepth 6
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var startSymbol:String;
+      
+      public function ArrayStringDefinition(param1:String, param2:String, param3:BaseState = null)
+      {
+         method
+            name null
+            flag HAS_OPTIONAL
+            param QName(PackageNamespace(""),"String")
+            param QName(PackageNamespace(""),"String")
+            param QName(PackageNamespace("bonus.states"),"BaseState")
+            optional Null()
+            returns null
+            
+            body
+               maxstack 4
+               localcount 4
+               initscopedepth 6
+               maxscopedepth 7
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  getlocal2
+                  pushstring ""
+                  getlocal3
+                  constructsuper 3
+                  getlocal0
+                  getlocal1
+                  initproperty QName(PrivateNamespace(null,"165"),"startSymbol")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      override protected function onMisc(param1:String) : BaseState
+      {
+         trait method QName(ProtectedNamespace("bonus.states:ArrayStringDefinition"),"onMisc")
+            flag OVERRIDE
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace(""),"String")
+               returns QName(PackageNamespace("bonus.states"),"BaseState")
+               
+               body
+                  maxstack 4
+                  localcount 2
+                  initscopedepth 6
+                  maxscopedepth 7
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal1
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"165"),"startSymbol")
+                     ifne ofs001c
+                     findpropstrict QName(PackageNamespace("bonus.states"),"WaitingForEndArrayStringDefinition")
+                     getlex QName(ProtectedNamespace("bonus.states:BaseState"),"name")
+                     getlex QName(ProtectedNamespace("bonus.states:BaseState"),"value")
+                     getlex QName(ProtectedNamespace("bonus.states:BaseState"),"parent")
+                     constructprop QName(PackageNamespace("bonus.states"),"WaitingForEndArrayStringDefinition"), 3
+                     returnvalue
+            ofs001c:
+                     findproperty QName(ProtectedNamespace("bonus.states:BaseState"),"value")
+                     getlex QName(ProtectedNamespace("bonus.states:BaseState"),"value")
+                     getlocal1
+                     add
+                     initproperty QName(ProtectedNamespace("bonus.states:BaseState"),"value")
+                     getlocal0
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         override protected function onLetter(param1:String) : BaseState
+         {
+            trait method QName(ProtectedNamespace("bonus.states:ArrayStringDefinition"),"onLetter")
+               flag OVERRIDE
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace(""),"String")
+                  returns QName(PackageNamespace("bonus.states"),"BaseState")
+                  
+                  body
+                     maxstack 3
+                     localcount 2
+                     initscopedepth 6
+                     maxscopedepth 7
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        findproperty QName(ProtectedNamespace("bonus.states:BaseState"),"value")
+                        getlex QName(ProtectedNamespace("bonus.states:BaseState"),"value")
+                        getlocal1
+                        add
+                        initproperty QName(ProtectedNamespace("bonus.states:BaseState"),"value")
+                        getlocal0
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            override protected function onDigit(param1:String) : BaseState
+            {
+               trait method QName(ProtectedNamespace("bonus.states:ArrayStringDefinition"),"onDigit")
+                  flag OVERRIDE
+                  dispid 0
+                  method
+                     name null
+                     param QName(PackageNamespace(""),"String")
+                     returns QName(PackageNamespace("bonus.states"),"BaseState")
+                     
+                     body
+                        maxstack 3
+                        localcount 2
+                        initscopedepth 6
+                        maxscopedepth 7
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           findproperty QName(ProtectedNamespace("bonus.states:BaseState"),"value")
+                           getlex QName(ProtectedNamespace("bonus.states:BaseState"),"value")
+                           getlocal1
+                           add
+                           initproperty QName(ProtectedNamespace("bonus.states:BaseState"),"value")
+                           getlocal0
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               override protected function onSpace(param1:String) : BaseState
+               {
+                  trait method QName(ProtectedNamespace("bonus.states:ArrayStringDefinition"),"onSpace")
+                     flag OVERRIDE
+                     dispid 0
+                     method
+                        name null
+                        param QName(PackageNamespace(""),"String")
+                        returns QName(PackageNamespace("bonus.states"),"BaseState")
+                        
+                        body
+                           maxstack 3
+                           localcount 2
+                           initscopedepth 6
+                           maxscopedepth 7
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              findproperty QName(ProtectedNamespace("bonus.states:BaseState"),"value")
+                              getlex QName(ProtectedNamespace("bonus.states:BaseState"),"value")
+                              getlocal1
+                              add
+                              initproperty QName(ProtectedNamespace("bonus.states:BaseState"),"value")
+                              getlocal0
+                              returnvalue
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+               }
+            }
+            
+            method
+               name null
+               returns null
+               
+               body
+                  maxstack 2
+                  localcount 1
+                  initscopedepth 1
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     findpropstrict Multiname("ArrayStringDefinition",[PackageNamespace("bonus.states")])
+                     getlex QName(PackageNamespace(""),"Object")
+                     pushscope
+                     getlex QName(PackageNamespace("flash.events"),"EventDispatcher")
+                     pushscope
+                     getlex QName(PackageNamespace("bonus.states"),"BaseState")
+                     pushscope
+                     getlex QName(PackageNamespace("bonus.states"),"BaseState")
+                     newclass 297
+                     popscope
+                     popscope
+                     popscope
+                     initproperty QName(PackageNamespace("bonus.states"),"ArrayStringDefinition")
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+            

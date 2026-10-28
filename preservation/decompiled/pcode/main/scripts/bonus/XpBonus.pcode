@@ -1,0 +1,348 @@
+package bonus
+{
+   import bonus.filter.AllFilter;
+   import bonus.filter.BonusIcon;
+   import bonus.filter.IBonusFilter;
+   import main_game.character.Enemy;
+   import main_game.character.stats.StatType;
+   import main_game.dungeon.Dungeon;
+   import main_game.dungeon.IXpCalculator;
+   import main_game.dungeon.XpCalculator;
+   
+   public class XpBonus implements IDailyBonus, IXpCalculator
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var value:Number;
+      
+      private var filter:IBonusFilter;
+      
+      private var xpCalculator:IXpCalculator;
+      
+      public function XpBonus(param1:Number = 100, param2:IBonusFilter = null)
+      {
+         method
+            name null
+            flag HAS_OPTIONAL
+            param QName(PackageNamespace(""),"Number")
+            param QName(PackageNamespace("bonus.filter"),"IBonusFilter")
+            optional Integer(100)
+            optional Null()
+            returns null
+            
+            body
+               maxstack 3
+               localcount 3
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlocal1
+                  pushbyte 100
+                  divide
+                  initproperty QName(PrivateNamespace(null,"78"),"value")
+                  getlocal2
+                  pushnull
+                  ifne ofs001d
+                  findpropstrict QName(PackageNamespace("bonus.filter"),"AllFilter")
+                  constructprop QName(PackageNamespace("bonus.filter"),"AllFilter"), 0
+                  coerce QName(PackageNamespace("bonus.filter"),"IBonusFilter")
+                  setlocal2
+         ofs001d:
+                  getlocal0
+                  getlocal2
+                  initproperty QName(PrivateNamespace(null,"78"),"filter")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function activate() : void
+      {
+         trait method QName(PackageNamespace(""),"activate")
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 2
+                  localcount 1
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     findpropstrict QName(PackageNamespace("main_game.dungeon"),"XpCalculator")
+                     constructprop QName(PackageNamespace("main_game.dungeon"),"XpCalculator"), 0
+                     setproperty QName(PrivateNamespace(null,"78"),"xpCalculator")
+                     getlex QName(PackageNamespace("main_game.dungeon"),"Dungeon")
+                     getlocal0
+                     setproperty QName(PackageNamespace(""),"xpCalulator")
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function getXp(param1:Array) : int
+         {
+            trait method QName(PackageNamespace(""),"getXp")
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace(""),"Array")
+                  returns QName(PackageNamespace(""),"int")
+                  
+                  body
+                     maxstack 3
+                     localcount 7
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        pushnull
+                        coerce QName(PackageNamespace("main_game.character"),"Enemy")
+                        setlocal3
+                        pushbyte 0
+                        setlocal 4
+                        pushbyte 0
+                        setlocal2
+                        pushbyte 0
+                        setlocal 5
+                        getlocal1
+                        coerce_a
+                        setlocal 6
+                        jump ofs005f
+               ofs0019:
+                        label
+                        getlocal 6
+                        getlocal 5
+                        nextvalue
+                        coerce QName(PackageNamespace("main_game.character"),"Enemy")
+                        setlocal3
+                        getlocal3
+                        getproperty QName(PackageNamespace(""),"stats")
+                        getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                        getproperty QName(PackageNamespace(""),"EXPERIENCE")
+                        callproperty QName(PackageNamespace(""),"getStat"), 1
+                        callproperty QName(PackageNamespace(""),"getValue"), 0
+                        convert_i
+                        setlocal 4
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"78"),"filter")
+                        getlocal3
+                        callproperty QName(PackageNamespace(""),"getElement"), 0
+                        callproperty QName(Namespace("bonus.filter:IBonusFilter"),"doesApply"), 1
+                        iffalse ofs0059
+                        getlex QName(PackageNamespace(""),"Math")
+                        getlocal 4
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"78"),"value")
+                        multiply
+                        callproperty QName(PackageNamespace(""),"ceil"), 1
+                        convert_i
+                        setlocal 4
+               ofs0059:
+                        getlocal2
+                        getlocal 4
+                        add
+                        convert_i
+                        setlocal2
+               ofs005f:
+                        hasnext2 6, 5
+                        iftrue ofs0019
+                        kill 6
+                        kill 5
+                        getlocal2
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function getMixXp(param1:int) : Number
+            {
+               trait method QName(PackageNamespace(""),"getMixXp")
+                  dispid 0
+                  method
+                     name null
+                     param QName(PackageNamespace(""),"int")
+                     returns QName(PackageNamespace(""),"Number")
+                     
+                     body
+                        maxstack 2
+                        localcount 2
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"78"),"xpCalculator")
+                           getlocal1
+                           callproperty QName(Namespace("main_game.dungeon:IXpCalculator"),"getMixXp"), 1
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function getCriticalXp(param1:int) : Number
+               {
+                  trait method QName(PackageNamespace(""),"getCriticalXp")
+                     dispid 0
+                     method
+                        name null
+                        param QName(PackageNamespace(""),"int")
+                        returns QName(PackageNamespace(""),"Number")
+                        
+                        body
+                           maxstack 2
+                           localcount 2
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"78"),"xpCalculator")
+                              getlocal1
+                              callproperty QName(Namespace("main_game.dungeon:IXpCalculator"),"getCriticalXp"), 1
+                              returnvalue
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function getIcon() : BonusIcon
+                  {
+                     trait method QName(PackageNamespace(""),"getIcon")
+                        dispid 0
+                        method
+                           name null
+                           returns QName(PackageNamespace("bonus.filter"),"BonusIcon")
+                           
+                           body
+                              maxstack 1
+                              localcount 1
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlex QName(PackageNamespace("bonus.filter"),"BonusIcon")
+                                 callproperty QName(PackageNamespace(""),"getXpIcon"), 0
+                                 returnvalue
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     public function getFilter() : IBonusFilter
+                     {
+                        trait method QName(PackageNamespace(""),"getFilter")
+                           dispid 0
+                           method
+                              name null
+                              returns QName(PackageNamespace("bonus.filter"),"IBonusFilter")
+                              
+                              body
+                                 maxstack 1
+                                 localcount 1
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"78"),"filter")
+                                    returnvalue
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        public function getAction() : String
+                        {
+                           trait method QName(PackageNamespace(""),"getAction")
+                              dispid 0
+                              method
+                                 name null
+                                 returns QName(PackageNamespace(""),"String")
+                                 
+                                 body
+                                    maxstack 1
+                                    localcount 1
+                                    initscopedepth 4
+                                    maxscopedepth 5
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       getlex QName(PackageNamespace("bonus.filter"),"BonusIcon")
+                                       getproperty QName(PackageNamespace(""),"Kill")
+                                       returnvalue
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                        }
+                     }
+                     
+                     method
+                        name null
+                        returns null
+                        
+                        body
+                           maxstack 2
+                           localcount 1
+                           initscopedepth 1
+                           maxscopedepth 3
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              findpropstrict Multiname("XpBonus",[PackageNamespace("bonus")])
+                              getlex QName(PackageNamespace(""),"Object")
+                              pushscope
+                              getlex QName(PackageNamespace(""),"Object")
+                              newclass 136
+                              popscope
+                              initproperty QName(PackageNamespace("bonus"),"XpBonus")
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                     

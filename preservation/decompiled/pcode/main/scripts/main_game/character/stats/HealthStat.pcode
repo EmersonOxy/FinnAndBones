@@ -1,0 +1,253 @@
+package main_game.character.stats
+{
+   public class HealthStat extends Stat
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 4
+            maxscopedepth 5
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var maxHealth:Stat;
+      
+      public function HealthStat(param1:int, param2:Stat, param3:Number = 0)
+      {
+         method
+            name null
+            flag HAS_OPTIONAL
+            param QName(PackageNamespace(""),"int")
+            param QName(PackageNamespace("main_game.character.stats"),"Stat")
+            param QName(PackageNamespace(""),"Number")
+            optional Integer(0)
+            returns null
+            
+            body
+               maxstack 3
+               localcount 4
+               initscopedepth 5
+               maxscopedepth 6
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  getlocal2
+                  initproperty QName(PrivateNamespace(null,"142"),"maxHealth")
+                  getlocal0
+                  getlocal1
+                  getlocal3
+                  constructsuper 2
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      override public function modifyValue(param1:Number) : void
+      {
+         trait method QName(PackageNamespace(""),"modifyValue")
+            flag OVERRIDE
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace(""),"Number")
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 6
+                  localcount 2
+                  initscopedepth 5
+                  maxscopedepth 6
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     getlex QName(PackageNamespace(""),"Math")
+                     pushbyte 0
+                     getlex QName(PackageNamespace(""),"Math")
+                     getlocal0
+                     getproperty QName(ProtectedNamespace("main_game.character.stats:Stat"),"value")
+                     getlocal1
+                     add
+                     getlocal0
+                     callproperty QName(PackageNamespace(""),"getUpperBound"), 0
+                     callproperty QName(PackageNamespace(""),"getValue"), 0
+                     callproperty QName(PackageNamespace(""),"min"), 2
+                     callproperty QName(PackageNamespace(""),"max"), 2
+                     setproperty QName(ProtectedNamespace("main_game.character.stats:Stat"),"value")
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function modifyUpperBound(param1:Number) : void
+         {
+            trait method QName(PackageNamespace(""),"modifyUpperBound")
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace(""),"Number")
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 2
+                     localcount 2
+                     initscopedepth 5
+                     maxscopedepth 6
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"142"),"maxHealth")
+                        getlocal1
+                        callpropvoid QName(PackageNamespace(""),"modifyValue"), 1
+                        getlocal0
+                        pushbyte 100
+                        callpropvoid QName(PackageNamespace(""),"fill"), 1
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function fill(param1:Number = 100) : void
+            {
+               trait method QName(PackageNamespace(""),"fill")
+                  dispid 0
+                  method
+                     name null
+                     flag HAS_OPTIONAL
+                     param QName(PackageNamespace(""),"Number")
+                     optional Integer(100)
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 4
+                        localcount 2
+                        initscopedepth 5
+                        maxscopedepth 6
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getlex QName(PackageNamespace(""),"Math")
+                           getlocal0
+                           callproperty QName(PackageNamespace(""),"getUpperBound"), 0
+                           callproperty QName(PackageNamespace(""),"getValue"), 0
+                           getlocal1
+                           multiply
+                           pushbyte 100
+                           divide
+                           callproperty QName(PackageNamespace(""),"floor"), 1
+                           callpropvoid QName(PackageNamespace(""),"modifyValue"), 1
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function getUpperBound() : Stat
+               {
+                  trait method QName(PackageNamespace(""),"getUpperBound")
+                     dispid 0
+                     method
+                        name null
+                        returns QName(PackageNamespace("main_game.character.stats"),"Stat")
+                        
+                        body
+                           maxstack 1
+                           localcount 1
+                           initscopedepth 5
+                           maxscopedepth 6
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"142"),"maxHealth")
+                              returnvalue
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function getpercentage() : Number
+                  {
+                     trait method QName(PackageNamespace(""),"getpercentage")
+                        dispid 0
+                        method
+                           name null
+                           returns QName(PackageNamespace(""),"Number")
+                           
+                           body
+                              maxstack 3
+                              localcount 1
+                              initscopedepth 5
+                              maxscopedepth 6
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlex QName(PackageNamespace(""),"Math")
+                                 findpropstrict QName(PackageNamespace(""),"getValue")
+                                 callproperty QName(PackageNamespace(""),"getValue"), 0
+                                 pushbyte 100
+                                 multiply
+                                 getlocal0
+                                 callproperty QName(PackageNamespace(""),"getUpperBound"), 0
+                                 callproperty QName(PackageNamespace(""),"getValue"), 0
+                                 divide
+                                 callproperty QName(PackageNamespace(""),"ceil"), 1
+                                 returnvalue
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                  }
+               }
+               
+               method
+                  name null
+                  returns null
+                  
+                  body
+                     maxstack 2
+                     localcount 1
+                     initscopedepth 1
+                     maxscopedepth 4
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        findpropstrict Multiname("HealthStat",[PackageNamespace("main_game.character.stats")])
+                        getlex QName(PackageNamespace(""),"Object")
+                        pushscope
+                        getlex QName(PackageNamespace("main_game.character.stats"),"Stat")
+                        pushscope
+                        getlex QName(PackageNamespace("main_game.character.stats"),"Stat")
+                        newclass 245
+                        popscope
+                        popscope
+                        initproperty QName(PackageNamespace("main_game.character.stats"),"HealthStat")
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+               

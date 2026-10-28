@@ -1,0 +1,448 @@
+package main_game.character
+{
+   import flash.utils.Dictionary;
+   import main_game.boss_dungeon.Boss;
+   import view.figthers.EnemyView;
+   import view.figthers.FinnView;
+   import view.screens.main_game.boss_dungeon.BossView;
+   
+   public class CharacterFactory
+   {
+      
+      private static var instance:CharacterFactory;
+      
+      private static var config:Dictionary;
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function CharacterFactory(param1:SingletonLock)
+      {
+         method
+            name null
+            param QName(PrivateNamespace(null,"1"),"SingletonLock")
+            returns null
+            
+            body
+               maxstack 2
+               localcount 2
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal1
+                  iftrue ofs0015
+                  findpropstrict QName(PackageNamespace(""),"Error")
+                  pushstring "Static Class"
+                  constructprop QName(PackageNamespace(""),"Error"), 1
+                  throw
+         ofs0015:
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public static function getInstance() : CharacterFactory
+      {
+         trait method QName(PackageNamespace(""),"getInstance")
+            flag FINAL
+            dispid 3
+            method
+               name null
+               returns QName(PackageNamespace("main_game.character"),"CharacterFactory")
+               
+               body
+                  maxstack 3
+                  localcount 1
+                  initscopedepth 3
+                  maxscopedepth 4
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlex QName(PrivateNamespace(null,"167"),"instance")
+                     pushnull
+                     ifne ofs0018
+                     findproperty QName(PrivateNamespace(null,"167"),"instance")
+                     getlocal0
+                     findpropstrict QName(PrivateNamespace(null,"1"),"SingletonLock")
+                     constructprop QName(PrivateNamespace(null,"1"),"SingletonLock"), 0
+                     construct 1
+                     setproperty QName(PrivateNamespace(null,"167"),"instance")
+            ofs0018:
+                     getlex QName(PrivateNamespace(null,"167"),"instance")
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public static function setConfig(param1:Dictionary) : void
+         {
+            trait method QName(PackageNamespace(""),"setConfig")
+               flag FINAL
+               dispid 4
+               method
+                  name null
+                  param QName(PackageNamespace("flash.utils"),"Dictionary")
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 2
+                     localcount 2
+                     initscopedepth 3
+                     maxscopedepth 4
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        findproperty QName(PrivateNamespace(null,"167"),"config")
+                        getlocal1
+                        setproperty QName(PrivateNamespace(null,"167"),"config")
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function getInitialHealth() : uint
+            {
+               trait method QName(PackageNamespace(""),"getInitialHealth")
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace(""),"uint")
+                     
+                     body
+                        maxstack 3
+                        localcount 1
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           findpropstrict QName(PackageNamespace(""),"uint")
+                           getlex QName(PrivateNamespace(null,"167"),"config")
+                           pushstring "Finn"
+                           getproperty MultinameL([PrivateNamespace(null,"167"),PrivateNamespace(null,"1"),PackageNamespace("main_game.character"),PackageNamespace(""),PackageInternalNs("main_game.character"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.character:CharacterFactory"),StaticProtectedNs("main_game.character:CharacterFactory")])
+                           pushstring "BaseHP"
+                           getproperty MultinameL([PrivateNamespace(null,"167"),PrivateNamespace(null,"1"),PackageNamespace("main_game.character"),PackageNamespace(""),PackageInternalNs("main_game.character"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.character:CharacterFactory"),StaticProtectedNs("main_game.character:CharacterFactory")])
+                           callproperty QName(PackageNamespace(""),"uint"), 1
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function getEnemyView(param1:Enemy) : EnemyView
+               {
+                  trait method QName(PackageNamespace(""),"getEnemyView")
+                     dispid 0
+                     method
+                        name null
+                        param QName(PackageNamespace("main_game.character"),"Enemy")
+                        returns QName(PackageNamespace("view.figthers"),"EnemyView")
+                        
+                        body
+                           maxstack 2
+                           localcount 2
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              findpropstrict QName(PackageNamespace("view.figthers"),"EnemyView")
+                              getlocal1
+                              constructprop QName(PackageNamespace("view.figthers"),"EnemyView"), 1
+                              returnvalue
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function getFinnView(param1:Finn) : FinnView
+                  {
+                     trait method QName(PackageNamespace(""),"getFinnView")
+                        dispid 0
+                        method
+                           name null
+                           param QName(PackageNamespace("main_game.character"),"Finn")
+                           returns QName(PackageNamespace("view.figthers"),"FinnView")
+                           
+                           body
+                              maxstack 2
+                              localcount 2
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 findpropstrict QName(PackageNamespace("view.figthers"),"FinnView")
+                                 getlocal1
+                                 constructprop QName(PackageNamespace("view.figthers"),"FinnView"), 1
+                                 returnvalue
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     public function getBossView(param1:Boss) : BossView
+                     {
+                        trait method QName(PackageNamespace(""),"getBossView")
+                           dispid 0
+                           method
+                              name null
+                              param QName(PackageNamespace("main_game.boss_dungeon"),"Boss")
+                              returns QName(PackageNamespace("view.screens.main_game.boss_dungeon"),"BossView")
+                              
+                              body
+                                 maxstack 2
+                                 localcount 2
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    findpropstrict QName(PackageNamespace("view.screens.main_game.boss_dungeon"),"BossView")
+                                    getlocal1
+                                    constructprop QName(PackageNamespace("view.screens.main_game.boss_dungeon"),"BossView"), 1
+                                    returnvalue
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        public function getBoss(param1:uint) : Boss
+                        {
+                           trait method QName(PackageNamespace(""),"getBoss")
+                              dispid 0
+                              method
+                                 name null
+                                 param QName(PackageNamespace(""),"uint")
+                                 returns QName(PackageNamespace("main_game.boss_dungeon"),"Boss")
+                                 
+                                 body
+                                    maxstack 4
+                                    localcount 3
+                                    initscopedepth 4
+                                    maxscopedepth 5
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       pushstring "boss_normal"
+                                       setlocal2
+                                       findpropstrict QName(PackageNamespace("main_game.boss_dungeon"),"Boss")
+                                       getlocal2
+                                       getlocal0
+                                       getlocal2
+                                       callproperty QName(PackageNamespace(""),"getConfig"), 1
+                                       getlocal1
+                                       constructprop QName(PackageNamespace("main_game.boss_dungeon"),"Boss"), 3
+                                       returnvalue
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           public function getEnemy(param1:String, param2:uint) : Enemy
+                           {
+                              trait method QName(PackageNamespace(""),"getEnemy")
+                                 dispid 0
+                                 method
+                                    name null
+                                    param QName(PackageNamespace(""),"String")
+                                    param QName(PackageNamespace(""),"uint")
+                                    returns QName(PackageNamespace("main_game.character"),"Enemy")
+                                    
+                                    body
+                                       maxstack 4
+                                       localcount 3
+                                       initscopedepth 4
+                                       maxscopedepth 5
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          getlex QName(PrivateNamespace(null,"167"),"config")
+                                          pushnull
+                                          ifne ofs0015
+                                          findpropstrict QName(PackageNamespace(""),"Error")
+                                          pushstring "No se cuenta con el archivo de configuracion"
+                                          constructprop QName(PackageNamespace(""),"Error"), 1
+                                          throw
+                                 ofs0015:
+                                          findpropstrict QName(PackageNamespace("main_game.character"),"Enemy")
+                                          getlocal1
+                                          getlocal0
+                                          getlocal1
+                                          callproperty QName(PackageNamespace(""),"getConfig"), 1
+                                          getlocal2
+                                          constructprop QName(PackageNamespace("main_game.character"),"Enemy"), 3
+                                          returnvalue
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                              
+                              public function getFinn() : Finn
+                              {
+                                 trait method QName(PackageNamespace(""),"getFinn")
+                                    dispid 0
+                                    method
+                                       name null
+                                       returns QName(PackageNamespace("main_game.character"),"Finn")
+                                       
+                                       body
+                                          maxstack 4
+                                          localcount 1
+                                          initscopedepth 4
+                                          maxscopedepth 5
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             findpropstrict QName(PackageNamespace("main_game.character"),"Finn")
+                                             pushstring "Finn"
+                                             getlocal0
+                                             pushstring "Finn"
+                                             callproperty QName(PackageNamespace(""),"getConfig"), 1
+                                             constructprop QName(PackageNamespace("main_game.character"),"Finn"), 2
+                                             returnvalue
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                 }
+                                 
+                                 public function getConfig(param1:String) : CharacterConfigData
+                                 {
+                                    trait method QName(PackageNamespace(""),"getConfig")
+                                       dispid 0
+                                       method
+                                          name null
+                                          param QName(PackageNamespace(""),"String")
+                                          returns QName(PackageNamespace("main_game.character"),"CharacterConfigData")
+                                          
+                                          body
+                                             maxstack 3
+                                             localcount 2
+                                             initscopedepth 4
+                                             maxscopedepth 5
+                                             
+                                             code
+                                                getlocal0
+                                                pushscope
+                                                findpropstrict QName(PackageNamespace("main_game.character"),"CharacterConfigParser")
+                                                getlex QName(PrivateNamespace(null,"167"),"config")
+                                                getlocal1
+                                                getproperty MultinameL([PrivateNamespace(null,"167"),PrivateNamespace(null,"1"),PackageNamespace("main_game.character"),PackageNamespace(""),PackageInternalNs("main_game.character"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.character:CharacterFactory"),StaticProtectedNs("main_game.character:CharacterFactory")])
+                                                constructprop QName(PackageNamespace("main_game.character"),"CharacterConfigParser"), 1
+                                                returnvalue
+                                             end ; code
+                                          end ; body
+                                       end ; method
+                                    }
+                                 }
+                              }
+                              
+                              class SingletonLock
+                              {
+                                 
+                                 method
+                                    name null
+                                    returns null
+                                    
+                                    body
+                                       maxstack 1
+                                       localcount 1
+                                       initscopedepth 3
+                                       maxscopedepth 4
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          returnvoid
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                                 
+                                 public function SingletonLock()
+                                 {
+                                    method
+                                       name null
+                                       returns null
+                                       
+                                       body
+                                          maxstack 1
+                                          localcount 1
+                                          initscopedepth 4
+                                          maxscopedepth 5
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             getlocal0
+                                             constructsuper 0
+                                             returnvoid
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                 }
+                              }
+                              
+                              method
+                                 name null
+                                 returns null
+                                 
+                                 body
+                                    maxstack 2
+                                    localcount 1
+                                    initscopedepth 1
+                                    maxscopedepth 3
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       findpropstrict Multiname("CharacterFactory",[PackageNamespace("main_game.character")])
+                                       getlex QName(PackageNamespace(""),"Object")
+                                       pushscope
+                                       getlex QName(PackageNamespace(""),"Object")
+                                       newclass 9
+                                       popscope
+                                       initproperty QName(PackageNamespace("main_game.character"),"CharacterFactory")
+                                       findpropstrict Multiname("SingletonLock",[PrivateNamespace(null,"1")])
+                                       getlex QName(PackageNamespace(""),"Object")
+                                       pushscope
+                                       getlex QName(PackageNamespace(""),"Object")
+                                       newclass 10
+                                       popscope
+                                       initproperty QName(PrivateNamespace(null,"1"),"SingletonLock")
+                                       returnvoid
+                                    end ; code
+                                 end ; body
+                              end ; method
+                              

@@ -1,0 +1,894 @@
+package cb.media
+{
+   import cb.signals.Signal;
+   import flash.events.Event;
+   import flash.events.IEventDispatcher;
+   import flash.events.ProgressEvent;
+   import flash.events.TimerEvent;
+   import flash.media.Sound;
+   import flash.media.SoundChannel;
+   import flash.media.SoundTransform;
+   import flash.net.URLRequest;
+   import flash.utils.Timer;
+   
+   public class cbSound implements IEventDispatcher
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public var volume:Number = 1;
+      
+      public var originalVolume:Number = 1;
+      
+      public var startMilliseconds:Number = 0;
+      
+      public var endMilliseconds:Number = 0;
+      
+      private var endTimer:Timer;
+      
+      private var qSound:cbSound;
+      
+      private var isPlaying:Boolean = false;
+      
+      private var paused:Boolean = false;
+      
+      private var atFinish:Array;
+      
+      private var name:String;
+      
+      private var currentSndTr:SoundTransform = null;
+      
+      private var sound:Sound;
+      
+      private var positionToResume:Number;
+      
+      private var saveAtFinish:Boolean = false;
+      
+      public var progress:Signal;
+      
+      private var loadedSoFar:int;
+      
+      public function cbSound(param1:String, param2:URLRequest = null)
+      {
+         method
+            name null
+            flag HAS_OPTIONAL
+            param QName(PackageNamespace(""),"String")
+            param QName(PackageNamespace("flash.net"),"URLRequest")
+            optional Null()
+            returns null
+            
+            body
+               maxstack 6
+               localcount 3
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  findpropstrict QName(PackageNamespace(""),"Array")
+                  constructprop QName(PackageNamespace(""),"Array"), 0
+                  initproperty QName(PrivateNamespace(null,"68"),"atFinish")
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("cb.signals"),"Signal")
+                  constructprop QName(PackageNamespace("cb.signals"),"Signal"), 0
+                  initproperty QName(PackageNamespace(""),"progress")
+                  getlocal0
+                  getlocal1
+                  initproperty QName(PrivateNamespace(null,"68"),"name")
+                  getlocal2
+                  pushnull
+                  ifne ofs0023
+                  returnvoid
+         ofs0023:
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("flash.media"),"Sound")
+                  getlocal2
+                  constructprop QName(PackageNamespace("flash.media"),"Sound"), 1
+                  initproperty QName(PrivateNamespace(null,"68"),"sound")
+                  getlocal0
+                  getproperty QName(PrivateNamespace(null,"68"),"sound")
+                  getlex QName(PackageNamespace("flash.events"),"ProgressEvent")
+                  getproperty QName(PackageNamespace(""),"PROGRESS")
+                  getlocal0
+                  getproperty QName(PrivateNamespace(null,"68"),"progressListener")
+                  pushfalse
+                  pushbyte 0
+                  pushtrue
+                  callpropvoid QName(PackageNamespace(""),"addEventListener"), 5
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      private function progressListener(param1:ProgressEvent) : void
+      {
+         trait method QName(PrivateNamespace(null,"68"),"progressListener")
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace("flash.events"),"ProgressEvent")
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 3
+                  localcount 2
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     getproperty QName(PackageNamespace(""),"progress")
+                     getlocal1
+                     getproperty QName(PackageNamespace(""),"bytesLoaded")
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"68"),"loadedSoFar")
+                     subtract
+                     callpropvoid QName(PackageNamespace(""),"emit"), 1
+                     getlocal0
+                     getlocal1
+                     getproperty QName(PackageNamespace(""),"bytesLoaded")
+                     initproperty QName(PrivateNamespace(null,"68"),"loadedSoFar")
+                     getlocal1
+                     getproperty QName(PackageNamespace(""),"bytesLoaded")
+                     getlocal1
+                     getproperty QName(PackageNamespace(""),"bytesTotal")
+                     ifne ofs002f
+                     getlocal0
+                     getproperty QName(PackageNamespace(""),"progress")
+                     callpropvoid QName(PackageNamespace(""),"clear"), 0
+            ofs002f:
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function setSound(param1:Sound) : void
+         {
+            trait method QName(PackageNamespace(""),"setSound")
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace("flash.media"),"Sound")
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 2
+                     localcount 2
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        getlocal1
+                        initproperty QName(PrivateNamespace(null,"68"),"sound")
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function playing() : Boolean
+            {
+               trait method QName(PackageNamespace(""),"playing")
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace(""),"Boolean")
+                     
+                     body
+                        maxstack 1
+                        localcount 1
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"68"),"isPlaying")
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function play(param1:Number = 0, param2:int = 0, param3:SoundTransform = null) : SoundChannel
+               {
+                  trait method QName(PackageNamespace(""),"play")
+                     dispid 0
+                     method
+                        name null
+                        flag HAS_OPTIONAL
+                        param QName(PackageNamespace(""),"Number")
+                        param QName(PackageNamespace(""),"int")
+                        param QName(PackageNamespace("flash.media"),"SoundTransform")
+                        optional Integer(0)
+                        optional Integer(0)
+                        optional Null()
+                        returns QName(PackageNamespace("flash.media"),"SoundChannel")
+                        
+                        body
+                           maxstack 6
+                           localcount 6
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal0
+                              pushtrue
+                              initproperty QName(PrivateNamespace(null,"68"),"isPlaying")
+                              getlocal0
+                              pushfalse
+                              initproperty QName(PrivateNamespace(null,"68"),"paused")
+                              getlocal0
+                              findpropstrict QName(PackageNamespace("flash.utils"),"Timer")
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"68"),"sound")
+                              getproperty QName(PackageNamespace(""),"length")
+                              getlocal0
+                              getproperty QName(PackageNamespace(""),"startMilliseconds")
+                              subtract
+                              getlocal0
+                              getproperty QName(PackageNamespace(""),"endMilliseconds")
+                              subtract
+                              pushbyte 1
+                              constructprop QName(PackageNamespace("flash.utils"),"Timer"), 2
+                              initproperty QName(PrivateNamespace(null,"68"),"endTimer")
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"68"),"endTimer")
+                              getlex QName(PackageNamespace("flash.events"),"TimerEvent")
+                              getproperty QName(PackageNamespace(""),"TIMER")
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"68"),"soundComplete")
+                              pushfalse
+                              pushbyte 0
+                              pushtrue
+                              callpropvoid QName(PackageNamespace(""),"addEventListener"), 5
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"68"),"endTimer")
+                              callpropvoid QName(PackageNamespace(""),"start"), 0
+                              getlocal1
+                              pushbyte 0
+                              equals
+                              iffalse ofs0058
+                              getlocal0
+                              getproperty QName(PackageNamespace(""),"startMilliseconds")
+                              convert_d
+                              jump ofs005b
+                     ofs0058:
+                              pushbyte 0
+                              convert_d
+                     ofs005b:
+                              convert_d
+                              setlocal 4
+                              getlocal0
+                              getlocal3
+                              callproperty QName(PackageNamespace(""),"setCurrentTransform"), 1
+                              coerce QName(PackageNamespace("flash.media"),"SoundTransform")
+                              setlocal 5
+                              getlocal 4
+                              pushbyte 0
+                              equals
+                              dup
+                              iffalse ofs0078
+                              pop
+                              getlocal1
+                              pushbyte 0
+                              equals
+                              not
+                     ofs0078:
+                              iffalse ofs0080
+                              getlocal1
+                              convert_d
+                              setlocal 4
+                     ofs0080:
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"68"),"sound")
+                              getlocal 4
+                              getlocal2
+                              getlocal 5
+                              callproperty QName(PackageNamespace(""),"play"), 3
+                              returnvalue
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function stop() : void
+                  {
+                     trait method QName(PackageNamespace(""),"stop")
+                        dispid 0
+                        method
+                           name null
+                           returns QName(PackageNamespace(""),"void")
+                           
+                           body
+                              maxstack 2
+                              localcount 1
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal0
+                                 pushfalse
+                                 initproperty QName(PrivateNamespace(null,"68"),"isPlaying")
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"68"),"endTimer")
+                                 iffalse ofs001f
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"68"),"endTimer")
+                                 callpropvoid QName(PackageNamespace(""),"stop"), 0
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"68"),"endTimer")
+                                 callpropvoid QName(PackageNamespace(""),"reset"), 0
+                        ofs001f:
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"68"),"saveAtFinish")
+                                 iffalse ofs0030
+                                 getlocal0
+                                 pushfalse
+                                 initproperty QName(PrivateNamespace(null,"68"),"saveAtFinish")
+                                 jump ofs0039
+                        ofs0030:
+                                 getlocal0
+                                 findpropstrict QName(PackageNamespace(""),"Array")
+                                 constructprop QName(PackageNamespace(""),"Array"), 0
+                                 initproperty QName(PrivateNamespace(null,"68"),"atFinish")
+                        ofs0039:
+                                 getlocal0
+                                 pushnull
+                                 initproperty QName(PrivateNamespace(null,"68"),"currentSndTr")
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     public function isPaused() : Boolean
+                     {
+                        trait method QName(PackageNamespace(""),"isPaused")
+                           dispid 0
+                           method
+                              name null
+                              returns QName(PackageNamespace(""),"Boolean")
+                              
+                              body
+                                 maxstack 1
+                                 localcount 1
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"68"),"paused")
+                                    returnvalue
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        public function pause(param1:Number) : void
+                        {
+                           trait method QName(PackageNamespace(""),"pause")
+                              dispid 0
+                              method
+                                 name null
+                                 param QName(PackageNamespace(""),"Number")
+                                 returns QName(PackageNamespace(""),"void")
+                                 
+                                 body
+                                    maxstack 2
+                                    localcount 2
+                                    initscopedepth 4
+                                    maxscopedepth 5
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       getlocal0
+                                       pushfalse
+                                       initproperty QName(PrivateNamespace(null,"68"),"isPlaying")
+                                       getlocal0
+                                       pushtrue
+                                       initproperty QName(PrivateNamespace(null,"68"),"paused")
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"68"),"endTimer")
+                                       iffalse ofs001c
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"68"),"endTimer")
+                                       callpropvoid QName(PackageNamespace(""),"stop"), 0
+                              ofs001c:
+                                       getlocal0
+                                       pushtrue
+                                       initproperty QName(PrivateNamespace(null,"68"),"saveAtFinish")
+                                       getlocal0
+                                       getlocal1
+                                       initproperty QName(PrivateNamespace(null,"68"),"positionToResume")
+                                       returnvoid
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           public function setCurrentTransform(param1:SoundTransform) : SoundTransform
+                           {
+                              trait method QName(PackageNamespace(""),"setCurrentTransform")
+                                 dispid 0
+                                 method
+                                    name null
+                                    param QName(PackageNamespace("flash.media"),"SoundTransform")
+                                    returns QName(PackageNamespace("flash.media"),"SoundTransform")
+                                    
+                                    body
+                                       maxstack 2
+                                       localcount 3
+                                       initscopedepth 4
+                                       maxscopedepth 5
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          pushnull
+                                          coerce QName(PackageNamespace("flash.media"),"SoundTransform")
+                                          setlocal2
+                                          getlocal1
+                                          pushnull
+                                          ifne ofs0034
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"68"),"currentSndTr")
+                                          iffalse ofs001f
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"68"),"currentSndTr")
+                                          coerce QName(PackageNamespace("flash.media"),"SoundTransform")
+                                          setlocal2
+                                          jump ofs0030
+                                 ofs001f:
+                                          findpropstrict QName(PackageNamespace("flash.media"),"SoundTransform")
+                                          getlocal0
+                                          getproperty QName(PackageNamespace(""),"volume")
+                                          constructprop QName(PackageNamespace("flash.media"),"SoundTransform"), 1
+                                          coerce QName(PackageNamespace("flash.media"),"SoundTransform")
+                                          setlocal2
+                                          getlocal0
+                                          getlocal2
+                                          initproperty QName(PrivateNamespace(null,"68"),"currentSndTr")
+                                 ofs0030:
+                                          jump ofs003d
+                                 ofs0034:
+                                          getlocal1
+                                          coerce QName(PackageNamespace("flash.media"),"SoundTransform")
+                                          setlocal2
+                                          getlocal0
+                                          getlocal2
+                                          initproperty QName(PrivateNamespace(null,"68"),"currentSndTr")
+                                 ofs003d:
+                                          getlocal2
+                                          returnvalue
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                              
+                              public function resume() : SoundChannel
+                              {
+                                 trait method QName(PackageNamespace(""),"resume")
+                                    dispid 0
+                                    method
+                                       name null
+                                       returns QName(PackageNamespace("flash.media"),"SoundChannel")
+                                       
+                                       body
+                                          maxstack 4
+                                          localcount 3
+                                          initscopedepth 4
+                                          maxscopedepth 5
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             pushbyte 0
+                                             setlocal2
+                                             getlocal0
+                                             pushtrue
+                                             initproperty QName(PrivateNamespace(null,"68"),"isPlaying")
+                                             getlocal0
+                                             pushfalse
+                                             initproperty QName(PrivateNamespace(null,"68"),"paused")
+                                             getlocal0
+                                             getproperty QName(PrivateNamespace(null,"68"),"endTimer")
+                                             iffalse ofs0066
+                                             getlocal0
+                                             getproperty QName(PrivateNamespace(null,"68"),"sound")
+                                             getproperty QName(PackageNamespace(""),"length")
+                                             getlocal0
+                                             getproperty QName(PrivateNamespace(null,"68"),"positionToResume")
+                                             subtract
+                                             getlocal0
+                                             getproperty QName(PackageNamespace(""),"endMilliseconds")
+                                             subtract
+                                             convert_i
+                                             setlocal2
+                                             getlocal2
+                                             pushbyte 0
+                                             ifnlt ofs0034
+                                             pushbyte 1
+                                             setlocal2
+                                    ofs0034:
+                                             getlocal0
+                                             getproperty QName(PrivateNamespace(null,"68"),"endTimer")
+                                             getlocal2
+                                             setproperty QName(PackageNamespace(""),"delay")
+                                             getlocal0
+                                             getproperty QName(PrivateNamespace(null,"68"),"endTimer")
+                                             getlex QName(PackageNamespace("flash.events"),"TimerEvent")
+                                             getproperty QName(PackageNamespace(""),"TIMER")
+                                             callproperty QName(PackageNamespace(""),"hasEventListener"), 1
+                                             iftrue ofs005e
+                                             getlocal0
+                                             getproperty QName(PrivateNamespace(null,"68"),"endTimer")
+                                             getlex QName(PackageNamespace("flash.events"),"TimerEvent")
+                                             getproperty QName(PackageNamespace(""),"TIMER")
+                                             getlocal0
+                                             getproperty QName(PrivateNamespace(null,"68"),"soundComplete")
+                                             callpropvoid QName(PackageNamespace(""),"addEventListener"), 2
+                                    ofs005e:
+                                             getlocal0
+                                             getproperty QName(PrivateNamespace(null,"68"),"endTimer")
+                                             callpropvoid QName(PackageNamespace(""),"start"), 0
+                                    ofs0066:
+                                             getlocal0
+                                             getlocal0
+                                             getproperty QName(PrivateNamespace(null,"68"),"currentSndTr")
+                                             callproperty QName(PackageNamespace(""),"setCurrentTransform"), 1
+                                             coerce QName(PackageNamespace("flash.media"),"SoundTransform")
+                                             setlocal1
+                                             getlocal0
+                                             getproperty QName(PrivateNamespace(null,"68"),"sound")
+                                             getlocal0
+                                             getproperty QName(PrivateNamespace(null,"68"),"positionToResume")
+                                             pushbyte 0
+                                             getlocal1
+                                             callproperty QName(PackageNamespace(""),"play"), 3
+                                             returnvalue
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                 }
+                                 
+                                 public function onFinish(param1:Function) : void
+                                 {
+                                    trait method QName(PackageNamespace(""),"onFinish")
+                                       dispid 0
+                                       method
+                                          name null
+                                          param QName(PackageNamespace(""),"Function")
+                                          returns QName(PackageNamespace(""),"void")
+                                          
+                                          body
+                                             maxstack 2
+                                             localcount 2
+                                             initscopedepth 4
+                                             maxscopedepth 5
+                                             
+                                             code
+                                                getlocal0
+                                                pushscope
+                                                getlocal0
+                                                getproperty QName(PrivateNamespace(null,"68"),"atFinish")
+                                                getlocal1
+                                                callpropvoid QName(Namespace("http://adobe.com/AS3/2006/builtin"),"push"), 1
+                                                returnvoid
+                                             end ; code
+                                          end ; body
+                                       end ; method
+                                    }
+                                    
+                                    private function soundComplete(param1:TimerEvent) : void
+                                    {
+                                       trait method QName(PrivateNamespace(null,"68"),"soundComplete")
+                                          dispid 0
+                                          method
+                                             name null
+                                             param QName(PackageNamespace("flash.events"),"TimerEvent")
+                                             returns QName(PackageNamespace(""),"void")
+                                             
+                                             body
+                                                maxstack 3
+                                                localcount 6
+                                                initscopedepth 4
+                                                maxscopedepth 5
+                                                
+                                                code
+                                                   getlocal0
+                                                   pushscope
+                                                   pushnull
+                                                   coerce QName(PackageNamespace(""),"Function")
+                                                   setlocal3
+                                                   getlocal0
+                                                   pushfalse
+                                                   initproperty QName(PrivateNamespace(null,"68"),"isPlaying")
+                                                   getlocal0
+                                                   getproperty QName(PrivateNamespace(null,"68"),"endTimer")
+                                                   getlex QName(PackageNamespace("flash.events"),"TimerEvent")
+                                                   getproperty QName(PackageNamespace(""),"TIMER")
+                                                   getlocal0
+                                                   getproperty QName(PrivateNamespace(null,"68"),"soundComplete")
+                                                   callpropvoid QName(PackageNamespace(""),"removeEventListener"), 2
+                                                   findpropstrict QName(PackageNamespace(""),"Array")
+                                                   constructprop QName(PackageNamespace(""),"Array"), 0
+                                                   coerce QName(PackageNamespace(""),"Array")
+                                                   setlocal2
+                                                   pushbyte 0
+                                                   setlocal 4
+                                                   getlocal0
+                                                   getproperty QName(PrivateNamespace(null,"68"),"atFinish")
+                                                   coerce_a
+                                                   setlocal 5
+                                                   jump ofs0042
+                                          ofs0033:
+                                                   label
+                                                   getlocal 5
+                                                   getlocal 4
+                                                   nextvalue
+                                                   coerce QName(PackageNamespace(""),"Function")
+                                                   setlocal3
+                                                   getlocal2
+                                                   getlocal3
+                                                   callpropvoid QName(Namespace("http://adobe.com/AS3/2006/builtin"),"push"), 1
+                                          ofs0042:
+                                                   hasnext2 5, 4
+                                                   iftrue ofs0033
+                                                   kill 5
+                                                   kill 4
+                                                   getlocal0
+                                                   findpropstrict QName(PackageNamespace(""),"Array")
+                                                   constructprop QName(PackageNamespace(""),"Array"), 0
+                                                   initproperty QName(PrivateNamespace(null,"68"),"atFinish")
+                                                   pushbyte 0
+                                                   setlocal 4
+                                                   getlocal2
+                                                   coerce_a
+                                                   setlocal 5
+                                                   jump ofs0074
+                                          ofs0062:
+                                                   label
+                                                   getlocal 5
+                                                   getlocal 4
+                                                   nextvalue
+                                                   coerce QName(PackageNamespace(""),"Function")
+                                                   setlocal3
+                                                   getlocal3
+                                                   getglobalscope
+                                                   getlocal0
+                                                   getproperty QName(PrivateNamespace(null,"68"),"name")
+                                                   call 1
+                                                   pop
+                                          ofs0074:
+                                                   hasnext2 5, 4
+                                                   iftrue ofs0062
+                                                   kill 5
+                                                   kill 4
+                                                   returnvoid
+                                                end ; code
+                                             end ; body
+                                          end ; method
+                                       }
+                                       
+                                       public function addEventListener(param1:String, param2:Function, param3:Boolean = false, param4:int = 0, param5:Boolean = false) : void
+                                       {
+                                          trait method QName(PackageNamespace(""),"addEventListener")
+                                             dispid 0
+                                             method
+                                                name null
+                                                flag HAS_OPTIONAL
+                                                param QName(PackageNamespace(""),"String")
+                                                param QName(PackageNamespace(""),"Function")
+                                                param QName(PackageNamespace(""),"Boolean")
+                                                param QName(PackageNamespace(""),"int")
+                                                param QName(PackageNamespace(""),"Boolean")
+                                                optional False()
+                                                optional Integer(0)
+                                                optional False()
+                                                returns QName(PackageNamespace(""),"void")
+                                                
+                                                body
+                                                   maxstack 6
+                                                   localcount 6
+                                                   initscopedepth 4
+                                                   maxscopedepth 5
+                                                   
+                                                   code
+                                                      getlocal0
+                                                      pushscope
+                                                      getlocal0
+                                                      getproperty QName(PrivateNamespace(null,"68"),"sound")
+                                                      getlocal1
+                                                      getlocal2
+                                                      getlocal3
+                                                      getlocal 4
+                                                      getlocal 5
+                                                      callpropvoid QName(PackageNamespace(""),"addEventListener"), 5
+                                                      returnvoid
+                                                   end ; code
+                                                end ; body
+                                             end ; method
+                                          }
+                                          
+                                          public function dispatchEvent(param1:Event) : Boolean
+                                          {
+                                             trait method QName(PackageNamespace(""),"dispatchEvent")
+                                                dispid 0
+                                                method
+                                                   name null
+                                                   param QName(PackageNamespace("flash.events"),"Event")
+                                                   returns QName(PackageNamespace(""),"Boolean")
+                                                   
+                                                   body
+                                                      maxstack 2
+                                                      localcount 2
+                                                      initscopedepth 4
+                                                      maxscopedepth 5
+                                                      
+                                                      code
+                                                         getlocal0
+                                                         pushscope
+                                                         getlocal0
+                                                         getproperty QName(PrivateNamespace(null,"68"),"sound")
+                                                         getlocal1
+                                                         callproperty QName(PackageNamespace(""),"dispatchEvent"), 1
+                                                         returnvalue
+                                                      end ; code
+                                                   end ; body
+                                                end ; method
+                                             }
+                                             
+                                             public function hasEventListener(param1:String) : Boolean
+                                             {
+                                                trait method QName(PackageNamespace(""),"hasEventListener")
+                                                   dispid 0
+                                                   method
+                                                      name null
+                                                      param QName(PackageNamespace(""),"String")
+                                                      returns QName(PackageNamespace(""),"Boolean")
+                                                      
+                                                      body
+                                                         maxstack 2
+                                                         localcount 2
+                                                         initscopedepth 4
+                                                         maxscopedepth 5
+                                                         
+                                                         code
+                                                            getlocal0
+                                                            pushscope
+                                                            getlocal0
+                                                            getproperty QName(PrivateNamespace(null,"68"),"sound")
+                                                            getlocal1
+                                                            callproperty QName(PackageNamespace(""),"hasEventListener"), 1
+                                                            returnvalue
+                                                         end ; code
+                                                      end ; body
+                                                   end ; method
+                                                }
+                                                
+                                                public function removeEventListener(param1:String, param2:Function, param3:Boolean = false) : void
+                                                {
+                                                   trait method QName(PackageNamespace(""),"removeEventListener")
+                                                      dispid 0
+                                                      method
+                                                         name null
+                                                         flag HAS_OPTIONAL
+                                                         param QName(PackageNamespace(""),"String")
+                                                         param QName(PackageNamespace(""),"Function")
+                                                         param QName(PackageNamespace(""),"Boolean")
+                                                         optional False()
+                                                         returns QName(PackageNamespace(""),"void")
+                                                         
+                                                         body
+                                                            maxstack 4
+                                                            localcount 4
+                                                            initscopedepth 4
+                                                            maxscopedepth 5
+                                                            
+                                                            code
+                                                               getlocal0
+                                                               pushscope
+                                                               getlocal0
+                                                               getproperty QName(PrivateNamespace(null,"68"),"sound")
+                                                               getlocal1
+                                                               getlocal2
+                                                               getlocal3
+                                                               callpropvoid QName(PackageNamespace(""),"removeEventListener"), 3
+                                                               returnvoid
+                                                            end ; code
+                                                         end ; body
+                                                      end ; method
+                                                   }
+                                                   
+                                                   public function willTrigger(param1:String) : Boolean
+                                                   {
+                                                      trait method QName(PackageNamespace(""),"willTrigger")
+                                                         dispid 0
+                                                         method
+                                                            name null
+                                                            param QName(PackageNamespace(""),"String")
+                                                            returns QName(PackageNamespace(""),"Boolean")
+                                                            
+                                                            body
+                                                               maxstack 2
+                                                               localcount 2
+                                                               initscopedepth 4
+                                                               maxscopedepth 5
+                                                               
+                                                               code
+                                                                  getlocal0
+                                                                  pushscope
+                                                                  getlocal0
+                                                                  getproperty QName(PrivateNamespace(null,"68"),"sound")
+                                                                  getlocal1
+                                                                  callproperty QName(PackageNamespace(""),"willTrigger"), 1
+                                                                  returnvalue
+                                                               end ; code
+                                                            end ; body
+                                                         end ; method
+                                                      }
+                                                   }
+                                                }
+                                                
+                                                method
+                                                   name null
+                                                   returns null
+                                                   
+                                                   body
+                                                      maxstack 2
+                                                      localcount 1
+                                                      initscopedepth 1
+                                                      maxscopedepth 3
+                                                      
+                                                      code
+                                                         getlocal0
+                                                         pushscope
+                                                         findpropstrict Multiname("cbSound",[PackageNamespace("cb.media")])
+                                                         getlex QName(PackageNamespace(""),"Object")
+                                                         pushscope
+                                                         getlex QName(PackageNamespace(""),"Object")
+                                                         newclass 112
+                                                         popscope
+                                                         initproperty QName(PackageNamespace("cb.media"),"cbSound")
+                                                         returnvoid
+                                                      end ; code
+                                                   end ; body
+                                                end ; method
+                                                

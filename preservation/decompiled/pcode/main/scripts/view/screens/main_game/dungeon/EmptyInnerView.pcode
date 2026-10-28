@@ -1,0 +1,206 @@
+package view.screens.main_game.dungeon
+{
+   import view.screens.main_game.boss_dungeon.InnerBossDungeonView;
+   
+   public class EmptyInnerView implements InnerBossDungeonView
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var _soundTrack:String;
+      
+      public function EmptyInnerView(param1:String)
+      {
+         method
+            name null
+            param QName(PackageNamespace(""),"String")
+            returns null
+            
+            body
+               maxstack 2
+               localcount 2
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlocal1
+                  initproperty QName(PrivateNamespace(null,"107"),"_soundTrack")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function resume() : void
+      {
+         trait method QName(PackageNamespace(""),"resume")
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 1
+                  localcount 1
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function pause() : void
+         {
+            trait method QName(PackageNamespace(""),"pause")
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 1
+                     localcount 1
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function clear() : void
+            {
+               trait method QName(PackageNamespace(""),"clear")
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 1
+                        localcount 1
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function playMusic() : void
+               {
+                  trait method QName(PackageNamespace(""),"playMusic")
+                     dispid 0
+                     method
+                        name null
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 2
+                           localcount 1
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlex QName(PackageNamespace(""),"main")
+                              getproperty QName(PackageNamespace(""),"soundManager")
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"107"),"_soundTrack")
+                              callpropvoid QName(PackageNamespace(""),"playMusic"), 1
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function stopMusic() : void
+                  {
+                     trait method QName(PackageNamespace(""),"stopMusic")
+                        dispid 0
+                        method
+                           name null
+                           returns QName(PackageNamespace(""),"void")
+                           
+                           body
+                              maxstack 2
+                              localcount 1
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlex QName(PackageNamespace(""),"main")
+                                 getproperty QName(PackageNamespace(""),"soundManager")
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"107"),"_soundTrack")
+                                 callpropvoid QName(PackageNamespace(""),"stopMusic"), 1
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                  }
+               }
+               
+               method
+                  name null
+                  returns null
+                  
+                  body
+                     maxstack 2
+                     localcount 1
+                     initscopedepth 1
+                     maxscopedepth 3
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        findpropstrict Multiname("EmptyInnerView",[PackageNamespace("view.screens.main_game.dungeon")])
+                        getlex QName(PackageNamespace(""),"Object")
+                        pushscope
+                        getlex QName(PackageNamespace(""),"Object")
+                        newclass 186
+                        popscope
+                        initproperty QName(PackageNamespace("view.screens.main_game.dungeon"),"EmptyInnerView")
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+               

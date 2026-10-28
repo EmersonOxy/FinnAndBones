@@ -1,0 +1,603 @@
+package drag_and_drop
+{
+   import cb.signals.Signal;
+   import flash.display.MovieClip;
+   import flash.events.MouseEvent;
+   import main_game.items.Item;
+   
+   public class DragListener
+   {
+      
+      public static const NO_DRAG:int = 1;
+      
+      public static const PASIVE_DRAG:int = 2;
+      
+      public static const ON_DRAG:int = 3;
+      
+      public static const ACTIVE_DRAG:int = 4;
+      
+      public static const DRAGGER:int = 5;
+      
+      public static const RECEIVER:int = 6;
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(PackageNamespace(""),"NO_DRAG")
+               pushbyte 1
+               initproperty QName(PackageNamespace(""),"NO_DRAG")
+               findproperty QName(PackageNamespace(""),"PASIVE_DRAG")
+               pushbyte 2
+               initproperty QName(PackageNamespace(""),"PASIVE_DRAG")
+               findproperty QName(PackageNamespace(""),"ON_DRAG")
+               pushbyte 3
+               initproperty QName(PackageNamespace(""),"ON_DRAG")
+               findproperty QName(PackageNamespace(""),"ACTIVE_DRAG")
+               pushbyte 4
+               initproperty QName(PackageNamespace(""),"ACTIVE_DRAG")
+               findproperty QName(PackageNamespace(""),"DRAGGER")
+               pushbyte 5
+               initproperty QName(PackageNamespace(""),"DRAGGER")
+               findproperty QName(PackageNamespace(""),"RECEIVER")
+               pushbyte 6
+               initproperty QName(PackageNamespace(""),"RECEIVER")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public var onStart:Signal;
+      
+      public var onEnd:Signal;
+      
+      private var mc:MovieClip;
+      
+      private var container:IDragContainer;
+      
+      public var dragState:int;
+      
+      public function DragListener(param1:MovieClip, param2:IDragContainer)
+      {
+         method
+            name null
+            param QName(PackageNamespace("flash.display"),"MovieClip")
+            param QName(PackageNamespace("drag_and_drop"),"IDragContainer")
+            returns null
+            
+            body
+               maxstack 2
+               localcount 3
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlocal1
+                  initproperty QName(PrivateNamespace(null,"123"),"mc")
+                  getlocal0
+                  getlocal2
+                  initproperty QName(PrivateNamespace(null,"123"),"container")
+                  getlocal0
+                  getlex QName(PackageNamespace(""),"NO_DRAG")
+                  initproperty QName(PackageNamespace(""),"dragState")
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("cb.signals"),"Signal")
+                  constructprop QName(PackageNamespace("cb.signals"),"Signal"), 0
+                  initproperty QName(PackageNamespace(""),"onEnd")
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("cb.signals"),"Signal")
+                  constructprop QName(PackageNamespace("cb.signals"),"Signal"), 0
+                  initproperty QName(PackageNamespace(""),"onStart")
+                  getlocal0
+                  callpropvoid QName(PrivateNamespace(null,"123"),"addEvents"), 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function isInState(param1:int) : Boolean
+      {
+         trait method QName(PackageNamespace(""),"isInState")
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace(""),"int")
+               returns QName(PackageNamespace(""),"Boolean")
+               
+               body
+                  maxstack 2
+                  localcount 2
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     getproperty QName(PackageNamespace(""),"dragState")
+                     getlocal1
+                     equals
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         private function addEvents() : void
+         {
+            trait method QName(PrivateNamespace(null,"123"),"addEvents")
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 3
+                     localcount 1
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlex QName(PackageNamespace(""),"main")
+                        getproperty QName(PackageNamespace(""),"drag")
+                        getproperty QName(PackageNamespace(""),"beginDrag")
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"123"),"beginDrag")
+                        callpropvoid QName(PackageNamespace(""),"add"), 1
+                        getlex QName(PackageNamespace(""),"main")
+                        getproperty QName(PackageNamespace(""),"drag")
+                        getproperty QName(PackageNamespace(""),"stopDrag")
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"123"),"stopDrag")
+                        callpropvoid QName(PackageNamespace(""),"add"), 1
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"123"),"mc")
+                        getlex QName(PackageNamespace("flash.events"),"MouseEvent")
+                        getproperty QName(PackageNamespace(""),"MOUSE_DOWN")
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"123"),"mouseDown")
+                        callpropvoid QName(PackageNamespace(""),"addEventListener"), 2
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            private function removeEvents() : void
+            {
+               trait method QName(PrivateNamespace(null,"123"),"removeEvents")
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 3
+                        localcount 1
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlex QName(PackageNamespace(""),"main")
+                           getproperty QName(PackageNamespace(""),"drag")
+                           getproperty QName(PackageNamespace(""),"beginDrag")
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"123"),"beginDrag")
+                           callpropvoid QName(PackageNamespace(""),"remove"), 1
+                           getlex QName(PackageNamespace(""),"main")
+                           getproperty QName(PackageNamespace(""),"drag")
+                           getproperty QName(PackageNamespace(""),"stopDrag")
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"123"),"stopDrag")
+                           callpropvoid QName(PackageNamespace(""),"remove"), 1
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"123"),"mc")
+                           getlex QName(PackageNamespace("flash.events"),"MouseEvent")
+                           getproperty QName(PackageNamespace(""),"MOUSE_DOWN")
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"123"),"mouseDown")
+                           callpropvoid QName(PackageNamespace(""),"removeEventListener"), 2
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               private function addDragEvents() : void
+               {
+                  trait method QName(PrivateNamespace(null,"123"),"addDragEvents")
+                     dispid 0
+                     method
+                        name null
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 3
+                           localcount 1
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"123"),"mc")
+                              getlex QName(PackageNamespace("flash.events"),"MouseEvent")
+                              getproperty QName(PackageNamespace(""),"MOUSE_UP")
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"123"),"mouseUp")
+                              callpropvoid QName(PackageNamespace(""),"addEventListener"), 2
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  private function removeDragEvents() : void
+                  {
+                     trait method QName(PrivateNamespace(null,"123"),"removeDragEvents")
+                        dispid 0
+                        method
+                           name null
+                           returns QName(PackageNamespace(""),"void")
+                           
+                           body
+                              maxstack 3
+                              localcount 1
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"123"),"mc")
+                                 getlex QName(PackageNamespace("flash.events"),"MouseEvent")
+                                 getproperty QName(PackageNamespace(""),"MOUSE_UP")
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"123"),"mouseUp")
+                                 callpropvoid QName(PackageNamespace(""),"removeEventListener"), 2
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     private function mouseOver(param1:MouseEvent) : void
+                     {
+                        trait method QName(PrivateNamespace(null,"123"),"mouseOver")
+                           dispid 0
+                           method
+                              name null
+                              param QName(PackageNamespace("flash.events"),"MouseEvent")
+                              returns QName(PackageNamespace(""),"void")
+                              
+                              body
+                                 maxstack 3
+                                 localcount 2
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    getlex QName(PackageNamespace(""),"main")
+                                    getproperty QName(PackageNamespace(""),"drag")
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"123"),"container")
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"123"),"mc")
+                                    callpropvoid QName(PackageNamespace(""),"onMouseOver"), 2
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        private function mouseOut(param1:MouseEvent) : void
+                        {
+                           trait method QName(PrivateNamespace(null,"123"),"mouseOut")
+                              dispid 0
+                              method
+                                 name null
+                                 param QName(PackageNamespace("flash.events"),"MouseEvent")
+                                 returns QName(PackageNamespace(""),"void")
+                                 
+                                 body
+                                    maxstack 3
+                                    localcount 2
+                                    initscopedepth 4
+                                    maxscopedepth 5
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       getlex QName(PackageNamespace(""),"main")
+                                       getproperty QName(PackageNamespace(""),"drag")
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"123"),"container")
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"123"),"mc")
+                                       callpropvoid QName(PackageNamespace(""),"onMouseOut"), 2
+                                       returnvoid
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           private function mouseDown(param1:MouseEvent) : void
+                           {
+                              trait method QName(PrivateNamespace(null,"123"),"mouseDown")
+                                 dispid 0
+                                 method
+                                    name null
+                                    param QName(PackageNamespace("flash.events"),"MouseEvent")
+                                    returns QName(PackageNamespace(""),"void")
+                                    
+                                    body
+                                       maxstack 3
+                                       localcount 3
+                                       initscopedepth 4
+                                       maxscopedepth 5
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"123"),"container")
+                                          callproperty QName(Namespace("drag_and_drop:IDragContainer"),"getContainToDrag"), 0
+                                          coerce QName(PackageNamespace("main_game.items"),"Item")
+                                          setlocal2
+                                          getlocal2
+                                          pushnull
+                                          ifeq ofs002c
+                                          getlocal0
+                                          getlex QName(PackageNamespace(""),"DRAGGER")
+                                          setproperty QName(PackageNamespace(""),"dragState")
+                                          getlex QName(PackageNamespace(""),"main")
+                                          getproperty QName(PackageNamespace(""),"drag")
+                                          getproperty QName(PackageNamespace(""),"beginDrag")
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"123"),"container")
+                                          getlocal2
+                                          callpropvoid QName(PackageNamespace(""),"emit"), 2
+                                 ofs002c:
+                                          returnvoid
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                              
+                              private function mouseUp(param1:MouseEvent) : void
+                              {
+                                 trait method QName(PrivateNamespace(null,"123"),"mouseUp")
+                                    dispid 0
+                                    method
+                                       name null
+                                       param QName(PackageNamespace("flash.events"),"MouseEvent")
+                                       returns QName(PackageNamespace(""),"void")
+                                       
+                                       body
+                                          maxstack 2
+                                          localcount 2
+                                          initscopedepth 4
+                                          maxscopedepth 5
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             getlocal0
+                                             getlex QName(PackageNamespace(""),"RECEIVER")
+                                             setproperty QName(PackageNamespace(""),"dragState")
+                                             getlex QName(PackageNamespace(""),"main")
+                                             getproperty QName(PackageNamespace(""),"drag")
+                                             getproperty QName(PackageNamespace(""),"stopDrag")
+                                             getlocal0
+                                             getproperty QName(PrivateNamespace(null,"123"),"container")
+                                             callpropvoid QName(PackageNamespace(""),"emit"), 1
+                                             returnvoid
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                 }
+                                 
+                                 private function beginDrag(param1:IDragContainer, param2:Item) : void
+                                 {
+                                    trait method QName(PrivateNamespace(null,"123"),"beginDrag")
+                                       dispid 0
+                                       method
+                                          name null
+                                          param QName(PackageNamespace("drag_and_drop"),"IDragContainer")
+                                          param QName(PackageNamespace("main_game.items"),"Item")
+                                          returns QName(PackageNamespace(""),"void")
+                                          
+                                          body
+                                             maxstack 3
+                                             localcount 3
+                                             initscopedepth 4
+                                             maxscopedepth 5
+                                             
+                                             code
+                                                getlocal0
+                                                pushscope
+                                                getlocal0
+                                                getlex QName(PackageNamespace(""),"DRAGGER")
+                                                callproperty QName(PackageNamespace(""),"isInState"), 1
+                                                iftrue ofs004c
+                                                getlocal0
+                                                getproperty QName(PrivateNamespace(null,"123"),"container")
+                                                getlocal2
+                                                getlocal1
+                                                callproperty QName(Namespace("drag_and_drop:IDragContainer"),"itsCompatible"), 2
+                                                iffalse ofs0045
+                                                getlocal0
+                                                getproperty QName(PrivateNamespace(null,"123"),"container")
+                                                getlocal2
+                                                getlocal1
+                                                callproperty QName(Namespace("drag_and_drop:IDragContainer"),"canMoveFrom"), 2
+                                                iffalse ofs0035
+                                                getlocal0
+                                                getlex QName(PackageNamespace(""),"ACTIVE_DRAG")
+                                                setproperty QName(PackageNamespace(""),"dragState")
+                                                jump ofs003c
+                                       ofs0035:
+                                                getlocal0
+                                                getlex QName(PackageNamespace(""),"ON_DRAG")
+                                                setproperty QName(PackageNamespace(""),"dragState")
+                                       ofs003c:
+                                                getlocal0
+                                                callpropvoid QName(PrivateNamespace(null,"123"),"addDragEvents"), 0
+                                                jump ofs004c
+                                       ofs0045:
+                                                getlocal0
+                                                getlex QName(PackageNamespace(""),"PASIVE_DRAG")
+                                                setproperty QName(PackageNamespace(""),"dragState")
+                                       ofs004c:
+                                                getlocal0
+                                                getproperty QName(PackageNamespace(""),"onStart")
+                                                getlocal0
+                                                callpropvoid QName(PackageNamespace(""),"emit"), 1
+                                                returnvoid
+                                             end ; code
+                                          end ; body
+                                       end ; method
+                                    }
+                                    
+                                    private function stopDrag(param1:IDragContainer) : void
+                                    {
+                                       trait method QName(PrivateNamespace(null,"123"),"stopDrag")
+                                          dispid 0
+                                          method
+                                             name null
+                                             param QName(PackageNamespace("drag_and_drop"),"IDragContainer")
+                                             returns QName(PackageNamespace(""),"void")
+                                             
+                                             body
+                                                maxstack 2
+                                                localcount 2
+                                                initscopedepth 4
+                                                maxscopedepth 5
+                                                
+                                                code
+                                                   getlocal0
+                                                   pushscope
+                                                   getlocal0
+                                                   callpropvoid QName(PrivateNamespace(null,"123"),"removeDragEvents"), 0
+                                                   getlocal0
+                                                   getproperty QName(PackageNamespace(""),"onEnd")
+                                                   getlocal0
+                                                   callpropvoid QName(PackageNamespace(""),"emit"), 1
+                                                   getlocal0
+                                                   getlex QName(PackageNamespace(""),"NO_DRAG")
+                                                   setproperty QName(PackageNamespace(""),"dragState")
+                                                   returnvoid
+                                                end ; code
+                                             end ; body
+                                          end ; method
+                                       }
+                                       
+                                       public function clear() : void
+                                       {
+                                          trait method QName(PackageNamespace(""),"clear")
+                                             dispid 0
+                                             method
+                                                name null
+                                                returns QName(PackageNamespace(""),"void")
+                                                
+                                                body
+                                                   maxstack 2
+                                                   localcount 1
+                                                   initscopedepth 4
+                                                   maxscopedepth 5
+                                                   
+                                                   code
+                                                      getlocal0
+                                                      pushscope
+                                                      getlocal0
+                                                      getlex QName(PackageNamespace(""),"ACTIVE_DRAG")
+                                                      callproperty QName(PackageNamespace(""),"isInState"), 1
+                                                      convert_b
+                                                      dup
+                                                      iftrue ofs001a
+                                                      pop
+                                                      getlocal0
+                                                      getlex QName(PackageNamespace(""),"ON_DRAG")
+                                                      callproperty QName(PackageNamespace(""),"isInState"), 1
+                                                      convert_b
+                                             ofs001a:
+                                                      iffalse ofs0023
+                                                      getlocal0
+                                                      callpropvoid QName(PrivateNamespace(null,"123"),"removeDragEvents"), 0
+                                             ofs0023:
+                                                      getlocal0
+                                                      callpropvoid QName(PrivateNamespace(null,"123"),"removeEvents"), 0
+                                                      getlocal0
+                                                      getproperty QName(PackageNamespace(""),"onEnd")
+                                                      callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                                      getlocal0
+                                                      getproperty QName(PackageNamespace(""),"onStart")
+                                                      callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                                      getlocal0
+                                                      pushnull
+                                                      setproperty QName(PackageNamespace(""),"onEnd")
+                                                      getlocal0
+                                                      pushnull
+                                                      setproperty QName(PackageNamespace(""),"onStart")
+                                                      getlocal0
+                                                      pushnull
+                                                      setproperty QName(PrivateNamespace(null,"123"),"mc")
+                                                      getlocal0
+                                                      pushnull
+                                                      setproperty QName(PrivateNamespace(null,"123"),"container")
+                                                      returnvoid
+                                                   end ; code
+                                                end ; body
+                                             end ; method
+                                          }
+                                       }
+                                    }
+                                    
+                                    method
+                                       name null
+                                       returns null
+                                       
+                                       body
+                                          maxstack 2
+                                          localcount 1
+                                          initscopedepth 1
+                                          maxscopedepth 3
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             findpropstrict Multiname("DragListener",[PackageNamespace("drag_and_drop")])
+                                             getlex QName(PackageNamespace(""),"Object")
+                                             pushscope
+                                             getlex QName(PackageNamespace(""),"Object")
+                                             newclass 209
+                                             popscope
+                                             initproperty QName(PackageNamespace("drag_and_drop"),"DragListener")
+                                             returnvoid
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                    

@@ -1,0 +1,435 @@
+package cb.data
+{
+   import cb.utils.cbArray;
+   import flash.utils.Dictionary;
+   
+   public class CsvLoader extends TextLoader
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 4
+            maxscopedepth 5
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function CsvLoader(param1:String)
+      {
+         method
+            name null
+            param QName(PackageNamespace(""),"String")
+            returns null
+            
+            body
+               maxstack 2
+               localcount 2
+               initscopedepth 5
+               maxscopedepth 6
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  getlocal1
+                  constructsuper 1
+                  getlex QName(PackageNamespace(""),"loaded")
+                  getlocal0
+                  getproperty QName(PrivateNamespace(null,"39"),"verifyData")
+                  callpropvoid QName(PackageNamespace(""),"addAtFirst"), 1
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      private function verifyData(param1:TextLoader) : void
+      {
+         trait method QName(PrivateNamespace(null,"39"),"verifyData")
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace("cb.data"),"TextLoader")
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 3
+                  localcount 6
+                  initscopedepth 5
+                  maxscopedepth 6
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     pushnull
+                     coerce_s
+                     setlocal3
+                     getlex QName(PackageNamespace(""),"loaded")
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"39"),"verifyData")
+                     callpropvoid QName(PackageNamespace(""),"remove"), 1
+                     newarray 0
+                     coerce QName(PackageNamespace(""),"Array")
+                     setlocal2
+                     pushbyte 0
+                     setlocal 4
+                     getlex QName(PackageNamespace(""),"data")
+                     coerce_a
+                     setlocal 5
+                     jump ofs003f
+            ofs0023:
+                     label
+                     getlocal 5
+                     getlocal 4
+                     nextvalue
+                     coerce_s
+                     setlocal3
+                     getlocal3
+                     pushstring ""
+                     ifeq ofs003f
+                     getlocal2
+                     getlocal3
+                     pushstring ","
+                     callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"split"), 1
+                     callpropvoid QName(Namespace("http://adobe.com/AS3/2006/builtin"),"push"), 1
+            ofs003f:
+                     hasnext2 5, 4
+                     iftrue ofs0023
+                     kill 5
+                     kill 4
+                     findproperty QName(PackageNamespace(""),"data")
+                     getlex QName(PackageNamespace("cb.utils"),"cbArray")
+                     getlocal2
+                     callproperty QName(PackageNamespace(""),"createFromArray"), 1
+                     initproperty QName(PackageNamespace(""),"data")
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function getLines() : int
+         {
+            trait method QName(PackageNamespace(""),"getLines")
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace(""),"int")
+                  
+                  body
+                     maxstack 1
+                     localcount 1
+                     initscopedepth 5
+                     maxscopedepth 6
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlex QName(PackageNamespace(""),"data")
+                        getproperty Multiname("length",[PrivateNamespace(null,"39"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("cb.data"),PrivateNamespace(null,"208"),PackageInternalNs("cb.data"),ProtectedNamespace("cb.data:CsvLoader"),StaticProtectedNs("cb.data:CsvLoader"),StaticProtectedNs("cb.data:TextLoader")])
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function get(param1:int, param2:int = -1) : Object
+            {
+               trait method QName(PackageNamespace(""),"get")
+                  dispid 0
+                  method
+                     name null
+                     flag HAS_OPTIONAL
+                     param QName(PackageNamespace(""),"int")
+                     param QName(PackageNamespace(""),"int")
+                     optional Integer(-1)
+                     returns QName(PackageNamespace(""),"Object")
+                     
+                     body
+                        maxstack 3
+                        localcount 3
+                        initscopedepth 5
+                        maxscopedepth 6
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal2
+                           pushbyte -1
+                           ifne ofs0012
+                           getlex QName(PackageNamespace(""),"data")
+                           getlocal1
+                           decrement
+                           getproperty MultinameL([PrivateNamespace(null,"39"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("cb.data"),PrivateNamespace(null,"208"),PackageInternalNs("cb.data"),ProtectedNamespace("cb.data:CsvLoader"),StaticProtectedNs("cb.data:CsvLoader"),StaticProtectedNs("cb.data:TextLoader")])
+                           returnvalue
+                  ofs0012:
+                           getlex QName(PackageNamespace(""),"data")
+                           getlocal1
+                           decrement
+                           getproperty MultinameL([PrivateNamespace(null,"39"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("cb.data"),PrivateNamespace(null,"208"),PackageInternalNs("cb.data"),ProtectedNamespace("cb.data:CsvLoader"),StaticProtectedNs("cb.data:CsvLoader"),StaticProtectedNs("cb.data:TextLoader")])
+                           getlocal2
+                           decrement
+                           getproperty MultinameL([PrivateNamespace(null,"39"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("cb.data"),PrivateNamespace(null,"208"),PackageInternalNs("cb.data"),ProtectedNamespace("cb.data:CsvLoader"),StaticProtectedNs("cb.data:CsvLoader"),StaticProtectedNs("cb.data:TextLoader")])
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function getColumns() : int
+               {
+                  trait method QName(PackageNamespace(""),"getColumns")
+                     dispid 0
+                     method
+                        name null
+                        returns QName(PackageNamespace(""),"int")
+                        
+                        body
+                           maxstack 2
+                           localcount 1
+                           initscopedepth 5
+                           maxscopedepth 6
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlex QName(PackageNamespace(""),"data")
+                              pushbyte 0
+                              getproperty MultinameL([PrivateNamespace(null,"39"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("cb.data"),PrivateNamespace(null,"208"),PackageInternalNs("cb.data"),ProtectedNamespace("cb.data:CsvLoader"),StaticProtectedNs("cb.data:CsvLoader"),StaticProtectedNs("cb.data:TextLoader")])
+                              getproperty Multiname("length",[PrivateNamespace(null,"39"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("cb.data"),PrivateNamespace(null,"208"),PackageInternalNs("cb.data"),ProtectedNamespace("cb.data:CsvLoader"),StaticProtectedNs("cb.data:CsvLoader"),StaticProtectedNs("cb.data:TextLoader")])
+                              returnvalue
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function convertToObjects() : Dictionary
+                  {
+                     trait method QName(PackageNamespace(""),"convertToObjects")
+                        dispid 0
+                        method
+                           name null
+                           returns QName(PackageNamespace("flash.utils"),"Dictionary")
+                           
+                           body
+                              maxstack 5
+                              localcount 9
+                              initscopedepth 5
+                              maxscopedepth 6
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 pushnull
+                                 coerce_s
+                                 setlocal 4
+                                 pushbyte 0
+                                 setlocal 5
+                                 pushnull
+                                 coerce QName(PackageNamespace(""),"Object")
+                                 setlocal 6
+                                 pushnull
+                                 coerce_s
+                                 setlocal 7
+                                 pushnull
+                                 coerce QName(PackageNamespace(""),"Array")
+                                 setlocal 8
+                                 newarray 0
+                                 coerce QName(PackageNamespace(""),"Array")
+                                 setlocal1
+                                 findpropstrict QName(PackageNamespace("flash.utils"),"Dictionary")
+                                 constructprop QName(PackageNamespace("flash.utils"),"Dictionary"), 0
+                                 coerce QName(PackageNamespace("flash.utils"),"Dictionary")
+                                 setlocal2
+                                 pushbyte 0
+                                 setlocal3
+                                 jump ofs015b
+                        ofs002c:
+                                 label
+                                 pushstring ""
+                                 setlocal 4
+                                 pushbyte 0
+                                 setlocal 5
+                                 jump ofs0149
+                        ofs0039:
+                                 label
+                                 getlocal3
+                                 pushbyte 0
+                                 ifne ofs0057
+                                 getlocal1
+                                 getlocal 5
+                                 getlex QName(PackageNamespace(""),"data")
+                                 getlocal3
+                                 getproperty MultinameL([PrivateNamespace(null,"39"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("cb.data"),PrivateNamespace(null,"208"),PackageInternalNs("cb.data"),ProtectedNamespace("cb.data:CsvLoader"),StaticProtectedNs("cb.data:CsvLoader"),StaticProtectedNs("cb.data:TextLoader")])
+                                 getlocal 5
+                                 getproperty MultinameL([PrivateNamespace(null,"39"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("cb.data"),PrivateNamespace(null,"208"),PackageInternalNs("cb.data"),ProtectedNamespace("cb.data:CsvLoader"),StaticProtectedNs("cb.data:CsvLoader"),StaticProtectedNs("cb.data:TextLoader")])
+                                 setproperty MultinameL([PrivateNamespace(null,"39"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("cb.data"),PrivateNamespace(null,"208"),PackageInternalNs("cb.data"),ProtectedNamespace("cb.data:CsvLoader"),StaticProtectedNs("cb.data:CsvLoader"),StaticProtectedNs("cb.data:TextLoader")])
+                                 jump ofs0147
+                        ofs0057:
+                                 getlocal 5
+                                 pushbyte 0
+                                 ifne ofs007d
+                                 getlex QName(PackageNamespace(""),"data")
+                                 getlocal3
+                                 getproperty MultinameL([PrivateNamespace(null,"39"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("cb.data"),PrivateNamespace(null,"208"),PackageInternalNs("cb.data"),ProtectedNamespace("cb.data:CsvLoader"),StaticProtectedNs("cb.data:CsvLoader"),StaticProtectedNs("cb.data:TextLoader")])
+                                 getlocal 5
+                                 getproperty MultinameL([PrivateNamespace(null,"39"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("cb.data"),PrivateNamespace(null,"208"),PackageInternalNs("cb.data"),ProtectedNamespace("cb.data:CsvLoader"),StaticProtectedNs("cb.data:CsvLoader"),StaticProtectedNs("cb.data:TextLoader")])
+                                 coerce_s
+                                 setlocal 4
+                                 getlocal2
+                                 getlocal 4
+                                 findpropstrict QName(PackageNamespace(""),"Object")
+                                 constructprop QName(PackageNamespace(""),"Object"), 0
+                                 setproperty MultinameL([PrivateNamespace(null,"39"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("cb.data"),PrivateNamespace(null,"208"),PackageInternalNs("cb.data"),ProtectedNamespace("cb.data:CsvLoader"),StaticProtectedNs("cb.data:CsvLoader"),StaticProtectedNs("cb.data:TextLoader")])
+                                 jump ofs0147
+                        ofs007d:
+                                 getlocal2
+                                 getlocal 4
+                                 getproperty MultinameL([PrivateNamespace(null,"39"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("cb.data"),PrivateNamespace(null,"208"),PackageInternalNs("cb.data"),ProtectedNamespace("cb.data:CsvLoader"),StaticProtectedNs("cb.data:CsvLoader"),StaticProtectedNs("cb.data:TextLoader")])
+                                 coerce QName(PackageNamespace(""),"Object")
+                                 setlocal 6
+                                 getlocal1
+                                 getlocal 5
+                                 getproperty MultinameL([PrivateNamespace(null,"39"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("cb.data"),PrivateNamespace(null,"208"),PackageInternalNs("cb.data"),ProtectedNamespace("cb.data:CsvLoader"),StaticProtectedNs("cb.data:CsvLoader"),StaticProtectedNs("cb.data:TextLoader")])
+                                 coerce_s
+                                 dup
+                                 setlocal 7
+                                 pushstring "."
+                                 callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"split"), 1
+                                 coerce QName(PackageNamespace(""),"Array")
+                                 dup
+                                 setlocal 8
+                                 getproperty QName(PackageNamespace(""),"length")
+                                 pushbyte 1
+                                 ifngt ofs00e2
+                                 getlocal 6
+                                 getlocal 8
+                                 pushbyte 0
+                                 getproperty MultinameL([PrivateNamespace(null,"39"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("cb.data"),PrivateNamespace(null,"208"),PackageInternalNs("cb.data"),ProtectedNamespace("cb.data:CsvLoader"),StaticProtectedNs("cb.data:CsvLoader"),StaticProtectedNs("cb.data:TextLoader")])
+                                 getproperty MultinameL([PrivateNamespace(null,"39"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("cb.data"),PrivateNamespace(null,"208"),PackageInternalNs("cb.data"),ProtectedNamespace("cb.data:CsvLoader"),StaticProtectedNs("cb.data:CsvLoader"),StaticProtectedNs("cb.data:TextLoader")])
+                                 pushnull
+                                 ifne ofs00c8
+                                 getlocal 6
+                                 getlocal 8
+                                 pushbyte 0
+                                 getproperty MultinameL([PrivateNamespace(null,"39"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("cb.data"),PrivateNamespace(null,"208"),PackageInternalNs("cb.data"),ProtectedNamespace("cb.data:CsvLoader"),StaticProtectedNs("cb.data:CsvLoader"),StaticProtectedNs("cb.data:TextLoader")])
+                                 findpropstrict QName(PackageNamespace(""),"Object")
+                                 constructprop QName(PackageNamespace(""),"Object"), 0
+                                 setproperty MultinameL([PrivateNamespace(null,"39"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("cb.data"),PrivateNamespace(null,"208"),PackageInternalNs("cb.data"),ProtectedNamespace("cb.data:CsvLoader"),StaticProtectedNs("cb.data:CsvLoader"),StaticProtectedNs("cb.data:TextLoader")])
+                        ofs00c8:
+                                 getlocal 6
+                                 getlocal 8
+                                 pushbyte 0
+                                 getproperty MultinameL([PrivateNamespace(null,"39"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("cb.data"),PrivateNamespace(null,"208"),PackageInternalNs("cb.data"),ProtectedNamespace("cb.data:CsvLoader"),StaticProtectedNs("cb.data:CsvLoader"),StaticProtectedNs("cb.data:TextLoader")])
+                                 getproperty MultinameL([PrivateNamespace(null,"39"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("cb.data"),PrivateNamespace(null,"208"),PackageInternalNs("cb.data"),ProtectedNamespace("cb.data:CsvLoader"),StaticProtectedNs("cb.data:CsvLoader"),StaticProtectedNs("cb.data:TextLoader")])
+                                 coerce QName(PackageNamespace(""),"Object")
+                                 setlocal 6
+                                 getlocal 8
+                                 pushbyte 1
+                                 getproperty MultinameL([PrivateNamespace(null,"39"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("cb.data"),PrivateNamespace(null,"208"),PackageInternalNs("cb.data"),ProtectedNamespace("cb.data:CsvLoader"),StaticProtectedNs("cb.data:CsvLoader"),StaticProtectedNs("cb.data:TextLoader")])
+                                 coerce_s
+                                 setlocal 7
+                        ofs00e2:
+                                 getlex QName(PackageNamespace(""),"data")
+                                 getlocal3
+                                 getproperty MultinameL([PrivateNamespace(null,"39"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("cb.data"),PrivateNamespace(null,"208"),PackageInternalNs("cb.data"),ProtectedNamespace("cb.data:CsvLoader"),StaticProtectedNs("cb.data:CsvLoader"),StaticProtectedNs("cb.data:TextLoader")])
+                                 getlocal 5
+                                 getproperty MultinameL([PrivateNamespace(null,"39"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("cb.data"),PrivateNamespace(null,"208"),PackageInternalNs("cb.data"),ProtectedNamespace("cb.data:CsvLoader"),StaticProtectedNs("cb.data:CsvLoader"),StaticProtectedNs("cb.data:TextLoader")])
+                                 pushstring "null"
+                                 ifne ofs0101
+                                 getlocal 6
+                                 getlocal 7
+                                 pushnull
+                                 setproperty MultinameL([PrivateNamespace(null,"39"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("cb.data"),PrivateNamespace(null,"208"),PackageInternalNs("cb.data"),ProtectedNamespace("cb.data:CsvLoader"),StaticProtectedNs("cb.data:CsvLoader"),StaticProtectedNs("cb.data:TextLoader")])
+                                 jump ofs0147
+                        ofs0101:
+                                 findpropstrict QName(PackageNamespace(""),"isNaN")
+                                 getlex QName(PackageNamespace(""),"data")
+                                 getlocal3
+                                 getproperty MultinameL([PrivateNamespace(null,"39"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("cb.data"),PrivateNamespace(null,"208"),PackageInternalNs("cb.data"),ProtectedNamespace("cb.data:CsvLoader"),StaticProtectedNs("cb.data:CsvLoader"),StaticProtectedNs("cb.data:TextLoader")])
+                                 getlocal 5
+                                 getproperty MultinameL([PrivateNamespace(null,"39"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("cb.data"),PrivateNamespace(null,"208"),PackageInternalNs("cb.data"),ProtectedNamespace("cb.data:CsvLoader"),StaticProtectedNs("cb.data:CsvLoader"),StaticProtectedNs("cb.data:TextLoader")])
+                                 callproperty QName(PackageNamespace(""),"isNaN"), 1
+                                 iffalse ofs012f
+                                 getlocal 6
+                                 getlocal 7
+                                 getlex QName(PackageNamespace(""),"data")
+                                 getlocal3
+                                 getproperty MultinameL([PrivateNamespace(null,"39"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("cb.data"),PrivateNamespace(null,"208"),PackageInternalNs("cb.data"),ProtectedNamespace("cb.data:CsvLoader"),StaticProtectedNs("cb.data:CsvLoader"),StaticProtectedNs("cb.data:TextLoader")])
+                                 getlocal 5
+                                 getproperty MultinameL([PrivateNamespace(null,"39"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("cb.data"),PrivateNamespace(null,"208"),PackageInternalNs("cb.data"),ProtectedNamespace("cb.data:CsvLoader"),StaticProtectedNs("cb.data:CsvLoader"),StaticProtectedNs("cb.data:TextLoader")])
+                                 setproperty MultinameL([PrivateNamespace(null,"39"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("cb.data"),PrivateNamespace(null,"208"),PackageInternalNs("cb.data"),ProtectedNamespace("cb.data:CsvLoader"),StaticProtectedNs("cb.data:CsvLoader"),StaticProtectedNs("cb.data:TextLoader")])
+                                 jump ofs0147
+                        ofs012f:
+                                 getlocal 6
+                                 getlocal 7
+                                 findpropstrict QName(PackageNamespace(""),"Number")
+                                 getlex QName(PackageNamespace(""),"data")
+                                 getlocal3
+                                 getproperty MultinameL([PrivateNamespace(null,"39"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("cb.data"),PrivateNamespace(null,"208"),PackageInternalNs("cb.data"),ProtectedNamespace("cb.data:CsvLoader"),StaticProtectedNs("cb.data:CsvLoader"),StaticProtectedNs("cb.data:TextLoader")])
+                                 getlocal 5
+                                 getproperty MultinameL([PrivateNamespace(null,"39"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("cb.data"),PrivateNamespace(null,"208"),PackageInternalNs("cb.data"),ProtectedNamespace("cb.data:CsvLoader"),StaticProtectedNs("cb.data:CsvLoader"),StaticProtectedNs("cb.data:TextLoader")])
+                                 callproperty QName(PackageNamespace(""),"Number"), 1
+                                 setproperty MultinameL([PrivateNamespace(null,"39"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("cb.data"),PrivateNamespace(null,"208"),PackageInternalNs("cb.data"),ProtectedNamespace("cb.data:CsvLoader"),StaticProtectedNs("cb.data:CsvLoader"),StaticProtectedNs("cb.data:TextLoader")])
+                        ofs0147:
+                                 inclocal_i 5
+                        ofs0149:
+                                 getlocal 5
+                                 getlex QName(PackageNamespace(""),"data")
+                                 getlocal3
+                                 getproperty MultinameL([PrivateNamespace(null,"39"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("cb.data"),PrivateNamespace(null,"208"),PackageInternalNs("cb.data"),ProtectedNamespace("cb.data:CsvLoader"),StaticProtectedNs("cb.data:CsvLoader"),StaticProtectedNs("cb.data:TextLoader")])
+                                 getproperty Multiname("length",[PrivateNamespace(null,"39"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("cb.data"),PrivateNamespace(null,"208"),PackageInternalNs("cb.data"),ProtectedNamespace("cb.data:CsvLoader"),StaticProtectedNs("cb.data:CsvLoader"),StaticProtectedNs("cb.data:TextLoader")])
+                                 iflt ofs0039
+                                 inclocal_i 3
+                        ofs015b:
+                                 getlocal3
+                                 getlex QName(PackageNamespace(""),"data")
+                                 getproperty Multiname("length",[PrivateNamespace(null,"39"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace("cb.data"),PrivateNamespace(null,"208"),PackageInternalNs("cb.data"),ProtectedNamespace("cb.data:CsvLoader"),StaticProtectedNs("cb.data:CsvLoader"),StaticProtectedNs("cb.data:TextLoader")])
+                                 iflt ofs002c
+                                 getlocal2
+                                 returnvalue
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                  }
+               }
+               
+               method
+                  name null
+                  returns null
+                  
+                  body
+                     maxstack 2
+                     localcount 1
+                     initscopedepth 1
+                     maxscopedepth 4
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        findpropstrict Multiname("CsvLoader",[PackageNamespace("cb.data")])
+                        getlex QName(PackageNamespace(""),"Object")
+                        pushscope
+                        getlex QName(PackageNamespace("cb.data"),"TextLoader")
+                        pushscope
+                        getlex QName(PackageNamespace("cb.data"),"TextLoader")
+                        newclass 50
+                        popscope
+                        popscope
+                        initproperty QName(PackageNamespace("cb.data"),"CsvLoader")
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+               

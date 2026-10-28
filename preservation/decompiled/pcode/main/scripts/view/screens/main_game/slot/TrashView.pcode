@@ -1,0 +1,440 @@
+package view.screens.main_game.slot
+{
+   import drag_and_drop.DragListener;
+   import flash.display.MovieClip;
+   import flash.events.MouseEvent;
+   import main_game.items.Item;
+   
+   public class TrashView
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var trash:MovieClip;
+      
+      private var drag_listener:DragListener;
+      
+      private var selected:Boolean;
+      
+      public function TrashView()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 2
+               localcount 1
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlex QName(PackageNamespace(""),"main")
+                  getproperty QName(PackageNamespace(""),"game")
+                  callproperty QName(PackageNamespace(""),"getInventory"), 0
+                  callproperty QName(PackageNamespace(""),"getTrash"), 0
+                  getproperty QName(PackageNamespace(""),"onThrow")
+                  getlocal0
+                  getproperty QName(PrivateNamespace(null,"145"),"throwItem")
+                  callpropvoid QName(PackageNamespace(""),"add"), 1
+                  getlocal0
+                  pushfalse
+                  initproperty QName(PrivateNamespace(null,"145"),"selected")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function initialize(param1:MovieClip) : void
+      {
+         trait method QName(PackageNamespace(""),"initialize")
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace("flash.display"),"MovieClip")
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 4
+                  localcount 2
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     getlocal1
+                     setproperty QName(PrivateNamespace(null,"145"),"trash")
+                     getlocal0
+                     findpropstrict QName(PackageNamespace("drag_and_drop"),"DragListener")
+                     getlocal1
+                     getproperty Multiname("hit_box",[PrivateNamespace(null,"145"),PackageNamespace(""),PrivateNamespace(null,"304"),PackageNamespace("view.screens.main_game.slot"),PackageInternalNs("view.screens.main_game.slot"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.slot:TrashView"),StaticProtectedNs("view.screens.main_game.slot:TrashView")])
+                     getlex QName(PackageNamespace(""),"main")
+                     getproperty QName(PackageNamespace(""),"game")
+                     callproperty QName(PackageNamespace(""),"getInventory"), 0
+                     callproperty QName(PackageNamespace(""),"getTrash"), 0
+                     constructprop QName(PackageNamespace("drag_and_drop"),"DragListener"), 2
+                     setproperty QName(PrivateNamespace(null,"145"),"drag_listener")
+                     getlocal0
+                     callpropvoid QName(PrivateNamespace(null,"145"),"stop"), 0
+                     getlocal0
+                     callpropvoid QName(PrivateNamespace(null,"145"),"addEvents"), 0
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         private function addEvents() : void
+         {
+            trait method QName(PrivateNamespace(null,"145"),"addEvents")
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 6
+                     localcount 1
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"145"),"trash")
+                        getproperty Multiname("hit_box",[PrivateNamespace(null,"145"),PackageNamespace(""),PrivateNamespace(null,"304"),PackageNamespace("view.screens.main_game.slot"),PackageInternalNs("view.screens.main_game.slot"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.slot:TrashView"),StaticProtectedNs("view.screens.main_game.slot:TrashView")])
+                        getlex QName(PackageNamespace("flash.events"),"MouseEvent")
+                        getproperty QName(PackageNamespace(""),"ROLL_OVER")
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"145"),"mouseOver")
+                        pushfalse
+                        pushbyte 0
+                        pushtrue
+                        callpropvoid Multiname("addEventListener",[PrivateNamespace(null,"145"),PackageNamespace(""),PrivateNamespace(null,"304"),PackageNamespace("view.screens.main_game.slot"),PackageInternalNs("view.screens.main_game.slot"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.slot:TrashView"),StaticProtectedNs("view.screens.main_game.slot:TrashView")]), 5
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"145"),"trash")
+                        getproperty Multiname("hit_box",[PrivateNamespace(null,"145"),PackageNamespace(""),PrivateNamespace(null,"304"),PackageNamespace("view.screens.main_game.slot"),PackageInternalNs("view.screens.main_game.slot"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.slot:TrashView"),StaticProtectedNs("view.screens.main_game.slot:TrashView")])
+                        getlex QName(PackageNamespace("flash.events"),"MouseEvent")
+                        getproperty QName(PackageNamespace(""),"ROLL_OUT")
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"145"),"mouseOut")
+                        pushfalse
+                        pushbyte 0
+                        pushtrue
+                        callpropvoid Multiname("addEventListener",[PrivateNamespace(null,"145"),PackageNamespace(""),PrivateNamespace(null,"304"),PackageNamespace("view.screens.main_game.slot"),PackageInternalNs("view.screens.main_game.slot"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.slot:TrashView"),StaticProtectedNs("view.screens.main_game.slot:TrashView")]), 5
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            private function removeEvents() : void
+            {
+               trait method QName(PrivateNamespace(null,"145"),"removeEvents")
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 3
+                        localcount 1
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"145"),"trash")
+                           getproperty Multiname("hit_box",[PrivateNamespace(null,"145"),PackageNamespace(""),PrivateNamespace(null,"304"),PackageNamespace("view.screens.main_game.slot"),PackageInternalNs("view.screens.main_game.slot"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.slot:TrashView"),StaticProtectedNs("view.screens.main_game.slot:TrashView")])
+                           getlex QName(PackageNamespace("flash.events"),"MouseEvent")
+                           getproperty QName(PackageNamespace(""),"ROLL_OVER")
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"145"),"mouseOver")
+                           callpropvoid Multiname("removeEventListener",[PrivateNamespace(null,"145"),PackageNamespace(""),PrivateNamespace(null,"304"),PackageNamespace("view.screens.main_game.slot"),PackageInternalNs("view.screens.main_game.slot"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.slot:TrashView"),StaticProtectedNs("view.screens.main_game.slot:TrashView")]), 2
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"145"),"trash")
+                           getproperty Multiname("hit_box",[PrivateNamespace(null,"145"),PackageNamespace(""),PrivateNamespace(null,"304"),PackageNamespace("view.screens.main_game.slot"),PackageInternalNs("view.screens.main_game.slot"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.slot:TrashView"),StaticProtectedNs("view.screens.main_game.slot:TrashView")])
+                           getlex QName(PackageNamespace("flash.events"),"MouseEvent")
+                           getproperty QName(PackageNamespace(""),"ROLL_OUT")
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"145"),"mouseOut")
+                           callpropvoid Multiname("removeEventListener",[PrivateNamespace(null,"145"),PackageNamespace(""),PrivateNamespace(null,"304"),PackageNamespace("view.screens.main_game.slot"),PackageInternalNs("view.screens.main_game.slot"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.slot:TrashView"),StaticProtectedNs("view.screens.main_game.slot:TrashView")]), 2
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               private function mouseOver(param1:MouseEvent) : void
+               {
+                  trait method QName(PrivateNamespace(null,"145"),"mouseOver")
+                     dispid 0
+                     method
+                        name null
+                        param QName(PackageNamespace("flash.events"),"MouseEvent")
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 2
+                           localcount 2
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"145"),"drag_listener")
+                              getproperty QName(PackageNamespace(""),"dragState")
+                              getlex QName(PackageNamespace("drag_and_drop"),"DragListener")
+                              getproperty QName(PackageNamespace(""),"ACTIVE_DRAG")
+                              ifne ofs0018
+                              getlocal0
+                              callpropvoid QName(PrivateNamespace(null,"145"),"select"), 0
+                     ofs0018:
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  private function mouseOut(param1:MouseEvent) : void
+                  {
+                     trait method QName(PrivateNamespace(null,"145"),"mouseOut")
+                        dispid 0
+                        method
+                           name null
+                           param QName(PackageNamespace("flash.events"),"MouseEvent")
+                           returns QName(PackageNamespace(""),"void")
+                           
+                           body
+                              maxstack 1
+                              localcount 2
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal0
+                                 callpropvoid QName(PrivateNamespace(null,"145"),"deselect"), 0
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     private function select() : void
+                     {
+                        trait method QName(PrivateNamespace(null,"145"),"select")
+                           dispid 0
+                           method
+                              name null
+                              returns QName(PackageNamespace(""),"void")
+                              
+                              body
+                                 maxstack 2
+                                 localcount 1
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"145"),"selected")
+                                    iftrue ofs001a
+                                    getlocal0
+                                    pushtrue
+                                    setproperty QName(PrivateNamespace(null,"145"),"selected")
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"145"),"trash")
+                                    pushstring "mouseOver"
+                                    callpropvoid QName(PackageNamespace(""),"gotoAndPlay"), 1
+                           ofs001a:
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        private function deselect() : void
+                        {
+                           trait method QName(PrivateNamespace(null,"145"),"deselect")
+                              dispid 0
+                              method
+                                 name null
+                                 returns QName(PackageNamespace(""),"void")
+                                 
+                                 body
+                                    maxstack 2
+                                    localcount 1
+                                    initscopedepth 4
+                                    maxscopedepth 5
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"145"),"selected")
+                                       iffalse ofs001a
+                                       getlocal0
+                                       pushfalse
+                                       setproperty QName(PrivateNamespace(null,"145"),"selected")
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"145"),"trash")
+                                       pushstring "mouseOut"
+                                       callpropvoid QName(PackageNamespace(""),"gotoAndPlay"), 1
+                              ofs001a:
+                                       returnvoid
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           private function stop() : void
+                           {
+                              trait method QName(PrivateNamespace(null,"145"),"stop")
+                                 dispid 0
+                                 method
+                                    name null
+                                    returns QName(PackageNamespace(""),"void")
+                                    
+                                    body
+                                       maxstack 2
+                                       localcount 1
+                                       initscopedepth 4
+                                       maxscopedepth 5
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"145"),"trash")
+                                          getproperty Multiname("trash",[PrivateNamespace(null,"145"),PackageNamespace(""),PrivateNamespace(null,"304"),PackageNamespace("view.screens.main_game.slot"),PackageInternalNs("view.screens.main_game.slot"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.slot:TrashView"),StaticProtectedNs("view.screens.main_game.slot:TrashView")])
+                                          pushbyte 1
+                                          callpropvoid Multiname("gotoAndStop",[PrivateNamespace(null,"145"),PackageNamespace(""),PrivateNamespace(null,"304"),PackageNamespace("view.screens.main_game.slot"),PackageInternalNs("view.screens.main_game.slot"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.slot:TrashView"),StaticProtectedNs("view.screens.main_game.slot:TrashView")]), 1
+                                          returnvoid
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                              
+                              private function throwItem(param1:Item) : void
+                              {
+                                 trait method QName(PrivateNamespace(null,"145"),"throwItem")
+                                    dispid 0
+                                    method
+                                       name null
+                                       param QName(PackageNamespace("main_game.items"),"Item")
+                                       returns QName(PackageNamespace(""),"void")
+                                       
+                                       body
+                                          maxstack 2
+                                          localcount 2
+                                          initscopedepth 4
+                                          maxscopedepth 5
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             getlocal0
+                                             callpropvoid QName(PrivateNamespace(null,"145"),"deselect"), 0
+                                             getlocal0
+                                             getproperty QName(PrivateNamespace(null,"145"),"trash")
+                                             getproperty Multiname("trash",[PrivateNamespace(null,"145"),PackageNamespace(""),PrivateNamespace(null,"304"),PackageNamespace("view.screens.main_game.slot"),PackageInternalNs("view.screens.main_game.slot"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.slot:TrashView"),StaticProtectedNs("view.screens.main_game.slot:TrashView")])
+                                             pushbyte 1
+                                             callpropvoid Multiname("gotoAndPlay",[PrivateNamespace(null,"145"),PackageNamespace(""),PrivateNamespace(null,"304"),PackageNamespace("view.screens.main_game.slot"),PackageInternalNs("view.screens.main_game.slot"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.slot:TrashView"),StaticProtectedNs("view.screens.main_game.slot:TrashView")]), 1
+                                             returnvoid
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                 }
+                                 
+                                 public function clear() : void
+                                 {
+                                    trait method QName(PackageNamespace(""),"clear")
+                                       dispid 0
+                                       method
+                                          name null
+                                          returns QName(PackageNamespace(""),"void")
+                                          
+                                          body
+                                             maxstack 2
+                                             localcount 1
+                                             initscopedepth 4
+                                             maxscopedepth 5
+                                             
+                                             code
+                                                getlocal0
+                                                pushscope
+                                                getlocal0
+                                                callpropvoid QName(PrivateNamespace(null,"145"),"removeEvents"), 0
+                                                getlocal0
+                                                getproperty QName(PrivateNamespace(null,"145"),"drag_listener")
+                                                callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                                getlocal0
+                                                pushnull
+                                                setproperty QName(PrivateNamespace(null,"145"),"drag_listener")
+                                                getlocal0
+                                                pushnull
+                                                setproperty QName(PrivateNamespace(null,"145"),"trash")
+                                                returnvoid
+                                             end ; code
+                                          end ; body
+                                       end ; method
+                                    }
+                                 }
+                              }
+                              
+                              method
+                                 name null
+                                 returns null
+                                 
+                                 body
+                                    maxstack 2
+                                    localcount 1
+                                    initscopedepth 1
+                                    maxscopedepth 3
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       findpropstrict Multiname("TrashView",[PackageNamespace("view.screens.main_game.slot")])
+                                       getlex QName(PackageNamespace(""),"Object")
+                                       pushscope
+                                       getlex QName(PackageNamespace(""),"Object")
+                                       newclass 248
+                                       popscope
+                                       initproperty QName(PackageNamespace("view.screens.main_game.slot"),"TrashView")
+                                       returnvoid
+                                    end ; code
+                                 end ; body
+                              end ; method
+                              

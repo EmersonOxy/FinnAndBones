@@ -1,0 +1,417 @@
+package main_game.item_containers
+{
+   import cb.signals.Signal;
+   import drag_and_drop.IDragContainer;
+   import main_game.items.Item;
+   
+   public class NullSlot implements ISlot
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var onChangeSignal:Signal;
+      
+      private var content:Item;
+      
+      public function NullSlot()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 2
+               localcount 1
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("cb.signals"),"Signal")
+                  constructprop QName(PackageNamespace("cb.signals"),"Signal"), 0
+                  initproperty QName(PrivateNamespace(null,"160"),"onChangeSignal")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function get onChange() : Signal
+      {
+         trait getter QName(PackageNamespace(""),"onChange")
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace("cb.signals"),"Signal")
+               
+               body
+                  maxstack 1
+                  localcount 1
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"160"),"onChangeSignal")
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function remove(param1:Item) : void
+         {
+            trait method QName(PackageNamespace(""),"remove")
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace("main_game.items"),"Item")
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 1
+                     localcount 2
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function add(param1:Item) : void
+            {
+               trait method QName(PackageNamespace(""),"add")
+                  dispid 0
+                  method
+                     name null
+                     param QName(PackageNamespace("main_game.items"),"Item")
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 2
+                        localcount 2
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getlocal1
+                           setproperty QName(PrivateNamespace(null,"160"),"content")
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function moveFrom(param1:Item, param2:IDragContainer) : void
+               {
+                  trait method QName(PackageNamespace(""),"moveFrom")
+                     dispid 0
+                     method
+                        name null
+                        param QName(PackageNamespace("main_game.items"),"Item")
+                        param QName(PackageNamespace("drag_and_drop"),"IDragContainer")
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 1
+                           localcount 3
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function getContent() : Item
+                  {
+                     trait method QName(PackageNamespace(""),"getContent")
+                        dispid 0
+                        method
+                           name null
+                           returns QName(PackageNamespace("main_game.items"),"Item")
+                           
+                           body
+                              maxstack 1
+                              localcount 1
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"160"),"content")
+                                 returnvalue
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     public function isEmpty() : Boolean
+                     {
+                        trait method QName(PackageNamespace(""),"isEmpty")
+                           dispid 0
+                           method
+                              name null
+                              returns QName(PackageNamespace(""),"Boolean")
+                              
+                              body
+                                 maxstack 2
+                                 localcount 1
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"160"),"content")
+                                    pushnull
+                                    equals
+                                    returnvalue
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        public function canMoveFrom(param1:Item, param2:IDragContainer) : Boolean
+                        {
+                           trait method QName(PackageNamespace(""),"canMoveFrom")
+                              dispid 0
+                              method
+                                 name null
+                                 param QName(PackageNamespace("main_game.items"),"Item")
+                                 param QName(PackageNamespace("drag_and_drop"),"IDragContainer")
+                                 returns QName(PackageNamespace(""),"Boolean")
+                                 
+                                 body
+                                    maxstack 1
+                                    localcount 3
+                                    initscopedepth 4
+                                    maxscopedepth 5
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       pushfalse
+                                       returnvalue
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           public function itsCompatible(param1:Item, param2:IDragContainer) : Boolean
+                           {
+                              trait method QName(PackageNamespace(""),"itsCompatible")
+                                 dispid 0
+                                 method
+                                    name null
+                                    param QName(PackageNamespace("main_game.items"),"Item")
+                                    param QName(PackageNamespace("drag_and_drop"),"IDragContainer")
+                                    returns QName(PackageNamespace(""),"Boolean")
+                                    
+                                    body
+                                       maxstack 1
+                                       localcount 3
+                                       initscopedepth 4
+                                       maxscopedepth 5
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          pushfalse
+                                          returnvalue
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                              
+                              public function canSwap(param1:IDragContainer) : Boolean
+                              {
+                                 trait method QName(PackageNamespace(""),"canSwap")
+                                    dispid 0
+                                    method
+                                       name null
+                                       param QName(PackageNamespace("drag_and_drop"),"IDragContainer")
+                                       returns QName(PackageNamespace(""),"Boolean")
+                                       
+                                       body
+                                          maxstack 1
+                                          localcount 2
+                                          initscopedepth 4
+                                          maxscopedepth 5
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             pushfalse
+                                             returnvalue
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                 }
+                                 
+                                 public function getContainToDrag() : Item
+                                 {
+                                    trait method QName(PackageNamespace(""),"getContainToDrag")
+                                       dispid 0
+                                       method
+                                          name null
+                                          returns QName(PackageNamespace("main_game.items"),"Item")
+                                          
+                                          body
+                                             maxstack 1
+                                             localcount 1
+                                             initscopedepth 4
+                                             maxscopedepth 5
+                                             
+                                             code
+                                                getlocal0
+                                                pushscope
+                                                pushnull
+                                                returnvalue
+                                             end ; code
+                                          end ; body
+                                       end ; method
+                                    }
+                                    
+                                    public function isLocked() : Boolean
+                                    {
+                                       trait method QName(PackageNamespace(""),"isLocked")
+                                          dispid 0
+                                          method
+                                             name null
+                                             returns QName(PackageNamespace(""),"Boolean")
+                                             
+                                             body
+                                                maxstack 1
+                                                localcount 1
+                                                initscopedepth 4
+                                                maxscopedepth 5
+                                                
+                                                code
+                                                   getlocal0
+                                                   pushscope
+                                                   pushtrue
+                                                   returnvalue
+                                                end ; code
+                                             end ; body
+                                          end ; method
+                                       }
+                                       
+                                       public function canRemove(param1:Item) : Boolean
+                                       {
+                                          trait method QName(PackageNamespace(""),"canRemove")
+                                             dispid 0
+                                             method
+                                                name null
+                                                param QName(PackageNamespace("main_game.items"),"Item")
+                                                returns QName(PackageNamespace(""),"Boolean")
+                                                
+                                                body
+                                                   maxstack 1
+                                                   localcount 2
+                                                   initscopedepth 4
+                                                   maxscopedepth 5
+                                                   
+                                                   code
+                                                      getlocal0
+                                                      pushscope
+                                                      pushfalse
+                                                      returnvalue
+                                                   end ; code
+                                                end ; body
+                                             end ; method
+                                          }
+                                          
+                                          public function clear() : void
+                                          {
+                                             trait method QName(PackageNamespace(""),"clear")
+                                                dispid 0
+                                                method
+                                                   name null
+                                                   returns QName(PackageNamespace(""),"void")
+                                                   
+                                                   body
+                                                      maxstack 2
+                                                      localcount 1
+                                                      initscopedepth 4
+                                                      maxscopedepth 5
+                                                      
+                                                      code
+                                                         getlocal0
+                                                         pushscope
+                                                         getlocal0
+                                                         getproperty QName(PrivateNamespace(null,"160"),"onChangeSignal")
+                                                         callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                                         getlocal0
+                                                         pushnull
+                                                         setproperty QName(PrivateNamespace(null,"160"),"onChangeSignal")
+                                                         returnvoid
+                                                      end ; code
+                                                   end ; body
+                                                end ; method
+                                             }
+                                          }
+                                       }
+                                       
+                                       method
+                                          name null
+                                          returns null
+                                          
+                                          body
+                                             maxstack 2
+                                             localcount 1
+                                             initscopedepth 1
+                                             maxscopedepth 3
+                                             
+                                             code
+                                                getlocal0
+                                                pushscope
+                                                findpropstrict Multiname("NullSlot",[PackageNamespace("main_game.item_containers")])
+                                                getlex QName(PackageNamespace(""),"Object")
+                                                pushscope
+                                                getlex QName(PackageNamespace(""),"Object")
+                                                newclass 279
+                                                popscope
+                                                initproperty QName(PackageNamespace("main_game.item_containers"),"NullSlot")
+                                                returnvoid
+                                             end ; code
+                                          end ; body
+                                       end ; method
+                                       

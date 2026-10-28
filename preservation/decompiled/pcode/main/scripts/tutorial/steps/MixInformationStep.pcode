@@ -1,0 +1,309 @@
+package tutorial.steps
+{
+   import flash.display.MovieClip;
+   import main_game.inventory.Inventory;
+   import main_game.item_containers.SlotChange;
+   import tutorial.Tutorial;
+   import tutorial.view.TutorialView;
+   import tutorial.view.TutorialViewWithOk;
+   
+   public class MixInformationStep extends TutorialStep
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 5
+            maxscopedepth 6
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function MixInformationStep(param1:uint, param2:Tutorial)
+      {
+         method
+            name null
+            param QName(PackageNamespace(""),"uint")
+            param QName(PackageNamespace("tutorial"),"Tutorial")
+            returns null
+            
+            body
+               maxstack 6
+               localcount 3
+               initscopedepth 6
+               maxscopedepth 7
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  getlocal1
+                  callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"toString"), 0
+                  getlocal2
+                  getlocal1
+                  pushstring "assets.Tutorial"
+                  getlocal1
+                  callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"toString"), 0
+                  add
+                  constructsuper 4
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      override protected function createView(param1:String) : TutorialView
+      {
+         trait method QName(ProtectedNamespace("tutorial.steps:MixInformationStep"),"createView")
+            flag OVERRIDE
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace(""),"String")
+               returns QName(PackageNamespace("tutorial.view"),"TutorialView")
+               
+               body
+                  maxstack 3
+                  localcount 3
+                  initscopedepth 6
+                  maxscopedepth 7
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     findpropstrict QName(PackageNamespace("tutorial.view"),"TutorialViewWithOk")
+                     getlex QName(PackageNamespace(""),"main")
+                     getproperty QName(PackageNamespace(""),"swfLoader")
+                     getlocal1
+                     callproperty QName(PackageNamespace(""),"getClass"), 1
+                     constructprop QName(PackageNamespace("tutorial.view"),"TutorialViewWithOk"), 1
+                     coerce QName(PackageNamespace("tutorial.view"),"TutorialViewWithOk")
+                     setlocal2
+                     getlocal2
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         override protected function setText(param1:MovieClip) : void
+         {
+            trait method QName(ProtectedNamespace("tutorial.steps:MixInformationStep"),"setText")
+               flag OVERRIDE
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace("flash.display"),"MovieClip")
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 3
+                     localcount 2
+                     initscopedepth 6
+                     maxscopedepth 7
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal1
+                        getproperty Multiname("title",[PrivateNamespace(null,"37"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace(""),PrivateNamespace(null,"204"),PackageNamespace("tutorial.steps"),PackageInternalNs("tutorial.steps"),ProtectedNamespace("tutorial.steps:MixInformationStep"),StaticProtectedNs("tutorial.steps:MixInformationStep"),StaticProtectedNs("tutorial.steps:TutorialStep"),StaticProtectedNs("aplication:BasicState")])
+                        getproperty Multiname("title",[PrivateNamespace(null,"37"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace(""),PrivateNamespace(null,"204"),PackageNamespace("tutorial.steps"),PackageInternalNs("tutorial.steps"),ProtectedNamespace("tutorial.steps:MixInformationStep"),StaticProtectedNs("tutorial.steps:MixInformationStep"),StaticProtectedNs("tutorial.steps:TutorialStep"),StaticProtectedNs("aplication:BasicState")])
+                        getlex QName(PackageNamespace(""),"main")
+                        getproperty QName(PackageNamespace(""),"locale")
+                        pushstring "tutorialMixTitle"
+                        callproperty QName(PackageNamespace(""),"get"), 1
+                        setproperty Multiname("text",[PrivateNamespace(null,"37"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace(""),PrivateNamespace(null,"204"),PackageNamespace("tutorial.steps"),PackageInternalNs("tutorial.steps"),ProtectedNamespace("tutorial.steps:MixInformationStep"),StaticProtectedNs("tutorial.steps:MixInformationStep"),StaticProtectedNs("tutorial.steps:TutorialStep"),StaticProtectedNs("aplication:BasicState")])
+                        getlocal1
+                        getproperty Multiname("text",[PrivateNamespace(null,"37"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace(""),PrivateNamespace(null,"204"),PackageNamespace("tutorial.steps"),PackageInternalNs("tutorial.steps"),ProtectedNamespace("tutorial.steps:MixInformationStep"),StaticProtectedNs("tutorial.steps:MixInformationStep"),StaticProtectedNs("tutorial.steps:TutorialStep"),StaticProtectedNs("aplication:BasicState")])
+                        getproperty Multiname("text",[PrivateNamespace(null,"37"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace(""),PrivateNamespace(null,"204"),PackageNamespace("tutorial.steps"),PackageInternalNs("tutorial.steps"),ProtectedNamespace("tutorial.steps:MixInformationStep"),StaticProtectedNs("tutorial.steps:MixInformationStep"),StaticProtectedNs("tutorial.steps:TutorialStep"),StaticProtectedNs("aplication:BasicState")])
+                        getlex QName(PackageNamespace(""),"main")
+                        getproperty QName(PackageNamespace(""),"locale")
+                        pushstring "tutorialMix2"
+                        callproperty QName(PackageNamespace(""),"get"), 1
+                        setproperty Multiname("text",[PrivateNamespace(null,"37"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace(""),PrivateNamespace(null,"204"),PackageNamespace("tutorial.steps"),PackageInternalNs("tutorial.steps"),ProtectedNamespace("tutorial.steps:MixInformationStep"),StaticProtectedNs("tutorial.steps:MixInformationStep"),StaticProtectedNs("tutorial.steps:TutorialStep"),StaticProtectedNs("aplication:BasicState")])
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            private function get inventory() : Inventory
+            {
+               trait getter QName(PrivateNamespace(null,"37"),"inventory")
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace("main_game.inventory"),"Inventory")
+                     
+                     body
+                        maxstack 1
+                        localcount 1
+                        initscopedepth 6
+                        maxscopedepth 7
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlex QName(PackageNamespace(""),"main")
+                           getproperty QName(PackageNamespace(""),"game")
+                           callproperty QName(PackageNamespace(""),"getInventory"), 0
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               override public function enter() : void
+               {
+                  trait method QName(PackageNamespace(""),"enter")
+                     flag OVERRIDE
+                     dispid 0
+                     method
+                        name null
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 2
+                           localcount 2
+                           initscopedepth 6
+                           maxscopedepth 7
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              pushbyte 0
+                              convert_u
+                              setlocal1
+                              jump ofs0023
+                     ofs000a:
+                              label
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"37"),"inventory")
+                              getlocal1
+                              callproperty QName(PackageNamespace(""),"getSlot"), 1
+                              getproperty QName(PackageNamespace(""),"onChange")
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"37"),"checkForEnoughItems")
+                              callpropvoid QName(PackageNamespace(""),"add"), 1
+                              getlocal1
+                              increment
+                              convert_u
+                              setlocal1
+                     ofs0023:
+                              getlocal1
+                              getlex QName(PackageNamespace("main_game.inventory"),"Inventory")
+                              getproperty QName(PackageNamespace(""),"SLOTS")
+                              iflt ofs000a
+                              getlocal0
+                              callpropvoid QName(PrivateNamespace(null,"37"),"checkForEnoughItems"), 0
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  private function checkForEnoughItems(param1:SlotChange = null) : Boolean
+                  {
+                     trait method QName(PrivateNamespace(null,"37"),"checkForEnoughItems")
+                        dispid 0
+                        method
+                           name null
+                           flag HAS_OPTIONAL
+                           param QName(PackageNamespace("main_game.item_containers"),"SlotChange")
+                           optional Null()
+                           returns QName(PackageNamespace(""),"Boolean")
+                           
+                           body
+                              maxstack 2
+                              localcount 3
+                              initscopedepth 6
+                              maxscopedepth 7
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 pushbyte 0
+                                 convert_u
+                                 setlocal2
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"37"),"inventory")
+                                 getproperty QName(PackageNamespace(""),"fullSlots")
+                                 pushbyte 2
+                                 ifnge ofs004a
+                                 pushbyte 0
+                                 convert_u
+                                 setlocal2
+                                 jump ofs0034
+                        ofs001b:
+                                 label
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"37"),"inventory")
+                                 getlocal2
+                                 callproperty QName(PackageNamespace(""),"getSlot"), 1
+                                 getproperty QName(PackageNamespace(""),"onChange")
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"37"),"checkForEnoughItems")
+                                 callpropvoid QName(PackageNamespace(""),"remove"), 1
+                                 getlocal2
+                                 increment
+                                 convert_u
+                                 setlocal2
+                        ofs0034:
+                                 getlocal2
+                                 getlex QName(PackageNamespace("main_game.inventory"),"Inventory")
+                                 getproperty QName(PackageNamespace(""),"SLOTS")
+                                 iflt ofs001b
+                                 getlex QName(ProtectedNamespace("tutorial.steps:TutorialStep"),"tut")
+                                 callpropvoid QName(PackageNamespace(""),"enableMix"), 0
+                                 getlocal0
+                                 callsupervoid QName(PackageNamespace(""),"enter"), 0
+                        ofs004a:
+                                 pushfalse
+                                 returnvalue
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                  }
+               }
+               
+               method
+                  name null
+                  returns null
+                  
+                  body
+                     maxstack 2
+                     localcount 1
+                     initscopedepth 1
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        findpropstrict Multiname("MixInformationStep",[PackageNamespace("tutorial.steps")])
+                        getlex QName(PackageNamespace(""),"Object")
+                        pushscope
+                        getlex QName(PackageNamespace("aplication"),"BasicState")
+                        pushscope
+                        getlex QName(PackageNamespace("tutorial.steps"),"TutorialStep")
+                        pushscope
+                        getlex QName(PackageNamespace("tutorial.steps"),"TutorialStep")
+                        newclass 47
+                        popscope
+                        popscope
+                        popscope
+                        initproperty QName(PackageNamespace("tutorial.steps"),"MixInformationStep")
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+               

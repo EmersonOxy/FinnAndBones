@@ -1,0 +1,57 @@
+package view.screens.main_game.dungeon
+{
+   import cb.signals.Signal;
+   import flash.display.DisplayObjectContainer;
+   import view.screens.main_game.states.IPausable;
+   
+   public interface EndDungeonWindow extends IPausable
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 0
+            localcount 1
+            initscopedepth 4
+            maxscopedepth 4
+            
+            code
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      function getOnReplay() : Signal;
+      
+      function getOnBackToMap() : Signal;
+      
+      function enter(param1:Function = null) : void;
+      
+      function putIn(param1:DisplayObjectContainer) : void;
+   }
+}
+
+method
+   name null
+   returns null
+   
+   body
+      maxstack 2
+      localcount 1
+      initscopedepth 1
+      maxscopedepth 2
+      
+      code
+         getlocal0
+         pushscope
+         findpropstrict Multiname("EndDungeonWindow",[PackageNamespace("view.screens.main_game.dungeon")])
+         pushnull
+         newclass 168
+         initproperty QName(PackageNamespace("view.screens.main_game.dungeon"),"EndDungeonWindow")
+         returnvoid
+      end ; code
+   end ; body
+end ; method
+

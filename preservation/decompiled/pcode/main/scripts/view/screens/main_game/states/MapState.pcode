@@ -1,0 +1,296 @@
+package view.screens.main_game.states
+{
+   import cb.utils.cbArray;
+   import main_game.map.Level;
+   import main_game.map.Map;
+   import sound.GameSounds;
+   import view.screens.main_game.GameView;
+   import view.screens.main_game.map.MapView;
+   
+   public class MapState extends BasicPausableState
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 5
+            maxscopedepth 6
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var principal:GameView;
+      
+      private var mapView:MapView;
+      
+      private var map:Map;
+      
+      public function MapState(param1:String, param2:GameView, param3:Function = null, param4:Function = null)
+      {
+         method
+            name null
+            flag HAS_OPTIONAL
+            param QName(PackageNamespace(""),"String")
+            param QName(PackageNamespace("view.screens.main_game"),"GameView")
+            param QName(PackageNamespace(""),"Function")
+            param QName(PackageNamespace(""),"Function")
+            optional Null()
+            optional Null()
+            returns null
+            
+            body
+               maxstack 4
+               localcount 5
+               initscopedepth 6
+               maxscopedepth 7
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  getlocal2
+                  initproperty QName(PrivateNamespace(null,"86"),"principal")
+                  getlocal0
+                  getlocal1
+                  getlocal3
+                  getlocal 4
+                  constructsuper 3
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      override public function enter() : void
+      {
+         trait method QName(PackageNamespace(""),"enter")
+            flag OVERRIDE
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 3
+                  localcount 2
+                  initscopedepth 6
+                  maxscopedepth 7
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     getlex QName(PackageNamespace(""),"main")
+                     getproperty QName(PackageNamespace(""),"game")
+                     callproperty QName(PackageNamespace(""),"getMap"), 0
+                     setproperty QName(PrivateNamespace(null,"86"),"map")
+                     getlocal0
+                     findpropstrict QName(PackageNamespace("view.screens.main_game.map"),"MapView")
+                     getlocal0
+                     constructprop QName(PackageNamespace("view.screens.main_game.map"),"MapView"), 1
+                     setproperty QName(PrivateNamespace(null,"86"),"mapView")
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"86"),"mapView")
+                     getproperty QName(PackageNamespace(""),"onToMainMenu")
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"86"),"toMainMenu")
+                     callpropvoid QName(PackageNamespace(""),"add"), 1
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"86"),"mapView")
+                     getproperty QName(PackageNamespace(""),"onToDungeon")
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"86"),"toLevel")
+                     callpropvoid QName(PackageNamespace(""),"add"), 1
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"86"),"principal")
+                     getproperty QName(PackageNamespace(""),"gameHolder")
+                     pushstring "map"
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"86"),"mapView")
+                     setproperty MultinameL([PrivateNamespace(null,"86"),PackageNamespace(""),PrivateNamespace(null,"263"),PackageNamespace("view.screens.main_game.states"),PackageInternalNs("view.screens.main_game.states"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.states:MapState"),StaticProtectedNs("view.screens.main_game.states:MapState"),StaticProtectedNs("view.screens.main_game.states:BasicPausableState"),StaticProtectedNs("aplication:BasicState")])
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"86"),"principal")
+                     getproperty QName(PackageNamespace(""),"gameHolder")
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"86"),"mapView")
+                     callpropvoid QName(PackageNamespace(""),"addChild"), 1
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"86"),"map")
+                     callproperty QName(PackageNamespace(""),"unlockUnlocked"), 0
+                     coerce QName(PackageNamespace("cb.utils"),"cbArray")
+                     setlocal1
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"86"),"mapView")
+                     getlocal1
+                     callpropvoid QName(PackageNamespace(""),"refreshUnlocked"), 1
+                     getlex QName(PackageNamespace(""),"main")
+                     getproperty QName(PackageNamespace(""),"game")
+                     callproperty QName(PackageNamespace(""),"getFinn"), 0
+                     getproperty QName(PackageNamespace(""),"stats")
+                     callpropvoid QName(PackageNamespace(""),"refillHealth"), 0
+                     getlocal0
+                     callsupervoid QName(PackageNamespace(""),"enter"), 0
+                     getlex QName(PackageNamespace(""),"main")
+                     getproperty QName(PackageNamespace(""),"soundManager")
+                     getlex QName(PackageNamespace("sound"),"GameSounds")
+                     getproperty QName(PackageNamespace(""),"MAP_MUSIC")
+                     callpropvoid QName(PackageNamespace(""),"playMusic"), 1
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         override public function leave() : void
+         {
+            trait method QName(PackageNamespace(""),"leave")
+               flag OVERRIDE
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 2
+                     localcount 1
+                     initscopedepth 6
+                     maxscopedepth 7
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"86"),"mapView")
+                        callpropvoid QName(PackageNamespace(""),"close"), 0
+                        getlocal0
+                        pushnull
+                        initproperty QName(PrivateNamespace(null,"86"),"map")
+                        getlocal0
+                        callsupervoid QName(PackageNamespace(""),"leave"), 0
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            private function toMainMenu() : void
+            {
+               trait method QName(PrivateNamespace(null,"86"),"toMainMenu")
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 1
+                        localcount 1
+                        initscopedepth 6
+                        maxscopedepth 7
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"86"),"principal")
+                           callpropvoid QName(PackageNamespace(""),"toMainMenu"), 0
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               private function toLevel(param1:Level) : void
+               {
+                  trait method QName(PrivateNamespace(null,"86"),"toLevel")
+                     dispid 0
+                     method
+                        name null
+                        param QName(PackageNamespace("main_game.map"),"Level")
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 2
+                           localcount 2
+                           initscopedepth 6
+                           maxscopedepth 7
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"86"),"principal")
+                              getlocal1
+                              callpropvoid QName(PackageNamespace(""),"toLevelWaiting"), 1
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function getMap() : Map
+                  {
+                     trait method QName(PackageNamespace(""),"getMap")
+                        dispid 0
+                        method
+                           name null
+                           returns QName(PackageNamespace("main_game.map"),"Map")
+                           
+                           body
+                              maxstack 1
+                              localcount 1
+                              initscopedepth 6
+                              maxscopedepth 7
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"86"),"map")
+                                 returnvalue
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                  }
+               }
+               
+               method
+                  name null
+                  returns null
+                  
+                  body
+                     maxstack 2
+                     localcount 1
+                     initscopedepth 1
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        findpropstrict Multiname("MapState",[PackageNamespace("view.screens.main_game.states")])
+                        getlex QName(PackageNamespace(""),"Object")
+                        pushscope
+                        getlex QName(PackageNamespace("aplication"),"BasicState")
+                        pushscope
+                        getlex QName(PackageNamespace("view.screens.main_game.states"),"BasicPausableState")
+                        pushscope
+                        getlex QName(PackageNamespace("view.screens.main_game.states"),"BasicPausableState")
+                        newclass 146
+                        popscope
+                        popscope
+                        popscope
+                        initproperty QName(PackageNamespace("view.screens.main_game.states"),"MapState")
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+               

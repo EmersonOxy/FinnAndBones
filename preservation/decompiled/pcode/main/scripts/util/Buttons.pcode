@@ -1,0 +1,209 @@
+package util
+{
+   import cb.logger.Log;
+   import flash.display.Sprite;
+   
+   public class Buttons
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function Buttons()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 1
+               localcount 1
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public static function setButtons(param1:Sprite, param2:Array, param3:Boolean) : void
+      {
+         trait method QName(PackageNamespace(""),"setButtons")
+            flag FINAL
+            dispid 3
+            method
+               name null
+               flag NEED_ACTIVATION
+               param QName(PackageNamespace("flash.display"),"Sprite")
+               param QName(PackageNamespace(""),"Array")
+               param QName(PackageNamespace(""),"Boolean")
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 4
+                  localcount 8
+                  initscopedepth 4
+                  maxscopedepth 9
+                  trait slot QName(PackageInternalNs("util"),"container")
+                     slotid 1
+                     type QName(PackageNamespace("flash.display"),"Sprite")
+                  end ; trait
+                  trait slot QName(PackageInternalNs("util"),"buttons")
+                     slotid 2
+                     type QName(PackageNamespace(""),"Array")
+                  end ; trait
+                  trait slot QName(PackageInternalNs("util"),"on")
+                     slotid 3
+                     type QName(PackageNamespace(""),"Boolean")
+                  end ; trait
+                  trait slot QName(PackageInternalNs("util"),"b")
+                     slotid 4
+                     type QName(PackageNamespace(""),"String")
+                  end ; trait
+                  trait slot QName(PackageInternalNs("util"),"doc")
+                     slotid 5
+                     type QName(PackageNamespace("flash.display"),"Sprite")
+                  end ; trait
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     newactivation
+                     dup
+                     setlocal 4
+                     pushscope
+                     getscopeobject 1
+                     pushnull
+                     coerce_s
+                     setslot 4
+                     getscopeobject 1
+                     pushnull
+                     coerce QName(PackageNamespace("flash.display"),"Sprite")
+                     setslot 5
+                     getscopeobject 1
+                     getlocal1
+                     setslot 1
+                     getscopeobject 1
+                     getlocal2
+                     setslot 2
+                     getscopeobject 1
+                     getlocal3
+                     setslot 3
+                     pushbyte 0
+                     setlocal 5
+                     getscopeobject 1
+                     getslot 2
+                     coerce_a
+                     setlocal 6
+                     jump ofs0093
+            ofs0032:
+                     label
+                     getscopeobject 1
+                     getlocal 6
+                     getlocal 5
+                     nextvalue
+                     coerce_s
+                     setslot 4
+            ofs003d:
+                     getscopeobject 1
+                     getlex QName(PackageNamespace("util"),"Util")
+                     getscopeobject 1
+                     getslot 1
+                     getscopeobject 1
+                     getslot 4
+                     callproperty QName(PackageNamespace(""),"getSprite"), 2
+                     coerce QName(PackageNamespace("flash.display"),"Sprite")
+                     setslot 5
+                     getscopeobject 1
+                     getslot 5
+                     getscopeobject 1
+                     getslot 3
+                     setproperty QName(PackageNamespace(""),"buttonMode")
+                     getscopeobject 1
+                     getslot 5
+                     getscopeobject 1
+                     getslot 3
+                     setproperty QName(PackageNamespace(""),"mouseEnabled")
+            ofs0068:
+                     jump ofs0093
+            ofs006c:
+                     getlocal0
+                     pushscope
+                     getlocal 4
+                     pushscope
+                     newcatch 0
+                     dup
+                     setlocal 7
+                     dup
+                     pushscope
+                     swap
+                     setslot 1
+                     getlex QName(PackageNamespace("cb.logger"),"Log")
+                     pushstring "debug"
+                     callproperty QName(PackageNamespace(""),"getLogger"), 1
+                     getscopeobject 2
+                     getslot 1
+                     callproperty QName(PackageNamespace(""),"getStackTrace"), 0
+                     callpropvoid QName(PackageNamespace(""),"log"), 1
+                     popscope
+                     kill 7
+            ofs0093:
+                     hasnext2 6, 5
+                     iftrue ofs0032
+                     kill 6
+                     kill 5
+                     returnvoid
+                  end ; code
+                  try from ofs003d to ofs0068 target ofs006c type QName(PackageNamespace(""),"Error") name QName(PackageNamespace(""),"e") end
+               end ; body
+            end ; method
+         }
+      }
+   }
+   
+   method
+      name null
+      returns null
+      
+      body
+         maxstack 2
+         localcount 1
+         initscopedepth 1
+         maxscopedepth 3
+         
+         code
+            getlocal0
+            pushscope
+            findpropstrict Multiname("Buttons",[PackageNamespace("util")])
+            getlex QName(PackageNamespace(""),"Object")
+            pushscope
+            getlex QName(PackageNamespace(""),"Object")
+            newclass 116
+            popscope
+            initproperty QName(PackageNamespace("util"),"Buttons")
+            returnvoid
+         end ; code
+      end ; body
+   end ; method
+   

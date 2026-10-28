@@ -1,0 +1,457 @@
+package view.screens.main_game.boss_dungeon
+{
+   import cb.gameloop.GameLoop;
+   import main_game.dungeon.Dungeon;
+   import sound.GameSounds;
+   import view.figthers.FinnView;
+   import view.figthers.animations.IFighterAnimation;
+   import view.figthers.animations.IdleAnimation;
+   import view.figthers.animations.RunAnimation;
+   import view.screens.main_game.dungeon.BackgroundView;
+   
+   public class EnterBossDungeon implements InnerBossDungeonView
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var bossDungeonView:BossDungeonView;
+      
+      private var atEnd:Function;
+      
+      private var gameLoop:GameLoop;
+      
+      private var paused:Boolean;
+      
+      private var walk:RunAnimation;
+      
+      public function EnterBossDungeon(param1:BossDungeonView, param2:Function)
+      {
+         method
+            name null
+            param QName(PackageNamespace("view.screens.main_game.boss_dungeon"),"BossDungeonView")
+            param QName(PackageNamespace(""),"Function")
+            returns null
+            
+            body
+               maxstack 3
+               localcount 3
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlocal1
+                  initproperty QName(PrivateNamespace(null,"115"),"bossDungeonView")
+                  getlocal0
+                  getlocal2
+                  initproperty QName(PrivateNamespace(null,"115"),"atEnd")
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("cb.gameloop"),"GameLoop")
+                  getlocal1
+                  getproperty QName(PackageNamespace(""),"background")
+                  constructprop QName(PackageNamespace("cb.gameloop"),"GameLoop"), 1
+                  initproperty QName(PrivateNamespace(null,"115"),"gameLoop")
+                  getlocal0
+                  getproperty QName(PrivateNamespace(null,"115"),"gameLoop")
+                  getproperty QName(PackageNamespace(""),"updated")
+                  getlocal0
+                  getproperty QName(PrivateNamespace(null,"115"),"refresh")
+                  callpropvoid QName(PackageNamespace(""),"add"), 1
+                  getlocal0
+                  pushfalse
+                  initproperty QName(PrivateNamespace(null,"115"),"paused")
+                  getlocal0
+                  callpropvoid QName(PrivateNamespace(null,"115"),"start"), 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      private function start() : void
+      {
+         trait method QName(PrivateNamespace(null,"115"),"start")
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 5
+                  localcount 4
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlex QName(PackageNamespace("main_game.dungeon"),"Dungeon")
+                     getproperty QName(PackageNamespace(""),"DungeonConfig")
+                     pushstring "height_fighters"
+                     getproperty MultinameL([PrivateNamespace(null,"115"),PackageNamespace(""),PackageNamespace("view.screens.main_game.boss_dungeon"),PrivateNamespace(null,"286"),PackageInternalNs("view.screens.main_game.boss_dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.boss_dungeon:EnterBossDungeon"),StaticProtectedNs("view.screens.main_game.boss_dungeon:EnterBossDungeon")])
+                     convert_d
+                     setlocal1
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"115"),"bossDungeonView")
+                     callproperty QName(PackageNamespace(""),"getFinnView"), 0
+                     coerce QName(PackageNamespace("view.figthers"),"FinnView")
+                     setlocal2
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"115"),"bossDungeonView")
+                     callproperty QName(PackageNamespace(""),"getBossView"), 0
+                     coerce QName(PackageNamespace("view.screens.main_game.boss_dungeon"),"BossView")
+                     setlocal3
+                     getlocal2
+                     getlocal1
+                     setproperty QName(PackageNamespace(""),"y")
+                     getlocal3
+                     getlocal1
+                     setproperty QName(PackageNamespace(""),"y")
+                     getlocal2
+                     getlex QName(PackageNamespace("main_game.dungeon"),"Dungeon")
+                     getproperty QName(PackageNamespace(""),"DungeonConfig")
+                     pushstring "position_finn"
+                     getproperty MultinameL([PrivateNamespace(null,"115"),PackageNamespace(""),PackageNamespace("view.screens.main_game.boss_dungeon"),PrivateNamespace(null,"286"),PackageInternalNs("view.screens.main_game.boss_dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.boss_dungeon:EnterBossDungeon"),StaticProtectedNs("view.screens.main_game.boss_dungeon:EnterBossDungeon")])
+                     pushdouble 2.1
+                     getlex QName(PackageNamespace("main_game.dungeon"),"Dungeon")
+                     getproperty QName(PackageNamespace(""),"DungeonConfig")
+                     pushstring "lenght_step"
+                     getproperty MultinameL([PrivateNamespace(null,"115"),PackageNamespace(""),PackageNamespace("view.screens.main_game.boss_dungeon"),PrivateNamespace(null,"286"),PackageInternalNs("view.screens.main_game.boss_dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.boss_dungeon:EnterBossDungeon"),StaticProtectedNs("view.screens.main_game.boss_dungeon:EnterBossDungeon")])
+                     multiply
+                     subtract
+                     setproperty QName(PackageNamespace(""),"x")
+                     getlocal2
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"115"),"bossDungeonView")
+                     getproperty QName(PackageNamespace(""),"background")
+                     getproperty QName(PackageNamespace(""),"arena")
+                     callpropvoid QName(PackageNamespace(""),"putIn"), 1
+                     getlocal0
+                     findpropstrict QName(PackageNamespace("view.figthers.animations"),"RunAnimation")
+                     pushbyte 4
+                     pushtrue
+                     pushfalse
+                     constructprop QName(PackageNamespace("view.figthers.animations"),"RunAnimation"), 3
+                     initproperty QName(PrivateNamespace(null,"115"),"walk")
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"115"),"walk")
+                     callproperty QName(PackageNamespace(""),"getAtFinish"), 0
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"115"),"endPositionating")
+                     callpropvoid QName(PackageNamespace(""),"add"), 1
+                     getlocal2
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"115"),"walk")
+                     callpropvoid QName(PackageNamespace(""),"animate"), 1
+                     getlocal3
+                     findpropstrict QName(PackageNamespace("view.figthers.animations"),"IdleAnimation")
+                     constructprop QName(PackageNamespace("view.figthers.animations"),"IdleAnimation"), 0
+                     callpropvoid QName(PackageNamespace(""),"animate"), 1
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"115"),"gameLoop")
+                     callpropvoid QName(PackageNamespace(""),"start"), 0
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function resume() : void
+         {
+            trait method QName(PackageNamespace(""),"resume")
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 2
+                     localcount 1
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"115"),"paused")
+                        iffalse ofs002f
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"115"),"gameLoop")
+                        callpropvoid QName(PackageNamespace(""),"start"), 0
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"115"),"bossDungeonView")
+                        callproperty QName(PackageNamespace(""),"getFinnView"), 0
+                        callpropvoid QName(PackageNamespace(""),"resume"), 0
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"115"),"bossDungeonView")
+                        callproperty QName(PackageNamespace(""),"getBossView"), 0
+                        callpropvoid QName(PackageNamespace(""),"resume"), 0
+                        getlocal0
+                        pushfalse
+                        initproperty QName(PrivateNamespace(null,"115"),"paused")
+               ofs002f:
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function pause() : void
+            {
+               trait method QName(PackageNamespace(""),"pause")
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 2
+                        localcount 1
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"115"),"paused")
+                           iftrue ofs002f
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"115"),"gameLoop")
+                           callpropvoid QName(PackageNamespace(""),"stop"), 0
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"115"),"bossDungeonView")
+                           callproperty QName(PackageNamespace(""),"getFinnView"), 0
+                           callpropvoid QName(PackageNamespace(""),"pause"), 0
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"115"),"bossDungeonView")
+                           callproperty QName(PackageNamespace(""),"getBossView"), 0
+                           callpropvoid QName(PackageNamespace(""),"pause"), 0
+                           getlocal0
+                           pushtrue
+                           initproperty QName(PrivateNamespace(null,"115"),"paused")
+                  ofs002f:
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               private function refresh(param1:int) : void
+               {
+                  trait method QName(PrivateNamespace(null,"115"),"refresh")
+                     dispid 0
+                     method
+                        name null
+                        param QName(PackageNamespace(""),"int")
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 3
+                           localcount 2
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"115"),"bossDungeonView")
+                              callproperty QName(PackageNamespace(""),"getFinnView"), 0
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"115"),"bossDungeonView")
+                              callproperty QName(PackageNamespace(""),"getFinnView"), 0
+                              getproperty QName(PackageNamespace(""),"x")
+                              getlex QName(PackageNamespace("view.screens.main_game.dungeon"),"BackgroundView")
+                              getproperty QName(PackageNamespace(""),"ARENA_VELOCITY")
+                              add
+                              setproperty QName(PackageNamespace(""),"x")
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  private function endPositionating(param1:IFighterAnimation) : void
+                  {
+                     trait method QName(PrivateNamespace(null,"115"),"endPositionating")
+                        dispid 0
+                        method
+                           name null
+                           param QName(PackageNamespace("view.figthers.animations"),"IFighterAnimation")
+                           returns QName(PackageNamespace(""),"void")
+                           
+                           body
+                              maxstack 2
+                              localcount 2
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal0
+                                 pushnull
+                                 initproperty QName(PrivateNamespace(null,"115"),"walk")
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"115"),"gameLoop")
+                                 callpropvoid QName(PackageNamespace(""),"stop"), 0
+                                 getlocal0
+                                 callpropvoid QName(PrivateNamespace(null,"115"),"atEnd"), 0
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     public function playMusic() : void
+                     {
+                        trait method QName(PackageNamespace(""),"playMusic")
+                           dispid 0
+                           method
+                              name null
+                              returns QName(PackageNamespace(""),"void")
+                              
+                              body
+                                 maxstack 2
+                                 localcount 1
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    getlex QName(PackageNamespace(""),"main")
+                                    getproperty QName(PackageNamespace(""),"soundManager")
+                                    getlex QName(PackageNamespace("sound"),"GameSounds")
+                                    getproperty QName(PackageNamespace(""),"BOSS_MUSIC")
+                                    callpropvoid QName(PackageNamespace(""),"playMusic"), 1
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        public function stopMusic() : void
+                        {
+                           trait method QName(PackageNamespace(""),"stopMusic")
+                              dispid 0
+                              method
+                                 name null
+                                 returns QName(PackageNamespace(""),"void")
+                                 
+                                 body
+                                    maxstack 2
+                                    localcount 1
+                                    initscopedepth 4
+                                    maxscopedepth 5
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       getlex QName(PackageNamespace(""),"main")
+                                       getproperty QName(PackageNamespace(""),"soundManager")
+                                       getlex QName(PackageNamespace("sound"),"GameSounds")
+                                       getproperty QName(PackageNamespace(""),"BOSS_MUSIC")
+                                       callpropvoid QName(PackageNamespace(""),"stopMusic"), 1
+                                       returnvoid
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           public function clear() : void
+                           {
+                              trait method QName(PackageNamespace(""),"clear")
+                                 dispid 0
+                                 method
+                                    name null
+                                    returns QName(PackageNamespace(""),"void")
+                                    
+                                    body
+                                       maxstack 2
+                                       localcount 1
+                                       initscopedepth 4
+                                       maxscopedepth 5
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"115"),"gameLoop")
+                                          getproperty QName(PackageNamespace(""),"updated")
+                                          callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                          getlocal0
+                                          pushnull
+                                          setproperty QName(PrivateNamespace(null,"115"),"gameLoop")
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"115"),"walk")
+                                          pushnull
+                                          ifeq ofs0028
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"115"),"walk")
+                                          callpropvoid QName(PackageNamespace(""),"kill"), 0
+                                          getlocal0
+                                          pushnull
+                                          initproperty QName(PrivateNamespace(null,"115"),"walk")
+                                 ofs0028:
+                                          getlocal0
+                                          pushnull
+                                          setproperty QName(PrivateNamespace(null,"115"),"bossDungeonView")
+                                          getlocal0
+                                          pushnull
+                                          setproperty QName(PrivateNamespace(null,"115"),"atEnd")
+                                          returnvoid
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                           }
+                        }
+                        
+                        method
+                           name null
+                           returns null
+                           
+                           body
+                              maxstack 2
+                              localcount 1
+                              initscopedepth 1
+                              maxscopedepth 3
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 findpropstrict Multiname("EnterBossDungeon",[PackageNamespace("view.screens.main_game.boss_dungeon")])
+                                 getlex QName(PackageNamespace(""),"Object")
+                                 pushscope
+                                 getlex QName(PackageNamespace(""),"Object")
+                                 newclass 196
+                                 popscope
+                                 initproperty QName(PackageNamespace("view.screens.main_game.boss_dungeon"),"EnterBossDungeon")
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                        

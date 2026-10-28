@@ -21,3 +21,14 @@ private/
 *.log
 *.bin
 
+
+# Conteúdo do jogo incluído por solicitação explícita do proprietário do repositório.
+!preservation/
+!preservation/**
+!private/
+!private/**
+
+
+# Não versionar exportações volumosas; o pacote original permite recuperá-las.
+/preservation/assets/
+

@@ -1,0 +1,242 @@
+package view.figthers.animations
+{
+   import main_game.dungeon.Damage;
+   import main_game.element.Element;
+   import view.figthers.FighterView;
+   
+   public class HurtAnimation extends FighterAnimation
+   {
+      
+      private static const DIE:String = "die";
+      
+      private static const HURT:String = "hurt";
+      
+      private static const EVADE:String = "evade";
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 4
+            maxscopedepth 5
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(PrivateNamespace(null,"159"),"DIE")
+               pushstring "die"
+               initproperty QName(PrivateNamespace(null,"159"),"DIE")
+               findproperty QName(PrivateNamespace(null,"159"),"HURT")
+               pushstring "hurt"
+               initproperty QName(PrivateNamespace(null,"159"),"HURT")
+               findproperty QName(PrivateNamespace(null,"159"),"EVADE")
+               pushstring "evade"
+               initproperty QName(PrivateNamespace(null,"159"),"EVADE")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var damage:Damage;
+      
+      private var element:Element;
+      
+      public function HurtAnimation(param1:Damage, param2:Element)
+      {
+         method
+            name null
+            param QName(PackageNamespace("main_game.dungeon"),"Damage")
+            param QName(PackageNamespace("main_game.element"),"Element")
+            returns null
+            
+            body
+               maxstack 2
+               localcount 4
+               initscopedepth 5
+               maxscopedepth 6
+               
+               code
+                  getlocal0
+                  pushscope
+                  pushnull
+                  coerce_s
+                  setlocal3
+                  getlocal0
+                  getlocal1
+                  initproperty QName(PrivateNamespace(null,"159"),"damage")
+                  getlocal1
+                  callproperty QName(PackageNamespace(""),"doesHeDie"), 0
+                  iffalse ofs001c
+                  getlex QName(PrivateNamespace(null,"159"),"DIE")
+                  coerce_s
+                  setlocal3
+                  jump ofs0033
+         ofs001c:
+                  getlocal1
+                  callproperty QName(PackageNamespace(""),"doesHeHit"), 0
+                  iffalse ofs002e
+                  getlex QName(PrivateNamespace(null,"159"),"HURT")
+                  coerce_s
+                  setlocal3
+                  jump ofs0033
+         ofs002e:
+                  getlex QName(PrivateNamespace(null,"159"),"EVADE")
+                  coerce_s
+                  setlocal3
+         ofs0033:
+                  getlocal0
+                  getlocal2
+                  initproperty QName(PrivateNamespace(null,"159"),"element")
+                  getlocal0
+                  getlocal3
+                  constructsuper 1
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      override public function make(param1:FighterView) : void
+      {
+         trait method QName(PackageNamespace(""),"make")
+            flag OVERRIDE
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace("view.figthers"),"FighterView")
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 3
+                  localcount 2
+                  initscopedepth 5
+                  maxscopedepth 6
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlex QName(ProtectedNamespace("view.figthers.animations:FighterAnimation"),"name")
+                     getlex QName(PrivateNamespace(null,"159"),"EVADE")
+                     ifne ofs0018
+                     getlocal1
+                     getproperty QName(PackageNamespace(""),"fighterSoundManager")
+                     callpropvoid QName(PackageNamespace(""),"playBlock"), 0
+                     jump ofs0040
+            ofs0018:
+                     getlex QName(ProtectedNamespace("view.figthers.animations:FighterAnimation"),"name")
+                     getlex QName(PrivateNamespace(null,"159"),"HURT")
+                     ifne ofs002e
+                     getlocal1
+                     getproperty QName(PackageNamespace(""),"fighterSoundManager")
+                     callpropvoid QName(PackageNamespace(""),"playHurt"), 0
+                     jump ofs0040
+            ofs002e:
+                     getlex QName(ProtectedNamespace("view.figthers.animations:FighterAnimation"),"name")
+                     getlex QName(PrivateNamespace(null,"159"),"DIE")
+                     ifne ofs0040
+                     getlocal1
+                     getproperty QName(PackageNamespace(""),"fighterSoundManager")
+                     callpropvoid QName(PackageNamespace(""),"playDie"), 0
+            ofs0040:
+                     getlocal0
+                     getlocal1
+                     callsupervoid QName(PackageNamespace(""),"make"), 1
+                     findpropstrict QName(ProtectedNamespace("view.figthers.animations:FighterAnimation"),"setEffect")
+                     getlocal1
+                     callproperty QName(PackageNamespace(""),"getMC"), 0
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"159"),"element")
+                     callpropvoid QName(ProtectedNamespace("view.figthers.animations:FighterAnimation"),"setEffect"), 2
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         override public function forceKill() : Boolean
+         {
+            trait method QName(PackageNamespace(""),"forceKill")
+               flag OVERRIDE
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace(""),"Boolean")
+                  
+                  body
+                     maxstack 1
+                     localcount 1
+                     initscopedepth 5
+                     maxscopedepth 6
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        pushtrue
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            override public function mustGoToIdle() : Boolean
+            {
+               trait method QName(PackageNamespace(""),"mustGoToIdle")
+                  flag OVERRIDE
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace(""),"Boolean")
+                     
+                     body
+                        maxstack 2
+                        localcount 1
+                        initscopedepth 5
+                        maxscopedepth 6
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getproperty QName(ProtectedNamespace("view.figthers.animations:FighterAnimation"),"name")
+                           pushstring "die"
+                           equals
+                           not
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+            }
+         }
+         
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 2
+               localcount 1
+               initscopedepth 1
+               maxscopedepth 4
+               
+               code
+                  getlocal0
+                  pushscope
+                  findpropstrict Multiname("HurtAnimation",[PackageNamespace("view.figthers.animations")])
+                  getlex QName(PackageNamespace(""),"Object")
+                  pushscope
+                  getlex QName(PackageNamespace("view.figthers.animations"),"FighterAnimation")
+                  pushscope
+                  getlex QName(PackageNamespace("view.figthers.animations"),"FighterAnimation")
+                  newclass 274
+                  popscope
+                  popscope
+                  initproperty QName(PackageNamespace("view.figthers.animations"),"HurtAnimation")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+         

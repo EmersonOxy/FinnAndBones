@@ -1,0 +1,160 @@
+package main_game.mixer
+{
+   import drag_and_drop.IDragContainer;
+   import main_game.item_containers.Slot;
+   import main_game.items.Item;
+   
+   public class MixSlot extends Slot
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 4
+            maxscopedepth 5
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function MixSlot()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 1
+               localcount 1
+               initscopedepth 5
+               maxscopedepth 6
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      override public function canMoveFrom(param1:Item, param2:IDragContainer) : Boolean
+      {
+         trait method QName(PackageNamespace(""),"canMoveFrom")
+            flag OVERRIDE
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace("main_game.items"),"Item")
+               param QName(PackageNamespace("drag_and_drop"),"IDragContainer")
+               returns QName(PackageNamespace(""),"Boolean")
+               
+               body
+                  maxstack 1
+                  localcount 3
+                  initscopedepth 5
+                  maxscopedepth 6
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     pushfalse
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         override public function canSwap(param1:IDragContainer) : Boolean
+         {
+            trait method QName(PackageNamespace(""),"canSwap")
+               flag OVERRIDE
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace("drag_and_drop"),"IDragContainer")
+                  returns QName(PackageNamespace(""),"Boolean")
+                  
+                  body
+                     maxstack 1
+                     localcount 2
+                     initscopedepth 5
+                     maxscopedepth 6
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        pushfalse
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            override public function itsCompatible(param1:Item, param2:IDragContainer) : Boolean
+            {
+               trait method QName(PackageNamespace(""),"itsCompatible")
+                  flag OVERRIDE
+                  dispid 0
+                  method
+                     name null
+                     param QName(PackageNamespace("main_game.items"),"Item")
+                     param QName(PackageNamespace("drag_and_drop"),"IDragContainer")
+                     returns QName(PackageNamespace(""),"Boolean")
+                     
+                     body
+                        maxstack 1
+                        localcount 3
+                        initscopedepth 5
+                        maxscopedepth 6
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           pushfalse
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+            }
+         }
+         
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 2
+               localcount 1
+               initscopedepth 1
+               maxscopedepth 4
+               
+               code
+                  getlocal0
+                  pushscope
+                  findpropstrict Multiname("MixSlot",[PackageNamespace("main_game.mixer")])
+                  getlex QName(PackageNamespace(""),"Object")
+                  pushscope
+                  getlex QName(PackageNamespace("main_game.item_containers"),"Slot")
+                  pushscope
+                  getlex QName(PackageNamespace("main_game.item_containers"),"Slot")
+                  newclass 241
+                  popscope
+                  popscope
+                  initproperty QName(PackageNamespace("main_game.mixer"),"MixSlot")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+         

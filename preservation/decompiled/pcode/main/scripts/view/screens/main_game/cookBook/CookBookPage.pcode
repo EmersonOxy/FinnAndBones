@@ -1,0 +1,306 @@
+package view.screens.main_game.cookBook
+{
+   import flash.display.MovieClip;
+   import main_game.mixer.MixStrategy;
+   import main_game.mixer.Recipe;
+   
+   public class CookBookPage
+   {
+      
+      private static const RECIPES:uint = 6;
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(PrivateNamespace(null,"148"),"RECIPES")
+               pushbyte 6
+               initproperty QName(PrivateNamespace(null,"148"),"RECIPES")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var bg:MovieClip;
+      
+      private var recipes:Vector.<RecipeView>;
+      
+      public function CookBookPage(param1:Array)
+      {
+         method
+            name null
+            param QName(PackageNamespace(""),"Array")
+            returns null
+            
+            body
+               maxstack 3
+               localcount 2
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlex QName(PackageNamespace(""),"main")
+                  getproperty QName(PackageNamespace(""),"swfLoader")
+                  pushstring "assets.RecipesContainer"
+                  callproperty QName(PackageNamespace(""),"getObject"), 1
+                  getlex QName(PackageNamespace("flash.display"),"MovieClip")
+                  astypelate
+                  initproperty QName(PrivateNamespace(null,"148"),"bg")
+                  getlocal0
+                  getlocal1
+                  callpropvoid QName(PrivateNamespace(null,"148"),"initializeRecipes"), 1
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      private function initializeRecipes(param1:Array) : void
+      {
+         trait method QName(PrivateNamespace(null,"148"),"initializeRecipes")
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace(""),"Array")
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 5
+                  localcount 5
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     pushnull
+                     coerce QName(PackageNamespace("main_game.mixer"),"Recipe")
+                     setlocal3
+                     pushnull
+                     coerce QName(PackageNamespace("view.screens.main_game.cookBook"),"RecipeView")
+                     setlocal 4
+                     getlocal0
+                     getlex Multiname("Vector",[PrivateNamespace(null,"148"),PackageNamespace(""),PackageNamespace("view.screens.main_game.cookBook"),PrivateNamespace(null,"306"),PackageInternalNs("view.screens.main_game.cookBook"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.cookBook:CookBookPage"),StaticProtectedNs("view.screens.main_game.cookBook:CookBookPage"),PackageNamespace("__AS3__.vec")])
+                     getlex QName(PackageNamespace("view.screens.main_game.cookBook"),"RecipeView")
+                     applytype 1
+                     construct 0
+                     setproperty QName(PrivateNamespace(null,"148"),"recipes")
+                     pushbyte 0
+                     setlocal2
+                     jump ofs0089
+            ofs0021:
+                     label
+                     pushnull
+                     coerce QName(PackageNamespace("main_game.mixer"),"Recipe")
+                     setlocal3
+                     getlocal2
+                     getlocal1
+                     getproperty QName(PackageNamespace(""),"length")
+                     ifnlt ofs006c
+                     getlex QName(PackageNamespace("main_game.mixer"),"MixStrategy")
+                     getlocal1
+                     getlocal2
+                     getproperty MultinameL([PrivateNamespace(null,"148"),PackageNamespace(""),PackageNamespace("view.screens.main_game.cookBook"),PrivateNamespace(null,"306"),PackageInternalNs("view.screens.main_game.cookBook"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.cookBook:CookBookPage"),StaticProtectedNs("view.screens.main_game.cookBook:CookBookPage")])
+                     callproperty QName(PackageNamespace(""),"getRecipe"), 1
+                     coerce QName(PackageNamespace("main_game.mixer"),"Recipe")
+                     setlocal3
+                     findpropstrict QName(PackageNamespace("view.screens.main_game.cookBook"),"RecipeView")
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"148"),"bg")
+                     pushstring "recipe"
+                     getlocal2
+                     pushbyte 1
+                     add
+                     callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"toString"), 0
+                     add
+                     getproperty MultinameL([PrivateNamespace(null,"148"),PackageNamespace(""),PackageNamespace("view.screens.main_game.cookBook"),PrivateNamespace(null,"306"),PackageInternalNs("view.screens.main_game.cookBook"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.cookBook:CookBookPage"),StaticProtectedNs("view.screens.main_game.cookBook:CookBookPage")])
+                     getlocal3
+                     constructprop QName(PackageNamespace("view.screens.main_game.cookBook"),"RecipeView"), 2
+                     coerce QName(PackageNamespace("view.screens.main_game.cookBook"),"RecipeView")
+                     setlocal 4
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"148"),"recipes")
+                     getlocal 4
+                     callpropvoid QName(Namespace("http://adobe.com/AS3/2006/builtin"),"push"), 1
+                     jump ofs0087
+            ofs006c:
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"148"),"bg")
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"148"),"bg")
+                     pushstring "recipe"
+                     getlocal2
+                     pushbyte 1
+                     add
+                     callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"toString"), 0
+                     add
+                     getproperty MultinameL([PrivateNamespace(null,"148"),PackageNamespace(""),PackageNamespace("view.screens.main_game.cookBook"),PrivateNamespace(null,"306"),PackageInternalNs("view.screens.main_game.cookBook"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.cookBook:CookBookPage"),StaticProtectedNs("view.screens.main_game.cookBook:CookBookPage")])
+                     callpropvoid QName(PackageNamespace(""),"removeChild"), 1
+            ofs0087:
+                     inclocal_i 2
+            ofs0089:
+                     getlocal2
+                     getlex QName(PrivateNamespace(null,"148"),"RECIPES")
+                     iflt ofs0021
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function getMc() : MovieClip
+         {
+            trait method QName(PackageNamespace(""),"getMc")
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace("flash.display"),"MovieClip")
+                  
+                  body
+                     maxstack 1
+                     localcount 1
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"148"),"bg")
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function pop() : void
+            {
+               trait method QName(PackageNamespace(""),"pop")
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 2
+                        localcount 1
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"148"),"bg")
+                           getproperty QName(PackageNamespace(""),"parent")
+                           pushnull
+                           ifeq ofs001d
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"148"),"bg")
+                           getproperty QName(PackageNamespace(""),"parent")
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"148"),"bg")
+                           callpropvoid QName(PackageNamespace(""),"removeChild"), 1
+                  ofs001d:
+                           getlocal0
+                           callpropvoid QName(PackageNamespace(""),"clear"), 0
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function clear() : void
+               {
+                  trait method QName(PackageNamespace(""),"clear")
+                     dispid 0
+                     method
+                        name null
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 2
+                           localcount 4
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              pushnull
+                              coerce QName(PackageNamespace("view.screens.main_game.cookBook"),"RecipeView")
+                              setlocal1
+                              pushbyte 0
+                              setlocal2
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"148"),"recipes")
+                              coerce_a
+                              setlocal3
+                              jump ofs0021
+                     ofs0014:
+                              label
+                              getlocal3
+                              getlocal2
+                              nextvalue
+                              coerce QName(PackageNamespace("view.screens.main_game.cookBook"),"RecipeView")
+                              setlocal1
+                              getlocal1
+                              callpropvoid QName(PackageNamespace(""),"clear"), 0
+                     ofs0021:
+                              hasnext2 3, 2
+                              iftrue ofs0014
+                              kill 3
+                              kill 2
+                              getlocal0
+                              pushnull
+                              initproperty QName(PrivateNamespace(null,"148"),"recipes")
+                              getlocal0
+                              pushnull
+                              initproperty QName(PrivateNamespace(null,"148"),"bg")
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+               }
+            }
+            
+            method
+               name null
+               returns null
+               
+               body
+                  maxstack 2
+                  localcount 1
+                  initscopedepth 1
+                  maxscopedepth 3
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     findpropstrict Multiname("CookBookPage",[PackageNamespace("view.screens.main_game.cookBook")])
+                     getlex QName(PackageNamespace(""),"Object")
+                     pushscope
+                     getlex QName(PackageNamespace(""),"Object")
+                     newclass 252
+                     popscope
+                     initproperty QName(PackageNamespace("view.screens.main_game.cookBook"),"CookBookPage")
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+            

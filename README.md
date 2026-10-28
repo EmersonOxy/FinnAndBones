@@ -1,19 +1,15 @@
-# Protótipo de reconstrução — Godot 4
+# Finn & Bones — reconstrução em Godot 4
 
-Execute no computador que contém o acervo:
+Projeto de preservação e reconstrução; estado atual é uma fatia vertical incompleta. Para trabalhar em outro computador, clone este repositório e importe `project.godot` na Godot 4.7.2. Pressione F6/F5 para executar. As tabelas são lidas de `preservation/`; quadros e ícones usados pelo jogo estão em `private/`. Instale a Godot separadamente: ferramentas e instaladores não estão no repositório.
 
-```powershell
-& 'C:\Users\canal\AppData\Local\Programs\Godot\4.7.2\Godot_v4.7.2-stable_win64_console.exe' --path 'C:\Projetos\FinnAndBonesPreservation\reconstruction'
+Exemplos de teste, a partir da raiz do projeto, com o executável da Godot acessível como `godot`:
+
+```text
+godot --headless --path . --script res://tests/test_core.gd
+godot --headless --path . --script res://tests/test_timeline.gd
+godot --headless --path . --script res://tests/test_vertical_slice.gd
 ```
 
-Testes:
+`preservation/original` contém o pacote histórico e sua extração; `preservation/analysis` e `preservation/decompiled` contêm dados e código recuperados; `preservation/documentation` contém registros anteriores. `private/` contém cópias dos recursos convertidos para uso pelo protótipo. Este repositório público contém recursos e código do jogo original por solicitação do proprietário. A licença dos recursos originais pertence aos respectivos titulares.
 
-```powershell
-& 'C:\Users\canal\AppData\Local\Programs\Godot\4.7.2\Godot_v4.7.2-stable_win64_console.exe' --headless --path 'C:\Projetos\FinnAndBonesPreservation\reconstruction' --script 'res://tests/test_core.gd'
-& 'C:\Users\canal\AppData\Local\Programs\Godot\4.7.2\Godot_v4.7.2-stable_win64_console.exe' --headless --path 'C:\Projetos\FinnAndBonesPreservation\reconstruction' --script 'res://tests/test_timeline.gd'
-& 'C:\Users\canal\AppData\Local\Programs\Godot\4.7.2\Godot_v4.7.2-stable_win64_console.exe' --headless --path 'C:\Projetos\FinnAndBonesPreservation\reconstruction' --script 'res://tests/test_vertical_slice.gd'
-```
-
-O protótipo lê dados e sprites do acervo por caminhos locais declarados nos scripts. Os PNGs convertidos ficam em `private/`, ignorado pelo Git. Se essa pasta estiver vazia, gere os recursos locais nesta ordem: `--headless --path reconstruction --script res://scripts/export_private_frames.gd` e depois `--headless --path reconstruction --script res://scripts/export_visual_assets.gd`. Não publique conteúdo protegido.
-
-Esta fatia vertical oferece combate automático e uma tela de inventário estruturada. Selecione um item e use **Equipar selecionado**; armas e escudos são mostrados em camadas separadas no Finn. Os ícones de itens e molduras de slot vêm dos sprites extraídos; painéis, botões e composição continuam temporários, não uma reprodução fiel. Para conferir: equipe `SwordStarter`, troque por outra arma disponível, equipe/remova `ShieldSimple` e entre em combate. A fase 2 mantém a transição automática entre os dois encontros. Mistura completa, receitas customizadas, progressão posterior, áudio, consumíveis e persistência continuam pendentes.
+Fatia atual: combate automático, primeira fase, transição limitada à segunda, inventário e equipamentos parciais. Painéis são provisórios e ainda faltam mistura geral, consumíveis, persistência, recompensas completas e validação visual sistemática. Os scripts de reexportação foram criados para o acervo completo no computador original e ainda têm caminhos locais; não são necessários para executar as imagens já incluídas. Consulte `docs/PROGRESSO.md` e `docs/ARQUITETURA_E_LIMITACOES.md`.

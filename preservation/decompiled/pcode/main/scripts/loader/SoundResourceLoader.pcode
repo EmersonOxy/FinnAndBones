@@ -1,0 +1,156 @@
+package loader
+{
+   import cb.media.SoundLoader;
+   import sound.SoundManager;
+   import util.Util;
+   
+   public class SoundResourceLoader implements ResourceLoader
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var soundManager:SoundManager;
+      
+      public function SoundResourceLoader(param1:SoundManager)
+      {
+         method
+            name null
+            param QName(PackageNamespace("sound"),"SoundManager")
+            returns null
+            
+            body
+               maxstack 2
+               localcount 2
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlocal1
+                  initproperty QName(PrivateNamespace(null,"27"),"soundManager")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function load(param1:String, param2:Function) : void
+      {
+         trait method QName(PackageNamespace(""),"load")
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace(""),"String")
+               param QName(PackageNamespace(""),"Function")
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 4
+                  localcount 4
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     findpropstrict QName(PackageNamespace("cb.media"),"SoundLoader")
+                     getlocal1
+                     constructprop QName(PackageNamespace("cb.media"),"SoundLoader"), 1
+                     coerce QName(PackageNamespace("cb.media"),"SoundLoader")
+                     setlocal3
+                     getlocal3
+                     getproperty QName(PackageNamespace(""),"loaded")
+                     getlex QName(PackageNamespace("util"),"Util")
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"27"),"soundLoaded")
+                     getlocal2
+                     callproperty QName(PackageNamespace(""),"l"), 2
+                     callpropvoid QName(PackageNamespace(""),"add"), 1
+                     getlocal3
+                     callpropvoid QName(PackageNamespace(""),"load"), 0
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         private function soundLoaded(param1:SoundLoader, param2:Function) : void
+         {
+            trait method QName(PrivateNamespace(null,"27"),"soundLoaded")
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace("cb.media"),"SoundLoader")
+                  param QName(PackageNamespace(""),"Function")
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 2
+                     localcount 3
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"27"),"soundManager")
+                        getlocal1
+                        callpropvoid QName(PackageNamespace(""),"addSound"), 1
+                        getlocal2
+                        getglobalscope
+                        call 0
+                        pop
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+         }
+      }
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 1
+            maxscopedepth 3
+            
+            code
+               getlocal0
+               pushscope
+               findpropstrict Multiname("SoundResourceLoader",[PackageNamespace("loader")])
+               getlex QName(PackageNamespace(""),"Object")
+               pushscope
+               getlex QName(PackageNamespace(""),"Object")
+               newclass 32
+               popscope
+               initproperty QName(PackageNamespace("loader"),"SoundResourceLoader")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      

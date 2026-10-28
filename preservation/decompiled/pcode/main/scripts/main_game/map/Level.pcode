@@ -1,0 +1,559 @@
+package main_game.map
+{
+   public class Level
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var dungeonId:String;
+      
+      private var state:uint;
+      
+      private var correlative:Vector.<Level>;
+      
+      public function Level(param1:String, param2:uint = 1)
+      {
+         method
+            name null
+            flag HAS_OPTIONAL
+            param QName(PackageNamespace(""),"String")
+            param QName(PackageNamespace(""),"uint")
+            optional Integer(1)
+            returns null
+            
+            body
+               maxstack 3
+               localcount 3
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlocal1
+                  initproperty QName(PrivateNamespace(null,"49"),"dungeonId")
+                  getlocal0
+                  getlocal2
+                  initproperty QName(PrivateNamespace(null,"49"),"state")
+                  getlocal0
+                  getlex Multiname("Vector",[PrivateNamespace(null,"49"),PackageNamespace(""),PrivateNamespace(null,"214"),PackageNamespace("main_game.map"),PackageInternalNs("main_game.map"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.map:Level"),StaticProtectedNs("main_game.map:Level"),PackageNamespace("__AS3__.vec")])
+                  getlex QName(PackageNamespace("main_game.map"),"Level")
+                  applytype 1
+                  construct 0
+                  initproperty QName(PrivateNamespace(null,"49"),"correlative")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public static function get LOCKED() : uint
+      {
+         trait getter QName(PackageNamespace(""),"LOCKED")
+            flag FINAL
+            dispid 3
+            method
+               name null
+               returns QName(PackageNamespace(""),"uint")
+               
+               body
+                  maxstack 1
+                  localcount 1
+                  initscopedepth 3
+                  maxscopedepth 4
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     pushbyte 1
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public static function get UNLOCKED() : uint
+         {
+            trait getter QName(PackageNamespace(""),"UNLOCKED")
+               flag FINAL
+               dispid 4
+               method
+                  name null
+                  returns QName(PackageNamespace(""),"uint")
+                  
+                  body
+                     maxstack 1
+                     localcount 1
+                     initscopedepth 3
+                     maxscopedepth 4
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        pushbyte 2
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public static function get CLEARED() : uint
+            {
+               trait getter QName(PackageNamespace(""),"CLEARED")
+                  flag FINAL
+                  dispid 5
+                  method
+                     name null
+                     returns QName(PackageNamespace(""),"uint")
+                     
+                     body
+                        maxstack 1
+                        localcount 1
+                        initscopedepth 3
+                        maxscopedepth 4
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           pushbyte 3
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function getArea() : uint
+               {
+                  trait method QName(PackageNamespace(""),"getArea")
+                     dispid 0
+                     method
+                        name null
+                        returns QName(PackageNamespace(""),"uint")
+                        
+                        body
+                           maxstack 2
+                           localcount 2
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              findpropstrict QName(PackageNamespace(""),"int")
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"49"),"dungeonId")
+                              callproperty QName(PackageNamespace(""),"int"), 1
+                              convert_i
+                              setlocal1
+                              getlocal1
+                              pushbyte 8
+                              ifnle ofs0017
+                              pushbyte 1
+                              returnvalue
+                     ofs0017:
+                              getlocal1
+                              pushbyte 16
+                              ifnle ofs0021
+                              pushbyte 2
+                              returnvalue
+                     ofs0021:
+                              pushbyte 3
+                              returnvalue
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function isLegendary() : Boolean
+                  {
+                     trait method QName(PackageNamespace(""),"isLegendary")
+                        dispid 0
+                        method
+                           name null
+                           returns QName(PackageNamespace(""),"Boolean")
+                           
+                           body
+                              maxstack 1
+                              localcount 1
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 pushfalse
+                                 returnvalue
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     public function isSpecial() : Boolean
+                     {
+                        trait method QName(PackageNamespace(""),"isSpecial")
+                           dispid 0
+                           method
+                              name null
+                              returns QName(PackageNamespace(""),"Boolean")
+                              
+                              body
+                                 maxstack 1
+                                 localcount 1
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    pushfalse
+                                    returnvalue
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        public function getDungeonId() : String
+                        {
+                           trait method QName(PackageNamespace(""),"getDungeonId")
+                              dispid 0
+                              method
+                                 name null
+                                 returns QName(PackageNamespace(""),"String")
+                                 
+                                 body
+                                    maxstack 1
+                                    localcount 1
+                                    initscopedepth 4
+                                    maxscopedepth 5
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"49"),"dungeonId")
+                                       returnvalue
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           public function addCorrelative(param1:Level) : void
+                           {
+                              trait method QName(PackageNamespace(""),"addCorrelative")
+                                 dispid 0
+                                 method
+                                    name null
+                                    param QName(PackageNamespace("main_game.map"),"Level")
+                                    returns QName(PackageNamespace(""),"void")
+                                    
+                                    body
+                                       maxstack 2
+                                       localcount 2
+                                       initscopedepth 4
+                                       maxscopedepth 5
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"49"),"correlative")
+                                          getlocal1
+                                          callpropvoid QName(Namespace("http://adobe.com/AS3/2006/builtin"),"push"), 1
+                                          returnvoid
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                              
+                              public function getCorrelative() : Vector.<Level>
+                              {
+                                 trait method QName(PackageNamespace(""),"getCorrelative")
+                                    dispid 0
+                                    method
+                                       name null
+                                       returns TypeName(QName(PackageNamespace("__AS3__.vec"),"Vector")<QName(PackageNamespace("main_game.map"),"Level")>)
+                                       
+                                       body
+                                          maxstack 1
+                                          localcount 1
+                                          initscopedepth 4
+                                          maxscopedepth 5
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             getlocal0
+                                             getproperty QName(PrivateNamespace(null,"49"),"correlative")
+                                             returnvalue
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                 }
+                                 
+                                 public function isLocked() : Boolean
+                                 {
+                                    trait method QName(PackageNamespace(""),"isLocked")
+                                       dispid 0
+                                       method
+                                          name null
+                                          returns QName(PackageNamespace(""),"Boolean")
+                                          
+                                          body
+                                             maxstack 2
+                                             localcount 1
+                                             initscopedepth 4
+                                             maxscopedepth 5
+                                             
+                                             code
+                                                getlocal0
+                                                pushscope
+                                                getlocal0
+                                                getproperty QName(PrivateNamespace(null,"49"),"state")
+                                                getlex QName(PackageNamespace(""),"LOCKED")
+                                                equals
+                                                returnvalue
+                                             end ; code
+                                          end ; body
+                                       end ; method
+                                    }
+                                    
+                                    public function isCleared() : Boolean
+                                    {
+                                       trait method QName(PackageNamespace(""),"isCleared")
+                                          dispid 0
+                                          method
+                                             name null
+                                             returns QName(PackageNamespace(""),"Boolean")
+                                             
+                                             body
+                                                maxstack 2
+                                                localcount 1
+                                                initscopedepth 4
+                                                maxscopedepth 5
+                                                
+                                                code
+                                                   getlocal0
+                                                   pushscope
+                                                   getlocal0
+                                                   getproperty QName(PrivateNamespace(null,"49"),"state")
+                                                   getlex QName(PackageNamespace(""),"CLEARED")
+                                                   equals
+                                                   returnvalue
+                                                end ; code
+                                             end ; body
+                                          end ; method
+                                       }
+                                       
+                                       public function isUnlocked() : Boolean
+                                       {
+                                          trait method QName(PackageNamespace(""),"isUnlocked")
+                                             dispid 0
+                                             method
+                                                name null
+                                                returns QName(PackageNamespace(""),"Boolean")
+                                                
+                                                body
+                                                   maxstack 2
+                                                   localcount 1
+                                                   initscopedepth 4
+                                                   maxscopedepth 5
+                                                   
+                                                   code
+                                                      getlocal0
+                                                      pushscope
+                                                      getlocal0
+                                                      getproperty QName(PrivateNamespace(null,"49"),"state")
+                                                      getlex QName(PackageNamespace(""),"UNLOCKED")
+                                                      greaterequals
+                                                      returnvalue
+                                                   end ; code
+                                                end ; body
+                                             end ; method
+                                          }
+                                          
+                                          public function getName() : String
+                                          {
+                                             trait method QName(PackageNamespace(""),"getName")
+                                                dispid 0
+                                                method
+                                                   name null
+                                                   returns QName(PackageNamespace(""),"String")
+                                                   
+                                                   body
+                                                      maxstack 3
+                                                      localcount 1
+                                                      initscopedepth 4
+                                                      maxscopedepth 5
+                                                      
+                                                      code
+                                                         getlocal0
+                                                         pushscope
+                                                         getlex QName(PackageNamespace(""),"main")
+                                                         getproperty QName(PackageNamespace(""),"locale")
+                                                         pushstring "dungeonName"
+                                                         getlocal0
+                                                         getproperty QName(PackageNamespace(""),"id")
+                                                         newarray 1
+                                                         callproperty QName(PackageNamespace(""),"get"), 2
+                                                         returnvalue
+                                                      end ; code
+                                                   end ; body
+                                                end ; method
+                                             }
+                                             
+                                             public function unlock() : void
+                                             {
+                                                trait method QName(PackageNamespace(""),"unlock")
+                                                   dispid 0
+                                                   method
+                                                      name null
+                                                      returns QName(PackageNamespace(""),"void")
+                                                      
+                                                      body
+                                                         maxstack 2
+                                                         localcount 1
+                                                         initscopedepth 4
+                                                         maxscopedepth 5
+                                                         
+                                                         code
+                                                            getlocal0
+                                                            pushscope
+                                                            getlocal0
+                                                            callproperty QName(PackageNamespace(""),"isLocked"), 0
+                                                            iffalse ofs0012
+                                                            getlocal0
+                                                            getlex QName(PackageNamespace(""),"UNLOCKED")
+                                                            setproperty QName(PrivateNamespace(null,"49"),"state")
+                                                   ofs0012:
+                                                            returnvoid
+                                                         end ; code
+                                                      end ; body
+                                                   end ; method
+                                                }
+                                                
+                                                public function clear() : void
+                                                {
+                                                   trait method QName(PackageNamespace(""),"clear")
+                                                      dispid 0
+                                                      method
+                                                         name null
+                                                         returns QName(PackageNamespace(""),"void")
+                                                         
+                                                         body
+                                                            maxstack 2
+                                                            localcount 1
+                                                            initscopedepth 4
+                                                            maxscopedepth 5
+                                                            
+                                                            code
+                                                               getlocal0
+                                                               pushscope
+                                                               getlocal0
+                                                               callproperty QName(PackageNamespace(""),"isCleared"), 0
+                                                               iftrue ofs0012
+                                                               getlocal0
+                                                               getlex QName(PackageNamespace(""),"CLEARED")
+                                                               setproperty QName(PrivateNamespace(null,"49"),"state")
+                                                      ofs0012:
+                                                               returnvoid
+                                                            end ; code
+                                                         end ; body
+                                                      end ; method
+                                                   }
+                                                   
+                                                   public function get id() : String
+                                                   {
+                                                      trait getter QName(PackageNamespace(""),"id")
+                                                         dispid 0
+                                                         method
+                                                            name null
+                                                            returns QName(PackageNamespace(""),"String")
+                                                            
+                                                            body
+                                                               maxstack 1
+                                                               localcount 1
+                                                               initscopedepth 4
+                                                               maxscopedepth 5
+                                                               
+                                                               code
+                                                                  getlocal0
+                                                                  pushscope
+                                                                  getlocal0
+                                                                  getproperty QName(PrivateNamespace(null,"49"),"dungeonId")
+                                                                  returnvalue
+                                                               end ; code
+                                                            end ; body
+                                                         end ; method
+                                                      }
+                                                      
+                                                      public function get stateUint() : uint
+                                                      {
+                                                         trait getter QName(PackageNamespace(""),"stateUint")
+                                                            dispid 0
+                                                            method
+                                                               name null
+                                                               returns QName(PackageNamespace(""),"uint")
+                                                               
+                                                               body
+                                                                  maxstack 1
+                                                                  localcount 1
+                                                                  initscopedepth 4
+                                                                  maxscopedepth 5
+                                                                  
+                                                                  code
+                                                                     getlocal0
+                                                                     pushscope
+                                                                     getlocal0
+                                                                     getproperty QName(PrivateNamespace(null,"49"),"state")
+                                                                     returnvalue
+                                                                  end ; code
+                                                               end ; body
+                                                            end ; method
+                                                         }
+                                                      }
+                                                   }
+                                                   
+                                                   method
+                                                      name null
+                                                      returns null
+                                                      
+                                                      body
+                                                         maxstack 2
+                                                         localcount 1
+                                                         initscopedepth 1
+                                                         maxscopedepth 3
+                                                         
+                                                         code
+                                                            getlocal0
+                                                            pushscope
+                                                            findpropstrict Multiname("Level",[PackageNamespace("main_game.map")])
+                                                            getlex QName(PackageNamespace(""),"Object")
+                                                            pushscope
+                                                            getlex QName(PackageNamespace(""),"Object")
+                                                            newclass 64
+                                                            popscope
+                                                            initproperty QName(PackageNamespace("main_game.map"),"Level")
+                                                            returnvoid
+                                                         end ; code
+                                                      end ; body
+                                                   end ; method
+                                                   

@@ -1,0 +1,98 @@
+{
+  "status": "CONFIRMADO",
+  "source": "original/extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/characters.csv",
+  "notice": "Valores brutos da tabela; sem interpretação de semântica",
+  "count": 9,
+  "rows": [
+    {
+      "Character": "Finn",
+      "BaseHP": "50",
+      "BaseAttack": "5",
+      "BaseDefense": "2",
+      "BaseLuck": "5",
+      "BaseXP": "0",
+      "Element": "null",
+      "NameString": "finn"
+    },
+    {
+      "Character": "enemy1_normal",
+      "BaseHP": "38",
+      "BaseAttack": "15",
+      "BaseDefense": "2",
+      "BaseLuck": "5",
+      "BaseXP": "10",
+      "Element": "null",
+      "NameString": "enemy1_normal"
+    },
+    {
+      "Character": "enemy1_ice",
+      "BaseHP": "38",
+      "BaseAttack": "15",
+      "BaseDefense": "2",
+      "BaseLuck": "5",
+      "BaseXP": "10",
+      "Element": "I",
+      "NameString": "enemy1_ice"
+    },
+    {
+      "Character": "enemy1_fire",
+      "BaseHP": "38",
+      "BaseAttack": "15",
+      "BaseDefense": "2",
+      "BaseLuck": "5",
+      "BaseXP": "10",
+      "Element": "F",
+      "NameString": "enemy1_fire"
+    },
+    {
+      "Character": "enemy2_normal",
+      "BaseHP": "38",
+      "BaseAttack": "17",
+      "BaseDefense": "4",
+      "BaseLuck": "5",
+      "BaseXP": "10",
+      "Element": "null",
+      "NameString": "enemy2_normal"
+    },
+    {
+      "Character": "enemy2_ice",
+      "BaseHP": "38",
+      "BaseAttack": "20",
+      "BaseDefense": "6",
+      "BaseLuck": "3",
+      "BaseXP": "12",
+      "Element": "I",
+      "NameString": "enemy2_ice"
+    },
+    {
+      "Character": "enemy2_fire",
+      "BaseHP": "38",
+      "BaseAttack": "19",
+      "BaseDefense": "5",
+      "BaseLuck": "3",
+      "BaseXP": "12",
+      "Element": "F",
+      "NameString": "enemy2_fire"
+    },
+    {
+      "Character": "boss_normal",
+      "BaseHP": "32",
+      "BaseAttack": "18",
+      "BaseDefense": "6",
+      "BaseLuck": "2",
+      "BaseXP": "14",
+      "Element": "null",
+      "NameString": "boss_normal"
+    },
+    {
+      "Character": "enemy2_snow",
+      "BaseHP": "32",
+      "BaseAttack": "18",
+      "BaseDefense": "6",
+      "BaseLuck": "2",
+      "BaseXP": "14",
+      "Element": "I",
+      "NameString": "enemy2_snow"
+    }
+  ]
+}

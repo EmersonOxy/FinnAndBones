@@ -1,0 +1,53 @@
+package view.screens.main_game.dungeon
+{
+   import main_game.dungeon.IFight;
+   
+   public interface IDungeonView
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 0
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 3
+            
+            code
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      function get background() : BackgroundView;
+      
+      function onFight(param1:IFight) : void;
+      
+      function close() : void;
+   }
+}
+
+method
+   name null
+   returns null
+   
+   body
+      maxstack 2
+      localcount 1
+      initscopedepth 1
+      maxscopedepth 2
+      
+      code
+         getlocal0
+         pushscope
+         findpropstrict Multiname("IDungeonView",[PackageNamespace("view.screens.main_game.dungeon")])
+         pushnull
+         newclass 71
+         initproperty QName(PackageNamespace("view.screens.main_game.dungeon"),"IDungeonView")
+         returnvoid
+      end ; code
+   end ; body
+end ; method
+

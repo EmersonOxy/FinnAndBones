@@ -1,0 +1,808 @@
+package cb.display
+{
+   import cb.data.ButtonInfo;
+   import flash.display.DisplayObject;
+   import flash.display.MovieClip;
+   import flash.display.Sprite;
+   import flash.events.Event;
+   import flash.events.MouseEvent;
+   import flash.utils.Dictionary;
+   
+   public class Screen extends Sprite
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 8
+            maxscopedepth 9
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      protected var bg:MovieClip;
+      
+      protected var btnInfo:Dictionary;
+      
+      protected var container:String;
+      
+      protected var bgClass:Class;
+      
+      public function Screen(param1:Class, param2:Dictionary)
+      {
+         method
+            name null
+            param QName(PackageNamespace(""),"Class")
+            param QName(PackageNamespace("flash.utils"),"Dictionary")
+            returns null
+            
+            body
+               maxstack 3
+               localcount 3
+               initscopedepth 9
+               maxscopedepth 10
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlocal1
+                  initproperty QName(ProtectedNamespace("cb.display:Screen"),"bgClass")
+                  getlocal0
+                  getlocal2
+                  initproperty QName(ProtectedNamespace("cb.display:Screen"),"btnInfo")
+                  getlocal0
+                  getlocal1
+                  construct 0
+                  initproperty QName(ProtectedNamespace("cb.display:Screen"),"bg")
+                  getlocal0
+                  getproperty QName(ProtectedNamespace("cb.display:Screen"),"bg")
+                  getlex QName(PackageNamespace("flash.events"),"Event")
+                  getproperty QName(PackageNamespace(""),"ADDED_TO_STAGE")
+                  getlocal0
+                  getproperty QName(PrivateNamespace(null,"17"),"added")
+                  callpropvoid QName(PackageNamespace(""),"addEventListener"), 2
+                  findpropstrict QName(PackageNamespace(""),"addChild")
+                  getlocal0
+                  getproperty QName(ProtectedNamespace("cb.display:Screen"),"bg")
+                  callpropvoid QName(PackageNamespace(""),"addChild"), 1
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      private function added(param1:Event) : void
+      {
+         trait method QName(PrivateNamespace(null,"17"),"added")
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace("flash.events"),"Event")
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 4
+                  localcount 6
+                  initscopedepth 9
+                  maxscopedepth 10
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     pushnull
+                     coerce_s
+                     setlocal2
+                     pushnull
+                     coerce QName(PackageNamespace("cb.data"),"ButtonInfo")
+                     setlocal3
+                     getlocal0
+                     getproperty QName(ProtectedNamespace("cb.display:Screen"),"bg")
+                     getlex QName(PackageNamespace("flash.events"),"Event")
+                     getproperty QName(PackageNamespace(""),"ADDED_TO_STAGE")
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"17"),"added")
+                     callpropvoid QName(PackageNamespace(""),"removeEventListener"), 2
+                     pushbyte 0
+                     setlocal 4
+                     getlocal0
+                     getproperty QName(ProtectedNamespace("cb.display:Screen"),"btnInfo")
+                     coerce_a
+                     setlocal 5
+                     jump ofs0048
+            ofs0029:
+                     label
+                     getlocal 5
+                     getlocal 4
+                     nextname
+                     coerce_s
+                     setlocal2
+                     getlocal0
+                     getproperty QName(ProtectedNamespace("cb.display:Screen"),"btnInfo")
+                     getlocal2
+                     getproperty MultinameL([PrivateNamespace(null,"17"),ProtectedNamespace("cb.display:Screen"),PackageNamespace(""),PrivateNamespace(null,"183"),PackageNamespace("cb.display"),PackageInternalNs("cb.display"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     coerce QName(PackageNamespace("cb.data"),"ButtonInfo")
+                     setlocal3
+                     getlocal0
+                     getlocal0
+                     callproperty QName(PrivateNamespace(null,"17"),"getFather"), 0
+                     getlocal2
+                     getlocal3
+                     callpropvoid QName(PrivateNamespace(null,"17"),"configureButton"), 3
+            ofs0048:
+                     hasnext2 5, 4
+                     iftrue ofs0029
+                     kill 5
+                     kill 4
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         private function getFather() : *
+         {
+            trait method QName(PrivateNamespace(null,"17"),"getFather")
+               dispid 0
+               method
+                  name null
+                  returns null
+                  
+                  body
+                     maxstack 2
+                     localcount 1
+                     initscopedepth 9
+                     maxscopedepth 10
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        getproperty QName(ProtectedNamespace("cb.display:Screen"),"container")
+                        iffalse ofs0016
+                        getlocal0
+                        getproperty QName(ProtectedNamespace("cb.display:Screen"),"bg")
+                        getlocal0
+                        getproperty QName(ProtectedNamespace("cb.display:Screen"),"container")
+                        getproperty MultinameL([PrivateNamespace(null,"17"),ProtectedNamespace("cb.display:Screen"),PackageNamespace(""),PrivateNamespace(null,"183"),PackageNamespace("cb.display"),PackageInternalNs("cb.display"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        returnvalue
+               ofs0016:
+                        getlocal0
+                        getproperty QName(ProtectedNamespace("cb.display:Screen"),"bg")
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            private function getHitBox(param1:*, param2:ButtonInfo) : *
+            {
+               trait method QName(PrivateNamespace(null,"17"),"getHitBox")
+                  dispid 0
+                  method
+                     name null
+                     param null
+                     param QName(PackageNamespace("cb.data"),"ButtonInfo")
+                     returns null
+                     
+                     body
+                        maxstack 2
+                        localcount 3
+                        initscopedepth 9
+                        maxscopedepth 10
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal2
+                           callproperty QName(PackageNamespace(""),"getHitBox"), 0
+                           iffalse ofs0015
+                           getlocal1
+                           getlocal2
+                           callproperty QName(PackageNamespace(""),"getHitBox"), 0
+                           getproperty MultinameL([PrivateNamespace(null,"17"),ProtectedNamespace("cb.display:Screen"),PackageNamespace(""),PrivateNamespace(null,"183"),PackageNamespace("cb.display"),PackageInternalNs("cb.display"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           returnvalue
+                  ofs0015:
+                           getlocal1
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               protected function setNew(param1:Class, param2:Dictionary) : void
+               {
+                  trait method QName(ProtectedNamespace("cb.display:Screen"),"setNew")
+                     dispid 0
+                     method
+                        name null
+                        param QName(PackageNamespace(""),"Class")
+                        param QName(PackageNamespace("flash.utils"),"Dictionary")
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 3
+                           localcount 3
+                           initscopedepth 9
+                           maxscopedepth 10
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal0
+                              getlocal1
+                              initproperty QName(ProtectedNamespace("cb.display:Screen"),"bgClass")
+                              getlocal0
+                              getlocal2
+                              initproperty QName(ProtectedNamespace("cb.display:Screen"),"btnInfo")
+                              getlocal0
+                              getlocal1
+                              construct 0
+                              initproperty QName(ProtectedNamespace("cb.display:Screen"),"bg")
+                              getlocal0
+                              getproperty QName(ProtectedNamespace("cb.display:Screen"),"bg")
+                              getlex QName(PackageNamespace("flash.events"),"Event")
+                              getproperty QName(PackageNamespace(""),"ADDED_TO_STAGE")
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"17"),"added")
+                              callpropvoid QName(PackageNamespace(""),"addEventListener"), 2
+                              findpropstrict QName(PackageNamespace(""),"addChild")
+                              getlocal0
+                              getproperty QName(ProtectedNamespace("cb.display:Screen"),"bg")
+                              callpropvoid QName(PackageNamespace(""),"addChild"), 1
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  private function configureButton(param1:*, param2:String, param3:ButtonInfo) : void
+                  {
+                     trait method QName(PrivateNamespace(null,"17"),"configureButton")
+                        dispid 0
+                        method
+                           name null
+                           param null
+                           param QName(PackageNamespace(""),"String")
+                           param QName(PackageNamespace("cb.data"),"ButtonInfo")
+                           returns QName(PackageNamespace(""),"void")
+                           
+                           body
+                              maxstack 6
+                              localcount 5
+                              initscopedepth 9
+                              maxscopedepth 10
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal0
+                                 getlocal0
+                                 getlocal1
+                                 getlocal2
+                                 callproperty QName(PrivateNamespace(null,"17"),"getMc"), 2
+                                 getlocal3
+                                 callproperty QName(PrivateNamespace(null,"17"),"getHitBox"), 2
+                                 coerce_a
+                                 dup
+                                 setlocal 4
+                                 getlex QName(PackageNamespace("flash.events"),"MouseEvent")
+                                 getproperty QName(PackageNamespace(""),"CLICK")
+                                 getlocal3
+                                 getproperty QName(PackageNamespace(""),"click")
+                                 pushfalse
+                                 pushbyte 0
+                                 pushtrue
+                                 callpropvoid Multiname("addEventListener",[PrivateNamespace(null,"17"),ProtectedNamespace("cb.display:Screen"),PackageNamespace(""),PrivateNamespace(null,"183"),PackageNamespace("cb.display"),PackageInternalNs("cb.display"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 5
+                                 getlocal3
+                                 getproperty QName(PackageNamespace(""),"over")
+                                 pushnull
+                                 ifeq ofs0040
+                                 getlocal 4
+                                 getlex QName(PackageNamespace("flash.events"),"MouseEvent")
+                                 getproperty QName(PackageNamespace(""),"MOUSE_OVER")
+                                 getlocal3
+                                 getproperty QName(PackageNamespace(""),"over")
+                                 pushfalse
+                                 pushbyte 0
+                                 pushtrue
+                                 callpropvoid Multiname("addEventListener",[PrivateNamespace(null,"17"),ProtectedNamespace("cb.display:Screen"),PackageNamespace(""),PrivateNamespace(null,"183"),PackageNamespace("cb.display"),PackageInternalNs("cb.display"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 5
+                        ofs0040:
+                                 getlocal3
+                                 getproperty QName(PackageNamespace(""),"out")
+                                 pushnull
+                                 ifeq ofs005c
+                                 getlocal 4
+                                 getlex QName(PackageNamespace("flash.events"),"MouseEvent")
+                                 getproperty QName(PackageNamespace(""),"MOUSE_OUT")
+                                 getlocal3
+                                 getproperty QName(PackageNamespace(""),"out")
+                                 pushfalse
+                                 pushbyte 0
+                                 pushtrue
+                                 callpropvoid Multiname("addEventListener",[PrivateNamespace(null,"17"),ProtectedNamespace("cb.display:Screen"),PackageNamespace(""),PrivateNamespace(null,"183"),PackageNamespace("cb.display"),PackageInternalNs("cb.display"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 5
+                        ofs005c:
+                                 getlocal 4
+                                 pushfalse
+                                 setproperty Multiname("mouseChildren",[PrivateNamespace(null,"17"),ProtectedNamespace("cb.display:Screen"),PackageNamespace(""),PrivateNamespace(null,"183"),PackageNamespace("cb.display"),PackageInternalNs("cb.display"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     private function getMc(param1:*, param2:String) : *
+                     {
+                        trait method QName(PrivateNamespace(null,"17"),"getMc")
+                           dispid 0
+                           method
+                              name null
+                              param null
+                              param QName(PackageNamespace(""),"String")
+                              returns null
+                              
+                              body
+                                 maxstack 3
+                                 localcount 5
+                                 initscopedepth 9
+                                 maxscopedepth 10
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    getlocal2
+                                    pushstring ""
+                                    ifne ofs000b
+                                    getlocal1
+                                    returnvalue
+                           ofs000b:
+                                    getlocal2
+                                    pushstring "."
+                                    callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"split"), 1
+                                    coerce QName(PackageNamespace(""),"Array")
+                                    setlocal3
+                                    pushbyte 0
+                                    convert_u
+                                    setlocal 4
+                                    jump ofs0032
+                           ofs001f:
+                                    label
+                                    getlocal1
+                                    getlocal3
+                                    getlocal 4
+                                    getproperty MultinameL([PrivateNamespace(null,"17"),ProtectedNamespace("cb.display:Screen"),PackageNamespace(""),PrivateNamespace(null,"183"),PackageNamespace("cb.display"),PackageInternalNs("cb.display"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                    getproperty MultinameL([PrivateNamespace(null,"17"),ProtectedNamespace("cb.display:Screen"),PackageNamespace(""),PrivateNamespace(null,"183"),PackageNamespace("cb.display"),PackageInternalNs("cb.display"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                    coerce_a
+                                    setlocal1
+                                    getlocal 4
+                                    increment
+                                    convert_u
+                                    setlocal 4
+                           ofs0032:
+                                    getlocal 4
+                                    getlocal3
+                                    getproperty QName(PackageNamespace(""),"length")
+                                    iflt ofs001f
+                                    getlocal1
+                                    returnvalue
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        protected function addButton(param1:String, param2:ButtonInfo) : void
+                        {
+                           trait method QName(ProtectedNamespace("cb.display:Screen"),"addButton")
+                              dispid 0
+                              method
+                                 name null
+                                 param QName(PackageNamespace(""),"String")
+                                 param QName(PackageNamespace("cb.data"),"ButtonInfo")
+                                 returns QName(PackageNamespace(""),"void")
+                                 
+                                 body
+                                    maxstack 4
+                                    localcount 3
+                                    initscopedepth 9
+                                    maxscopedepth 10
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       getlocal0
+                                       getproperty QName(ProtectedNamespace("cb.display:Screen"),"btnInfo")
+                                       getlocal1
+                                       getlocal2
+                                       setproperty MultinameL([PrivateNamespace(null,"17"),ProtectedNamespace("cb.display:Screen"),PackageNamespace(""),PrivateNamespace(null,"183"),PackageNamespace("cb.display"),PackageInternalNs("cb.display"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                       getlocal0
+                                       getlocal0
+                                       callproperty QName(PrivateNamespace(null,"17"),"getFather"), 0
+                                       getlocal1
+                                       getlocal2
+                                       callpropvoid QName(PrivateNamespace(null,"17"),"configureButton"), 3
+                                       returnvoid
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           protected function removeButton(param1:String) : void
+                           {
+                              trait method QName(ProtectedNamespace("cb.display:Screen"),"removeButton")
+                                 dispid 0
+                                 method
+                                    name null
+                                    param QName(PackageNamespace(""),"String")
+                                    returns QName(PackageNamespace(""),"void")
+                                    
+                                    body
+                                       maxstack 3
+                                       localcount 2
+                                       initscopedepth 9
+                                       maxscopedepth 10
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          getlocal0
+                                          getproperty QName(ProtectedNamespace("cb.display:Screen"),"btnInfo")
+                                          getlocal1
+                                          getproperty MultinameL([PrivateNamespace(null,"17"),ProtectedNamespace("cb.display:Screen"),PackageNamespace(""),PrivateNamespace(null,"183"),PackageNamespace("cb.display"),PackageInternalNs("cb.display"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                          iffalse ofs0019
+                                          getlocal0
+                                          getlocal0
+                                          callproperty QName(PrivateNamespace(null,"17"),"getFather"), 0
+                                          getlocal1
+                                          callpropvoid QName(PrivateNamespace(null,"17"),"removeEvent"), 2
+                                 ofs0019:
+                                          returnvoid
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                              
+                              private function removeEvent(param1:*, param2:String) : void
+                              {
+                                 trait method QName(PrivateNamespace(null,"17"),"removeEvent")
+                                    dispid 0
+                                    method
+                                       name null
+                                       param null
+                                       param QName(PackageNamespace(""),"String")
+                                       returns QName(PackageNamespace(""),"void")
+                                       
+                                       body
+                                          maxstack 4
+                                          localcount 5
+                                          initscopedepth 9
+                                          maxscopedepth 10
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             getlocal0
+                                             getproperty QName(ProtectedNamespace("cb.display:Screen"),"btnInfo")
+                                             getlocal2
+                                             getproperty MultinameL([PrivateNamespace(null,"17"),ProtectedNamespace("cb.display:Screen"),PackageNamespace(""),PrivateNamespace(null,"183"),PackageNamespace("cb.display"),PackageInternalNs("cb.display"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                             coerce QName(PackageNamespace("cb.data"),"ButtonInfo")
+                                             setlocal3
+                                             getlocal0
+                                             getlocal0
+                                             getlocal1
+                                             getlocal2
+                                             callproperty QName(PrivateNamespace(null,"17"),"getMc"), 2
+                                             getlocal3
+                                             callproperty QName(PrivateNamespace(null,"17"),"getHitBox"), 2
+                                             coerce_a
+                                             dup
+                                             setlocal 4
+                                             getlex QName(PackageNamespace("flash.events"),"MouseEvent")
+                                             getproperty QName(PackageNamespace(""),"CLICK")
+                                             getlocal3
+                                             getproperty QName(PackageNamespace(""),"click")
+                                             callpropvoid Multiname("removeEventListener",[PrivateNamespace(null,"17"),ProtectedNamespace("cb.display:Screen"),PackageNamespace(""),PrivateNamespace(null,"183"),PackageNamespace("cb.display"),PackageInternalNs("cb.display"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 2
+                                             getlocal3
+                                             getproperty QName(PackageNamespace(""),"over")
+                                             pushnull
+                                             ifeq ofs0043
+                                             getlocal 4
+                                             getlex QName(PackageNamespace("flash.events"),"MouseEvent")
+                                             getproperty QName(PackageNamespace(""),"MOUSE_OVER")
+                                             getlocal3
+                                             getproperty QName(PackageNamespace(""),"over")
+                                             callpropvoid Multiname("removeEventListener",[PrivateNamespace(null,"17"),ProtectedNamespace("cb.display:Screen"),PackageNamespace(""),PrivateNamespace(null,"183"),PackageNamespace("cb.display"),PackageInternalNs("cb.display"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 2
+                                    ofs0043:
+                                             getlocal3
+                                             getproperty QName(PackageNamespace(""),"out")
+                                             pushnull
+                                             ifeq ofs005b
+                                             getlocal 4
+                                             getlex QName(PackageNamespace("flash.events"),"MouseEvent")
+                                             getproperty QName(PackageNamespace(""),"MOUSE_OUT")
+                                             getlocal3
+                                             getproperty QName(PackageNamespace(""),"out")
+                                             callpropvoid Multiname("removeEventListener",[PrivateNamespace(null,"17"),ProtectedNamespace("cb.display:Screen"),PackageNamespace(""),PrivateNamespace(null,"183"),PackageNamespace("cb.display"),PackageInternalNs("cb.display"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 2
+                                    ofs005b:
+                                             returnvoid
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                 }
+                                 
+                                 public function clear() : void
+                                 {
+                                    trait method QName(PackageNamespace(""),"clear")
+                                       dispid 0
+                                       method
+                                          name null
+                                          returns QName(PackageNamespace(""),"void")
+                                          
+                                          body
+                                             maxstack 2
+                                             localcount 1
+                                             initscopedepth 9
+                                             maxscopedepth 10
+                                             
+                                             code
+                                                getlocal0
+                                                pushscope
+                                                getlocal0
+                                                callpropvoid QName(PackageNamespace(""),"removeEvents"), 0
+                                                findpropstrict QName(PackageNamespace(""),"removeChild")
+                                                getlocal0
+                                                getproperty QName(ProtectedNamespace("cb.display:Screen"),"bg")
+                                                callpropvoid QName(PackageNamespace(""),"removeChild"), 1
+                                                getlocal0
+                                                pushnull
+                                                initproperty QName(ProtectedNamespace("cb.display:Screen"),"bg")
+                                                returnvoid
+                                             end ; code
+                                          end ; body
+                                       end ; method
+                                    }
+                                    
+                                    public function restore(param1:DisplayObject = null) : void
+                                    {
+                                       trait method QName(PackageNamespace(""),"restore")
+                                          dispid 0
+                                          method
+                                             name null
+                                             flag HAS_OPTIONAL
+                                             param QName(PackageNamespace("flash.display"),"DisplayObject")
+                                             optional Null()
+                                             returns QName(PackageNamespace(""),"void")
+                                             
+                                             body
+                                                maxstack 4
+                                                localcount 2
+                                                initscopedepth 9
+                                                maxscopedepth 10
+                                                
+                                                code
+                                                   getlocal0
+                                                   pushscope
+                                                   getlocal0
+                                                   getlocal0
+                                                   constructprop QName(ProtectedNamespace("cb.display:Screen"),"bgClass"), 0
+                                                   initproperty QName(ProtectedNamespace("cb.display:Screen"),"bg")
+                                                   getlocal0
+                                                   pushnull
+                                                   callpropvoid QName(PrivateNamespace(null,"17"),"added"), 1
+                                                   getlocal1
+                                                   iffalse ofs002d
+                                                   findpropstrict QName(PackageNamespace(""),"addChildAt")
+                                                   getlocal0
+                                                   getproperty QName(ProtectedNamespace("cb.display:Screen"),"bg")
+                                                   findpropstrict QName(PackageNamespace(""),"getChildIndex")
+                                                   getlocal1
+                                                   callproperty QName(PackageNamespace(""),"getChildIndex"), 1
+                                                   callpropvoid QName(PackageNamespace(""),"addChildAt"), 2
+                                                   jump ofs0038
+                                          ofs002d:
+                                                   findpropstrict QName(PackageNamespace(""),"addChild")
+                                                   getlocal0
+                                                   getproperty QName(ProtectedNamespace("cb.display:Screen"),"bg")
+                                                   callpropvoid QName(PackageNamespace(""),"addChild"), 1
+                                          ofs0038:
+                                                   returnvoid
+                                                end ; code
+                                             end ; body
+                                          end ; method
+                                       }
+                                       
+                                       public function removeEvents() : void
+                                       {
+                                          trait method QName(PackageNamespace(""),"removeEvents")
+                                             dispid 0
+                                             method
+                                                name null
+                                                returns QName(PackageNamespace(""),"void")
+                                                
+                                                body
+                                                   maxstack 3
+                                                   localcount 5
+                                                   initscopedepth 9
+                                                   maxscopedepth 10
+                                                   
+                                                   code
+                                                      getlocal0
+                                                      pushscope
+                                                      pushnull
+                                                      coerce_s
+                                                      setlocal2
+                                                      getlocal0
+                                                      getproperty QName(ProtectedNamespace("cb.display:Screen"),"bg")
+                                                      coerce QName(PackageNamespace(""),"Object")
+                                                      setlocal1
+                                                      getlocal0
+                                                      getproperty QName(ProtectedNamespace("cb.display:Screen"),"container")
+                                                      iffalse ofs0022
+                                                      getlocal0
+                                                      getproperty QName(ProtectedNamespace("cb.display:Screen"),"bg")
+                                                      getlocal0
+                                                      getproperty QName(ProtectedNamespace("cb.display:Screen"),"container")
+                                                      getproperty MultinameL([PrivateNamespace(null,"17"),ProtectedNamespace("cb.display:Screen"),PackageNamespace(""),PrivateNamespace(null,"183"),PackageNamespace("cb.display"),PackageInternalNs("cb.display"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                                      coerce QName(PackageNamespace(""),"Object")
+                                                      setlocal1
+                                             ofs0022:
+                                                      pushbyte 0
+                                                      setlocal3
+                                                      getlocal0
+                                                      getproperty QName(ProtectedNamespace("cb.display:Screen"),"btnInfo")
+                                                      coerce_a
+                                                      setlocal 4
+                                                      jump ofs003e
+                                             ofs0030:
+                                                      label
+                                                      getlocal 4
+                                                      getlocal3
+                                                      nextname
+                                                      coerce_s
+                                                      setlocal2
+                                                      getlocal0
+                                                      getlocal1
+                                                      getlocal2
+                                                      callpropvoid QName(PrivateNamespace(null,"17"),"removeEvent"), 2
+                                             ofs003e:
+                                                      hasnext2 4, 3
+                                                      iftrue ofs0030
+                                                      kill 4
+                                                      kill 3
+                                                      returnvoid
+                                                   end ; code
+                                                end ; body
+                                             end ; method
+                                          }
+                                          
+                                          public function restoreEvents() : void
+                                          {
+                                             trait method QName(PackageNamespace(""),"restoreEvents")
+                                                dispid 0
+                                                method
+                                                   name null
+                                                   returns QName(PackageNamespace(""),"void")
+                                                   
+                                                   body
+                                                      maxstack 2
+                                                      localcount 1
+                                                      initscopedepth 9
+                                                      maxscopedepth 10
+                                                      
+                                                      code
+                                                         getlocal0
+                                                         pushscope
+                                                         getlocal0
+                                                         pushnull
+                                                         callpropvoid QName(PrivateNamespace(null,"17"),"added"), 1
+                                                         returnvoid
+                                                      end ; code
+                                                   end ; body
+                                                end ; method
+                                             }
+                                             
+                                             protected function pop() : void
+                                             {
+                                                trait method QName(ProtectedNamespace("cb.display:Screen"),"pop")
+                                                   dispid 0
+                                                   method
+                                                      name null
+                                                      returns QName(PackageNamespace(""),"void")
+                                                      
+                                                      body
+                                                         maxstack 2
+                                                         localcount 1
+                                                         initscopedepth 9
+                                                         maxscopedepth 10
+                                                         
+                                                         code
+                                                            getlocal0
+                                                            pushscope
+                                                            getlex QName(PackageNamespace(""),"parent")
+                                                            getlocal0
+                                                            callpropvoid QName(PackageNamespace(""),"removeChild"), 1
+                                                            getlocal0
+                                                            callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                                            returnvoid
+                                                         end ; code
+                                                      end ; body
+                                                   end ; method
+                                                }
+                                                
+                                                public function getBg() : MovieClip
+                                                {
+                                                   trait method QName(PackageNamespace(""),"getBg")
+                                                      dispid 0
+                                                      method
+                                                         name null
+                                                         returns QName(PackageNamespace("flash.display"),"MovieClip")
+                                                         
+                                                         body
+                                                            maxstack 1
+                                                            localcount 1
+                                                            initscopedepth 9
+                                                            maxscopedepth 10
+                                                            
+                                                            code
+                                                               getlocal0
+                                                               pushscope
+                                                               getlocal0
+                                                               getproperty QName(ProtectedNamespace("cb.display:Screen"),"bg")
+                                                               returnvalue
+                                                            end ; code
+                                                         end ; body
+                                                      end ; method
+                                                   }
+                                                }
+                                             }
+                                             
+                                             method
+                                                name null
+                                                returns null
+                                                
+                                                body
+                                                   maxstack 2
+                                                   localcount 1
+                                                   initscopedepth 1
+                                                   maxscopedepth 8
+                                                   
+                                                   code
+                                                      getlocal0
+                                                      pushscope
+                                                      findpropstrict Multiname("Screen",[PackageNamespace("cb.display")])
+                                                      getlex QName(PackageNamespace(""),"Object")
+                                                      pushscope
+                                                      getlex QName(PackageNamespace("flash.events"),"EventDispatcher")
+                                                      pushscope
+                                                      getlex QName(PackageNamespace("flash.display"),"DisplayObject")
+                                                      pushscope
+                                                      getlex QName(PackageNamespace("flash.display"),"InteractiveObject")
+                                                      pushscope
+                                                      getlex QName(PackageNamespace("flash.display"),"DisplayObjectContainer")
+                                                      pushscope
+                                                      getlex QName(PackageNamespace("flash.display"),"Sprite")
+                                                      pushscope
+                                                      getlex QName(PackageNamespace("flash.display"),"Sprite")
+                                                      newclass 14
+                                                      popscope
+                                                      popscope
+                                                      popscope
+                                                      popscope
+                                                      popscope
+                                                      popscope
+                                                      initproperty QName(PackageNamespace("cb.display"),"Screen")
+                                                      returnvoid
+                                                   end ; code
+                                                end ; body
+                                             end ; method
+                                             

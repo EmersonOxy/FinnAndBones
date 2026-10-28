@@ -1,0 +1,490 @@
+package main_game.dungeon
+{
+   import flash.utils.Dictionary;
+   import main_game.boss_dungeon.BossDungeon;
+   import main_game.map.Level;
+   import util.ProbabilisticSet;
+   import view.screens.main_game.boss_dungeon.BossDungeonView;
+   import view.screens.main_game.dungeon.DungeonView;
+   import view.screens.main_game.states.DungeonState;
+   
+   public class DungeonFactory
+   {
+      
+      private static var instance:DungeonFactory;
+      
+      private static var config:Dictionary;
+      
+      private static var firstLootData:Dictionary;
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function DungeonFactory(param1:SingletonLock)
+      {
+         method
+            name null
+            param QName(PrivateNamespace(null),"SingletonLock")
+            returns null
+            
+            body
+               maxstack 2
+               localcount 2
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal1
+                  iftrue ofs0015
+                  findpropstrict QName(PackageNamespace(""),"Error")
+                  pushstring "Static Class"
+                  constructprop QName(PackageNamespace(""),"Error"), 1
+                  throw
+         ofs0015:
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public static function set firstLoot(param1:Dictionary) : void
+      {
+         trait setter QName(PackageNamespace(""),"firstLoot")
+            flag FINAL
+            dispid 3
+            method
+               name null
+               param QName(PackageNamespace("flash.utils"),"Dictionary")
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 2
+                  localcount 2
+                  initscopedepth 3
+                  maxscopedepth 4
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlex QName(PrivateNamespace(null,"13"),"firstLootData")
+                     pushnull
+                     ifeq ofs0015
+                     findpropstrict QName(PackageNamespace(""),"Error")
+                     pushstring "Can\'t do that"
+                     constructprop QName(PackageNamespace(""),"Error"), 1
+                     throw
+            ofs0015:
+                     findproperty QName(PrivateNamespace(null,"13"),"firstLootData")
+                     getlocal1
+                     setproperty QName(PrivateNamespace(null,"13"),"firstLootData")
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public static function getInstance() : DungeonFactory
+         {
+            trait method QName(PackageNamespace(""),"getInstance")
+               flag FINAL
+               dispid 4
+               method
+                  name null
+                  returns QName(PackageNamespace("main_game.dungeon"),"DungeonFactory")
+                  
+                  body
+                     maxstack 3
+                     localcount 1
+                     initscopedepth 3
+                     maxscopedepth 4
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlex QName(PrivateNamespace(null,"13"),"instance")
+                        pushnull
+                        ifne ofs0018
+                        findproperty QName(PrivateNamespace(null,"13"),"instance")
+                        getlocal0
+                        findpropstrict QName(PrivateNamespace(null),"SingletonLock")
+                        constructprop QName(PrivateNamespace(null),"SingletonLock"), 0
+                        construct 1
+                        setproperty QName(PrivateNamespace(null,"13"),"instance")
+               ofs0018:
+                        getlex QName(PrivateNamespace(null,"13"),"instance")
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public static function setConfig(param1:Dictionary) : void
+            {
+               trait method QName(PackageNamespace(""),"setConfig")
+                  flag FINAL
+                  dispid 5
+                  method
+                     name null
+                     param QName(PackageNamespace("flash.utils"),"Dictionary")
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 2
+                        localcount 2
+                        initscopedepth 3
+                        maxscopedepth 4
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           findproperty QName(PrivateNamespace(null,"13"),"config")
+                           getlocal1
+                           setproperty QName(PrivateNamespace(null,"13"),"config")
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public static function getConfigFor(param1:String) : DungeonConfigData
+               {
+                  trait method QName(PackageNamespace(""),"getConfigFor")
+                     flag FINAL
+                     dispid 6
+                     method
+                        name null
+                        param QName(PackageNamespace(""),"String")
+                        returns QName(PackageNamespace("main_game.dungeon"),"DungeonConfigData")
+                        
+                        body
+                           maxstack 3
+                           localcount 2
+                           initscopedepth 3
+                           maxscopedepth 4
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              findpropstrict QName(PackageNamespace("main_game.dungeon"),"DungeonConfigParser")
+                              getlex QName(PrivateNamespace(null,"13"),"config")
+                              getlocal1
+                              getproperty MultinameL([PrivateNamespace(null,"13"),PackageNamespace(""),PrivateNamespace(null),PackageNamespace("main_game.dungeon"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:DungeonFactory"),StaticProtectedNs("main_game.dungeon:DungeonFactory")])
+                              constructprop QName(PackageNamespace("main_game.dungeon"),"DungeonConfigParser"), 1
+                              returnvalue
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function getDungeonsIds() : Array
+                  {
+                     trait method QName(PackageNamespace(""),"getDungeonsIds")
+                        dispid 0
+                        method
+                           name null
+                           returns QName(PackageNamespace(""),"Array")
+                           
+                           body
+                              maxstack 2
+                              localcount 5
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 pushundefined
+                                 coerce_a
+                                 setlocal2
+                                 findpropstrict QName(PackageNamespace(""),"Array")
+                                 constructprop QName(PackageNamespace(""),"Array"), 0
+                                 coerce QName(PackageNamespace(""),"Array")
+                                 setlocal1
+                                 pushbyte 0
+                                 setlocal3
+                                 getlex QName(PrivateNamespace(null,"13"),"config")
+                                 coerce_a
+                                 setlocal 4
+                                 jump ofs0027
+                        ofs001a:
+                                 label
+                                 getlocal 4
+                                 getlocal3
+                                 nextname
+                                 coerce_a
+                                 setlocal2
+                                 getlocal1
+                                 getlocal2
+                                 callpropvoid QName(Namespace("http://adobe.com/AS3/2006/builtin"),"push"), 1
+                        ofs0027:
+                                 hasnext2 4, 3
+                                 iftrue ofs001a
+                                 kill 4
+                                 kill 3
+                                 getlocal1
+                                 returnvalue
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     public function getDungeon(param1:Level) : Dungeon
+                     {
+                        trait method QName(PackageNamespace(""),"getDungeon")
+                           dispid 0
+                           method
+                              name null
+                              param QName(PackageNamespace("main_game.map"),"Level")
+                              returns QName(PackageNamespace("main_game.dungeon"),"Dungeon")
+                              
+                              body
+                                 maxstack 5
+                                 localcount 3
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    findpropstrict QName(PackageNamespace(""),"getConfigFor")
+                                    getlocal1
+                                    callproperty QName(PackageNamespace(""),"getDungeonId"), 0
+                                    callproperty QName(PackageNamespace(""),"getConfigFor"), 1
+                                    coerce QName(PackageNamespace("main_game.dungeon"),"DungeonConfigData")
+                                    setlocal2
+                                    getlocal1
+                                    callproperty QName(PackageNamespace(""),"getDungeonId"), 0
+                                    getlex QName(PackageNamespace("main_game.boss_dungeon"),"BossDungeon")
+                                    getproperty QName(PackageNamespace(""),"idBossLevel")
+                                    ifne ofs0030
+                                    findpropstrict QName(PackageNamespace("main_game.boss_dungeon"),"BossDungeon")
+                                    getlocal1
+                                    getlocal2
+                                    getlocal0
+                                    getlocal1
+                                    callproperty QName(PrivateNamespace(null,"13"),"getFirstLoot"), 1
+                                    constructprop QName(PackageNamespace("main_game.boss_dungeon"),"BossDungeon"), 3
+                                    returnvalue
+                           ofs0030:
+                                    findpropstrict QName(PackageNamespace("main_game.dungeon"),"Dungeon")
+                                    getlocal1
+                                    getlocal2
+                                    getlocal0
+                                    getlocal1
+                                    callproperty QName(PrivateNamespace(null,"13"),"getFirstLoot"), 1
+                                    constructprop QName(PackageNamespace("main_game.dungeon"),"Dungeon"), 3
+                                    returnvalue
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        private function getFirstLoot(param1:Level) : ProbabilisticSet
+                        {
+                           trait method QName(PrivateNamespace(null,"13"),"getFirstLoot")
+                              dispid 0
+                              method
+                                 name null
+                                 param QName(PackageNamespace("main_game.map"),"Level")
+                                 returns QName(PackageNamespace("util"),"ProbabilisticSet")
+                                 
+                                 body
+                                    maxstack 4
+                                    localcount 7
+                                    initscopedepth 4
+                                    maxscopedepth 5
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       pushnull
+                                       coerce QName(PackageNamespace(""),"Array")
+                                       setlocal3
+                                       pushnull
+                                       coerce QName(PackageNamespace(""),"Array")
+                                       setlocal 4
+                                       findpropstrict QName(PackageNamespace("util"),"ProbabilisticSet")
+                                       constructprop QName(PackageNamespace("util"),"ProbabilisticSet"), 0
+                                       coerce QName(PackageNamespace("util"),"ProbabilisticSet")
+                                       setlocal2
+                                       getlocal1
+                                       callproperty QName(PackageNamespace(""),"isCleared"), 0
+                                       iftrue ofs0064
+                                       getlex QName(PackageNamespace("main_game.dungeon"),"DungeonConfigParser")
+                                       getlex QName(PrivateNamespace(null,"13"),"firstLootData")
+                                       getlocal1
+                                       getproperty QName(PackageNamespace(""),"id")
+                                       getproperty MultinameL([PrivateNamespace(null,"13"),PackageNamespace(""),PrivateNamespace(null),PackageNamespace("main_game.dungeon"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:DungeonFactory"),StaticProtectedNs("main_game.dungeon:DungeonFactory")])
+                                       callproperty QName(PackageNamespace(""),"parseLootData"), 1
+                                       coerce QName(PackageNamespace(""),"Array")
+                                       setlocal3
+                                       pushbyte 0
+                                       setlocal 5
+                                       getlocal3
+                                       coerce_a
+                                       setlocal 6
+                                       jump ofs0059
+                              ofs003c:
+                                       label
+                                       getlocal 6
+                                       getlocal 5
+                                       nextvalue
+                                       coerce QName(PackageNamespace(""),"Array")
+                                       setlocal 4
+                                       getlocal2
+                                       getlocal 4
+                                       pushbyte 0
+                                       getproperty MultinameL([PrivateNamespace(null,"13"),PackageNamespace(""),PrivateNamespace(null),PackageNamespace("main_game.dungeon"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:DungeonFactory"),StaticProtectedNs("main_game.dungeon:DungeonFactory")])
+                                       getlocal 4
+                                       pushbyte 1
+                                       getproperty MultinameL([PrivateNamespace(null,"13"),PackageNamespace(""),PrivateNamespace(null),PackageNamespace("main_game.dungeon"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:DungeonFactory"),StaticProtectedNs("main_game.dungeon:DungeonFactory")])
+                                       callpropvoid QName(PackageNamespace(""),"add"), 2
+                              ofs0059:
+                                       hasnext2 6, 5
+                                       iftrue ofs003c
+                                       kill 6
+                                       kill 5
+                              ofs0064:
+                                       getlocal2
+                                       returnvalue
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           public function getViewFor(param1:DungeonState) : DungeonView
+                           {
+                              trait method QName(PackageNamespace(""),"getViewFor")
+                                 dispid 0
+                                 method
+                                    name null
+                                    param QName(PackageNamespace("view.screens.main_game.states"),"DungeonState")
+                                    returns QName(PackageNamespace("view.screens.main_game.dungeon"),"DungeonView")
+                                    
+                                    body
+                                       maxstack 2
+                                       localcount 2
+                                       initscopedepth 4
+                                       maxscopedepth 5
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          getlocal1
+                                          callproperty QName(PackageNamespace(""),"getDungeon"), 0
+                                          callproperty QName(PackageNamespace(""),"getId"), 0
+                                          getlex QName(PackageNamespace("main_game.boss_dungeon"),"BossDungeon")
+                                          getproperty QName(PackageNamespace(""),"idBossLevel")
+                                          ifne ofs001e
+                                          findpropstrict QName(PackageNamespace("view.screens.main_game.boss_dungeon"),"BossDungeonView")
+                                          getlocal1
+                                          constructprop QName(PackageNamespace("view.screens.main_game.boss_dungeon"),"BossDungeonView"), 1
+                                          returnvalue
+                                 ofs001e:
+                                          findpropstrict QName(PackageNamespace("view.screens.main_game.dungeon"),"DungeonView")
+                                          getlocal1
+                                          constructprop QName(PackageNamespace("view.screens.main_game.dungeon"),"DungeonView"), 1
+                                          returnvalue
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                           }
+                        }
+                        
+                        class SingletonLock
+                        {
+                           
+                           method
+                              name null
+                              returns null
+                              
+                              body
+                                 maxstack 1
+                                 localcount 1
+                                 initscopedepth 3
+                                 maxscopedepth 4
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                           
+                           public function SingletonLock()
+                           {
+                              method
+                                 name null
+                                 returns null
+                                 
+                                 body
+                                    maxstack 1
+                                    localcount 1
+                                    initscopedepth 4
+                                    maxscopedepth 5
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       getlocal0
+                                       constructsuper 0
+                                       returnvoid
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                        }
+                        
+                        method
+                           name null
+                           returns null
+                           
+                           body
+                              maxstack 2
+                              localcount 1
+                              initscopedepth 1
+                              maxscopedepth 3
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 findpropstrict Multiname("DungeonFactory",[PackageNamespace("main_game.dungeon")])
+                                 getlex QName(PackageNamespace(""),"Object")
+                                 pushscope
+                                 getlex QName(PackageNamespace(""),"Object")
+                                 newclass 7
+                                 popscope
+                                 initproperty QName(PackageNamespace("main_game.dungeon"),"DungeonFactory")
+                                 findpropstrict Multiname("SingletonLock",[PrivateNamespace(null)])
+                                 getlex QName(PackageNamespace(""),"Object")
+                                 pushscope
+                                 getlex QName(PackageNamespace(""),"Object")
+                                 newclass 8
+                                 popscope
+                                 initproperty QName(PrivateNamespace(null),"SingletonLock")
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                        

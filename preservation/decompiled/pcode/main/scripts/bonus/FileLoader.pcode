@@ -1,0 +1,278 @@
+package bonus
+{
+   import flash.events.Event;
+   import flash.events.EventDispatcher;
+   import flash.events.IOErrorEvent;
+   import flash.net.URLLoader;
+   import flash.net.URLRequest;
+   import jh.PackedResources;
+   
+   public class FileLoader extends EventDispatcher
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 4
+            maxscopedepth 5
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var loader:URLLoader;
+      
+      private var uri:String;
+      
+      public var data:Object;
+      
+      public var name:String;
+      
+      public function FileLoader(param1:String)
+      {
+         method
+            name null
+            param QName(PackageNamespace(""),"String")
+            returns null
+            
+            body
+               maxstack 3
+               localcount 2
+               initscopedepth 5
+               maxscopedepth 6
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlocal1
+                  initproperty QName(PrivateNamespace(null,"45"),"uri")
+                  getlocal0
+                  getlocal1
+                  initproperty QName(PackageNamespace(""),"name")
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("flash.net"),"URLLoader")
+                  constructprop QName(PackageNamespace("flash.net"),"URLLoader"), 0
+                  initproperty QName(PrivateNamespace(null,"45"),"loader")
+                  getlocal0
+                  getproperty QName(PrivateNamespace(null,"45"),"loader")
+                  getlex QName(PackageNamespace("flash.events"),"IOErrorEvent")
+                  getproperty QName(PackageNamespace(""),"IO_ERROR")
+                  getlocal0
+                  getproperty QName(PrivateNamespace(null,"45"),"errorHandler")
+                  callpropvoid QName(PackageNamespace(""),"addEventListener"), 2
+                  getlocal0
+                  getproperty QName(PrivateNamespace(null,"45"),"loader")
+                  getlex QName(PackageNamespace("flash.events"),"Event")
+                  getproperty QName(PackageNamespace(""),"COMPLETE")
+                  getlocal0
+                  getproperty QName(PrivateNamespace(null,"45"),"loaderCompleteHandler")
+                  callpropvoid QName(PackageNamespace(""),"addEventListener"), 2
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function load(param1:PackedResources = null) : void
+      {
+         trait method QName(PackageNamespace(""),"load")
+            dispid 0
+            method
+               name null
+               flag HAS_OPTIONAL
+               param QName(PackageNamespace("jh"),"PackedResources")
+               optional Null()
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 3
+                  localcount 4
+                  initscopedepth 5
+                  maxscopedepth 6
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     pushnull
+                     coerce QName(PackageNamespace(""),"Class")
+                     setlocal3
+                     getlocal1
+                     iffalse ofs003a
+                     getlocal1
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"45"),"uri")
+                     callproperty QName(PackageNamespace(""),"get"), 1
+                     coerce QName(PackageNamespace(""),"Class")
+                     setlocal3
+                     getlocal0
+                     getlocal3
+                     construct 0
+                     initproperty QName(PackageNamespace(""),"data")
+                     getlocal0
+                     callpropvoid QName(PrivateNamespace(null,"45"),"removeListeners"), 0
+                     getlocal0
+                     pushnull
+                     initproperty QName(PrivateNamespace(null,"45"),"loader")
+                     findpropstrict QName(PackageNamespace(""),"dispatchEvent")
+                     findpropstrict QName(PackageNamespace("flash.events"),"Event")
+                     getlex QName(PackageNamespace("flash.events"),"Event")
+                     getproperty QName(PackageNamespace(""),"COMPLETE")
+                     constructprop QName(PackageNamespace("flash.events"),"Event"), 1
+                     callpropvoid QName(PackageNamespace(""),"dispatchEvent"), 1
+                     returnvoid
+            ofs003a:
+                     findpropstrict QName(PackageNamespace("flash.net"),"URLRequest")
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"45"),"uri")
+                     constructprop QName(PackageNamespace("flash.net"),"URLRequest"), 1
+                     coerce QName(PackageNamespace("flash.net"),"URLRequest")
+                     setlocal2
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"45"),"loader")
+                     getlocal2
+                     callpropvoid QName(PackageNamespace(""),"load"), 1
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         private function removeListeners() : void
+         {
+            trait method QName(PrivateNamespace(null,"45"),"removeListeners")
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 3
+                     localcount 1
+                     initscopedepth 5
+                     maxscopedepth 6
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"45"),"loader")
+                        getlex QName(PackageNamespace("flash.events"),"IOErrorEvent")
+                        getproperty QName(PackageNamespace(""),"IO_ERROR")
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"45"),"errorHandler")
+                        callpropvoid QName(PackageNamespace(""),"removeEventListener"), 2
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"45"),"loader")
+                        getlex QName(PackageNamespace("flash.events"),"Event")
+                        getproperty QName(PackageNamespace(""),"COMPLETE")
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"45"),"loaderCompleteHandler")
+                        callpropvoid QName(PackageNamespace(""),"removeEventListener"), 2
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            private function loaderCompleteHandler(param1:Event) : void
+            {
+               trait method QName(PrivateNamespace(null,"45"),"loaderCompleteHandler")
+                  dispid 0
+                  method
+                     name null
+                     param QName(PackageNamespace("flash.events"),"Event")
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 2
+                        localcount 2
+                        initscopedepth 5
+                        maxscopedepth 6
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"45"),"loader")
+                           getproperty QName(PackageNamespace(""),"data")
+                           initproperty QName(PackageNamespace(""),"data")
+                           findpropstrict QName(PackageNamespace(""),"dispatchEvent")
+                           getlocal1
+                           callpropvoid QName(PackageNamespace(""),"dispatchEvent"), 1
+                           getlocal0
+                           callpropvoid QName(PrivateNamespace(null,"45"),"removeListeners"), 0
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               private function errorHandler(param1:IOErrorEvent) : void
+               {
+                  trait method QName(PrivateNamespace(null,"45"),"errorHandler")
+                     dispid 0
+                     method
+                        name null
+                        param QName(PackageNamespace("flash.events"),"IOErrorEvent")
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 2
+                           localcount 2
+                           initscopedepth 5
+                           maxscopedepth 6
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              findpropstrict QName(PackageNamespace(""),"Error")
+                              getlocal1
+                              constructprop QName(PackageNamespace(""),"Error"), 1
+                              throw
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+               }
+            }
+            
+            method
+               name null
+               returns null
+               
+               body
+                  maxstack 2
+                  localcount 1
+                  initscopedepth 1
+                  maxscopedepth 4
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     findpropstrict Multiname("FileLoader",[PackageNamespace("bonus")])
+                     getlex QName(PackageNamespace(""),"Object")
+                     pushscope
+                     getlex QName(PackageNamespace("flash.events"),"EventDispatcher")
+                     pushscope
+                     getlex QName(PackageNamespace("flash.events"),"EventDispatcher")
+                     newclass 58
+                     popscope
+                     popscope
+                     initproperty QName(PackageNamespace("bonus"),"FileLoader")
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+            

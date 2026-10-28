@@ -1,0 +1,266 @@
+package view.popUp
+{
+   import flash.display.DisplayObjectContainer;
+   import flash.display.MovieClip;
+   
+   public class PopUp
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var theMc:MovieClip;
+      
+      private var positioner:PopUpPositioner;
+      
+      public function PopUp(param1:MovieClip)
+      {
+         method
+            name null
+            param QName(PackageNamespace("flash.display"),"MovieClip")
+            returns null
+            
+            body
+               maxstack 2
+               localcount 2
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlocal1
+                  initproperty QName(PrivateNamespace(null,"149"),"theMc")
+                  getlocal0
+                  getproperty QName(PackageNamespace(""),"mc")
+                  pushfalse
+                  setproperty QName(PackageNamespace(""),"visible")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function get mc() : MovieClip
+      {
+         trait getter QName(PackageNamespace(""),"mc")
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace("flash.display"),"MovieClip")
+               
+               body
+                  maxstack 1
+                  localcount 1
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"149"),"theMc")
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function addIn(param1:DisplayObjectContainer) : void
+         {
+            trait method QName(PackageNamespace(""),"addIn")
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace("flash.display"),"DisplayObjectContainer")
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 3
+                     localcount 2
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        findpropstrict QName(PackageNamespace("view.popUp"),"PopUpPositioner")
+                        getlocal1
+                        constructprop QName(PackageNamespace("view.popUp"),"PopUpPositioner"), 1
+                        initproperty QName(PrivateNamespace(null,"149"),"positioner")
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"149"),"positioner")
+                        getlocal0
+                        getproperty QName(PackageNamespace(""),"mc")
+                        callpropvoid QName(PackageNamespace(""),"addMc"), 1
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function hide(param1:Function = null) : void
+            {
+               trait method QName(PackageNamespace(""),"hide")
+                  dispid 0
+                  method
+                     name null
+                     flag HAS_OPTIONAL
+                     param QName(PackageNamespace(""),"Function")
+                     optional Null()
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 2
+                        localcount 2
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getproperty QName(PackageNamespace(""),"mc")
+                           pushfalse
+                           setproperty QName(PackageNamespace(""),"visible")
+                           getlocal1
+                           pushnull
+                           ifeq ofs0015
+                           getlocal1
+                           getglobalscope
+                           call 0
+                           pop
+                  ofs0015:
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function show(param1:Function = null) : void
+               {
+                  trait method QName(PackageNamespace(""),"show")
+                     dispid 0
+                     method
+                        name null
+                        flag HAS_OPTIONAL
+                        param QName(PackageNamespace(""),"Function")
+                        optional Null()
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 2
+                           localcount 2
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"149"),"positioner")
+                              getlocal0
+                              getproperty QName(PackageNamespace(""),"mc")
+                              callpropvoid QName(PackageNamespace(""),"refreshPos"), 1
+                              getlocal0
+                              getproperty QName(PackageNamespace(""),"mc")
+                              pushtrue
+                              setproperty QName(PackageNamespace(""),"visible")
+                              getlocal1
+                              pushnull
+                              ifeq ofs0021
+                              getlocal1
+                              getglobalscope
+                              call 0
+                              pop
+                     ofs0021:
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function clear() : void
+                  {
+                     trait method QName(PackageNamespace(""),"clear")
+                        dispid 0
+                        method
+                           name null
+                           returns QName(PackageNamespace(""),"void")
+                           
+                           body
+                              maxstack 2
+                              localcount 1
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal0
+                                 getproperty QName(PackageNamespace(""),"mc")
+                                 getproperty QName(PackageNamespace(""),"parent")
+                                 pushnull
+                                 ifeq ofs001d
+                                 getlocal0
+                                 getproperty QName(PackageNamespace(""),"mc")
+                                 getproperty QName(PackageNamespace(""),"parent")
+                                 getlocal0
+                                 getproperty QName(PackageNamespace(""),"mc")
+                                 callpropvoid QName(PackageNamespace(""),"removeChild"), 1
+                        ofs001d:
+                                 getlocal0
+                                 pushnull
+                                 setproperty QName(PrivateNamespace(null,"149"),"positioner")
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                  }
+               }
+               
+               method
+                  name null
+                  returns null
+                  
+                  body
+                     maxstack 2
+                     localcount 1
+                     initscopedepth 1
+                     maxscopedepth 3
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        findpropstrict Multiname("PopUp",[PackageNamespace("view.popUp")])
+                        getlex QName(PackageNamespace(""),"Object")
+                        pushscope
+                        getlex QName(PackageNamespace(""),"Object")
+                        newclass 254
+                        popscope
+                        initproperty QName(PackageNamespace("view.popUp"),"PopUp")
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+               

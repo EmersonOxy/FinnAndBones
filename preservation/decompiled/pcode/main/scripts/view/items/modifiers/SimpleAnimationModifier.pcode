@@ -1,0 +1,272 @@
+package view.items.modifiers
+{
+   import flash.display.MovieClip;
+   import main_game.character.stats.StatType;
+   import util.Util;
+   
+   public class SimpleAnimationModifier implements IAnimationModifier
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var mcName:String;
+      
+      private var typeModifier:String;
+      
+      public function SimpleAnimationModifier(param1:String, param2:String)
+      {
+         method
+            name null
+            param QName(PackageNamespace(""),"String")
+            param QName(PackageNamespace(""),"String")
+            returns null
+            
+            body
+               maxstack 2
+               localcount 3
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlocal1
+                  initproperty QName(PrivateNamespace(null,"66"),"mcName")
+                  getlocal0
+                  getlocal2
+                  initproperty QName(PrivateNamespace(null,"66"),"typeModifier")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function modify(param1:MovieClip) : void
+      {
+         trait method QName(PackageNamespace(""),"modify")
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace("flash.display"),"MovieClip")
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 3
+                  localcount 2
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     getlocal1
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"66"),"mcName")
+                     callpropvoid QName(ProtectedNamespace("view.items.modifiers:SimpleAnimationModifier"),"setFrame"), 2
+                     getlocal0
+                     getlocal1
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"66"),"typeModifier")
+                     callpropvoid QName(ProtectedNamespace("view.items.modifiers:SimpleAnimationModifier"),"setModifier"), 2
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         protected function setFrame(param1:MovieClip, param2:String) : void
+         {
+            trait method QName(ProtectedNamespace("view.items.modifiers:SimpleAnimationModifier"),"setFrame")
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace("flash.display"),"MovieClip")
+                  param QName(PackageNamespace(""),"String")
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 2
+                     localcount 3
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal1
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"66"),"mcName")
+                        callpropvoid QName(PackageNamespace(""),"gotoAndStop"), 1
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            protected function setModifier(param1:MovieClip, param2:String) : void
+            {
+               trait method QName(ProtectedNamespace("view.items.modifiers:SimpleAnimationModifier"),"setModifier")
+                  dispid 0
+                  method
+                     name null
+                     param QName(PackageNamespace("flash.display"),"MovieClip")
+                     param QName(PackageNamespace(""),"String")
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 3
+                        localcount 3
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getlocal1
+                           getproperty Multiname("icon",[PrivateNamespace(null,"66"),PackageNamespace(""),ProtectedNamespace("view.items.modifiers:SimpleAnimationModifier"),PrivateNamespace(null,"234"),PackageNamespace("view.items.modifiers"),PackageInternalNs("view.items.modifiers"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("view.items.modifiers:SimpleAnimationModifier")])
+                           getlocal2
+                           callpropvoid QName(ProtectedNamespace("view.items.modifiers:SimpleAnimationModifier"),"setIcon"), 2
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               protected function setIcon(param1:MovieClip, param2:String) : void
+               {
+                  trait method QName(ProtectedNamespace("view.items.modifiers:SimpleAnimationModifier"),"setIcon")
+                     dispid 0
+                     method
+                        name null
+                        flag NEED_ACTIVATION
+                        param QName(PackageNamespace("flash.display"),"MovieClip")
+                        param QName(PackageNamespace(""),"String")
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 4
+                           localcount 5
+                           initscopedepth 5
+                           maxscopedepth 10
+                           trait slot QName(PackageInternalNs("view.items.modifiers"),"mc")
+                              slotid 1
+                              type QName(PackageNamespace("flash.display"),"MovieClip")
+                           end ; trait
+                           trait slot QName(PackageInternalNs("view.items.modifiers"),"type")
+                              slotid 2
+                              type QName(PackageNamespace(""),"String")
+                           end ; trait
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              newactivation
+                              dup
+                              setlocal3
+                              pushscope
+                              getscopeobject 1
+                              getlocal1
+                              setslot 1
+                              getscopeobject 1
+                              getlocal2
+                              setslot 2
+                              getscopeobject 1
+                              getslot 2
+                              pushnull
+                              ifne ofs0050
+                     ofs0019:
+                              getscopeobject 1
+                              getslot 1
+                              pushstring "none"
+                              callpropvoid QName(PackageNamespace(""),"gotoAndStop"), 1
+                     ofs0024:
+                              jump ofs004c
+                     ofs0028:
+                              getlocal0
+                              pushscope
+                              getlocal3
+                              pushscope
+                              newcatch 0
+                              dup
+                              setlocal 4
+                              dup
+                              pushscope
+                              swap
+                              setslot 1
+                              getscopeobject 1
+                              getslot 1
+                              pushfalse
+                              setproperty QName(PackageNamespace(""),"visible")
+                              getlex QName(PackageNamespace("util"),"Util")
+                              getscopeobject 1
+                              getslot 1
+                              callpropvoid QName(PackageNamespace(""),"recursiveStop"), 1
+                              popscope
+                              kill 4
+                     ofs004c:
+                              jump ofs0066
+                     ofs0050:
+                              getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                              getscopeobject 1
+                              getslot 1
+                              getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                              getscopeobject 1
+                              getslot 2
+                              callproperty QName(PackageNamespace(""),"parse"), 1
+                              callpropvoid QName(PackageNamespace(""),"setMcIcon"), 2
+                     ofs0066:
+                              returnvoid
+                           end ; code
+                           try from ofs0019 to ofs0024 target ofs0028 type QName(PackageNamespace(""),"ArgumentError") name QName(PackageNamespace(""),"a") end
+                        end ; body
+                     end ; method
+                  }
+               }
+            }
+            
+            method
+               name null
+               returns null
+               
+               body
+                  maxstack 2
+                  localcount 1
+                  initscopedepth 1
+                  maxscopedepth 3
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     findpropstrict Multiname("SimpleAnimationModifier",[PackageNamespace("view.items.modifiers")])
+                     getlex QName(PackageNamespace(""),"Object")
+                     pushscope
+                     getlex QName(PackageNamespace(""),"Object")
+                     newclass 106
+                     popscope
+                     initproperty QName(PackageNamespace("view.items.modifiers"),"SimpleAnimationModifier")
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+            

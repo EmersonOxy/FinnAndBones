@@ -1,0 +1,51 @@
+package main_game.dungeon
+{
+   public interface IXpCalculator
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 0
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 3
+            
+            code
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      function getXp(param1:Array) : int;
+      
+      function getMixXp(param1:int) : Number;
+      
+      function getCriticalXp(param1:int) : Number;
+   }
+}
+
+method
+   name null
+   returns null
+   
+   body
+      maxstack 2
+      localcount 1
+      initscopedepth 1
+      maxscopedepth 2
+      
+      code
+         getlocal0
+         pushscope
+         findpropstrict Multiname("IXpCalculator",[PackageNamespace("main_game.dungeon")])
+         pushnull
+         newclass 135
+         initproperty QName(PackageNamespace("main_game.dungeon"),"IXpCalculator")
+         returnvoid
+      end ; code
+   end ; body
+end ; method
+

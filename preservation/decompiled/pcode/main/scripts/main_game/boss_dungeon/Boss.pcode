@@ -1,0 +1,88 @@
+package main_game.boss_dungeon
+{
+   import main_game.character.CharacterConfigData;
+   import main_game.character.Enemy;
+   
+   public class Boss extends Enemy
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 5
+            maxscopedepth 6
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function Boss(param1:String, param2:CharacterConfigData, param3:Number)
+      {
+         method
+            name null
+            param QName(PackageNamespace(""),"String")
+            param QName(PackageNamespace("main_game.character"),"CharacterConfigData")
+            param QName(PackageNamespace(""),"Number")
+            returns null
+            
+            body
+               maxstack 4
+               localcount 4
+               initscopedepth 6
+               maxscopedepth 7
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  getlocal1
+                  getlocal2
+                  getlocal3
+                  constructsuper 3
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+   }
+}
+
+method
+   name null
+   returns null
+   
+   body
+      maxstack 2
+      localcount 1
+      initscopedepth 1
+      maxscopedepth 5
+      
+      code
+         getlocal0
+         pushscope
+         findpropstrict Multiname("Boss",[PackageNamespace("main_game.boss_dungeon")])
+         getlex QName(PackageNamespace(""),"Object")
+         pushscope
+         getlex QName(PackageNamespace("main_game.character"),"Fighter")
+         pushscope
+         getlex QName(PackageNamespace("main_game.character"),"Enemy")
+         pushscope
+         getlex QName(PackageNamespace("main_game.character"),"Enemy")
+         newclass 83
+         popscope
+         popscope
+         popscope
+         initproperty QName(PackageNamespace("main_game.boss_dungeon"),"Boss")
+         returnvoid
+      end ; code
+   end ; body
+end ; method
+

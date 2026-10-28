@@ -1,0 +1,144 @@
+package bonus.states
+{
+   import bonus.errors.WaitingForEndClassError;
+   
+   public class WaitingForEndClass extends BaseState
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 5
+            maxscopedepth 6
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function WaitingForEndClass()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 1
+               localcount 1
+               initscopedepth 6
+               maxscopedepth 7
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      override protected function onSpace(param1:String) : BaseState
+      {
+         trait method QName(ProtectedNamespace("bonus.states:WaitingForEndClass"),"onSpace")
+            flag OVERRIDE
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace(""),"String")
+               returns QName(PackageNamespace("bonus.states"),"BaseState")
+               
+               body
+                  maxstack 1
+                  localcount 2
+                  initscopedepth 6
+                  maxscopedepth 7
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         override protected function onMisc(param1:String) : BaseState
+         {
+            trait method QName(ProtectedNamespace("bonus.states:WaitingForEndClass"),"onMisc")
+               flag OVERRIDE
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace(""),"String")
+                  returns QName(PackageNamespace("bonus.states"),"BaseState")
+                  
+                  body
+                     maxstack 3
+                     localcount 2
+                     initscopedepth 6
+                     maxscopedepth 7
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal1
+                        pushstring "{"
+                        ifne ofs0012
+                        findpropstrict QName(PackageNamespace("bonus.states"),"WaitingForAttribute")
+                        constructprop QName(PackageNamespace("bonus.states"),"WaitingForAttribute"), 0
+                        returnvalue
+               ofs0012:
+                        findpropstrict QName(PackageNamespace("bonus.errors"),"WaitingForEndClassError")
+                        getlocal1
+                        getlex QName(ProtectedNamespace("bonus.states:BaseState"),"stream")
+                        callproperty QName(PackageNamespace(""),"getLineNumber"), 0
+                        constructprop QName(PackageNamespace("bonus.errors"),"WaitingForEndClassError"), 2
+                        throw
+                     end ; code
+                  end ; body
+               end ; method
+            }
+         }
+      }
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 1
+            maxscopedepth 5
+            
+            code
+               getlocal0
+               pushscope
+               findpropstrict Multiname("WaitingForEndClass",[PackageNamespace("bonus.states")])
+               getlex QName(PackageNamespace(""),"Object")
+               pushscope
+               getlex QName(PackageNamespace("flash.events"),"EventDispatcher")
+               pushscope
+               getlex QName(PackageNamespace("bonus.states"),"BaseState")
+               pushscope
+               getlex QName(PackageNamespace("bonus.states"),"BaseState")
+               newclass 287
+               popscope
+               popscope
+               popscope
+               initproperty QName(PackageNamespace("bonus.states"),"WaitingForEndClass")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      

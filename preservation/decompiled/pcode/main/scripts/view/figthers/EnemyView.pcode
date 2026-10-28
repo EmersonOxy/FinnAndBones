@@ -1,0 +1,483 @@
+package view.figthers
+{
+   import flash.display.DisplayObjectContainer;
+   import flash.display.MovieClip;
+   import main_game.character.Enemy;
+   import main_game.character.Fighter;
+   import sound.EnemySoundManager;
+   import util.Util;
+   import view.figthers.animations.IFighterAnimation;
+   
+   public class EnemyView extends FighterView
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 4
+            maxscopedepth 5
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var container:MovieClip;
+      
+      public function EnemyView(param1:Fighter)
+      {
+         method
+            name null
+            param QName(PackageNamespace("main_game.character"),"Fighter")
+            returns null
+            
+            body
+               maxstack 2
+               localcount 2
+               initscopedepth 5
+               maxscopedepth 6
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  getlocal1
+                  constructsuper 1
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("flash.display"),"MovieClip")
+                  constructprop QName(PackageNamespace("flash.display"),"MovieClip"), 0
+                  initproperty QName(PrivateNamespace(null,"57"),"container")
+                  getlocal0
+                  getproperty QName(PrivateNamespace(null,"57"),"container")
+                  pushnull
+                  setproperty Multiname("enemy",[PrivateNamespace(null,"57"),PrivateNamespace(null,"220"),PackageNamespace(""),PackageNamespace("view.figthers"),PackageInternalNs("view.figthers"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.figthers:EnemyView"),StaticProtectedNs("view.figthers:EnemyView"),StaticProtectedNs("view.figthers:FighterView")])
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      override public function getMC() : MovieClip
+      {
+         trait method QName(PackageNamespace(""),"getMC")
+            flag OVERRIDE
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace("flash.display"),"MovieClip")
+               
+               body
+                  maxstack 1
+                  localcount 1
+                  initscopedepth 5
+                  maxscopedepth 6
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"57"),"container")
+                     getproperty Multiname("enemy",[PrivateNamespace(null,"57"),PrivateNamespace(null,"220"),PackageNamespace(""),PackageNamespace("view.figthers"),PackageInternalNs("view.figthers"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.figthers:EnemyView"),StaticProtectedNs("view.figthers:EnemyView"),StaticProtectedNs("view.figthers:FighterView")])
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         override protected function setSoundManager() : void
+         {
+            trait method QName(ProtectedNamespace("view.figthers:EnemyView"),"setSoundManager")
+               flag OVERRIDE
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 4
+                     localcount 1
+                     initscopedepth 5
+                     maxscopedepth 6
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        findpropstrict QName(PackageNamespace("sound"),"EnemySoundManager")
+                        getlex QName(ProtectedNamespace("view.figthers:FighterView"),"fighter")
+                        getlex QName(PackageNamespace("main_game.character"),"Enemy")
+                        astypelate
+                        constructprop QName(PackageNamespace("sound"),"EnemySoundManager"), 1
+                        setproperty QName(ProtectedNamespace("view.figthers:FighterView"),"soundManager")
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            override public function playAnimation(param1:IFighterAnimation) : void
+            {
+               trait method QName(PackageNamespace(""),"playAnimation")
+                  flag OVERRIDE
+                  dispid 0
+                  method
+                     name null
+                     param QName(PackageNamespace("view.figthers.animations"),"IFighterAnimation")
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 3
+                        localcount 2
+                        initscopedepth 5
+                        maxscopedepth 6
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           callproperty QName(PackageNamespace(""),"getMC"), 0
+                           pushnull
+                           ifeq ofs0019
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"57"),"container")
+                           getlocal0
+                           callproperty QName(PackageNamespace(""),"getMC"), 0
+                           callpropvoid QName(PackageNamespace(""),"removeChild"), 1
+                  ofs0019:
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"57"),"container")
+                           getlocal0
+                           getlocal1
+                           callproperty QName(ProtectedNamespace("view.figthers:EnemyView"),"getNewMc"), 1
+                           setproperty Multiname("enemy",[PrivateNamespace(null,"57"),PrivateNamespace(null,"220"),PackageNamespace(""),PackageNamespace("view.figthers"),PackageInternalNs("view.figthers"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.figthers:EnemyView"),StaticProtectedNs("view.figthers:EnemyView"),StaticProtectedNs("view.figthers:FighterView")])
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"57"),"container")
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"57"),"container")
+                           getproperty Multiname("enemy",[PrivateNamespace(null,"57"),PrivateNamespace(null,"220"),PackageNamespace(""),PackageNamespace("view.figthers"),PackageInternalNs("view.figthers"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.figthers:EnemyView"),StaticProtectedNs("view.figthers:EnemyView"),StaticProtectedNs("view.figthers:FighterView")])
+                           callpropvoid QName(PackageNamespace(""),"addChild"), 1
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"57"),"container")
+                           getproperty Multiname("enemy",[PrivateNamespace(null,"57"),PrivateNamespace(null,"220"),PackageNamespace(""),PackageNamespace("view.figthers"),PackageInternalNs("view.figthers"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.figthers:EnemyView"),StaticProtectedNs("view.figthers:EnemyView"),StaticProtectedNs("view.figthers:FighterView")])
+                           pushbyte 1
+                           callpropvoid Multiname("gotoAndPlay",[PrivateNamespace(null,"57"),PrivateNamespace(null,"220"),PackageNamespace(""),PackageNamespace("view.figthers"),PackageInternalNs("view.figthers"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.figthers:EnemyView"),StaticProtectedNs("view.figthers:EnemyView"),StaticProtectedNs("view.figthers:FighterView")]), 1
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               protected function getNewMc(param1:IFighterAnimation) : MovieClip
+               {
+                  trait method QName(ProtectedNamespace("view.figthers:EnemyView"),"getNewMc")
+                     dispid 0
+                     method
+                        name null
+                        param QName(PackageNamespace("view.figthers.animations"),"IFighterAnimation")
+                        returns QName(PackageNamespace("flash.display"),"MovieClip")
+                        
+                        body
+                           maxstack 2
+                           localcount 4
+                           initscopedepth 5
+                           maxscopedepth 6
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              pushstring "assets."
+                              getlocal0
+                              getproperty QName(ProtectedNamespace("view.figthers:FighterView"),"fighter")
+                              callproperty QName(PackageNamespace(""),"getName"), 0
+                              add
+                              pushstring "."
+                              add
+                              getlocal1
+                              callproperty QName(Namespace("view.figthers.animations:IFighterAnimation"),"getName"), 0
+                              add
+                              coerce_s
+                              setlocal2
+                              getlex QName(PackageNamespace(""),"main")
+                              getproperty QName(PackageNamespace(""),"swfLoader")
+                              getlocal2
+                              callproperty QName(PackageNamespace(""),"getClass"), 1
+                              coerce QName(PackageNamespace(""),"Class")
+                              setlocal3
+                              getlocal3
+                              construct 0
+                              returnvalue
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  override public function putIn(param1:DisplayObjectContainer) : void
+                  {
+                     trait method QName(PackageNamespace(""),"putIn")
+                        flag OVERRIDE
+                        dispid 0
+                        method
+                           name null
+                           param QName(PackageNamespace("flash.display"),"DisplayObjectContainer")
+                           returns QName(PackageNamespace(""),"void")
+                           
+                           body
+                              maxstack 3
+                              localcount 2
+                              initscopedepth 5
+                              maxscopedepth 6
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal1
+                                 pushstring "enemy"
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"57"),"container")
+                                 setproperty MultinameL([PrivateNamespace(null,"57"),PrivateNamespace(null,"220"),PackageNamespace(""),PackageNamespace("view.figthers"),PackageInternalNs("view.figthers"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.figthers:EnemyView"),StaticProtectedNs("view.figthers:EnemyView"),StaticProtectedNs("view.figthers:FighterView")])
+                                 getlocal1
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"57"),"container")
+                                 callpropvoid QName(PackageNamespace(""),"addChild"), 1
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     override public function set x(param1:Number) : void
+                     {
+                        trait setter QName(PackageNamespace(""),"x")
+                           flag OVERRIDE
+                           dispid 0
+                           method
+                              name null
+                              param QName(PackageNamespace(""),"Number")
+                              returns QName(PackageNamespace(""),"void")
+                              
+                              body
+                                 maxstack 2
+                                 localcount 2
+                                 initscopedepth 5
+                                 maxscopedepth 6
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"57"),"container")
+                                    getlocal1
+                                    setproperty QName(PackageNamespace(""),"x")
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        override public function get x() : Number
+                        {
+                           trait getter QName(PackageNamespace(""),"x")
+                              flag OVERRIDE
+                              dispid 0
+                              method
+                                 name null
+                                 returns QName(PackageNamespace(""),"Number")
+                                 
+                                 body
+                                    maxstack 1
+                                    localcount 1
+                                    initscopedepth 5
+                                    maxscopedepth 6
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"57"),"container")
+                                       getproperty QName(PackageNamespace(""),"x")
+                                       returnvalue
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           override public function set y(param1:Number) : void
+                           {
+                              trait setter QName(PackageNamespace(""),"y")
+                                 flag OVERRIDE
+                                 dispid 0
+                                 method
+                                    name null
+                                    param QName(PackageNamespace(""),"Number")
+                                    returns QName(PackageNamespace(""),"void")
+                                    
+                                    body
+                                       maxstack 2
+                                       localcount 2
+                                       initscopedepth 5
+                                       maxscopedepth 6
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"57"),"container")
+                                          getlocal1
+                                          setproperty QName(PackageNamespace(""),"y")
+                                          returnvoid
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                              
+                              override public function get y() : Number
+                              {
+                                 trait getter QName(PackageNamespace(""),"y")
+                                    flag OVERRIDE
+                                    dispid 0
+                                    method
+                                       name null
+                                       returns QName(PackageNamespace(""),"Number")
+                                       
+                                       body
+                                          maxstack 1
+                                          localcount 1
+                                          initscopedepth 5
+                                          maxscopedepth 6
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             getlocal0
+                                             getproperty QName(PrivateNamespace(null,"57"),"container")
+                                             getproperty QName(PackageNamespace(""),"y")
+                                             returnvalue
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                 }
+                                 
+                                 override protected function bringToFront() : void
+                                 {
+                                    trait method QName(ProtectedNamespace("view.figthers:EnemyView"),"bringToFront")
+                                       flag OVERRIDE
+                                       dispid 0
+                                       method
+                                          name null
+                                          returns QName(PackageNamespace(""),"void")
+                                          
+                                          body
+                                             maxstack 2
+                                             localcount 2
+                                             initscopedepth 5
+                                             maxscopedepth 6
+                                             
+                                             code
+                                                getlocal0
+                                                pushscope
+                                                getlocal0
+                                                getproperty QName(PrivateNamespace(null,"57"),"container")
+                                                coerce QName(PackageNamespace("flash.display"),"MovieClip")
+                                                setlocal1
+                                                getlex QName(PackageNamespace("util"),"Util")
+                                                getlocal1
+                                                callpropvoid QName(PackageNamespace(""),"bringToFront"), 1
+                                                returnvoid
+                                             end ; code
+                                          end ; body
+                                       end ; method
+                                    }
+                                    
+                                    override public function clear() : void
+                                    {
+                                       trait method QName(PackageNamespace(""),"clear")
+                                          flag OVERRIDE
+                                          dispid 0
+                                          method
+                                             name null
+                                             returns QName(PackageNamespace(""),"void")
+                                             
+                                             body
+                                                maxstack 2
+                                                localcount 1
+                                                initscopedepth 5
+                                                maxscopedepth 6
+                                                
+                                                code
+                                                   getlocal0
+                                                   pushscope
+                                                   getlocal0
+                                                   callsupervoid QName(PackageNamespace(""),"clear"), 0
+                                                   getlocal0
+                                                   getproperty QName(PrivateNamespace(null,"57"),"container")
+                                                   getproperty Multiname("enemy",[PrivateNamespace(null,"57"),PrivateNamespace(null,"220"),PackageNamespace(""),PackageNamespace("view.figthers"),PackageInternalNs("view.figthers"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.figthers:EnemyView"),StaticProtectedNs("view.figthers:EnemyView"),StaticProtectedNs("view.figthers:FighterView")])
+                                                   pushnull
+                                                   ifeq ofs0022
+                                                   getlocal0
+                                                   getproperty QName(PrivateNamespace(null,"57"),"container")
+                                                   getlocal0
+                                                   getproperty QName(PrivateNamespace(null,"57"),"container")
+                                                   getproperty Multiname("enemy",[PrivateNamespace(null,"57"),PrivateNamespace(null,"220"),PackageNamespace(""),PackageNamespace("view.figthers"),PackageInternalNs("view.figthers"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.figthers:EnemyView"),StaticProtectedNs("view.figthers:EnemyView"),StaticProtectedNs("view.figthers:FighterView")])
+                                                   callpropvoid QName(PackageNamespace(""),"removeChild"), 1
+                                          ofs0022:
+                                                   getlocal0
+                                                   getproperty QName(PrivateNamespace(null,"57"),"container")
+                                                   pushnull
+                                                   setproperty Multiname("enemy",[PrivateNamespace(null,"57"),PrivateNamespace(null,"220"),PackageNamespace(""),PackageNamespace("view.figthers"),PackageInternalNs("view.figthers"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.figthers:EnemyView"),StaticProtectedNs("view.figthers:EnemyView"),StaticProtectedNs("view.figthers:FighterView")])
+                                                   getlocal0
+                                                   getproperty QName(PrivateNamespace(null,"57"),"container")
+                                                   getproperty QName(PackageNamespace(""),"parent")
+                                                   iffalse ofs0044
+                                                   getlocal0
+                                                   getproperty QName(PrivateNamespace(null,"57"),"container")
+                                                   getproperty QName(PackageNamespace(""),"parent")
+                                                   getlocal0
+                                                   getproperty QName(PrivateNamespace(null,"57"),"container")
+                                                   callpropvoid QName(PackageNamespace(""),"removeChild"), 1
+                                          ofs0044:
+                                                   getlocal0
+                                                   pushnull
+                                                   setproperty QName(PrivateNamespace(null,"57"),"container")
+                                                   returnvoid
+                                                end ; code
+                                             end ; body
+                                          end ; method
+                                       }
+                                    }
+                                 }
+                                 
+                                 method
+                                    name null
+                                    returns null
+                                    
+                                    body
+                                       maxstack 2
+                                       localcount 1
+                                       initscopedepth 1
+                                       maxscopedepth 4
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          findpropstrict Multiname("EnemyView",[PackageNamespace("view.figthers")])
+                                          getlex QName(PackageNamespace(""),"Object")
+                                          pushscope
+                                          getlex QName(PackageNamespace("view.figthers"),"FighterView")
+                                          pushscope
+                                          getlex QName(PackageNamespace("view.figthers"),"FighterView")
+                                          newclass 78
+                                          popscope
+                                          popscope
+                                          initproperty QName(PackageNamespace("view.figthers"),"EnemyView")
+                                          returnvoid
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                                 

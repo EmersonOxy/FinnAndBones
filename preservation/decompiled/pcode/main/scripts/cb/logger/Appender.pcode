@@ -1,0 +1,97 @@
+package cb.logger
+{
+   public class Appender
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function Appender()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 1
+               localcount 1
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function log(param1:String) : void
+      {
+         trait method QName(PackageNamespace(""),"log")
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace(""),"String")
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 1
+                  localcount 2
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+      }
+   }
+   
+   method
+      name null
+      returns null
+      
+      body
+         maxstack 2
+         localcount 1
+         initscopedepth 1
+         maxscopedepth 3
+         
+         code
+            getlocal0
+            pushscope
+            findpropstrict Multiname("Appender",[PackageNamespace("cb.logger")])
+            getlex QName(PackageNamespace(""),"Object")
+            pushscope
+            getlex QName(PackageNamespace(""),"Object")
+            newclass 1
+            popscope
+            initproperty QName(PackageNamespace("cb.logger"),"Appender")
+            returnvoid
+         end ; code
+      end ; body
+   end ; method
+   

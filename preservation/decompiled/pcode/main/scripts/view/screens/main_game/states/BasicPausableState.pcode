@@ -1,0 +1,133 @@
+package view.screens.main_game.states
+{
+   import aplication.BasicState;
+   
+   public class BasicPausableState extends BasicState implements IPausable
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 4
+            maxscopedepth 5
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function BasicPausableState(param1:String, param2:Function = null, param3:Function = null)
+      {
+         method
+            name null
+            flag HAS_OPTIONAL
+            param QName(PackageNamespace(""),"String")
+            param QName(PackageNamespace(""),"Function")
+            param QName(PackageNamespace(""),"Function")
+            optional Null()
+            optional Null()
+            returns null
+            
+            body
+               maxstack 4
+               localcount 4
+               initscopedepth 5
+               maxscopedepth 6
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  getlocal1
+                  getlocal2
+                  getlocal3
+                  constructsuper 3
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function pause() : void
+      {
+         trait method QName(PackageNamespace(""),"pause")
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 1
+                  localcount 1
+                  initscopedepth 5
+                  maxscopedepth 6
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function resume() : void
+         {
+            trait method QName(PackageNamespace(""),"resume")
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 1
+                     localcount 1
+                     initscopedepth 5
+                     maxscopedepth 6
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+         }
+      }
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 1
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               findpropstrict Multiname("BasicPausableState",[PackageNamespace("view.screens.main_game.states")])
+               getlex QName(PackageNamespace(""),"Object")
+               pushscope
+               getlex QName(PackageNamespace("aplication"),"BasicState")
+               pushscope
+               getlex QName(PackageNamespace("aplication"),"BasicState")
+               newclass 69
+               popscope
+               popscope
+               initproperty QName(PackageNamespace("view.screens.main_game.states"),"BasicPausableState")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      

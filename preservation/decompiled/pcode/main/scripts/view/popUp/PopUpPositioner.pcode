@@ -1,0 +1,174 @@
+package view.popUp
+{
+   import flash.display.DisplayObjectContainer;
+   import flash.display.Sprite;
+   import flash.geom.Point;
+   
+   public class PopUpPositioner
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var src:DisplayObjectContainer;
+      
+      private var dst:DisplayObjectContainer;
+      
+      public function PopUpPositioner(param1:DisplayObjectContainer, param2:DisplayObjectContainer = null)
+      {
+         method
+            name null
+            flag HAS_OPTIONAL
+            param QName(PackageNamespace("flash.display"),"DisplayObjectContainer")
+            param QName(PackageNamespace("flash.display"),"DisplayObjectContainer")
+            optional Null()
+            returns null
+            
+            body
+               maxstack 2
+               localcount 3
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlocal1
+                  initproperty QName(PrivateNamespace(null,"162"),"src")
+                  getlocal2
+                  pushnull
+                  ifne ofs0019
+                  getlex QName(PackageNamespace(""),"main")
+                  getproperty QName(PackageNamespace(""),"popUpHolder")
+                  coerce QName(PackageNamespace("flash.display"),"DisplayObjectContainer")
+                  setlocal2
+         ofs0019:
+                  getlocal0
+                  getlocal2
+                  initproperty QName(PrivateNamespace(null,"162"),"dst")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function addMc(param1:Sprite) : void
+      {
+         trait method QName(PackageNamespace(""),"addMc")
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace("flash.display"),"Sprite")
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 2
+                  localcount 2
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"162"),"dst")
+                     getlocal1
+                     callpropvoid QName(PackageNamespace(""),"addChild"), 1
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function refreshPos(param1:Sprite) : void
+         {
+            trait method QName(PackageNamespace(""),"refreshPos")
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace("flash.display"),"Sprite")
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 4
+                     localcount 3
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"162"),"src")
+                        findpropstrict QName(PackageNamespace("flash.geom"),"Point")
+                        pushbyte 0
+                        dup
+                        constructprop QName(PackageNamespace("flash.geom"),"Point"), 2
+                        callproperty QName(PackageNamespace(""),"localToGlobal"), 1
+                        coerce QName(PackageNamespace("flash.geom"),"Point")
+                        setlocal2
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"162"),"dst")
+                        getlocal2
+                        callproperty QName(PackageNamespace(""),"globalToLocal"), 1
+                        coerce QName(PackageNamespace("flash.geom"),"Point")
+                        setlocal2
+                        getlocal1
+                        getlocal2
+                        getproperty QName(PackageNamespace(""),"x")
+                        setproperty QName(PackageNamespace(""),"x")
+                        getlocal1
+                        getlocal2
+                        getproperty QName(PackageNamespace(""),"y")
+                        setproperty QName(PackageNamespace(""),"y")
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+         }
+      }
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 1
+            maxscopedepth 3
+            
+            code
+               getlocal0
+               pushscope
+               findpropstrict Multiname("PopUpPositioner",[PackageNamespace("view.popUp")])
+               getlex QName(PackageNamespace(""),"Object")
+               pushscope
+               getlex QName(PackageNamespace(""),"Object")
+               newclass 281
+               popscope
+               initproperty QName(PackageNamespace("view.popUp"),"PopUpPositioner")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      

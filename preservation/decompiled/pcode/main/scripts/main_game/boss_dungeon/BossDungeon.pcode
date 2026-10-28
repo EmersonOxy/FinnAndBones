@@ -1,0 +1,156 @@
+package main_game.boss_dungeon
+{
+   import main_game.character.CharacterFactory;
+   import main_game.character.Enemy;
+   import main_game.dungeon.Dungeon;
+   import main_game.dungeon.DungeonConfigData;
+   import main_game.dungeon.IFight;
+   import main_game.map.Level;
+   import util.ProbabilisticSet;
+   
+   public class BossDungeon extends Dungeon
+   {
+      
+      public static const idBossLevel:String = "25";
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 4
+            maxscopedepth 5
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(PackageNamespace(""),"idBossLevel")
+               pushstring "25"
+               initproperty QName(PackageNamespace(""),"idBossLevel")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function BossDungeon(param1:Level, param2:DungeonConfigData, param3:ProbabilisticSet)
+      {
+         method
+            name null
+            param QName(PackageNamespace("main_game.map"),"Level")
+            param QName(PackageNamespace("main_game.dungeon"),"DungeonConfigData")
+            param QName(PackageNamespace("util"),"ProbabilisticSet")
+            returns null
+            
+            body
+               maxstack 4
+               localcount 4
+               initscopedepth 5
+               maxscopedepth 6
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  getlocal1
+                  getlocal2
+                  getlocal3
+                  constructsuper 3
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      override protected function createFight(param1:Enemy, param2:Boolean) : IFight
+      {
+         trait method QName(ProtectedNamespace("main_game.boss_dungeon:BossDungeon"),"createFight")
+            flag OVERRIDE
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace("main_game.character"),"Enemy")
+               param QName(PackageNamespace(""),"Boolean")
+               returns QName(PackageNamespace("main_game.dungeon"),"IFight")
+               
+               body
+                  maxstack 3
+                  localcount 3
+                  initscopedepth 5
+                  maxscopedepth 6
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     findpropstrict QName(PackageNamespace("main_game.boss_dungeon"),"BossFight")
+                     getlocal1
+                     getlex QName(PackageNamespace("main_game.boss_dungeon"),"Boss")
+                     astypelate
+                     constructprop QName(PackageNamespace("main_game.boss_dungeon"),"BossFight"), 1
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         override protected function createEnemy(param1:String, param2:uint) : Enemy
+         {
+            trait method QName(ProtectedNamespace("main_game.boss_dungeon:BossDungeon"),"createEnemy")
+               flag OVERRIDE
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace(""),"String")
+                  param QName(PackageNamespace(""),"uint")
+                  returns QName(PackageNamespace("main_game.character"),"Enemy")
+                  
+                  body
+                     maxstack 2
+                     localcount 3
+                     initscopedepth 5
+                     maxscopedepth 6
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlex QName(PackageNamespace("main_game.character"),"CharacterFactory")
+                        callproperty QName(PackageNamespace(""),"getInstance"), 0
+                        getlocal2
+                        callproperty QName(PackageNamespace(""),"getBoss"), 1
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+         }
+      }
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 1
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               findpropstrict Multiname("BossDungeon",[PackageNamespace("main_game.boss_dungeon")])
+               getlex QName(PackageNamespace(""),"Object")
+               pushscope
+               getlex QName(PackageNamespace("main_game.dungeon"),"Dungeon")
+               pushscope
+               getlex QName(PackageNamespace("main_game.dungeon"),"Dungeon")
+               newclass 66
+               popscope
+               popscope
+               initproperty QName(PackageNamespace("main_game.boss_dungeon"),"BossDungeon")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      

@@ -1,0 +1,166 @@
+package view.figthers
+{
+   import flash.display.MovieClip;
+   import main_game.character.stats.Stats;
+   
+   public class HudSetterWithStats extends HudSetter
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 4
+            maxscopedepth 5
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function HudSetterWithStats()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 1
+               localcount 1
+               initscopedepth 5
+               maxscopedepth 6
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      override public function setHud(param1:MovieClip, param2:Stats = null) : void
+      {
+         trait method QName(PackageNamespace(""),"setHud")
+            flag OVERRIDE
+            dispid 0
+            method
+               name null
+               flag HAS_OPTIONAL
+               param QName(PackageNamespace("flash.display"),"MovieClip")
+               param QName(PackageNamespace("main_game.character.stats"),"Stats")
+               optional Null()
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 3
+                  localcount 3
+                  initscopedepth 5
+                  maxscopedepth 6
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     getlocal1
+                     getlocal2
+                     callsupervoid QName(PackageNamespace(""),"setHud"), 2
+                     getlocal2
+                     pushnull
+                     ifeq ofs0054
+                     getlocal1
+                     getproperty Multiname("bar",[PrivateNamespace(null,"315"),PackageNamespace(""),PrivateNamespace(null,"316"),PackageNamespace("view.figthers"),PackageInternalNs("view.figthers"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetter")])
+                     getproperty Multiname("title",[PrivateNamespace(null,"315"),PackageNamespace(""),PrivateNamespace(null,"316"),PackageNamespace("view.figthers"),PackageInternalNs("view.figthers"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetter")])
+                     pushtrue
+                     setproperty Multiname("visible",[PrivateNamespace(null,"315"),PackageNamespace(""),PrivateNamespace(null,"316"),PackageNamespace("view.figthers"),PackageInternalNs("view.figthers"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetter")])
+                     getlocal1
+                     getproperty Multiname("attack",[PrivateNamespace(null,"315"),PackageNamespace(""),PrivateNamespace(null,"316"),PackageNamespace("view.figthers"),PackageInternalNs("view.figthers"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetter")])
+                     getproperty Multiname("title",[PrivateNamespace(null,"315"),PackageNamespace(""),PrivateNamespace(null,"316"),PackageNamespace("view.figthers"),PackageInternalNs("view.figthers"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetter")])
+                     getproperty Multiname("title",[PrivateNamespace(null,"315"),PackageNamespace(""),PrivateNamespace(null,"316"),PackageNamespace("view.figthers"),PackageInternalNs("view.figthers"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetter")])
+                     getlocal2
+                     callproperty QName(PackageNamespace(""),"getAttack"), 0
+                     setproperty Multiname("text",[PrivateNamespace(null,"315"),PackageNamespace(""),PrivateNamespace(null,"316"),PackageNamespace("view.figthers"),PackageInternalNs("view.figthers"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetter")])
+                     getlocal1
+                     getproperty Multiname("luck",[PrivateNamespace(null,"315"),PackageNamespace(""),PrivateNamespace(null,"316"),PackageNamespace("view.figthers"),PackageInternalNs("view.figthers"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetter")])
+                     getproperty Multiname("title",[PrivateNamespace(null,"315"),PackageNamespace(""),PrivateNamespace(null,"316"),PackageNamespace("view.figthers"),PackageInternalNs("view.figthers"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetter")])
+                     getproperty Multiname("title",[PrivateNamespace(null,"315"),PackageNamespace(""),PrivateNamespace(null,"316"),PackageNamespace("view.figthers"),PackageInternalNs("view.figthers"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetter")])
+                     getlocal2
+                     callproperty QName(PackageNamespace(""),"getLuck"), 0
+                     setproperty Multiname("text",[PrivateNamespace(null,"315"),PackageNamespace(""),PrivateNamespace(null,"316"),PackageNamespace("view.figthers"),PackageInternalNs("view.figthers"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetter")])
+                     getlocal1
+                     getproperty Multiname("defence",[PrivateNamespace(null,"315"),PackageNamespace(""),PrivateNamespace(null,"316"),PackageNamespace("view.figthers"),PackageInternalNs("view.figthers"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetter")])
+                     getproperty Multiname("title",[PrivateNamespace(null,"315"),PackageNamespace(""),PrivateNamespace(null,"316"),PackageNamespace("view.figthers"),PackageInternalNs("view.figthers"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetter")])
+                     getproperty Multiname("title",[PrivateNamespace(null,"315"),PackageNamespace(""),PrivateNamespace(null,"316"),PackageNamespace("view.figthers"),PackageInternalNs("view.figthers"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetter")])
+                     getlocal2
+                     callproperty QName(PackageNamespace(""),"getDefense"), 0
+                     setproperty Multiname("text",[PrivateNamespace(null,"315"),PackageNamespace(""),PrivateNamespace(null,"316"),PackageNamespace("view.figthers"),PackageInternalNs("view.figthers"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetter")])
+                     jump ofs008f
+            ofs0054:
+                     getlocal1
+                     getproperty Multiname("bar",[PrivateNamespace(null,"315"),PackageNamespace(""),PrivateNamespace(null,"316"),PackageNamespace("view.figthers"),PackageInternalNs("view.figthers"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetter")])
+                     getproperty Multiname("title",[PrivateNamespace(null,"315"),PackageNamespace(""),PrivateNamespace(null,"316"),PackageNamespace("view.figthers"),PackageInternalNs("view.figthers"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetter")])
+                     pushfalse
+                     setproperty Multiname("visible",[PrivateNamespace(null,"315"),PackageNamespace(""),PrivateNamespace(null,"316"),PackageNamespace("view.figthers"),PackageInternalNs("view.figthers"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetter")])
+                     getlocal1
+                     getproperty Multiname("attack",[PrivateNamespace(null,"315"),PackageNamespace(""),PrivateNamespace(null,"316"),PackageNamespace("view.figthers"),PackageInternalNs("view.figthers"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetter")])
+                     getproperty Multiname("title",[PrivateNamespace(null,"315"),PackageNamespace(""),PrivateNamespace(null,"316"),PackageNamespace("view.figthers"),PackageInternalNs("view.figthers"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetter")])
+                     getproperty Multiname("title",[PrivateNamespace(null,"315"),PackageNamespace(""),PrivateNamespace(null,"316"),PackageNamespace("view.figthers"),PackageInternalNs("view.figthers"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetter")])
+                     pushstring "-"
+                     setproperty Multiname("text",[PrivateNamespace(null,"315"),PackageNamespace(""),PrivateNamespace(null,"316"),PackageNamespace("view.figthers"),PackageInternalNs("view.figthers"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetter")])
+                     getlocal1
+                     getproperty Multiname("luck",[PrivateNamespace(null,"315"),PackageNamespace(""),PrivateNamespace(null,"316"),PackageNamespace("view.figthers"),PackageInternalNs("view.figthers"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetter")])
+                     getproperty Multiname("title",[PrivateNamespace(null,"315"),PackageNamespace(""),PrivateNamespace(null,"316"),PackageNamespace("view.figthers"),PackageInternalNs("view.figthers"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetter")])
+                     getproperty Multiname("title",[PrivateNamespace(null,"315"),PackageNamespace(""),PrivateNamespace(null,"316"),PackageNamespace("view.figthers"),PackageInternalNs("view.figthers"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetter")])
+                     pushstring "-"
+                     setproperty Multiname("text",[PrivateNamespace(null,"315"),PackageNamespace(""),PrivateNamespace(null,"316"),PackageNamespace("view.figthers"),PackageInternalNs("view.figthers"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetter")])
+                     getlocal1
+                     getproperty Multiname("defence",[PrivateNamespace(null,"315"),PackageNamespace(""),PrivateNamespace(null,"316"),PackageNamespace("view.figthers"),PackageInternalNs("view.figthers"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetter")])
+                     getproperty Multiname("title",[PrivateNamespace(null,"315"),PackageNamespace(""),PrivateNamespace(null,"316"),PackageNamespace("view.figthers"),PackageInternalNs("view.figthers"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetter")])
+                     getproperty Multiname("title",[PrivateNamespace(null,"315"),PackageNamespace(""),PrivateNamespace(null,"316"),PackageNamespace("view.figthers"),PackageInternalNs("view.figthers"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetter")])
+                     pushstring "-"
+                     setproperty Multiname("text",[PrivateNamespace(null,"315"),PackageNamespace(""),PrivateNamespace(null,"316"),PackageNamespace("view.figthers"),PackageInternalNs("view.figthers"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetterWithStats"),StaticProtectedNs("view.figthers:HudSetter")])
+            ofs008f:
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+      }
+   }
+   
+   method
+      name null
+      returns null
+      
+      body
+         maxstack 2
+         localcount 1
+         initscopedepth 1
+         maxscopedepth 4
+         
+         code
+            getlocal0
+            pushscope
+            findpropstrict Multiname("HudSetterWithStats",[PackageNamespace("view.figthers")])
+            getlex QName(PackageNamespace(""),"Object")
+            pushscope
+            getlex QName(PackageNamespace("view.figthers"),"HudSetter")
+            pushscope
+            getlex QName(PackageNamespace("view.figthers"),"HudSetter")
+            newclass 267
+            popscope
+            popscope
+            initproperty QName(PackageNamespace("view.figthers"),"HudSetterWithStats")
+            returnvoid
+         end ; code
+      end ; body
+   end ; method
+   

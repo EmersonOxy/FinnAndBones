@@ -1,0 +1,157 @@
+package view.screens.main_game.slot
+{
+   import drag_and_drop.DragListener;
+   import flash.events.MouseEvent;
+   import main_game.item_containers.ISlot;
+   
+   public class AutoSelectSlotView extends SlotView
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 5
+            maxscopedepth 6
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function AutoSelectSlotView(param1:ISlot)
+      {
+         method
+            name null
+            param QName(PackageNamespace("main_game.item_containers"),"ISlot")
+            returns null
+            
+            body
+               maxstack 2
+               localcount 2
+               initscopedepth 6
+               maxscopedepth 7
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  getlocal1
+                  constructsuper 1
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      override protected function startDrag(param1:DragListener) : void
+      {
+         trait method QName(ProtectedNamespace("view.screens.main_game.slot:AutoSelectSlotView"),"startDrag")
+            flag OVERRIDE
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace("drag_and_drop"),"DragListener")
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 2
+                  localcount 2
+                  initscopedepth 6
+                  maxscopedepth 7
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     getlocal1
+                     callsupervoid QName(ProtectedNamespace("view.screens.main_game.slot:BasicSlotView"),"startDrag"), 1
+                     getlex QName(ProtectedNamespace("view.screens.main_game.slot:BasicSlotView"),"popUp")
+                     callpropvoid QName(PackageNamespace(""),"hide"), 0
+                     getlocal1
+                     getlex QName(PackageNamespace("drag_and_drop"),"DragListener")
+                     getproperty QName(PackageNamespace(""),"ACTIVE_DRAG")
+                     callproperty QName(PackageNamespace(""),"isInState"), 1
+                     iffalse ofs0025
+                     findpropstrict QName(ProtectedNamespace("view.screens.main_game.slot:BasicSlotView"),"select")
+                     callpropvoid QName(ProtectedNamespace("view.screens.main_game.slot:BasicSlotView"),"select"), 0
+            ofs0025:
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         override protected function mouseOut(param1:MouseEvent) : void
+         {
+            trait method QName(ProtectedNamespace("view.screens.main_game.slot:AutoSelectSlotView"),"mouseOut")
+               flag OVERRIDE
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace("flash.events"),"MouseEvent")
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 2
+                     localcount 2
+                     initscopedepth 6
+                     maxscopedepth 7
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlex QName(ProtectedNamespace("view.screens.main_game.slot:BasicSlotView"),"drag_listener")
+                        getlex QName(PackageNamespace("drag_and_drop"),"DragListener")
+                        getproperty QName(PackageNamespace(""),"NO_DRAG")
+                        callproperty QName(PackageNamespace(""),"isInState"), 1
+                        iffalse ofs0019
+                        getlocal0
+                        getlocal1
+                        callsupervoid QName(ProtectedNamespace("view.screens.main_game.slot:BasicSlotView"),"mouseOut"), 1
+               ofs0019:
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+         }
+      }
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 1
+            maxscopedepth 5
+            
+            code
+               getlocal0
+               pushscope
+               findpropstrict Multiname("AutoSelectSlotView",[PackageNamespace("view.screens.main_game.slot")])
+               getlex QName(PackageNamespace(""),"Object")
+               pushscope
+               getlex QName(PackageNamespace("view.screens.main_game.slot"),"BasicSlotView")
+               pushscope
+               getlex QName(PackageNamespace("view.screens.main_game.slot"),"SlotView")
+               pushscope
+               getlex QName(PackageNamespace("view.screens.main_game.slot"),"SlotView")
+               newclass 159
+               popscope
+               popscope
+               popscope
+               initproperty QName(PackageNamespace("view.screens.main_game.slot"),"AutoSelectSlotView")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      

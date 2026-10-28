@@ -1,0 +1,408 @@
+package bonus.filter
+{
+   import flash.display.DisplayObjectContainer;
+   import flash.display.MovieClip;
+   
+   public class BonusIcon
+   {
+      
+      public static const Kill:String = "Kill";
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(PackageNamespace(""),"Kill")
+               pushstring "Kill"
+               initproperty QName(PackageNamespace(""),"Kill")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var type:String;
+      
+      private var title:String;
+      
+      private var label:String;
+      
+      public function BonusIcon(param1:ConstructorLock, param2:String, param3:String = null, param4:String = "1")
+      {
+         method
+            name null
+            flag HAS_OPTIONAL
+            param QName(PrivateNamespace(null,"6"),"ConstructorLock")
+            param QName(PackageNamespace(""),"String")
+            param QName(PackageNamespace(""),"String")
+            param QName(PackageNamespace(""),"String")
+            optional Null()
+            optional Utf8("1")
+            returns null
+            
+            body
+               maxstack 2
+               localcount 5
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlocal2
+                  initproperty QName(PrivateNamespace(null,"91"),"type")
+                  getlocal0
+                  getlocal3
+                  initproperty QName(PrivateNamespace(null,"91"),"title")
+                  getlocal0
+                  getlocal 4
+                  initproperty QName(PrivateNamespace(null,"91"),"label")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public static function getFire() : BonusIcon
+      {
+         trait method QName(PackageNamespace(""),"getFire")
+            flag FINAL
+            dispid 3
+            method
+               name null
+               returns QName(PackageNamespace("bonus.filter"),"BonusIcon")
+               
+               body
+                  maxstack 3
+                  localcount 1
+                  initscopedepth 3
+                  maxscopedepth 4
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     findpropstrict QName(PrivateNamespace(null,"6"),"ConstructorLock")
+                     constructprop QName(PrivateNamespace(null,"6"),"ConstructorLock"), 0
+                     pushstring "Fire"
+                     construct 2
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public static function getIce() : BonusIcon
+         {
+            trait method QName(PackageNamespace(""),"getIce")
+               flag FINAL
+               dispid 4
+               method
+                  name null
+                  returns QName(PackageNamespace("bonus.filter"),"BonusIcon")
+                  
+                  body
+                     maxstack 3
+                     localcount 1
+                     initscopedepth 3
+                     maxscopedepth 4
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        findpropstrict QName(PrivateNamespace(null,"6"),"ConstructorLock")
+                        constructprop QName(PrivateNamespace(null,"6"),"ConstructorLock"), 0
+                        pushstring "Ice"
+                        construct 2
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public static function getNormal() : BonusIcon
+            {
+               trait method QName(PackageNamespace(""),"getNormal")
+                  flag FINAL
+                  dispid 5
+                  method
+                     name null
+                     returns QName(PackageNamespace("bonus.filter"),"BonusIcon")
+                     
+                     body
+                        maxstack 3
+                        localcount 1
+                        initscopedepth 3
+                        maxscopedepth 4
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           findpropstrict QName(PrivateNamespace(null,"6"),"ConstructorLock")
+                           constructprop QName(PrivateNamespace(null,"6"),"ConstructorLock"), 0
+                           pushstring "Normal"
+                           construct 2
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public static function getXpIcon() : BonusIcon
+               {
+                  trait method QName(PackageNamespace(""),"getXpIcon")
+                     flag FINAL
+                     dispid 6
+                     method
+                        name null
+                        returns QName(PackageNamespace("bonus.filter"),"BonusIcon")
+                        
+                        body
+                           maxstack 5
+                           localcount 1
+                           initscopedepth 3
+                           maxscopedepth 4
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal0
+                              findpropstrict QName(PrivateNamespace(null,"6"),"ConstructorLock")
+                              constructprop QName(PrivateNamespace(null,"6"),"ConstructorLock"), 0
+                              pushstring "XpIcon"
+                              getlex QName(PackageNamespace(""),"main")
+                              getproperty QName(PackageNamespace(""),"locale")
+                              pushstring "dailyXp"
+                              callproperty QName(PackageNamespace(""),"get"), 1
+                              construct 3
+                              returnvalue
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public static function getExtraDungeon(param1:String) : BonusIcon
+                  {
+                     trait method QName(PackageNamespace(""),"getExtraDungeon")
+                        flag FINAL
+                        dispid 7
+                        method
+                           name null
+                           param QName(PackageNamespace(""),"String")
+                           returns QName(PackageNamespace("bonus.filter"),"BonusIcon")
+                           
+                           body
+                              maxstack 4
+                              localcount 2
+                              initscopedepth 3
+                              maxscopedepth 4
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal0
+                                 findpropstrict QName(PrivateNamespace(null,"6"),"ConstructorLock")
+                                 constructprop QName(PrivateNamespace(null,"6"),"ConstructorLock"), 0
+                                 pushstring "Dungeon"
+                                 getlocal1
+                                 add
+                                 construct 2
+                                 returnvalue
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     public static function getLevelIcon(param1:Boolean) : BonusIcon
+                     {
+                        trait method QName(PackageNamespace(""),"getLevelIcon")
+                           flag FINAL
+                           dispid 8
+                           method
+                              name null
+                              param QName(PackageNamespace(""),"Boolean")
+                              returns QName(PackageNamespace("bonus.filter"),"BonusIcon")
+                              
+                              body
+                                 maxstack 5
+                                 localcount 2
+                                 initscopedepth 3
+                                 maxscopedepth 4
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    getlocal0
+                                    findpropstrict QName(PrivateNamespace(null,"6"),"ConstructorLock")
+                                    constructprop QName(PrivateNamespace(null,"6"),"ConstructorLock"), 0
+                                    pushstring "LevelIcon"
+                                    getlex QName(PackageNamespace(""),"main")
+                                    getproperty QName(PackageNamespace(""),"locale")
+                                    pushstring "dailyLvl"
+                                    callproperty QName(PackageNamespace(""),"get"), 1
+                                    getlocal1
+                                    iffalse ofs0026
+                                    pushstring "up"
+                                    jump ofs0029
+                           ofs0026:
+                                    pushstring "down"
+                           ofs0029:
+                                    construct 4
+                                    returnvalue
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        public function addToHolder(param1:DisplayObjectContainer, param2:String = "") : void
+                        {
+                           trait method QName(PackageNamespace(""),"addToHolder")
+                              dispid 0
+                              method
+                                 name null
+                                 flag HAS_OPTIONAL
+                                 param QName(PackageNamespace("flash.display"),"DisplayObjectContainer")
+                                 param QName(PackageNamespace(""),"String")
+                                 optional Utf8("")
+                                 returns QName(PackageNamespace(""),"void")
+                                 
+                                 body
+                                    maxstack 3
+                                    localcount 5
+                                    initscopedepth 4
+                                    maxscopedepth 5
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       getlex QName(PackageNamespace(""),"main")
+                                       getproperty QName(PackageNamespace(""),"swfLoader")
+                                       pushstring "assets."
+                                       getlocal2
+                                       add
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"91"),"type")
+                                       add
+                                       callproperty QName(PackageNamespace(""),"getClass"), 1
+                                       coerce QName(PackageNamespace(""),"Class")
+                                       setlocal3
+                                       getlocal3
+                                       construct 0
+                                       coerce QName(PackageNamespace("flash.display"),"MovieClip")
+                                       setlocal 4
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"91"),"title")
+                                       pushnull
+                                       ifeq ofs0038
+                                       getlocal 4
+                                       getproperty Multiname("title",[PrivateNamespace(null,"91"),PackageNamespace(""),PrivateNamespace(null,"6"),PackageNamespace("bonus.filter"),PackageInternalNs("bonus.filter"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("bonus.filter:BonusIcon"),StaticProtectedNs("bonus.filter:BonusIcon")])
+                                       getproperty Multiname("title",[PrivateNamespace(null,"91"),PackageNamespace(""),PrivateNamespace(null,"6"),PackageNamespace("bonus.filter"),PackageInternalNs("bonus.filter"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("bonus.filter:BonusIcon"),StaticProtectedNs("bonus.filter:BonusIcon")])
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"91"),"title")
+                                       setproperty Multiname("text",[PrivateNamespace(null,"91"),PackageNamespace(""),PrivateNamespace(null,"6"),PackageNamespace("bonus.filter"),PackageInternalNs("bonus.filter"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("bonus.filter:BonusIcon"),StaticProtectedNs("bonus.filter:BonusIcon")])
+                              ofs0038:
+                                       getlocal 4
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"91"),"label")
+                                       callpropvoid QName(PackageNamespace(""),"gotoAndStop"), 1
+                                       getlocal1
+                                       getlocal 4
+                                       callpropvoid QName(PackageNamespace(""),"addChild"), 1
+                                       returnvoid
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                        }
+                     }
+                     
+                     class ConstructorLock
+                     {
+                        
+                        method
+                           name null
+                           returns null
+                           
+                           body
+                              maxstack 1
+                              localcount 1
+                              initscopedepth 3
+                              maxscopedepth 4
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                        
+                        public function ConstructorLock()
+                        {
+                           method
+                              name null
+                              returns null
+                              
+                              body
+                                 maxstack 1
+                                 localcount 1
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    getlocal0
+                                    constructsuper 0
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                     }
+                     
+                     method
+                        name null
+                        returns null
+                        
+                        body
+                           maxstack 2
+                           localcount 1
+                           initscopedepth 1
+                           maxscopedepth 3
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              findpropstrict Multiname("BonusIcon",[PackageNamespace("bonus.filter")])
+                              getlex QName(PackageNamespace(""),"Object")
+                              pushscope
+                              getlex QName(PackageNamespace(""),"Object")
+                              newclass 153
+                              popscope
+                              initproperty QName(PackageNamespace("bonus.filter"),"BonusIcon")
+                              findpropstrict Multiname("ConstructorLock",[PrivateNamespace(null,"6")])
+                              getlex QName(PackageNamespace(""),"Object")
+                              pushscope
+                              getlex QName(PackageNamespace(""),"Object")
+                              newclass 154
+                              popscope
+                              initproperty QName(PrivateNamespace(null,"6"),"ConstructorLock")
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                     

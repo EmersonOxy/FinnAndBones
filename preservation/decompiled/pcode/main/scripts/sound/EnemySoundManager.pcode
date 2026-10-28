@@ -1,0 +1,339 @@
+package sound
+{
+   import main_game.character.Enemy;
+   import main_game.element.Element;
+   
+   public class EnemySoundManager extends FighterSoundManager
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 4
+            maxscopedepth 5
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var hurtFunction:Function;
+      
+      private var dieFunction:Function;
+      
+      public function EnemySoundManager(param1:Enemy)
+      {
+         method
+            name null
+            flag NEED_ACTIVATION
+            param QName(PackageNamespace("main_game.character"),"Enemy")
+            returns null
+            
+            body
+               maxstack 6
+               localcount 3
+               initscopedepth 6
+               maxscopedepth 8
+               trait slot QName(PackageInternalNs("sound"),"enemy")
+                  slotid 1
+                  type QName(PackageNamespace("main_game.character"),"Enemy")
+               end ; trait
+               trait slot QName(PackageInternalNs("sound"),"hurt")
+                  slotid 2
+                  type QName(PackageNamespace(""),"String")
+               end ; trait
+               trait slot QName(PackageInternalNs("sound"),"attack")
+                  slotid 3
+                  type QName(PackageNamespace(""),"String")
+               end ; trait
+               trait slot QName(PackageInternalNs("sound"),"die")
+                  slotid 4
+                  type QName(PackageNamespace(""),"String")
+               end ; trait
+               trait slot QName(PackageInternalNs("sound"),"critical")
+                  slotid 5
+                  type QName(PackageNamespace(""),"String")
+               end ; trait
+               trait slot QName(PackageInternalNs("sound"),"block")
+                  slotid 6
+                  type QName(PackageNamespace(""),"String")
+               end ; trait
+               trait slot QName(PackageInternalNs("sound"),"type")
+                  slotid 7
+                  type QName(PackageNamespace(""),"String")
+               end ; trait
+               trait slot QName(PackageInternalNs("sound"),"evade")
+                  slotid 8
+                  type QName(PackageNamespace(""),"String")
+               end ; trait
+               trait slot QName(PackageInternalNs("sound"),"element")
+                  slotid 9
+                  type QName(PackageNamespace("main_game.element"),"Element")
+               end ; trait
+               
+               code
+                  getlocal0
+                  pushscope
+                  newactivation
+                  dup
+                  setlocal2
+                  pushscope
+                  getscopeobject 1
+                  pushnull
+                  coerce_s
+                  setslot 2
+                  getscopeobject 1
+                  pushnull
+                  coerce_s
+                  setslot 3
+                  getscopeobject 1
+                  pushnull
+                  coerce_s
+                  setslot 4
+                  getscopeobject 1
+                  pushnull
+                  coerce_s
+                  setslot 5
+                  getscopeobject 1
+                  pushnull
+                  coerce_s
+                  setslot 6
+                  getscopeobject 1
+                  pushnull
+                  coerce_s
+                  setslot 8
+                  getscopeobject 1
+                  getlocal1
+                  setslot 1
+                  getscopeobject 1
+                  getscopeobject 1
+                  getslot 1
+                  callproperty QName(PackageNamespace(""),"getType"), 0
+                  coerce_s
+                  setslot 7
+                  getscopeobject 1
+                  getscopeobject 1
+                  getslot 1
+                  callproperty QName(PackageNamespace(""),"getElement"), 0
+                  coerce QName(PackageNamespace("main_game.element"),"Element")
+                  setslot 9
+                  getscopeobject 1
+                  getslot 7
+                  pushstring "1"
+                  ifne ofs00c7
+                  getlocal0
+                  newfunction 2006
+                  initproperty QName(PrivateNamespace(null,"121"),"hurtFunction")
+                  getlocal0
+                  newfunction 2007
+                  initproperty QName(PrivateNamespace(null,"121"),"dieFunction")
+                  getscopeobject 1
+                  getslot 9
+                  getproperty QName(PackageNamespace(""),"isOfFire")
+                  iffalse ofs0088
+                  getscopeobject 1
+                  getlex QName(PackageNamespace("sound"),"GameSounds")
+                  getproperty QName(PackageNamespace(""),"FIRE_ATTACK")
+                  coerce_s
+                  setslot 3
+                  getscopeobject 1
+                  getlex QName(PackageNamespace("sound"),"GameSounds")
+                  getproperty QName(PackageNamespace(""),"SHIELD_BLOCK_FIRE")
+                  coerce_s
+                  setslot 8
+                  jump ofs00c3
+         ofs0088:
+                  getscopeobject 1
+                  getslot 9
+                  getproperty QName(PackageNamespace(""),"isOfIce")
+                  iffalse ofs00ad
+                  getscopeobject 1
+                  getlex QName(PackageNamespace("sound"),"GameSounds")
+                  getproperty QName(PackageNamespace(""),"ICE_ATTACK")
+                  coerce_s
+                  setslot 3
+                  getscopeobject 1
+                  getlex QName(PackageNamespace("sound"),"GameSounds")
+                  getproperty QName(PackageNamespace(""),"SHIELD_BLOCK_ICE")
+                  coerce_s
+                  setslot 8
+                  jump ofs00c3
+         ofs00ad:
+                  getscopeobject 1
+                  getlex QName(PackageNamespace("sound"),"GameSounds")
+                  getproperty QName(PackageNamespace(""),"SWORD_ATTACK")
+                  coerce_s
+                  setslot 3
+                  getscopeobject 1
+                  getlex QName(PackageNamespace("sound"),"GameSounds")
+                  getproperty QName(PackageNamespace(""),"SHIELD_BLOCK")
+                  coerce_s
+                  setslot 8
+         ofs00c3:
+                  jump ofs0140
+         ofs00c7:
+                  getscopeobject 1
+                  getslot 7
+                  pushstring "2"
+                  ifne ofs0140
+                  getlocal0
+                  newfunction 2008
+                  initproperty QName(PrivateNamespace(null,"121"),"hurtFunction")
+                  getlocal0
+                  newfunction 2009
+                  initproperty QName(PrivateNamespace(null,"121"),"dieFunction")
+                  getscopeobject 1
+                  getslot 9
+                  getproperty QName(PackageNamespace(""),"isOfFire")
+                  iffalse ofs0105
+                  getscopeobject 1
+                  getlex QName(PackageNamespace("sound"),"GameSounds")
+                  getproperty QName(PackageNamespace(""),"ENEMY2_ATTACK_FIRE")
+                  coerce_s
+                  setslot 3
+                  getscopeobject 1
+                  getlex QName(PackageNamespace("sound"),"GameSounds")
+                  getproperty QName(PackageNamespace(""),"SHIELD_BLOCK_FIRE")
+                  coerce_s
+                  setslot 8
+                  jump ofs0140
+         ofs0105:
+                  getscopeobject 1
+                  getslot 9
+                  getproperty QName(PackageNamespace(""),"isOfIce")
+                  iffalse ofs012a
+                  getscopeobject 1
+                  getlex QName(PackageNamespace("sound"),"GameSounds")
+                  getproperty QName(PackageNamespace(""),"ENEMY2_ATTACK_ICE")
+                  coerce_s
+                  setslot 3
+                  getscopeobject 1
+                  getlex QName(PackageNamespace("sound"),"GameSounds")
+                  getproperty QName(PackageNamespace(""),"SHIELD_BLOCK_ICE")
+                  coerce_s
+                  setslot 8
+                  jump ofs0140
+         ofs012a:
+                  getscopeobject 1
+                  getlex QName(PackageNamespace("sound"),"GameSounds")
+                  getproperty QName(PackageNamespace(""),"ENEMY2_ATTACK")
+                  coerce_s
+                  setslot 3
+                  getscopeobject 1
+                  getlex QName(PackageNamespace("sound"),"GameSounds")
+                  getproperty QName(PackageNamespace(""),"SHIELD_BLOCK")
+                  coerce_s
+                  setslot 8
+         ofs0140:
+                  getlocal0
+                  pushstring ""
+                  getscopeobject 1
+                  getslot 3
+                  pushstring ""
+                  pushstring ""
+                  getscopeobject 1
+                  getslot 8
+                  constructsuper 5
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      override public function playHurt() : void
+      {
+         trait method QName(PackageNamespace(""),"playHurt")
+            flag OVERRIDE
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 2
+                  localcount 1
+                  initscopedepth 5
+                  maxscopedepth 6
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     findproperty QName(ProtectedNamespace("sound:FighterSoundManager"),"hurt")
+                     getlocal0
+                     callproperty QName(PrivateNamespace(null,"121"),"hurtFunction"), 0
+                     initproperty QName(ProtectedNamespace("sound:FighterSoundManager"),"hurt")
+                     getlocal0
+                     callsupervoid QName(PackageNamespace(""),"playHurt"), 0
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         override public function playDie() : void
+         {
+            trait method QName(PackageNamespace(""),"playDie")
+               flag OVERRIDE
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 2
+                     localcount 1
+                     initscopedepth 5
+                     maxscopedepth 6
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        findproperty QName(ProtectedNamespace("sound:FighterSoundManager"),"die")
+                        getlocal0
+                        callproperty QName(PrivateNamespace(null,"121"),"dieFunction"), 0
+                        initproperty QName(ProtectedNamespace("sound:FighterSoundManager"),"die")
+                        getlocal0
+                        callsupervoid QName(PackageNamespace(""),"playDie"), 0
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+         }
+      }
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 1
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               findpropstrict Multiname("EnemySoundManager",[PackageNamespace("sound")])
+               getlex QName(PackageNamespace(""),"Object")
+               pushscope
+               getlex QName(PackageNamespace("sound"),"FighterSoundManager")
+               pushscope
+               getlex QName(PackageNamespace("sound"),"FighterSoundManager")
+               newclass 204
+               popscope
+               popscope
+               initproperty QName(PackageNamespace("sound"),"EnemySoundManager")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      

@@ -1,0 +1,213 @@
+package sound
+{
+   public class MusicRequest
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var soundName:String;
+      
+      private var startTime:Number;
+      
+      private var volume:Number;
+      
+      public function MusicRequest(param1:String, param2:Number, param3:Number)
+      {
+         method
+            name null
+            param QName(PackageNamespace(""),"String")
+            param QName(PackageNamespace(""),"Number")
+            param QName(PackageNamespace(""),"Number")
+            returns null
+            
+            body
+               maxstack 2
+               localcount 4
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlocal1
+                  initproperty QName(PrivateNamespace(null,"67"),"soundName")
+                  getlocal0
+                  getlocal2
+                  initproperty QName(PrivateNamespace(null,"67"),"startTime")
+                  getlocal0
+                  getlocal3
+                  initproperty QName(PrivateNamespace(null,"67"),"volume")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function equal(param1:MusicRequest) : Boolean
+      {
+         trait method QName(PackageNamespace(""),"equal")
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace("sound"),"MusicRequest")
+               returns QName(PackageNamespace(""),"Boolean")
+               
+               body
+                  maxstack 2
+                  localcount 2
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"67"),"soundName")
+                     getlocal1
+                     callproperty QName(PackageNamespace(""),"getName"), 0
+                     equals
+                     dup
+                     iffalse ofs001c
+                     pop
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"67"),"startTime")
+                     getlocal1
+                     callproperty QName(PackageNamespace(""),"getStartTime"), 0
+                     equals
+            ofs001c:
+                     dup
+                     iffalse ofs002c
+                     pop
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"67"),"volume")
+                     getlocal1
+                     callproperty QName(PackageNamespace(""),"getVolume"), 0
+                     equals
+            ofs002c:
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function getName() : String
+         {
+            trait method QName(PackageNamespace(""),"getName")
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace(""),"String")
+                  
+                  body
+                     maxstack 1
+                     localcount 1
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"67"),"soundName")
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function getVolume() : Number
+            {
+               trait method QName(PackageNamespace(""),"getVolume")
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace(""),"Number")
+                     
+                     body
+                        maxstack 1
+                        localcount 1
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"67"),"volume")
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function getStartTime() : Number
+               {
+                  trait method QName(PackageNamespace(""),"getStartTime")
+                     dispid 0
+                     method
+                        name null
+                        returns QName(PackageNamespace(""),"Number")
+                        
+                        body
+                           maxstack 1
+                           localcount 1
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"67"),"startTime")
+                              returnvalue
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+               }
+            }
+            
+            method
+               name null
+               returns null
+               
+               body
+                  maxstack 2
+                  localcount 1
+                  initscopedepth 1
+                  maxscopedepth 3
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getscopeobject 0
+                     getlex QName(PackageNamespace(""),"Object")
+                     pushscope
+                     getlex QName(PackageNamespace(""),"Object")
+                     newclass 110
+                     popscope
+                     initproperty QName(PackageNamespace("sound"),"MusicRequest")
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+            

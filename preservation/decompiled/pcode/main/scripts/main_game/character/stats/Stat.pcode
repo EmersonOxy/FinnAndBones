@@ -1,0 +1,165 @@
+package main_game.character.stats
+{
+   public class Stat
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      protected var value:Number;
+      
+      protected var type:int;
+      
+      public function Stat(param1:int, param2:Number = 0)
+      {
+         method
+            name null
+            flag HAS_OPTIONAL
+            param QName(PackageNamespace(""),"int")
+            param QName(PackageNamespace(""),"Number")
+            optional Integer(0)
+            returns null
+            
+            body
+               maxstack 2
+               localcount 3
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlocal2
+                  initproperty QName(ProtectedNamespace("main_game.character.stats:Stat"),"value")
+                  getlocal0
+                  getlocal1
+                  initproperty QName(ProtectedNamespace("main_game.character.stats:Stat"),"type")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function modifyValue(param1:Number) : void
+      {
+         trait method QName(PackageNamespace(""),"modifyValue")
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace(""),"Number")
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 3
+                  localcount 2
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     getlocal0
+                     getproperty QName(ProtectedNamespace("main_game.character.stats:Stat"),"value")
+                     getlocal1
+                     add
+                     setproperty QName(ProtectedNamespace("main_game.character.stats:Stat"),"value")
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function getValue() : Number
+         {
+            trait method QName(PackageNamespace(""),"getValue")
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace(""),"Number")
+                  
+                  body
+                     maxstack 1
+                     localcount 1
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        getproperty QName(ProtectedNamespace("main_game.character.stats:Stat"),"value")
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function clear() : void
+            {
+               trait method QName(PackageNamespace(""),"clear")
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 1
+                        localcount 1
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+            }
+         }
+         
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 2
+               localcount 1
+               initscopedepth 1
+               maxscopedepth 3
+               
+               code
+                  getlocal0
+                  pushscope
+                  findpropstrict Multiname("Stat",[PackageNamespace("main_game.character.stats")])
+                  getlex QName(PackageNamespace(""),"Object")
+                  pushscope
+                  getlex QName(PackageNamespace(""),"Object")
+                  newclass 51
+                  popscope
+                  initproperty QName(PackageNamespace("main_game.character.stats"),"Stat")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+         

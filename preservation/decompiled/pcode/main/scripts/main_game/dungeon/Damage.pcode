@@ -1,0 +1,497 @@
+package main_game.dungeon
+{
+   import flash.display.MovieClip;
+   import main_game.character.Fighter;
+   import main_game.character.stats.StatType;
+   import main_game.character.stats.Stats;
+   
+   public class Damage
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var hp_damage:uint;
+      
+      private var hit:Boolean;
+      
+      private var critical:Boolean;
+      
+      private var target:Fighter;
+      
+      private var elementBonus:ElementBonus;
+      
+      public function Damage(param1:uint, param2:Boolean, param3:Boolean, param4:Fighter, param5:ElementBonus = null)
+      {
+         method
+            name null
+            flag HAS_OPTIONAL
+            param QName(PackageNamespace(""),"uint")
+            param QName(PackageNamespace(""),"Boolean")
+            param QName(PackageNamespace(""),"Boolean")
+            param QName(PackageNamespace("main_game.character"),"Fighter")
+            param QName(PackageNamespace("main_game.dungeon"),"ElementBonus")
+            optional Null()
+            returns null
+            
+            body
+               maxstack 2
+               localcount 6
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlocal1
+                  initproperty QName(PrivateNamespace(null,"118"),"hp_damage")
+                  getlocal0
+                  getlocal2
+                  initproperty QName(PrivateNamespace(null,"118"),"hit")
+                  getlocal0
+                  getlocal3
+                  initproperty QName(PrivateNamespace(null,"118"),"critical")
+                  getlocal0
+                  getlocal 4
+                  initproperty QName(PrivateNamespace(null,"118"),"target")
+                  getlocal0
+                  getlocal 5
+                  initproperty QName(PrivateNamespace(null,"118"),"elementBonus")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function apply(param1:Stats) : void
+      {
+         trait method QName(PackageNamespace(""),"apply")
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace("main_game.character.stats"),"Stats")
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 2
+                  localcount 2
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal1
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"118"),"hp_damage")
+                     callpropvoid QName(PackageNamespace(""),"downHP"), 1
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function getHitterFeedback() : Array
+         {
+            trait method QName(PackageNamespace(""),"getHitterFeedback")
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace(""),"Array")
+                  
+                  body
+                     maxstack 6
+                     localcount 3
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        pushnull
+                        coerce QName(PackageNamespace("flash.display"),"MovieClip")
+                        setlocal1
+                        newarray 0
+                        coerce QName(PackageNamespace(""),"Array")
+                        setlocal2
+                        getlocal0
+                        callproperty QName(PackageNamespace(""),"isCritical"), 0
+                        iffalse ofs0047
+                        getlex QName(PackageNamespace(""),"main")
+                        getproperty QName(PackageNamespace(""),"swfLoader")
+                        pushstring "assets.criticalHit"
+                        callproperty QName(PackageNamespace(""),"getObject"), 1
+                        getlex QName(PackageNamespace("flash.display"),"MovieClip")
+                        astypelate
+                        coerce QName(PackageNamespace("flash.display"),"MovieClip")
+                        setlocal1
+                        getlocal1
+                        getproperty Multiname("number_heathl_parts_blocked",[PrivateNamespace(null,"118"),PackageNamespace(""),PackageNamespace("main_game.dungeon"),PrivateNamespace(null,"289"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:Damage"),StaticProtectedNs("main_game.dungeon:Damage")])
+                        getproperty Multiname("title",[PrivateNamespace(null,"118"),PackageNamespace(""),PackageNamespace("main_game.dungeon"),PrivateNamespace(null,"289"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:Damage"),StaticProtectedNs("main_game.dungeon:Damage")])
+                        getproperty Multiname("title",[PrivateNamespace(null,"118"),PackageNamespace(""),PackageNamespace("main_game.dungeon"),PrivateNamespace(null,"289"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:Damage"),StaticProtectedNs("main_game.dungeon:Damage")])
+                        getlex QName(PackageNamespace(""),"main")
+                        getproperty QName(PackageNamespace(""),"locale")
+                        pushstring "critical_bonus"
+                        callproperty QName(PackageNamespace(""),"get"), 1
+                        setproperty Multiname("text",[PrivateNamespace(null,"118"),PackageNamespace(""),PackageNamespace("main_game.dungeon"),PrivateNamespace(null,"289"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:Damage"),StaticProtectedNs("main_game.dungeon:Damage")])
+                        getlocal2
+                        getlocal1
+                        callpropvoid QName(Namespace("http://adobe.com/AS3/2006/builtin"),"push"), 1
+               ofs0047:
+                        getlocal0
+                        callproperty QName(PackageNamespace(""),"doesHeHit"), 0
+                        coerce_a
+                        convert_b
+                        dup
+                        iffalse ofs005a
+                        pop
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"118"),"elementBonus")
+                        coerce_a
+                        convert_b
+               ofs005a:
+                        dup
+                        iffalse ofs006a
+                        pop
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"118"),"elementBonus")
+                        getproperty QName(PackageNamespace(""),"value")
+                        pushbyte 1
+                        greaterthan
+               ofs006a:
+                        iffalse ofs00e5
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"118"),"elementBonus")
+                        getproperty QName(PackageNamespace(""),"element")
+                        getproperty QName(PackageNamespace(""),"isOfFire")
+                        iffalse ofs0093
+                        getlex QName(PackageNamespace(""),"main")
+                        getproperty QName(PackageNamespace(""),"swfLoader")
+                        pushstring "assets.elementBonus_fire"
+                        callproperty QName(PackageNamespace(""),"getObject"), 1
+                        getlex QName(PackageNamespace("flash.display"),"MovieClip")
+                        astypelate
+                        coerce QName(PackageNamespace("flash.display"),"MovieClip")
+                        setlocal1
+                        jump ofs00b4
+               ofs0093:
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"118"),"elementBonus")
+                        getproperty QName(PackageNamespace(""),"element")
+                        getproperty QName(PackageNamespace(""),"isOfIce")
+                        iffalse ofs00b4
+                        getlex QName(PackageNamespace(""),"main")
+                        getproperty QName(PackageNamespace(""),"swfLoader")
+                        pushstring "assets.elementBonus_ice"
+                        callproperty QName(PackageNamespace(""),"getObject"), 1
+                        getlex QName(PackageNamespace("flash.display"),"MovieClip")
+                        astypelate
+                        coerce QName(PackageNamespace("flash.display"),"MovieClip")
+                        setlocal1
+               ofs00b4:
+                        getlocal1
+                        getproperty Multiname("number_heathl_parts_blocked",[PrivateNamespace(null,"118"),PackageNamespace(""),PackageNamespace("main_game.dungeon"),PrivateNamespace(null,"289"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:Damage"),StaticProtectedNs("main_game.dungeon:Damage")])
+                        getproperty Multiname("title",[PrivateNamespace(null,"118"),PackageNamespace(""),PackageNamespace("main_game.dungeon"),PrivateNamespace(null,"289"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:Damage"),StaticProtectedNs("main_game.dungeon:Damage")])
+                        getproperty Multiname("title",[PrivateNamespace(null,"118"),PackageNamespace(""),PackageNamespace("main_game.dungeon"),PrivateNamespace(null,"289"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:Damage"),StaticProtectedNs("main_game.dungeon:Damage")])
+                        getlex QName(PackageNamespace(""),"main")
+                        getproperty QName(PackageNamespace(""),"locale")
+                        pushstring "element_bonus"
+                        findpropstrict QName(PackageNamespace(""),"int")
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"118"),"elementBonus")
+                        getproperty QName(PackageNamespace(""),"value")
+                        pushbyte 100
+                        multiply
+                        callproperty QName(PackageNamespace(""),"int"), 1
+                        newarray 1
+                        callproperty QName(PackageNamespace(""),"get"), 2
+                        setproperty Multiname("text",[PrivateNamespace(null,"118"),PackageNamespace(""),PackageNamespace("main_game.dungeon"),PrivateNamespace(null,"289"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:Damage"),StaticProtectedNs("main_game.dungeon:Damage")])
+                        getlocal2
+                        getlocal1
+                        callpropvoid QName(Namespace("http://adobe.com/AS3/2006/builtin"),"push"), 1
+               ofs00e5:
+                        getlocal2
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function getDefenderFeedback() : Array
+            {
+               trait method QName(PackageNamespace(""),"getDefenderFeedback")
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace(""),"Array")
+                     
+                     body
+                        maxstack 6
+                        localcount 3
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           pushnull
+                           coerce QName(PackageNamespace("flash.display"),"MovieClip")
+                           setlocal1
+                           newarray 0
+                           coerce QName(PackageNamespace(""),"Array")
+                           setlocal2
+                           getlocal0
+                           callproperty QName(PackageNamespace(""),"doesHeHit"), 0
+                           iftrue ofs004b
+                           getlex QName(PackageNamespace(""),"main")
+                           getproperty QName(PackageNamespace(""),"swfLoader")
+                           pushstring "assets.blocked"
+                           callproperty QName(PackageNamespace(""),"getObject"), 1
+                           getlex QName(PackageNamespace("flash.display"),"MovieClip")
+                           astypelate
+                           coerce QName(PackageNamespace("flash.display"),"MovieClip")
+                           setlocal1
+                           getlocal1
+                           getproperty Multiname("number_heathl_parts_blocked",[PrivateNamespace(null,"118"),PackageNamespace(""),PackageNamespace("main_game.dungeon"),PrivateNamespace(null,"289"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:Damage"),StaticProtectedNs("main_game.dungeon:Damage")])
+                           getproperty Multiname("title",[PrivateNamespace(null,"118"),PackageNamespace(""),PackageNamespace("main_game.dungeon"),PrivateNamespace(null,"289"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:Damage"),StaticProtectedNs("main_game.dungeon:Damage")])
+                           getproperty Multiname("title",[PrivateNamespace(null,"118"),PackageNamespace(""),PackageNamespace("main_game.dungeon"),PrivateNamespace(null,"289"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:Damage"),StaticProtectedNs("main_game.dungeon:Damage")])
+                           getlex QName(PackageNamespace(""),"main")
+                           getproperty QName(PackageNamespace(""),"locale")
+                           pushstring "evade_bonus"
+                           callproperty QName(PackageNamespace(""),"get"), 1
+                           setproperty Multiname("text",[PrivateNamespace(null,"118"),PackageNamespace(""),PackageNamespace("main_game.dungeon"),PrivateNamespace(null,"289"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:Damage"),StaticProtectedNs("main_game.dungeon:Damage")])
+                           getlocal2
+                           getlocal1
+                           callpropvoid QName(Namespace("http://adobe.com/AS3/2006/builtin"),"push"), 1
+                           jump ofs00d8
+                  ofs004b:
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"118"),"elementBonus")
+                           convert_b
+                           dup
+                           iffalse ofs0060
+                           pop
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"118"),"elementBonus")
+                           getproperty QName(PackageNamespace(""),"value")
+                           pushbyte 1
+                           lessthan
+                  ofs0060:
+                           iffalse ofs00d8
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"118"),"elementBonus")
+                           getproperty QName(PackageNamespace(""),"element")
+                           getproperty QName(PackageNamespace(""),"isOfFire")
+                           iffalse ofs0089
+                           getlex QName(PackageNamespace(""),"main")
+                           getproperty QName(PackageNamespace(""),"swfLoader")
+                           pushstring "assets.elementBonus_fire"
+                           callproperty QName(PackageNamespace(""),"getObject"), 1
+                           getlex QName(PackageNamespace("flash.display"),"MovieClip")
+                           astypelate
+                           coerce QName(PackageNamespace("flash.display"),"MovieClip")
+                           setlocal1
+                           jump ofs00aa
+                  ofs0089:
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"118"),"elementBonus")
+                           getproperty QName(PackageNamespace(""),"element")
+                           getproperty QName(PackageNamespace(""),"isOfIce")
+                           iffalse ofs00aa
+                           getlex QName(PackageNamespace(""),"main")
+                           getproperty QName(PackageNamespace(""),"swfLoader")
+                           pushstring "assets.elementBonus_ice"
+                           callproperty QName(PackageNamespace(""),"getObject"), 1
+                           getlex QName(PackageNamespace("flash.display"),"MovieClip")
+                           astypelate
+                           coerce QName(PackageNamespace("flash.display"),"MovieClip")
+                           setlocal1
+                  ofs00aa:
+                           getlocal1
+                           getproperty Multiname("number_heathl_parts_blocked",[PrivateNamespace(null,"118"),PackageNamespace(""),PackageNamespace("main_game.dungeon"),PrivateNamespace(null,"289"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:Damage"),StaticProtectedNs("main_game.dungeon:Damage")])
+                           getproperty Multiname("title",[PrivateNamespace(null,"118"),PackageNamespace(""),PackageNamespace("main_game.dungeon"),PrivateNamespace(null,"289"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:Damage"),StaticProtectedNs("main_game.dungeon:Damage")])
+                           getproperty Multiname("title",[PrivateNamespace(null,"118"),PackageNamespace(""),PackageNamespace("main_game.dungeon"),PrivateNamespace(null,"289"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:Damage"),StaticProtectedNs("main_game.dungeon:Damage")])
+                           getlex QName(PackageNamespace(""),"main")
+                           getproperty QName(PackageNamespace(""),"locale")
+                           pushstring "element_bonus"
+                           findpropstrict QName(PackageNamespace(""),"int")
+                           pushbyte 2
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"118"),"elementBonus")
+                           getproperty QName(PackageNamespace(""),"value")
+                           subtract
+                           pushbyte 100
+                           multiply
+                           callproperty QName(PackageNamespace(""),"int"), 1
+                           newarray 1
+                           callproperty QName(PackageNamespace(""),"get"), 2
+                           setproperty Multiname("text",[PrivateNamespace(null,"118"),PackageNamespace(""),PackageNamespace("main_game.dungeon"),PrivateNamespace(null,"289"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:Damage"),StaticProtectedNs("main_game.dungeon:Damage")])
+                  ofs00d8:
+                           getlocal2
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function doesHeDie() : Boolean
+               {
+                  trait method QName(PackageNamespace(""),"doesHeDie")
+                     dispid 0
+                     method
+                        name null
+                        returns QName(PackageNamespace(""),"Boolean")
+                        
+                        body
+                           maxstack 2
+                           localcount 1
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal0
+                              callproperty QName(PackageNamespace(""),"doesHeHit"), 0
+                              convert_b
+                              dup
+                              iffalse ofs0028
+                              pop
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"118"),"target")
+                              getproperty QName(PackageNamespace(""),"stats")
+                              getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                              getproperty QName(PackageNamespace(""),"HEALTH")
+                              callproperty QName(PackageNamespace(""),"getStat"), 1
+                              callproperty QName(PackageNamespace(""),"getValue"), 0
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"118"),"hp_damage")
+                              lessequals
+                     ofs0028:
+                              returnvalue
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function doesHeHit() : Boolean
+                  {
+                     trait method QName(PackageNamespace(""),"doesHeHit")
+                        dispid 0
+                        method
+                           name null
+                           returns QName(PackageNamespace(""),"Boolean")
+                           
+                           body
+                              maxstack 1
+                              localcount 1
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"118"),"hit")
+                                 returnvalue
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     public function isCritical() : Boolean
+                     {
+                        trait method QName(PackageNamespace(""),"isCritical")
+                           dispid 0
+                           method
+                              name null
+                              returns QName(PackageNamespace(""),"Boolean")
+                              
+                              body
+                                 maxstack 1
+                                 localcount 1
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"118"),"critical")
+                                    returnvalue
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        public function stringValue() : String
+                        {
+                           trait method QName(PackageNamespace(""),"stringValue")
+                              dispid 0
+                              method
+                                 name null
+                                 returns QName(PackageNamespace(""),"String")
+                                 
+                                 body
+                                    maxstack 1
+                                    localcount 1
+                                    initscopedepth 4
+                                    maxscopedepth 5
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"118"),"hp_damage")
+                                       callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"toString"), 0
+                                       returnvalue
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                        }
+                     }
+                     
+                     method
+                        name null
+                        returns null
+                        
+                        body
+                           maxstack 2
+                           localcount 1
+                           initscopedepth 1
+                           maxscopedepth 3
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              findpropstrict Multiname("Damage",[PackageNamespace("main_game.dungeon")])
+                              getlex QName(PackageNamespace(""),"Object")
+                              pushscope
+                              getlex QName(PackageNamespace(""),"Object")
+                              newclass 200
+                              popscope
+                              initproperty QName(PackageNamespace("main_game.dungeon"),"Damage")
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                     

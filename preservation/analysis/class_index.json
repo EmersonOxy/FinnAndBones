@@ -1,0 +1,1752 @@
+{
+  "source": "main.swf",
+  "count": 291,
+  "entries": [
+    {
+      "file": "decompiled/actionscript/main/scripts/AchievementDispatcher.as",
+      "name": "AchievementDispatcher",
+      "package": "",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/assert.as",
+      "name": "",
+      "package": "",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main.as",
+      "name": "main",
+      "package": "",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/actions/Lambda.as",
+      "name": "Lambda",
+      "package": "actions",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/aplication/BasicState.as",
+      "name": "BasicState",
+      "package": "aplication",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/aplication/FSM.as",
+      "name": "FSM",
+      "package": "aplication",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/aplication/State.as",
+      "name": "State",
+      "package": "aplication",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/ClassLoader.as",
+      "name": "ClassLoader",
+      "package": "bonus",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/DailyBonus.as",
+      "name": "DailyBonus",
+      "package": "bonus",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/ExtraDungeon.as",
+      "name": "ExtraDungeon",
+      "package": "bonus",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/ExtraLevelBonus.as",
+      "name": "ExtraLevelBonus",
+      "package": "bonus",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/FileLoader.as",
+      "name": "FileLoader",
+      "package": "bonus",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/FileStream.as",
+      "name": "FileStream",
+      "package": "bonus",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/IDailyBonus.as",
+      "name": "IDailyBonus",
+      "package": "bonus",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/LexicalParser.as",
+      "name": "LexicalParser",
+      "package": "bonus",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/XpBonus.as",
+      "name": "XpBonus",
+      "package": "bonus",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/errors/ClassDefinitionError.as",
+      "name": "ClassDefinitionError",
+      "package": "bonus.errors",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/errors/CommentError.as",
+      "name": "CommentError",
+      "package": "bonus.errors",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/errors/ConstantDefinitionError.as",
+      "name": "ConstantDefinitionError",
+      "package": "bonus.errors",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/errors/GenericError.as",
+      "name": "GenericError",
+      "package": "bonus.errors",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/errors/WaitingForAttributeError.as",
+      "name": "WaitingForAttributeError",
+      "package": "bonus.errors",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/errors/WaitingForConstantError.as",
+      "name": "WaitingForConstantError",
+      "package": "bonus.errors",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/errors/WaitingForEndClassError.as",
+      "name": "WaitingForEndClassError",
+      "package": "bonus.errors",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/events/ParseEvent.as",
+      "name": "ParseEvent",
+      "package": "bonus.events",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/filter/AllFilter.as",
+      "name": "AllFilter",
+      "package": "bonus.filter",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/filter/BonusIcon.as",
+      "name": "BonusIcon",
+      "package": "bonus.filter",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/filter/FireFilter.as",
+      "name": "FireFilter",
+      "package": "bonus.filter",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/filter/IBonusFilter.as",
+      "name": "IBonusFilter",
+      "package": "bonus.filter",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/filter/IceFilter.as",
+      "name": "IceFilter",
+      "package": "bonus.filter",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/filter/NoneFilter.as",
+      "name": "NoneFilter",
+      "package": "bonus.filter",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/filter/NormalFilter.as",
+      "name": "NormalFilter",
+      "package": "bonus.filter",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/states/ArrayClassConstantDefinition.as",
+      "name": "ArrayClassConstantDefinition",
+      "package": "bonus.states",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/states/ArrayConstantDefinition.as",
+      "name": "ArrayConstantDefinition",
+      "package": "bonus.states",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/states/ArrayDefinition.as",
+      "name": "ArrayDefinition",
+      "package": "bonus.states",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/states/ArrayFloatConstantDefinition.as",
+      "name": "ArrayFloatConstantDefinition",
+      "package": "bonus.states",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/states/ArrayStringDefinition.as",
+      "name": "ArrayStringDefinition",
+      "package": "bonus.states",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/states/AttributeDefinition.as",
+      "name": "AttributeDefinition",
+      "package": "bonus.states",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/states/BaseState.as",
+      "name": "BaseState",
+      "package": "bonus.states",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/states/ClassConstantDefinition.as",
+      "name": "ClassConstantDefinition",
+      "package": "bonus.states",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/states/ClassDefinition.as",
+      "name": "ClassDefinition",
+      "package": "bonus.states",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/states/ConstantDefinition.as",
+      "name": "ConstantDefinition",
+      "package": "bonus.states",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/states/FloatConstantDefinition.as",
+      "name": "FloatConstantDefinition",
+      "package": "bonus.states",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/states/MultipleLineComment.as",
+      "name": "MultipleLineComment",
+      "package": "bonus.states",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/states/OneLineComment.as",
+      "name": "OneLineComment",
+      "package": "bonus.states",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/states/PossibleComment.as",
+      "name": "PossibleComment",
+      "package": "bonus.states",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/states/PossibleCommentEnd.as",
+      "name": "PossibleCommentEnd",
+      "package": "bonus.states",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/states/StringDefinition.as",
+      "name": "StringDefinition",
+      "package": "bonus.states",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/states/WaitingForAttribute.as",
+      "name": "WaitingForAttribute",
+      "package": "bonus.states",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/states/WaitingForClass.as",
+      "name": "WaitingForClass",
+      "package": "bonus.states",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/states/WaitingForConstant.as",
+      "name": "WaitingForConstant",
+      "package": "bonus.states",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/states/WaitingForEndArrayStringDefinition.as",
+      "name": "WaitingForEndArrayStringDefinition",
+      "package": "bonus.states",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/states/WaitingForEndClass.as",
+      "name": "WaitingForEndClass",
+      "package": "bonus.states",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/actions/Action.as",
+      "name": "Action",
+      "package": "cb.actions",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/actions/Functor.as",
+      "name": "Functor",
+      "package": "cb.actions",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/actions/RemoveFromParent.as",
+      "name": "RemoveFromParent",
+      "package": "cb.actions",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/conditions/AnimationFrameAt.as",
+      "name": "AnimationFrameAt",
+      "package": "cb.conditions",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/conditions/AnimationLabelAt.as",
+      "name": "AnimationLabelAt",
+      "package": "cb.conditions",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/conditions/Condition.as",
+      "name": "Condition",
+      "package": "cb.conditions",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/conditions/EndAnimation.as",
+      "name": "EndAnimation",
+      "package": "cb.conditions",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/data/ButtonGroup.as",
+      "name": "ButtonGroup",
+      "package": "cb.data",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/data/ButtonInfo.as",
+      "name": "ButtonInfo",
+      "package": "cb.data",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/data/CsvLoader.as",
+      "name": "CsvLoader",
+      "package": "cb.data",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/data/Locale.as",
+      "name": "Locale",
+      "package": "cb.data",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/data/TextLoader.as",
+      "name": "TextLoader",
+      "package": "cb.data",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/display/Screen.as",
+      "name": "Screen",
+      "package": "cb.display",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/display/SmartMC.as",
+      "name": "SmartMC",
+      "package": "cb.display",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/display/SwfBulkLoader.as",
+      "name": "SwfBulkLoader",
+      "package": "cb.display",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/display/SwfLoader.as",
+      "name": "SwfLoader",
+      "package": "cb.display",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/gameloop/GameLoop.as",
+      "name": "GameLoop",
+      "package": "cb.gameloop",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/logger/Appender.as",
+      "name": "Appender",
+      "package": "cb.logger",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/logger/JSConsoleAppender.as",
+      "name": "JSConsoleAppender",
+      "package": "cb.logger",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/logger/Log.as",
+      "name": "Log",
+      "package": "cb.logger",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/media/cbSound.as",
+      "name": "cbSound",
+      "package": "cb.media",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/media/cbSoundMixer.as",
+      "name": "cbSoundMixer",
+      "package": "cb.media",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/media/SoundLoader.as",
+      "name": "SoundLoader",
+      "package": "cb.media",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/media/SoundMixable.as",
+      "name": "SoundMixable",
+      "package": "cb.media",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/signals/Signal.as",
+      "name": "Signal",
+      "package": "cb.signals",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/utils/cbArray.as",
+      "name": "cbArray",
+      "package": "cb.utils",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/utils/LoadingObject.as",
+      "name": "LoadingObject",
+      "package": "cb.utils",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/utils/Random.as",
+      "name": "Random",
+      "package": "cb.utils",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/utils/Rule.as",
+      "name": "Rule",
+      "package": "cb.utils",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/utils/Tween.as",
+      "name": "Tween",
+      "package": "cb.utils",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/com/cartoonnetwork/AchievementSystem/AchievementAS3.as",
+      "name": "AchievementAS3",
+      "package": "com.cartoonnetwork.AchievementSystem",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/com/cartoonnetwork/connect/Connection.as",
+      "name": "Connection",
+      "package": "com.cartoonnetwork.connect",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/conditions/EndCurrentLabel.as",
+      "name": "EndCurrentLabel",
+      "package": "conditions",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/conditions/Or.as",
+      "name": "Or",
+      "package": "conditions",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/drag_and_drop/DragDispatcher.as",
+      "name": "DragDispatcher",
+      "package": "drag_and_drop",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/drag_and_drop/DragListener.as",
+      "name": "DragListener",
+      "package": "drag_and_drop",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/drag_and_drop/IDragContainer.as",
+      "name": "IDragContainer",
+      "package": "drag_and_drop",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/jh/PackedResources.as",
+      "name": "PackedResources",
+      "package": "jh",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/loader/DynamicLoader.as",
+      "name": "DynamicLoader",
+      "package": "loader",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/loader/PostLoader.as",
+      "name": "PostLoader",
+      "package": "loader",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/loader/Preloader.as",
+      "name": "Preloader",
+      "package": "loader",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/loader/ResourceLoader.as",
+      "name": "ResourceLoader",
+      "package": "loader",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/loader/SoundResourceLoader.as",
+      "name": "SoundResourceLoader",
+      "package": "loader",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/Game.as",
+      "name": "Game",
+      "package": "main_game",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/boss_dungeon/Boss.as",
+      "name": "Boss",
+      "package": "main_game.boss_dungeon",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/boss_dungeon/BossDungeon.as",
+      "name": "BossDungeon",
+      "package": "main_game.boss_dungeon",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/boss_dungeon/BossFight.as",
+      "name": "BossFight",
+      "package": "main_game.boss_dungeon",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/bubblegum/BubblegumFeeling.as",
+      "name": "BubblegumFeeling",
+      "package": "main_game.bubblegum",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/bubblegum/BubblegumFeltTip.as",
+      "name": "BubblegumFeltTip",
+      "package": "main_game.bubblegum",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/bubblegum/BubblegumInteraction.as",
+      "name": "BubblegumInteraction",
+      "package": "main_game.bubblegum",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/bubblegum/BubblegumPrincess.as",
+      "name": "BubblegumPrincess",
+      "package": "main_game.bubblegum",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/bubblegum/BubbleGumTip.as",
+      "name": "BubbleGumTip",
+      "package": "main_game.bubblegum",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/bubblegum/InteractiveBubblegum.as",
+      "name": "InteractiveBubblegum",
+      "package": "main_game.bubblegum",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/bubblegum/MixChecker.as",
+      "name": "MixChecker",
+      "package": "main_game.bubblegum",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/bubblegum/MixRecipe.as",
+      "name": "MixRecipe",
+      "package": "main_game.bubblegum",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/bubblegum/SpecialMixTip.as",
+      "name": "SpecialMixTip",
+      "package": "main_game.bubblegum",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/character/CharacterConfigData.as",
+      "name": "CharacterConfigData",
+      "package": "main_game.character",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/character/CharacterConfigParser.as",
+      "name": "CharacterConfigParser",
+      "package": "main_game.character",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/character/CharacterFactory.as",
+      "name": "CharacterFactory",
+      "package": "main_game.character",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/character/Enemy.as",
+      "name": "Enemy",
+      "package": "main_game.character",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/character/Fighter.as",
+      "name": "Fighter",
+      "package": "main_game.character",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/character/Finn.as",
+      "name": "Finn",
+      "package": "main_game.character",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/character/Gear.as",
+      "name": "Gear",
+      "package": "main_game.character",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/character/Liver.as",
+      "name": "Liver",
+      "package": "main_game.character",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/character/stats/EnemyStats.as",
+      "name": "EnemyStats",
+      "package": "main_game.character.stats",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/character/stats/Experience.as",
+      "name": "Experience",
+      "package": "main_game.character.stats",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/character/stats/FinnStats.as",
+      "name": "FinnStats",
+      "package": "main_game.character.stats",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/character/stats/HealthStat.as",
+      "name": "HealthStat",
+      "package": "main_game.character.stats",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/character/stats/LevelingEnemies.as",
+      "name": "LevelingEnemies",
+      "package": "main_game.character.stats",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/character/stats/LevelingStragegy.as",
+      "name": "LevelingStragegy",
+      "package": "main_game.character.stats",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/character/stats/PersistentExperience.as",
+      "name": "PersistentExperience",
+      "package": "main_game.character.stats",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/character/stats/Stat.as",
+      "name": "Stat",
+      "package": "main_game.character.stats",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/character/stats/Stats.as",
+      "name": "Stats",
+      "package": "main_game.character.stats",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/character/stats/StatsEffectGuardian.as",
+      "name": "StatsEffectGuardian",
+      "package": "main_game.character.stats",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/character/stats/StatType.as",
+      "name": "StatType",
+      "package": "main_game.character.stats",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/dungeon/Damage.as",
+      "name": "Damage",
+      "package": "main_game.dungeon",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/dungeon/DamageCalculator.as",
+      "name": "DamageCalculator",
+      "package": "main_game.dungeon",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/dungeon/Dungeon.as",
+      "name": "Dungeon",
+      "package": "main_game.dungeon",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/dungeon/DungeonConfigData.as",
+      "name": "DungeonConfigData",
+      "package": "main_game.dungeon",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/dungeon/DungeonConfigParser.as",
+      "name": "DungeonConfigParser",
+      "package": "main_game.dungeon",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/dungeon/DungeonFactory.as",
+      "name": "DungeonFactory",
+      "package": "main_game.dungeon",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/dungeon/DungeonStats.as",
+      "name": "DungeonStats",
+      "package": "main_game.dungeon",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/dungeon/ElementBonus.as",
+      "name": "ElementBonus",
+      "package": "main_game.dungeon",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/dungeon/Fight.as",
+      "name": "Fight",
+      "package": "main_game.dungeon",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/dungeon/IFight.as",
+      "name": "IFight",
+      "package": "main_game.dungeon",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/dungeon/IXpCalculator.as",
+      "name": "IXpCalculator",
+      "package": "main_game.dungeon",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/dungeon/Loot.as",
+      "name": "Loot",
+      "package": "main_game.dungeon",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/dungeon/XpCalculator.as",
+      "name": "XpCalculator",
+      "package": "main_game.dungeon",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/element/Element.as",
+      "name": "Element",
+      "package": "main_game.element",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/inventory/Inventory.as",
+      "name": "Inventory",
+      "package": "main_game.inventory",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/inventory/Trash.as",
+      "name": "Trash",
+      "package": "main_game.inventory",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/items/Category.as",
+      "name": "Category",
+      "package": "main_game.items",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/items/Consumable.as",
+      "name": "Consumable",
+      "package": "main_game.items",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/items/Equipment.as",
+      "name": "Equipment",
+      "package": "main_game.items",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/items/Item.as",
+      "name": "Item",
+      "package": "main_game.items",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/items/ItemFactory.as",
+      "name": "ItemFactory",
+      "package": "main_game.items",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/items/MixItem.as",
+      "name": "MixItem",
+      "package": "main_game.items",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/items/Shield.as",
+      "name": "Shield",
+      "package": "main_game.items",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/items/Weapon.as",
+      "name": "Weapon",
+      "package": "main_game.items",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/items/modifiers/HealthModifier.as",
+      "name": "HealthModifier",
+      "package": "main_game.items.modifiers",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/items/modifiers/IModifier.as",
+      "name": "IModifier",
+      "package": "main_game.items.modifiers",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/items/modifiers/MaxHealthModifier.as",
+      "name": "MaxHealthModifier",
+      "package": "main_game.items.modifiers",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/items/modifiers/Modifier.as",
+      "name": "Modifier",
+      "package": "main_game.items.modifiers",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/items/modifiers/NullModifier.as",
+      "name": "NullModifier",
+      "package": "main_game.items.modifiers",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/item_containers/EquipmentSlot.as",
+      "name": "EquipmentSlot",
+      "package": "main_game.item_containers",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/item_containers/ISlot.as",
+      "name": "ISlot",
+      "package": "main_game.item_containers",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/item_containers/ItemContainer.as",
+      "name": "ItemContainer",
+      "package": "main_game.item_containers",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/item_containers/NullSlot.as",
+      "name": "NullSlot",
+      "package": "main_game.item_containers",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/item_containers/OneTimeSlot.as",
+      "name": "OneTimeSlot",
+      "package": "main_game.item_containers",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/item_containers/ShieldSlot.as",
+      "name": "ShieldSlot",
+      "package": "main_game.item_containers",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/item_containers/Slot.as",
+      "name": "Slot",
+      "package": "main_game.item_containers",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/item_containers/SlotChange.as",
+      "name": "SlotChange",
+      "package": "main_game.item_containers",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/item_containers/WeaponSlot.as",
+      "name": "WeaponSlot",
+      "package": "main_game.item_containers",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/map/LegendaryLevel.as",
+      "name": "LegendaryLevel",
+      "package": "main_game.map",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/map/Level.as",
+      "name": "Level",
+      "package": "main_game.map",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/map/Map.as",
+      "name": "Map",
+      "package": "main_game.map",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/map/SpecialLevel.as",
+      "name": "SpecialLevel",
+      "package": "main_game.map",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/mixer/MixData.as",
+      "name": "MixData",
+      "package": "main_game.mixer",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/mixer/Mixer.as",
+      "name": "Mixer",
+      "package": "main_game.mixer",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/mixer/MixerClock.as",
+      "name": "MixerClock",
+      "package": "main_game.mixer",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/mixer/MixResult.as",
+      "name": "MixResult",
+      "package": "main_game.mixer",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/mixer/MixSlot.as",
+      "name": "MixSlot",
+      "package": "main_game.mixer",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/mixer/MixStrategy.as",
+      "name": "MixStrategy",
+      "package": "main_game.mixer",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/mixer/Recipe.as",
+      "name": "Recipe",
+      "package": "main_game.mixer",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/persistence/SaveError.as",
+      "name": "SaveError",
+      "package": "persistence",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/persistence/SaveSystem.as",
+      "name": "SaveSystem",
+      "package": "persistence",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/persistence/SharedUtils.as",
+      "name": "SharedUtils",
+      "package": "persistence",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/sound/BossSoundManager.as",
+      "name": "BossSoundManager",
+      "package": "sound",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/sound/EnemySoundManager.as",
+      "name": "EnemySoundManager",
+      "package": "sound",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/sound/FighterSoundManager.as",
+      "name": "FighterSoundManager",
+      "package": "sound",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/sound/FinnSoundManager.as",
+      "name": "FinnSoundManager",
+      "package": "sound",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/sound/GameSounds.as",
+      "name": "GameSounds",
+      "package": "sound",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/sound/MusicRequest.as",
+      "name": "MusicRequest",
+      "package": "sound",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/sound/SoundManager.as",
+      "name": "SoundManager",
+      "package": "sound",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/tutorial/Tutorial.as",
+      "name": "Tutorial",
+      "package": "tutorial",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/tutorial/steps/ConsumePotionStep.as",
+      "name": "ConsumePotionStep",
+      "package": "tutorial.steps",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/tutorial/steps/FirstTutorialStep.as",
+      "name": "FirstTutorialStep",
+      "package": "tutorial.steps",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/tutorial/steps/MixInformationStep.as",
+      "name": "MixInformationStep",
+      "package": "tutorial.steps",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/tutorial/steps/MixTutorialStep.as",
+      "name": "MixTutorialStep",
+      "package": "tutorial.steps",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/tutorial/steps/StatTutorialStep.as",
+      "name": "StatTutorialStep",
+      "package": "tutorial.steps",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/tutorial/steps/TakeAllStep.as",
+      "name": "TakeAllStep",
+      "package": "tutorial.steps",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/tutorial/steps/TutorialStep.as",
+      "name": "TutorialStep",
+      "package": "tutorial.steps",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/tutorial/view/TutorialView.as",
+      "name": "TutorialView",
+      "package": "tutorial.view",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/tutorial/view/TutorialViewWithOk.as",
+      "name": "TutorialViewWithOk",
+      "package": "tutorial.view",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/util/Buttons.as",
+      "name": "Buttons",
+      "package": "util",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/util/Locker.as",
+      "name": "Locker",
+      "package": "util",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/util/ProbabilisticSet.as",
+      "name": "ProbabilisticSet",
+      "package": "util",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/util/Sepializer.as",
+      "name": "Sepializer",
+      "package": "util",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/util/Util.as",
+      "name": "Util",
+      "package": "util",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/effect/Effect.as",
+      "name": "Effect",
+      "package": "view.effect",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/effect/PotionEffect.as",
+      "name": "PotionEffect",
+      "package": "view.effect",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/effect/SmokeEffect.as",
+      "name": "SmokeEffect",
+      "package": "view.effect",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/figthers/AnimatedHudView.as",
+      "name": "AnimatedHudView",
+      "package": "view.figthers",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/figthers/EnemyView.as",
+      "name": "EnemyView",
+      "package": "view.figthers",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/figthers/FighterView.as",
+      "name": "FighterView",
+      "package": "view.figthers",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/figthers/FinnView.as",
+      "name": "FinnView",
+      "package": "view.figthers",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/figthers/HudSetter.as",
+      "name": "HudSetter",
+      "package": "view.figthers",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/figthers/HudSetterWithStats.as",
+      "name": "HudSetterWithStats",
+      "package": "view.figthers",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/figthers/HudView.as",
+      "name": "HudView",
+      "package": "view.figthers",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/figthers/animations/DieAnimation.as",
+      "name": "DieAnimation",
+      "package": "view.figthers.animations",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/figthers/animations/FighterAnimation.as",
+      "name": "FighterAnimation",
+      "package": "view.figthers.animations",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/figthers/animations/HitAnimation.as",
+      "name": "HitAnimation",
+      "package": "view.figthers.animations",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/figthers/animations/HurtAnimation.as",
+      "name": "HurtAnimation",
+      "package": "view.figthers.animations",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/figthers/animations/IdleAnimation.as",
+      "name": "IdleAnimation",
+      "package": "view.figthers.animations",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/figthers/animations/IFighterAnimation.as",
+      "name": "IFighterAnimation",
+      "package": "view.figthers.animations",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/figthers/animations/JoyAnimation.as",
+      "name": "JoyAnimation",
+      "package": "view.figthers.animations",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/figthers/animations/NoneAnimation.as",
+      "name": "NoneAnimation",
+      "package": "view.figthers.animations",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/figthers/animations/RunAnimation.as",
+      "name": "RunAnimation",
+      "package": "view.figthers.animations",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/items/ConsumableView.as",
+      "name": "ConsumableView",
+      "package": "view.items",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/items/EquipmentView.as",
+      "name": "EquipmentView",
+      "package": "view.items",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/items/ItemView.as",
+      "name": "ItemView",
+      "package": "view.items",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/items/ShieldView.as",
+      "name": "ShieldView",
+      "package": "view.items",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/items/WeaponView.as",
+      "name": "WeaponView",
+      "package": "view.items",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/items/modifiers/IAnimationModifier.as",
+      "name": "IAnimationModifier",
+      "package": "view.items.modifiers",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/items/modifiers/NullShieldModifier.as",
+      "name": "NullShieldModifier",
+      "package": "view.items.modifiers",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/items/modifiers/NullSwordModifier.as",
+      "name": "NullSwordModifier",
+      "package": "view.items.modifiers",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/items/modifiers/ShieldModifier.as",
+      "name": "ShieldModifier",
+      "package": "view.items.modifiers",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/items/modifiers/SimpleAnimationModifier.as",
+      "name": "SimpleAnimationModifier",
+      "package": "view.items.modifiers",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/items/modifiers/SwordModifier.as",
+      "name": "SwordModifier",
+      "package": "view.items.modifiers",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/popUp/ItemPopUp.as",
+      "name": "ItemPopUp",
+      "package": "view.popUp",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/popUp/LevelUp.as",
+      "name": "LevelUp",
+      "package": "view.popUp",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/popUp/PopUp.as",
+      "name": "PopUp",
+      "package": "view.popUp",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/popUp/PopUpPositioner.as",
+      "name": "PopUpPositioner",
+      "package": "view.popUp",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/AnimatedScreen.as",
+      "name": "AnimatedScreen",
+      "package": "view.screens",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/ComicWindow.as",
+      "name": "ComicWindow",
+      "package": "view.screens",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/ConfirmationPopUp.as",
+      "name": "ConfirmationPopUp",
+      "package": "view.screens",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/DailyBonusView.as",
+      "name": "DailyBonusView",
+      "package": "view.screens",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/Intro.as",
+      "name": "Intro",
+      "package": "view.screens",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/MainMenu.as",
+      "name": "MainMenu",
+      "package": "view.screens",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/Outro.as",
+      "name": "Outro",
+      "package": "view.screens",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/Pause.as",
+      "name": "Pause",
+      "package": "view.screens",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/BarView.as",
+      "name": "BarView",
+      "package": "view.screens.main_game",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/GameView.as",
+      "name": "GameView",
+      "package": "view.screens.main_game",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/TransitionWindow.as",
+      "name": "TransitionWindow",
+      "package": "view.screens.main_game",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/TransitionWindowJakeLess.as",
+      "name": "TransitionWindowJakeLess",
+      "package": "view.screens.main_game",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/boss_dungeon/BossDungeonState.as",
+      "name": "BossDungeonState",
+      "package": "view.screens.main_game.boss_dungeon",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/boss_dungeon/BossDungeonView.as",
+      "name": "BossDungeonView",
+      "package": "view.screens.main_game.boss_dungeon",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/boss_dungeon/BossFightView.as",
+      "name": "BossFightView",
+      "package": "view.screens.main_game.boss_dungeon",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/boss_dungeon/BossView.as",
+      "name": "BossView",
+      "package": "view.screens.main_game.boss_dungeon",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/boss_dungeon/EnterBossDungeon.as",
+      "name": "EnterBossDungeon",
+      "package": "view.screens.main_game.boss_dungeon",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/boss_dungeon/InnerBossDungeonView.as",
+      "name": "InnerBossDungeonView",
+      "package": "view.screens.main_game.boss_dungeon",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/boss_dungeon/WinBossDungeonWindow.as",
+      "name": "WinBossDungeonWindow",
+      "package": "view.screens.main_game.boss_dungeon",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/bubblegum/BubblegumPopUp.as",
+      "name": "BubblegumPopUp",
+      "package": "view.screens.main_game.bubblegum",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/bubblegum/BubblegumView.as",
+      "name": "BubblegumView",
+      "package": "view.screens.main_game.bubblegum",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/cookBook/CookBook.as",
+      "name": "CookBook",
+      "package": "view.screens.main_game.cookBook",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/cookBook/CookBookPage.as",
+      "name": "CookBookPage",
+      "package": "view.screens.main_game.cookBook",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/cookBook/RecipeView.as",
+      "name": "RecipeView",
+      "package": "view.screens.main_game.cookBook",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/dungeon/BackgroundSet.as",
+      "name": "BackgroundSet",
+      "package": "view.screens.main_game.dungeon",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/dungeon/BackgroundView.as",
+      "name": "BackgroundView",
+      "package": "view.screens.main_game.dungeon",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/dungeon/DungeonView.as",
+      "name": "DungeonView",
+      "package": "view.screens.main_game.dungeon",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/dungeon/EmptyInnerView.as",
+      "name": "EmptyInnerView",
+      "package": "view.screens.main_game.dungeon",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/dungeon/EndDungeonWindow.as",
+      "name": "EndDungeonWindow",
+      "package": "view.screens.main_game.dungeon",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/dungeon/IDungeonView.as",
+      "name": "IDungeonView",
+      "package": "view.screens.main_game.dungeon",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/dungeon/InnerDungeonView.as",
+      "name": "InnerDungeonView",
+      "package": "view.screens.main_game.dungeon",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/dungeon/LootView.as",
+      "name": "LootView",
+      "package": "view.screens.main_game.dungeon",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/dungeon/LostWindow.as",
+      "name": "LostWindow",
+      "package": "view.screens.main_game.dungeon",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/dungeon/TimeLine.as",
+      "name": "TimeLine",
+      "package": "view.screens.main_game.dungeon",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/dungeon/WinWindow.as",
+      "name": "WinWindow",
+      "package": "view.screens.main_game.dungeon",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/dungeon/fight/BasicFightView.as",
+      "name": "BasicFightView",
+      "package": "view.screens.main_game.dungeon.fight",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/dungeon/fight/EnterDungeonView.as",
+      "name": "EnterDungeonView",
+      "package": "view.screens.main_game.dungeon.fight",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/dungeon/fight/FightFeedback.as",
+      "name": "FightFeedback",
+      "package": "view.screens.main_game.dungeon.fight",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/dungeon/fight/FightView.as",
+      "name": "FightView",
+      "package": "view.screens.main_game.dungeon.fight",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/inventory/InventoryView.as",
+      "name": "InventoryView",
+      "package": "view.screens.main_game.inventory",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/inventory/LiverView.as",
+      "name": "LiverView",
+      "package": "view.screens.main_game.inventory",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/inventory/MixerClockView.as",
+      "name": "MixerClockView",
+      "package": "view.screens.main_game.inventory",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/inventory/MixerView.as",
+      "name": "MixerView",
+      "package": "view.screens.main_game.inventory",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/inventory/StatsView.as",
+      "name": "StatsView",
+      "package": "view.screens.main_game.inventory",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/map/ArrowView.as",
+      "name": "ArrowView",
+      "package": "view.screens.main_game.map",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/map/MapView.as",
+      "name": "MapView",
+      "package": "view.screens.main_game.map",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/slot/AutoSelectSlotView.as",
+      "name": "AutoSelectSlotView",
+      "package": "view.screens.main_game.slot",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/slot/BasicSlotView.as",
+      "name": "BasicSlotView",
+      "package": "view.screens.main_game.slot",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/slot/LeftSlotView.as",
+      "name": "LeftSlotView",
+      "package": "view.screens.main_game.slot",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/slot/SlotView.as",
+      "name": "SlotView",
+      "package": "view.screens.main_game.slot",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/slot/TrashView.as",
+      "name": "TrashView",
+      "package": "view.screens.main_game.slot",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/states/BasicPausableState.as",
+      "name": "BasicPausableState",
+      "package": "view.screens.main_game.states",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/states/DungeonState.as",
+      "name": "DungeonState",
+      "package": "view.screens.main_game.states",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/states/IDungeonState.as",
+      "name": "IDungeonState",
+      "package": "view.screens.main_game.states",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/states/IPausable.as",
+      "name": "IPausable",
+      "package": "view.screens.main_game.states",
+      "status": "CONFIRMADO"
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/states/MapState.as",
+      "name": "MapState",
+      "package": "view.screens.main_game.states",
+      "status": "CONFIRMADO"
+    }
+  ]
+}

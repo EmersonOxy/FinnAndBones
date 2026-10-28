@@ -1,0 +1,236 @@
+package util
+{
+   import cb.signals.Signal;
+   
+   public class Locker
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var locked:Boolean;
+      
+      private var lockSignal:Signal;
+      
+      public function Locker(param1:Boolean = false)
+      {
+         method
+            name null
+            flag HAS_OPTIONAL
+            param QName(PackageNamespace(""),"Boolean")
+            optional False()
+            returns null
+            
+            body
+               maxstack 2
+               localcount 2
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlocal1
+                  initproperty QName(PrivateNamespace(null,"134"),"locked")
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("cb.signals"),"Signal")
+                  constructprop QName(PackageNamespace("cb.signals"),"Signal"), 0
+                  initproperty QName(PrivateNamespace(null,"134"),"lockSignal")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function get onLock() : Signal
+      {
+         trait getter QName(PackageNamespace(""),"onLock")
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace("cb.signals"),"Signal")
+               
+               body
+                  maxstack 1
+                  localcount 1
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"134"),"lockSignal")
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function get isLocked() : Boolean
+         {
+            trait getter QName(PackageNamespace(""),"isLocked")
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace(""),"Boolean")
+                  
+                  body
+                     maxstack 1
+                     localcount 1
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"134"),"locked")
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function lock() : void
+            {
+               trait method QName(PackageNamespace(""),"lock")
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 2
+                        localcount 1
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"134"),"locked")
+                           iftrue ofs0018
+                           getlocal0
+                           pushtrue
+                           setproperty QName(PrivateNamespace(null,"134"),"locked")
+                           getlocal0
+                           getproperty QName(PackageNamespace(""),"onLock")
+                           getlocal0
+                           callpropvoid QName(PackageNamespace(""),"emit"), 1
+                  ofs0018:
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function unlock() : void
+               {
+                  trait method QName(PackageNamespace(""),"unlock")
+                     dispid 0
+                     method
+                        name null
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 2
+                           localcount 1
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"134"),"locked")
+                              iffalse ofs0018
+                              getlocal0
+                              pushfalse
+                              setproperty QName(PrivateNamespace(null,"134"),"locked")
+                              getlocal0
+                              getproperty QName(PackageNamespace(""),"onLock")
+                              getlocal0
+                              callpropvoid QName(PackageNamespace(""),"emit"), 1
+                     ofs0018:
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function clear() : void
+                  {
+                     trait method QName(PackageNamespace(""),"clear")
+                        dispid 0
+                        method
+                           name null
+                           returns QName(PackageNamespace(""),"void")
+                           
+                           body
+                              maxstack 2
+                              localcount 1
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"134"),"lockSignal")
+                                 callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                 getlocal0
+                                 pushnull
+                                 setproperty QName(PrivateNamespace(null,"134"),"lockSignal")
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                  }
+               }
+               
+               method
+                  name null
+                  returns null
+                  
+                  body
+                     maxstack 2
+                     localcount 1
+                     initscopedepth 1
+                     maxscopedepth 3
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getscopeobject 0
+                        getlex QName(PackageNamespace(""),"Object")
+                        pushscope
+                        getlex QName(PackageNamespace(""),"Object")
+                        newclass 235
+                        popscope
+                        initproperty QName(PackageNamespace("util"),"Locker")
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+               

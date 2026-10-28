@@ -1,0 +1,322 @@
+package main_game.character.stats
+{
+   import bonus.ExtraLevelBonus;
+   import main_game.character.CharacterConfigData;
+   
+   public class LevelingEnemies extends LevelingStragegy
+   {
+      
+      private static var extraLevel:ExtraLevelBonus;
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 4
+            maxscopedepth 5
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      protected var xpMod:Number;
+      
+      private var extraLevel:int;
+      
+      public function LevelingEnemies(param1:SingletonLock)
+      {
+         method
+            name null
+            param QName(PrivateNamespace(null,"7"),"SingletonLock")
+            returns null
+            
+            body
+               maxstack 2
+               localcount 3
+               initscopedepth 5
+               maxscopedepth 6
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlex QName(PackageNamespace(""),"main")
+                  getproperty QName(PackageNamespace(""),"config")
+                  pushstring "Leveling_Enemies"
+                  callproperty QName(PackageNamespace(""),"get"), 1
+                  coerce QName(PackageNamespace(""),"Object")
+                  setlocal2
+                  getlocal0
+                  getlocal2
+                  constructsuper 1
+                  getlocal0
+                  getlocal2
+                  getproperty Multiname("xpMod",[PrivateNamespace(null,"129"),PackageNamespace(""),PrivateNamespace(null,"7"),PackageNamespace("main_game.character.stats"),PackageInternalNs("main_game.character.stats"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.character.stats:LevelingEnemies"),StaticProtectedNs("main_game.character.stats:LevelingEnemies"),StaticProtectedNs("main_game.character.stats:LevelingStragegy")])
+                  initproperty QName(ProtectedNamespace("main_game.character.stats:LevelingEnemies"),"xpMod")
+                  getlocal0
+                  pushbyte 0
+                  initproperty QName(PrivateNamespace(null,"129"),"extraLevel")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public static function setBonus(param1:ExtraLevelBonus) : void
+      {
+         trait method QName(PackageNamespace(""),"setBonus")
+            flag FINAL
+            dispid 3
+            method
+               name null
+               param QName(PackageNamespace("bonus"),"ExtraLevelBonus")
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 2
+                  localcount 2
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     findproperty QName(PrivateNamespace(null,"129"),"extraLevel")
+                     getlocal1
+                     setproperty QName(PrivateNamespace(null,"129"),"extraLevel")
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public static function getNewInstance(param1:CharacterConfigData) : LevelingEnemies
+         {
+            trait method QName(PackageNamespace(""),"getNewInstance")
+               flag FINAL
+               dispid 4
+               method
+                  name null
+                  param QName(PackageNamespace("main_game.character"),"CharacterConfigData")
+                  returns QName(PackageNamespace("main_game.character.stats"),"LevelingEnemies")
+                  
+                  body
+                     maxstack 3
+                     localcount 3
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        findpropstrict QName(PrivateNamespace(null,"7"),"SingletonLock")
+                        constructprop QName(PrivateNamespace(null,"7"),"SingletonLock"), 0
+                        construct 1
+                        coerce QName(PackageNamespace("main_game.character.stats"),"LevelingEnemies")
+                        setlocal2
+                        getlex QName(PrivateNamespace(null,"129"),"extraLevel")
+                        pushnull
+                        ifeq ofs0020
+                        getlex QName(PrivateNamespace(null,"129"),"extraLevel")
+                        getlocal1
+                        getlocal2
+                        callpropvoid QName(PackageNamespace(""),"apply"), 2
+               ofs0020:
+                        getlocal2
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function setExtraLevel(param1:int) : void
+            {
+               trait method QName(PackageNamespace(""),"setExtraLevel")
+                  dispid 0
+                  method
+                     name null
+                     param QName(PackageNamespace(""),"int")
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 2
+                        localcount 2
+                        initscopedepth 5
+                        maxscopedepth 6
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getlocal1
+                           setproperty QName(PrivateNamespace(null,"129"),"extraLevel")
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               override public function level(param1:uint, param2:Stats) : uint
+               {
+                  trait method QName(PackageNamespace(""),"level")
+                     flag OVERRIDE
+                     dispid 0
+                     method
+                        name null
+                        param QName(PackageNamespace(""),"uint")
+                        param QName(PackageNamespace("main_game.character.stats"),"Stats")
+                        returns QName(PackageNamespace(""),"uint")
+                        
+                        body
+                           maxstack 6
+                           localcount 7
+                           initscopedepth 5
+                           maxscopedepth 6
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              pushnan
+                              setlocal3
+                              getlex QName(PackageNamespace(""),"Math")
+                              getlocal1
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"129"),"extraLevel")
+                              add
+                              pushbyte 1
+                              callproperty QName(PackageNamespace(""),"max"), 2
+                              convert_u
+                              setlocal1
+                              getlocal2
+                              callproperty QName(PackageNamespace(""),"getLevel"), 0
+                              convert_u
+                              setlocal 4
+                              getlocal0
+                              getlocal1
+                              getlocal2
+                              callsuper QName(PackageNamespace(""),"level"), 2
+                              convert_u
+                              setlocal1
+                              getlocal1
+                              getlocal 4
+                              ifne ofs002f
+                              getlocal1
+                              returnvalue
+                     ofs002f:
+                              getlocal2
+                              getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                              getproperty QName(PackageNamespace(""),"EXPERIENCE")
+                              callproperty QName(PackageNamespace(""),"getStat"), 1
+                              coerce QName(PackageNamespace("main_game.character.stats"),"Stat")
+                              setlocal 5
+                              getlocal2
+                              getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                              getproperty QName(PackageNamespace(""),"BASE_XP")
+                              callproperty QName(PackageNamespace(""),"getStat"), 1
+                              callproperty QName(PackageNamespace(""),"getValue"), 0
+                              convert_d
+                              setlocal 6
+                              findpropstrict QName(ProtectedNamespace("main_game.character.stats:LevelingStragegy"),"levelUp")
+                              getlocal 5
+                              getlocal 6
+                              getlocal0
+                              getproperty QName(ProtectedNamespace("main_game.character.stats:LevelingEnemies"),"xpMod")
+                              getlocal 4
+                              getlocal1
+                              callpropvoid QName(ProtectedNamespace("main_game.character.stats:LevelingStragegy"),"levelUp"), 5
+                              getlocal1
+                              returnvalue
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+               }
+            }
+            
+            class SingletonLock
+            {
+               
+               method
+                  name null
+                  returns null
+                  
+                  body
+                     maxstack 1
+                     localcount 1
+                     initscopedepth 3
+                     maxscopedepth 4
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+               
+               public function SingletonLock()
+               {
+                  method
+                     name null
+                     returns null
+                     
+                     body
+                        maxstack 1
+                        localcount 1
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           constructsuper 0
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+            }
+            
+            method
+               name null
+               returns null
+               
+               body
+                  maxstack 2
+                  localcount 1
+                  initscopedepth 1
+                  maxscopedepth 4
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     findpropstrict Multiname("LevelingEnemies",[PackageNamespace("main_game.character.stats")])
+                     getlex QName(PackageNamespace(""),"Object")
+                     pushscope
+                     getlex QName(PackageNamespace("main_game.character.stats"),"LevelingStragegy")
+                     pushscope
+                     getlex QName(PackageNamespace("main_game.character.stats"),"LevelingStragegy")
+                     newclass 227
+                     popscope
+                     popscope
+                     initproperty QName(PackageNamespace("main_game.character.stats"),"LevelingEnemies")
+                     findpropstrict Multiname("SingletonLock",[PrivateNamespace(null,"7")])
+                     getlex QName(PackageNamespace(""),"Object")
+                     pushscope
+                     getlex QName(PackageNamespace(""),"Object")
+                     newclass 228
+                     popscope
+                     initproperty QName(PrivateNamespace(null,"7"),"SingletonLock")
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+            

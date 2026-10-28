@@ -1,0 +1,688 @@
+package main_game.items
+{
+   import main_game.character.stats.StatType;
+   import main_game.element.*;
+   import main_game.item_containers.ItemContainer;
+   import main_game.items.modifiers.HealthModifier;
+   import main_game.items.modifiers.IModifier;
+   import main_game.items.modifiers.MaxHealthModifier;
+   import main_game.items.modifiers.Modifier;
+   import main_game.items.modifiers.NullModifier;
+   
+   public class Item
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      protected var id:String;
+      
+      public var name:String;
+      
+      protected var mc_name:String;
+      
+      protected var maxMod:int;
+      
+      protected var mix_time:Number;
+      
+      protected var primaryModifier:IModifier;
+      
+      protected var secondaryModifier:IModifier;
+      
+      protected var element:Element;
+      
+      protected var category:Category;
+      
+      protected var duration:int;
+      
+      public function Item(param1:String, param2:Object)
+      {
+         method
+            name null
+            param QName(PackageNamespace(""),"String")
+            param QName(PackageNamespace(""),"Object")
+            returns null
+            
+            body
+               maxstack 4
+               localcount 4
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlocal1
+                  initproperty QName(ProtectedNamespace("main_game.items:Item"),"id")
+                  getlocal0
+                  getlocal2
+                  getproperty Multiname("NameString",[PrivateNamespace(null,"64"),ProtectedNamespace("main_game.items:Item"),PrivateNamespace(null,"224"),PackageNamespace(""),PackageNamespace("main_game.items"),PackageInternalNs("main_game.items"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("main_game.items:Item")])
+                  initproperty QName(PackageNamespace(""),"name")
+                  getlocal0
+                  getlocal2
+                  getproperty Multiname("MovieClip",[PrivateNamespace(null,"64"),ProtectedNamespace("main_game.items:Item"),PrivateNamespace(null,"224"),PackageNamespace(""),PackageNamespace("main_game.items"),PackageInternalNs("main_game.items"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("main_game.items:Item")])
+                  initproperty QName(ProtectedNamespace("main_game.items:Item"),"mc_name")
+                  getlocal0
+                  getlocal2
+                  getproperty Multiname("MixTime",[PrivateNamespace(null,"64"),ProtectedNamespace("main_game.items:Item"),PrivateNamespace(null,"224"),PackageNamespace(""),PackageNamespace("main_game.items"),PackageInternalNs("main_game.items"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("main_game.items:Item")])
+                  initproperty QName(ProtectedNamespace("main_game.items:Item"),"mix_time")
+                  getlocal0
+                  getlocal2
+                  getproperty Multiname("MaxMod",[PrivateNamespace(null,"64"),ProtectedNamespace("main_game.items:Item"),PrivateNamespace(null,"224"),PackageNamespace(""),PackageNamespace("main_game.items"),PackageInternalNs("main_game.items"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("main_game.items:Item")])
+                  initproperty QName(ProtectedNamespace("main_game.items:Item"),"maxMod")
+                  getlocal0
+                  getlocal2
+                  getproperty Multiname("Duration",[PrivateNamespace(null,"64"),ProtectedNamespace("main_game.items:Item"),PrivateNamespace(null,"224"),PackageNamespace(""),PackageNamespace("main_game.items"),PackageInternalNs("main_game.items"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("main_game.items:Item")])
+                  initproperty QName(ProtectedNamespace("main_game.items:Item"),"duration")
+                  getlocal0
+                  getlocal0
+                  getlocal2
+                  getproperty Multiname("FirstModifier",[PrivateNamespace(null,"64"),ProtectedNamespace("main_game.items:Item"),PrivateNamespace(null,"224"),PackageNamespace(""),PackageNamespace("main_game.items"),PackageInternalNs("main_game.items"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("main_game.items:Item")])
+                  callproperty QName(PrivateNamespace(null,"64"),"createModifier"), 1
+                  initproperty QName(ProtectedNamespace("main_game.items:Item"),"primaryModifier")
+                  getlocal0
+                  getlocal0
+                  getlocal2
+                  getproperty Multiname("SecondModifier",[PrivateNamespace(null,"64"),ProtectedNamespace("main_game.items:Item"),PrivateNamespace(null,"224"),PackageNamespace(""),PackageNamespace("main_game.items"),PackageInternalNs("main_game.items"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("main_game.items:Item")])
+                  callproperty QName(PrivateNamespace(null,"64"),"createModifier"), 1
+                  initproperty QName(ProtectedNamespace("main_game.items:Item"),"secondaryModifier")
+                  getlocal0
+                  getlex QName(PackageNamespace("main_game.element"),"Element")
+                  getlocal2
+                  getproperty Multiname("Element",[PrivateNamespace(null,"64"),ProtectedNamespace("main_game.items:Item"),PrivateNamespace(null,"224"),PackageNamespace(""),PackageNamespace("main_game.items"),PackageInternalNs("main_game.items"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("main_game.items:Item"),PackageNamespace("main_game.element")])
+                  callproperty QName(PackageNamespace(""),"parseElement"), 1
+                  initproperty QName(ProtectedNamespace("main_game.items:Item"),"element")
+                  jump ofs00b6
+         ofs005e:
+                  label
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("main_game.items"),"Equipment")
+                  getlocal0
+                  getlocal2
+                  constructprop QName(PackageNamespace("main_game.items"),"Equipment"), 2
+                  initproperty QName(ProtectedNamespace("main_game.items:Item"),"category")
+                  jump ofs011d
+         ofs0070:
+                  label
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("main_game.items"),"Consumable")
+                  getlocal0
+                  getlocal2
+                  constructprop QName(PackageNamespace("main_game.items"),"Consumable"), 2
+                  initproperty QName(ProtectedNamespace("main_game.items:Item"),"category")
+                  jump ofs011d
+         ofs0082:
+                  label
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("main_game.items"),"Weapon")
+                  getlocal0
+                  getlocal2
+                  constructprop QName(PackageNamespace("main_game.items"),"Weapon"), 2
+                  initproperty QName(ProtectedNamespace("main_game.items:Item"),"category")
+                  jump ofs011d
+         ofs0094:
+                  label
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("main_game.items"),"Shield")
+                  getlocal0
+                  getlocal2
+                  constructprop QName(PackageNamespace("main_game.items"),"Shield"), 2
+                  initproperty QName(ProtectedNamespace("main_game.items:Item"),"category")
+                  jump ofs011d
+         ofs00a6:
+                  label
+                  findpropstrict QName(PackageNamespace(""),"Error")
+                  pushstring "Unknown type"
+                  constructprop QName(PackageNamespace(""),"Error"), 1
+                  throw
+                  jump ofs00b6
+         ofs00b6:
+                  getlocal2
+                  getproperty Multiname("Category",[PrivateNamespace(null,"64"),ProtectedNamespace("main_game.items:Item"),PrivateNamespace(null,"224"),PackageNamespace(""),PackageNamespace("main_game.items"),PackageInternalNs("main_game.items"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("main_game.items:Item")])
+                  setlocal3
+                  getlex QName(PackageNamespace("main_game.items"),"Category")
+                  getproperty QName(PackageNamespace(""),"EQUIPABLE_CATEGORY")
+                  getlocal3
+                  ifstrictne ofs00cb
+                  pushbyte 0
+                  jump ofs0107
+         ofs00cb:
+                  getlex QName(PackageNamespace("main_game.items"),"Category")
+                  getproperty QName(PackageNamespace(""),"CONSUMABLE_CATEGORY")
+                  getlocal3
+                  ifstrictne ofs00db
+                  pushbyte 1
+                  jump ofs0107
+         ofs00db:
+                  getlex QName(PackageNamespace("main_game.items"),"Category")
+                  getproperty QName(PackageNamespace(""),"WEAPON_CATEGORY")
+                  getlocal3
+                  ifstrictne ofs00eb
+                  pushbyte 2
+                  jump ofs0107
+         ofs00eb:
+                  getlex QName(PackageNamespace("main_game.items"),"Category")
+                  getproperty QName(PackageNamespace(""),"SHIELD_CATEGORY")
+                  getlocal3
+                  ifstrictne ofs00fb
+                  pushbyte 3
+                  jump ofs0107
+         ofs00fb:
+                  jump ofs0105
+                  pushbyte 4
+                  jump ofs0105
+         ofs0105:
+                  pushbyte 4
+         ofs0107:
+                  kill 3
+                  lookupswitch ofs00a6, [ofs005e, ofs0070, ofs0082, ofs0094, ofs00a6]
+         ofs011d:
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function getMcName() : String
+      {
+         trait method QName(PackageNamespace(""),"getMcName")
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace(""),"String")
+               
+               body
+                  maxstack 1
+                  localcount 1
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     getproperty QName(ProtectedNamespace("main_game.items:Item"),"mc_name")
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function getMaxMod() : int
+         {
+            trait method QName(PackageNamespace(""),"getMaxMod")
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace(""),"int")
+                  
+                  body
+                     maxstack 1
+                     localcount 1
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        getproperty QName(ProtectedNamespace("main_game.items:Item"),"maxMod")
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function getDuration() : int
+            {
+               trait method QName(PackageNamespace(""),"getDuration")
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace(""),"int")
+                     
+                     body
+                        maxstack 1
+                        localcount 1
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getproperty QName(ProtectedNamespace("main_game.items:Item"),"duration")
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               private function createModifier(param1:Object) : IModifier
+               {
+                  trait method QName(PrivateNamespace(null,"64"),"createModifier")
+                     dispid 0
+                     method
+                        name null
+                        param QName(PackageNamespace(""),"Object")
+                        returns QName(PackageNamespace("main_game.items.modifiers"),"IModifier")
+                        
+                        body
+                           maxstack 2
+                           localcount 4
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              pushnull
+                              coerce QName(PackageNamespace("main_game.items.modifiers"),"IModifier")
+                              setlocal2
+                              getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                              getlocal1
+                              getproperty Multiname("Category",[PrivateNamespace(null,"64"),ProtectedNamespace("main_game.items:Item"),PrivateNamespace(null,"224"),PackageNamespace(""),PackageNamespace("main_game.items"),PackageInternalNs("main_game.items"),Namespace("http://adobe.com/AS3/2006/builtin"),StaticProtectedNs("main_game.items:Item")])
+                              callproperty QName(PackageNamespace(""),"parse"), 1
+                              convert_i
+                              setlocal3
+                              getlocal3
+                              getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                              getproperty QName(PackageNamespace(""),"MAX_HP")
+                              ifne ofs002d
+                              findpropstrict QName(PackageNamespace("main_game.items.modifiers"),"MaxHealthModifier")
+                              getlocal1
+                              constructprop QName(PackageNamespace("main_game.items.modifiers"),"MaxHealthModifier"), 1
+                              coerce QName(PackageNamespace("main_game.items.modifiers"),"IModifier")
+                              setlocal2
+                              jump ofs0072
+                     ofs002d:
+                              getlocal3
+                              getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                              getproperty QName(PackageNamespace(""),"HEALTH")
+                              ifne ofs0047
+                              findpropstrict QName(PackageNamespace("main_game.items.modifiers"),"HealthModifier")
+                              getlocal1
+                              constructprop QName(PackageNamespace("main_game.items.modifiers"),"HealthModifier"), 1
+                              coerce QName(PackageNamespace("main_game.items.modifiers"),"IModifier")
+                              setlocal2
+                              jump ofs0072
+                     ofs0047:
+                              getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                              callproperty QName(PackageNamespace(""),"getStatTypes"), 0
+                              getlocal3
+                              callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"indexOf"), 1
+                              pushbyte 0
+                              ifnge ofs0068
+                              findpropstrict QName(PackageNamespace("main_game.items.modifiers"),"Modifier")
+                              getlocal1
+                              constructprop QName(PackageNamespace("main_game.items.modifiers"),"Modifier"), 1
+                              coerce QName(PackageNamespace("main_game.items.modifiers"),"IModifier")
+                              setlocal2
+                              jump ofs0072
+                     ofs0068:
+                              findpropstrict QName(PackageNamespace("main_game.items.modifiers"),"NullModifier")
+                              constructprop QName(PackageNamespace("main_game.items.modifiers"),"NullModifier"), 0
+                              coerce QName(PackageNamespace("main_game.items.modifiers"),"IModifier")
+                              setlocal2
+                     ofs0072:
+                              getlocal2
+                              returnvalue
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function getID() : String
+                  {
+                     trait method QName(PackageNamespace(""),"getID")
+                        dispid 0
+                        method
+                           name null
+                           returns QName(PackageNamespace(""),"String")
+                           
+                           body
+                              maxstack 1
+                              localcount 1
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal0
+                                 getproperty QName(ProtectedNamespace("main_game.items:Item"),"id")
+                                 returnvalue
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     public function getNameToShow() : String
+                     {
+                        trait method QName(PackageNamespace(""),"getNameToShow")
+                           dispid 0
+                           method
+                              name null
+                              returns QName(PackageNamespace(""),"String")
+                              
+                              body
+                                 maxstack 3
+                                 localcount 6
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    pushnull
+                                    coerce_s
+                                    setlocal3
+                                    getlocal0
+                                    getproperty QName(PackageNamespace(""),"name")
+                                    pushstring ";"
+                                    callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"split"), 1
+                                    coerce QName(PackageNamespace(""),"Array")
+                                    setlocal1
+                                    pushstring ""
+                                    setlocal2
+                                    pushbyte 0
+                                    setlocal 4
+                                    getlocal1
+                                    coerce_a
+                                    setlocal 5
+                                    jump ofs0046
+                           ofs0022:
+                                    label
+                                    getlocal 5
+                                    getlocal 4
+                                    nextvalue
+                                    coerce_s
+                                    setlocal3
+                                    getlocal2
+                                    pushstring ""
+                                    ifeq ofs0037
+                                    getlocal2
+                                    pushstring " "
+                                    add
+                                    setlocal2
+                           ofs0037:
+                                    getlocal2
+                                    getlex QName(PackageNamespace(""),"main")
+                                    getproperty QName(PackageNamespace(""),"locale")
+                                    getlocal3
+                                    callproperty QName(PackageNamespace(""),"get"), 1
+                                    add
+                                    coerce_s
+                                    setlocal2
+                           ofs0046:
+                                    hasnext2 5, 4
+                                    iftrue ofs0022
+                                    kill 5
+                                    kill 4
+                                    getlocal2
+                                    returnvalue
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        public function getPrimaryModifier() : IModifier
+                        {
+                           trait method QName(PackageNamespace(""),"getPrimaryModifier")
+                              dispid 0
+                              method
+                                 name null
+                                 returns QName(PackageNamespace("main_game.items.modifiers"),"IModifier")
+                                 
+                                 body
+                                    maxstack 1
+                                    localcount 1
+                                    initscopedepth 4
+                                    maxscopedepth 5
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       getlocal0
+                                       getproperty QName(ProtectedNamespace("main_game.items:Item"),"primaryModifier")
+                                       returnvalue
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           public function getSecondaryModifier() : IModifier
+                           {
+                              trait method QName(PackageNamespace(""),"getSecondaryModifier")
+                                 dispid 0
+                                 method
+                                    name null
+                                    returns QName(PackageNamespace("main_game.items.modifiers"),"IModifier")
+                                    
+                                    body
+                                       maxstack 1
+                                       localcount 1
+                                       initscopedepth 4
+                                       maxscopedepth 5
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          getlocal0
+                                          getproperty QName(ProtectedNamespace("main_game.items:Item"),"secondaryModifier")
+                                          returnvalue
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                              
+                              public function canBeContained(param1:ItemContainer) : Boolean
+                              {
+                                 trait method QName(PackageNamespace(""),"canBeContained")
+                                    dispid 0
+                                    method
+                                       name null
+                                       param QName(PackageNamespace("main_game.item_containers"),"ItemContainer")
+                                       returns QName(PackageNamespace(""),"Boolean")
+                                       
+                                       body
+                                          maxstack 2
+                                          localcount 2
+                                          initscopedepth 4
+                                          maxscopedepth 5
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             getlocal0
+                                             getproperty QName(ProtectedNamespace("main_game.items:Item"),"category")
+                                             getlocal1
+                                             callproperty QName(PackageNamespace(""),"canBeContained"), 1
+                                             returnvalue
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                 }
+                                 
+                                 public function clear() : void
+                                 {
+                                    trait method QName(PackageNamespace(""),"clear")
+                                       dispid 0
+                                       method
+                                          name null
+                                          returns QName(PackageNamespace(""),"void")
+                                          
+                                          body
+                                             maxstack 1
+                                             localcount 1
+                                             initscopedepth 4
+                                             maxscopedepth 5
+                                             
+                                             code
+                                                getlocal0
+                                                pushscope
+                                                getlocal0
+                                                callproperty QName(PackageNamespace(""),"getCategory"), 0
+                                                callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                                getlocal0
+                                                getproperty QName(ProtectedNamespace("main_game.items:Item"),"element")
+                                                callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                                getlocal0
+                                                getproperty QName(ProtectedNamespace("main_game.items:Item"),"primaryModifier")
+                                                callpropvoid QName(Namespace("main_game.items.modifiers:IModifier"),"clear"), 0
+                                                getlocal0
+                                                getproperty QName(ProtectedNamespace("main_game.items:Item"),"secondaryModifier")
+                                                callpropvoid QName(Namespace("main_game.items.modifiers:IModifier"),"clear"), 0
+                                                returnvoid
+                                             end ; code
+                                          end ; body
+                                       end ; method
+                                    }
+                                    
+                                    public function getCategory() : Category
+                                    {
+                                       trait method QName(PackageNamespace(""),"getCategory")
+                                          dispid 0
+                                          method
+                                             name null
+                                             returns QName(PackageNamespace("main_game.items"),"Category")
+                                             
+                                             body
+                                                maxstack 1
+                                                localcount 1
+                                                initscopedepth 4
+                                                maxscopedepth 5
+                                                
+                                                code
+                                                   getlocal0
+                                                   pushscope
+                                                   getlocal0
+                                                   getproperty QName(ProtectedNamespace("main_game.items:Item"),"category")
+                                                   returnvalue
+                                                end ; code
+                                             end ; body
+                                          end ; method
+                                       }
+                                       
+                                       public function getMixTime() : Number
+                                       {
+                                          trait method QName(PackageNamespace(""),"getMixTime")
+                                             dispid 0
+                                             method
+                                                name null
+                                                returns QName(PackageNamespace(""),"Number")
+                                                
+                                                body
+                                                   maxstack 1
+                                                   localcount 1
+                                                   initscopedepth 4
+                                                   maxscopedepth 5
+                                                   
+                                                   code
+                                                      getlocal0
+                                                      pushscope
+                                                      getlocal0
+                                                      getproperty QName(ProtectedNamespace("main_game.items:Item"),"mix_time")
+                                                      returnvalue
+                                                   end ; code
+                                                end ; body
+                                             end ; method
+                                          }
+                                          
+                                          public function getElement() : Element
+                                          {
+                                             trait method QName(PackageNamespace(""),"getElement")
+                                                dispid 0
+                                                method
+                                                   name null
+                                                   returns QName(PackageNamespace("main_game.element"),"Element")
+                                                   
+                                                   body
+                                                      maxstack 1
+                                                      localcount 1
+                                                      initscopedepth 4
+                                                      maxscopedepth 5
+                                                      
+                                                      code
+                                                         getlocal0
+                                                         pushscope
+                                                         getlocal0
+                                                         getproperty QName(ProtectedNamespace("main_game.items:Item"),"element")
+                                                         returnvalue
+                                                      end ; code
+                                                   end ; body
+                                                end ; method
+                                             }
+                                             
+                                             public function toObject() : Object
+                                             {
+                                                trait method QName(PackageNamespace(""),"toObject")
+                                                   dispid 0
+                                                   method
+                                                      name null
+                                                      returns QName(PackageNamespace(""),"Object")
+                                                      
+                                                      body
+                                                         maxstack 2
+                                                         localcount 1
+                                                         initscopedepth 4
+                                                         maxscopedepth 5
+                                                         
+                                                         code
+                                                            getlocal0
+                                                            pushscope
+                                                            pushstring "id"
+                                                            getlocal0
+                                                            getproperty QName(ProtectedNamespace("main_game.items:Item"),"id")
+                                                            newobject 1
+                                                            returnvalue
+                                                         end ; code
+                                                      end ; body
+                                                   end ; method
+                                                }
+                                             }
+                                          }
+                                          
+                                          method
+                                             name null
+                                             returns null
+                                             
+                                             body
+                                                maxstack 2
+                                                localcount 1
+                                                initscopedepth 1
+                                                maxscopedepth 3
+                                                
+                                                code
+                                                   getlocal0
+                                                   pushscope
+                                                   findpropstrict Multiname("Item",[PackageNamespace("main_game.items")])
+                                                   getlex QName(PackageNamespace(""),"Object")
+                                                   pushscope
+                                                   getlex QName(PackageNamespace(""),"Object")
+                                                   newclass 92
+                                                   popscope
+                                                   initproperty QName(PackageNamespace("main_game.items"),"Item")
+                                                   returnvoid
+                                                end ; code
+                                             end ; body
+                                          end ; method
+                                          

@@ -1,0 +1,348 @@
+package cb.data
+{
+   import cb.signals.Signal;
+   import flash.events.Event;
+   import flash.events.IOErrorEvent;
+   import flash.net.URLLoader;
+   import flash.net.URLRequest;
+   import jh.PackedResources;
+   
+   public class TextLoader
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      protected var loader:URLLoader;
+      
+      protected var uri:String;
+      
+      public var data:Object;
+      
+      public var loaded:Signal;
+      
+      public var ioFailed:Signal;
+      
+      public function TextLoader(param1:String)
+      {
+         method
+            name null
+            param QName(PackageNamespace(""),"String")
+            returns null
+            
+            body
+               maxstack 3
+               localcount 2
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("cb.signals"),"Signal")
+                  constructprop QName(PackageNamespace("cb.signals"),"Signal"), 0
+                  initproperty QName(PackageNamespace(""),"loaded")
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("cb.signals"),"Signal")
+                  constructprop QName(PackageNamespace("cb.signals"),"Signal"), 0
+                  initproperty QName(PackageNamespace(""),"ioFailed")
+                  getlocal0
+                  getlocal1
+                  initproperty QName(ProtectedNamespace("cb.data:TextLoader"),"uri")
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("flash.net"),"URLLoader")
+                  constructprop QName(PackageNamespace("flash.net"),"URLLoader"), 0
+                  initproperty QName(ProtectedNamespace("cb.data:TextLoader"),"loader")
+                  getlocal0
+                  getproperty QName(ProtectedNamespace("cb.data:TextLoader"),"loader")
+                  getlex QName(PackageNamespace("flash.events"),"IOErrorEvent")
+                  getproperty QName(PackageNamespace(""),"IO_ERROR")
+                  getlocal0
+                  getproperty QName(PrivateNamespace(null,"31"),"errorHandler")
+                  callpropvoid QName(PackageNamespace(""),"addEventListener"), 2
+                  getlocal0
+                  getproperty QName(ProtectedNamespace("cb.data:TextLoader"),"loader")
+                  getlex QName(PackageNamespace("flash.events"),"Event")
+                  getproperty QName(PackageNamespace(""),"COMPLETE")
+                  getlocal0
+                  getproperty QName(ProtectedNamespace("cb.data:TextLoader"),"loaderCompleteHandler")
+                  callpropvoid QName(PackageNamespace(""),"addEventListener"), 2
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function load(param1:PackedResources = null) : void
+      {
+         trait method QName(PackageNamespace(""),"load")
+            dispid 0
+            method
+               name null
+               flag HAS_OPTIONAL
+               param QName(PackageNamespace("jh"),"PackedResources")
+               optional Null()
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 3
+                  localcount 4
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     pushnull
+                     coerce QName(PackageNamespace(""),"Class")
+                     setlocal3
+                     getlocal1
+                     iffalse ofs003e
+                     getlocal1
+                     getlocal0
+                     getproperty QName(ProtectedNamespace("cb.data:TextLoader"),"uri")
+                     callproperty QName(PackageNamespace(""),"get"), 1
+                     coerce QName(PackageNamespace(""),"Class")
+                     setlocal3
+                     getlocal0
+                     findpropstrict QName(PackageNamespace(""),"String")
+                     getlocal3
+                     construct 0
+                     callproperty QName(PackageNamespace(""),"String"), 1
+                     pushstring "\n"
+                     callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"split"), 1
+                     initproperty QName(PackageNamespace(""),"data")
+                     getlocal0
+                     callpropvoid QName(ProtectedNamespace("cb.data:TextLoader"),"removeListeners"), 0
+                     getlocal0
+                     pushnull
+                     initproperty QName(ProtectedNamespace("cb.data:TextLoader"),"loader")
+                     getlocal0
+                     getproperty QName(PackageNamespace(""),"loaded")
+                     getlocal0
+                     callpropvoid QName(PackageNamespace(""),"emit"), 1
+                     returnvoid
+            ofs003e:
+                     findpropstrict QName(PackageNamespace("flash.net"),"URLRequest")
+                     getlocal0
+                     getproperty QName(ProtectedNamespace("cb.data:TextLoader"),"uri")
+                     constructprop QName(PackageNamespace("flash.net"),"URLRequest"), 1
+                     coerce QName(PackageNamespace("flash.net"),"URLRequest")
+                     setlocal2
+                     getlocal0
+                     getproperty QName(ProtectedNamespace("cb.data:TextLoader"),"loader")
+                     getlocal2
+                     callpropvoid QName(PackageNamespace(""),"load"), 1
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         protected function removeListeners() : void
+         {
+            trait method QName(ProtectedNamespace("cb.data:TextLoader"),"removeListeners")
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 3
+                     localcount 1
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        getproperty QName(ProtectedNamespace("cb.data:TextLoader"),"loader")
+                        getlex QName(PackageNamespace("flash.events"),"IOErrorEvent")
+                        getproperty QName(PackageNamespace(""),"IO_ERROR")
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"31"),"errorHandler")
+                        callpropvoid QName(PackageNamespace(""),"removeEventListener"), 2
+                        getlocal0
+                        getproperty QName(ProtectedNamespace("cb.data:TextLoader"),"loader")
+                        getlex QName(PackageNamespace("flash.events"),"Event")
+                        getproperty QName(PackageNamespace(""),"COMPLETE")
+                        getlocal0
+                        getproperty QName(ProtectedNamespace("cb.data:TextLoader"),"loaderCompleteHandler")
+                        callpropvoid QName(PackageNamespace(""),"removeEventListener"), 2
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            protected function loaderCompleteHandler(param1:Event) : void
+            {
+               trait method QName(ProtectedNamespace("cb.data:TextLoader"),"loaderCompleteHandler")
+                  dispid 0
+                  method
+                     name null
+                     param QName(PackageNamespace("flash.events"),"Event")
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 6
+                        localcount 3
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           callpropvoid QName(ProtectedNamespace("cb.data:TextLoader"),"removeListeners"), 0
+                           getlocal0
+                           findpropstrict QName(PackageNamespace(""),"String")
+                           getlocal0
+                           getproperty QName(ProtectedNamespace("cb.data:TextLoader"),"loader")
+                           getproperty QName(PackageNamespace(""),"data")
+                           callproperty QName(PackageNamespace(""),"String"), 1
+                           pushstring "\n"
+                           callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"split"), 1
+                           initproperty QName(PackageNamespace(""),"data")
+                           pushbyte 0
+                           setlocal2
+                           jump ofs004a
+                  ofs0025:
+                           label
+                           getlocal0
+                           getproperty QName(PackageNamespace(""),"data")
+                           getlocal2
+                           getlocal0
+                           getproperty QName(PackageNamespace(""),"data")
+                           getlocal2
+                           getproperty MultinameL([PrivateNamespace(null,"31"),PackageNamespace(""),ProtectedNamespace("cb.data:TextLoader"),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"197"),PackageNamespace("cb.data"),PackageInternalNs("cb.data"),StaticProtectedNs("cb.data:TextLoader")])
+                           getlex QName(PackageNamespace(""),"RegExp")
+                           pushstring "^([\\s|\\t|\\n]+)?(.*)([\\s|\\t|\\n]+)?$"
+                           pushstring "gm"
+                           construct 2
+                           pushstring "$2"
+                           callproperty Multiname("replace",[PrivateNamespace(null,"31"),PackageNamespace(""),ProtectedNamespace("cb.data:TextLoader"),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"197"),PackageNamespace("cb.data"),PackageInternalNs("cb.data"),StaticProtectedNs("cb.data:TextLoader")]), 2
+                           setproperty MultinameL([PrivateNamespace(null,"31"),PackageNamespace(""),ProtectedNamespace("cb.data:TextLoader"),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"197"),PackageNamespace("cb.data"),PackageInternalNs("cb.data"),StaticProtectedNs("cb.data:TextLoader")])
+                           inclocal_i 2
+                  ofs004a:
+                           getlocal2
+                           getlocal0
+                           getproperty QName(PackageNamespace(""),"data")
+                           getproperty Multiname("length",[PrivateNamespace(null,"31"),PackageNamespace(""),ProtectedNamespace("cb.data:TextLoader"),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"197"),PackageNamespace("cb.data"),PackageInternalNs("cb.data"),StaticProtectedNs("cb.data:TextLoader")])
+                           iflt ofs0025
+                           getlocal0
+                           getproperty QName(PackageNamespace(""),"loaded")
+                           getlocal0
+                           callpropvoid QName(PackageNamespace(""),"emit"), 1
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               private function errorHandler(param1:IOErrorEvent) : void
+               {
+                  trait method QName(PrivateNamespace(null,"31"),"errorHandler")
+                     dispid 0
+                     method
+                        name null
+                        param QName(PackageNamespace("flash.events"),"IOErrorEvent")
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 3
+                           localcount 2
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal0
+                              getproperty QName(ProtectedNamespace("cb.data:TextLoader"),"loader")
+                              getlex QName(PackageNamespace("flash.events"),"IOErrorEvent")
+                              getproperty QName(PackageNamespace(""),"IO_ERROR")
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"31"),"errorHandler")
+                              callpropvoid QName(PackageNamespace(""),"removeEventListener"), 2
+                              getlocal0
+                              getproperty QName(PackageNamespace(""),"ioFailed")
+                              getlocal0
+                              callpropvoid QName(PackageNamespace(""),"emit"), 1
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function get url() : String
+                  {
+                     trait getter QName(PackageNamespace(""),"url")
+                        dispid 0
+                        method
+                           name null
+                           returns QName(PackageNamespace(""),"String")
+                           
+                           body
+                              maxstack 1
+                              localcount 1
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal0
+                                 getproperty QName(ProtectedNamespace("cb.data:TextLoader"),"uri")
+                                 returnvalue
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                  }
+               }
+               
+               method
+                  name null
+                  returns null
+                  
+                  body
+                     maxstack 2
+                     localcount 1
+                     initscopedepth 1
+                     maxscopedepth 3
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        findpropstrict Multiname("TextLoader",[PackageNamespace("cb.data")])
+                        getlex QName(PackageNamespace(""),"Object")
+                        pushscope
+                        getlex QName(PackageNamespace(""),"Object")
+                        newclass 39
+                        popscope
+                        initproperty QName(PackageNamespace("cb.data"),"TextLoader")
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+               

@@ -1,0 +1,130 @@
+package jh
+{
+   public class PackedResources
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function PackedResources()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 1
+               localcount 1
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function get(param1:String) : *
+      {
+         trait method QName(PackageNamespace(""),"get")
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace(""),"String")
+               returns null
+               
+               body
+                  maxstack 3
+                  localcount 2
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     jump ofs0007
+            ofs0006:
+                     label
+            ofs0007:
+                     getlocal1
+                     pushstring "/"
+                     pushstring "_"
+                     callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"replace"), 2
+                     coerce_s
+                     setlocal1
+                     getlocal1
+                     pushstring "/"
+                     callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"indexOf"), 1
+                     pushbyte 0
+                     ifge ofs0006
+                     jump ofs0027
+            ofs0026:
+                     label
+            ofs0027:
+                     getlocal1
+                     pushstring "."
+                     pushstring "_"
+                     callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"replace"), 2
+                     coerce_s
+                     setlocal1
+                     getlocal1
+                     pushstring "."
+                     callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"indexOf"), 1
+                     pushbyte 0
+                     ifge ofs0026
+                     getlocal0
+                     getlocal1
+                     getproperty MultinameL([PrivateNamespace(null,"267"),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"268"),PackageNamespace(""),PackageNamespace("jh"),PackageInternalNs("jh"),ProtectedNamespace("jh:PackedResources"),StaticProtectedNs("jh:PackedResources")])
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+      }
+   }
+   
+   method
+      name null
+      returns null
+      
+      body
+         maxstack 2
+         localcount 1
+         initscopedepth 1
+         maxscopedepth 3
+         
+         code
+            getlocal0
+            pushscope
+            findpropstrict Multiname("PackedResources",[PackageNamespace("jh")])
+            getlex QName(PackageNamespace(""),"Object")
+            pushscope
+            getlex QName(PackageNamespace(""),"Object")
+            newclass 155
+            popscope
+            initproperty QName(PackageNamespace("jh"),"PackedResources")
+            returnvoid
+         end ; code
+      end ; body
+   end ; method
+   

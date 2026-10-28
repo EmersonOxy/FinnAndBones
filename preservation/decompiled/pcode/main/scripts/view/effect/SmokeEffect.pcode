@@ -1,0 +1,132 @@
+package view.effect
+{
+   import cb.utils.Random;
+   import flash.display.DisplayObjectContainer;
+   import flash.display.MovieClip;
+   import sound.GameSounds;
+   
+   public class SmokeEffect extends Effect
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 4
+            maxscopedepth 5
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function SmokeEffect()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 3
+               localcount 2
+               initscopedepth 5
+               maxscopedepth 6
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlex QName(PackageNamespace(""),"main")
+                  getproperty QName(PackageNamespace(""),"swfLoader")
+                  pushstring "assets.Smoke"
+                  callproperty QName(PackageNamespace(""),"getObject"), 1
+                  getlex QName(PackageNamespace("flash.display"),"MovieClip")
+                  astypelate
+                  coerce QName(PackageNamespace("flash.display"),"MovieClip")
+                  setlocal1
+                  getlocal1
+                  getlex QName(PackageNamespace("cb.utils"),"Random")
+                  pushshort 360
+                  callproperty QName(PackageNamespace(""),"nextInt"), 1
+                  setproperty QName(PackageNamespace(""),"rotation")
+                  getlocal0
+                  getlocal1
+                  constructsuper 1
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      override public function playOn(param1:DisplayObjectContainer, param2:DisplayObjectContainer = null) : void
+      {
+         trait method QName(PackageNamespace(""),"playOn")
+            flag OVERRIDE
+            dispid 0
+            method
+               name null
+               flag HAS_OPTIONAL
+               param QName(PackageNamespace("flash.display"),"DisplayObjectContainer")
+               param QName(PackageNamespace("flash.display"),"DisplayObjectContainer")
+               optional Null()
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 3
+                  localcount 3
+                  initscopedepth 5
+                  maxscopedepth 6
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     getlocal1
+                     getlocal2
+                     callsupervoid QName(PackageNamespace(""),"playOn"), 2
+                     getlex QName(PackageNamespace(""),"main")
+                     getproperty QName(PackageNamespace(""),"soundManager")
+                     getlex QName(PackageNamespace("sound"),"GameSounds")
+                     getproperty QName(PackageNamespace(""),"SMOKE")
+                     callpropvoid QName(PackageNamespace(""),"playFx"), 1
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+      }
+   }
+   
+   method
+      name null
+      returns null
+      
+      body
+         maxstack 2
+         localcount 1
+         initscopedepth 1
+         maxscopedepth 4
+         
+         code
+            getlocal0
+            pushscope
+            findpropstrict Multiname("SmokeEffect",[PackageNamespace("view.effect")])
+            getlex QName(PackageNamespace(""),"Object")
+            pushscope
+            getlex QName(PackageNamespace("view.effect"),"Effect")
+            pushscope
+            getlex QName(PackageNamespace("view.effect"),"Effect")
+            newclass 282
+            popscope
+            popscope
+            initproperty QName(PackageNamespace("view.effect"),"SmokeEffect")
+            returnvoid
+         end ; code
+      end ; body
+   end ; method
+   

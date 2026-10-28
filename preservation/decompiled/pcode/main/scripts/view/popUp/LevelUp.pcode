@@ -1,0 +1,112 @@
+package view.popUp
+{
+   import cb.actions.RemoveFromParent;
+   import cb.conditions.EndAnimation;
+   import cb.display.SmartMC;
+   import flash.display.MovieClip;
+   import sound.GameSounds;
+   
+   public class LevelUp
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var mc:MovieClip;
+      
+      public function LevelUp()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 3
+               localcount 1
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlex QName(PackageNamespace(""),"main")
+                  getproperty QName(PackageNamespace(""),"swfLoader")
+                  pushstring "assets.LevelUp"
+                  callproperty QName(PackageNamespace(""),"getObject"), 1
+                  getlex QName(PackageNamespace("flash.display"),"MovieClip")
+                  astypelate
+                  initproperty QName(PrivateNamespace(null,"152"),"mc")
+                  getlex QName(PackageNamespace(""),"main")
+                  getproperty QName(PackageNamespace(""),"tutorialHolder")
+                  getlocal0
+                  getproperty QName(PrivateNamespace(null,"152"),"mc")
+                  callpropvoid QName(PackageNamespace(""),"addChild"), 1
+                  getlocal0
+                  getproperty QName(PrivateNamespace(null,"152"),"mc")
+                  pushbyte 1
+                  callpropvoid QName(PackageNamespace(""),"gotoAndPlay"), 1
+                  getlex QName(PackageNamespace(""),"main")
+                  getproperty QName(PackageNamespace(""),"soundManager")
+                  getlex QName(PackageNamespace("sound"),"GameSounds")
+                  getproperty QName(PackageNamespace(""),"LEVEL_UP")
+                  callpropvoid QName(PackageNamespace(""),"playFx"), 1
+                  findpropstrict QName(PackageNamespace("cb.display"),"SmartMC")
+                  getlocal0
+                  getproperty QName(PrivateNamespace(null,"152"),"mc")
+                  constructprop QName(PackageNamespace("cb.display"),"SmartMC"), 1
+                  findpropstrict QName(PackageNamespace("cb.conditions"),"EndAnimation")
+                  constructprop QName(PackageNamespace("cb.conditions"),"EndAnimation"), 0
+                  findpropstrict QName(PackageNamespace("cb.actions"),"RemoveFromParent")
+                  constructprop QName(PackageNamespace("cb.actions"),"RemoveFromParent"), 0
+                  callpropvoid QName(PackageNamespace(""),"trigger"), 2
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+   }
+}
+
+method
+   name null
+   returns null
+   
+   body
+      maxstack 2
+      localcount 1
+      initscopedepth 1
+      maxscopedepth 3
+      
+      code
+         getlocal0
+         pushscope
+         findpropstrict Multiname("LevelUp",[PackageNamespace("view.popUp")])
+         getlex QName(PackageNamespace(""),"Object")
+         pushscope
+         getlex QName(PackageNamespace(""),"Object")
+         newclass 257
+         popscope
+         initproperty QName(PackageNamespace("view.popUp"),"LevelUp")
+         returnvoid
+      end ; code
+   end ; body
+end ; method
+

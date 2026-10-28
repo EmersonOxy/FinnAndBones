@@ -1,0 +1,403 @@
+package view.screens.main_game.cookBook
+{
+   import flash.display.MovieClip;
+   import main_game.item_containers.ISlot;
+   import main_game.item_containers.NullSlot;
+   import main_game.items.Item;
+   import main_game.items.ItemFactory;
+   import main_game.mixer.Recipe;
+   import view.screens.main_game.slot.SlotView;
+   
+   public class RecipeView
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var primarySlot:ISlot;
+      
+      private var secondarySlot:ISlot;
+      
+      private var resultSlot:ISlot;
+      
+      private var primaryView:SlotView;
+      
+      private var secondaryView:SlotView;
+      
+      private var resultView:SlotView;
+      
+      private var bg:MovieClip;
+      
+      public function RecipeView(param1:MovieClip, param2:Recipe = null)
+      {
+         method
+            name null
+            flag HAS_OPTIONAL
+            param QName(PackageNamespace("flash.display"),"MovieClip")
+            param QName(PackageNamespace("main_game.mixer"),"Recipe")
+            optional Null()
+            returns null
+            
+            body
+               maxstack 2
+               localcount 3
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlocal1
+                  initproperty QName(PrivateNamespace(null,"161"),"bg")
+                  getlocal0
+                  getlocal2
+                  callpropvoid QName(PrivateNamespace(null,"161"),"initializeSlots"), 1
+                  getlocal0
+                  callpropvoid QName(PrivateNamespace(null,"161"),"initializeViews"), 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      private function initializeSlots(param1:Recipe) : void
+      {
+         trait method QName(PrivateNamespace(null,"161"),"initializeSlots")
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace("main_game.mixer"),"Recipe")
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 3
+                  localcount 3
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     pushnull
+                     coerce QName(PackageNamespace("main_game.items"),"ItemFactory")
+                     setlocal2
+                     getlocal0
+                     findpropstrict QName(PackageNamespace("main_game.item_containers"),"NullSlot")
+                     constructprop QName(PackageNamespace("main_game.item_containers"),"NullSlot"), 0
+                     setproperty QName(PrivateNamespace(null,"161"),"primarySlot")
+                     getlocal0
+                     findpropstrict QName(PackageNamespace("main_game.item_containers"),"NullSlot")
+                     constructprop QName(PackageNamespace("main_game.item_containers"),"NullSlot"), 0
+                     setproperty QName(PrivateNamespace(null,"161"),"secondarySlot")
+                     getlocal0
+                     findpropstrict QName(PackageNamespace("main_game.item_containers"),"NullSlot")
+                     constructprop QName(PackageNamespace("main_game.item_containers"),"NullSlot"), 0
+                     setproperty QName(PrivateNamespace(null,"161"),"resultSlot")
+                     getlocal1
+                     pushnull
+                     ifeq ofs0069
+                     getlex QName(PackageNamespace("main_game.items"),"ItemFactory")
+                     callproperty QName(PackageNamespace(""),"getInstance"), 0
+                     coerce QName(PackageNamespace("main_game.items"),"ItemFactory")
+                     setlocal2
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"161"),"primarySlot")
+                     getlocal2
+                     getlocal1
+                     getproperty QName(PackageNamespace(""),"primary")
+                     callproperty QName(PackageNamespace(""),"getItem"), 1
+                     callpropvoid QName(Namespace("drag_and_drop:IDragContainer"),"add"), 1
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"161"),"secondarySlot")
+                     getlocal2
+                     getlocal1
+                     getproperty QName(PackageNamespace(""),"secondary")
+                     callproperty QName(PackageNamespace(""),"getItem"), 1
+                     callpropvoid QName(Namespace("drag_and_drop:IDragContainer"),"add"), 1
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"161"),"resultSlot")
+                     getlocal2
+                     getlocal1
+                     getproperty QName(PackageNamespace(""),"result")
+                     callproperty QName(PackageNamespace(""),"getItem"), 1
+                     callpropvoid QName(Namespace("drag_and_drop:IDragContainer"),"add"), 1
+            ofs0069:
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         private function initializeViews() : void
+         {
+            trait method QName(PrivateNamespace(null,"161"),"initializeViews")
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 3
+                     localcount 1
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        findpropstrict QName(PackageNamespace("view.screens.main_game.slot"),"SlotView")
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"161"),"primarySlot")
+                        constructprop QName(PackageNamespace("view.screens.main_game.slot"),"SlotView"), 1
+                        setproperty QName(PrivateNamespace(null,"161"),"primaryView")
+                        getlocal0
+                        findpropstrict QName(PackageNamespace("view.screens.main_game.slot"),"SlotView")
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"161"),"secondarySlot")
+                        constructprop QName(PackageNamespace("view.screens.main_game.slot"),"SlotView"), 1
+                        setproperty QName(PrivateNamespace(null,"161"),"secondaryView")
+                        getlocal0
+                        findpropstrict QName(PackageNamespace("view.screens.main_game.slot"),"SlotView")
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"161"),"resultSlot")
+                        constructprop QName(PackageNamespace("view.screens.main_game.slot"),"SlotView"), 1
+                        setproperty QName(PrivateNamespace(null,"161"),"resultView")
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"161"),"primaryView")
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"161"),"bg")
+                        getproperty Multiname("slot_1",[PrivateNamespace(null,"161"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("view.screens.main_game.cookBook"),PackageInternalNs("view.screens.main_game.cookBook"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.cookBook:RecipeView"),StaticProtectedNs("view.screens.main_game.cookBook:RecipeView")])
+                        callpropvoid QName(PackageNamespace(""),"initialize"), 1
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"161"),"secondaryView")
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"161"),"bg")
+                        getproperty Multiname("slot_2",[PrivateNamespace(null,"161"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("view.screens.main_game.cookBook"),PackageInternalNs("view.screens.main_game.cookBook"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.cookBook:RecipeView"),StaticProtectedNs("view.screens.main_game.cookBook:RecipeView")])
+                        callpropvoid QName(PackageNamespace(""),"initialize"), 1
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"161"),"resultView")
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"161"),"bg")
+                        getproperty Multiname("slot_3",[PrivateNamespace(null,"161"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("view.screens.main_game.cookBook"),PackageInternalNs("view.screens.main_game.cookBook"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.cookBook:RecipeView"),StaticProtectedNs("view.screens.main_game.cookBook:RecipeView")])
+                        callpropvoid QName(PackageNamespace(""),"initialize"), 1
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"161"),"bg")
+                        getproperty Multiname("slot_1",[PrivateNamespace(null,"161"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("view.screens.main_game.cookBook"),PackageInternalNs("view.screens.main_game.cookBook"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.cookBook:RecipeView"),StaticProtectedNs("view.screens.main_game.cookBook:RecipeView")])
+                        pushfalse
+                        setproperty Multiname("mouseEnabled",[PrivateNamespace(null,"161"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("view.screens.main_game.cookBook"),PackageInternalNs("view.screens.main_game.cookBook"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.cookBook:RecipeView"),StaticProtectedNs("view.screens.main_game.cookBook:RecipeView")])
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"161"),"bg")
+                        getproperty Multiname("slot_1",[PrivateNamespace(null,"161"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("view.screens.main_game.cookBook"),PackageInternalNs("view.screens.main_game.cookBook"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.cookBook:RecipeView"),StaticProtectedNs("view.screens.main_game.cookBook:RecipeView")])
+                        pushfalse
+                        setproperty Multiname("mouseChildren",[PrivateNamespace(null,"161"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("view.screens.main_game.cookBook"),PackageInternalNs("view.screens.main_game.cookBook"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.cookBook:RecipeView"),StaticProtectedNs("view.screens.main_game.cookBook:RecipeView")])
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"161"),"bg")
+                        getproperty Multiname("slot_2",[PrivateNamespace(null,"161"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("view.screens.main_game.cookBook"),PackageInternalNs("view.screens.main_game.cookBook"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.cookBook:RecipeView"),StaticProtectedNs("view.screens.main_game.cookBook:RecipeView")])
+                        pushfalse
+                        setproperty Multiname("mouseEnabled",[PrivateNamespace(null,"161"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("view.screens.main_game.cookBook"),PackageInternalNs("view.screens.main_game.cookBook"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.cookBook:RecipeView"),StaticProtectedNs("view.screens.main_game.cookBook:RecipeView")])
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"161"),"bg")
+                        getproperty Multiname("slot_2",[PrivateNamespace(null,"161"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("view.screens.main_game.cookBook"),PackageInternalNs("view.screens.main_game.cookBook"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.cookBook:RecipeView"),StaticProtectedNs("view.screens.main_game.cookBook:RecipeView")])
+                        pushfalse
+                        setproperty Multiname("mouseChildren",[PrivateNamespace(null,"161"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("view.screens.main_game.cookBook"),PackageInternalNs("view.screens.main_game.cookBook"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.cookBook:RecipeView"),StaticProtectedNs("view.screens.main_game.cookBook:RecipeView")])
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"161"),"bg")
+                        getproperty Multiname("slot_3",[PrivateNamespace(null,"161"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("view.screens.main_game.cookBook"),PackageInternalNs("view.screens.main_game.cookBook"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.cookBook:RecipeView"),StaticProtectedNs("view.screens.main_game.cookBook:RecipeView")])
+                        pushfalse
+                        setproperty Multiname("mouseEnabled",[PrivateNamespace(null,"161"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("view.screens.main_game.cookBook"),PackageInternalNs("view.screens.main_game.cookBook"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.cookBook:RecipeView"),StaticProtectedNs("view.screens.main_game.cookBook:RecipeView")])
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"161"),"bg")
+                        getproperty Multiname("slot_3",[PrivateNamespace(null,"161"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("view.screens.main_game.cookBook"),PackageInternalNs("view.screens.main_game.cookBook"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.cookBook:RecipeView"),StaticProtectedNs("view.screens.main_game.cookBook:RecipeView")])
+                        pushfalse
+                        setproperty Multiname("mouseChildren",[PrivateNamespace(null,"161"),PackageNamespace(""),PrivateNamespace(null,"317"),PackageNamespace("view.screens.main_game.cookBook"),PackageInternalNs("view.screens.main_game.cookBook"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.cookBook:RecipeView"),StaticProtectedNs("view.screens.main_game.cookBook:RecipeView")])
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function clear() : void
+            {
+               trait method QName(PackageNamespace(""),"clear")
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 1
+                        localcount 1
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           callpropvoid QName(PrivateNamespace(null,"161"),"clearViews"), 0
+                           getlocal0
+                           callpropvoid QName(PrivateNamespace(null,"161"),"clearSlots"), 0
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               private function clearViews() : void
+               {
+                  trait method QName(PrivateNamespace(null,"161"),"clearViews")
+                     dispid 0
+                     method
+                        name null
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 1
+                           localcount 1
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"161"),"primaryView")
+                              callpropvoid QName(PackageNamespace(""),"clear"), 0
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"161"),"secondaryView")
+                              callpropvoid QName(PackageNamespace(""),"clear"), 0
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"161"),"resultView")
+                              callpropvoid QName(PackageNamespace(""),"clear"), 0
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  private function clearSlots() : void
+                  {
+                     trait method QName(PrivateNamespace(null,"161"),"clearSlots")
+                        dispid 0
+                        method
+                           name null
+                           returns QName(PackageNamespace(""),"void")
+                           
+                           body
+                              maxstack 2
+                              localcount 1
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal0
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"161"),"primarySlot")
+                                 callpropvoid QName(PrivateNamespace(null,"161"),"clearSlot"), 1
+                                 getlocal0
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"161"),"secondarySlot")
+                                 callpropvoid QName(PrivateNamespace(null,"161"),"clearSlot"), 1
+                                 getlocal0
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"161"),"resultSlot")
+                                 callpropvoid QName(PrivateNamespace(null,"161"),"clearSlot"), 1
+                                 getlocal0
+                                 pushnull
+                                 initproperty QName(PrivateNamespace(null,"161"),"primarySlot")
+                                 getlocal0
+                                 pushnull
+                                 initproperty QName(PrivateNamespace(null,"161"),"secondarySlot")
+                                 getlocal0
+                                 pushnull
+                                 initproperty QName(PrivateNamespace(null,"161"),"resultSlot")
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     private function clearSlot(param1:ISlot) : void
+                     {
+                        trait method QName(PrivateNamespace(null,"161"),"clearSlot")
+                           dispid 0
+                           method
+                              name null
+                              param QName(PackageNamespace("main_game.item_containers"),"ISlot")
+                              returns QName(PackageNamespace(""),"void")
+                              
+                              body
+                                 maxstack 2
+                                 localcount 3
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    getlocal1
+                                    callproperty QName(Namespace("main_game.item_containers:ISlot"),"getContent"), 0
+                                    coerce QName(PackageNamespace("main_game.items"),"Item")
+                                    setlocal2
+                                    getlocal2
+                                    pushnull
+                                    ifeq ofs0015
+                                    getlocal2
+                                    callpropvoid QName(PackageNamespace(""),"clear"), 0
+                           ofs0015:
+                                    getlocal1
+                                    callpropvoid QName(Namespace("drag_and_drop:IDragContainer"),"clear"), 0
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                     }
+                  }
+                  
+                  method
+                     name null
+                     returns null
+                     
+                     body
+                        maxstack 2
+                        localcount 1
+                        initscopedepth 1
+                        maxscopedepth 3
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           findpropstrict Multiname("RecipeView",[PackageNamespace("view.screens.main_game.cookBook")])
+                           getlex QName(PackageNamespace(""),"Object")
+                           pushscope
+                           getlex QName(PackageNamespace(""),"Object")
+                           newclass 280
+                           popscope
+                           initproperty QName(PackageNamespace("view.screens.main_game.cookBook"),"RecipeView")
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+                  

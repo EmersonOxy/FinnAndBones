@@ -1,0 +1,51 @@
+package bonus.filter
+{
+   import main_game.element.Element;
+   
+   public interface IBonusFilter
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 0
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 3
+            
+            code
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      function doesApply(param1:Element) : Boolean;
+      
+      function getIcons() : Vector.<BonusIcon>;
+   }
+}
+
+method
+   name null
+   returns null
+   
+   body
+      maxstack 2
+      localcount 1
+      initscopedepth 1
+      maxscopedepth 2
+      
+      code
+         getlocal0
+         pushscope
+         findpropstrict Multiname("IBonusFilter",[PackageNamespace("bonus.filter")])
+         pushnull
+         newclass 125
+         initproperty QName(PackageNamespace("bonus.filter"),"IBonusFilter")
+         returnvoid
+      end ; code
+   end ; body
+end ; method
+

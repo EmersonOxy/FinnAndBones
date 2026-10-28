@@ -1,0 +1,274 @@
+package main_game.dungeon
+{
+   import main_game.character.Enemy;
+   import main_game.character.stats.Experience;
+   import main_game.character.stats.StatType;
+   
+   public class XpCalculator implements IXpCalculator
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function XpCalculator()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 1
+               localcount 1
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      private function get config() : Object
+      {
+         trait getter QName(PrivateNamespace(null,"104"),"config")
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace(""),"Object")
+               
+               body
+                  maxstack 2
+                  localcount 1
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlex QName(PackageNamespace(""),"main")
+                     getproperty QName(PackageNamespace(""),"config")
+                     pushstring "ExperienceBonus"
+                     callproperty QName(PackageNamespace(""),"get"), 1
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function getXp(param1:Array) : int
+         {
+            trait method QName(PackageNamespace(""),"getXp")
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace(""),"Array")
+                  returns QName(PackageNamespace(""),"int")
+                  
+                  body
+                     maxstack 3
+                     localcount 6
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        pushnull
+                        coerce QName(PackageNamespace("main_game.character"),"Enemy")
+                        setlocal3
+                        pushbyte 0
+                        setlocal2
+                        pushbyte 0
+                        setlocal 4
+                        getlocal1
+                        coerce_a
+                        setlocal 5
+                        jump ofs0034
+               ofs0015:
+                        label
+                        getlocal 5
+                        getlocal 4
+                        nextvalue
+                        coerce QName(PackageNamespace("main_game.character"),"Enemy")
+                        setlocal3
+                        getlocal2
+                        getlocal3
+                        getproperty QName(PackageNamespace(""),"stats")
+                        getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                        getproperty QName(PackageNamespace(""),"EXPERIENCE")
+                        callproperty QName(PackageNamespace(""),"getStat"), 1
+                        callproperty QName(PackageNamespace(""),"getValue"), 0
+                        add
+                        convert_i
+                        setlocal2
+               ofs0034:
+                        hasnext2 5, 4
+                        iftrue ofs0015
+                        kill 5
+                        kill 4
+                        getlocal2
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            private function get requiredExperience() : Number
+            {
+               trait getter QName(PrivateNamespace(null,"104"),"requiredExperience")
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace(""),"Number")
+                     
+                     body
+                        maxstack 2
+                        localcount 2
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlex QName(PackageNamespace(""),"main")
+                           getproperty QName(PackageNamespace(""),"game")
+                           callproperty QName(PackageNamespace(""),"getFinn"), 0
+                           getproperty QName(PackageNamespace(""),"stats")
+                           getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                           getproperty QName(PackageNamespace(""),"EXPERIENCE")
+                           callproperty QName(PackageNamespace(""),"getStat"), 1
+                           getlex QName(PackageNamespace("main_game.character.stats"),"Experience")
+                           astypelate
+                           coerce QName(PackageNamespace("main_game.character.stats"),"Experience")
+                           setlocal1
+                           getlocal1
+                           callproperty QName(PackageNamespace(""),"getUpperBound"), 0
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function getMixXp(param1:int) : Number
+               {
+                  trait method QName(PackageNamespace(""),"getMixXp")
+                     dispid 0
+                     method
+                        name null
+                        param QName(PackageNamespace(""),"int")
+                        returns QName(PackageNamespace(""),"Number")
+                        
+                        body
+                           maxstack 4
+                           localcount 2
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlex QName(PackageNamespace(""),"Math")
+                              findpropstrict QName(PackageNamespace(""),"Number")
+                              getlocal1
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"104"),"requiredExperience")
+                              multiply
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"104"),"config")
+                              getproperty Multiname("mix",[PrivateNamespace(null,"104"),PackageNamespace(""),PrivateNamespace(null,"277"),PackageNamespace("main_game.dungeon"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:XpCalculator"),StaticProtectedNs("main_game.dungeon:XpCalculator")])
+                              multiply
+                              callproperty QName(PackageNamespace(""),"Number"), 1
+                              pushbyte 100
+                              divide
+                              callproperty QName(PackageNamespace(""),"round"), 1
+                              returnvalue
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function getCriticalXp(param1:int) : Number
+                  {
+                     trait method QName(PackageNamespace(""),"getCriticalXp")
+                        dispid 0
+                        method
+                           name null
+                           param QName(PackageNamespace(""),"int")
+                           returns QName(PackageNamespace(""),"Number")
+                           
+                           body
+                              maxstack 4
+                              localcount 2
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlex QName(PackageNamespace(""),"Math")
+                                 findpropstrict QName(PackageNamespace(""),"Number")
+                                 getlocal1
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"104"),"requiredExperience")
+                                 multiply
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"104"),"config")
+                                 getproperty Multiname("critical",[PrivateNamespace(null,"104"),PackageNamespace(""),PrivateNamespace(null,"277"),PackageNamespace("main_game.dungeon"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:XpCalculator"),StaticProtectedNs("main_game.dungeon:XpCalculator")])
+                                 multiply
+                                 callproperty QName(PackageNamespace(""),"Number"), 1
+                                 pushbyte 100
+                                 divide
+                                 callproperty QName(PackageNamespace(""),"round"), 1
+                                 returnvalue
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                  }
+               }
+               
+               method
+                  name null
+                  returns null
+                  
+                  body
+                     maxstack 2
+                     localcount 1
+                     initscopedepth 1
+                     maxscopedepth 3
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        findpropstrict Multiname("XpCalculator",[PackageNamespace("main_game.dungeon")])
+                        getlex QName(PackageNamespace(""),"Object")
+                        pushscope
+                        getlex QName(PackageNamespace(""),"Object")
+                        newclass 180
+                        popscope
+                        initproperty QName(PackageNamespace("main_game.dungeon"),"XpCalculator")
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+               

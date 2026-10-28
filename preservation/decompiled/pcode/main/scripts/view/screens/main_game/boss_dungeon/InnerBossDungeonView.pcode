@@ -1,0 +1,51 @@
+package view.screens.main_game.boss_dungeon
+{
+   import view.screens.main_game.dungeon.InnerDungeonView;
+   
+   public interface InnerBossDungeonView extends InnerDungeonView
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 0
+            localcount 1
+            initscopedepth 4
+            maxscopedepth 4
+            
+            code
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      function playMusic() : void;
+      
+      function stopMusic() : void;
+   }
+}
+
+method
+   name null
+   returns null
+   
+   body
+      maxstack 2
+      localcount 1
+      initscopedepth 1
+      maxscopedepth 2
+      
+      code
+         getlocal0
+         pushscope
+         findpropstrict Multiname("InnerBossDungeonView",[PackageNamespace("view.screens.main_game.boss_dungeon")])
+         pushnull
+         newclass 185
+         initproperty QName(PackageNamespace("view.screens.main_game.boss_dungeon"),"InnerBossDungeonView")
+         returnvoid
+      end ; code
+   end ; body
+end ; method
+

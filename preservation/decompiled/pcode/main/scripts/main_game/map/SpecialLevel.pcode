@@ -1,0 +1,174 @@
+package main_game.map
+{
+   public class SpecialLevel extends Level
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 4
+            maxscopedepth 5
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function SpecialLevel(param1:String, param2:uint = 1)
+      {
+         method
+            name null
+            flag HAS_OPTIONAL
+            param QName(PackageNamespace(""),"String")
+            param QName(PackageNamespace(""),"uint")
+            optional Integer(1)
+            returns null
+            
+            body
+               maxstack 3
+               localcount 3
+               initscopedepth 5
+               maxscopedepth 6
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  getlocal1
+                  getlocal2
+                  constructsuper 2
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      override public function isSpecial() : Boolean
+      {
+         trait method QName(PackageNamespace(""),"isSpecial")
+            flag OVERRIDE
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace(""),"Boolean")
+               
+               body
+                  maxstack 1
+                  localcount 1
+                  initscopedepth 5
+                  maxscopedepth 6
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     pushtrue
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         override public function getName() : String
+         {
+            trait method QName(PackageNamespace(""),"getName")
+               flag OVERRIDE
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace(""),"String")
+                  
+                  body
+                     maxstack 2
+                     localcount 1
+                     initscopedepth 5
+                     maxscopedepth 6
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlex QName(PackageNamespace(""),"main")
+                        getproperty QName(PackageNamespace(""),"locale")
+                        pushstring "specialDungeonName"
+                        callproperty QName(PackageNamespace(""),"get"), 1
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            override public function getArea() : uint
+            {
+               trait method QName(PackageNamespace(""),"getArea")
+                  flag OVERRIDE
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace(""),"uint")
+                     
+                     body
+                        maxstack 2
+                        localcount 1
+                        initscopedepth 5
+                        maxscopedepth 6
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           findpropstrict QName(PackageNamespace(""),"getDungeonId")
+                           callproperty QName(PackageNamespace(""),"getDungeonId"), 0
+                           pushstring "26"
+                           ifne ofs0013
+                           pushbyte 1
+                           returnvalue
+                  ofs0013:
+                           findpropstrict QName(PackageNamespace(""),"getDungeonId")
+                           callproperty QName(PackageNamespace(""),"getDungeonId"), 0
+                           pushstring "27"
+                           ifne ofs0024
+                           pushbyte 2
+                           returnvalue
+                  ofs0024:
+                           pushbyte 3
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+            }
+         }
+         
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 2
+               localcount 1
+               initscopedepth 1
+               maxscopedepth 4
+               
+               code
+                  getlocal0
+                  pushscope
+                  findpropstrict Multiname("SpecialLevel",[PackageNamespace("main_game.map")])
+                  getlex QName(PackageNamespace(""),"Object")
+                  pushscope
+                  getlex QName(PackageNamespace("main_game.map"),"Level")
+                  pushscope
+                  getlex QName(PackageNamespace("main_game.map"),"Level")
+                  newclass 239
+                  popscope
+                  popscope
+                  initproperty QName(PackageNamespace("main_game.map"),"SpecialLevel")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+         

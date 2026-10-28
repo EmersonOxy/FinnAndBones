@@ -1,0 +1,63 @@
+package drag_and_drop
+{
+   import main_game.items.Item;
+   
+   public interface IDragContainer
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 0
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 3
+            
+            code
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      function remove(param1:Item) : void;
+      
+      function add(param1:Item) : void;
+      
+      function moveFrom(param1:Item, param2:IDragContainer) : void;
+      
+      function canSwap(param1:IDragContainer) : Boolean;
+      
+      function itsCompatible(param1:Item, param2:IDragContainer) : Boolean;
+      
+      function canMoveFrom(param1:Item, param2:IDragContainer) : Boolean;
+      
+      function getContainToDrag() : Item;
+      
+      function clear() : void;
+   }
+}
+
+method
+   name null
+   returns null
+   
+   body
+      maxstack 2
+      localcount 1
+      initscopedepth 1
+      maxscopedepth 2
+      
+      code
+         getlocal0
+         pushscope
+         findpropstrict Multiname("IDragContainer",[PackageNamespace("drag_and_drop")])
+         pushnull
+         newclass 93
+         initproperty QName(PackageNamespace("drag_and_drop"),"IDragContainer")
+         returnvoid
+      end ; code
+   end ; body
+end ; method
+

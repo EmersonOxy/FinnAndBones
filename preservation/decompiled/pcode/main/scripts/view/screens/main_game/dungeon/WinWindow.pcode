@@ -1,0 +1,1488 @@
+package view.screens.main_game.dungeon
+{
+   import cb.data.ButtonGroup;
+   import cb.signals.Signal;
+   import cb.utils.Tween;
+   import flash.display.DisplayObjectContainer;
+   import flash.display.MovieClip;
+   import flash.events.MouseEvent;
+   import flash.utils.Dictionary;
+   import main_game.character.stats.Stats;
+   import main_game.dungeon.DungeonStats;
+   import main_game.dungeon.Loot;
+   import sound.GameSounds;
+   import util.Buttons;
+   import util.Util;
+   import view.popUp.LevelUp;
+   import view.screens.AnimatedScreen;
+   
+   public class WinWindow extends AnimatedScreen implements EndDungeonWindow
+   {
+      
+      public static var onShow:Function = null;
+      
+      private static const COMBAT:int = 0;
+      
+      private static const CRITICAL:int = 1;
+      
+      private static const MIX:int = 2;
+      
+      private static const TOTAL:int = 3;
+      
+      private static const COMBAT_BONUS:String = "combat_experience";
+      
+      private static const MIX_BONUS:String = "mix_bonus";
+      
+      private static const CRITICAL_BONUS:String = "hit_bonus";
+      
+      private static const TOTAL_BONUS:String = "total";
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 10
+            maxscopedepth 11
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(PackageNamespace(""),"onShow")
+               pushnull
+               setproperty QName(PackageNamespace(""),"onShow")
+               findproperty QName(PrivateNamespace(null,"97"),"COMBAT")
+               pushbyte 0
+               initproperty QName(PrivateNamespace(null,"97"),"COMBAT")
+               findproperty QName(PrivateNamespace(null,"97"),"CRITICAL")
+               pushbyte 1
+               initproperty QName(PrivateNamespace(null,"97"),"CRITICAL")
+               findproperty QName(PrivateNamespace(null,"97"),"MIX")
+               pushbyte 2
+               initproperty QName(PrivateNamespace(null,"97"),"MIX")
+               findproperty QName(PrivateNamespace(null,"97"),"TOTAL")
+               pushbyte 3
+               initproperty QName(PrivateNamespace(null,"97"),"TOTAL")
+               findproperty QName(PrivateNamespace(null,"97"),"COMBAT_BONUS")
+               pushstring "combat_experience"
+               initproperty QName(PrivateNamespace(null,"97"),"COMBAT_BONUS")
+               findproperty QName(PrivateNamespace(null,"97"),"MIX_BONUS")
+               pushstring "mix_bonus"
+               initproperty QName(PrivateNamespace(null,"97"),"MIX_BONUS")
+               findproperty QName(PrivateNamespace(null,"97"),"CRITICAL_BONUS")
+               pushstring "hit_bonus"
+               initproperty QName(PrivateNamespace(null,"97"),"CRITICAL_BONUS")
+               findproperty QName(PrivateNamespace(null,"97"),"TOTAL_BONUS")
+               pushstring "total"
+               initproperty QName(PrivateNamespace(null,"97"),"TOTAL_BONUS")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var onReplay:Signal;
+      
+      private var onBackToMap:Signal;
+      
+      private var onNext:Function;
+      
+      private var loot:LootView;
+      
+      private var values:Array;
+      
+      private var stats:DungeonStats;
+      
+      public function WinWindow(param1:Loot, param2:DungeonStats, param3:Function = null)
+      {
+         method
+            name null
+            flag HAS_OPTIONAL
+            param QName(PackageNamespace("main_game.dungeon"),"Loot")
+            param QName(PackageNamespace("main_game.dungeon"),"DungeonStats")
+            param QName(PackageNamespace(""),"Function")
+            optional Null()
+            returns null
+            
+            body
+               maxstack 6
+               localcount 4
+               initscopedepth 11
+               maxscopedepth 12
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  getlex QName(PackageNamespace(""),"main")
+                  getproperty QName(PackageNamespace(""),"swfLoader")
+                  pushstring "assets.LevelWin"
+                  callproperty QName(PackageNamespace(""),"getClass"), 1
+                  getlocal0
+                  callproperty QName(PrivateNamespace(null,"97"),"getButtonInfo"), 0
+                  constructsuper 2
+                  getlocal0
+                  getlocal2
+                  initproperty QName(PrivateNamespace(null,"97"),"stats")
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("view.screens.main_game.dungeon"),"LootView")
+                  getlocal1
+                  getlex QName(ProtectedNamespace("cb.display:Screen"),"bg")
+                  constructprop QName(PackageNamespace("view.screens.main_game.dungeon"),"LootView"), 2
+                  initproperty QName(PrivateNamespace(null,"97"),"loot")
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("cb.signals"),"Signal")
+                  constructprop QName(PackageNamespace("cb.signals"),"Signal"), 0
+                  initproperty QName(PrivateNamespace(null,"97"),"onReplay")
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("cb.signals"),"Signal")
+                  constructprop QName(PackageNamespace("cb.signals"),"Signal"), 0
+                  initproperty QName(PrivateNamespace(null,"97"),"onBackToMap")
+                  getlocal0
+                  getlocal3
+                  initproperty QName(PrivateNamespace(null,"97"),"onNext")
+                  getlocal0
+                  findpropstrict QName(PackageNamespace(""),"Array")
+                  pushbyte 0
+                  dup
+                  dup
+                  pushbyte 0
+                  constructprop QName(PackageNamespace(""),"Array"), 4
+                  initproperty QName(PrivateNamespace(null,"97"),"values")
+                  getlocal0
+                  callpropvoid QName(PackageNamespace(""),"initialize"), 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function pause() : void
+      {
+         trait method QName(PackageNamespace(""),"pause")
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 1
+                  localcount 1
+                  initscopedepth 11
+                  maxscopedepth 12
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"97"),"loot")
+                     callpropvoid QName(PackageNamespace(""),"pause"), 0
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function resume() : void
+         {
+            trait method QName(PackageNamespace(""),"resume")
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 1
+                     localcount 1
+                     initscopedepth 11
+                     maxscopedepth 12
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"97"),"loot")
+                        callpropvoid QName(PackageNamespace(""),"resume"), 0
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function get lootMcButton() : MovieClip
+            {
+               trait getter QName(PackageNamespace(""),"lootMcButton")
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace("flash.display"),"MovieClip")
+                     
+                     body
+                        maxstack 1
+                        localcount 1
+                        initscopedepth 11
+                        maxscopedepth 12
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getproperty QName(ProtectedNamespace("cb.display:Screen"),"bg")
+                           getproperty Multiname("loot",[PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function getOnReplay() : Signal
+               {
+                  trait method QName(PackageNamespace(""),"getOnReplay")
+                     dispid 0
+                     method
+                        name null
+                        returns QName(PackageNamespace("cb.signals"),"Signal")
+                        
+                        body
+                           maxstack 1
+                           localcount 1
+                           initscopedepth 11
+                           maxscopedepth 12
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"97"),"onReplay")
+                              returnvalue
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function getOnBackToMap() : Signal
+                  {
+                     trait method QName(PackageNamespace(""),"getOnBackToMap")
+                        dispid 0
+                        method
+                           name null
+                           returns QName(PackageNamespace("cb.signals"),"Signal")
+                           
+                           body
+                              maxstack 1
+                              localcount 1
+                              initscopedepth 11
+                              maxscopedepth 12
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"97"),"onBackToMap")
+                                 returnvalue
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     public function putIn(param1:DisplayObjectContainer) : void
+                     {
+                        trait method QName(PackageNamespace(""),"putIn")
+                           dispid 0
+                           method
+                              name null
+                              param QName(PackageNamespace("flash.display"),"DisplayObjectContainer")
+                              returns QName(PackageNamespace(""),"void")
+                              
+                              body
+                                 maxstack 3
+                                 localcount 2
+                                 initscopedepth 11
+                                 maxscopedepth 12
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    getlocal1
+                                    pushstring "window"
+                                    getlocal0
+                                    setproperty MultinameL([PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                    getlocal1
+                                    getlocal0
+                                    callpropvoid QName(PackageNamespace(""),"addChild"), 1
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        public function get infoMc() : MovieClip
+                        {
+                           trait getter QName(PackageNamespace(""),"infoMc")
+                              dispid 0
+                              method
+                                 name null
+                                 returns QName(PackageNamespace("flash.display"),"MovieClip")
+                                 
+                                 body
+                                    maxstack 1
+                                    localcount 1
+                                    initscopedepth 11
+                                    maxscopedepth 12
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       getlex QName(ProtectedNamespace("cb.display:Screen"),"bg")
+                                       getproperty Multiname("info",[PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                       returnvalue
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           public function initialize() : void
+                           {
+                              trait method QName(PackageNamespace(""),"initialize")
+                                 dispid 0
+                                 method
+                                    name null
+                                    returns QName(PackageNamespace(""),"void")
+                                    
+                                    body
+                                       maxstack 4
+                                       localcount 1
+                                       initscopedepth 11
+                                       maxscopedepth 12
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          getlocal0
+                                          getproperty QName(PackageNamespace(""),"infoMc")
+                                          getlex QName(PrivateNamespace(null,"97"),"COMBAT_BONUS")
+                                          pushstring "_xp"
+                                          add
+                                          getproperty MultinameL([PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                          pushbyte 1
+                                          callpropvoid Multiname("gotoAndStop",[PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 1
+                                          getlocal0
+                                          getproperty QName(PackageNamespace(""),"infoMc")
+                                          getlex QName(PrivateNamespace(null,"97"),"MIX_BONUS")
+                                          pushstring "_xp"
+                                          add
+                                          getproperty MultinameL([PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                          pushbyte 1
+                                          callpropvoid Multiname("gotoAndStop",[PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 1
+                                          getlocal0
+                                          getproperty QName(PackageNamespace(""),"infoMc")
+                                          getlex QName(PrivateNamespace(null,"97"),"CRITICAL_BONUS")
+                                          pushstring "_xp"
+                                          add
+                                          getproperty MultinameL([PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                          pushbyte 1
+                                          callpropvoid Multiname("gotoAndStop",[PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 1
+                                          getlocal0
+                                          getproperty QName(PackageNamespace(""),"infoMc")
+                                          getlex QName(PrivateNamespace(null,"97"),"TOTAL_BONUS")
+                                          pushstring "_xp"
+                                          add
+                                          getproperty MultinameL([PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                          pushbyte 1
+                                          callpropvoid Multiname("gotoAndStop",[PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 1
+                                          getlocal0
+                                          pushbyte 0
+                                          initproperty QName(PackageNamespace(""),"combatXp")
+                                          getlocal0
+                                          pushbyte 0
+                                          initproperty QName(PackageNamespace(""),"criticalXp")
+                                          getlocal0
+                                          pushbyte 0
+                                          initproperty QName(PackageNamespace(""),"mixXp")
+                                          getlocal0
+                                          pushbyte 0
+                                          initproperty QName(PackageNamespace(""),"totalXp")
+                                          getlocal0
+                                          getproperty QName(PackageNamespace(""),"infoMc")
+                                          getlex QName(PrivateNamespace(null,"97"),"COMBAT_BONUS")
+                                          getproperty MultinameL([PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                          getproperty Multiname("title",[PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                          getlex QName(PackageNamespace(""),"main")
+                                          getproperty QName(PackageNamespace(""),"locale")
+                                          pushstring "win_combat"
+                                          callproperty QName(PackageNamespace(""),"get"), 1
+                                          setproperty Multiname("text",[PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                          getlocal0
+                                          getproperty QName(PackageNamespace(""),"infoMc")
+                                          getlex QName(PrivateNamespace(null,"97"),"CRITICAL_BONUS")
+                                          getproperty MultinameL([PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                          getproperty Multiname("title",[PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                          getlex QName(PackageNamespace(""),"main")
+                                          getproperty QName(PackageNamespace(""),"locale")
+                                          pushstring "win_critical_bonus"
+                                          callproperty QName(PackageNamespace(""),"get"), 1
+                                          setproperty Multiname("text",[PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                          getlocal0
+                                          getproperty QName(PackageNamespace(""),"infoMc")
+                                          getlex QName(PrivateNamespace(null,"97"),"MIX_BONUS")
+                                          getproperty MultinameL([PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                          getproperty Multiname("title",[PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                          getlex QName(PackageNamespace(""),"main")
+                                          getproperty QName(PackageNamespace(""),"locale")
+                                          pushstring "win_mix_bonus"
+                                          callproperty QName(PackageNamespace(""),"get"), 1
+                                          setproperty Multiname("text",[PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                          getlocal0
+                                          getproperty QName(PackageNamespace(""),"infoMc")
+                                          getlex QName(PrivateNamespace(null,"97"),"TOTAL_BONUS")
+                                          getproperty MultinameL([PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                          getproperty Multiname("title",[PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                          getlex QName(PackageNamespace(""),"main")
+                                          getproperty QName(PackageNamespace(""),"locale")
+                                          pushstring "win_total"
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"97"),"stats")
+                                          getproperty QName(PackageNamespace(""),"level")
+                                          callproperty QName(PackageNamespace(""),"getName"), 0
+                                          newarray 1
+                                          callproperty QName(PackageNamespace(""),"get"), 2
+                                          setproperty Multiname("text",[PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                          returnvoid
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                              
+                              public function set combatXp(param1:int) : void
+                              {
+                                 trait setter QName(PackageNamespace(""),"combatXp")
+                                    dispid 0
+                                    method
+                                       name null
+                                       param QName(PackageNamespace(""),"int")
+                                       returns QName(PackageNamespace(""),"void")
+                                       
+                                       body
+                                          maxstack 4
+                                          localcount 2
+                                          initscopedepth 11
+                                          maxscopedepth 12
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             getlocal0
+                                             getproperty QName(PrivateNamespace(null,"97"),"values")
+                                             getlex QName(PrivateNamespace(null,"97"),"COMBAT")
+                                             getlocal1
+                                             setproperty MultinameL([PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                             getlocal0
+                                             getproperty QName(PackageNamespace(""),"infoMc")
+                                             getlex QName(PrivateNamespace(null,"97"),"COMBAT_BONUS")
+                                             pushstring "_xp"
+                                             add
+                                             getproperty MultinameL([PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                             getproperty Multiname("numbers",[PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                             getproperty Multiname("title",[PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                             getlex QName(PackageNamespace(""),"main")
+                                             getproperty QName(PackageNamespace(""),"locale")
+                                             pushstring "win_xp_amount"
+                                             getlocal1
+                                             newarray 1
+                                             callproperty QName(PackageNamespace(""),"get"), 2
+                                             setproperty Multiname("text",[PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                             returnvoid
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                 }
+                                 
+                                 public function get combatXp() : int
+                                 {
+                                    trait getter QName(PackageNamespace(""),"combatXp")
+                                       dispid 0
+                                       method
+                                          name null
+                                          returns QName(PackageNamespace(""),"int")
+                                          
+                                          body
+                                             maxstack 2
+                                             localcount 1
+                                             initscopedepth 11
+                                             maxscopedepth 12
+                                             
+                                             code
+                                                getlocal0
+                                                pushscope
+                                                getlocal0
+                                                getproperty QName(PrivateNamespace(null,"97"),"values")
+                                                getlex QName(PrivateNamespace(null,"97"),"COMBAT")
+                                                getproperty MultinameL([PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                                returnvalue
+                                             end ; code
+                                          end ; body
+                                       end ; method
+                                    }
+                                    
+                                    public function set criticalXp(param1:int) : void
+                                    {
+                                       trait setter QName(PackageNamespace(""),"criticalXp")
+                                          dispid 0
+                                          method
+                                             name null
+                                             param QName(PackageNamespace(""),"int")
+                                             returns QName(PackageNamespace(""),"void")
+                                             
+                                             body
+                                                maxstack 4
+                                                localcount 2
+                                                initscopedepth 11
+                                                maxscopedepth 12
+                                                
+                                                code
+                                                   getlocal0
+                                                   pushscope
+                                                   getlocal0
+                                                   getproperty QName(PrivateNamespace(null,"97"),"values")
+                                                   getlex QName(PrivateNamespace(null,"97"),"CRITICAL")
+                                                   getlocal1
+                                                   setproperty MultinameL([PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                                   getlocal0
+                                                   getproperty QName(PackageNamespace(""),"infoMc")
+                                                   getlex QName(PrivateNamespace(null,"97"),"CRITICAL_BONUS")
+                                                   pushstring "_xp"
+                                                   add
+                                                   getproperty MultinameL([PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                                   getproperty Multiname("numbers",[PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                                   getproperty Multiname("title",[PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                                   getlex QName(PackageNamespace(""),"main")
+                                                   getproperty QName(PackageNamespace(""),"locale")
+                                                   pushstring "win_xp_amount"
+                                                   getlocal1
+                                                   newarray 1
+                                                   callproperty QName(PackageNamespace(""),"get"), 2
+                                                   setproperty Multiname("text",[PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                                   returnvoid
+                                                end ; code
+                                             end ; body
+                                          end ; method
+                                       }
+                                       
+                                       public function get criticalXp() : int
+                                       {
+                                          trait getter QName(PackageNamespace(""),"criticalXp")
+                                             dispid 0
+                                             method
+                                                name null
+                                                returns QName(PackageNamespace(""),"int")
+                                                
+                                                body
+                                                   maxstack 2
+                                                   localcount 1
+                                                   initscopedepth 11
+                                                   maxscopedepth 12
+                                                   
+                                                   code
+                                                      getlocal0
+                                                      pushscope
+                                                      getlocal0
+                                                      getproperty QName(PrivateNamespace(null,"97"),"values")
+                                                      getlex QName(PrivateNamespace(null,"97"),"CRITICAL")
+                                                      getproperty MultinameL([PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                                      returnvalue
+                                                   end ; code
+                                                end ; body
+                                             end ; method
+                                          }
+                                          
+                                          public function set mixXp(param1:int) : void
+                                          {
+                                             trait setter QName(PackageNamespace(""),"mixXp")
+                                                dispid 0
+                                                method
+                                                   name null
+                                                   param QName(PackageNamespace(""),"int")
+                                                   returns QName(PackageNamespace(""),"void")
+                                                   
+                                                   body
+                                                      maxstack 4
+                                                      localcount 2
+                                                      initscopedepth 11
+                                                      maxscopedepth 12
+                                                      
+                                                      code
+                                                         getlocal0
+                                                         pushscope
+                                                         getlocal0
+                                                         getproperty QName(PrivateNamespace(null,"97"),"values")
+                                                         getlex QName(PrivateNamespace(null,"97"),"MIX")
+                                                         getlocal1
+                                                         setproperty MultinameL([PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                                         getlocal0
+                                                         getproperty QName(PackageNamespace(""),"infoMc")
+                                                         getlex QName(PrivateNamespace(null,"97"),"MIX_BONUS")
+                                                         pushstring "_xp"
+                                                         add
+                                                         getproperty MultinameL([PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                                         getproperty Multiname("numbers",[PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                                         getproperty Multiname("title",[PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                                         getlex QName(PackageNamespace(""),"main")
+                                                         getproperty QName(PackageNamespace(""),"locale")
+                                                         pushstring "win_xp_amount"
+                                                         getlocal1
+                                                         newarray 1
+                                                         callproperty QName(PackageNamespace(""),"get"), 2
+                                                         setproperty Multiname("text",[PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                                         returnvoid
+                                                      end ; code
+                                                   end ; body
+                                                end ; method
+                                             }
+                                             
+                                             public function get mixXp() : int
+                                             {
+                                                trait getter QName(PackageNamespace(""),"mixXp")
+                                                   dispid 0
+                                                   method
+                                                      name null
+                                                      returns QName(PackageNamespace(""),"int")
+                                                      
+                                                      body
+                                                         maxstack 2
+                                                         localcount 1
+                                                         initscopedepth 11
+                                                         maxscopedepth 12
+                                                         
+                                                         code
+                                                            getlocal0
+                                                            pushscope
+                                                            getlocal0
+                                                            getproperty QName(PrivateNamespace(null,"97"),"values")
+                                                            getlex QName(PrivateNamespace(null,"97"),"MIX")
+                                                            getproperty MultinameL([PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                                            returnvalue
+                                                         end ; code
+                                                      end ; body
+                                                   end ; method
+                                                }
+                                                
+                                                public function set totalXp(param1:int) : void
+                                                {
+                                                   trait setter QName(PackageNamespace(""),"totalXp")
+                                                      dispid 0
+                                                      method
+                                                         name null
+                                                         param QName(PackageNamespace(""),"int")
+                                                         returns QName(PackageNamespace(""),"void")
+                                                         
+                                                         body
+                                                            maxstack 5
+                                                            localcount 2
+                                                            initscopedepth 11
+                                                            maxscopedepth 12
+                                                            
+                                                            code
+                                                               getlocal0
+                                                               pushscope
+                                                               getlocal0
+                                                               getproperty QName(PrivateNamespace(null,"97"),"values")
+                                                               getlex QName(PrivateNamespace(null,"97"),"TOTAL")
+                                                               getlocal1
+                                                               setproperty MultinameL([PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                                               getlocal0
+                                                               getproperty QName(PackageNamespace(""),"infoMc")
+                                                               getlex QName(PrivateNamespace(null,"97"),"TOTAL_BONUS")
+                                                               pushstring "_xp"
+                                                               add
+                                                               getproperty MultinameL([PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                                               getproperty Multiname("numbers",[PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                                               getproperty Multiname("title",[PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                                               getlex QName(PackageNamespace(""),"main")
+                                                               getproperty QName(PackageNamespace(""),"locale")
+                                                               pushstring "win_xp_amount"
+                                                               getlocal0
+                                                               getproperty QName(PrivateNamespace(null,"97"),"values")
+                                                               getlex QName(PrivateNamespace(null,"97"),"TOTAL")
+                                                               getproperty MultinameL([PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                                               newarray 1
+                                                               callproperty QName(PackageNamespace(""),"get"), 2
+                                                               setproperty Multiname("text",[PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                                               returnvoid
+                                                            end ; code
+                                                         end ; body
+                                                      end ; method
+                                                   }
+                                                   
+                                                   public function get totalXp() : int
+                                                   {
+                                                      trait getter QName(PackageNamespace(""),"totalXp")
+                                                         dispid 0
+                                                         method
+                                                            name null
+                                                            returns QName(PackageNamespace(""),"int")
+                                                            
+                                                            body
+                                                               maxstack 2
+                                                               localcount 1
+                                                               initscopedepth 11
+                                                               maxscopedepth 12
+                                                               
+                                                               code
+                                                                  getlocal0
+                                                                  pushscope
+                                                                  getlocal0
+                                                                  getproperty QName(PrivateNamespace(null,"97"),"values")
+                                                                  getlex QName(PrivateNamespace(null,"97"),"TOTAL")
+                                                                  getproperty MultinameL([PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                                                  returnvalue
+                                                               end ; code
+                                                            end ; body
+                                                         end ; method
+                                                      }
+                                                      
+                                                      override public function enter(param1:Function = null) : void
+                                                      {
+                                                         trait method QName(PackageNamespace(""),"enter")
+                                                            flag OVERRIDE
+                                                            dispid 0
+                                                            method
+                                                               name null
+                                                               flag HAS_OPTIONAL
+                                                               param QName(PackageNamespace(""),"Function")
+                                                               optional Null()
+                                                               returns QName(PackageNamespace(""),"void")
+                                                               
+                                                               body
+                                                                  maxstack 6
+                                                                  localcount 2
+                                                                  initscopedepth 11
+                                                                  maxscopedepth 12
+                                                                  
+                                                                  code
+                                                                     getlocal0
+                                                                     pushscope
+                                                                     getlocal0
+                                                                     getlex QName(PackageNamespace("util"),"Util")
+                                                                     getlocal0
+                                                                     getproperty QName(PrivateNamespace(null,"97"),"showStats")
+                                                                     getlocal1
+                                                                     callproperty QName(PackageNamespace(""),"l"), 2
+                                                                     callsupervoid QName(PackageNamespace(""),"enter"), 1
+                                                                     getlex QName(PackageNamespace("util"),"Buttons")
+                                                                     getlex QName(ProtectedNamespace("cb.display:Screen"),"bg")
+                                                                     pushstring "replay"
+                                                                     pushstring "level_select"
+                                                                     pushstring "loot"
+                                                                     pushstring "next"
+                                                                     newarray 4
+                                                                     pushtrue
+                                                                     callpropvoid QName(PackageNamespace(""),"setButtons"), 3
+                                                                     getlocal0
+                                                                     getproperty QName(PrivateNamespace(null,"97"),"onNext")
+                                                                     pushnull
+                                                                     ifne ofs0045
+                                                                     getlex QName(ProtectedNamespace("cb.display:Screen"),"bg")
+                                                                     getlex QName(ProtectedNamespace("cb.display:Screen"),"bg")
+                                                                     pushstring "next"
+                                                                     getproperty MultinameL([PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                                                     callpropvoid QName(PackageNamespace(""),"removeChild"), 1
+                                                            ofs0045:
+                                                                     getlex QName(PackageNamespace(""),"main")
+                                                                     getproperty QName(PackageNamespace(""),"soundManager")
+                                                                     getlex QName(PackageNamespace("sound"),"GameSounds")
+                                                                     getproperty QName(PackageNamespace(""),"WIN_MUSIC")
+                                                                     callpropvoid QName(PackageNamespace(""),"playMusic"), 1
+                                                                     returnvoid
+                                                                  end ; code
+                                                               end ; body
+                                                            end ; method
+                                                         }
+                                                         
+                                                         override public function leave(param1:Function = null) : void
+                                                         {
+                                                            trait method QName(PackageNamespace(""),"leave")
+                                                               flag OVERRIDE
+                                                               dispid 0
+                                                               method
+                                                                  name null
+                                                                  flag HAS_OPTIONAL
+                                                                  param QName(PackageNamespace(""),"Function")
+                                                                  optional Null()
+                                                                  returns QName(PackageNamespace(""),"void")
+                                                                  
+                                                                  body
+                                                                     maxstack 4
+                                                                     localcount 2
+                                                                     initscopedepth 11
+                                                                     maxscopedepth 12
+                                                                     
+                                                                     code
+                                                                        getlocal0
+                                                                        pushscope
+                                                                        getlocal0
+                                                                        getproperty QName(PrivateNamespace(null,"97"),"loot")
+                                                                        callpropvoid QName(PackageNamespace(""),"pause"), 0
+                                                                        getlex QName(PackageNamespace(""),"main")
+                                                                        getproperty QName(PackageNamespace(""),"soundManager")
+                                                                        getlex QName(PackageNamespace("sound"),"GameSounds")
+                                                                        getproperty QName(PackageNamespace(""),"DUNGEON_COMPLETED")
+                                                                        callpropvoid QName(PackageNamespace(""),"stopFx"), 1
+                                                                        getlex QName(PackageNamespace(""),"main")
+                                                                        getproperty QName(PackageNamespace(""),"soundManager")
+                                                                        getlex QName(PackageNamespace("sound"),"GameSounds")
+                                                                        getproperty QName(PackageNamespace(""),"WIN_MUSIC")
+                                                                        callpropvoid QName(PackageNamespace(""),"stopMusic"), 1
+                                                                        getlocal0
+                                                                        getlex QName(PackageNamespace("util"),"Util")
+                                                                        getlocal0
+                                                                        getproperty QName(PrivateNamespace(null,"97"),"loot")
+                                                                        getproperty QName(PackageNamespace(""),"clear")
+                                                                        getlocal1
+                                                                        callproperty QName(PackageNamespace(""),"concatenate"), 2
+                                                                        callsupervoid QName(PackageNamespace(""),"leave"), 1
+                                                                        returnvoid
+                                                                     end ; code
+                                                                  end ; body
+                                                               end ; method
+                                                            }
+                                                            
+                                                            private function showStats(param1:Function = null) : void
+                                                            {
+                                                               trait method QName(PrivateNamespace(null,"97"),"showStats")
+                                                                  dispid 0
+                                                                  method
+                                                                     name null
+                                                                     flag HAS_OPTIONAL
+                                                                     param QName(PackageNamespace(""),"Function")
+                                                                     optional Null()
+                                                                     returns QName(PackageNamespace(""),"void")
+                                                                     
+                                                                     body
+                                                                        maxstack 20
+                                                                        localcount 2
+                                                                        initscopedepth 11
+                                                                        maxscopedepth 12
+                                                                        
+                                                                        code
+                                                                           getlocal0
+                                                                           pushscope
+                                                                           getlocal1
+                                                                           pushnull
+                                                                           ifeq ofs000d
+                                                                           getlocal1
+                                                                           getglobalscope
+                                                                           call 0
+                                                                           pop
+                                                                  ofs000d:
+                                                                           getlocal0
+                                                                           getproperty QName(PrivateNamespace(null,"97"),"loot")
+                                                                           callpropvoid QName(PackageNamespace(""),"showLoot"), 0
+                                                                           getlocal0
+                                                                           pushstring "combatXp"
+                                                                           getlocal0
+                                                                           getproperty QName(PrivateNamespace(null,"97"),"stats")
+                                                                           callproperty QName(PackageNamespace(""),"getCombatExperience"), 0
+                                                                           getlex QName(PrivateNamespace(null,"97"),"COMBAT_BONUS")
+                                                                           getlex QName(PackageNamespace("util"),"Util")
+                                                                           getlocal0
+                                                                           getproperty QName(PrivateNamespace(null,"97"),"updateProperty")
+                                                                           pushstring "criticalXp"
+                                                                           getlocal0
+                                                                           getproperty QName(PrivateNamespace(null,"97"),"stats")
+                                                                           callproperty QName(PackageNamespace(""),"getCriticalExperience"), 0
+                                                                           getlex QName(PrivateNamespace(null,"97"),"CRITICAL_BONUS")
+                                                                           getlex QName(PackageNamespace("util"),"Util")
+                                                                           getlocal0
+                                                                           getproperty QName(PrivateNamespace(null,"97"),"updateProperty")
+                                                                           pushstring "mixXp"
+                                                                           getlocal0
+                                                                           getproperty QName(PrivateNamespace(null,"97"),"stats")
+                                                                           callproperty QName(PackageNamespace(""),"getMixExperience"), 0
+                                                                           getlex QName(PrivateNamespace(null,"97"),"MIX_BONUS")
+                                                                           getlex QName(PackageNamespace("util"),"Util")
+                                                                           getlocal0
+                                                                           getproperty QName(PrivateNamespace(null,"97"),"updateProperty")
+                                                                           pushstring "totalXp"
+                                                                           getlocal0
+                                                                           getproperty QName(PrivateNamespace(null,"97"),"stats")
+                                                                           callproperty QName(PackageNamespace(""),"getDungeonExperience"), 0
+                                                                           getlex QName(PrivateNamespace(null,"97"),"TOTAL_BONUS")
+                                                                           getlocal0
+                                                                           getproperty QName(PrivateNamespace(null,"97"),"giveXp")
+                                                                           callproperty QName(PackageNamespace(""),"l"), 5
+                                                                           callproperty QName(PackageNamespace(""),"l"), 5
+                                                                           callproperty QName(PackageNamespace(""),"l"), 5
+                                                                           callpropvoid QName(PrivateNamespace(null,"97"),"updateProperty"), 4
+                                                                           getlex QName(PackageNamespace(""),"onShow")
+                                                                           pushnull
+                                                                           ifeq ofs0086
+                                                                           findpropstrict QName(PackageNamespace(""),"onShow")
+                                                                           callpropvoid QName(PackageNamespace(""),"onShow"), 0
+                                                                  ofs0086:
+                                                                           returnvoid
+                                                                        end ; code
+                                                                     end ; body
+                                                                  end ; method
+                                                               }
+                                                               
+                                                               private function giveXp() : void
+                                                               {
+                                                                  trait method QName(PrivateNamespace(null,"97"),"giveXp")
+                                                                     dispid 0
+                                                                     method
+                                                                        name null
+                                                                        returns QName(PackageNamespace(""),"void")
+                                                                        
+                                                                        body
+                                                                           maxstack 2
+                                                                           localcount 3
+                                                                           initscopedepth 11
+                                                                           maxscopedepth 12
+                                                                           
+                                                                           code
+                                                                              getlocal0
+                                                                              pushscope
+                                                                              getlex QName(PackageNamespace(""),"main")
+                                                                              getproperty QName(PackageNamespace(""),"game")
+                                                                              callproperty QName(PackageNamespace(""),"getFinn"), 0
+                                                                              getproperty QName(PackageNamespace(""),"stats")
+                                                                              coerce QName(PackageNamespace("main_game.character.stats"),"Stats")
+                                                                              setlocal1
+                                                                              getlocal1
+                                                                              callproperty QName(PackageNamespace(""),"getLevel"), 0
+                                                                              convert_u
+                                                                              setlocal2
+                                                                              getlocal1
+                                                                              getlocal0
+                                                                              getproperty QName(PrivateNamespace(null,"97"),"stats")
+                                                                              callproperty QName(PackageNamespace(""),"getDungeonExperience"), 0
+                                                                              callpropvoid QName(PackageNamespace(""),"addXP"), 1
+                                                                              getlocal2
+                                                                              getlocal1
+                                                                              callproperty QName(PackageNamespace(""),"getLevel"), 0
+                                                                              ifnlt ofs0038
+                                                                              findpropstrict QName(PackageNamespace("view.popUp"),"LevelUp")
+                                                                              constructprop QName(PackageNamespace("view.popUp"),"LevelUp"), 0
+                                                                              pop
+                                                                     ofs0038:
+                                                                              returnvoid
+                                                                           end ; code
+                                                                        end ; body
+                                                                     end ; method
+                                                                  }
+                                                                  
+                                                                  private function updateProperty(param1:String, param2:int, param3:String, param4:Function) : void
+                                                                  {
+                                                                     trait method QName(PrivateNamespace(null,"97"),"updateProperty")
+                                                                        dispid 0
+                                                                        method
+                                                                           name null
+                                                                           param QName(PackageNamespace(""),"String")
+                                                                           param QName(PackageNamespace(""),"int")
+                                                                           param QName(PackageNamespace(""),"String")
+                                                                           param QName(PackageNamespace(""),"Function")
+                                                                           returns QName(PackageNamespace(""),"void")
+                                                                           
+                                                                           body
+                                                                              maxstack 9
+                                                                              localcount 6
+                                                                              initscopedepth 11
+                                                                              maxscopedepth 12
+                                                                              
+                                                                              code
+                                                                                 getlocal0
+                                                                                 pushscope
+                                                                                 pushnull
+                                                                                 coerce QName(PackageNamespace(""),"Object")
+                                                                                 setlocal 5
+                                                                                 getlocal2
+                                                                                 getlocal0
+                                                                                 getlocal1
+                                                                                 getproperty MultinameL([PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                                                                 ifne ofs001b
+                                                                                 getlocal 4
+                                                                                 getglobalscope
+                                                                                 call 0
+                                                                                 pop
+                                                                                 jump ofs0050
+                                                                        ofs001b:
+                                                                                 findpropstrict QName(PackageNamespace(""),"Object")
+                                                                                 constructprop QName(PackageNamespace(""),"Object"), 0
+                                                                                 coerce QName(PackageNamespace(""),"Object")
+                                                                                 dup
+                                                                                 setlocal 5
+                                                                                 getlocal1
+                                                                                 getlocal2
+                                                                                 setproperty MultinameL([PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                                                                 getlex QName(PackageNamespace("cb.utils"),"Tween")
+                                                                                 getlocal0
+                                                                                 pushshort 700
+                                                                                 getlocal 5
+                                                                                 getlex QName(PackageNamespace("util"),"Util")
+                                                                                 getlocal0
+                                                                                 getproperty QName(PrivateNamespace(null,"97"),"makeFinalCountAnimation")
+                                                                                 getlocal0
+                                                                                 getproperty QName(PackageNamespace(""),"infoMc")
+                                                                                 getlocal3
+                                                                                 pushstring "_xp"
+                                                                                 add
+                                                                                 getproperty MultinameL([PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                                                                 getlocal 4
+                                                                                 callproperty QName(PackageNamespace(""),"l"), 3
+                                                                                 callpropvoid QName(PackageNamespace(""),"to"), 4
+                                                                        ofs0050:
+                                                                                 returnvoid
+                                                                              end ; code
+                                                                           end ; body
+                                                                        end ; method
+                                                                     }
+                                                                     
+                                                                     private function makeFinalCountAnimation(param1:MovieClip, param2:Function) : void
+                                                                     {
+                                                                        trait method QName(PrivateNamespace(null,"97"),"makeFinalCountAnimation")
+                                                                           dispid 0
+                                                                           method
+                                                                              name null
+                                                                              param QName(PackageNamespace("flash.display"),"MovieClip")
+                                                                              param QName(PackageNamespace(""),"Function")
+                                                                              returns QName(PackageNamespace(""),"void")
+                                                                              
+                                                                              body
+                                                                                 maxstack 2
+                                                                                 localcount 3
+                                                                                 initscopedepth 11
+                                                                                 maxscopedepth 12
+                                                                                 
+                                                                                 code
+                                                                                    getlocal0
+                                                                                    pushscope
+                                                                                    getlocal1
+                                                                                    pushbyte 1
+                                                                                    callpropvoid QName(PackageNamespace(""),"gotoAndPlay"), 1
+                                                                                    getlocal2
+                                                                                    getglobalscope
+                                                                                    call 0
+                                                                                    pop
+                                                                                    returnvoid
+                                                                                 end ; code
+                                                                              end ; body
+                                                                           end ; method
+                                                                        }
+                                                                        
+                                                                        private function getButtonInfo() : Dictionary
+                                                                        {
+                                                                           trait method QName(PrivateNamespace(null,"97"),"getButtonInfo")
+                                                                              dispid 0
+                                                                              method
+                                                                                 name null
+                                                                                 returns QName(PackageNamespace("flash.utils"),"Dictionary")
+                                                                                 
+                                                                                 body
+                                                                                    maxstack 6
+                                                                                    localcount 3
+                                                                                    initscopedepth 11
+                                                                                    maxscopedepth 12
+                                                                                    
+                                                                                    code
+                                                                                       getlocal0
+                                                                                       pushscope
+                                                                                       findpropstrict QName(PackageNamespace("flash.utils"),"Dictionary")
+                                                                                       constructprop QName(PackageNamespace("flash.utils"),"Dictionary"), 0
+                                                                                       coerce QName(PackageNamespace("flash.utils"),"Dictionary")
+                                                                                       setlocal1
+                                                                                       getlex QName(PackageNamespace("cb.data"),"ButtonGroup")
+                                                                                       pushstring "gui"
+                                                                                       callproperty QName(PackageNamespace(""),"get"), 1
+                                                                                       coerce QName(PackageNamespace("cb.data"),"ButtonGroup")
+                                                                                       setlocal2
+                                                                                       getlocal1
+                                                                                       pushstring "replay"
+                                                                                       getlocal2
+                                                                                       getlocal0
+                                                                                       getproperty QName(PrivateNamespace(null,"97"),"replay")
+                                                                                       pushstring "mouseOver"
+                                                                                       pushstring "mouseOut"
+                                                                                       callproperty QName(PackageNamespace(""),"createButton"), 3
+                                                                                       setproperty MultinameL([PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                                                                       getlocal1
+                                                                                       pushstring "level_select"
+                                                                                       getlocal2
+                                                                                       getlocal0
+                                                                                       getproperty QName(PrivateNamespace(null,"97"),"toMap")
+                                                                                       pushstring "mouseOver"
+                                                                                       pushstring "mouseOut"
+                                                                                       callproperty QName(PackageNamespace(""),"createButton"), 3
+                                                                                       setproperty MultinameL([PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                                                                       getlocal1
+                                                                                       pushstring "next"
+                                                                                       getlocal2
+                                                                                       getlocal0
+                                                                                       getproperty QName(PrivateNamespace(null,"97"),"next")
+                                                                                       pushstring "mouseOver"
+                                                                                       pushstring "mouseOut"
+                                                                                       callproperty QName(PackageNamespace(""),"createButton"), 3
+                                                                                       setproperty MultinameL([PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                                                                       getlocal1
+                                                                                       pushstring "loot"
+                                                                                       getlocal2
+                                                                                       getlocal0
+                                                                                       getproperty QName(PrivateNamespace(null,"97"),"takeAllLoot")
+                                                                                       pushstring "mouseOver"
+                                                                                       pushstring "mouseOut"
+                                                                                       callproperty QName(PackageNamespace(""),"createButton"), 3
+                                                                                       setproperty MultinameL([PrivateNamespace(null,"97"),PackageNamespace(""),PackageNamespace("view.screens.main_game.dungeon"),PrivateNamespace(null,"272"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens.main_game.dungeon:WinWindow"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                                                                       getlocal1
+                                                                                       returnvalue
+                                                                                    end ; code
+                                                                                 end ; body
+                                                                              end ; method
+                                                                           }
+                                                                           
+                                                                           private function takeAllLoot(param1:MouseEvent) : void
+                                                                           {
+                                                                              trait method QName(PrivateNamespace(null,"97"),"takeAllLoot")
+                                                                                 dispid 0
+                                                                                 method
+                                                                                    name null
+                                                                                    param QName(PackageNamespace("flash.events"),"MouseEvent")
+                                                                                    returns QName(PackageNamespace(""),"void")
+                                                                                    
+                                                                                    body
+                                                                                       maxstack 4
+                                                                                       localcount 2
+                                                                                       initscopedepth 11
+                                                                                       maxscopedepth 12
+                                                                                       
+                                                                                       code
+                                                                                          getlocal0
+                                                                                          pushscope
+                                                                                          getlocal0
+                                                                                          getproperty QName(PrivateNamespace(null,"97"),"loot")
+                                                                                          callpropvoid QName(PackageNamespace(""),"takeAll"), 0
+                                                                                          getlex QName(PackageNamespace("util"),"Buttons")
+                                                                                          getlex QName(ProtectedNamespace("cb.display:Screen"),"bg")
+                                                                                          pushstring "loot"
+                                                                                          newarray 1
+                                                                                          getlocal0
+                                                                                          getproperty QName(PrivateNamespace(null,"97"),"loot")
+                                                                                          callproperty QName(PackageNamespace(""),"isEmpty"), 0
+                                                                                          not
+                                                                                          callpropvoid QName(PackageNamespace(""),"setButtons"), 3
+                                                                                          returnvoid
+                                                                                       end ; code
+                                                                                    end ; body
+                                                                                 end ; method
+                                                                              }
+                                                                              
+                                                                              private function replay(param1:MouseEvent) : void
+                                                                              {
+                                                                                 trait method QName(PrivateNamespace(null,"97"),"replay")
+                                                                                    dispid 0
+                                                                                    method
+                                                                                       name null
+                                                                                       flag NEED_ACTIVATION
+                                                                                       param QName(PackageNamespace("flash.events"),"MouseEvent")
+                                                                                       returns QName(PackageNamespace(""),"void")
+                                                                                       
+                                                                                       body
+                                                                                          maxstack 5
+                                                                                          localcount 3
+                                                                                          initscopedepth 12
+                                                                                          maxscopedepth 14
+                                                                                          trait slot QName(PackageInternalNs("view.screens.main_game.dungeon"),"me")
+                                                                                             slotid 1
+                                                                                             type QName(PackageNamespace("flash.events"),"MouseEvent")
+                                                                                          end ; trait
+                                                                                          
+                                                                                          code
+                                                                                             getlocal0
+                                                                                             pushscope
+                                                                                             newactivation
+                                                                                             dup
+                                                                                             setlocal2
+                                                                                             pushscope
+                                                                                             getscopeobject 1
+                                                                                             getlocal1
+                                                                                             setslot 1
+                                                                                             getlocal0
+                                                                                             callpropvoid QName(PrivateNamespace(null,"97"),"stopTweens"), 0
+                                                                                             getlex QName(PackageNamespace("util"),"Buttons")
+                                                                                             getlex QName(ProtectedNamespace("cb.display:Screen"),"bg")
+                                                                                             pushstring "replay"
+                                                                                             pushstring "level_select"
+                                                                                             pushstring "loot"
+                                                                                             newarray 3
+                                                                                             pushfalse
+                                                                                             callpropvoid QName(PackageNamespace(""),"setButtons"), 3
+                                                                                             getlocal0
+                                                                                             getproperty QName(PrivateNamespace(null,"97"),"onNext")
+                                                                                             pushnull
+                                                                                             ifeq ofs003f
+                                                                                             getlex QName(PackageNamespace("util"),"Buttons")
+                                                                                             getlex QName(ProtectedNamespace("cb.display:Screen"),"bg")
+                                                                                             pushstring "next"
+                                                                                             newarray 1
+                                                                                             pushfalse
+                                                                                             callpropvoid QName(PackageNamespace(""),"setButtons"), 3
+                                                                                    ofs003f:
+                                                                                             getlocal0
+                                                                                             getproperty QName(PrivateNamespace(null,"97"),"onReplay")
+                                                                                             callpropvoid QName(PackageNamespace(""),"emit"), 0
+                                                                                             getlocal0
+                                                                                             newfunction 1619
+                                                                                             callpropvoid QName(PackageNamespace(""),"leave"), 1
+                                                                                             returnvoid
+                                                                                          end ; code
+                                                                                       end ; body
+                                                                                    end ; method
+                                                                                 }
+                                                                                 
+                                                                                 private function toMap(param1:MouseEvent) : void
+                                                                                 {
+                                                                                    trait method QName(PrivateNamespace(null,"97"),"toMap")
+                                                                                       dispid 0
+                                                                                       method
+                                                                                          name null
+                                                                                          flag NEED_ACTIVATION
+                                                                                          param QName(PackageNamespace("flash.events"),"MouseEvent")
+                                                                                          returns QName(PackageNamespace(""),"void")
+                                                                                          
+                                                                                          body
+                                                                                             maxstack 5
+                                                                                             localcount 3
+                                                                                             initscopedepth 12
+                                                                                             maxscopedepth 14
+                                                                                             trait slot QName(PackageInternalNs("view.screens.main_game.dungeon"),"me")
+                                                                                                slotid 1
+                                                                                                type QName(PackageNamespace("flash.events"),"MouseEvent")
+                                                                                             end ; trait
+                                                                                             
+                                                                                             code
+                                                                                                getlocal0
+                                                                                                pushscope
+                                                                                                newactivation
+                                                                                                dup
+                                                                                                setlocal2
+                                                                                                pushscope
+                                                                                                getscopeobject 1
+                                                                                                getlocal1
+                                                                                                setslot 1
+                                                                                                getlocal0
+                                                                                                callpropvoid QName(PrivateNamespace(null,"97"),"stopTweens"), 0
+                                                                                                getlex QName(PackageNamespace("util"),"Buttons")
+                                                                                                getlex QName(ProtectedNamespace("cb.display:Screen"),"bg")
+                                                                                                pushstring "replay"
+                                                                                                pushstring "level_select"
+                                                                                                pushstring "loot"
+                                                                                                newarray 3
+                                                                                                pushfalse
+                                                                                                callpropvoid QName(PackageNamespace(""),"setButtons"), 3
+                                                                                                getlocal0
+                                                                                                getproperty QName(PrivateNamespace(null,"97"),"onNext")
+                                                                                                pushnull
+                                                                                                ifeq ofs003f
+                                                                                                getlex QName(PackageNamespace("util"),"Buttons")
+                                                                                                getlex QName(ProtectedNamespace("cb.display:Screen"),"bg")
+                                                                                                pushstring "next"
+                                                                                                newarray 1
+                                                                                                pushfalse
+                                                                                                callpropvoid QName(PackageNamespace(""),"setButtons"), 3
+                                                                                       ofs003f:
+                                                                                                getlocal0
+                                                                                                getproperty QName(PrivateNamespace(null,"97"),"onBackToMap")
+                                                                                                callpropvoid QName(PackageNamespace(""),"emit"), 0
+                                                                                                getlocal0
+                                                                                                newfunction 1621
+                                                                                                callpropvoid QName(PackageNamespace(""),"leave"), 1
+                                                                                                returnvoid
+                                                                                             end ; code
+                                                                                          end ; body
+                                                                                       end ; method
+                                                                                    }
+                                                                                    
+                                                                                    private function next(param1:MouseEvent) : void
+                                                                                    {
+                                                                                       trait method QName(PrivateNamespace(null,"97"),"next")
+                                                                                          dispid 0
+                                                                                          method
+                                                                                             name null
+                                                                                             flag NEED_ACTIVATION
+                                                                                             param QName(PackageNamespace("flash.events"),"MouseEvent")
+                                                                                             returns QName(PackageNamespace(""),"void")
+                                                                                             
+                                                                                             body
+                                                                                                maxstack 5
+                                                                                                localcount 3
+                                                                                                initscopedepth 12
+                                                                                                maxscopedepth 14
+                                                                                                trait slot QName(PackageInternalNs("view.screens.main_game.dungeon"),"me")
+                                                                                                   slotid 1
+                                                                                                   type QName(PackageNamespace("flash.events"),"MouseEvent")
+                                                                                                end ; trait
+                                                                                                
+                                                                                                code
+                                                                                                   getlocal0
+                                                                                                   pushscope
+                                                                                                   newactivation
+                                                                                                   dup
+                                                                                                   setlocal2
+                                                                                                   pushscope
+                                                                                                   getscopeobject 1
+                                                                                                   getlocal1
+                                                                                                   setslot 1
+                                                                                                   getlocal0
+                                                                                                   callpropvoid QName(PrivateNamespace(null,"97"),"stopTweens"), 0
+                                                                                                   getlex QName(PackageNamespace("util"),"Buttons")
+                                                                                                   getlex QName(ProtectedNamespace("cb.display:Screen"),"bg")
+                                                                                                   pushstring "replay"
+                                                                                                   pushstring "level_select"
+                                                                                                   pushstring "loot"
+                                                                                                   newarray 3
+                                                                                                   pushfalse
+                                                                                                   callpropvoid QName(PackageNamespace(""),"setButtons"), 3
+                                                                                                   getlocal0
+                                                                                                   getproperty QName(PrivateNamespace(null,"97"),"onNext")
+                                                                                                   pushnull
+                                                                                                   ifeq ofs0044
+                                                                                                   getlex QName(PackageNamespace("util"),"Buttons")
+                                                                                                   getlex QName(ProtectedNamespace("cb.display:Screen"),"bg")
+                                                                                                   pushstring "next"
+                                                                                                   newarray 1
+                                                                                                   pushfalse
+                                                                                                   callpropvoid QName(PackageNamespace(""),"setButtons"), 3
+                                                                                                   getlocal0
+                                                                                                   callpropvoid QName(PrivateNamespace(null,"97"),"onNext"), 0
+                                                                                          ofs0044:
+                                                                                                   getlocal0
+                                                                                                   newfunction 1623
+                                                                                                   callpropvoid QName(PackageNamespace(""),"leave"), 1
+                                                                                                   returnvoid
+                                                                                                end ; code
+                                                                                             end ; body
+                                                                                          end ; method
+                                                                                       }
+                                                                                       
+                                                                                       private function stopTweens() : void
+                                                                                       {
+                                                                                          trait method QName(PrivateNamespace(null,"97"),"stopTweens")
+                                                                                             dispid 0
+                                                                                             method
+                                                                                                name null
+                                                                                                returns QName(PackageNamespace(""),"void")
+                                                                                                
+                                                                                                body
+                                                                                                   maxstack 2
+                                                                                                   localcount 1
+                                                                                                   initscopedepth 11
+                                                                                                   maxscopedepth 12
+                                                                                                   
+                                                                                                   code
+                                                                                                      getlocal0
+                                                                                                      pushscope
+                                                                                                      getlex QName(PackageNamespace("cb.utils"),"Tween")
+                                                                                                      getlocal0
+                                                                                                      callproperty QName(PackageNamespace(""),"isTweening"), 1
+                                                                                                      iffalse ofs001b
+                                                                                                      getlex QName(PackageNamespace("cb.utils"),"Tween")
+                                                                                                      getlocal0
+                                                                                                      callpropvoid QName(PackageNamespace(""),"killTweensOf"), 1
+                                                                                                      getlocal0
+                                                                                                      callpropvoid QName(PrivateNamespace(null,"97"),"giveXp"), 0
+                                                                                             ofs001b:
+                                                                                                      returnvoid
+                                                                                                   end ; code
+                                                                                                end ; body
+                                                                                             end ; method
+                                                                                          }
+                                                                                          
+                                                                                          private function exit() : void
+                                                                                          {
+                                                                                             trait method QName(PrivateNamespace(null,"97"),"exit")
+                                                                                                dispid 0
+                                                                                                method
+                                                                                                   name null
+                                                                                                   returns QName(PackageNamespace(""),"void")
+                                                                                                   
+                                                                                                   body
+                                                                                                      maxstack 2
+                                                                                                      localcount 1
+                                                                                                      initscopedepth 11
+                                                                                                      maxscopedepth 12
+                                                                                                      
+                                                                                                      code
+                                                                                                         getlocal0
+                                                                                                         pushscope
+                                                                                                         getlocal0
+                                                                                                         pushnull
+                                                                                                         setproperty QName(PrivateNamespace(null,"97"),"loot")
+                                                                                                         getlocal0
+                                                                                                         pushnull
+                                                                                                         setproperty QName(PrivateNamespace(null,"97"),"stats")
+                                                                                                         getlocal0
+                                                                                                         getproperty QName(PrivateNamespace(null,"97"),"onBackToMap")
+                                                                                                         callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                                                                                         getlocal0
+                                                                                                         getproperty QName(PrivateNamespace(null,"97"),"onReplay")
+                                                                                                         callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                                                                                         getlocal0
+                                                                                                         pushnull
+                                                                                                         initproperty QName(PrivateNamespace(null,"97"),"onNext")
+                                                                                                         findpropstrict QName(PackageNamespace(""),"removeEvents")
+                                                                                                         callpropvoid QName(PackageNamespace(""),"removeEvents"), 0
+                                                                                                         findpropstrict QName(ProtectedNamespace("cb.display:Screen"),"pop")
+                                                                                                         callpropvoid QName(ProtectedNamespace("cb.display:Screen"),"pop"), 0
+                                                                                                         returnvoid
+                                                                                                      end ; code
+                                                                                                   end ; body
+                                                                                                end ; method
+                                                                                             }
+                                                                                          }
+                                                                                       }
+                                                                                       
+                                                                                       method
+                                                                                          name null
+                                                                                          returns null
+                                                                                          
+                                                                                          body
+                                                                                             maxstack 2
+                                                                                             localcount 1
+                                                                                             initscopedepth 1
+                                                                                             maxscopedepth 10
+                                                                                             
+                                                                                             code
+                                                                                                getlocal0
+                                                                                                pushscope
+                                                                                                findpropstrict Multiname("WinWindow",[PackageNamespace("view.screens.main_game.dungeon")])
+                                                                                                getlex QName(PackageNamespace(""),"Object")
+                                                                                                pushscope
+                                                                                                getlex QName(PackageNamespace("flash.events"),"EventDispatcher")
+                                                                                                pushscope
+                                                                                                getlex QName(PackageNamespace("flash.display"),"DisplayObject")
+                                                                                                pushscope
+                                                                                                getlex QName(PackageNamespace("flash.display"),"InteractiveObject")
+                                                                                                pushscope
+                                                                                                getlex QName(PackageNamespace("flash.display"),"DisplayObjectContainer")
+                                                                                                pushscope
+                                                                                                getlex QName(PackageNamespace("flash.display"),"Sprite")
+                                                                                                pushscope
+                                                                                                getlex QName(PackageNamespace("cb.display"),"Screen")
+                                                                                                pushscope
+                                                                                                getlex QName(PackageNamespace("view.screens"),"AnimatedScreen")
+                                                                                                pushscope
+                                                                                                getlex QName(PackageNamespace("view.screens"),"AnimatedScreen")
+                                                                                                newclass 169
+                                                                                                popscope
+                                                                                                popscope
+                                                                                                popscope
+                                                                                                popscope
+                                                                                                popscope
+                                                                                                popscope
+                                                                                                popscope
+                                                                                                popscope
+                                                                                                initproperty QName(PackageNamespace("view.screens.main_game.dungeon"),"WinWindow")
+                                                                                                returnvoid
+                                                                                             end ; code
+                                                                                          end ; body
+                                                                                       end ; method
+                                                                                       

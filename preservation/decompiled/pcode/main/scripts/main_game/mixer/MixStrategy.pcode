@@ -1,0 +1,1339 @@
+package main_game.mixer
+{
+   import flash.utils.Dictionary;
+   import main_game.character.stats.StatType;
+   import main_game.items.*;
+   import main_game.items.modifiers.IModifier;
+   import main_game.items.modifiers.NullModifier;
+   
+   public class MixStrategy
+   {
+      
+      private static var recipes:MixData;
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function MixStrategy()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 1
+               localcount 1
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public static function set config(param1:Dictionary) : void
+      {
+         trait setter QName(PackageNamespace(""),"config")
+            flag FINAL
+            dispid 3
+            method
+               name null
+               param QName(PackageNamespace("flash.utils"),"Dictionary")
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 3
+                  localcount 2
+                  initscopedepth 3
+                  maxscopedepth 4
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     findproperty QName(PrivateNamespace(null,"48"),"recipes")
+                     findpropstrict QName(PackageNamespace("main_game.mixer"),"MixData")
+                     getlocal1
+                     constructprop QName(PackageNamespace("main_game.mixer"),"MixData"), 1
+                     setproperty QName(PrivateNamespace(null,"48"),"recipes")
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public static function get mixConfig() : Object
+         {
+            trait getter QName(PackageNamespace(""),"mixConfig")
+               flag FINAL
+               dispid 4
+               method
+                  name null
+                  returns QName(PackageNamespace(""),"Object")
+                  
+                  body
+                     maxstack 2
+                     localcount 1
+                     initscopedepth 3
+                     maxscopedepth 4
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlex QName(PackageNamespace(""),"main")
+                        getproperty QName(PackageNamespace(""),"config")
+                        pushstring "MixConfig"
+                        callproperty QName(PackageNamespace(""),"get"), 1
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public static function isSpecial(param1:Item) : Boolean
+            {
+               trait method QName(PackageNamespace(""),"isSpecial")
+                  flag FINAL
+                  dispid 5
+                  method
+                     name null
+                     param QName(PackageNamespace("main_game.items"),"Item")
+                     returns QName(PackageNamespace(""),"Boolean")
+                     
+                     body
+                        maxstack 2
+                        localcount 5
+                        initscopedepth 3
+                        maxscopedepth 4
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           pushnull
+                           coerce QName(PackageNamespace("main_game.mixer"),"Recipe")
+                           setlocal2
+                           pushbyte 0
+                           setlocal3
+                           getlex QName(PrivateNamespace(null,"48"),"recipes")
+                           callproperty QName(PackageNamespace(""),"getRecipes"), 0
+                           coerce_a
+                           setlocal 4
+                           jump ofs002b
+                  ofs0017:
+                           label
+                           getlocal 4
+                           getlocal3
+                           nextvalue
+                           coerce QName(PackageNamespace("main_game.mixer"),"Recipe")
+                           setlocal2
+                           getlocal2
+                           getlocal1
+                           callproperty QName(PackageNamespace(""),"isResult"), 1
+                           iffalse ofs002b
+                           pushtrue
+                           returnvalue
+                  ofs002b:
+                           hasnext2 4, 3
+                           iftrue ofs0017
+                           kill 4
+                           kill 3
+                           pushfalse
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public static function getSpecialMixId(param1:Item, param2:Item, param3:Boolean = false) : Recipe
+               {
+                  trait method QName(PackageNamespace(""),"getSpecialMixId")
+                     flag FINAL
+                     dispid 6
+                     method
+                        name null
+                        flag HAS_OPTIONAL
+                        param QName(PackageNamespace("main_game.items"),"Item")
+                        param QName(PackageNamespace("main_game.items"),"Item")
+                        param QName(PackageNamespace(""),"Boolean")
+                        optional False()
+                        returns QName(PackageNamespace("main_game.mixer"),"Recipe")
+                        
+                        body
+                           maxstack 4
+                           localcount 7
+                           initscopedepth 3
+                           maxscopedepth 4
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              pushnull
+                              coerce QName(PackageNamespace("main_game.mixer"),"Recipe")
+                              setlocal 4
+                              pushbyte 0
+                              setlocal 5
+                              getlex QName(PrivateNamespace(null,"48"),"recipes")
+                              callproperty QName(PackageNamespace(""),"getRecipes"), 0
+                              coerce_a
+                              setlocal 6
+                              jump ofs0032
+                     ofs0019:
+                              label
+                              getlocal 6
+                              getlocal 5
+                              nextvalue
+                              coerce QName(PackageNamespace("main_game.mixer"),"Recipe")
+                              dup
+                              setlocal 4
+                              getlocal1
+                              getlocal2
+                              getlocal3
+                              callproperty QName(PackageNamespace(""),"areIngredients"), 3
+                              iffalse ofs0032
+                              getlocal 4
+                              returnvalue
+                     ofs0032:
+                              hasnext2 6, 5
+                              iftrue ofs0019
+                              kill 6
+                              kill 5
+                              pushnull
+                              returnvalue
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public static function getRecipe(param1:int) : Recipe
+                  {
+                     trait method QName(PackageNamespace(""),"getRecipe")
+                        flag FINAL
+                        dispid 7
+                        method
+                           name null
+                           param QName(PackageNamespace(""),"int")
+                           returns QName(PackageNamespace("main_game.mixer"),"Recipe")
+                           
+                           body
+                              maxstack 2
+                              localcount 2
+                              initscopedepth 3
+                              maxscopedepth 4
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlex QName(PrivateNamespace(null,"48"),"recipes")
+                                 getlocal1
+                                 callproperty QName(PackageNamespace(""),"getRecipeById"), 1
+                                 returnvalue
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     public static function removeMix(param1:String) : String
+                     {
+                        trait method QName(PackageNamespace(""),"removeMix")
+                           flag FINAL
+                           dispid 8
+                           method
+                              name null
+                              param QName(PackageNamespace(""),"String")
+                              returns QName(PackageNamespace(""),"String")
+                              
+                              body
+                                 maxstack 2
+                                 localcount 2
+                                 initscopedepth 3
+                                 maxscopedepth 4
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    getlocal1
+                                    pushstring "Mix_"
+                                    callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"search"), 1
+                                    pushbyte 0
+                                    ifne ofs0018
+                                    getlocal1
+                                    pushbyte 4
+                                    callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"substring"), 1
+                                    returnvalue
+                           ofs0018:
+                                    getlocal1
+                                    returnvalue
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        public function getMix(param1:Item, param2:Item) : MixResult
+                        {
+                           trait method QName(PackageNamespace(""),"getMix")
+                              dispid 0
+                              method
+                                 name null
+                                 param QName(PackageNamespace("main_game.items"),"Item")
+                                 param QName(PackageNamespace("main_game.items"),"Item")
+                                 returns QName(PackageNamespace("main_game.mixer"),"MixResult")
+                                 
+                                 body
+                                    maxstack 4
+                                    localcount 13
+                                    initscopedepth 4
+                                    maxscopedepth 5
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       pushnull
+                                       coerce QName(PackageNamespace("main_game.items"),"Item")
+                                       setlocal 5
+                                       pushfalse
+                                       setlocal 6
+                                       pushnull
+                                       coerce QName(PackageNamespace(""),"Object")
+                                       setlocal 7
+                                       pushnull
+                                       coerce_s
+                                       setlocal 8
+                                       pushnull
+                                       coerce QName(PackageNamespace(""),"Object")
+                                       setlocal 9
+                                       pushnull
+                                       coerce_s
+                                       setlocal 10
+                                       getlex QName(PackageNamespace("main_game.items"),"ItemFactory")
+                                       callproperty QName(PackageNamespace(""),"getInstance"), 0
+                                       coerce QName(PackageNamespace("main_game.items"),"ItemFactory")
+                                       setlocal3
+                                       findpropstrict QName(PackageNamespace(""),"getSpecialMixId")
+                                       getlocal1
+                                       getlocal2
+                                       callproperty QName(PackageNamespace(""),"getSpecialMixId"), 2
+                                       coerce QName(PackageNamespace("main_game.mixer"),"Recipe")
+                                       dup
+                                       setlocal 4
+                                       pushnull
+                                       ifeq ofs0158
+                                       pushfalse
+                                       setlocal 6
+                                       getlocal1
+                                       callproperty QName(PackageNamespace(""),"getCategory"), 0
+                                       getproperty QName(PackageNamespace(""),"type")
+                                       getlex QName(PackageNamespace("main_game.items"),"Category")
+                                       getproperty QName(PackageNamespace(""),"SHIELD_CATEGORY")
+                                       equals
+                                       dup
+                                       iftrue ofs005d
+                                       pop
+                                       getlocal1
+                                       callproperty QName(PackageNamespace(""),"getCategory"), 0
+                                       getproperty QName(PackageNamespace(""),"type")
+                                       getlex QName(PackageNamespace("main_game.items"),"Category")
+                                       getproperty QName(PackageNamespace(""),"WEAPON_CATEGORY")
+                                       equals
+                              ofs005d:
+                                       iffalse ofs0129
+                                       getlocal3
+                                       getlocal 4
+                                       getproperty QName(PackageNamespace(""),"result")
+                                       callproperty QName(PackageNamespace(""),"getConfigOfItem"), 1
+                                       coerce QName(PackageNamespace(""),"Object")
+                                       setlocal 7
+                                       pushstring "Mix_"
+                                       findpropstrict QName(PackageNamespace(""),"removeMix")
+                                       getlocal 4
+                                       getproperty QName(PackageNamespace(""),"result")
+                                       callproperty QName(PackageNamespace(""),"removeMix"), 1
+                                       add
+                                       coerce_s
+                                       setlocal 8
+                                       findpropstrict QName(PackageNamespace(""),"Object")
+                                       constructprop QName(PackageNamespace(""),"Object"), 0
+                                       coerce QName(PackageNamespace(""),"Object")
+                                       setlocal 9
+                                       pushbyte 0
+                                       setlocal 11
+                                       getlocal 7
+                                       coerce_a
+                                       setlocal 12
+                                       jump ofs00af
+                              ofs0098:
+                                       label
+                                       getlocal 12
+                                       getlocal 11
+                                       nextname
+                                       coerce_s
+                                       setlocal 10
+                                       getlocal 9
+                                       getlocal 10
+                                       getlocal 7
+                                       getlocal 10
+                                       getproperty MultinameL([PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                       setproperty MultinameL([PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                              ofs00af:
+                                       hasnext2 12, 11
+                                       iftrue ofs0098
+                                       kill 12
+                                       kill 11
+                                       getlocal 9
+                                       getlocal1
+                                       callproperty QName(PackageNamespace(""),"getPrimaryModifier"), 0
+                                       callproperty QName(Namespace("main_game.items.modifiers:IModifier"),"toObject"), 0
+                                       setproperty Multiname("FirstModifier",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                       getlocal 9
+                                       getproperty Multiname("FirstModifier",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                       getlex QName(PackageNamespace(""),"Math")
+                                       getlocal 9
+                                       getproperty Multiname("FirstModifier",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                       getproperty Multiname("Value",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                       getlocal 7
+                                       getproperty Multiname("FirstModifier",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                       getproperty Multiname("Value",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                       callproperty QName(PackageNamespace(""),"max"), 2
+                                       setproperty Multiname("Value",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                       getlocal1
+                                       callproperty QName(PackageNamespace(""),"getSecondaryModifier"), 0
+                                       callproperty QName(Namespace("main_game.items.modifiers:IModifier"),"getCategory"), 0
+                                       getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                                       getproperty QName(PackageNamespace(""),"NULL")
+                                       ifeq ofs010b
+                                       getlocal 9
+                                       getlocal1
+                                       callproperty QName(PackageNamespace(""),"getSecondaryModifier"), 0
+                                       callproperty QName(Namespace("main_game.items.modifiers:IModifier"),"toObject"), 0
+                                       setproperty Multiname("SecondModifier",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                       pushtrue
+                                       setlocal 6
+                              ofs010b:
+                                       getlocal0
+                                       getlocal 9
+                                       callpropvoid QName(PrivateNamespace(null,"48"),"applyLimitToModifiers"), 1
+                                       getlocal 9
+                                       getproperty Multiname("FirstModifier",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                       getproperty Multiname("Value",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                       getlocal 7
+                                       getproperty Multiname("FirstModifier",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                       getproperty Multiname("Value",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                       ifeq ofs0129
+                                       pushtrue
+                                       setlocal 6
+                              ofs0129:
+                                       getlocal 6
+                                       iftrue ofs0141
+                                       getlocal3
+                                       getlocal 4
+                                       getproperty QName(PackageNamespace(""),"result")
+                                       callproperty QName(PackageNamespace(""),"getItem"), 1
+                                       coerce QName(PackageNamespace("main_game.items"),"Item")
+                                       setlocal 5
+                                       jump ofs014e
+                              ofs0141:
+                                       getlocal3
+                                       getlocal 8
+                                       getlocal 9
+                                       callproperty QName(PackageNamespace(""),"getCustomItem"), 2
+                                       coerce QName(PackageNamespace("main_game.items"),"Item")
+                                       setlocal 5
+                              ofs014e:
+                                       findpropstrict QName(PackageNamespace("main_game.mixer"),"MixResult")
+                                       getlocal 5
+                                       getlocal 4
+                                       constructprop QName(PackageNamespace("main_game.mixer"),"MixResult"), 2
+                                       returnvalue
+                              ofs0158:
+                                       findpropstrict QName(PackageNamespace("main_game.mixer"),"MixResult")
+                                       getlocal0
+                                       getlocal1
+                                       getlocal2
+                                       callproperty QName(PrivateNamespace(null,"48"),"makeMix"), 2
+                                       constructprop QName(PackageNamespace("main_game.mixer"),"MixResult"), 1
+                                       returnvalue
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           private function getSpecialConfigForWeapons(param1:Item, param2:Recipe) : Object
+                           {
+                              trait method QName(PrivateNamespace(null,"48"),"getSpecialConfigForWeapons")
+                                 dispid 0
+                                 method
+                                    name null
+                                    flag NEED_ACTIVATION
+                                    param QName(PackageNamespace("main_game.items"),"Item")
+                                    param QName(PackageNamespace("main_game.mixer"),"Recipe")
+                                    returns QName(PackageNamespace(""),"Object")
+                                    
+                                    body
+                                       maxstack 4
+                                       localcount 6
+                                       initscopedepth 5
+                                       maxscopedepth 7
+                                       trait slot QName(PackageInternalNs("main_game.mixer"),"primary")
+                                          slotid 1
+                                          type QName(PackageNamespace("main_game.items"),"Item")
+                                       end ; trait
+                                       trait slot QName(PackageInternalNs("main_game.mixer"),"recipe")
+                                          slotid 2
+                                          type QName(PackageNamespace("main_game.mixer"),"Recipe")
+                                       end ; trait
+                                       trait slot QName(PackageInternalNs("main_game.mixer"),"factory")
+                                          slotid 3
+                                          type QName(PackageNamespace("main_game.items"),"ItemFactory")
+                                       end ; trait
+                                       trait slot QName(PackageInternalNs("main_game.mixer"),"initialConfig")
+                                          slotid 4
+                                          type QName(PackageNamespace(""),"Object")
+                                       end ; trait
+                                       trait slot QName(PackageInternalNs("main_game.mixer"),"finalConfig")
+                                          slotid 5
+                                          type QName(PackageNamespace(""),"Object")
+                                       end ; trait
+                                       trait slot QName(PackageInternalNs("main_game.mixer"),"prop")
+                                          slotid 6
+                                          type QName(PackageNamespace(""),"String")
+                                       end ; trait
+                                       trait slot QName(PackageInternalNs("main_game.mixer"),"equalOrNull")
+                                          slotid 7
+                                          type QName(PackageNamespace(""),"Function")
+                                       end ; trait
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          newactivation
+                                          dup
+                                          setlocal3
+                                          pushscope
+                                          getscopeobject 1
+                                          pushnull
+                                          coerce_s
+                                          setslot 6
+                                          getscopeobject 1
+                                          getlocal1
+                                          setslot 1
+                                          getscopeobject 1
+                                          getlocal2
+                                          setslot 2
+                                          getscopeobject 1
+                                          newfunction 651
+                                          coerce QName(PackageNamespace(""),"Function")
+                                          setslot 7
+                                          getscopeobject 1
+                                          getlex QName(PackageNamespace("main_game.items"),"ItemFactory")
+                                          callproperty QName(PackageNamespace(""),"getInstance"), 0
+                                          coerce QName(PackageNamespace("main_game.items"),"ItemFactory")
+                                          setslot 3
+                                          getscopeobject 1
+                                          getscopeobject 1
+                                          getslot 3
+                                          getscopeobject 1
+                                          getslot 2
+                                          getproperty QName(PackageNamespace(""),"result")
+                                          callproperty QName(PackageNamespace(""),"getConfigOfItem"), 1
+                                          coerce QName(PackageNamespace(""),"Object")
+                                          setslot 4
+                                          getscopeobject 1
+                                          findpropstrict QName(PackageNamespace(""),"Object")
+                                          constructprop QName(PackageNamespace(""),"Object"), 0
+                                          coerce QName(PackageNamespace(""),"Object")
+                                          setslot 5
+                                          pushbyte 0
+                                          setlocal 4
+                                          getscopeobject 1
+                                          getslot 4
+                                          coerce_a
+                                          setlocal 5
+                                          jump ofs007b
+                                 ofs005a:
+                                          label
+                                          getscopeobject 1
+                                          getlocal 5
+                                          getlocal 4
+                                          nextname
+                                          coerce_s
+                                          setslot 6
+                                          getscopeobject 1
+                                          getslot 5
+                                          getscopeobject 1
+                                          getslot 6
+                                          getscopeobject 1
+                                          getslot 4
+                                          getscopeobject 1
+                                          getslot 6
+                                          getproperty MultinameL([PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                          setproperty MultinameL([PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                 ofs007b:
+                                          hasnext2 5, 4
+                                          iftrue ofs005a
+                                          kill 5
+                                          kill 4
+                                          getscopeobject 1
+                                          getslot 7
+                                          getglobalscope
+                                          getscopeobject 1
+                                          getslot 5
+                                          getproperty Multiname("FirstModifier",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                          getscopeobject 1
+                                          getslot 1
+                                          callproperty QName(PackageNamespace(""),"getPrimaryModifier"), 0
+                                          call 2
+                                          iffalse ofs00d8
+                                          getscopeobject 1
+                                          getslot 5
+                                          getscopeobject 1
+                                          getslot 1
+                                          callproperty QName(PackageNamespace(""),"getPrimaryModifier"), 0
+                                          callproperty QName(Namespace("main_game.items.modifiers:IModifier"),"toObject"), 0
+                                          setproperty Multiname("FirstModifier",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                          getscopeobject 1
+                                          getslot 5
+                                          getproperty Multiname("FirstModifier",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                          getlex QName(PackageNamespace(""),"Math")
+                                          getscopeobject 1
+                                          getslot 5
+                                          getproperty Multiname("FirstModifier",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                          getproperty Multiname("Value",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                          getscopeobject 1
+                                          getslot 4
+                                          getproperty Multiname("FirstModifier",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                          getproperty Multiname("Value",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                          callproperty QName(PackageNamespace(""),"max"), 2
+                                          setproperty Multiname("Value",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                 ofs00d8:
+                                          getscopeobject 1
+                                          getslot 7
+                                          getglobalscope
+                                          getscopeobject 1
+                                          getslot 5
+                                          getproperty Multiname("SecondModifier",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                          getscopeobject 1
+                                          getslot 1
+                                          callproperty QName(PackageNamespace(""),"getSecondaryModifier"), 0
+                                          call 2
+                                          iffalse ofs012a
+                                          getscopeobject 1
+                                          getslot 5
+                                          getscopeobject 1
+                                          getslot 1
+                                          callproperty QName(PackageNamespace(""),"getSecondaryModifier"), 0
+                                          callproperty QName(Namespace("main_game.items.modifiers:IModifier"),"toObject"), 0
+                                          setproperty Multiname("SecondModifier",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                          getscopeobject 1
+                                          getslot 5
+                                          getproperty Multiname("SecondModifier",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                          getlex QName(PackageNamespace(""),"Math")
+                                          getscopeobject 1
+                                          getslot 5
+                                          getproperty Multiname("SecondModifier",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                          getproperty Multiname("Value",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                          getscopeobject 1
+                                          getslot 4
+                                          getproperty Multiname("SecondModifier",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                          getproperty Multiname("Value",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                          callproperty QName(PackageNamespace(""),"max"), 2
+                                          setproperty Multiname("Value",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                 ofs012a:
+                                          getlocal0
+                                          getscopeobject 1
+                                          getslot 5
+                                          callpropvoid QName(PrivateNamespace(null,"48"),"applyLimitToModifiers"), 1
+                                          getscopeobject 1
+                                          getslot 5
+                                          getproperty Multiname("FirstModifier",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                          getproperty Multiname("Value",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                          getscopeobject 1
+                                          getslot 4
+                                          getproperty Multiname("FirstModifier",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                          getproperty Multiname("Value",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                          equals
+                                          not
+                                          dup
+                                          iftrue ofs0165
+                                          pop
+                                          getscopeobject 1
+                                          getslot 5
+                                          getproperty Multiname("SecondModifier",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                          getproperty Multiname("Value",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                          getscopeobject 1
+                                          getslot 4
+                                          getproperty Multiname("SecondModifier",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                          getproperty Multiname("Value",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                          equals
+                                          not
+                                 ofs0165:
+                                          iffalse ofs016e
+                                          getscopeobject 1
+                                          getslot 5
+                                          returnvalue
+                                 ofs016e:
+                                          pushnull
+                                          returnvalue
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                              
+                              private function makeMix(param1:Item, param2:Item) : Item
+                              {
+                                 trait method QName(PrivateNamespace(null,"48"),"makeMix")
+                                    dispid 0
+                                    method
+                                       name null
+                                       param QName(PackageNamespace("main_game.items"),"Item")
+                                       param QName(PackageNamespace("main_game.items"),"Item")
+                                       returns QName(PackageNamespace("main_game.items"),"Item")
+                                       
+                                       body
+                                          maxstack 7
+                                          localcount 12
+                                          initscopedepth 4
+                                          maxscopedepth 5
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             pushstring "Mix_"
+                                             findpropstrict QName(PackageNamespace(""),"removeMix")
+                                             getlocal1
+                                             callproperty QName(PackageNamespace(""),"getID"), 0
+                                             callproperty QName(PackageNamespace(""),"removeMix"), 1
+                                             add
+                                             coerce_s
+                                             setlocal3
+                                             findpropstrict QName(PackageNamespace(""),"Object")
+                                             constructprop QName(PackageNamespace(""),"Object"), 0
+                                             coerce QName(PackageNamespace(""),"Object")
+                                             dup
+                                             setlocal 4
+                                             getlocal1
+                                             getproperty QName(PackageNamespace(""),"name")
+                                             setproperty Multiname("NameString",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                             getlocal 4
+                                             getlocal1
+                                             callproperty QName(PackageNamespace(""),"getCategory"), 0
+                                             getproperty QName(PackageNamespace(""),"type")
+                                             setproperty Multiname("Category",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),PackageNamespace("main_game.items"),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                             getlocal1
+                                             callproperty QName(PackageNamespace(""),"getPrimaryModifier"), 0
+                                             coerce QName(PackageNamespace("main_game.items.modifiers"),"IModifier")
+                                             setlocal 5
+                                             getlocal1
+                                             callproperty QName(PackageNamespace(""),"getSecondaryModifier"), 0
+                                             coerce QName(PackageNamespace("main_game.items.modifiers"),"IModifier")
+                                             setlocal 6
+                                             getlocal2
+                                             callproperty QName(PackageNamespace(""),"getPrimaryModifier"), 0
+                                             coerce QName(PackageNamespace("main_game.items.modifiers"),"IModifier")
+                                             setlocal 7
+                                             getlocal2
+                                             callproperty QName(PackageNamespace(""),"getSecondaryModifier"), 0
+                                             coerce QName(PackageNamespace("main_game.items.modifiers"),"IModifier")
+                                             setlocal 8
+                                             getlocal0
+                                             getlocal1
+                                             callproperty QName(PrivateNamespace(null,"48"),"isConsumable"), 1
+                                             convert_b
+                                             setlocal 9
+                                             getlocal 4
+                                             getlocal1
+                                             callproperty QName(PackageNamespace(""),"getMcName"), 0
+                                             setproperty Multiname("MovieClip",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                             getlocal 5
+                                             callproperty QName(Namespace("main_game.items.modifiers:IModifier"),"getCategory"), 0
+                                             getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                                             getproperty QName(PackageNamespace(""),"HEALTH")
+                                             equals
+                                             dup
+                                             iffalse ofs0089
+                                             pop
+                                             getlocal 6
+                                             callproperty QName(Namespace("main_game.items.modifiers:IModifier"),"getCategory"), 0
+                                             getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                                             getproperty QName(PackageNamespace(""),"NULL")
+                                             equals
+                                    ofs0089:
+                                             iffalse ofs009b
+                                             getlocal 4
+                                             getlocal2
+                                             callproperty QName(PackageNamespace(""),"getDuration"), 0
+                                             setproperty Multiname("Duration",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                             jump ofs00a5
+                                    ofs009b:
+                                             getlocal 4
+                                             getlocal1
+                                             callproperty QName(PackageNamespace(""),"getDuration"), 0
+                                             setproperty Multiname("Duration",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                    ofs00a5:
+                                             getlocal 4
+                                             getlocal1
+                                             callproperty QName(PackageNamespace(""),"getMaxMod"), 0
+                                             setproperty Multiname("MaxMod",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                             getlex QName(PackageNamespace(""),"mixConfig")
+                                             getproperty Multiname("primaryModifier",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                             convert_d
+                                             setlocal 10
+                                             getlex QName(PackageNamespace(""),"mixConfig")
+                                             getproperty Multiname("secondaryModifier",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                             convert_d
+                                             setlocal 11
+                                             getlocal0
+                                             getlocal1
+                                             callproperty QName(PrivateNamespace(null,"48"),"isConsumable"), 1
+                                             convert_b
+                                             dup
+                                             iffalse ofs00d5
+                                             pop
+                                             getlocal0
+                                             getlocal2
+                                             callproperty QName(PrivateNamespace(null,"48"),"isConsumable"), 1
+                                             convert_b
+                                    ofs00d5:
+                                             iffalse ofs00e2
+                                             getlex QName(PackageNamespace(""),"mixConfig")
+                                             getproperty Multiname("potionModifier",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                             convert_d
+                                             setlocal 11
+                                    ofs00e2:
+                                             getlocal0
+                                             getlocal 5
+                                             getlocal 7
+                                             callproperty QName(PrivateNamespace(null,"48"),"sameCategory"), 2
+                                             iffalse ofs011b
+                                             getlocal 4
+                                             getlocal0
+                                             getlocal 5
+                                             getlocal 7
+                                             getlocal 10
+                                             getlocal 11
+                                             getlocal 9
+                                             callproperty QName(PrivateNamespace(null,"48"),"combine"), 5
+                                             setproperty Multiname("FirstModifier",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                             getlocal 4
+                                             getlocal0
+                                             getlocal 6
+                                             getlocal 8
+                                             getlocal 10
+                                             getlocal 11
+                                             getlocal 9
+                                             callproperty QName(PrivateNamespace(null,"48"),"combine"), 5
+                                             setproperty Multiname("SecondModifier",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                             jump ofs0148
+                                    ofs011b:
+                                             getlocal 4
+                                             getlocal0
+                                             getlocal 5
+                                             findpropstrict QName(PackageNamespace("main_game.items.modifiers"),"NullModifier")
+                                             constructprop QName(PackageNamespace("main_game.items.modifiers"),"NullModifier"), 0
+                                             getlocal 10
+                                             getlocal 10
+                                             getlocal 9
+                                             callproperty QName(PrivateNamespace(null,"48"),"combine"), 5
+                                             setproperty Multiname("FirstModifier",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                             getlocal 4
+                                             getlocal0
+                                             getlocal 7
+                                             getlocal 6
+                                             getlocal 11
+                                             getlocal 10
+                                             getlocal 9
+                                             callproperty QName(PrivateNamespace(null,"48"),"combine"), 5
+                                             setproperty Multiname("SecondModifier",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                    ofs0148:
+                                             getlocal0
+                                             getlocal 4
+                                             callpropvoid QName(PrivateNamespace(null,"48"),"applyLimitToModifiers"), 1
+                                             getlocal 4
+                                             getlocal1
+                                             callproperty QName(PackageNamespace(""),"getElement"), 0
+                                             getproperty QName(PackageNamespace(""),"type")
+                                             setproperty Multiname("Element",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                             getlocal 4
+                                             getlocal1
+                                             callproperty QName(PackageNamespace(""),"getMixTime"), 0
+                                             setproperty Multiname("MixTime",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                             getlex QName(PackageNamespace("main_game.items"),"ItemFactory")
+                                             callproperty QName(PackageNamespace(""),"getInstance"), 0
+                                             getlocal3
+                                             getlocal 4
+                                             callproperty QName(PackageNamespace(""),"getCustomItem"), 2
+                                             returnvalue
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                 }
+                                 
+                                 private function applyLimitToModifiers(param1:Object) : void
+                                 {
+                                    trait method QName(PrivateNamespace(null,"48"),"applyLimitToModifiers")
+                                       dispid 0
+                                       method
+                                          name null
+                                          param QName(PackageNamespace(""),"Object")
+                                          returns QName(PackageNamespace(""),"void")
+                                          
+                                          body
+                                             maxstack 6
+                                             localcount 4
+                                             initscopedepth 4
+                                             maxscopedepth 5
+                                             
+                                             code
+                                                getlocal0
+                                                pushscope
+                                                getlex QName(PackageNamespace(""),"mixConfig")
+                                                getproperty Multiname("secondModMaxPercent",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                                convert_d
+                                                setlocal2
+                                                getlocal1
+                                                getproperty Multiname("MaxMod",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                                convert_d
+                                                setlocal3
+                                                getlex QName(PackageNamespace(""),"Math")
+                                                getlocal3
+                                                getlocal2
+                                                multiply
+                                                pushbyte 100
+                                                divide
+                                                callproperty QName(PackageNamespace(""),"round"), 1
+                                                convert_d
+                                                setlocal2
+                                                getlocal1
+                                                getproperty Multiname("FirstModifier",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                                getlex QName(PackageNamespace(""),"Math")
+                                                getlocal3
+                                                negate
+                                                getlex QName(PackageNamespace(""),"Math")
+                                                getlocal3
+                                                getlocal1
+                                                getproperty Multiname("FirstModifier",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                                getproperty Multiname("Value",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                                callproperty QName(PackageNamespace(""),"min"), 2
+                                                callproperty QName(PackageNamespace(""),"max"), 2
+                                                setproperty Multiname("Value",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                                getlocal1
+                                                getproperty Multiname("SecondModifier",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                                getproperty Multiname("Value",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                                pushnull
+                                                ifeq ofs0069
+                                                getlocal1
+                                                getproperty Multiname("SecondModifier",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                                getlex QName(PackageNamespace(""),"Math")
+                                                getlocal2
+                                                negate
+                                                getlex QName(PackageNamespace(""),"Math")
+                                                getlocal2
+                                                getlocal1
+                                                getproperty Multiname("SecondModifier",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                                getproperty Multiname("Value",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                                callproperty QName(PackageNamespace(""),"min"), 2
+                                                callproperty QName(PackageNamespace(""),"max"), 2
+                                                setproperty Multiname("Value",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                       ofs0069:
+                                                returnvoid
+                                             end ; code
+                                          end ; body
+                                       end ; method
+                                    }
+                                    
+                                    private function combine(param1:IModifier, param2:IModifier, param3:Number = 1, param4:Number = 1, param5:Boolean = false) : Object
+                                    {
+                                       trait method QName(PrivateNamespace(null,"48"),"combine")
+                                          dispid 0
+                                          method
+                                             name null
+                                             flag HAS_OPTIONAL
+                                             param QName(PackageNamespace("main_game.items.modifiers"),"IModifier")
+                                             param QName(PackageNamespace("main_game.items.modifiers"),"IModifier")
+                                             param QName(PackageNamespace(""),"Number")
+                                             param QName(PackageNamespace(""),"Number")
+                                             param QName(PackageNamespace(""),"Boolean")
+                                             optional Integer(1)
+                                             optional Integer(1)
+                                             optional False()
+                                             returns QName(PackageNamespace(""),"Object")
+                                             
+                                             body
+                                                maxstack 5
+                                                localcount 7
+                                                initscopedepth 4
+                                                maxscopedepth 5
+                                                
+                                                code
+                                                   getlocal0
+                                                   pushscope
+                                                   findpropstrict QName(PackageNamespace(""),"Object")
+                                                   constructprop QName(PackageNamespace(""),"Object"), 0
+                                                   coerce QName(PackageNamespace(""),"Object")
+                                                   setlocal 6
+                                                   getlocal1
+                                                   callproperty QName(Namespace("main_game.items.modifiers:IModifier"),"getCategory"), 0
+                                                   getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                                                   getproperty QName(PackageNamespace(""),"NULL")
+                                                   ifne ofs0058
+                                                   getlocal2
+                                                   callproperty QName(Namespace("main_game.items.modifiers:IModifier"),"getCategory"), 0
+                                                   getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                                                   getproperty QName(PackageNamespace(""),"NULL")
+                                                   ifne ofs0039
+                                                   getlocal 6
+                                                   pushnull
+                                                   setproperty Multiname("Category",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),PackageNamespace("main_game.items"),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                                   getlocal 6
+                                                   pushnull
+                                                   setproperty Multiname("Value",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                                   jump ofs0054
+                                          ofs0039:
+                                                   getlocal 6
+                                                   getlocal2
+                                                   callproperty QName(Namespace("main_game.items.modifiers:IModifier"),"getCategory"), 0
+                                                   setproperty Multiname("Category",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),PackageNamespace("main_game.items"),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                                   getlocal 6
+                                                   getlocal0
+                                                   getlocal2
+                                                   callproperty QName(Namespace("main_game.items.modifiers:IModifier"),"getValue"), 0
+                                                   getlocal 4
+                                                   callproperty QName(PrivateNamespace(null,"48"),"getNumber"), 2
+                                                   setproperty Multiname("Value",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                          ofs0054:
+                                                   jump ofs00bc
+                                          ofs0058:
+                                                   getlocal2
+                                                   callproperty QName(Namespace("main_game.items.modifiers:IModifier"),"getCategory"), 0
+                                                   getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                                                   getproperty QName(PackageNamespace(""),"NULL")
+                                                   equals
+                                                   not
+                                                   dup
+                                                   iffalse ofs0073
+                                                   pop
+                                                   getlocal0
+                                                   getlocal1
+                                                   getlocal2
+                                                   callproperty QName(PrivateNamespace(null,"48"),"sameCategory"), 2
+                                                   convert_b
+                                          ofs0073:
+                                                   iffalse ofs00a2
+                                                   getlocal 6
+                                                   getlocal1
+                                                   callproperty QName(Namespace("main_game.items.modifiers:IModifier"),"getCategory"), 0
+                                                   setproperty Multiname("Category",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),PackageNamespace("main_game.items"),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                                   getlocal 6
+                                                   getlocal0
+                                                   getlocal1
+                                                   callproperty QName(Namespace("main_game.items.modifiers:IModifier"),"getValue"), 0
+                                                   getlocal3
+                                                   callproperty QName(PrivateNamespace(null,"48"),"getNumber"), 2
+                                                   getlocal0
+                                                   getlocal2
+                                                   callproperty QName(Namespace("main_game.items.modifiers:IModifier"),"getValue"), 0
+                                                   getlocal 4
+                                                   callproperty QName(PrivateNamespace(null,"48"),"getNumber"), 2
+                                                   add
+                                                   setproperty Multiname("Value",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                                   jump ofs00bc
+                                          ofs00a2:
+                                                   getlocal 6
+                                                   getlocal1
+                                                   callproperty QName(Namespace("main_game.items.modifiers:IModifier"),"getCategory"), 0
+                                                   setproperty Multiname("Category",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),PackageNamespace("main_game.items"),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                                   getlocal 6
+                                                   getlocal0
+                                                   getlocal1
+                                                   callproperty QName(Namespace("main_game.items.modifiers:IModifier"),"getValue"), 0
+                                                   getlocal3
+                                                   callproperty QName(PrivateNamespace(null,"48"),"getNumber"), 2
+                                                   setproperty Multiname("Value",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                          ofs00bc:
+                                                   getlocal 6
+                                                   getproperty Multiname("Category",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),PackageNamespace("main_game.items"),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                                   getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                                                   getproperty QName(PackageNamespace(""),"MAX_HP")
+                                                   equals
+                                                   dup
+                                                   iftrue ofs00da
+                                                   pop
+                                                   getlocal 6
+                                                   getproperty Multiname("Category",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),PackageNamespace("main_game.items"),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                                   getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                                                   getproperty QName(PackageNamespace(""),"HEALTH")
+                                                   equals
+                                          ofs00da:
+                                                   iffalse ofs00fe
+                                                   getlocal 5
+                                                   iffalse ofs00f3
+                                                   getlocal 6
+                                                   getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                                                   getproperty QName(PackageNamespace(""),"HEALTH")
+                                                   setproperty Multiname("Category",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),PackageNamespace("main_game.items"),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                                   jump ofs00fe
+                                          ofs00f3:
+                                                   getlocal 6
+                                                   getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                                                   getproperty QName(PackageNamespace(""),"MAX_HP")
+                                                   setproperty Multiname("Category",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),PackageNamespace("main_game.items"),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                          ofs00fe:
+                                                   getlocal 6
+                                                   getproperty Multiname("Category",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),PackageNamespace("main_game.items"),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                                   pushnull
+                                                   ifeq ofs0119
+                                                   getlocal 6
+                                                   getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                                                   getlocal 6
+                                                   getproperty Multiname("Category",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),PackageNamespace("main_game.items"),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                                   callproperty QName(PackageNamespace(""),"toString"), 1
+                                                   setproperty Multiname("Category",[PrivateNamespace(null,"48"),PackageNamespace("main_game.mixer"),PackageNamespace(""),PackageNamespace("main_game.items"),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"213"),PackageInternalNs("main_game.mixer"),ProtectedNamespace("main_game.mixer:MixStrategy"),StaticProtectedNs("main_game.mixer:MixStrategy")])
+                                          ofs0119:
+                                                   getlocal 6
+                                                   returnvalue
+                                                end ; code
+                                             end ; body
+                                          end ; method
+                                       }
+                                       
+                                       private function getNumber(param1:Number, param2:Number) : Number
+                                       {
+                                          trait method QName(PrivateNamespace(null,"48"),"getNumber")
+                                             dispid 0
+                                             method
+                                                name null
+                                                param QName(PackageNamespace(""),"Number")
+                                                param QName(PackageNamespace(""),"Number")
+                                                returns QName(PackageNamespace(""),"Number")
+                                                
+                                                body
+                                                   maxstack 3
+                                                   localcount 4
+                                                   initscopedepth 4
+                                                   maxscopedepth 5
+                                                   
+                                                   code
+                                                      getlocal0
+                                                      pushscope
+                                                      getlex QName(PackageNamespace(""),"Math")
+                                                      getlocal1
+                                                      getlocal2
+                                                      multiply
+                                                      callproperty QName(PackageNamespace(""),"floor"), 1
+                                                      convert_d
+                                                      setlocal3
+                                                      getlocal1
+                                                      pushbyte 0
+                                                      ifnlt ofs0020
+                                                      getlex QName(PackageNamespace(""),"Math")
+                                                      pushbyte -1
+                                                      getlocal3
+                                                      callproperty QName(PackageNamespace(""),"min"), 2
+                                                      returnvalue
+                                             ofs0020:
+                                                      getlocal1
+                                                      pushbyte 0
+                                                      ifngt ofs0032
+                                                      getlex QName(PackageNamespace(""),"Math")
+                                                      pushbyte 1
+                                                      getlocal3
+                                                      callproperty QName(PackageNamespace(""),"max"), 2
+                                                      returnvalue
+                                             ofs0032:
+                                                      getlocal3
+                                                      returnvalue
+                                                   end ; code
+                                                end ; body
+                                             end ; method
+                                          }
+                                          
+                                          private function isConsumable(param1:Item) : Boolean
+                                          {
+                                             trait method QName(PrivateNamespace(null,"48"),"isConsumable")
+                                                dispid 0
+                                                method
+                                                   name null
+                                                   param QName(PackageNamespace("main_game.items"),"Item")
+                                                   returns QName(PackageNamespace(""),"Boolean")
+                                                   
+                                                   body
+                                                      maxstack 2
+                                                      localcount 2
+                                                      initscopedepth 4
+                                                      maxscopedepth 5
+                                                      
+                                                      code
+                                                         getlocal0
+                                                         pushscope
+                                                         getlocal1
+                                                         callproperty QName(PackageNamespace(""),"getCategory"), 0
+                                                         getproperty QName(PackageNamespace(""),"type")
+                                                         getlex QName(PackageNamespace("main_game.items"),"Category")
+                                                         getproperty QName(PackageNamespace(""),"CONSUMABLE_CATEGORY")
+                                                         equals
+                                                         returnvalue
+                                                      end ; code
+                                                   end ; body
+                                                end ; method
+                                             }
+                                             
+                                             private function sameCategory(param1:IModifier, param2:IModifier) : Boolean
+                                             {
+                                                trait method QName(PrivateNamespace(null,"48"),"sameCategory")
+                                                   dispid 0
+                                                   method
+                                                      name null
+                                                      param QName(PackageNamespace("main_game.items.modifiers"),"IModifier")
+                                                      param QName(PackageNamespace("main_game.items.modifiers"),"IModifier")
+                                                      returns QName(PackageNamespace(""),"Boolean")
+                                                      
+                                                      body
+                                                         maxstack 2
+                                                         localcount 3
+                                                         initscopedepth 4
+                                                         maxscopedepth 5
+                                                         
+                                                         code
+                                                            getlocal0
+                                                            pushscope
+                                                            getlocal1
+                                                            callproperty QName(Namespace("main_game.items.modifiers:IModifier"),"getCategory"), 0
+                                                            getlocal2
+                                                            callproperty QName(Namespace("main_game.items.modifiers:IModifier"),"getCategory"), 0
+                                                            equals
+                                                            dup
+                                                            iftrue ofs0027
+                                                            pop
+                                                            getlocal0
+                                                            getlocal1
+                                                            callproperty QName(PrivateNamespace(null,"48"),"modifiesHealth"), 1
+                                                            convert_b
+                                                            dup
+                                                            iffalse ofs0027
+                                                            pop
+                                                            getlocal0
+                                                            getlocal2
+                                                            callproperty QName(PrivateNamespace(null,"48"),"modifiesHealth"), 1
+                                                            convert_b
+                                                   ofs0027:
+                                                            returnvalue
+                                                         end ; code
+                                                      end ; body
+                                                   end ; method
+                                                }
+                                                
+                                                private function modifiesHealth(param1:IModifier) : Boolean
+                                                {
+                                                   trait method QName(PrivateNamespace(null,"48"),"modifiesHealth")
+                                                      dispid 0
+                                                      method
+                                                         name null
+                                                         param QName(PackageNamespace("main_game.items.modifiers"),"IModifier")
+                                                         returns QName(PackageNamespace(""),"Boolean")
+                                                         
+                                                         body
+                                                            maxstack 2
+                                                            localcount 2
+                                                            initscopedepth 4
+                                                            maxscopedepth 5
+                                                            
+                                                            code
+                                                               getlocal0
+                                                               pushscope
+                                                               getlocal1
+                                                               callproperty QName(Namespace("main_game.items.modifiers:IModifier"),"getCategory"), 0
+                                                               getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                                                               getproperty QName(PackageNamespace(""),"MAX_HP")
+                                                               equals
+                                                               dup
+                                                               iftrue ofs0020
+                                                               pop
+                                                               getlocal1
+                                                               callproperty QName(Namespace("main_game.items.modifiers:IModifier"),"getCategory"), 0
+                                                               getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                                                               getproperty QName(PackageNamespace(""),"HEALTH")
+                                                               equals
+                                                      ofs0020:
+                                                               returnvalue
+                                                            end ; code
+                                                         end ; body
+                                                      end ; method
+                                                   }
+                                                   
+                                                   private function healthCategory(param1:Boolean) : int
+                                                   {
+                                                      trait method QName(PrivateNamespace(null,"48"),"healthCategory")
+                                                         dispid 0
+                                                         method
+                                                            name null
+                                                            param QName(PackageNamespace(""),"Boolean")
+                                                            returns QName(PackageNamespace(""),"int")
+                                                            
+                                                            body
+                                                               maxstack 1
+                                                               localcount 2
+                                                               initscopedepth 4
+                                                               maxscopedepth 5
+                                                               
+                                                               code
+                                                                  getlocal0
+                                                                  pushscope
+                                                                  getlocal1
+                                                                  iffalse ofs000e
+                                                                  getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                                                                  getproperty QName(PackageNamespace(""),"HEALTH")
+                                                                  returnvalue
+                                                         ofs000e:
+                                                                  getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                                                                  getproperty QName(PackageNamespace(""),"MAX_HP")
+                                                                  returnvalue
+                                                               end ; code
+                                                            end ; body
+                                                         end ; method
+                                                      }
+                                                   }
+                                                }
+                                                
+                                                method
+                                                   name null
+                                                   returns null
+                                                   
+                                                   body
+                                                      maxstack 2
+                                                      localcount 1
+                                                      initscopedepth 1
+                                                      maxscopedepth 3
+                                                      
+                                                      code
+                                                         getlocal0
+                                                         pushscope
+                                                         findpropstrict Multiname("MixStrategy",[PackageNamespace("main_game.mixer")])
+                                                         getlex QName(PackageNamespace(""),"Object")
+                                                         pushscope
+                                                         getlex QName(PackageNamespace(""),"Object")
+                                                         newclass 62
+                                                         popscope
+                                                         initproperty QName(PackageNamespace("main_game.mixer"),"MixStrategy")
+                                                         returnvoid
+                                                      end ; code
+                                                   end ; body
+                                                end ; method
+                                                

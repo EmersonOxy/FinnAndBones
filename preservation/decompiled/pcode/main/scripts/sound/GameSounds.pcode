@@ -1,0 +1,608 @@
+package sound
+{
+   import cb.utils.Random;
+   
+   public class GameSounds
+   {
+      
+      public static const soundsToLoad:Array;
+      
+      private static const variations:Array;
+      
+      public static const MOUSE_OVER:String = "mouse_over";
+      
+      public static const POP_UP:String = "pop_up";
+      
+      public static const BUTTON_CLICK:String = "button_click";
+      
+      public static const ITEM_CLICK:String = "item_click";
+      
+      public static const MIX_CLICK:String = "mix_click";
+      
+      public static const ITEM_DROP_OK:String = "item_drop_ok";
+      
+      public static const ITEM_DROP_FAIL:String = "item_drop_back";
+      
+      public static const MIX_DONE:String = "mix_done";
+      
+      public static const ITEM_TRASH:String = "item_trash";
+      
+      public static const CONSUMABLE:String = "consumable";
+      
+      public static const INTRO_MUSIC:String = "intro_music";
+      
+      public static const MAP_MUSIC:String = "map_music";
+      
+      public static const COMBAT_MUSIC:String = "combat_music";
+      
+      public static const COMBAT_MUSIC2:String = "combat_music2";
+      
+      public static const BOSS_MUSIC:String = "boss_music";
+      
+      public static const FIST_ATTACK:String = "fist_attack";
+      
+      public static const SWORD_ATTACK:String = "sword_attack";
+      
+      public static const FIRE_ATTACK:String = "fire_attack";
+      
+      public static const ICE_ATTACK:String = "ice_attack";
+      
+      public static const SHIELD_BLOCK:String = "shield_block";
+      
+      public static const SHIELD_BLOCK_ICE:String = "shield_block_ice";
+      
+      public static const SHIELD_BLOCK_FIRE:String = "shield_block_fire";
+      
+      public static const FIST_BLOCK:String = "fist_block";
+      
+      public static const FINN_LOSE:String = "finn_lose";
+      
+      public static const DUNGEON_COMPLETED:String = "dungeon_completed";
+      
+      public static const ENEMY2_ATTACK:String = "enemy2_attack";
+      
+      public static const ENEMY2_ATTACK_ICE:String = "enemy2_attack_ice";
+      
+      public static const ENEMY2_ATTACK_FIRE:String = "enemy2_attack_fire";
+      
+      public static const CRITICAL:String = "critical";
+      
+      public static const CRITICAL_SHIELD:String = "critical_shield";
+      
+      public static const LEVEL_UP:String = "level_up";
+      
+      public static const WIN_MUSIC:String = "youwin_music";
+      
+      public static const TRANSITION_IN:String = "transition_open";
+      
+      public static const TRANSITION_OUT:String = "transition_close";
+      
+      public static const BOSS_ATTACK:String = "boss_attack";
+      
+      public static const BOSS_LOSE:String = "boss_die";
+      
+      public static const SMOKE:String = "loot";
+      
+      public static const SORCERER_ATTACK:String = "sorcerer_attack";
+      
+      public static const AX_ATTACK:String = "ax_attack";
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 8
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(PackageNamespace(""),"soundsToLoad")
+               pushstring "mapSounds.snd"
+               pushstring "combatSounds0.snd"
+               pushstring "combatSounds1.snd"
+               pushstring "combatSounds2.snd"
+               pushstring "combatSounds3.snd"
+               newarray 5
+               initproperty QName(PackageNamespace(""),"soundsToLoad")
+               findproperty QName(PrivateNamespace(null,"169"),"variations")
+               pushstring "_a"
+               pushstring "_b"
+               pushstring "_c"
+               pushstring "_d"
+               pushstring "_e"
+               pushstring "_f"
+               pushstring "_g"
+               newarray 7
+               initproperty QName(PrivateNamespace(null,"169"),"variations")
+               findproperty QName(PackageNamespace(""),"MOUSE_OVER")
+               pushstring "mouse_over"
+               initproperty QName(PackageNamespace(""),"MOUSE_OVER")
+               findproperty QName(PackageNamespace(""),"POP_UP")
+               pushstring "pop_up"
+               initproperty QName(PackageNamespace(""),"POP_UP")
+               findproperty QName(PackageNamespace(""),"BUTTON_CLICK")
+               pushstring "button_click"
+               initproperty QName(PackageNamespace(""),"BUTTON_CLICK")
+               findproperty QName(PackageNamespace(""),"ITEM_CLICK")
+               pushstring "item_click"
+               initproperty QName(PackageNamespace(""),"ITEM_CLICK")
+               findproperty QName(PackageNamespace(""),"MIX_CLICK")
+               pushstring "mix_click"
+               initproperty QName(PackageNamespace(""),"MIX_CLICK")
+               findproperty QName(PackageNamespace(""),"ITEM_DROP_OK")
+               pushstring "item_drop_ok"
+               initproperty QName(PackageNamespace(""),"ITEM_DROP_OK")
+               findproperty QName(PackageNamespace(""),"ITEM_DROP_FAIL")
+               pushstring "item_drop_back"
+               initproperty QName(PackageNamespace(""),"ITEM_DROP_FAIL")
+               findproperty QName(PackageNamespace(""),"MIX_DONE")
+               pushstring "mix_done"
+               initproperty QName(PackageNamespace(""),"MIX_DONE")
+               findproperty QName(PackageNamespace(""),"ITEM_TRASH")
+               pushstring "item_trash"
+               initproperty QName(PackageNamespace(""),"ITEM_TRASH")
+               findproperty QName(PackageNamespace(""),"CONSUMABLE")
+               pushstring "consumable"
+               initproperty QName(PackageNamespace(""),"CONSUMABLE")
+               findproperty QName(PackageNamespace(""),"INTRO_MUSIC")
+               pushstring "intro_music"
+               initproperty QName(PackageNamespace(""),"INTRO_MUSIC")
+               findproperty QName(PackageNamespace(""),"MAP_MUSIC")
+               pushstring "map_music"
+               initproperty QName(PackageNamespace(""),"MAP_MUSIC")
+               findproperty QName(PackageNamespace(""),"COMBAT_MUSIC")
+               pushstring "combat_music"
+               initproperty QName(PackageNamespace(""),"COMBAT_MUSIC")
+               findproperty QName(PackageNamespace(""),"COMBAT_MUSIC2")
+               pushstring "combat_music2"
+               initproperty QName(PackageNamespace(""),"COMBAT_MUSIC2")
+               findproperty QName(PackageNamespace(""),"BOSS_MUSIC")
+               pushstring "boss_music"
+               initproperty QName(PackageNamespace(""),"BOSS_MUSIC")
+               findproperty QName(PackageNamespace(""),"FIST_ATTACK")
+               pushstring "fist_attack"
+               initproperty QName(PackageNamespace(""),"FIST_ATTACK")
+               findproperty QName(PackageNamespace(""),"SWORD_ATTACK")
+               pushstring "sword_attack"
+               initproperty QName(PackageNamespace(""),"SWORD_ATTACK")
+               findproperty QName(PackageNamespace(""),"FIRE_ATTACK")
+               pushstring "fire_attack"
+               initproperty QName(PackageNamespace(""),"FIRE_ATTACK")
+               findproperty QName(PackageNamespace(""),"ICE_ATTACK")
+               pushstring "ice_attack"
+               initproperty QName(PackageNamespace(""),"ICE_ATTACK")
+               findproperty QName(PackageNamespace(""),"SHIELD_BLOCK")
+               pushstring "shield_block"
+               initproperty QName(PackageNamespace(""),"SHIELD_BLOCK")
+               findproperty QName(PackageNamespace(""),"SHIELD_BLOCK_ICE")
+               pushstring "shield_block_ice"
+               initproperty QName(PackageNamespace(""),"SHIELD_BLOCK_ICE")
+               findproperty QName(PackageNamespace(""),"SHIELD_BLOCK_FIRE")
+               pushstring "shield_block_fire"
+               initproperty QName(PackageNamespace(""),"SHIELD_BLOCK_FIRE")
+               findproperty QName(PackageNamespace(""),"FIST_BLOCK")
+               pushstring "fist_block"
+               initproperty QName(PackageNamespace(""),"FIST_BLOCK")
+               findproperty QName(PackageNamespace(""),"FINN_LOSE")
+               pushstring "finn_lose"
+               initproperty QName(PackageNamespace(""),"FINN_LOSE")
+               findproperty QName(PackageNamespace(""),"DUNGEON_COMPLETED")
+               pushstring "dungeon_completed"
+               initproperty QName(PackageNamespace(""),"DUNGEON_COMPLETED")
+               findproperty QName(PackageNamespace(""),"ENEMY2_ATTACK")
+               pushstring "enemy2_attack"
+               initproperty QName(PackageNamespace(""),"ENEMY2_ATTACK")
+               findproperty QName(PackageNamespace(""),"ENEMY2_ATTACK_ICE")
+               pushstring "enemy2_attack_ice"
+               initproperty QName(PackageNamespace(""),"ENEMY2_ATTACK_ICE")
+               findproperty QName(PackageNamespace(""),"ENEMY2_ATTACK_FIRE")
+               pushstring "enemy2_attack_fire"
+               initproperty QName(PackageNamespace(""),"ENEMY2_ATTACK_FIRE")
+               findproperty QName(PackageNamespace(""),"CRITICAL")
+               pushstring "critical"
+               initproperty QName(PackageNamespace(""),"CRITICAL")
+               findproperty QName(PackageNamespace(""),"CRITICAL_SHIELD")
+               pushstring "critical_shield"
+               initproperty QName(PackageNamespace(""),"CRITICAL_SHIELD")
+               findproperty QName(PackageNamespace(""),"LEVEL_UP")
+               pushstring "level_up"
+               initproperty QName(PackageNamespace(""),"LEVEL_UP")
+               findproperty QName(PackageNamespace(""),"WIN_MUSIC")
+               pushstring "youwin_music"
+               initproperty QName(PackageNamespace(""),"WIN_MUSIC")
+               findproperty QName(PackageNamespace(""),"TRANSITION_IN")
+               pushstring "transition_open"
+               initproperty QName(PackageNamespace(""),"TRANSITION_IN")
+               findproperty QName(PackageNamespace(""),"TRANSITION_OUT")
+               pushstring "transition_close"
+               initproperty QName(PackageNamespace(""),"TRANSITION_OUT")
+               findproperty QName(PackageNamespace(""),"BOSS_ATTACK")
+               pushstring "boss_attack"
+               initproperty QName(PackageNamespace(""),"BOSS_ATTACK")
+               findproperty QName(PackageNamespace(""),"BOSS_LOSE")
+               pushstring "boss_die"
+               initproperty QName(PackageNamespace(""),"BOSS_LOSE")
+               findproperty QName(PackageNamespace(""),"SMOKE")
+               pushstring "loot"
+               initproperty QName(PackageNamespace(""),"SMOKE")
+               findproperty QName(PackageNamespace(""),"SORCERER_ATTACK")
+               pushstring "sorcerer_attack"
+               initproperty QName(PackageNamespace(""),"SORCERER_ATTACK")
+               findproperty QName(PackageNamespace(""),"AX_ATTACK")
+               pushstring "ax_attack"
+               initproperty QName(PackageNamespace(""),"AX_ATTACK")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function GameSounds()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 1
+               localcount 1
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public static function get mapSounds() : Array
+      {
+         trait getter QName(PackageNamespace(""),"mapSounds")
+            flag FINAL
+            dispid 3
+            method
+               name null
+               returns QName(PackageNamespace(""),"Array")
+               
+               body
+                  maxstack 2
+                  localcount 1
+                  initscopedepth 3
+                  maxscopedepth 4
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlex QName(PackageNamespace(""),"soundsToLoad")
+                     pushbyte 0
+                     getproperty MultinameL([PrivateNamespace(null,"169"),PackageNamespace(""),PrivateNamespace(null,"186"),PackageNamespace("sound"),PackageInternalNs("sound"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("sound:GameSounds"),StaticProtectedNs("sound:GameSounds")])
+                     newarray 1
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public static function get combatSounds() : Array
+         {
+            trait getter QName(PackageNamespace(""),"combatSounds")
+               flag FINAL
+               dispid 4
+               method
+                  name null
+                  returns QName(PackageNamespace(""),"Array")
+                  
+                  body
+                     maxstack 3
+                     localcount 1
+                     initscopedepth 3
+                     maxscopedepth 4
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlex QName(PackageNamespace(""),"soundsToLoad")
+                        pushbyte 1
+                        pushbyte 4
+                        callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"slice"), 2
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public static function get combatSoundsBasic() : Array
+            {
+               trait getter QName(PackageNamespace(""),"combatSoundsBasic")
+                  flag FINAL
+                  dispid 5
+                  method
+                     name null
+                     returns QName(PackageNamespace(""),"Array")
+                     
+                     body
+                        maxstack 3
+                        localcount 1
+                        initscopedepth 3
+                        maxscopedepth 4
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlex QName(PackageNamespace(""),"soundsToLoad")
+                           pushbyte 1
+                           pushbyte 3
+                           callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"slice"), 2
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public static function get bossSounds() : Array
+               {
+                  trait getter QName(PackageNamespace(""),"bossSounds")
+                     flag FINAL
+                     dispid 6
+                     method
+                        name null
+                        returns QName(PackageNamespace(""),"Array")
+                        
+                        body
+                           maxstack 2
+                           localcount 1
+                           initscopedepth 3
+                           maxscopedepth 4
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlex QName(PackageNamespace(""),"soundsToLoad")
+                              pushbyte 1
+                              callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"slice"), 1
+                              returnvalue
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  private static function getVariation(param1:int) : String
+                  {
+                     trait method QName(PrivateNamespace(null,"169"),"getVariation")
+                        flag FINAL
+                        dispid 7
+                        method
+                           name null
+                           param QName(PackageNamespace(""),"int")
+                           returns QName(PackageNamespace(""),"String")
+                           
+                           body
+                              maxstack 4
+                              localcount 2
+                              initscopedepth 3
+                              maxscopedepth 4
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlex QName(PrivateNamespace(null,"169"),"variations")
+                                 getlex QName(PackageNamespace("cb.utils"),"Random")
+                                 getlocal1
+                                 decrement
+                                 callproperty QName(PackageNamespace(""),"nextInt"), 1
+                                 getproperty MultinameL([PrivateNamespace(null,"169"),PackageNamespace(""),PrivateNamespace(null,"186"),PackageNamespace("sound"),PackageInternalNs("sound"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("sound:GameSounds"),StaticProtectedNs("sound:GameSounds")])
+                                 returnvalue
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     public static function get FINN_HURT() : String
+                     {
+                        trait getter QName(PackageNamespace(""),"FINN_HURT")
+                           flag FINAL
+                           dispid 8
+                           method
+                              name null
+                              returns QName(PackageNamespace(""),"String")
+                              
+                              body
+                                 maxstack 3
+                                 localcount 1
+                                 initscopedepth 3
+                                 maxscopedepth 4
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    pushstring "finn_hurt"
+                                    findpropstrict QName(PrivateNamespace(null,"169"),"getVariation")
+                                    pushbyte 3
+                                    callproperty QName(PrivateNamespace(null,"169"),"getVariation"), 1
+                                    add
+                                    returnvalue
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        public static function get ENEMY1_HURT() : String
+                        {
+                           trait getter QName(PackageNamespace(""),"ENEMY1_HURT")
+                              flag FINAL
+                              dispid 9
+                              method
+                                 name null
+                                 returns QName(PackageNamespace(""),"String")
+                                 
+                                 body
+                                    maxstack 3
+                                    localcount 1
+                                    initscopedepth 3
+                                    maxscopedepth 4
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       pushstring "enemy1_hurt"
+                                       findpropstrict QName(PrivateNamespace(null,"169"),"getVariation")
+                                       pushbyte 2
+                                       callproperty QName(PrivateNamespace(null,"169"),"getVariation"), 1
+                                       add
+                                       returnvalue
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           public static function get ENEMY1_LOSE() : String
+                           {
+                              trait getter QName(PackageNamespace(""),"ENEMY1_LOSE")
+                                 flag FINAL
+                                 dispid 10
+                                 method
+                                    name null
+                                    returns QName(PackageNamespace(""),"String")
+                                    
+                                    body
+                                       maxstack 3
+                                       localcount 1
+                                       initscopedepth 3
+                                       maxscopedepth 4
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          pushstring "enemy1_lose"
+                                          findpropstrict QName(PrivateNamespace(null,"169"),"getVariation")
+                                          pushbyte 2
+                                          callproperty QName(PrivateNamespace(null,"169"),"getVariation"), 1
+                                          add
+                                          returnvalue
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                              
+                              public static function get ENEMY2_HURT() : String
+                              {
+                                 trait getter QName(PackageNamespace(""),"ENEMY2_HURT")
+                                    flag FINAL
+                                    dispid 11
+                                    method
+                                       name null
+                                       returns QName(PackageNamespace(""),"String")
+                                       
+                                       body
+                                          maxstack 3
+                                          localcount 1
+                                          initscopedepth 3
+                                          maxscopedepth 4
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             pushstring "enemy2_hurt"
+                                             findpropstrict QName(PrivateNamespace(null,"169"),"getVariation")
+                                             pushbyte 2
+                                             callproperty QName(PrivateNamespace(null,"169"),"getVariation"), 1
+                                             add
+                                             returnvalue
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                 }
+                                 
+                                 public static function get ENEMY2_LOSE() : String
+                                 {
+                                    trait getter QName(PackageNamespace(""),"ENEMY2_LOSE")
+                                       flag FINAL
+                                       dispid 12
+                                       method
+                                          name null
+                                          returns QName(PackageNamespace(""),"String")
+                                          
+                                          body
+                                             maxstack 3
+                                             localcount 1
+                                             initscopedepth 3
+                                             maxscopedepth 4
+                                             
+                                             code
+                                                getlocal0
+                                                pushscope
+                                                pushstring "enemy2_lose"
+                                                findpropstrict QName(PrivateNamespace(null,"169"),"getVariation")
+                                                pushbyte 2
+                                                callproperty QName(PrivateNamespace(null,"169"),"getVariation"), 1
+                                                add
+                                                returnvalue
+                                             end ; code
+                                          end ; body
+                                       end ; method
+                                    }
+                                    
+                                    public static function get BOSS_HURT() : String
+                                    {
+                                       trait getter QName(PackageNamespace(""),"BOSS_HURT")
+                                          flag FINAL
+                                          dispid 13
+                                          method
+                                             name null
+                                             returns QName(PackageNamespace(""),"String")
+                                             
+                                             body
+                                                maxstack 3
+                                                localcount 1
+                                                initscopedepth 3
+                                                maxscopedepth 4
+                                                
+                                                code
+                                                   getlocal0
+                                                   pushscope
+                                                   pushstring "boss_hurt"
+                                                   findpropstrict QName(PrivateNamespace(null,"169"),"getVariation")
+                                                   pushbyte 2
+                                                   callproperty QName(PrivateNamespace(null,"169"),"getVariation"), 1
+                                                   add
+                                                   returnvalue
+                                                end ; code
+                                             end ; body
+                                          end ; method
+                                       }
+                                    }
+                                 }
+                                 
+                                 method
+                                    name null
+                                    returns null
+                                    
+                                    body
+                                       maxstack 2
+                                       localcount 1
+                                       initscopedepth 1
+                                       maxscopedepth 3
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          findpropstrict Multiname("GameSounds",[PackageNamespace("sound")])
+                                          getlex QName(PackageNamespace(""),"Object")
+                                          pushscope
+                                          getlex QName(PackageNamespace(""),"Object")
+                                          newclass 22
+                                          popscope
+                                          initproperty QName(PackageNamespace("sound"),"GameSounds")
+                                          returnvoid
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                                 

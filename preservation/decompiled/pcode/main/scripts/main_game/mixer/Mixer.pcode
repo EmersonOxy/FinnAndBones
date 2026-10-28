@@ -1,0 +1,600 @@
+package main_game.mixer
+{
+   import cb.signals.Signal;
+   import main_game.item_containers.Slot;
+   import main_game.item_containers.SlotChange;
+   import main_game.items.Item;
+   import sound.GameSounds;
+   
+   public class Mixer
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public var clock:MixerClock;
+      
+      public var onMixStart:Signal;
+      
+      public var onMixEnd:Signal;
+      
+      private var slot_1:Slot;
+      
+      private var slot_2:Slot;
+      
+      private var slot_3:Slot;
+      
+      private var strat:MixStrategy;
+      
+      public function Mixer()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 2
+               localcount 1
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("main_game.item_containers"),"Slot")
+                  constructprop QName(PackageNamespace("main_game.item_containers"),"Slot"), 0
+                  initproperty QName(PrivateNamespace(null,"83"),"slot_1")
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("main_game.item_containers"),"Slot")
+                  constructprop QName(PackageNamespace("main_game.item_containers"),"Slot"), 0
+                  initproperty QName(PrivateNamespace(null,"83"),"slot_2")
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("main_game.mixer"),"MixSlot")
+                  constructprop QName(PackageNamespace("main_game.mixer"),"MixSlot"), 0
+                  initproperty QName(PrivateNamespace(null,"83"),"slot_3")
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("main_game.mixer"),"MixStrategy")
+                  constructprop QName(PackageNamespace("main_game.mixer"),"MixStrategy"), 0
+                  initproperty QName(PrivateNamespace(null,"83"),"strat")
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("cb.signals"),"Signal")
+                  constructprop QName(PackageNamespace("cb.signals"),"Signal"), 0
+                  initproperty QName(PackageNamespace(""),"onMixEnd")
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("cb.signals"),"Signal")
+                  constructprop QName(PackageNamespace("cb.signals"),"Signal"), 0
+                  initproperty QName(PackageNamespace(""),"onMixStart")
+                  getlocal0
+                  callpropvoid QName(PrivateNamespace(null,"83"),"loadData"), 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      private function loadData() : void
+      {
+         trait method QName(PrivateNamespace(null,"83"),"loadData")
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 3
+                  localcount 2
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     pushnull
+                     coerce QName(PackageNamespace("main_game.items"),"Item")
+                     setlocal1
+                     getlex QName(PackageNamespace(""),"main")
+                     getproperty QName(PackageNamespace(""),"saveSystem")
+                     pushbyte 1
+                     callproperty QName(PackageNamespace(""),"loadMixItem"), 1
+                     coerce QName(PackageNamespace("main_game.items"),"Item")
+                     setlocal1
+                     getlocal1
+                     pushnull
+                     ifeq ofs0024
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"83"),"slot_1")
+                     getlocal1
+                     callpropvoid QName(PackageNamespace(""),"add"), 1
+            ofs0024:
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"83"),"slot_1")
+                     getproperty QName(PackageNamespace(""),"onChange")
+                     getlocal0
+                     pushbyte 1
+                     callproperty QName(PrivateNamespace(null,"83"),"saveSlot"), 1
+                     callpropvoid QName(PackageNamespace(""),"add"), 1
+                     getlex QName(PackageNamespace(""),"main")
+                     getproperty QName(PackageNamespace(""),"saveSystem")
+                     pushbyte 2
+                     callproperty QName(PackageNamespace(""),"loadMixItem"), 1
+                     coerce QName(PackageNamespace("main_game.items"),"Item")
+                     setlocal1
+                     getlocal1
+                     pushnull
+                     ifeq ofs0054
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"83"),"slot_2")
+                     getlocal1
+                     callpropvoid QName(PackageNamespace(""),"add"), 1
+            ofs0054:
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"83"),"slot_2")
+                     getproperty QName(PackageNamespace(""),"onChange")
+                     getlocal0
+                     pushbyte 2
+                     callproperty QName(PrivateNamespace(null,"83"),"saveSlot"), 1
+                     callpropvoid QName(PackageNamespace(""),"add"), 1
+                     getlex QName(PackageNamespace(""),"main")
+                     getproperty QName(PackageNamespace(""),"saveSystem")
+                     pushbyte 3
+                     callproperty QName(PackageNamespace(""),"loadMixItem"), 1
+                     coerce QName(PackageNamespace("main_game.items"),"Item")
+                     setlocal1
+                     getlocal1
+                     pushnull
+                     ifeq ofs0084
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"83"),"slot_3")
+                     getlocal1
+                     callpropvoid QName(PackageNamespace(""),"add"), 1
+            ofs0084:
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"83"),"slot_3")
+                     getproperty QName(PackageNamespace(""),"onChange")
+                     getlocal0
+                     pushbyte 3
+                     callproperty QName(PrivateNamespace(null,"83"),"saveSlot"), 1
+                     callpropvoid QName(PackageNamespace(""),"add"), 1
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         private function saveSlot(param1:uint) : Function
+         {
+            trait method QName(PrivateNamespace(null,"83"),"saveSlot")
+               dispid 0
+               method
+                  name null
+                  flag NEED_ACTIVATION
+                  param QName(PackageNamespace(""),"uint")
+                  returns QName(PackageNamespace(""),"Function")
+                  
+                  body
+                     maxstack 2
+                     localcount 3
+                     initscopedepth 5
+                     maxscopedepth 7
+                     trait slot QName(PackageInternalNs("main_game.mixer"),"i")
+                        slotid 1
+                        type QName(PackageNamespace(""),"uint")
+                     end ; trait
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        newactivation
+                        dup
+                        setlocal2
+                        pushscope
+                        getscopeobject 1
+                        getlocal1
+                        setslot 1
+                        newfunction 1370
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function canMix() : Boolean
+            {
+               trait method QName(PackageNamespace(""),"canMix")
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace(""),"Boolean")
+                     
+                     body
+                        maxstack 2
+                        localcount 1
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"83"),"slot_1")
+                           callproperty QName(PackageNamespace(""),"isEmpty"), 0
+                           not
+                           dup
+                           iffalse ofs001a
+                           pop
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"83"),"slot_2")
+                           callproperty QName(PackageNamespace(""),"isEmpty"), 0
+                           not
+                  ofs001a:
+                           dup
+                           iffalse ofs0029
+                           pop
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"83"),"slot_3")
+                           callproperty QName(PackageNamespace(""),"isEmpty"), 0
+                           convert_b
+                  ofs0029:
+                           dup
+                           iffalse ofs0035
+                           pop
+                           getlocal0
+                           getproperty QName(PackageNamespace(""),"clock")
+                           pushnull
+                           equals
+                  ofs0035:
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function startMix() : void
+               {
+                  trait method QName(PackageNamespace(""),"startMix")
+                     dispid 0
+                     method
+                        name null
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 4
+                           localcount 1
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal0
+                              callproperty QName(PackageNamespace(""),"canMix"), 0
+                              iftrue ofs000c
+                              returnvoid
+                     ofs000c:
+                              getlocal0
+                              callpropvoid QName(PrivateNamespace(null,"83"),"lock"), 0
+                              getlocal0
+                              findpropstrict QName(PackageNamespace("main_game.mixer"),"MixerClock")
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"83"),"slot_1")
+                              callproperty QName(PackageNamespace(""),"getContent"), 0
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"83"),"slot_2")
+                              callproperty QName(PackageNamespace(""),"getContent"), 0
+                              constructprop QName(PackageNamespace("main_game.mixer"),"MixerClock"), 2
+                              setproperty QName(PackageNamespace(""),"clock")
+                              getlocal0
+                              getproperty QName(PackageNamespace(""),"clock")
+                              getproperty QName(PackageNamespace(""),"atEndMix")
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"83"),"endMix")
+                              callpropvoid QName(PackageNamespace(""),"add"), 1
+                              getlocal0
+                              getproperty QName(PackageNamespace(""),"clock")
+                              callpropvoid QName(PackageNamespace(""),"start"), 0
+                              getlocal0
+                              getproperty QName(PackageNamespace(""),"onMixStart")
+                              callpropvoid QName(PackageNamespace(""),"emit"), 0
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  private function endMix() : void
+                  {
+                     trait method QName(PrivateNamespace(null,"83"),"endMix")
+                        dispid 0
+                        method
+                           name null
+                           returns QName(PackageNamespace(""),"void")
+                           
+                           body
+                              maxstack 3
+                              localcount 5
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal0
+                                 callpropvoid QName(PrivateNamespace(null,"83"),"unlock"), 0
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"83"),"slot_1")
+                                 callproperty QName(PackageNamespace(""),"getContent"), 0
+                                 coerce QName(PackageNamespace("main_game.items"),"Item")
+                                 setlocal1
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"83"),"slot_2")
+                                 callproperty QName(PackageNamespace(""),"getContent"), 0
+                                 coerce QName(PackageNamespace("main_game.items"),"Item")
+                                 setlocal2
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"83"),"strat")
+                                 getlocal1
+                                 getlocal2
+                                 callproperty QName(PackageNamespace(""),"getMix"), 2
+                                 coerce QName(PackageNamespace("main_game.mixer"),"MixResult")
+                                 setlocal3
+                                 getlocal3
+                                 getproperty QName(PackageNamespace(""),"item")
+                                 coerce QName(PackageNamespace("main_game.items"),"Item")
+                                 setlocal 4
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"83"),"slot_1")
+                                 getlocal1
+                                 callpropvoid QName(PackageNamespace(""),"remove"), 1
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"83"),"slot_2")
+                                 getlocal2
+                                 callpropvoid QName(PackageNamespace(""),"remove"), 1
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"83"),"slot_3")
+                                 getlocal 4
+                                 callpropvoid QName(PackageNamespace(""),"add"), 1
+                                 getlocal0
+                                 pushnull
+                                 setproperty QName(PackageNamespace(""),"clock")
+                                 getlocal0
+                                 getproperty QName(PackageNamespace(""),"onMixEnd")
+                                 getlocal3
+                                 callpropvoid QName(PackageNamespace(""),"emit"), 1
+                                 getlocal3
+                                 getproperty QName(PackageNamespace(""),"recipe")
+                                 pushnull
+                                 equals
+                                 not
+                                 dup
+                                 iffalse ofs0071
+                                 pop
+                                 getlocal3
+                                 getproperty QName(PackageNamespace(""),"recipe")
+                                 getproperty QName(PackageNamespace(""),"mustShow")
+                                 convert_b
+                        ofs0071:
+                                 iffalse ofs0083
+                                 getlex QName(PackageNamespace(""),"main")
+                                 getproperty QName(PackageNamespace(""),"saveSystem")
+                                 getlocal3
+                                 getproperty QName(PackageNamespace(""),"recipe")
+                                 callpropvoid QName(PackageNamespace(""),"saveRecipe"), 1
+                        ofs0083:
+                                 getlex QName(PackageNamespace(""),"main")
+                                 getproperty QName(PackageNamespace(""),"saveSystem")
+                                 callpropvoid QName(PackageNamespace(""),"savePendingItems"), 0
+                                 getlex QName(PackageNamespace(""),"main")
+                                 getproperty QName(PackageNamespace(""),"soundManager")
+                                 getlex QName(PackageNamespace("sound"),"GameSounds")
+                                 getproperty QName(PackageNamespace(""),"MIX_DONE")
+                                 callpropvoid QName(PackageNamespace(""),"playFx"), 1
+                                 getlocal 4
+                                 callproperty QName(PackageNamespace(""),"getID"), 0
+                                 pushstring "FriendlyRockJr"
+                                 ifne ofs00b4
+                                 getlex QName(PackageNamespace(""),"main")
+                                 getproperty QName(PackageNamespace(""),"achievementDispatcher")
+                                 callpropvoid QName(PackageNamespace(""),"friendlyRockJrObtained"), 0
+                        ofs00b4:
+                                 getlex QName(PackageNamespace(""),"main")
+                                 getproperty QName(PackageNamespace(""),"achievementDispatcher")
+                                 callpropvoid QName(PackageNamespace(""),"madeMix"), 0
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     private function lock() : void
+                     {
+                        trait method QName(PrivateNamespace(null,"83"),"lock")
+                           dispid 0
+                           method
+                              name null
+                              returns QName(PackageNamespace(""),"void")
+                              
+                              body
+                                 maxstack 1
+                                 localcount 1
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"83"),"slot_1")
+                                    callpropvoid QName(PackageNamespace(""),"lock"), 0
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"83"),"slot_2")
+                                    callpropvoid QName(PackageNamespace(""),"lock"), 0
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"83"),"slot_3")
+                                    callpropvoid QName(PackageNamespace(""),"lock"), 0
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        private function unlock() : void
+                        {
+                           trait method QName(PrivateNamespace(null,"83"),"unlock")
+                              dispid 0
+                              method
+                                 name null
+                                 returns QName(PackageNamespace(""),"void")
+                                 
+                                 body
+                                    maxstack 1
+                                    localcount 1
+                                    initscopedepth 4
+                                    maxscopedepth 5
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"83"),"slot_1")
+                                       callpropvoid QName(PackageNamespace(""),"unlock"), 0
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"83"),"slot_2")
+                                       callpropvoid QName(PackageNamespace(""),"unlock"), 0
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"83"),"slot_3")
+                                       callpropvoid QName(PackageNamespace(""),"unlock"), 0
+                                       returnvoid
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           public function getSlot(param1:uint) : Slot
+                           {
+                              trait method QName(PackageNamespace(""),"getSlot")
+                                 dispid 0
+                                 method
+                                    name null
+                                    param QName(PackageNamespace(""),"uint")
+                                    returns QName(PackageNamespace("main_game.item_containers"),"Slot")
+                                    
+                                    body
+                                       maxstack 3
+                                       localcount 2
+                                       initscopedepth 4
+                                       maxscopedepth 5
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          getlocal0
+                                          pushstring "slot_"
+                                          getlocal1
+                                          add
+                                          getproperty MultinameL([PrivateNamespace(null,"83"),PackageNamespace("main_game.mixer"),PackageNamespace(""),PackageInternalNs("main_game.mixer"),PrivateNamespace(null,"261"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.mixer:Mixer"),StaticProtectedNs("main_game.mixer:Mixer")])
+                                          returnvalue
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                              
+                              public function clear() : void
+                              {
+                                 trait method QName(PackageNamespace(""),"clear")
+                                    dispid 0
+                                    method
+                                       name null
+                                       returns QName(PackageNamespace(""),"void")
+                                       
+                                       body
+                                          maxstack 2
+                                          localcount 1
+                                          initscopedepth 4
+                                          maxscopedepth 5
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             getlocal0
+                                             getproperty QName(PrivateNamespace(null,"83"),"slot_1")
+                                             callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                             getlocal0
+                                             getproperty QName(PrivateNamespace(null,"83"),"slot_2")
+                                             callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                             getlocal0
+                                             getproperty QName(PrivateNamespace(null,"83"),"slot_3")
+                                             callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                             getlocal0
+                                             getproperty QName(PackageNamespace(""),"onMixEnd")
+                                             callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                             getlocal0
+                                             pushnull
+                                             setproperty QName(PackageNamespace(""),"onMixEnd")
+                                             getlocal0
+                                             getproperty QName(PackageNamespace(""),"onMixStart")
+                                             callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                             getlocal0
+                                             pushnull
+                                             setproperty QName(PackageNamespace(""),"onMixStart")
+                                             getlocal0
+                                             getproperty QName(PackageNamespace(""),"clock")
+                                             pushnull
+                                             ifeq ofs0045
+                                             getlocal0
+                                             getproperty QName(PackageNamespace(""),"clock")
+                                             callpropvoid QName(PackageNamespace(""),"stop"), 0
+                                    ofs0045:
+                                             getlocal0
+                                             pushnull
+                                             setproperty QName(PackageNamespace(""),"clock")
+                                             returnvoid
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                 }
+                              }
+                           }
+                           
+                           method
+                              name null
+                              returns null
+                              
+                              body
+                                 maxstack 2
+                                 localcount 1
+                                 initscopedepth 1
+                                 maxscopedepth 3
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    findpropstrict Multiname("Mixer",[PackageNamespace("main_game.mixer")])
+                                    getlex QName(PackageNamespace(""),"Object")
+                                    pushscope
+                                    getlex QName(PackageNamespace(""),"Object")
+                                    newclass 143
+                                    popscope
+                                    initproperty QName(PackageNamespace("main_game.mixer"),"Mixer")
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                           

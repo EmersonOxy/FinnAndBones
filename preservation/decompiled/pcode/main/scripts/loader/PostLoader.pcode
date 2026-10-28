@@ -1,0 +1,448 @@
+package loader
+{
+   import aplication.BasicState;
+   import aplication.FSM;
+   import aplication.State;
+   import cb.logger.Appender;
+   import cb.logger.JSConsoleAppender;
+   import cb.logger.Log;
+   import cb.signals.Signal;
+   import util.Util;
+   
+   public class PostLoader implements DynamicLoader
+   {
+      
+      protected static const NEXT:String = "next";
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(StaticProtectedNs("loader:PostLoader"),"NEXT")
+               pushstring "next"
+               initproperty QName(StaticProtectedNs("loader:PostLoader"),"NEXT")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      protected var fsm:FSM;
+      
+      protected var states:Array;
+      
+      private var theOnLoad:Signal;
+      
+      private var theLoader:ResourceLoader;
+      
+      public function PostLoader(param1:Array, param2:ResourceLoader)
+      {
+         method
+            name null
+            param QName(PackageNamespace(""),"Array")
+            param QName(PackageNamespace("loader"),"ResourceLoader")
+            returns null
+            
+            body
+               maxstack 2
+               localcount 3
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlocal2
+                  initproperty QName(PrivateNamespace(null,"26"),"theLoader")
+                  getlocal0
+                  getlocal1
+                  initproperty QName(ProtectedNamespace("loader:PostLoader"),"states")
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("cb.signals"),"Signal")
+                  constructprop QName(PackageNamespace("cb.signals"),"Signal"), 0
+                  initproperty QName(PrivateNamespace(null,"26"),"theOnLoad")
+                  getlex QName(StaticProtectedNs("loader:PostLoader"),"log")
+                  findpropstrict QName(PackageNamespace("cb.logger"),"Appender")
+                  constructprop QName(PackageNamespace("cb.logger"),"Appender"), 0
+                  callpropvoid QName(PackageNamespace(""),"addAppender"), 1
+                  getlex QName(StaticProtectedNs("loader:PostLoader"),"log")
+                  findpropstrict QName(PackageNamespace("cb.logger"),"JSConsoleAppender")
+                  constructprop QName(PackageNamespace("cb.logger"),"JSConsoleAppender"), 0
+                  callpropvoid QName(PackageNamespace(""),"addAppender"), 1
+                  getlocal0
+                  callpropvoid QName(PrivateNamespace(null,"26"),"initFSM"), 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      protected static function get log() : Log
+      {
+         trait getter QName(StaticProtectedNs("loader:PostLoader"),"log")
+            flag FINAL
+            dispid 3
+            method
+               name null
+               returns QName(PackageNamespace("cb.logger"),"Log")
+               
+               body
+                  maxstack 2
+                  localcount 1
+                  initscopedepth 3
+                  maxscopedepth 4
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlex QName(PackageNamespace("cb.logger"),"Log")
+                     pushstring "PostLoader"
+                     callproperty QName(PackageNamespace(""),"getLogger"), 1
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function get onLoad() : Signal
+         {
+            trait getter QName(PackageNamespace(""),"onLoad")
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace("cb.signals"),"Signal")
+                  
+                  body
+                     maxstack 1
+                     localcount 1
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"26"),"theOnLoad")
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function isLoaded(param1:String) : Boolean
+            {
+               trait method QName(PackageNamespace(""),"isLoaded")
+                  dispid 0
+                  method
+                     name null
+                     param QName(PackageNamespace(""),"String")
+                     returns QName(PackageNamespace(""),"Boolean")
+                     
+                     body
+                        maxstack 3
+                        localcount 3
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getproperty QName(ProtectedNamespace("loader:PostLoader"),"fsm")
+                           callproperty QName(PackageNamespace(""),"getActualState"), 0
+                           callproperty QName(Namespace("aplication:State"),"getName"), 0
+                           coerce_s
+                           setlocal2
+                           getlocal2
+                           pushstring "end"
+                           ifne ofs001a
+                           pushtrue
+                           returnvalue
+                  ofs001a:
+                           getlocal0
+                           getproperty QName(ProtectedNamespace("loader:PostLoader"),"states")
+                           getlocal1
+                           callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"indexOf"), 1
+                           getlocal0
+                           getproperty QName(ProtectedNamespace("loader:PostLoader"),"states")
+                           getlocal2
+                           callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"indexOf"), 1
+                           lessthan
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               private function initFSM() : void
+               {
+                  trait method QName(PrivateNamespace(null,"26"),"initFSM")
+                     dispid 0
+                     method
+                        name null
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 4
+                           localcount 7
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              pushnull
+                              coerce_s
+                              setlocal2
+                              pushnull
+                              coerce QName(PackageNamespace("aplication"),"State")
+                              setlocal3
+                              pushnull
+                              coerce QName(PackageNamespace("aplication"),"State")
+                              setlocal 4
+                              findpropstrict QName(PackageNamespace("aplication"),"BasicState")
+                              pushstring "init"
+                              constructprop QName(PackageNamespace("aplication"),"BasicState"), 1
+                              coerce QName(PackageNamespace("aplication"),"State")
+                              setlocal1
+                              getlocal0
+                              findpropstrict QName(PackageNamespace("aplication"),"FSM")
+                              getlocal1
+                              constructprop QName(PackageNamespace("aplication"),"FSM"), 1
+                              setproperty QName(ProtectedNamespace("loader:PostLoader"),"fsm")
+                              pushbyte 0
+                              setlocal 5
+                              getlocal0
+                              getproperty QName(ProtectedNamespace("loader:PostLoader"),"states")
+                              coerce_a
+                              setlocal 6
+                              jump ofs0075
+                     ofs0036:
+                              label
+                              getlocal 6
+                              getlocal 5
+                              nextvalue
+                              coerce_s
+                              setlocal2
+                              getlocal1
+                              coerce QName(PackageNamespace("aplication"),"State")
+                              setlocal 4
+                              findpropstrict QName(PackageNamespace("aplication"),"BasicState")
+                              getlocal2
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"26"),"enterToState")
+                              getlocal0
+                              getproperty QName(ProtectedNamespace("loader:PostLoader"),"resourceLoaded")
+                              constructprop QName(PackageNamespace("aplication"),"BasicState"), 3
+                              coerce QName(PackageNamespace("aplication"),"State")
+                              setlocal1
+                              getlocal0
+                              getproperty QName(ProtectedNamespace("loader:PostLoader"),"fsm")
+                              getlocal1
+                              callpropvoid QName(PackageNamespace(""),"addState"), 1
+                              getlocal0
+                              getproperty QName(ProtectedNamespace("loader:PostLoader"),"fsm")
+                              getlocal 4
+                              callproperty QName(Namespace("aplication:State"),"getName"), 0
+                              getlocal1
+                              callproperty QName(Namespace("aplication:State"),"getName"), 0
+                              getlex QName(StaticProtectedNs("loader:PostLoader"),"NEXT")
+                              callpropvoid QName(PackageNamespace(""),"addTransition"), 3
+                     ofs0075:
+                              hasnext2 6, 5
+                              iftrue ofs0036
+                              kill 6
+                              kill 5
+                              findpropstrict QName(PackageNamespace("aplication"),"BasicState")
+                              pushstring "end"
+                              getlocal0
+                              getproperty QName(ProtectedNamespace("loader:PostLoader"),"endLoad")
+                              constructprop QName(PackageNamespace("aplication"),"BasicState"), 2
+                              coerce QName(PackageNamespace("aplication"),"State")
+                              setlocal3
+                              getlocal0
+                              getproperty QName(ProtectedNamespace("loader:PostLoader"),"fsm")
+                              getlocal3
+                              callpropvoid QName(PackageNamespace(""),"addState"), 1
+                              getlocal0
+                              getproperty QName(ProtectedNamespace("loader:PostLoader"),"fsm")
+                              getlocal1
+                              callproperty QName(Namespace("aplication:State"),"getName"), 0
+                              getlocal3
+                              callproperty QName(Namespace("aplication:State"),"getName"), 0
+                              getlex QName(StaticProtectedNs("loader:PostLoader"),"NEXT")
+                              callpropvoid QName(PackageNamespace(""),"addTransition"), 3
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function start() : void
+                  {
+                     trait method QName(PackageNamespace(""),"start")
+                        dispid 0
+                        method
+                           name null
+                           returns QName(PackageNamespace(""),"void")
+                           
+                           body
+                              maxstack 2
+                              localcount 1
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal0
+                                 getproperty QName(ProtectedNamespace("loader:PostLoader"),"fsm")
+                                 callproperty QName(PackageNamespace(""),"getActualState"), 0
+                                 callproperty QName(Namespace("aplication:State"),"getName"), 0
+                                 pushstring "init"
+                                 ifne ofs0020
+                                 getlocal0
+                                 getproperty QName(ProtectedNamespace("loader:PostLoader"),"fsm")
+                                 getlex QName(StaticProtectedNs("loader:PostLoader"),"NEXT")
+                                 callpropvoid QName(PackageNamespace(""),"takeTransition"), 1
+                        ofs0020:
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     private function enterToState() : void
+                     {
+                        trait method QName(PrivateNamespace(null,"26"),"enterToState")
+                           dispid 0
+                           method
+                              name null
+                              returns QName(PackageNamespace(""),"void")
+                              
+                              body
+                                 maxstack 5
+                                 localcount 1
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    getlocal0
+                                    getproperty QName(PackageNamespace(""),"onLoad")
+                                    callpropvoid QName(PackageNamespace(""),"emit"), 0
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"26"),"theLoader")
+                                    getlocal0
+                                    getproperty QName(ProtectedNamespace("loader:PostLoader"),"fsm")
+                                    callproperty QName(PackageNamespace(""),"getActualState"), 0
+                                    callproperty QName(Namespace("aplication:State"),"getName"), 0
+                                    getlex QName(PackageNamespace("util"),"Util")
+                                    getlocal0
+                                    getproperty QName(ProtectedNamespace("loader:PostLoader"),"fsm")
+                                    getproperty QName(PackageNamespace(""),"takeTransition")
+                                    getlex QName(StaticProtectedNs("loader:PostLoader"),"NEXT")
+                                    callproperty QName(PackageNamespace(""),"l"), 2
+                                    callpropvoid QName(Namespace("loader:ResourceLoader"),"load"), 2
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        protected function resourceLoaded() : void
+                        {
+                           trait method QName(ProtectedNamespace("loader:PostLoader"),"resourceLoaded")
+                              dispid 0
+                              method
+                                 name null
+                                 returns QName(PackageNamespace(""),"void")
+                                 
+                                 body
+                                    maxstack 3
+                                    localcount 1
+                                    initscopedepth 4
+                                    maxscopedepth 5
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       getlex QName(StaticProtectedNs("loader:PostLoader"),"log")
+                                       pushstring "Loaded: "
+                                       getlocal0
+                                       getproperty QName(ProtectedNamespace("loader:PostLoader"),"fsm")
+                                       callproperty QName(PackageNamespace(""),"getActualState"), 0
+                                       callproperty QName(Namespace("aplication:State"),"getName"), 0
+                                       add
+                                       callpropvoid QName(PackageNamespace(""),"log"), 1
+                                       returnvoid
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           protected function endLoad() : void
+                           {
+                              trait method QName(ProtectedNamespace("loader:PostLoader"),"endLoad")
+                                 dispid 0
+                                 method
+                                    name null
+                                    returns QName(PackageNamespace(""),"void")
+                                    
+                                    body
+                                       maxstack 1
+                                       localcount 1
+                                       initscopedepth 4
+                                       maxscopedepth 5
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          getlocal0
+                                          getproperty QName(PackageNamespace(""),"onLoad")
+                                          callpropvoid QName(PackageNamespace(""),"emit"), 0
+                                          returnvoid
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                           }
+                        }
+                        
+                        method
+                           name null
+                           returns null
+                           
+                           body
+                              maxstack 2
+                              localcount 1
+                              initscopedepth 1
+                              maxscopedepth 3
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 findpropstrict Multiname("PostLoader",[PackageNamespace("loader")])
+                                 getlex QName(PackageNamespace(""),"Object")
+                                 pushscope
+                                 getlex QName(PackageNamespace(""),"Object")
+                                 newclass 29
+                                 popscope
+                                 initproperty QName(PackageNamespace("loader"),"PostLoader")
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                        

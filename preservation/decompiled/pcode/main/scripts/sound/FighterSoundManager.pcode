@@ -1,0 +1,322 @@
+package sound
+{
+   public class FighterSoundManager
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      protected var hurt:String;
+      
+      protected var attack:String;
+      
+      protected var critical:String;
+      
+      protected var die:String;
+      
+      protected var block:String;
+      
+      protected var lastSound:String;
+      
+      public function FighterSoundManager(param1:String, param2:String, param3:String, param4:String, param5:String)
+      {
+         method
+            name null
+            param QName(PackageNamespace(""),"String")
+            param QName(PackageNamespace(""),"String")
+            param QName(PackageNamespace(""),"String")
+            param QName(PackageNamespace(""),"String")
+            param QName(PackageNamespace(""),"String")
+            returns null
+            
+            body
+               maxstack 2
+               localcount 6
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlocal1
+                  initproperty QName(ProtectedNamespace("sound:FighterSoundManager"),"hurt")
+                  getlocal0
+                  getlocal2
+                  initproperty QName(ProtectedNamespace("sound:FighterSoundManager"),"attack")
+                  getlocal0
+                  getlocal3
+                  initproperty QName(ProtectedNamespace("sound:FighterSoundManager"),"die")
+                  getlocal0
+                  getlocal 4
+                  initproperty QName(ProtectedNamespace("sound:FighterSoundManager"),"critical")
+                  getlocal0
+                  getlocal 5
+                  initproperty QName(ProtectedNamespace("sound:FighterSoundManager"),"block")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function playHurt() : void
+      {
+         trait method QName(PackageNamespace(""),"playHurt")
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 2
+                  localcount 1
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlex QName(PackageNamespace(""),"main")
+                     getproperty QName(PackageNamespace(""),"soundManager")
+                     getlocal0
+                     getproperty QName(ProtectedNamespace("sound:FighterSoundManager"),"hurt")
+                     callpropvoid QName(PackageNamespace(""),"playFx"), 1
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function playBlock() : void
+         {
+            trait method QName(PackageNamespace(""),"playBlock")
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 2
+                     localcount 1
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlex QName(PackageNamespace(""),"main")
+                        getproperty QName(PackageNamespace(""),"soundManager")
+                        getlocal0
+                        getproperty QName(ProtectedNamespace("sound:FighterSoundManager"),"block")
+                        callpropvoid QName(PackageNamespace(""),"playFx"), 1
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function playDie() : void
+            {
+               trait method QName(PackageNamespace(""),"playDie")
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 2
+                        localcount 1
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlex QName(PackageNamespace(""),"main")
+                           getproperty QName(PackageNamespace(""),"soundManager")
+                           getlocal0
+                           getproperty QName(ProtectedNamespace("sound:FighterSoundManager"),"die")
+                           callpropvoid QName(PackageNamespace(""),"playFx"), 1
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function playAttack() : void
+               {
+                  trait method QName(PackageNamespace(""),"playAttack")
+                     dispid 0
+                     method
+                        name null
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 2
+                           localcount 1
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlex QName(PackageNamespace(""),"main")
+                              getproperty QName(PackageNamespace(""),"soundManager")
+                              getlocal0
+                              getproperty QName(ProtectedNamespace("sound:FighterSoundManager"),"attack")
+                              callpropvoid QName(PackageNamespace(""),"playFx"), 1
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function playCritical() : void
+                  {
+                     trait method QName(PackageNamespace(""),"playCritical")
+                        dispid 0
+                        method
+                           name null
+                           returns QName(PackageNamespace(""),"void")
+                           
+                           body
+                              maxstack 2
+                              localcount 1
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlex QName(PackageNamespace(""),"main")
+                                 getproperty QName(PackageNamespace(""),"soundManager")
+                                 getlocal0
+                                 getproperty QName(ProtectedNamespace("sound:FighterSoundManager"),"critical")
+                                 callpropvoid QName(PackageNamespace(""),"playFx"), 1
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     public function pause() : void
+                     {
+                        trait method QName(PackageNamespace(""),"pause")
+                           dispid 0
+                           method
+                              name null
+                              returns QName(PackageNamespace(""),"void")
+                              
+                              body
+                                 maxstack 2
+                                 localcount 1
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    getlocal0
+                                    getproperty QName(ProtectedNamespace("sound:FighterSoundManager"),"lastSound")
+                                    pushnull
+                                    ifeq ofs0034
+                                    getlex QName(PackageNamespace(""),"main")
+                                    getproperty QName(PackageNamespace(""),"soundManager")
+                                    getlocal0
+                                    getproperty QName(ProtectedNamespace("sound:FighterSoundManager"),"lastSound")
+                                    callproperty QName(PackageNamespace(""),"isPlaying"), 1
+                                    iffalse ofs002f
+                                    getlex QName(PackageNamespace(""),"main")
+                                    getproperty QName(PackageNamespace(""),"soundManager")
+                                    getlocal0
+                                    getproperty QName(ProtectedNamespace("sound:FighterSoundManager"),"lastSound")
+                                    callpropvoid QName(PackageNamespace(""),"pauseSound"), 1
+                                    jump ofs0034
+                           ofs002f:
+                                    getlocal0
+                                    pushnull
+                                    initproperty QName(ProtectedNamespace("sound:FighterSoundManager"),"lastSound")
+                           ofs0034:
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        public function resume() : void
+                        {
+                           trait method QName(PackageNamespace(""),"resume")
+                              dispid 0
+                              method
+                                 name null
+                                 returns QName(PackageNamespace(""),"void")
+                                 
+                                 body
+                                    maxstack 2
+                                    localcount 1
+                                    initscopedepth 4
+                                    maxscopedepth 5
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       getlocal0
+                                       getproperty QName(ProtectedNamespace("sound:FighterSoundManager"),"lastSound")
+                                       pushnull
+                                       ifeq ofs0019
+                                       getlex QName(PackageNamespace(""),"main")
+                                       getproperty QName(PackageNamespace(""),"soundManager")
+                                       getlocal0
+                                       getproperty QName(ProtectedNamespace("sound:FighterSoundManager"),"lastSound")
+                                       callpropvoid QName(PackageNamespace(""),"resumeSound"), 1
+                              ofs0019:
+                                       returnvoid
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                        }
+                     }
+                     
+                     method
+                        name null
+                        returns null
+                        
+                        body
+                           maxstack 2
+                           localcount 1
+                           initscopedepth 1
+                           maxscopedepth 3
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              findpropstrict Multiname("FighterSoundManager",[PackageNamespace("sound")])
+                              getlex QName(PackageNamespace(""),"Object")
+                              pushscope
+                              getlex QName(PackageNamespace(""),"Object")
+                              newclass 199
+                              popscope
+                              initproperty QName(PackageNamespace("sound"),"FighterSoundManager")
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                     

@@ -1,0 +1,142 @@
+package bonus.filter
+{
+   import main_game.element.Element;
+   
+   public class AllFilter implements IBonusFilter
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function AllFilter()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 1
+               localcount 1
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function doesApply(param1:Element) : Boolean
+      {
+         trait method QName(PackageNamespace(""),"doesApply")
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace("main_game.element"),"Element")
+               returns QName(PackageNamespace(""),"Boolean")
+               
+               body
+                  maxstack 1
+                  localcount 2
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     pushtrue
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function getIcons() : Vector.<BonusIcon>
+         {
+            trait method QName(PackageNamespace(""),"getIcons")
+               dispid 0
+               method
+                  name null
+                  returns TypeName(QName(PackageNamespace("__AS3__.vec"),"Vector")<QName(PackageNamespace("bonus.filter"),"BonusIcon")>)
+                  
+                  body
+                     maxstack 2
+                     localcount 2
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlex Multiname("Vector",[PrivateNamespace(null,"256"),PackageNamespace(""),PrivateNamespace(null,"257"),PackageNamespace("bonus.filter"),PackageInternalNs("bonus.filter"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("bonus.filter:AllFilter"),StaticProtectedNs("bonus.filter:AllFilter"),PackageNamespace("__AS3__.vec")])
+                        getlex QName(PackageNamespace("bonus.filter"),"BonusIcon")
+                        applytype 1
+                        construct 0
+                        coerce TypeName(QName(PackageNamespace("__AS3__.vec"),"Vector")<QName(PackageNamespace("bonus.filter"),"BonusIcon")>)
+                        setlocal1
+                        getlocal1
+                        getlex QName(PackageNamespace("bonus.filter"),"BonusIcon")
+                        callproperty QName(PackageNamespace(""),"getNormal"), 0
+                        callpropvoid QName(Namespace("http://adobe.com/AS3/2006/builtin"),"push"), 1
+                        getlocal1
+                        getlex QName(PackageNamespace("bonus.filter"),"BonusIcon")
+                        callproperty QName(PackageNamespace(""),"getFire"), 0
+                        callpropvoid QName(Namespace("http://adobe.com/AS3/2006/builtin"),"push"), 1
+                        getlocal1
+                        getlex QName(PackageNamespace("bonus.filter"),"BonusIcon")
+                        callproperty QName(PackageNamespace(""),"getIce"), 0
+                        callpropvoid QName(Namespace("http://adobe.com/AS3/2006/builtin"),"push"), 1
+                        getlocal1
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+         }
+      }
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 1
+            maxscopedepth 3
+            
+            code
+               getlocal0
+               pushscope
+               findpropstrict Multiname("AllFilter",[PackageNamespace("bonus.filter")])
+               getlex QName(PackageNamespace(""),"Object")
+               pushscope
+               getlex QName(PackageNamespace(""),"Object")
+               newclass 139
+               popscope
+               initproperty QName(PackageNamespace("bonus.filter"),"AllFilter")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      

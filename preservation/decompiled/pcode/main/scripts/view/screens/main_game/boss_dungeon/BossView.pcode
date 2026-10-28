@@ -1,0 +1,163 @@
+package view.screens.main_game.boss_dungeon
+{
+   import flash.display.MovieClip;
+   import main_game.boss_dungeon.Boss;
+   import main_game.character.Fighter;
+   import sound.BossSoundManager;
+   import view.figthers.EnemyView;
+   import view.figthers.animations.IFighterAnimation;
+   
+   public class BossView extends EnemyView
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 5
+            maxscopedepth 6
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function BossView(param1:Fighter)
+      {
+         method
+            name null
+            param QName(PackageNamespace("main_game.character"),"Fighter")
+            returns null
+            
+            body
+               maxstack 2
+               localcount 2
+               initscopedepth 6
+               maxscopedepth 7
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  getlocal1
+                  constructsuper 1
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      override protected function getNewMc(param1:IFighterAnimation) : MovieClip
+      {
+         trait method QName(ProtectedNamespace("view.screens.main_game.boss_dungeon:BossView"),"getNewMc")
+            flag OVERRIDE
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace("view.figthers.animations"),"IFighterAnimation")
+               returns QName(PackageNamespace("flash.display"),"MovieClip")
+               
+               body
+                  maxstack 2
+                  localcount 4
+                  initscopedepth 6
+                  maxscopedepth 7
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     pushstring "assets."
+                     pushstring "boss_normal"
+                     add
+                     pushstring "."
+                     add
+                     getlocal1
+                     callproperty QName(Namespace("view.figthers.animations:IFighterAnimation"),"getName"), 0
+                     add
+                     coerce_s
+                     setlocal2
+                     getlex QName(PackageNamespace(""),"main")
+                     getproperty QName(PackageNamespace(""),"swfLoader")
+                     getlocal2
+                     callproperty QName(PackageNamespace(""),"getClass"), 1
+                     coerce QName(PackageNamespace(""),"Class")
+                     setlocal3
+                     getlocal3
+                     construct 0
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         override protected function setSoundManager() : void
+         {
+            trait method QName(ProtectedNamespace("view.screens.main_game.boss_dungeon:BossView"),"setSoundManager")
+               flag OVERRIDE
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 4
+                     localcount 1
+                     initscopedepth 6
+                     maxscopedepth 7
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        findpropstrict QName(PackageNamespace("sound"),"BossSoundManager")
+                        getlocal0
+                        getproperty QName(ProtectedNamespace("view.figthers:FighterView"),"fighter")
+                        getlex QName(PackageNamespace("main_game.boss_dungeon"),"Boss")
+                        astypelate
+                        constructprop QName(PackageNamespace("sound"),"BossSoundManager"), 1
+                        setproperty QName(ProtectedNamespace("view.figthers:FighterView"),"soundManager")
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+         }
+      }
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 1
+            maxscopedepth 5
+            
+            code
+               getlocal0
+               pushscope
+               findpropstrict Multiname("BossView",[PackageNamespace("view.screens.main_game.boss_dungeon")])
+               getlex QName(PackageNamespace(""),"Object")
+               pushscope
+               getlex QName(PackageNamespace("view.figthers"),"FighterView")
+               pushscope
+               getlex QName(PackageNamespace("view.figthers"),"EnemyView")
+               pushscope
+               getlex QName(PackageNamespace("view.figthers"),"EnemyView")
+               newclass 84
+               popscope
+               popscope
+               popscope
+               initproperty QName(PackageNamespace("view.screens.main_game.boss_dungeon"),"BossView")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      

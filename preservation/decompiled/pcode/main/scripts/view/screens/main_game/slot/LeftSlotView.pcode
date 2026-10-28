@@ -1,0 +1,206 @@
+package view.screens.main_game.slot
+{
+   import main_game.item_containers.ISlot;
+   import view.popUp.ItemPopUp;
+   
+   public class LeftSlotView extends AutoSelectSlotView
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 6
+            maxscopedepth 7
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var selectionBloked:Boolean;
+      
+      public function LeftSlotView(param1:ISlot)
+      {
+         method
+            name null
+            param QName(PackageNamespace("main_game.item_containers"),"ISlot")
+            returns null
+            
+            body
+               maxstack 2
+               localcount 2
+               initscopedepth 7
+               maxscopedepth 8
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  getlocal1
+                  constructsuper 1
+                  getlocal0
+                  pushfalse
+                  initproperty QName(PrivateNamespace(null,"139"),"selectionBloked")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      override protected function createPopUp() : void
+      {
+         trait method QName(ProtectedNamespace("view.screens.main_game.slot:LeftSlotView"),"createPopUp")
+            flag OVERRIDE
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 3
+                  localcount 1
+                  initscopedepth 7
+                  maxscopedepth 8
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     findpropstrict QName(PackageNamespace("view.popUp"),"ItemPopUp")
+                     getlex QName(PackageNamespace("view.popUp"),"ItemPopUp")
+                     getproperty QName(PackageNamespace(""),"RIGHT")
+                     constructprop QName(PackageNamespace("view.popUp"),"ItemPopUp"), 1
+                     setproperty QName(ProtectedNamespace("view.screens.main_game.slot:BasicSlotView"),"popUp")
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function blockSelection() : void
+         {
+            trait method QName(PackageNamespace(""),"blockSelection")
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 2
+                     localcount 1
+                     initscopedepth 7
+                     maxscopedepth 8
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        findpropstrict QName(ProtectedNamespace("view.screens.main_game.slot:BasicSlotView"),"deselect")
+                        callpropvoid QName(ProtectedNamespace("view.screens.main_game.slot:BasicSlotView"),"deselect"), 0
+                        getlocal0
+                        pushtrue
+                        initproperty QName(PrivateNamespace(null,"139"),"selectionBloked")
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function unblockSelection() : void
+            {
+               trait method QName(PackageNamespace(""),"unblockSelection")
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 2
+                        localcount 1
+                        initscopedepth 7
+                        maxscopedepth 8
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           pushfalse
+                           initproperty QName(PrivateNamespace(null,"139"),"selectionBloked")
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               override protected function select() : void
+               {
+                  trait method QName(ProtectedNamespace("view.screens.main_game.slot:LeftSlotView"),"select")
+                     flag OVERRIDE
+                     dispid 0
+                     method
+                        name null
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 1
+                           localcount 1
+                           initscopedepth 7
+                           maxscopedepth 8
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"139"),"selectionBloked")
+                              iftrue ofs000f
+                              getlocal0
+                              callsupervoid QName(ProtectedNamespace("view.screens.main_game.slot:BasicSlotView"),"select"), 0
+                     ofs000f:
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+               }
+            }
+            
+            method
+               name null
+               returns null
+               
+               body
+                  maxstack 2
+                  localcount 1
+                  initscopedepth 1
+                  maxscopedepth 6
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     findpropstrict Multiname("LeftSlotView",[PackageNamespace("view.screens.main_game.slot")])
+                     getlex QName(PackageNamespace(""),"Object")
+                     pushscope
+                     getlex QName(PackageNamespace("view.screens.main_game.slot"),"BasicSlotView")
+                     pushscope
+                     getlex QName(PackageNamespace("view.screens.main_game.slot"),"SlotView")
+                     pushscope
+                     getlex QName(PackageNamespace("view.screens.main_game.slot"),"AutoSelectSlotView")
+                     pushscope
+                     getlex QName(PackageNamespace("view.screens.main_game.slot"),"AutoSelectSlotView")
+                     newclass 242
+                     popscope
+                     popscope
+                     popscope
+                     popscope
+                     initproperty QName(PackageNamespace("view.screens.main_game.slot"),"LeftSlotView")
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+            

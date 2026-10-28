@@ -1,0 +1,134 @@
+package bonus.states
+{
+   public class WaitingForClass extends BaseState
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 5
+            maxscopedepth 6
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function WaitingForClass()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 1
+               localcount 1
+               initscopedepth 6
+               maxscopedepth 7
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      override protected function onSpace(param1:String) : BaseState
+      {
+         trait method QName(ProtectedNamespace("bonus.states:WaitingForClass"),"onSpace")
+            flag OVERRIDE
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace(""),"String")
+               returns QName(PackageNamespace("bonus.states"),"BaseState")
+               
+               body
+                  maxstack 1
+                  localcount 2
+                  initscopedepth 6
+                  maxscopedepth 7
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         override protected function onLetter(param1:String) : BaseState
+         {
+            trait method QName(ProtectedNamespace("bonus.states:WaitingForClass"),"onLetter")
+               flag OVERRIDE
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace(""),"String")
+                  returns QName(PackageNamespace("bonus.states"),"BaseState")
+                  
+                  body
+                     maxstack 1
+                     localcount 2
+                     initscopedepth 6
+                     maxscopedepth 7
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlex QName(ProtectedNamespace("bonus.states:BaseState"),"stream")
+                        callpropvoid QName(PackageNamespace(""),"ungetc"), 0
+                        findpropstrict QName(PackageNamespace("bonus.states"),"ClassDefinition")
+                        constructprop QName(PackageNamespace("bonus.states"),"ClassDefinition"), 0
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+         }
+      }
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 1
+            maxscopedepth 5
+            
+            code
+               getlocal0
+               pushscope
+               findpropstrict Multiname("WaitingForClass",[PackageNamespace("bonus.states")])
+               getlex QName(PackageNamespace(""),"Object")
+               pushscope
+               getlex QName(PackageNamespace("flash.events"),"EventDispatcher")
+               pushscope
+               getlex QName(PackageNamespace("bonus.states"),"BaseState")
+               pushscope
+               getlex QName(PackageNamespace("bonus.states"),"BaseState")
+               newclass 215
+               popscope
+               popscope
+               popscope
+               initproperty QName(PackageNamespace("bonus.states"),"WaitingForClass")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      

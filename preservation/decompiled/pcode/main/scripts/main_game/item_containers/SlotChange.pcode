@@ -1,0 +1,168 @@
+package main_game.item_containers
+{
+   import main_game.items.Item;
+   
+   public class SlotChange
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var slot:ISlot;
+      
+      private var old_item:Item;
+      
+      private var new_item:Item;
+      
+      public function SlotChange(param1:ISlot, param2:Item, param3:Item)
+      {
+         method
+            name null
+            param QName(PackageNamespace("main_game.item_containers"),"ISlot")
+            param QName(PackageNamespace("main_game.items"),"Item")
+            param QName(PackageNamespace("main_game.items"),"Item")
+            returns null
+            
+            body
+               maxstack 2
+               localcount 4
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlocal1
+                  initproperty QName(PrivateNamespace(null,"95"),"slot")
+                  getlocal0
+                  getlocal2
+                  initproperty QName(PrivateNamespace(null,"95"),"old_item")
+                  getlocal0
+                  getlocal3
+                  initproperty QName(PrivateNamespace(null,"95"),"new_item")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function getSlot() : ISlot
+      {
+         trait method QName(PackageNamespace(""),"getSlot")
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace("main_game.item_containers"),"ISlot")
+               
+               body
+                  maxstack 1
+                  localcount 1
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"95"),"slot")
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function getOldItem() : Item
+         {
+            trait method QName(PackageNamespace(""),"getOldItem")
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace("main_game.items"),"Item")
+                  
+                  body
+                     maxstack 1
+                     localcount 1
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"95"),"old_item")
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function getNewItem() : Item
+            {
+               trait method QName(PackageNamespace(""),"getNewItem")
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace("main_game.items"),"Item")
+                     
+                     body
+                        maxstack 1
+                        localcount 1
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"95"),"new_item")
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+            }
+         }
+         
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 2
+               localcount 1
+               initscopedepth 1
+               maxscopedepth 3
+               
+               code
+                  getlocal0
+                  pushscope
+                  findpropstrict Multiname("SlotChange",[PackageNamespace("main_game.item_containers")])
+                  getlex QName(PackageNamespace(""),"Object")
+                  pushscope
+                  getlex QName(PackageNamespace(""),"Object")
+                  newclass 165
+                  popscope
+                  initproperty QName(PackageNamespace("main_game.item_containers"),"SlotChange")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+         

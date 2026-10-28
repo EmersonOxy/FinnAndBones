@@ -1,0 +1,2545 @@
+{
+  "kind": "imports estáticos; não prova chamadas",
+  "source": "main.swf",
+  "entries": [
+    {
+      "file": "decompiled/actionscript/main/scripts/AchievementDispatcher.as",
+      "imports": [
+        "cb.logger.Appender",
+        "cb.logger.JSConsoleAppender",
+        "cb.logger.Log",
+        "com.cartoonnetwork.AchievementSystem.AchievementAS3",
+        "main_game.map.Level"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/assert.as",
+      "imports": []
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main.as",
+      "imports": [
+        "aplication.BasicState",
+        "aplication.FSM",
+        "bonus.ClassLoader",
+        "bonus.DailyBonus",
+        "bonus.IDailyBonus",
+        "cb.data.Locale",
+        "cb.display.SwfBulkLoader",
+        "cb.logger.Appender",
+        "cb.logger.JSConsoleAppender",
+        "cb.logger.Log",
+        "cb.media.SoundLoader",
+        "drag_and_drop.DragDispatcher",
+        "flash.display.MovieClip",
+        "flash.display.Sprite",
+        "flash.events.Event",
+        "flash.utils.Dictionary",
+        "loader.DynamicLoader",
+        "loader.PostLoader",
+        "loader.Preloader",
+        "loader.SoundResourceLoader",
+        "main_game.Game",
+        "main_game.character.CharacterFactory",
+        "main_game.dungeon.DungeonFactory",
+        "main_game.items.ItemFactory",
+        "persistence.SaveSystem",
+        "sound.GameSounds",
+        "sound.SoundManager",
+        "tutorial.Tutorial",
+        "util.Util",
+        "view.screens.Intro",
+        "view.screens.MainMenu",
+        "view.screens.Outro",
+        "view.screens.main_game.GameView",
+        "view.screens.main_game.TransitionWindow",
+        "view.screens.main_game.TransitionWindowJakeLess"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/actions/Lambda.as",
+      "imports": [
+        "cb.actions.Action",
+        "flash.display.MovieClip"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/aplication/BasicState.as",
+      "imports": [
+        "cb.logger.Log",
+        "flash.utils.Dictionary"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/aplication/FSM.as",
+      "imports": []
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/aplication/State.as",
+      "imports": []
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/ClassLoader.as",
+      "imports": [
+        "bonus.events.ParseEvent",
+        "flash.utils.Dictionary"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/DailyBonus.as",
+      "imports": [
+        "bonus.filter.AllFilter",
+        "bonus.filter.FireFilter",
+        "bonus.filter.IBonusFilter",
+        "bonus.filter.IceFilter",
+        "bonus.filter.NoneFilter",
+        "bonus.filter.NormalFilter",
+        "flash.globalization.DateTimeFormatter",
+        "main_game.element.Element"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/ExtraDungeon.as",
+      "imports": [
+        "bonus.filter.BonusIcon",
+        "bonus.filter.IBonusFilter",
+        "bonus.filter.NoneFilter",
+        "main_game.element.Element",
+        "main_game.map.Level"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/ExtraLevelBonus.as",
+      "imports": [
+        "bonus.filter.BonusIcon",
+        "bonus.filter.IBonusFilter",
+        "bonus.filter.NoneFilter",
+        "main_game.character.CharacterConfigData",
+        "main_game.character.stats.LevelingEnemies",
+        "main_game.element.Element"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/FileLoader.as",
+      "imports": [
+        "flash.events.Event",
+        "flash.events.EventDispatcher",
+        "flash.events.IOErrorEvent",
+        "flash.net.URLLoader",
+        "flash.net.URLRequest",
+        "jh.PackedResources"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/FileStream.as",
+      "imports": []
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/IDailyBonus.as",
+      "imports": [
+        "bonus.filter.BonusIcon",
+        "bonus.filter.IBonusFilter"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/LexicalParser.as",
+      "imports": [
+        "bonus.errors.WaitingForAttributeError",
+        "bonus.states.BaseState",
+        "bonus.states.WaitingForAttribute",
+        "bonus.states.WaitingForClass",
+        "flash.events.Event",
+        "flash.events.EventDispatcher"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/XpBonus.as",
+      "imports": [
+        "bonus.filter.AllFilter",
+        "bonus.filter.BonusIcon",
+        "bonus.filter.IBonusFilter",
+        "main_game.character.Enemy",
+        "main_game.character.stats.StatType",
+        "main_game.dungeon.Dungeon",
+        "main_game.dungeon.IXpCalculator",
+        "main_game.dungeon.XpCalculator"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/errors/ClassDefinitionError.as",
+      "imports": [
+        "bonus.LexicalParser"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/errors/CommentError.as",
+      "imports": [
+        "bonus.LexicalParser"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/errors/ConstantDefinitionError.as",
+      "imports": [
+        "bonus.LexicalParser"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/errors/GenericError.as",
+      "imports": []
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/errors/WaitingForAttributeError.as",
+      "imports": [
+        "bonus.LexicalParser"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/errors/WaitingForConstantError.as",
+      "imports": []
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/errors/WaitingForEndClassError.as",
+      "imports": [
+        "bonus.LexicalParser"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/events/ParseEvent.as",
+      "imports": [
+        "flash.events.Event"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/filter/AllFilter.as",
+      "imports": [
+        "main_game.element.Element"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/filter/BonusIcon.as",
+      "imports": [
+        "flash.display.DisplayObjectContainer",
+        "flash.display.MovieClip"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/filter/FireFilter.as",
+      "imports": [
+        "main_game.element.Element"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/filter/IBonusFilter.as",
+      "imports": [
+        "main_game.element.Element"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/filter/IceFilter.as",
+      "imports": [
+        "main_game.element.Element"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/filter/NoneFilter.as",
+      "imports": [
+        "main_game.element.Element"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/filter/NormalFilter.as",
+      "imports": [
+        "main_game.element.Element"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/states/ArrayClassConstantDefinition.as",
+      "imports": [
+        "bonus.LexicalParser",
+        "bonus.errors.ClassDefinitionError",
+        "bonus.events.ParseEvent"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/states/ArrayConstantDefinition.as",
+      "imports": [
+        "bonus.LexicalParser"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/states/ArrayDefinition.as",
+      "imports": [
+        "bonus.LexicalParser",
+        "bonus.events.ParseEvent"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/states/ArrayFloatConstantDefinition.as",
+      "imports": [
+        "bonus.LexicalParser"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/states/ArrayStringDefinition.as",
+      "imports": []
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/states/AttributeDefinition.as",
+      "imports": [
+        "bonus.errors.ClassDefinitionError"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/states/BaseState.as",
+      "imports": [
+        "bonus.FileStream",
+        "bonus.LexicalParser",
+        "bonus.errors.GenericError",
+        "bonus.events.ParseEvent",
+        "flash.events.EventDispatcher"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/states/ClassConstantDefinition.as",
+      "imports": [
+        "bonus.LexicalParser",
+        "bonus.errors.ClassDefinitionError",
+        "bonus.events.ParseEvent"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/states/ClassDefinition.as",
+      "imports": [
+        "bonus.errors.ClassDefinitionError"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/states/ConstantDefinition.as",
+      "imports": [
+        "bonus.LexicalParser",
+        "bonus.errors.ConstantDefinitionError"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/states/FloatConstantDefinition.as",
+      "imports": [
+        "bonus.LexicalParser",
+        "bonus.errors.ConstantDefinitionError"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/states/MultipleLineComment.as",
+      "imports": []
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/states/OneLineComment.as",
+      "imports": []
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/states/PossibleComment.as",
+      "imports": [
+        "bonus.errors.CommentError"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/states/PossibleCommentEnd.as",
+      "imports": []
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/states/StringDefinition.as",
+      "imports": [
+        "bonus.LexicalParser"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/states/WaitingForAttribute.as",
+      "imports": [
+        "bonus.LexicalParser",
+        "bonus.errors.WaitingForAttributeError",
+        "bonus.events.ParseEvent"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/states/WaitingForClass.as",
+      "imports": []
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/states/WaitingForConstant.as",
+      "imports": [
+        "bonus.LexicalParser",
+        "bonus.errors.WaitingForConstantError",
+        "bonus.events.ParseEvent"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/states/WaitingForEndArrayStringDefinition.as",
+      "imports": [
+        "bonus.LexicalParser"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/bonus/states/WaitingForEndClass.as",
+      "imports": [
+        "bonus.errors.WaitingForEndClassError"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/actions/Action.as",
+      "imports": [
+        "flash.display.MovieClip"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/actions/Functor.as",
+      "imports": [
+        "flash.display.MovieClip"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/actions/RemoveFromParent.as",
+      "imports": [
+        "flash.display.MovieClip"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/conditions/AnimationFrameAt.as",
+      "imports": [
+        "flash.display.MovieClip"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/conditions/AnimationLabelAt.as",
+      "imports": [
+        "flash.display.MovieClip"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/conditions/Condition.as",
+      "imports": [
+        "flash.display.MovieClip"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/conditions/EndAnimation.as",
+      "imports": [
+        "flash.display.MovieClip"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/data/ButtonGroup.as",
+      "imports": [
+        "cb.media.cbSoundMixer",
+        "flash.events.MouseEvent"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/data/ButtonInfo.as",
+      "imports": [
+        "flash.events.MouseEvent"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/data/CsvLoader.as",
+      "imports": [
+        "cb.utils.cbArray",
+        "flash.utils.Dictionary"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/data/Locale.as",
+      "imports": [
+        "flash.events.Event",
+        "flash.net.URLRequest",
+        "flash.utils.Dictionary",
+        "jh.PackedResources"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/data/TextLoader.as",
+      "imports": [
+        "cb.signals.Signal",
+        "flash.events.Event",
+        "flash.events.IOErrorEvent",
+        "flash.net.URLLoader",
+        "flash.net.URLRequest",
+        "jh.PackedResources"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/display/Screen.as",
+      "imports": [
+        "cb.data.ButtonInfo",
+        "flash.display.DisplayObject",
+        "flash.display.MovieClip",
+        "flash.display.Sprite",
+        "flash.events.Event",
+        "flash.events.MouseEvent",
+        "flash.utils.Dictionary"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/display/SmartMC.as",
+      "imports": [
+        "cb.actions.Action",
+        "cb.conditions.Condition",
+        "flash.display.MovieClip",
+        "flash.events.Event"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/display/SwfBulkLoader.as",
+      "imports": [
+        "cb.data.TextLoader",
+        "cb.signals.Signal",
+        "cb.utils.Rule",
+        "flash.utils.Dictionary"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/display/SwfLoader.as",
+      "imports": [
+        "cb.signals.Signal",
+        "flash.display.Loader",
+        "flash.events.Event",
+        "flash.events.ProgressEvent",
+        "flash.net.URLRequest",
+        "flash.system.ApplicationDomain",
+        "flash.system.LoaderContext"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/gameloop/GameLoop.as",
+      "imports": [
+        "cb.signals.Signal",
+        "flash.display.DisplayObject",
+        "flash.events.Event",
+        "flash.utils.getTimer"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/logger/Appender.as",
+      "imports": []
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/logger/JSConsoleAppender.as",
+      "imports": [
+        "flash.external.ExternalInterface"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/logger/Log.as",
+      "imports": [
+        "flash.utils.Dictionary"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/media/cbSound.as",
+      "imports": [
+        "cb.signals.Signal",
+        "flash.events.Event",
+        "flash.events.IEventDispatcher",
+        "flash.events.ProgressEvent",
+        "flash.events.TimerEvent",
+        "flash.media.Sound",
+        "flash.media.SoundChannel",
+        "flash.media.SoundTransform",
+        "flash.net.URLRequest",
+        "flash.utils.Timer"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/media/cbSoundMixer.as",
+      "imports": [
+        "cb.utils.Tween",
+        "flash.media.SoundChannel",
+        "flash.media.SoundTransform",
+        "flash.utils.Dictionary"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/media/SoundLoader.as",
+      "imports": [
+        "cb.data.TextLoader",
+        "cb.signals.Signal",
+        "flash.events.Event",
+        "flash.events.IOErrorEvent",
+        "flash.net.URLRequest",
+        "flash.utils.Dictionary",
+        "jh.PackedResources"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/media/SoundMixable.as",
+      "imports": []
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/signals/Signal.as",
+      "imports": [
+        "cb.utils.cbArray"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/utils/cbArray.as",
+      "imports": []
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/utils/LoadingObject.as",
+      "imports": [
+        "cb.data.Locale",
+        "cb.display.SwfBulkLoader",
+        "cb.signals.Signal"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/utils/Random.as",
+      "imports": []
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/utils/Rule.as",
+      "imports": [
+        "cb.signals.Signal",
+        "flash.utils.Dictionary"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/cb/utils/Tween.as",
+      "imports": [
+        "cb.gameloop.GameLoop",
+        "flash.display.*",
+        "flash.utils.Dictionary"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/com/cartoonnetwork/AchievementSystem/AchievementAS3.as",
+      "imports": [
+        "com.cartoonnetwork.connect.Connection",
+        "flash.display.Loader",
+        "flash.utils.Timer"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/com/cartoonnetwork/connect/Connection.as",
+      "imports": [
+        "flash.events.StatusEvent",
+        "flash.events.TimerEvent",
+        "flash.net.LocalConnection",
+        "flash.utils.Timer"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/conditions/EndCurrentLabel.as",
+      "imports": [
+        "cb.conditions.AnimationFrameAt",
+        "flash.display.FrameLabel",
+        "flash.display.MovieClip"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/conditions/Or.as",
+      "imports": [
+        "cb.conditions.Condition",
+        "flash.display.MovieClip"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/drag_and_drop/DragDispatcher.as",
+      "imports": [
+        "cb.signals.Signal",
+        "cb.utils.Tween",
+        "flash.display.MovieClip",
+        "flash.display.Sprite",
+        "flash.display.Stage",
+        "flash.events.MouseEvent",
+        "flash.geom.Point",
+        "flash.ui.Mouse",
+        "flash.ui.MouseCursor",
+        "main_game.items.Item",
+        "main_game.items.ItemFactory",
+        "sound.GameSounds"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/drag_and_drop/DragListener.as",
+      "imports": [
+        "cb.signals.Signal",
+        "flash.display.MovieClip",
+        "flash.events.MouseEvent",
+        "main_game.items.Item"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/drag_and_drop/IDragContainer.as",
+      "imports": [
+        "main_game.items.Item"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/jh/PackedResources.as",
+      "imports": []
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/loader/DynamicLoader.as",
+      "imports": [
+        "cb.signals.Signal"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/loader/PostLoader.as",
+      "imports": [
+        "aplication.BasicState",
+        "aplication.FSM",
+        "aplication.State",
+        "cb.logger.Appender",
+        "cb.logger.JSConsoleAppender",
+        "cb.logger.Log",
+        "cb.signals.Signal",
+        "util.Util"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/loader/Preloader.as",
+      "imports": [
+        "bonus.ClassLoader",
+        "bonus.FileLoader",
+        "cb.actions.Functor",
+        "cb.conditions.AnimationFrameAt",
+        "cb.data.CsvLoader",
+        "cb.display.SmartMC",
+        "cb.display.SwfBulkLoader",
+        "cb.logger.Log",
+        "cb.media.SoundLoader",
+        "cb.signals.Signal",
+        "cb.utils.LoadingObject",
+        "cb.utils.Rule",
+        "flash.display.DisplayObjectContainer",
+        "flash.display.MovieClip",
+        "flash.events.Event",
+        "main_game.character.stats.Experience",
+        "main_game.dungeon.DungeonFactory",
+        "main_game.mixer.MixStrategy"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/loader/ResourceLoader.as",
+      "imports": []
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/loader/SoundResourceLoader.as",
+      "imports": [
+        "cb.media.SoundLoader",
+        "sound.SoundManager",
+        "util.Util"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/Game.as",
+      "imports": [
+        "cb.signals.Signal",
+        "main_game.bubblegum.BubblegumPrincess",
+        "main_game.character.CharacterFactory",
+        "main_game.character.Finn",
+        "main_game.dungeon.Dungeon",
+        "main_game.dungeon.DungeonFactory",
+        "main_game.inventory.Inventory",
+        "main_game.map.Level",
+        "main_game.map.Map",
+        "main_game.mixer.Mixer"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/boss_dungeon/Boss.as",
+      "imports": [
+        "main_game.character.CharacterConfigData",
+        "main_game.character.Enemy"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/boss_dungeon/BossDungeon.as",
+      "imports": [
+        "main_game.character.CharacterFactory",
+        "main_game.character.Enemy",
+        "main_game.dungeon.Dungeon",
+        "main_game.dungeon.DungeonConfigData",
+        "main_game.dungeon.IFight",
+        "main_game.map.Level",
+        "util.ProbabilisticSet"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/boss_dungeon/BossFight.as",
+      "imports": [
+        "main_game.dungeon.Fight"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/bubblegum/BubblegumFeeling.as",
+      "imports": []
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/bubblegum/BubblegumFeltTip.as",
+      "imports": [
+        "util.Util"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/bubblegum/BubblegumInteraction.as",
+      "imports": []
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/bubblegum/BubblegumPrincess.as",
+      "imports": [
+        "cb.signals.Signal",
+        "cb.utils.Random",
+        "main_game.character.Gear",
+        "main_game.dungeon.Dungeon",
+        "main_game.dungeon.Fight",
+        "main_game.element.Element",
+        "main_game.inventory.Inventory",
+        "main_game.item_containers.Slot",
+        "main_game.items.Item",
+        "main_game.items.ItemFactory",
+        "main_game.mixer.MixResult",
+        "util.Locker"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/bubblegum/BubbleGumTip.as",
+      "imports": [
+        "main_game.item_containers.ISlot",
+        "main_game.item_containers.NullSlot",
+        "main_game.items.Item"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/bubblegum/InteractiveBubblegum.as",
+      "imports": []
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/bubblegum/MixChecker.as",
+      "imports": [
+        "cb.utils.Random",
+        "main_game.item_containers.ISlot",
+        "main_game.items.Item",
+        "main_game.mixer.MixStrategy",
+        "main_game.mixer.Recipe",
+        "util.ProbabilisticSet"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/bubblegum/MixRecipe.as",
+      "imports": [
+        "main_game.items.Item"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/bubblegum/SpecialMixTip.as",
+      "imports": [
+        "main_game.items.Item"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/character/CharacterConfigData.as",
+      "imports": [
+        "main_game.element.Element"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/character/CharacterConfigParser.as",
+      "imports": [
+        "main_game.element.Element"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/character/CharacterFactory.as",
+      "imports": [
+        "flash.utils.Dictionary",
+        "main_game.boss_dungeon.Boss",
+        "view.figthers.EnemyView",
+        "view.figthers.FinnView",
+        "view.screens.main_game.boss_dungeon.BossView"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/character/Enemy.as",
+      "imports": [
+        "main_game.character.stats.EnemyStats",
+        "main_game.character.stats.Stats",
+        "main_game.element.Element"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/character/Fighter.as",
+      "imports": [
+        "cb.signals.Signal",
+        "main_game.character.stats.Stats",
+        "main_game.dungeon.Damage",
+        "main_game.dungeon.IFight",
+        "sound.FighterSoundManager"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/character/Finn.as",
+      "imports": [
+        "cb.signals.Signal",
+        "main_game.character.stats.FinnStats",
+        "main_game.character.stats.Stats",
+        "main_game.dungeon.IFight",
+        "main_game.items.Item"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/character/Gear.as",
+      "imports": [
+        "main_game.character.stats.StatsEffectGuardian",
+        "main_game.item_containers.EquipmentSlot",
+        "main_game.item_containers.ShieldSlot",
+        "main_game.item_containers.Slot",
+        "main_game.item_containers.SlotChange",
+        "main_game.item_containers.WeaponSlot",
+        "main_game.items.Item"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/character/Liver.as",
+      "imports": [
+        "cb.signals.Signal",
+        "cb.utils.cbArray",
+        "drag_and_drop.IDragContainer",
+        "main_game.item_containers.Slot",
+        "main_game.item_containers.SlotChange",
+        "main_game.items.Category",
+        "main_game.items.Consumable",
+        "main_game.items.Item",
+        "sound.GameSounds"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/character/stats/EnemyStats.as",
+      "imports": [
+        "main_game.character.CharacterConfigData",
+        "main_game.character.Fighter"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/character/stats/Experience.as",
+      "imports": [
+        "flash.utils.Dictionary"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/character/stats/FinnStats.as",
+      "imports": [
+        "main_game.character.CharacterConfigData",
+        "main_game.character.Fighter"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/character/stats/HealthStat.as",
+      "imports": []
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/character/stats/LevelingEnemies.as",
+      "imports": [
+        "bonus.ExtraLevelBonus",
+        "main_game.character.CharacterConfigData"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/character/stats/LevelingStragegy.as",
+      "imports": []
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/character/stats/PersistentExperience.as",
+      "imports": []
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/character/stats/Stat.as",
+      "imports": []
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/character/stats/Stats.as",
+      "imports": [
+        "cb.signals.Signal",
+        "flash.utils.Dictionary",
+        "main_game.character.CharacterConfigData",
+        "main_game.character.Fighter"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/character/stats/StatsEffectGuardian.as",
+      "imports": [
+        "main_game.items.Item"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/character/stats/StatType.as",
+      "imports": [
+        "flash.display.MovieClip"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/dungeon/Damage.as",
+      "imports": [
+        "flash.display.MovieClip",
+        "main_game.character.Fighter",
+        "main_game.character.stats.StatType",
+        "main_game.character.stats.Stats"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/dungeon/DamageCalculator.as",
+      "imports": [
+        "main_game.character.Enemy",
+        "main_game.character.Fighter",
+        "main_game.character.Finn",
+        "main_game.character.stats.StatType",
+        "main_game.element.Element",
+        "main_game.item_containers.Slot",
+        "main_game.items.Item"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/dungeon/Dungeon.as",
+      "imports": [
+        "cb.signals.Signal",
+        "main_game.boss_dungeon.BossDungeon",
+        "main_game.character.CharacterFactory",
+        "main_game.character.Enemy",
+        "main_game.character.Finn",
+        "main_game.character.Gear",
+        "main_game.map.Level",
+        "util.ProbabilisticSet"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/dungeon/DungeonConfigData.as",
+      "imports": []
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/dungeon/DungeonConfigParser.as",
+      "imports": [
+        "util.Util"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/dungeon/DungeonFactory.as",
+      "imports": [
+        "flash.utils.Dictionary",
+        "main_game.boss_dungeon.BossDungeon",
+        "main_game.map.Level",
+        "util.ProbabilisticSet",
+        "view.screens.main_game.boss_dungeon.BossDungeonView",
+        "view.screens.main_game.dungeon.DungeonView",
+        "view.screens.main_game.states.DungeonState"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/dungeon/DungeonStats.as",
+      "imports": [
+        "main_game.character.Enemy",
+        "main_game.character.Finn",
+        "main_game.map.Level",
+        "main_game.mixer.MixResult"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/dungeon/ElementBonus.as",
+      "imports": [
+        "main_game.element.Element"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/dungeon/Fight.as",
+      "imports": [
+        "cb.signals.Signal",
+        "main_game.character.Enemy",
+        "main_game.character.Finn"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/dungeon/IFight.as",
+      "imports": [
+        "cb.signals.Signal",
+        "main_game.character.Enemy"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/dungeon/IXpCalculator.as",
+      "imports": []
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/dungeon/Loot.as",
+      "imports": [
+        "main_game.item_containers.OneTimeSlot",
+        "main_game.item_containers.Slot",
+        "main_game.items.Item",
+        "main_game.items.ItemFactory",
+        "util.ProbabilisticSet"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/dungeon/XpCalculator.as",
+      "imports": [
+        "main_game.character.Enemy",
+        "main_game.character.stats.Experience",
+        "main_game.character.stats.StatType"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/element/Element.as",
+      "imports": [
+        "main_game.element.Element"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/inventory/Inventory.as",
+      "imports": [
+        "main_game.item_containers.Slot",
+        "main_game.item_containers.SlotChange",
+        "main_game.items.Item"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/inventory/Trash.as",
+      "imports": [
+        "cb.signals.Signal",
+        "drag_and_drop.IDragContainer",
+        "main_game.items.Item",
+        "sound.GameSounds"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/items/Category.as",
+      "imports": [
+        "main_game.item_containers.ItemContainer"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/items/Consumable.as",
+      "imports": [
+        "cb.signals.Signal",
+        "flash.events.TimerEvent",
+        "flash.utils.Timer",
+        "main_game.item_containers.ItemContainer"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/items/Equipment.as",
+      "imports": [
+        "main_game.item_containers.ItemContainer"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/items/Item.as",
+      "imports": [
+        "main_game.character.stats.StatType",
+        "main_game.element.*",
+        "main_game.item_containers.ItemContainer",
+        "main_game.items.modifiers.HealthModifier",
+        "main_game.items.modifiers.IModifier",
+        "main_game.items.modifiers.MaxHealthModifier",
+        "main_game.items.modifiers.Modifier",
+        "main_game.items.modifiers.NullModifier"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/items/ItemFactory.as",
+      "imports": [
+        "flash.utils.Dictionary",
+        "persistence.SaveError",
+        "view.items.ConsumableView",
+        "view.items.EquipmentView",
+        "view.items.ItemView",
+        "view.items.ShieldView",
+        "view.items.WeaponView",
+        "view.items.modifiers.IAnimationModifier",
+        "view.items.modifiers.NullShieldModifier",
+        "view.items.modifiers.NullSwordModifier",
+        "view.items.modifiers.ShieldModifier",
+        "view.items.modifiers.SwordModifier"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/items/MixItem.as",
+      "imports": [
+        "main_game.character.stats.StatType"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/items/Shield.as",
+      "imports": [
+        "main_game.item_containers.ItemContainer"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/items/Weapon.as",
+      "imports": [
+        "main_game.item_containers.ItemContainer"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/items/modifiers/HealthModifier.as",
+      "imports": [
+        "flash.display.MovieClip",
+        "main_game.character.stats.StatType",
+        "main_game.character.stats.Stats"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/items/modifiers/IModifier.as",
+      "imports": [
+        "flash.display.MovieClip",
+        "flash.text.TextField",
+        "main_game.character.stats.Stats"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/items/modifiers/MaxHealthModifier.as",
+      "imports": [
+        "flash.display.MovieClip",
+        "main_game.character.stats.HealthStat",
+        "main_game.character.stats.Stat",
+        "main_game.character.stats.StatType",
+        "main_game.character.stats.Stats"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/items/modifiers/Modifier.as",
+      "imports": [
+        "flash.display.MovieClip",
+        "flash.text.TextField",
+        "main_game.character.stats.Stat",
+        "main_game.character.stats.StatType",
+        "main_game.character.stats.Stats"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/items/modifiers/NullModifier.as",
+      "imports": [
+        "flash.display.MovieClip",
+        "flash.text.TextField",
+        "main_game.character.stats.StatType",
+        "main_game.character.stats.Stats",
+        "util.Util"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/item_containers/EquipmentSlot.as",
+      "imports": []
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/item_containers/ISlot.as",
+      "imports": [
+        "cb.signals.Signal",
+        "drag_and_drop.IDragContainer",
+        "main_game.items.Item"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/item_containers/ItemContainer.as",
+      "imports": []
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/item_containers/NullSlot.as",
+      "imports": [
+        "cb.signals.Signal",
+        "drag_and_drop.IDragContainer",
+        "main_game.items.Item"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/item_containers/OneTimeSlot.as",
+      "imports": [
+        "drag_and_drop.IDragContainer",
+        "main_game.items.Item"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/item_containers/ShieldSlot.as",
+      "imports": []
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/item_containers/Slot.as",
+      "imports": [
+        "cb.signals.Signal",
+        "drag_and_drop.IDragContainer",
+        "main_game.items.Item"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/item_containers/SlotChange.as",
+      "imports": [
+        "main_game.items.Item"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/item_containers/WeaponSlot.as",
+      "imports": []
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/map/LegendaryLevel.as",
+      "imports": [
+        "main_game.element.Element"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/map/Level.as",
+      "imports": []
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/map/Map.as",
+      "imports": [
+        "bonus.DailyBonus",
+        "cb.utils.cbArray",
+        "flash.utils.Dictionary",
+        "main_game.dungeon.DungeonFactory",
+        "main_game.element.Element"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/map/SpecialLevel.as",
+      "imports": []
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/mixer/MixData.as",
+      "imports": []
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/mixer/Mixer.as",
+      "imports": [
+        "cb.signals.Signal",
+        "main_game.item_containers.Slot",
+        "main_game.item_containers.SlotChange",
+        "main_game.items.Item",
+        "sound.GameSounds"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/mixer/MixerClock.as",
+      "imports": [
+        "cb.signals.Signal",
+        "flash.events.TimerEvent",
+        "flash.utils.Timer",
+        "main_game.items.Item"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/mixer/MixResult.as",
+      "imports": [
+        "main_game.items.Item"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/mixer/MixSlot.as",
+      "imports": [
+        "drag_and_drop.IDragContainer",
+        "main_game.item_containers.Slot",
+        "main_game.items.Item"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/mixer/MixStrategy.as",
+      "imports": [
+        "flash.utils.Dictionary",
+        "main_game.character.stats.StatType",
+        "main_game.items.*",
+        "main_game.items.modifiers.IModifier",
+        "main_game.items.modifiers.NullModifier"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/main_game/mixer/Recipe.as",
+      "imports": [
+        "main_game.items.Item"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/persistence/SaveError.as",
+      "imports": []
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/persistence/SaveSystem.as",
+      "imports": [
+        "cb.gameloop.GameLoop",
+        "flash.display.DisplayObject",
+        "main_game.items.Item",
+        "main_game.items.ItemFactory",
+        "main_game.mixer.Recipe"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/persistence/SharedUtils.as",
+      "imports": [
+        "cb.logger.Appender",
+        "cb.logger.JSConsoleAppender",
+        "cb.logger.Log",
+        "flash.net.SharedObject",
+        "flash.utils.getQualifiedClassName"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/sound/BossSoundManager.as",
+      "imports": [
+        "main_game.boss_dungeon.Boss"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/sound/EnemySoundManager.as",
+      "imports": [
+        "main_game.character.Enemy",
+        "main_game.element.Element"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/sound/FighterSoundManager.as",
+      "imports": []
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/sound/FinnSoundManager.as",
+      "imports": [
+        "main_game.character.Finn",
+        "main_game.character.Gear",
+        "main_game.items.Item"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/sound/GameSounds.as",
+      "imports": [
+        "cb.utils.Random"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/sound/MusicRequest.as",
+      "imports": []
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/sound/SoundManager.as",
+      "imports": [
+        "cb.data.ButtonGroup",
+        "cb.media.SoundLoader",
+        "cb.media.cbSound",
+        "cb.media.cbSoundMixer",
+        "cb.utils.cbArray",
+        "flash.display.MovieClip",
+        "flash.events.MouseEvent"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/tutorial/Tutorial.as",
+      "imports": [
+        "aplication.BasicState",
+        "aplication.FSM",
+        "aplication.State",
+        "tutorial.steps.ConsumePotionStep",
+        "tutorial.steps.FirstTutorialStep",
+        "tutorial.steps.MixInformationStep",
+        "tutorial.steps.MixTutorialStep",
+        "tutorial.steps.StatTutorialStep",
+        "tutorial.steps.TakeAllStep",
+        "view.screens.main_game.inventory.MixerView"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/tutorial/steps/ConsumePotionStep.as",
+      "imports": [
+        "flash.display.MovieClip",
+        "flash.events.TimerEvent",
+        "flash.utils.Timer",
+        "main_game.character.stats.StatType",
+        "tutorial.Tutorial",
+        "view.screens.main_game.GameView",
+        "view.screens.main_game.dungeon.DungeonView"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/tutorial/steps/FirstTutorialStep.as",
+      "imports": [
+        "flash.display.MovieClip",
+        "main_game.item_containers.SlotChange",
+        "tutorial.Tutorial"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/tutorial/steps/MixInformationStep.as",
+      "imports": [
+        "flash.display.MovieClip",
+        "main_game.inventory.Inventory",
+        "main_game.item_containers.SlotChange",
+        "tutorial.Tutorial",
+        "tutorial.view.TutorialView",
+        "tutorial.view.TutorialViewWithOk"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/tutorial/steps/MixTutorialStep.as",
+      "imports": [
+        "flash.display.MovieClip",
+        "tutorial.Tutorial",
+        "tutorial.view.TutorialView",
+        "tutorial.view.TutorialViewWithOk"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/tutorial/steps/StatTutorialStep.as",
+      "imports": [
+        "flash.display.MovieClip",
+        "tutorial.Tutorial",
+        "tutorial.view.TutorialView",
+        "tutorial.view.TutorialViewWithOk"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/tutorial/steps/TakeAllStep.as",
+      "imports": [
+        "flash.display.MovieClip",
+        "flash.events.MouseEvent",
+        "tutorial.Tutorial",
+        "view.screens.main_game.GameView",
+        "view.screens.main_game.dungeon.WinWindow"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/tutorial/steps/TutorialStep.as",
+      "imports": [
+        "aplication.BasicState",
+        "flash.display.MovieClip",
+        "tutorial.Tutorial",
+        "tutorial.view.TutorialView"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/tutorial/view/TutorialView.as",
+      "imports": [
+        "cb.signals.Signal",
+        "flash.utils.Dictionary",
+        "view.screens.AnimatedScreen"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/tutorial/view/TutorialViewWithOk.as",
+      "imports": [
+        "cb.data.ButtonGroup",
+        "flash.events.MouseEvent",
+        "flash.utils.Dictionary",
+        "util.Buttons"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/util/Buttons.as",
+      "imports": [
+        "cb.logger.Log",
+        "flash.display.Sprite"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/util/Locker.as",
+      "imports": [
+        "cb.signals.Signal"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/util/ProbabilisticSet.as",
+      "imports": []
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/util/Sepializer.as",
+      "imports": [
+        "flash.display.Sprite",
+        "flash.filters.ColorMatrixFilter"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/util/Util.as",
+      "imports": [
+        "flash.display.MovieClip",
+        "flash.display.Sprite",
+        "flash.events.MouseEvent",
+        "loader.DynamicLoader"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/effect/Effect.as",
+      "imports": [
+        "cb.actions.RemoveFromParent",
+        "cb.conditions.EndAnimation",
+        "cb.display.SmartMC",
+        "flash.display.DisplayObjectContainer",
+        "flash.display.MovieClip",
+        "flash.geom.Point"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/effect/PotionEffect.as",
+      "imports": [
+        "flash.display.MovieClip",
+        "flash.events.TimerEvent",
+        "flash.utils.Timer",
+        "main_game.character.stats.StatType",
+        "main_game.items.Item",
+        "main_game.items.modifiers.IModifier"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/effect/SmokeEffect.as",
+      "imports": [
+        "cb.utils.Random",
+        "flash.display.DisplayObjectContainer",
+        "flash.display.MovieClip",
+        "sound.GameSounds"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/figthers/AnimatedHudView.as",
+      "imports": [
+        "main_game.character.Fighter"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/figthers/EnemyView.as",
+      "imports": [
+        "flash.display.DisplayObjectContainer",
+        "flash.display.MovieClip",
+        "main_game.character.Enemy",
+        "main_game.character.Fighter",
+        "sound.EnemySoundManager",
+        "util.Util",
+        "view.figthers.animations.IFighterAnimation"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/figthers/FighterView.as",
+      "imports": [
+        "flash.display.DisplayObjectContainer",
+        "flash.display.MovieClip",
+        "main_game.character.Fighter",
+        "main_game.dungeon.Damage",
+        "sound.FighterSoundManager",
+        "util.Util",
+        "view.figthers.animations.HitAnimation",
+        "view.figthers.animations.IFighterAnimation",
+        "view.figthers.animations.IdleAnimation",
+        "view.figthers.animations.NoneAnimation"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/figthers/FinnView.as",
+      "imports": [
+        "drag_and_drop.DragListener",
+        "flash.display.DisplayObjectContainer",
+        "flash.display.MovieClip",
+        "main_game.character.Finn",
+        "main_game.items.Item",
+        "main_game.items.ItemFactory",
+        "sound.FinnSoundManager",
+        "view.effect.PotionEffect",
+        "view.figthers.animations.IFighterAnimation",
+        "view.items.modifiers.IAnimationModifier"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/figthers/HudSetter.as",
+      "imports": [
+        "flash.display.MovieClip",
+        "main_game.character.Fighter",
+        "main_game.character.stats.Stats"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/figthers/HudSetterWithStats.as",
+      "imports": [
+        "flash.display.MovieClip",
+        "main_game.character.stats.Stats"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/figthers/HudView.as",
+      "imports": [
+        "cb.utils.Tween",
+        "flash.display.DisplayObjectContainer",
+        "flash.display.MovieClip",
+        "main_game.character.Fighter",
+        "main_game.character.stats.HealthStat",
+        "main_game.character.stats.StatType",
+        "main_game.character.stats.Stats",
+        "view.screens.main_game.BarView"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/figthers/animations/DieAnimation.as",
+      "imports": [
+        "main_game.element.Element",
+        "view.figthers.FighterView"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/figthers/animations/FighterAnimation.as",
+      "imports": [
+        "cb.actions.Functor",
+        "cb.conditions.AnimationLabelAt",
+        "cb.conditions.EndAnimation",
+        "cb.display.SmartMC",
+        "cb.signals.Signal",
+        "conditions.Or",
+        "flash.display.MovieClip",
+        "main_game.element.Element",
+        "view.figthers.FighterView"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/figthers/animations/HitAnimation.as",
+      "imports": [
+        "cb.actions.Functor",
+        "cb.conditions.AnimationLabelAt",
+        "cb.conditions.EndAnimation",
+        "cb.display.SmartMC",
+        "cb.utils.Rule",
+        "conditions.Or",
+        "flash.display.MovieClip",
+        "main_game.character.Enemy",
+        "main_game.character.Finn",
+        "main_game.dungeon.Damage",
+        "main_game.element.Element",
+        "main_game.items.Item",
+        "view.figthers.FighterView"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/figthers/animations/HurtAnimation.as",
+      "imports": [
+        "main_game.dungeon.Damage",
+        "main_game.element.Element",
+        "view.figthers.FighterView"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/figthers/animations/IdleAnimation.as",
+      "imports": []
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/figthers/animations/IFighterAnimation.as",
+      "imports": [
+        "cb.signals.Signal",
+        "view.figthers.FighterView"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/figthers/animations/JoyAnimation.as",
+      "imports": [
+        "sound.GameSounds",
+        "view.figthers.FighterView"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/figthers/animations/NoneAnimation.as",
+      "imports": [
+        "cb.signals.Signal",
+        "view.figthers.FighterView"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/figthers/animations/RunAnimation.as",
+      "imports": [
+        "flash.display.MovieClip",
+        "view.figthers.FighterView"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/items/ConsumableView.as",
+      "imports": [
+        "flash.display.MovieClip",
+        "main_game.items.Item",
+        "view.screens.main_game.slot.SlotView"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/items/EquipmentView.as",
+      "imports": [
+        "flash.display.MovieClip",
+        "main_game.items.Item",
+        "view.screens.main_game.slot.SlotView"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/items/ItemView.as",
+      "imports": [
+        "flash.display.DisplayObjectContainer",
+        "flash.display.MovieClip",
+        "main_game.items.Item",
+        "view.screens.main_game.slot.SlotView"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/items/ShieldView.as",
+      "imports": [
+        "flash.display.MovieClip",
+        "main_game.items.Item",
+        "view.screens.main_game.slot.SlotView"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/items/WeaponView.as",
+      "imports": [
+        "flash.display.MovieClip",
+        "main_game.items.Item",
+        "view.screens.main_game.slot.SlotView"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/items/modifiers/IAnimationModifier.as",
+      "imports": [
+        "flash.display.MovieClip"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/items/modifiers/NullShieldModifier.as",
+      "imports": [
+        "flash.display.MovieClip"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/items/modifiers/NullSwordModifier.as",
+      "imports": [
+        "flash.display.MovieClip"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/items/modifiers/ShieldModifier.as",
+      "imports": [
+        "flash.display.MovieClip"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/items/modifiers/SimpleAnimationModifier.as",
+      "imports": [
+        "flash.display.MovieClip",
+        "main_game.character.stats.StatType",
+        "util.Util"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/items/modifiers/SwordModifier.as",
+      "imports": [
+        "flash.display.MovieClip"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/popUp/ItemPopUp.as",
+      "imports": [
+        "flash.display.MovieClip",
+        "main_game.items.Item",
+        "main_game.mixer.MixStrategy"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/popUp/LevelUp.as",
+      "imports": [
+        "cb.actions.RemoveFromParent",
+        "cb.conditions.EndAnimation",
+        "cb.display.SmartMC",
+        "flash.display.MovieClip",
+        "sound.GameSounds"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/popUp/PopUp.as",
+      "imports": [
+        "flash.display.DisplayObjectContainer",
+        "flash.display.MovieClip"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/popUp/PopUpPositioner.as",
+      "imports": [
+        "flash.display.DisplayObjectContainer",
+        "flash.display.Sprite",
+        "flash.geom.Point"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/AnimatedScreen.as",
+      "imports": [
+        "cb.actions.Functor",
+        "cb.display.Screen",
+        "cb.display.SmartMC",
+        "conditions.EndCurrentLabel",
+        "flash.display.MovieClip",
+        "flash.utils.Dictionary"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/ComicWindow.as",
+      "imports": [
+        "cb.actions.Functor",
+        "cb.data.ButtonGroup",
+        "cb.display.SmartMC",
+        "cb.signals.Signal",
+        "conditions.EndCurrentLabel",
+        "flash.display.MovieClip",
+        "flash.events.MouseEvent",
+        "flash.utils.Dictionary",
+        "util.Buttons",
+        "util.Util",
+        "view.screens.main_game.map.ArrowView"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/ConfirmationPopUp.as",
+      "imports": [
+        "cb.data.ButtonGroup",
+        "flash.display.MovieClip",
+        "flash.events.Event",
+        "flash.events.MouseEvent",
+        "flash.utils.Dictionary",
+        "util.Buttons",
+        "util.Sepializer",
+        "util.Util"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/DailyBonusView.as",
+      "imports": [
+        "bonus.IDailyBonus",
+        "bonus.filter.BonusIcon",
+        "flash.utils.Dictionary"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/Intro.as",
+      "imports": [
+        "sound.GameSounds"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/MainMenu.as",
+      "imports": [
+        "bonus.DailyBonus",
+        "bonus.IDailyBonus",
+        "cb.data.ButtonGroup",
+        "cb.display.Screen",
+        "cb.signals.Signal",
+        "cb.utils.Rule",
+        "flash.events.MouseEvent",
+        "flash.text.TextFormat",
+        "flash.utils.Dictionary",
+        "sound.GameSounds",
+        "util.Buttons"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/Outro.as",
+      "imports": [
+        "cb.data.ButtonGroup",
+        "flash.utils.Dictionary",
+        "sound.GameSounds"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/Pause.as",
+      "imports": [
+        "cb.data.ButtonGroup",
+        "cb.signals.Signal",
+        "cb.utils.Random",
+        "flash.events.MouseEvent",
+        "flash.text.TextField",
+        "flash.utils.Dictionary",
+        "main_game.map.Level",
+        "sound.GameSounds",
+        "util.Buttons",
+        "util.Util"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/BarView.as",
+      "imports": [
+        "cb.data.Locale",
+        "flash.display.MovieClip"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/GameView.as",
+      "imports": [
+        "aplication.BasicState",
+        "aplication.FSM",
+        "cb.data.ButtonGroup",
+        "cb.display.Screen",
+        "cb.signals.Signal",
+        "flash.display.DisplayObjectContainer",
+        "flash.display.MovieClip",
+        "flash.events.MouseEvent",
+        "flash.utils.Dictionary",
+        "main_game.boss_dungeon.BossDungeon",
+        "main_game.map.Level",
+        "sound.GameSounds",
+        "util.Buttons",
+        "util.Sepializer",
+        "util.Util",
+        "view.screens.main_game.boss_dungeon.BossDungeonState",
+        "view.screens.main_game.bubblegum.BubblegumView",
+        "view.screens.main_game.cookBook.CookBook",
+        "view.screens.main_game.inventory.InventoryView",
+        "view.screens.main_game.inventory.MixerView",
+        "view.screens.main_game.inventory.StatsView",
+        "view.screens.main_game.states.BasicPausableState",
+        "view.screens.main_game.states.DungeonState",
+        "view.screens.main_game.states.IPausable",
+        "view.screens.main_game.states.MapState"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/TransitionWindow.as",
+      "imports": [
+        "flash.display.Sprite",
+        "flash.utils.Dictionary",
+        "sound.GameSounds",
+        "util.Util",
+        "view.screens.AnimatedScreen"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/TransitionWindowJakeLess.as",
+      "imports": []
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/boss_dungeon/BossDungeonState.as",
+      "imports": [
+        "cb.signals.Signal",
+        "view.screens.main_game.GameView",
+        "view.screens.main_game.states.DungeonState"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/boss_dungeon/BossDungeonView.as",
+      "imports": [
+        "main_game.boss_dungeon.Boss",
+        "main_game.boss_dungeon.BossFight",
+        "main_game.character.CharacterFactory",
+        "main_game.dungeon.IFight",
+        "sound.GameSounds",
+        "view.figthers.FinnView",
+        "view.screens.main_game.dungeon.DungeonView",
+        "view.screens.main_game.dungeon.WinWindow",
+        "view.screens.main_game.states.IDungeonState"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/boss_dungeon/BossFightView.as",
+      "imports": [
+        "main_game.boss_dungeon.BossFight",
+        "main_game.dungeon.Dungeon",
+        "sound.GameSounds",
+        "util.Util",
+        "view.figthers.FinnView",
+        "view.figthers.animations.IdleAnimation",
+        "view.screens.main_game.dungeon.fight.BasicFightView"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/boss_dungeon/BossView.as",
+      "imports": [
+        "flash.display.MovieClip",
+        "main_game.boss_dungeon.Boss",
+        "main_game.character.Fighter",
+        "sound.BossSoundManager",
+        "view.figthers.EnemyView",
+        "view.figthers.animations.IFighterAnimation"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/boss_dungeon/EnterBossDungeon.as",
+      "imports": [
+        "cb.gameloop.GameLoop",
+        "main_game.dungeon.Dungeon",
+        "sound.GameSounds",
+        "view.figthers.FinnView",
+        "view.figthers.animations.IFighterAnimation",
+        "view.figthers.animations.IdleAnimation",
+        "view.figthers.animations.RunAnimation",
+        "view.screens.main_game.dungeon.BackgroundView"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/boss_dungeon/InnerBossDungeonView.as",
+      "imports": [
+        "view.screens.main_game.dungeon.InnerDungeonView"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/boss_dungeon/WinBossDungeonWindow.as",
+      "imports": [
+        "main_game.dungeon.DungeonStats",
+        "main_game.dungeon.Loot",
+        "view.screens.main_game.dungeon.WinWindow"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/bubblegum/BubblegumPopUp.as",
+      "imports": [
+        "cb.actions.Functor",
+        "cb.data.ButtonGroup",
+        "cb.display.Screen",
+        "cb.display.SmartMC",
+        "cb.signals.Signal",
+        "conditions.EndCurrentLabel",
+        "flash.display.DisplayObjectContainer",
+        "flash.display.MovieClip",
+        "flash.events.MouseEvent",
+        "flash.utils.Dictionary",
+        "main_game.bubblegum.BubbleGumTip",
+        "sound.GameSounds",
+        "util.Buttons",
+        "util.Util",
+        "view.screens.main_game.slot.SlotView"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/bubblegum/BubblegumView.as",
+      "imports": [
+        "cb.actions.Functor",
+        "cb.display.SmartMC",
+        "cb.utils.Random",
+        "conditions.EndCurrentLabel",
+        "flash.display.MovieClip",
+        "flash.display.Sprite",
+        "flash.events.MouseEvent",
+        "flash.events.TimerEvent",
+        "flash.utils.Timer",
+        "main_game.bubblegum.BubbleGumTip",
+        "main_game.bubblegum.BubblegumFeeling",
+        "main_game.bubblegum.BubblegumInteraction",
+        "main_game.bubblegum.InteractiveBubblegum",
+        "util.Locker",
+        "util.Util"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/cookBook/CookBook.as",
+      "imports": [
+        "cb.actions.Functor",
+        "cb.data.ButtonGroup",
+        "cb.display.SmartMC",
+        "conditions.EndCurrentLabel",
+        "flash.display.MovieClip",
+        "flash.utils.Dictionary",
+        "util.Buttons",
+        "util.Util",
+        "view.screens.AnimatedScreen",
+        "view.screens.main_game.map.ArrowView"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/cookBook/CookBookPage.as",
+      "imports": [
+        "flash.display.MovieClip",
+        "main_game.mixer.MixStrategy",
+        "main_game.mixer.Recipe"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/cookBook/RecipeView.as",
+      "imports": [
+        "flash.display.MovieClip",
+        "main_game.item_containers.ISlot",
+        "main_game.item_containers.NullSlot",
+        "main_game.items.Item",
+        "main_game.items.ItemFactory",
+        "main_game.mixer.Recipe",
+        "view.screens.main_game.slot.SlotView"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/dungeon/BackgroundSet.as",
+      "imports": [
+        "flash.display.MovieClip",
+        "util.ProbabilisticSet"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/dungeon/BackgroundView.as",
+      "imports": [
+        "cb.gameloop.GameLoop",
+        "cb.signals.Signal",
+        "flash.display.MovieClip",
+        "main_game.dungeon.Dungeon",
+        "main_game.dungeon.DungeonConfigData",
+        "view.figthers.AnimatedHudView",
+        "view.figthers.HudSetter",
+        "view.figthers.HudSetterWithStats",
+        "view.figthers.HudView",
+        "view.screens.main_game.dungeon.fight.FightFeedback"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/dungeon/DungeonView.as",
+      "imports": [
+        "cb.data.ButtonGroup",
+        "cb.display.Screen",
+        "flash.events.MouseEvent",
+        "flash.utils.Dictionary",
+        "main_game.character.CharacterFactory",
+        "main_game.dungeon.DungeonFactory",
+        "main_game.dungeon.DungeonStats",
+        "main_game.dungeon.IFight",
+        "main_game.dungeon.Loot",
+        "main_game.items.Item",
+        "main_game.map.Level",
+        "sound.GameSounds",
+        "util.Buttons",
+        "util.Util",
+        "view.figthers.FinnView",
+        "view.figthers.animations.DieAnimation",
+        "view.figthers.animations.IFighterAnimation",
+        "view.figthers.animations.JoyAnimation",
+        "view.screens.Pause",
+        "view.screens.main_game.dungeon.fight.EnterDungeonView",
+        "view.screens.main_game.dungeon.fight.FightView",
+        "view.screens.main_game.states.IDungeonState"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/dungeon/EmptyInnerView.as",
+      "imports": [
+        "view.screens.main_game.boss_dungeon.InnerBossDungeonView"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/dungeon/EndDungeonWindow.as",
+      "imports": [
+        "cb.signals.Signal",
+        "flash.display.DisplayObjectContainer",
+        "view.screens.main_game.states.IPausable"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/dungeon/IDungeonView.as",
+      "imports": [
+        "main_game.dungeon.IFight"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/dungeon/InnerDungeonView.as",
+      "imports": []
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/dungeon/LootView.as",
+      "imports": [
+        "flash.display.MovieClip",
+        "flash.events.TimerEvent",
+        "flash.utils.Timer",
+        "main_game.dungeon.Loot",
+        "main_game.item_containers.Slot",
+        "main_game.items.Item",
+        "view.effect.Effect",
+        "view.effect.SmokeEffect",
+        "view.screens.main_game.slot.SlotView",
+        "view.screens.main_game.states.IPausable"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/dungeon/LostWindow.as",
+      "imports": [
+        "cb.data.ButtonGroup",
+        "cb.signals.Signal",
+        "cb.utils.Tween",
+        "flash.display.DisplayObjectContainer",
+        "flash.events.MouseEvent",
+        "flash.utils.Dictionary",
+        "main_game.character.stats.Stats",
+        "main_game.dungeon.DungeonStats",
+        "util.Buttons",
+        "util.Util",
+        "view.popUp.LevelUp",
+        "view.screens.AnimatedScreen"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/dungeon/TimeLine.as",
+      "imports": [
+        "cb.utils.Tween",
+        "flash.display.MovieClip",
+        "main_game.character.Enemy",
+        "main_game.dungeon.Dungeon",
+        "main_game.dungeon.IFight",
+        "main_game.element.Element",
+        "main_game.map.LegendaryLevel",
+        "main_game.map.Level",
+        "util.Util"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/dungeon/WinWindow.as",
+      "imports": [
+        "cb.data.ButtonGroup",
+        "cb.signals.Signal",
+        "cb.utils.Tween",
+        "flash.display.DisplayObjectContainer",
+        "flash.display.MovieClip",
+        "flash.events.MouseEvent",
+        "flash.utils.Dictionary",
+        "main_game.character.stats.Stats",
+        "main_game.dungeon.DungeonStats",
+        "main_game.dungeon.Loot",
+        "sound.GameSounds",
+        "util.Buttons",
+        "util.Util",
+        "view.popUp.LevelUp",
+        "view.screens.AnimatedScreen"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/dungeon/fight/BasicFightView.as",
+      "imports": [
+        "cb.actions.Functor",
+        "cb.conditions.EndAnimation",
+        "cb.display.SmartMC",
+        "flash.display.MovieClip",
+        "flash.events.TimerEvent",
+        "flash.utils.Dictionary",
+        "flash.utils.Timer",
+        "main_game.character.Enemy",
+        "main_game.character.Fighter",
+        "main_game.dungeon.Damage",
+        "main_game.dungeon.IFight",
+        "util.Util",
+        "view.figthers.FighterView",
+        "view.screens.main_game.dungeon.BackgroundView",
+        "view.screens.main_game.dungeon.InnerDungeonView"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/dungeon/fight/EnterDungeonView.as",
+      "imports": [
+        "cb.gameloop.GameLoop",
+        "main_game.dungeon.Dungeon",
+        "view.figthers.FinnView",
+        "view.figthers.animations.IFighterAnimation",
+        "view.figthers.animations.RunAnimation",
+        "view.screens.main_game.dungeon.BackgroundView",
+        "view.screens.main_game.dungeon.InnerDungeonView"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/dungeon/fight/FightFeedback.as",
+      "imports": [
+        "cb.actions.Functor",
+        "cb.conditions.EndAnimation",
+        "cb.display.SmartMC",
+        "flash.display.DisplayObjectContainer",
+        "flash.display.MovieClip",
+        "flash.display.Sprite"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/dungeon/fight/FightView.as",
+      "imports": [
+        "main_game.character.CharacterFactory",
+        "main_game.dungeon.Dungeon",
+        "main_game.dungeon.IFight",
+        "view.figthers.FighterView",
+        "view.figthers.FinnView",
+        "view.figthers.animations.IFighterAnimation",
+        "view.figthers.animations.IdleAnimation",
+        "view.figthers.animations.RunAnimation",
+        "view.screens.main_game.dungeon.BackgroundView"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/inventory/InventoryView.as",
+      "imports": [
+        "actions.Lambda",
+        "cb.conditions.EndAnimation",
+        "cb.display.SmartMC",
+        "flash.display.MovieClip",
+        "flash.events.MouseEvent",
+        "main_game.inventory.Inventory",
+        "view.screens.main_game.slot.SlotView",
+        "view.screens.main_game.slot.TrashView"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/inventory/LiverView.as",
+      "imports": [
+        "cb.utils.cbArray",
+        "flash.display.MovieClip",
+        "main_game.character.Liver",
+        "main_game.character.stats.StatType",
+        "main_game.item_containers.SlotChange",
+        "main_game.items.Consumable",
+        "main_game.items.Item",
+        "view.effect.PotionEffect",
+        "view.screens.main_game.slot.LeftSlotView"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/inventory/MixerClockView.as",
+      "imports": [
+        "cb.display.Screen",
+        "flash.utils.Dictionary",
+        "main_game.mixer.MixerClock",
+        "view.effect.Effect"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/inventory/MixerView.as",
+      "imports": [
+        "cb.actions.RemoveFromParent",
+        "cb.data.ButtonInfo",
+        "cb.display.SmartMC",
+        "conditions.EndCurrentLabel",
+        "flash.display.MovieClip",
+        "flash.events.MouseEvent",
+        "main_game.item_containers.Slot",
+        "main_game.mixer.Mixer",
+        "util.Buttons",
+        "view.screens.main_game.slot.AutoSelectSlotView",
+        "view.screens.main_game.slot.SlotView"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/inventory/StatsView.as",
+      "imports": [
+        "cb.utils.Tween",
+        "drag_and_drop.DragListener",
+        "flash.display.MovieClip",
+        "flash.text.TextField",
+        "main_game.character.Gear",
+        "main_game.character.stats.Experience",
+        "main_game.character.stats.HealthStat",
+        "main_game.character.stats.PersistentExperience",
+        "main_game.character.stats.StatType",
+        "main_game.character.stats.Stats",
+        "util.Util",
+        "view.screens.main_game.BarView",
+        "view.screens.main_game.slot.LeftSlotView",
+        "view.screens.main_game.slot.SlotView"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/map/ArrowView.as",
+      "imports": [
+        "cb.actions.Functor",
+        "cb.display.SmartMC",
+        "conditions.EndCurrentLabel",
+        "flash.display.MovieClip",
+        "flash.events.MouseEvent",
+        "sound.GameSounds"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/map/MapView.as",
+      "imports": [
+        "actions.Lambda",
+        "cb.data.ButtonGroup",
+        "cb.display.Screen",
+        "cb.display.SmartMC",
+        "cb.signals.Signal",
+        "cb.utils.cbArray",
+        "conditions.EndCurrentLabel",
+        "flash.display.MovieClip",
+        "flash.events.MouseEvent",
+        "flash.events.TimerEvent",
+        "flash.utils.Dictionary",
+        "flash.utils.Timer",
+        "main_game.character.CharacterFactory",
+        "main_game.dungeon.DungeonConfigData",
+        "main_game.dungeon.DungeonFactory",
+        "main_game.element.Element",
+        "main_game.map.LegendaryLevel",
+        "main_game.map.Level",
+        "util.Buttons",
+        "util.Sepializer",
+        "util.Util",
+        "view.screens.main_game.states.MapState"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/slot/AutoSelectSlotView.as",
+      "imports": [
+        "drag_and_drop.DragListener",
+        "flash.events.MouseEvent",
+        "main_game.item_containers.ISlot"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/slot/BasicSlotView.as",
+      "imports": [
+        "drag_and_drop.DragListener",
+        "flash.display.MovieClip",
+        "flash.events.MouseEvent",
+        "flash.geom.Point",
+        "flash.ui.Mouse",
+        "flash.ui.MouseCursor",
+        "main_game.item_containers.ISlot",
+        "main_game.item_containers.SlotChange",
+        "main_game.items.Item",
+        "main_game.items.ItemFactory",
+        "view.items.ItemView",
+        "view.popUp.ItemPopUp"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/slot/LeftSlotView.as",
+      "imports": [
+        "main_game.item_containers.ISlot",
+        "view.popUp.ItemPopUp"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/slot/SlotView.as",
+      "imports": [
+        "main_game.item_containers.ISlot",
+        "view.items.ItemView"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/slot/TrashView.as",
+      "imports": [
+        "drag_and_drop.DragListener",
+        "flash.display.MovieClip",
+        "flash.events.MouseEvent",
+        "main_game.items.Item"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/states/BasicPausableState.as",
+      "imports": [
+        "aplication.BasicState"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/states/DungeonState.as",
+      "imports": [
+        "cb.signals.Signal",
+        "flash.display.DisplayObjectContainer",
+        "main_game.dungeon.Dungeon",
+        "main_game.dungeon.DungeonFactory",
+        "main_game.map.Level",
+        "view.screens.main_game.GameView",
+        "view.screens.main_game.dungeon.DungeonView"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/states/IDungeonState.as",
+      "imports": [
+        "cb.signals.Signal",
+        "flash.display.DisplayObjectContainer",
+        "main_game.dungeon.Dungeon",
+        "main_game.map.Level"
+      ]
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/states/IPausable.as",
+      "imports": []
+    },
+    {
+      "file": "decompiled/actionscript/main/scripts/view/screens/main_game/states/MapState.as",
+      "imports": [
+        "cb.utils.cbArray",
+        "main_game.map.Level",
+        "main_game.map.Map",
+        "sound.GameSounds",
+        "view.screens.main_game.GameView",
+        "view.screens.main_game.map.MapView"
+      ]
+    }
+  ]
+}

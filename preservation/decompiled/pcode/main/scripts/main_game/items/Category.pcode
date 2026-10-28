@@ -1,0 +1,179 @@
+package main_game.items
+{
+   import main_game.item_containers.ItemContainer;
+   
+   public class Category
+   {
+      
+      public static var SHIELD_CATEGORY:String = "S";
+      
+      public static var EQUIPABLE_CATEGORY:String = "E";
+      
+      public static var WEAPON_CATEGORY:String = "W";
+      
+      public static var CONSUMABLE_CATEGORY:String = "C";
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(PackageNamespace(""),"SHIELD_CATEGORY")
+               pushstring "S"
+               setproperty QName(PackageNamespace(""),"SHIELD_CATEGORY")
+               findproperty QName(PackageNamespace(""),"EQUIPABLE_CATEGORY")
+               pushstring "E"
+               setproperty QName(PackageNamespace(""),"EQUIPABLE_CATEGORY")
+               findproperty QName(PackageNamespace(""),"WEAPON_CATEGORY")
+               pushstring "W"
+               setproperty QName(PackageNamespace(""),"WEAPON_CATEGORY")
+               findproperty QName(PackageNamespace(""),"CONSUMABLE_CATEGORY")
+               pushstring "C"
+               setproperty QName(PackageNamespace(""),"CONSUMABLE_CATEGORY")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      protected var item:Item;
+      
+      public function Category(param1:Item, param2:Object)
+      {
+         method
+            name null
+            param QName(PackageNamespace("main_game.items"),"Item")
+            param QName(PackageNamespace(""),"Object")
+            returns null
+            
+            body
+               maxstack 2
+               localcount 3
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlocal1
+                  initproperty QName(ProtectedNamespace("main_game.items:Category"),"item")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function get type() : String
+      {
+         trait getter QName(PackageNamespace(""),"type")
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace(""),"String")
+               
+               body
+                  maxstack 2
+                  localcount 1
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     findpropstrict QName(PackageNamespace(""),"Error")
+                     pushstring "Abstract class"
+                     constructprop QName(PackageNamespace(""),"Error"), 1
+                     throw
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function canBeContained(param1:ItemContainer) : Boolean
+         {
+            trait method QName(PackageNamespace(""),"canBeContained")
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace("main_game.item_containers"),"ItemContainer")
+                  returns QName(PackageNamespace(""),"Boolean")
+                  
+                  body
+                     maxstack 1
+                     localcount 2
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        pushtrue
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function clear() : void
+            {
+               trait method QName(PackageNamespace(""),"clear")
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 2
+                        localcount 1
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           pushnull
+                           setproperty QName(ProtectedNamespace("main_game.items:Category"),"item")
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+            }
+         }
+         
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 2
+               localcount 1
+               initscopedepth 1
+               maxscopedepth 3
+               
+               code
+                  getlocal0
+                  pushscope
+                  findpropstrict Multiname("Category",[PackageNamespace("main_game.items")])
+                  getlex QName(PackageNamespace(""),"Object")
+                  pushscope
+                  getlex QName(PackageNamespace(""),"Object")
+                  newclass 103
+                  popscope
+                  initproperty QName(PackageNamespace("main_game.items"),"Category")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+         

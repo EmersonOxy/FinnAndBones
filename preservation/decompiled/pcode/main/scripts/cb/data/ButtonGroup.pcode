@@ -1,0 +1,505 @@
+package cb.data
+{
+   import cb.media.cbSoundMixer;
+   import flash.events.MouseEvent;
+   
+   public class ButtonGroup
+   {
+      
+      private static var groups:Array;
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(PrivateNamespace(null,"70"),"groups")
+               newarray 0
+               setproperty QName(PrivateNamespace(null,"70"),"groups")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var soundMixer:cbSoundMixer;
+      
+      private var clickSound:String;
+      
+      private var overSound:String;
+      
+      private var mouseOutFuncs:Array;
+      
+      private var mouseOverFuncs:Array;
+      
+      private var clickFuncs:Array;
+      
+      public function ButtonGroup()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 2
+               localcount 1
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  newarray 0
+                  initproperty QName(PrivateNamespace(null,"70"),"mouseOutFuncs")
+                  getlocal0
+                  newarray 0
+                  initproperty QName(PrivateNamespace(null,"70"),"mouseOverFuncs")
+                  getlocal0
+                  newarray 0
+                  initproperty QName(PrivateNamespace(null,"70"),"clickFuncs")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public static function get(param1:String) : ButtonGroup
+      {
+         trait method QName(PackageNamespace(""),"get")
+            flag FINAL
+            dispid 3
+            method
+               name null
+               param QName(PackageNamespace(""),"String")
+               returns QName(PackageNamespace("cb.data"),"ButtonGroup")
+               
+               body
+                  maxstack 3
+                  localcount 2
+                  initscopedepth 3
+                  maxscopedepth 4
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlex QName(PrivateNamespace(null,"70"),"groups")
+                     getlocal1
+                     getproperty MultinameL([PrivateNamespace(null,"70"),PrivateNamespace(null,"242"),PackageNamespace(""),PackageNamespace("cb.data"),PackageInternalNs("cb.data"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("cb.data:ButtonGroup"),StaticProtectedNs("cb.data:ButtonGroup")])
+                     getlex QName(PackageNamespace(""),"undefined")
+                     ifne ofs001a
+                     getlex QName(PrivateNamespace(null,"70"),"groups")
+                     getlocal1
+                     getlocal0
+                     construct 0
+                     setproperty MultinameL([PrivateNamespace(null,"70"),PrivateNamespace(null,"242"),PackageNamespace(""),PackageNamespace("cb.data"),PackageInternalNs("cb.data"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("cb.data:ButtonGroup"),StaticProtectedNs("cb.data:ButtonGroup")])
+            ofs001a:
+                     getlex QName(PrivateNamespace(null,"70"),"groups")
+                     getlocal1
+                     getproperty MultinameL([PrivateNamespace(null,"70"),PrivateNamespace(null,"242"),PackageNamespace(""),PackageNamespace("cb.data"),PackageInternalNs("cb.data"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("cb.data:ButtonGroup"),StaticProtectedNs("cb.data:ButtonGroup")])
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function setSoundMixer(param1:cbSoundMixer) : ButtonGroup
+         {
+            trait method QName(PackageNamespace(""),"setSoundMixer")
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace("cb.media"),"cbSoundMixer")
+                  returns QName(PackageNamespace("cb.data"),"ButtonGroup")
+                  
+                  body
+                     maxstack 2
+                     localcount 2
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        getlocal1
+                        setproperty QName(PrivateNamespace(null,"70"),"soundMixer")
+                        getlocal0
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function setClickSound(param1:String) : ButtonGroup
+            {
+               trait method QName(PackageNamespace(""),"setClickSound")
+                  dispid 0
+                  method
+                     name null
+                     param QName(PackageNamespace(""),"String")
+                     returns QName(PackageNamespace("cb.data"),"ButtonGroup")
+                     
+                     body
+                        maxstack 2
+                        localcount 2
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getlocal1
+                           initproperty QName(PrivateNamespace(null,"70"),"clickSound")
+                           getlocal0
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function setOverSound(param1:String) : ButtonGroup
+               {
+                  trait method QName(PackageNamespace(""),"setOverSound")
+                     dispid 0
+                     method
+                        name null
+                        param QName(PackageNamespace(""),"String")
+                        returns QName(PackageNamespace("cb.data"),"ButtonGroup")
+                        
+                        body
+                           maxstack 2
+                           localcount 2
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal0
+                              getlocal1
+                              initproperty QName(PrivateNamespace(null,"70"),"overSound")
+                              getlocal0
+                              returnvalue
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function createButton(param1:Function, param2:* = null, param3:* = null, param4:Boolean = true, param5:String = null) : ButtonInfo
+                  {
+                     trait method QName(PackageNamespace(""),"createButton")
+                        dispid 0
+                        method
+                           name null
+                           flag HAS_OPTIONAL
+                           param QName(PackageNamespace(""),"Function")
+                           param null
+                           param null
+                           param QName(PackageNamespace(""),"Boolean")
+                           param QName(PackageNamespace(""),"String")
+                           optional Null()
+                           optional Null()
+                           optional True()
+                           optional Null()
+                           returns QName(PackageNamespace("cb.data"),"ButtonInfo")
+                           
+                           body
+                              maxstack 6
+                              localcount 9
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 pushnull
+                                 coerce QName(PackageNamespace(""),"Function")
+                                 setlocal 6
+                                 getlocal2
+                                 getlex QName(PackageNamespace(""),"String")
+                                 istypelate
+                                 iffalse ofs001c
+                                 getlex QName(PackageNamespace("cb.data"),"ButtonInfo")
+                                 getlocal2
+                                 getlocal 4
+                                 getlocal 5
+                                 callproperty QName(PackageNamespace(""),"defaultGoto"), 3
+                                 coerce_a
+                                 setlocal2
+                        ofs001c:
+                                 getlocal3
+                                 getlex QName(PackageNamespace(""),"String")
+                                 istypelate
+                                 iffalse ofs0031
+                                 getlex QName(PackageNamespace("cb.data"),"ButtonInfo")
+                                 getlocal3
+                                 getlocal 4
+                                 getlocal 5
+                                 callproperty QName(PackageNamespace(""),"defaultGoto"), 3
+                                 coerce_a
+                                 setlocal3
+                        ofs0031:
+                                 getlocal0
+                                 getlocal1
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"70"),"clickSound")
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"70"),"clickFuncs")
+                                 callproperty QName(PrivateNamespace(null,"70"),"createFunc"), 3
+                                 coerce QName(PackageNamespace(""),"Function")
+                                 setlocal 6
+                                 getlocal0
+                                 getlocal2
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"70"),"overSound")
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"70"),"mouseOverFuncs")
+                                 callproperty QName(PrivateNamespace(null,"70"),"createFunc"), 3
+                                 coerce QName(PackageNamespace(""),"Function")
+                                 setlocal 7
+                                 getlocal0
+                                 getlocal3
+                                 pushnull
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"70"),"mouseOutFuncs")
+                                 callproperty QName(PrivateNamespace(null,"70"),"createFunc"), 3
+                                 coerce QName(PackageNamespace(""),"Function")
+                                 setlocal 8
+                                 findpropstrict QName(PackageNamespace("cb.data"),"ButtonInfo")
+                                 getlocal 6
+                                 getlocal 7
+                                 getlocal 8
+                                 getlocal 4
+                                 getlocal 5
+                                 constructprop QName(PackageNamespace("cb.data"),"ButtonInfo"), 5
+                                 returnvalue
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     public function addMouseOver(param1:Function) : ButtonGroup
+                     {
+                        trait method QName(PackageNamespace(""),"addMouseOver")
+                           dispid 0
+                           method
+                              name null
+                              param QName(PackageNamespace(""),"Function")
+                              returns QName(PackageNamespace("cb.data"),"ButtonGroup")
+                              
+                              body
+                                 maxstack 2
+                                 localcount 2
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"70"),"mouseOverFuncs")
+                                    getlocal1
+                                    callpropvoid QName(Namespace("http://adobe.com/AS3/2006/builtin"),"push"), 1
+                                    getlocal0
+                                    returnvalue
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        public function addMouseOut(param1:Function) : ButtonGroup
+                        {
+                           trait method QName(PackageNamespace(""),"addMouseOut")
+                              dispid 0
+                              method
+                                 name null
+                                 param QName(PackageNamespace(""),"Function")
+                                 returns QName(PackageNamespace("cb.data"),"ButtonGroup")
+                                 
+                                 body
+                                    maxstack 2
+                                    localcount 2
+                                    initscopedepth 4
+                                    maxscopedepth 5
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"70"),"mouseOutFuncs")
+                                       getlocal1
+                                       callpropvoid QName(Namespace("http://adobe.com/AS3/2006/builtin"),"push"), 1
+                                       getlocal0
+                                       returnvalue
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           public function addClick(param1:Function) : ButtonGroup
+                           {
+                              trait method QName(PackageNamespace(""),"addClick")
+                                 dispid 0
+                                 method
+                                    name null
+                                    param QName(PackageNamespace(""),"Function")
+                                    returns QName(PackageNamespace("cb.data"),"ButtonGroup")
+                                    
+                                    body
+                                       maxstack 2
+                                       localcount 2
+                                       initscopedepth 4
+                                       maxscopedepth 5
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"70"),"clickFuncs")
+                                          getlocal1
+                                          callpropvoid QName(Namespace("http://adobe.com/AS3/2006/builtin"),"push"), 1
+                                          getlocal0
+                                          returnvalue
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                              
+                              private function createFunc(param1:Function, param2:String, param3:Array) : Function
+                              {
+                                 trait method QName(PrivateNamespace(null,"70"),"createFunc")
+                                    dispid 0
+                                    method
+                                       name null
+                                       flag NEED_ACTIVATION
+                                       param QName(PackageNamespace(""),"Function")
+                                       param QName(PackageNamespace(""),"String")
+                                       param QName(PackageNamespace(""),"Array")
+                                       returns QName(PackageNamespace(""),"Function")
+                                       
+                                       body
+                                          maxstack 3
+                                          localcount 5
+                                          initscopedepth 5
+                                          maxscopedepth 7
+                                          trait slot QName(PackageInternalNs("cb.data"),"cb")
+                                             slotid 1
+                                             type QName(PackageNamespace(""),"Function")
+                                          end ; trait
+                                          trait slot QName(PackageInternalNs("cb.data"),"sound")
+                                             slotid 2
+                                             type QName(PackageNamespace(""),"String")
+                                          end ; trait
+                                          trait slot QName(PackageInternalNs("cb.data"),"list")
+                                             slotid 3
+                                             type QName(PackageNamespace(""),"Array")
+                                          end ; trait
+                                          trait slot QName(PackageInternalNs("cb.data"),"oList")
+                                             slotid 4
+                                             type QName(PackageNamespace(""),"Array")
+                                          end ; trait
+                                          trait slot QName(PackageInternalNs("cb.data"),"o")
+                                             slotid 5
+                                             type QName(PackageNamespace(""),"Function")
+                                          end ; trait
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             newactivation
+                                             dup
+                                             setlocal 4
+                                             pushscope
+                                             getscopeobject 1
+                                             pushnull
+                                             coerce QName(PackageNamespace(""),"Array")
+                                             setslot 4
+                                             getscopeobject 1
+                                             getlocal1
+                                             setslot 1
+                                             getscopeobject 1
+                                             getlocal2
+                                             setslot 2
+                                             getscopeobject 1
+                                             getlocal3
+                                             setslot 3
+                                             getscopeobject 1
+                                             newarray 0
+                                             coerce QName(PackageNamespace(""),"Array")
+                                             setslot 4
+                                             getscopeobject 1
+                                             getslot 1
+                                             pushnull
+                                             ifeq ofs003a
+                                             getscopeobject 1
+                                             getslot 4
+                                             getscopeobject 1
+                                             getslot 1
+                                             callpropvoid QName(Namespace("http://adobe.com/AS3/2006/builtin"),"push"), 1
+                                    ofs003a:
+                                             getscopeobject 1
+                                             getslot 2
+                                             iffalse ofs004d
+                                             getscopeobject 1
+                                             getslot 4
+                                             newfunction 1162
+                                             callpropvoid QName(Namespace("http://adobe.com/AS3/2006/builtin"),"push"), 1
+                                    ofs004d:
+                                             getscopeobject 1
+                                             getscopeobject 1
+                                             getslot 3
+                                             getscopeobject 1
+                                             getslot 4
+                                             callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"concat"), 1
+                                             coerce QName(PackageNamespace(""),"Array")
+                                             setslot 4
+                                             getscopeobject 1
+                                             newfunction 1161
+                                             coerce QName(PackageNamespace(""),"Function")
+                                             setslot 5
+                                             getscopeobject 1
+                                             getslot 5
+                                             returnvalue
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                 }
+                              }
+                           }
+                           
+                           method
+                              name null
+                              returns null
+                              
+                              body
+                                 maxstack 2
+                                 localcount 1
+                                 initscopedepth 1
+                                 maxscopedepth 3
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    findpropstrict Multiname("ButtonGroup",[PackageNamespace("cb.data")])
+                                    getlex QName(PackageNamespace(""),"Object")
+                                    pushscope
+                                    getlex QName(PackageNamespace(""),"Object")
+                                    newclass 115
+                                    popscope
+                                    initproperty QName(PackageNamespace("cb.data"),"ButtonGroup")
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                           

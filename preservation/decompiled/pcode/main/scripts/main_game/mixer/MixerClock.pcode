@@ -1,0 +1,304 @@
+package main_game.mixer
+{
+   import cb.signals.Signal;
+   import flash.events.TimerEvent;
+   import flash.utils.Timer;
+   import main_game.items.Item;
+   
+   public class MixerClock
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public var atEndMix:Signal;
+      
+      public var onTic:Signal;
+      
+      private var timer:Timer;
+      
+      private var duration:Number;
+      
+      public function MixerClock(param1:Item, param2:Item)
+      {
+         method
+            name null
+            param QName(PackageNamespace("main_game.items"),"Item")
+            param QName(PackageNamespace("main_game.items"),"Item")
+            returns null
+            
+            body
+               maxstack 3
+               localcount 3
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("cb.signals"),"Signal")
+                  constructprop QName(PackageNamespace("cb.signals"),"Signal"), 0
+                  initproperty QName(PackageNamespace(""),"atEndMix")
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("cb.signals"),"Signal")
+                  constructprop QName(PackageNamespace("cb.signals"),"Signal"), 0
+                  initproperty QName(PackageNamespace(""),"onTic")
+                  getlocal0
+                  getlocal1
+                  callproperty QName(PackageNamespace(""),"getMixTime"), 0
+                  getlocal2
+                  callproperty QName(PackageNamespace(""),"getMixTime"), 0
+                  add
+                  initproperty QName(PrivateNamespace(null,"138"),"duration")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function start() : void
+      {
+         trait method QName(PackageNamespace(""),"start")
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 4
+                  localcount 1
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     findpropstrict QName(PackageNamespace("flash.utils"),"Timer")
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"138"),"duration")
+                     pushbyte 10
+                     multiply
+                     pushbyte 100
+                     constructprop QName(PackageNamespace("flash.utils"),"Timer"), 2
+                     setproperty QName(PrivateNamespace(null,"138"),"timer")
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"138"),"timer")
+                     getlex QName(PackageNamespace("flash.events"),"TimerEvent")
+                     getproperty QName(PackageNamespace(""),"TIMER")
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"138"),"tic")
+                     callpropvoid QName(PackageNamespace(""),"addEventListener"), 2
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"138"),"timer")
+                     getlex QName(PackageNamespace("flash.events"),"TimerEvent")
+                     getproperty QName(PackageNamespace(""),"TIMER_COMPLETE")
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"138"),"endMix")
+                     callpropvoid QName(PackageNamespace(""),"addEventListener"), 2
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"138"),"timer")
+                     callpropvoid QName(PackageNamespace(""),"start"), 0
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         private function tic(param1:TimerEvent) : void
+         {
+            trait method QName(PrivateNamespace(null,"138"),"tic")
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace("flash.events"),"TimerEvent")
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 3
+                     localcount 2
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        getproperty QName(PackageNamespace(""),"onTic")
+                        getlocal1
+                        getproperty QName(PackageNamespace(""),"target")
+                        getlex QName(PackageNamespace("flash.utils"),"Timer")
+                        astypelate
+                        getproperty QName(PackageNamespace(""),"currentCount")
+                        callpropvoid QName(PackageNamespace(""),"emit"), 1
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            private function endMix(param1:TimerEvent) : void
+            {
+               trait method QName(PrivateNamespace(null,"138"),"endMix")
+                  dispid 0
+                  method
+                     name null
+                     param QName(PackageNamespace("flash.events"),"TimerEvent")
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 3
+                        localcount 2
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"138"),"timer")
+                           getlex QName(PackageNamespace("flash.events"),"TimerEvent")
+                           getproperty QName(PackageNamespace(""),"TIMER_COMPLETE")
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"138"),"endMix")
+                           callpropvoid QName(PackageNamespace(""),"removeEventListener"), 2
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"138"),"timer")
+                           getlex QName(PackageNamespace("flash.events"),"TimerEvent")
+                           getproperty QName(PackageNamespace(""),"TIMER")
+                           getlocal0
+                           getproperty QName(PackageNamespace(""),"onTic")
+                           getproperty QName(PackageNamespace(""),"emit")
+                           callpropvoid QName(PackageNamespace(""),"removeEventListener"), 2
+                           getlocal0
+                           getproperty QName(PackageNamespace(""),"onTic")
+                           callpropvoid QName(PackageNamespace(""),"clear"), 0
+                           getlocal0
+                           pushnull
+                           setproperty QName(PrivateNamespace(null,"138"),"timer")
+                           getlocal0
+                           getproperty QName(PackageNamespace(""),"atEndMix")
+                           callpropvoid QName(PackageNamespace(""),"emit"), 0
+                           getlocal0
+                           callpropvoid QName(PackageNamespace(""),"clear"), 0
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function stop() : void
+               {
+                  trait method QName(PackageNamespace(""),"stop")
+                     dispid 0
+                     method
+                        name null
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 2
+                           localcount 1
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"138"),"timer")
+                              pushnull
+                              ifeq ofs0013
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"138"),"timer")
+                              callpropvoid QName(PackageNamespace(""),"stop"), 0
+                     ofs0013:
+                              getlocal0
+                              callpropvoid QName(PackageNamespace(""),"clear"), 0
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function clear() : void
+                  {
+                     trait method QName(PackageNamespace(""),"clear")
+                        dispid 0
+                        method
+                           name null
+                           returns QName(PackageNamespace(""),"void")
+                           
+                           body
+                              maxstack 2
+                              localcount 1
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal0
+                                 getproperty QName(PackageNamespace(""),"atEndMix")
+                                 callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                 getlocal0
+                                 getproperty QName(PackageNamespace(""),"onTic")
+                                 callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"138"),"timer")
+                                 pushnull
+                                 ifeq ofs0023
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"138"),"timer")
+                                 callpropvoid QName(PackageNamespace(""),"stop"), 0
+                        ofs0023:
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                  }
+               }
+               
+               method
+                  name null
+                  returns null
+                  
+                  body
+                     maxstack 2
+                     localcount 1
+                     initscopedepth 1
+                     maxscopedepth 3
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        findpropstrict Multiname("MixerClock",[PackageNamespace("main_game.mixer")])
+                        getlex QName(PackageNamespace(""),"Object")
+                        pushscope
+                        getlex QName(PackageNamespace(""),"Object")
+                        newclass 240
+                        popscope
+                        initproperty QName(PackageNamespace("main_game.mixer"),"MixerClock")
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+               

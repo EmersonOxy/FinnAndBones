@@ -1,0 +1,1159 @@
+package main_game.bubblegum
+{
+   import cb.signals.Signal;
+   import cb.utils.Random;
+   import main_game.character.Gear;
+   import main_game.dungeon.Dungeon;
+   import main_game.dungeon.Fight;
+   import main_game.element.Element;
+   import main_game.inventory.Inventory;
+   import main_game.item_containers.Slot;
+   import main_game.items.Item;
+   import main_game.items.ItemFactory;
+   import main_game.mixer.MixResult;
+   import util.Locker;
+   
+   public class BubblegumPrincess
+   {
+      
+      private static const FIRE_FLAME:String = "FireFlame";
+      
+      private static const ICE_BLOCK:String = "IceBlock";
+      
+      private static var elementTipShowed:Boolean = false;
+      
+      private static var iceEnemyTipShowed:Boolean = false;
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(PrivateNamespace(null,"80"),"FIRE_FLAME")
+               pushstring "FireFlame"
+               initproperty QName(PrivateNamespace(null,"80"),"FIRE_FLAME")
+               findproperty QName(PrivateNamespace(null,"80"),"ICE_BLOCK")
+               pushstring "IceBlock"
+               initproperty QName(PrivateNamespace(null,"80"),"ICE_BLOCK")
+               findproperty QName(PrivateNamespace(null,"80"),"elementTipShowed")
+               pushfalse
+               setproperty QName(PrivateNamespace(null,"80"),"elementTipShowed")
+               findproperty QName(PrivateNamespace(null,"80"),"iceEnemyTipShowed")
+               pushfalse
+               setproperty QName(PrivateNamespace(null,"80"),"iceEnemyTipShowed")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var lostForAdvice:int;
+      
+      private var lostDungeons:Object;
+      
+      private var onInteractionSignal:Signal;
+      
+      private var mixChecker:MixChecker;
+      
+      private var theLocker:Locker;
+      
+      public function BubblegumPrincess()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 3
+               localcount 1
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  newobject 0
+                  initproperty QName(PrivateNamespace(null,"80"),"lostDungeons")
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("util"),"Locker")
+                  constructprop QName(PackageNamespace("util"),"Locker"), 0
+                  initproperty QName(PrivateNamespace(null,"80"),"theLocker")
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("cb.signals"),"Signal")
+                  constructprop QName(PackageNamespace("cb.signals"),"Signal"), 0
+                  initproperty QName(PrivateNamespace(null,"80"),"onInteractionSignal")
+                  getlex QName(PackageNamespace(""),"main")
+                  getproperty QName(PackageNamespace(""),"game")
+                  getproperty QName(PackageNamespace(""),"onDungeon")
+                  getlocal0
+                  getproperty QName(PrivateNamespace(null,"80"),"onDungeon")
+                  callpropvoid QName(PackageNamespace(""),"add"), 1
+                  getlex QName(PackageNamespace(""),"main")
+                  getproperty QName(PackageNamespace(""),"game")
+                  callproperty QName(PackageNamespace(""),"getMixer"), 0
+                  getproperty QName(PackageNamespace(""),"onMixEnd")
+                  getlocal0
+                  getproperty QName(PrivateNamespace(null,"80"),"itemMixed")
+                  callpropvoid QName(PackageNamespace(""),"add"), 1
+                  getlocal0
+                  getlex QName(PackageNamespace(""),"main")
+                  getproperty QName(PackageNamespace(""),"config")
+                  pushstring "Bubblegum"
+                  callproperty QName(PackageNamespace(""),"get"), 1
+                  getproperty Multiname("losesForAdvice",[PrivateNamespace(null,"80"),PackageNamespace(""),PrivateNamespace(null,"258"),PackageNamespace("main_game.bubblegum"),PackageInternalNs("main_game.bubblegum"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.bubblegum:BubblegumPrincess"),StaticProtectedNs("main_game.bubblegum:BubblegumPrincess")])
+                  initproperty QName(PrivateNamespace(null,"80"),"lostForAdvice")
+                  getlocal0
+                  callpropvoid QName(PrivateNamespace(null,"80"),"initializeChecker"), 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function getLocker() : Locker
+      {
+         trait method QName(PackageNamespace(""),"getLocker")
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace("util"),"Locker")
+               
+               body
+                  maxstack 1
+                  localcount 1
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"80"),"theLocker")
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function get onInteraction() : Signal
+         {
+            trait getter QName(PackageNamespace(""),"onInteraction")
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace("cb.signals"),"Signal")
+                  
+                  body
+                     maxstack 1
+                     localcount 1
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"80"),"onInteractionSignal")
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function selfAdvertise() : void
+            {
+               trait method QName(PackageNamespace(""),"selfAdvertise")
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 4
+                        localcount 1
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           findpropstrict QName(PackageNamespace("main_game.bubblegum"),"BubbleGumTip")
+                           getlex QName(PackageNamespace(""),"main")
+                           getproperty QName(PackageNamespace(""),"locale")
+                           pushstring "pbClickAdvice"
+                           callproperty QName(PackageNamespace(""),"get"), 1
+                           constructprop QName(PackageNamespace("main_game.bubblegum"),"BubbleGumTip"), 1
+                           callpropvoid QName(PrivateNamespace(null,"80"),"emitTip"), 1
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               private function initializeChecker() : void
+               {
+                  trait method QName(PrivateNamespace(null,"80"),"initializeChecker")
+                     dispid 0
+                     method
+                        name null
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 7
+                           localcount 5
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlex QName(PackageNamespace(""),"main")
+                              getproperty QName(PackageNamespace(""),"game")
+                              callproperty QName(PackageNamespace(""),"getFinn"), 0
+                              getproperty QName(PackageNamespace(""),"gear")
+                              coerce QName(PackageNamespace("main_game.character"),"Gear")
+                              setlocal1
+                              getlocal1
+                              getproperty QName(PackageNamespace(""),"equipment_1")
+                              getlocal1
+                              getproperty QName(PackageNamespace(""),"equipment_2")
+                              getlocal1
+                              getproperty QName(PackageNamespace(""),"shield")
+                              getlocal1
+                              getproperty QName(PackageNamespace(""),"weapon")
+                              getlex QName(PackageNamespace(""),"main")
+                              getproperty QName(PackageNamespace(""),"game")
+                              callproperty QName(PackageNamespace(""),"getMixer"), 0
+                              pushbyte 1
+                              callproperty QName(PackageNamespace(""),"getSlot"), 1
+                              getlex QName(PackageNamespace(""),"main")
+                              getproperty QName(PackageNamespace(""),"game")
+                              callproperty QName(PackageNamespace(""),"getMixer"), 0
+                              pushbyte 2
+                              callproperty QName(PackageNamespace(""),"getSlot"), 1
+                              newarray 6
+                              coerce QName(PackageNamespace(""),"Array")
+                              setlocal2
+                              getlex QName(PackageNamespace(""),"main")
+                              getproperty QName(PackageNamespace(""),"game")
+                              callproperty QName(PackageNamespace(""),"getInventory"), 0
+                              coerce QName(PackageNamespace("main_game.inventory"),"Inventory")
+                              setlocal3
+                              getlex QName(PackageNamespace("main_game.inventory"),"Inventory")
+                              getproperty QName(PackageNamespace(""),"SLOTS")
+                              decrement
+                              convert_i
+                              setlocal 4
+                              jump ofs0074
+                     ofs0062:
+                              label
+                              getlocal2
+                              getlocal3
+                              getlocal 4
+                              callproperty QName(PackageNamespace(""),"getSlot"), 1
+                              callpropvoid QName(Namespace("http://adobe.com/AS3/2006/builtin"),"push"), 1
+                              getlocal 4
+                              decrement_i
+                              setlocal 4
+                     ofs0074:
+                              getlocal 4
+                              pushbyte 0
+                              ifge ofs0062
+                              getlocal0
+                              findpropstrict QName(PackageNamespace("main_game.bubblegum"),"MixChecker")
+                              getlocal2
+                              constructprop QName(PackageNamespace("main_game.bubblegum"),"MixChecker"), 1
+                              setproperty QName(PrivateNamespace(null,"80"),"mixChecker")
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  private function checkForMixes(param1:Array) : void
+                  {
+                     trait method QName(PrivateNamespace(null,"80"),"checkForMixes")
+                        dispid 0
+                        method
+                           name null
+                           param QName(PackageNamespace(""),"Array")
+                           returns QName(PackageNamespace(""),"void")
+                           
+                           body
+                              maxstack 2
+                              localcount 3
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"80"),"theLocker")
+                                 getproperty QName(PackageNamespace(""),"isLocked")
+                                 convert_b
+                                 dup
+                                 iftrue ofs001b
+                                 pop
+                                 getlex QName(PackageNamespace(""),"main")
+                                 getproperty QName(PackageNamespace(""),"theTutorial")
+                                 callproperty QName(PackageNamespace(""),"isMixKnown"), 0
+                                 not
+                        ofs001b:
+                                 iffalse ofs0020
+                                 returnvoid
+                        ofs0020:
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"80"),"mixChecker")
+                                 getlocal1
+                                 callpropvoid QName(PackageNamespace(""),"checkForMixes"), 1
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"80"),"mixChecker")
+                                 callproperty QName(PackageNamespace(""),"getMix"), 0
+                                 coerce QName(PackageNamespace("main_game.bubblegum"),"MixRecipe")
+                                 setlocal2
+                                 getlocal2
+                                 pushnull
+                                 ifeq ofs0040
+                                 getlocal0
+                                 getlocal2
+                                 callpropvoid QName(PrivateNamespace(null,"80"),"onNewMix"), 1
+                        ofs0040:
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     public function giveSomeTip() : void
+                     {
+                        trait method QName(PackageNamespace(""),"giveSomeTip")
+                           dispid 0
+                           method
+                              name null
+                              returns QName(PackageNamespace(""),"void")
+                              
+                              body
+                                 maxstack 3
+                                 localcount 2
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    pushnull
+                                    coerce QName(PackageNamespace("main_game.bubblegum"),"MixRecipe")
+                                    setlocal1
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"80"),"theLocker")
+                                    getproperty QName(PackageNamespace(""),"isLocked")
+                                    iffalse ofs0012
+                                    returnvoid
+                           ofs0012:
+                                    getlex QName(PackageNamespace(""),"main")
+                                    getproperty QName(PackageNamespace(""),"theTutorial")
+                                    callproperty QName(PackageNamespace(""),"isMixKnown"), 0
+                                    iftrue ofs0029
+                                    getlocal0
+                                    callpropvoid QName(PrivateNamespace(null,"80"),"giveBasicTip"), 0
+                                    jump ofs0081
+                           ofs0029:
+                                    getlex QName(PackageNamespace(""),"Math")
+                                    callproperty QName(PackageNamespace(""),"random"), 0
+                                    pushdouble 0.5
+                                    lessequals
+                                    dup
+                                    iffalse ofs0054
+                                    pop
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"80"),"mixChecker")
+                                    getlex QName(PackageNamespace(""),"main")
+                                    getproperty QName(PackageNamespace(""),"game")
+                                    callproperty QName(PackageNamespace(""),"getMixer"), 0
+                                    pushbyte 3
+                                    callproperty QName(PackageNamespace(""),"getSlot"), 1
+                                    newarray 1
+                                    callproperty QName(PackageNamespace(""),"searchForSlotsMixes"), 1
+                                    convert_b
+                           ofs0054:
+                                    iffalse ofs007c
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"80"),"mixChecker")
+                                    callproperty QName(PackageNamespace(""),"getMix"), 0
+                                    coerce QName(PackageNamespace("main_game.bubblegum"),"MixRecipe")
+                                    setlocal1
+                                    getlocal1
+                                    pushnull
+                                    ifeq ofs0073
+                                    getlocal0
+                                    getlocal1
+                                    callpropvoid QName(PrivateNamespace(null,"80"),"onNewMix"), 1
+                                    jump ofs0078
+                           ofs0073:
+                                    getlocal0
+                                    callpropvoid QName(PrivateNamespace(null,"80"),"giveBasicTip"), 0
+                           ofs0078:
+                                    jump ofs0081
+                           ofs007c:
+                                    getlocal0
+                                    callpropvoid QName(PrivateNamespace(null,"80"),"giveBasicTip"), 0
+                           ofs0081:
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        private function giveBasicTip() : void
+                        {
+                           trait method QName(PrivateNamespace(null,"80"),"giveBasicTip")
+                              dispid 0
+                              method
+                                 name null
+                                 returns QName(PackageNamespace(""),"void")
+                                 
+                                 body
+                                    maxstack 8
+                                    localcount 2
+                                    initscopedepth 4
+                                    maxscopedepth 5
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       pushbyte 1
+                                       convert_u
+                                       setlocal1
+                                       getlex QName(PackageNamespace(""),"main")
+                                       getproperty QName(PackageNamespace(""),"theTutorial")
+                                       callproperty QName(PackageNamespace(""),"isMixKnown"), 0
+                                       iftrue ofs0029
+                                       getlex QName(PackageNamespace(""),"main")
+                                       getproperty QName(PackageNamespace(""),"config")
+                                       pushstring "Bubblegum"
+                                       callproperty QName(PackageNamespace(""),"get"), 1
+                                       getproperty Multiname("mixAdvices",[PrivateNamespace(null,"80"),PackageNamespace(""),PrivateNamespace(null,"258"),PackageNamespace("main_game.bubblegum"),PackageInternalNs("main_game.bubblegum"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.bubblegum:BubblegumPrincess"),StaticProtectedNs("main_game.bubblegum:BubblegumPrincess")])
+                                       pushbyte 1
+                                       add
+                                       convert_u
+                                       setlocal1
+                              ofs0029:
+                                       getlocal0
+                                       findpropstrict QName(PackageNamespace("main_game.bubblegum"),"BubbleGumTip")
+                                       getlex QName(PackageNamespace(""),"main")
+                                       getproperty QName(PackageNamespace(""),"locale")
+                                       pushstring "pbAdvice"
+                                       getlex QName(PackageNamespace("cb.utils"),"Random")
+                                       getlocal1
+                                       getlex QName(PackageNamespace(""),"main")
+                                       getproperty QName(PackageNamespace(""),"config")
+                                       pushstring "Bubblegum"
+                                       callproperty QName(PackageNamespace(""),"get"), 1
+                                       getproperty Multiname("advices",[PrivateNamespace(null,"80"),PackageNamespace(""),PrivateNamespace(null,"258"),PackageNamespace("main_game.bubblegum"),PackageInternalNs("main_game.bubblegum"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.bubblegum:BubblegumPrincess"),StaticProtectedNs("main_game.bubblegum:BubblegumPrincess")])
+                                       callproperty QName(PackageNamespace(""),"nextRange"), 2
+                                       add
+                                       callproperty QName(PackageNamespace(""),"get"), 1
+                                       constructprop QName(PackageNamespace("main_game.bubblegum"),"BubbleGumTip"), 1
+                                       callpropvoid QName(PrivateNamespace(null,"80"),"emitTip"), 1
+                                       returnvoid
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           private function itemMixed(param1:MixResult) : void
+                           {
+                              trait method QName(PrivateNamespace(null,"80"),"itemMixed")
+                                 dispid 0
+                                 method
+                                    name null
+                                    param QName(PackageNamespace("main_game.mixer"),"MixResult")
+                                    returns QName(PackageNamespace(""),"void")
+                                    
+                                    body
+                                       maxstack 3
+                                       localcount 2
+                                       initscopedepth 4
+                                       maxscopedepth 5
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          getlocal1
+                                          getproperty QName(PackageNamespace(""),"recipe")
+                                          pushnull
+                                          ifeq ofs001b
+                                          getlocal0
+                                          findpropstrict QName(PackageNamespace("main_game.bubblegum"),"SpecialMixTip")
+                                          getlocal1
+                                          getproperty QName(PackageNamespace(""),"item")
+                                          constructprop QName(PackageNamespace("main_game.bubblegum"),"SpecialMixTip"), 1
+                                          callpropvoid QName(PrivateNamespace(null,"80"),"emitTip"), 1
+                                 ofs001b:
+                                          returnvoid
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                              
+                              private function emitTip(param1:BubblegumInteraction) : void
+                              {
+                                 trait method QName(PrivateNamespace(null,"80"),"emitTip")
+                                    dispid 0
+                                    method
+                                       name null
+                                       param QName(PackageNamespace("main_game.bubblegum"),"BubblegumInteraction")
+                                       returns QName(PackageNamespace(""),"void")
+                                       
+                                       body
+                                          maxstack 2
+                                          localcount 2
+                                          initscopedepth 4
+                                          maxscopedepth 5
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             getlocal0
+                                             getproperty QName(PrivateNamespace(null,"80"),"theLocker")
+                                             getproperty QName(PackageNamespace(""),"isLocked")
+                                             iffalse ofs000e
+                                             returnvoid
+                                    ofs000e:
+                                             getlocal0
+                                             getproperty QName(PackageNamespace(""),"onInteraction")
+                                             getlocal1
+                                             callpropvoid QName(PackageNamespace(""),"emit"), 1
+                                             returnvoid
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                 }
+                                 
+                                 private function onDungeon(param1:Dungeon) : void
+                                 {
+                                    trait method QName(PrivateNamespace(null,"80"),"onDungeon")
+                                       dispid 0
+                                       method
+                                          name null
+                                          param QName(PackageNamespace("main_game.dungeon"),"Dungeon")
+                                          returns QName(PackageNamespace(""),"void")
+                                          
+                                          body
+                                             maxstack 2
+                                             localcount 2
+                                             initscopedepth 4
+                                             maxscopedepth 5
+                                             
+                                             code
+                                                getlocal0
+                                                pushscope
+                                                getlocal1
+                                                getproperty QName(PackageNamespace(""),"onWin")
+                                                getlocal0
+                                                getproperty QName(PrivateNamespace(null,"80"),"onWinDungeon")
+                                                callpropvoid QName(PackageNamespace(""),"add"), 1
+                                                getlocal1
+                                                getproperty QName(PackageNamespace(""),"onLose")
+                                                getlocal0
+                                                getproperty QName(PrivateNamespace(null,"80"),"onLoseDungeon")
+                                                callpropvoid QName(PackageNamespace(""),"add"), 1
+                                                getlex QName(PrivateNamespace(null,"80"),"iceEnemyTipShowed")
+                                                iftrue ofs002d
+                                                getlocal1
+                                                getproperty QName(PackageNamespace(""),"onFight")
+                                                getlocal0
+                                                getproperty QName(PrivateNamespace(null,"80"),"onFight")
+                                                callpropvoid QName(PackageNamespace(""),"add"), 1
+                                       ofs002d:
+                                                returnvoid
+                                             end ; code
+                                          end ; body
+                                       end ; method
+                                    }
+                                    
+                                    private function onWinDungeon() : void
+                                    {
+                                       trait method QName(PrivateNamespace(null,"80"),"onWinDungeon")
+                                          dispid 0
+                                          method
+                                             name null
+                                             returns QName(PackageNamespace(""),"void")
+                                             
+                                             body
+                                                maxstack 3
+                                                localcount 8
+                                                initscopedepth 4
+                                                maxscopedepth 5
+                                                
+                                                code
+                                                   getlocal0
+                                                   pushscope
+                                                   pushnull
+                                                   coerce QName(PackageNamespace("main_game.bubblegum"),"BubblegumInteraction")
+                                                   setlocal1
+                                                   pushnull
+                                                   coerce QName(PackageNamespace("main_game.dungeon"),"Dungeon")
+                                                   setlocal2
+                                                   pushnull
+                                                   coerce QName(PackageNamespace(""),"Array")
+                                                   setlocal3
+                                                   pushnull
+                                                   coerce QName(PackageNamespace("main_game.item_containers"),"Slot")
+                                                   setlocal 4
+                                                   pushnull
+                                                   coerce QName(PackageNamespace("main_game.bubblegum"),"MixRecipe")
+                                                   setlocal 5
+                                                   getlocal0
+                                                   callpropvoid QName(PrivateNamespace(null,"80"),"removeSubscriptions"), 0
+                                                   getlocal0
+                                                   newobject 0
+                                                   initproperty QName(PrivateNamespace(null,"80"),"lostDungeons")
+                                                   getlex QName(PackageNamespace(""),"main")
+                                                   getproperty QName(PackageNamespace(""),"theTutorial")
+                                                   callproperty QName(PackageNamespace(""),"isMixKnown"), 0
+                                                   iffalse ofs00d0
+                                                   getlex QName(PackageNamespace(""),"main")
+                                                   getproperty QName(PackageNamespace(""),"game")
+                                                   callproperty QName(PackageNamespace(""),"getDungeon"), 0
+                                                   coerce QName(PackageNamespace("main_game.dungeon"),"Dungeon")
+                                                   setlocal2
+                                                   findpropstrict QName(PackageNamespace(""),"Array")
+                                                   constructprop QName(PackageNamespace(""),"Array"), 0
+                                                   coerce QName(PackageNamespace(""),"Array")
+                                                   setlocal3
+                                                   pushbyte 0
+                                                   setlocal 6
+                                                   getlocal2
+                                                   callproperty QName(PackageNamespace(""),"getLoot"), 0
+                                                   callproperty QName(PackageNamespace(""),"getBooty"), 0
+                                                   coerce_a
+                                                   setlocal 7
+                                                   jump ofs0078
+                                          ofs005a:
+                                                   label
+                                                   getlocal 7
+                                                   getlocal 6
+                                                   nextvalue
+                                                   coerce QName(PackageNamespace("main_game.item_containers"),"Slot")
+                                                   dup
+                                                   setlocal 4
+                                                   callproperty QName(PackageNamespace(""),"isEmpty"), 0
+                                                   iftrue ofs0078
+                                                   getlocal3
+                                                   getlocal 4
+                                                   callproperty QName(PackageNamespace(""),"getContent"), 0
+                                                   callpropvoid QName(Namespace("http://adobe.com/AS3/2006/builtin"),"push"), 1
+                                          ofs0078:
+                                                   hasnext2 7, 6
+                                                   iftrue ofs005a
+                                                   kill 7
+                                                   kill 6
+                                                   getlocal0
+                                                   getlocal3
+                                                   callproperty QName(PrivateNamespace(null,"80"),"getElementInteraction"), 1
+                                                   coerce QName(PackageNamespace("main_game.bubblegum"),"BubblegumInteraction")
+                                                   setlocal1
+                                                   getlocal1
+                                                   pushnull
+                                                   ifeq ofs009d
+                                                   findproperty QName(PrivateNamespace(null,"80"),"elementTipShowed")
+                                                   pushtrue
+                                                   setproperty QName(PrivateNamespace(null,"80"),"elementTipShowed")
+                                                   jump ofs00d0
+                                          ofs009d:
+                                                   getlocal0
+                                                   getproperty QName(PrivateNamespace(null,"80"),"mixChecker")
+                                                   getlocal3
+                                                   callpropvoid QName(PackageNamespace(""),"checkForMixes"), 1
+                                                   getlocal0
+                                                   getproperty QName(PrivateNamespace(null,"80"),"mixChecker")
+                                                   callproperty QName(PackageNamespace(""),"getMix"), 0
+                                                   coerce QName(PackageNamespace("main_game.bubblegum"),"MixRecipe")
+                                                   dup
+                                                   setlocal 5
+                                                   pushnull
+                                                   ifeq ofs00d0
+                                                   findpropstrict QName(PackageNamespace("main_game.bubblegum"),"BubblegumFeltTip")
+                                                   getlocal0
+                                                   getlocal 5
+                                                   callproperty QName(PrivateNamespace(null,"80"),"getMixPropouse"), 1
+                                                   getlex QName(PackageNamespace("main_game.bubblegum"),"BubblegumFeeling")
+                                                   callproperty QName(PackageNamespace(""),"getJoy"), 0
+                                                   constructprop QName(PackageNamespace("main_game.bubblegum"),"BubblegumFeltTip"), 2
+                                                   coerce QName(PackageNamespace("main_game.bubblegum"),"BubblegumInteraction")
+                                                   setlocal1
+                                          ofs00d0:
+                                                   getlocal1
+                                                   pushnull
+                                                   ifne ofs00e0
+                                                   getlex QName(PackageNamespace("main_game.bubblegum"),"BubblegumFeeling")
+                                                   callproperty QName(PackageNamespace(""),"getJoy"), 0
+                                                   coerce QName(PackageNamespace("main_game.bubblegum"),"BubblegumInteraction")
+                                                   setlocal1
+                                          ofs00e0:
+                                                   getlocal0
+                                                   getproperty QName(PrivateNamespace(null,"80"),"onInteractionSignal")
+                                                   getlocal1
+                                                   callpropvoid QName(PackageNamespace(""),"emit"), 1
+                                                   returnvoid
+                                                end ; code
+                                             end ; body
+                                          end ; method
+                                       }
+                                       
+                                       private function getElementInteraction(param1:Array) : BubblegumInteraction
+                                       {
+                                          trait method QName(PrivateNamespace(null,"80"),"getElementInteraction")
+                                             dispid 0
+                                             method
+                                                name null
+                                                param QName(PackageNamespace(""),"Array")
+                                                returns QName(PackageNamespace("main_game.bubblegum"),"BubblegumInteraction")
+                                                
+                                                body
+                                                   maxstack 5
+                                                   localcount 7
+                                                   initscopedepth 4
+                                                   maxscopedepth 5
+                                                   
+                                                   code
+                                                      getlocal0
+                                                      pushscope
+                                                      pushnull
+                                                      coerce_s
+                                                      setlocal2
+                                                      pushnull
+                                                      coerce_s
+                                                      setlocal3
+                                                      pushnull
+                                                      coerce QName(PackageNamespace("main_game.items"),"Item")
+                                                      setlocal 4
+                                                      getlex QName(PrivateNamespace(null,"80"),"elementTipShowed")
+                                                      iftrue ofs0076
+                                                      pushbyte 0
+                                                      setlocal 5
+                                                      getlocal1
+                                                      coerce_a
+                                                      setlocal 6
+                                                      jump ofs006b
+                                             ofs0020:
+                                                      label
+                                                      getlocal 6
+                                                      getlocal 5
+                                                      nextvalue
+                                                      coerce QName(PackageNamespace("main_game.items"),"Item")
+                                                      dup
+                                                      setlocal 4
+                                                      callproperty QName(PackageNamespace(""),"getID"), 0
+                                                      coerce_s
+                                                      setlocal2
+                                                      getlocal2
+                                                      getlex QName(PrivateNamespace(null,"80"),"FIRE_FLAME")
+                                                      ifne ofs0050
+                                                      getlex QName(PackageNamespace(""),"main")
+                                                      getproperty QName(PackageNamespace(""),"locale")
+                                                      pushstring "pbFire"
+                                                      callproperty QName(PackageNamespace(""),"get"), 1
+                                                      coerce_s
+                                                      setlocal3
+                                                      jump ofs0072
+                                                      jump ofs0050
+                                             ofs0050:
+                                                      getlocal2
+                                                      getlex QName(PrivateNamespace(null,"80"),"ICE_BLOCK")
+                                                      ifne ofs006b
+                                                      getlex QName(PackageNamespace(""),"main")
+                                                      getproperty QName(PackageNamespace(""),"locale")
+                                                      pushstring "pbIce"
+                                                      callproperty QName(PackageNamespace(""),"get"), 1
+                                                      coerce_s
+                                                      setlocal3
+                                                      jump ofs0072
+                                             ofs006b:
+                                                      hasnext2 6, 5
+                                                      iftrue ofs0020
+                                             ofs0072:
+                                                      kill 6
+                                                      kill 5
+                                             ofs0076:
+                                                      getlocal3
+                                                      pushnull
+                                                      ifeq ofs009c
+                                                      findpropstrict QName(PackageNamespace("main_game.bubblegum"),"BubblegumFeltTip")
+                                                      findpropstrict QName(PackageNamespace("main_game.bubblegum"),"BubbleGumTip")
+                                                      getlocal3
+                                                      getlex QName(PackageNamespace("main_game.items"),"ItemFactory")
+                                                      callproperty QName(PackageNamespace(""),"getInstance"), 0
+                                                      getlocal2
+                                                      callproperty QName(PackageNamespace(""),"getItem"), 1
+                                                      constructprop QName(PackageNamespace("main_game.bubblegum"),"BubbleGumTip"), 2
+                                                      getlex QName(PackageNamespace("main_game.bubblegum"),"BubblegumFeeling")
+                                                      callproperty QName(PackageNamespace(""),"getJoy"), 0
+                                                      constructprop QName(PackageNamespace("main_game.bubblegum"),"BubblegumFeltTip"), 2
+                                                      returnvalue
+                                             ofs009c:
+                                                      pushnull
+                                                      returnvalue
+                                                   end ; code
+                                                end ; body
+                                             end ; method
+                                          }
+                                          
+                                          private function onLoseDungeon() : void
+                                          {
+                                             trait method QName(PrivateNamespace(null,"80"),"onLoseDungeon")
+                                                dispid 0
+                                                method
+                                                   name null
+                                                   returns QName(PackageNamespace(""),"void")
+                                                   
+                                                   body
+                                                      maxstack 5
+                                                      localcount 2
+                                                      initscopedepth 4
+                                                      maxscopedepth 5
+                                                      
+                                                      code
+                                                         getlocal0
+                                                         pushscope
+                                                         getlocal0
+                                                         callpropvoid QName(PrivateNamespace(null,"80"),"removeSubscriptions"), 0
+                                                         getlex QName(PackageNamespace(""),"main")
+                                                         getproperty QName(PackageNamespace(""),"game")
+                                                         callproperty QName(PackageNamespace(""),"getDungeon"), 0
+                                                         coerce QName(PackageNamespace("main_game.dungeon"),"Dungeon")
+                                                         setlocal1
+                                                         getlocal0
+                                                         getproperty QName(PrivateNamespace(null,"80"),"lostDungeons")
+                                                         getlocal1
+                                                         callproperty QName(PackageNamespace(""),"getId"), 0
+                                                         getproperty MultinameL([PrivateNamespace(null,"80"),PackageNamespace(""),PrivateNamespace(null,"258"),PackageNamespace("main_game.bubblegum"),PackageInternalNs("main_game.bubblegum"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.bubblegum:BubblegumPrincess"),StaticProtectedNs("main_game.bubblegum:BubblegumPrincess")])
+                                                         pushnull
+                                                         ifeq ofs0044
+                                                         getlocal0
+                                                         getproperty QName(PrivateNamespace(null,"80"),"lostDungeons")
+                                                         getlocal1
+                                                         callproperty QName(PackageNamespace(""),"getId"), 0
+                                                         getlocal0
+                                                         getproperty QName(PrivateNamespace(null,"80"),"lostDungeons")
+                                                         getlocal1
+                                                         callproperty QName(PackageNamespace(""),"getId"), 0
+                                                         getproperty MultinameL([PrivateNamespace(null,"80"),PackageNamespace(""),PrivateNamespace(null,"258"),PackageNamespace("main_game.bubblegum"),PackageInternalNs("main_game.bubblegum"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.bubblegum:BubblegumPrincess"),StaticProtectedNs("main_game.bubblegum:BubblegumPrincess")])
+                                                         pushbyte 1
+                                                         add
+                                                         setproperty MultinameL([PrivateNamespace(null,"80"),PackageNamespace(""),PrivateNamespace(null,"258"),PackageNamespace("main_game.bubblegum"),PackageInternalNs("main_game.bubblegum"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.bubblegum:BubblegumPrincess"),StaticProtectedNs("main_game.bubblegum:BubblegumPrincess")])
+                                                         jump ofs0052
+                                                ofs0044:
+                                                         getlocal0
+                                                         getproperty QName(PrivateNamespace(null,"80"),"lostDungeons")
+                                                         getlocal1
+                                                         callproperty QName(PackageNamespace(""),"getId"), 0
+                                                         pushbyte 1
+                                                         setproperty MultinameL([PrivateNamespace(null,"80"),PackageNamespace(""),PrivateNamespace(null,"258"),PackageNamespace("main_game.bubblegum"),PackageInternalNs("main_game.bubblegum"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.bubblegum:BubblegumPrincess"),StaticProtectedNs("main_game.bubblegum:BubblegumPrincess")])
+                                                ofs0052:
+                                                         getlocal0
+                                                         getproperty QName(PrivateNamespace(null,"80"),"lostDungeons")
+                                                         getlocal1
+                                                         callproperty QName(PackageNamespace(""),"getId"), 0
+                                                         getproperty MultinameL([PrivateNamespace(null,"80"),PackageNamespace(""),PrivateNamespace(null,"258"),PackageNamespace("main_game.bubblegum"),PackageInternalNs("main_game.bubblegum"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.bubblegum:BubblegumPrincess"),StaticProtectedNs("main_game.bubblegum:BubblegumPrincess")])
+                                                         getlocal0
+                                                         getproperty QName(PrivateNamespace(null,"80"),"lostForAdvice")
+                                                         ifnge ofs0092
+                                                         getlocal0
+                                                         getproperty QName(PrivateNamespace(null,"80"),"onInteractionSignal")
+                                                         findpropstrict QName(PackageNamespace("main_game.bubblegum"),"BubblegumFeltTip")
+                                                         findpropstrict QName(PackageNamespace("main_game.bubblegum"),"BubbleGumTip")
+                                                         getlex QName(PackageNamespace(""),"main")
+                                                         getproperty QName(PackageNamespace(""),"locale")
+                                                         pushstring "pbLostSeveralTimes"
+                                                         callproperty QName(PackageNamespace(""),"get"), 1
+                                                         constructprop QName(PackageNamespace("main_game.bubblegum"),"BubbleGumTip"), 1
+                                                         getlex QName(PackageNamespace("main_game.bubblegum"),"BubblegumFeeling")
+                                                         callproperty QName(PackageNamespace(""),"getSadness"), 0
+                                                         constructprop QName(PackageNamespace("main_game.bubblegum"),"BubblegumFeltTip"), 2
+                                                         callpropvoid QName(PackageNamespace(""),"emit"), 1
+                                                         jump ofs00a1
+                                                ofs0092:
+                                                         getlocal0
+                                                         getproperty QName(PrivateNamespace(null,"80"),"onInteractionSignal")
+                                                         getlex QName(PackageNamespace("main_game.bubblegum"),"BubblegumFeeling")
+                                                         callproperty QName(PackageNamespace(""),"getSadness"), 0
+                                                         callpropvoid QName(PackageNamespace(""),"emit"), 1
+                                                ofs00a1:
+                                                         returnvoid
+                                                      end ; code
+                                                   end ; body
+                                                end ; method
+                                             }
+                                             
+                                             private function onFight(param1:Fight) : void
+                                             {
+                                                trait method QName(PrivateNamespace(null,"80"),"onFight")
+                                                   dispid 0
+                                                   method
+                                                      name null
+                                                      param QName(PackageNamespace("main_game.dungeon"),"Fight")
+                                                      returns QName(PackageNamespace(""),"void")
+                                                      
+                                                      body
+                                                         maxstack 4
+                                                         localcount 3
+                                                         initscopedepth 4
+                                                         maxscopedepth 5
+                                                         
+                                                         code
+                                                            getlocal0
+                                                            pushscope
+                                                            getlocal1
+                                                            callproperty QName(PackageNamespace(""),"getEnemy"), 0
+                                                            callproperty QName(PackageNamespace(""),"getElement"), 0
+                                                            coerce QName(PackageNamespace("main_game.element"),"Element")
+                                                            setlocal2
+                                                            getlocal2
+                                                            getproperty QName(PackageNamespace(""),"isOfIce")
+                                                            convert_b
+                                                            dup
+                                                            iffalse ofs002b
+                                                            pop
+                                                            getlex QName(PackageNamespace(""),"main")
+                                                            getproperty QName(PackageNamespace(""),"game")
+                                                            callproperty QName(PackageNamespace(""),"getBubblegum"), 0
+                                                            callproperty QName(PackageNamespace(""),"getLocker"), 0
+                                                            getproperty QName(PackageNamespace(""),"isLocked")
+                                                            not
+                                                   ofs002b:
+                                                            iffalse ofs0065
+                                                            findproperty QName(PrivateNamespace(null,"80"),"iceEnemyTipShowed")
+                                                            pushtrue
+                                                            setproperty QName(PrivateNamespace(null,"80"),"iceEnemyTipShowed")
+                                                            getlex QName(PackageNamespace(""),"main")
+                                                            getproperty QName(PackageNamespace(""),"game")
+                                                            callproperty QName(PackageNamespace(""),"getDungeon"), 0
+                                                            getproperty QName(PackageNamespace(""),"onFight")
+                                                            getlocal0
+                                                            getproperty QName(PrivateNamespace(null,"80"),"onFight")
+                                                            callpropvoid QName(PackageNamespace(""),"remove"), 1
+                                                            getlocal0
+                                                            getproperty QName(PrivateNamespace(null,"80"),"onInteractionSignal")
+                                                            findpropstrict QName(PackageNamespace("main_game.bubblegum"),"BubbleGumTip")
+                                                            getlex QName(PackageNamespace(""),"main")
+                                                            getproperty QName(PackageNamespace(""),"locale")
+                                                            pushstring "pbIceEnemy"
+                                                            callproperty QName(PackageNamespace(""),"get"), 1
+                                                            constructprop QName(PackageNamespace("main_game.bubblegum"),"BubbleGumTip"), 1
+                                                            callpropvoid QName(PackageNamespace(""),"emit"), 1
+                                                   ofs0065:
+                                                            returnvoid
+                                                         end ; code
+                                                      end ; body
+                                                   end ; method
+                                                }
+                                                
+                                                private function onNewMix(param1:MixRecipe) : void
+                                                {
+                                                   trait method QName(PrivateNamespace(null,"80"),"onNewMix")
+                                                      dispid 0
+                                                      method
+                                                         name null
+                                                         param QName(PackageNamespace("main_game.bubblegum"),"MixRecipe")
+                                                         returns QName(PackageNamespace(""),"void")
+                                                         
+                                                         body
+                                                            maxstack 3
+                                                            localcount 2
+                                                            initscopedepth 4
+                                                            maxscopedepth 5
+                                                            
+                                                            code
+                                                               getlocal0
+                                                               pushscope
+                                                               getlocal0
+                                                               getproperty QName(PrivateNamespace(null,"80"),"onInteractionSignal")
+                                                               getlocal0
+                                                               getlocal1
+                                                               callproperty QName(PrivateNamespace(null,"80"),"getMixPropouse"), 1
+                                                               callpropvoid QName(PackageNamespace(""),"emit"), 1
+                                                               returnvoid
+                                                            end ; code
+                                                         end ; body
+                                                      end ; method
+                                                   }
+                                                   
+                                                   private function getMixPropouse(param1:MixRecipe) : BubbleGumTip
+                                                   {
+                                                      trait method QName(PrivateNamespace(null,"80"),"getMixPropouse")
+                                                         dispid 0
+                                                         method
+                                                            name null
+                                                            param QName(PackageNamespace("main_game.bubblegum"),"MixRecipe")
+                                                            returns QName(PackageNamespace("main_game.bubblegum"),"BubbleGumTip")
+                                                            
+                                                            body
+                                                               maxstack 5
+                                                               localcount 2
+                                                               initscopedepth 4
+                                                               maxscopedepth 5
+                                                               
+                                                               code
+                                                                  getlocal0
+                                                                  pushscope
+                                                                  findpropstrict QName(PackageNamespace("main_game.bubblegum"),"BubbleGumTip")
+                                                                  getlex QName(PackageNamespace(""),"main")
+                                                                  getproperty QName(PackageNamespace(""),"locale")
+                                                                  pushstring "pbSpecialMix"
+                                                                  getlocal1
+                                                                  getproperty QName(PackageNamespace(""),"item1")
+                                                                  callproperty QName(PackageNamespace(""),"getNameToShow"), 0
+                                                                  getlocal1
+                                                                  getproperty QName(PackageNamespace(""),"item2")
+                                                                  callproperty QName(PackageNamespace(""),"getNameToShow"), 0
+                                                                  newarray 2
+                                                                  callproperty QName(PackageNamespace(""),"get"), 2
+                                                                  getlocal1
+                                                                  getproperty QName(PackageNamespace(""),"item1")
+                                                                  getlocal1
+                                                                  getproperty QName(PackageNamespace(""),"item2")
+                                                                  constructprop QName(PackageNamespace("main_game.bubblegum"),"BubbleGumTip"), 3
+                                                                  returnvalue
+                                                               end ; code
+                                                            end ; body
+                                                         end ; method
+                                                      }
+                                                      
+                                                      private function removeSubscriptions() : void
+                                                      {
+                                                         trait method QName(PrivateNamespace(null,"80"),"removeSubscriptions")
+                                                            dispid 0
+                                                            method
+                                                               name null
+                                                               returns QName(PackageNamespace(""),"void")
+                                                               
+                                                               body
+                                                                  maxstack 2
+                                                                  localcount 2
+                                                                  initscopedepth 4
+                                                                  maxscopedepth 5
+                                                                  
+                                                                  code
+                                                                     getlocal0
+                                                                     pushscope
+                                                                     getlex QName(PackageNamespace(""),"main")
+                                                                     getproperty QName(PackageNamespace(""),"game")
+                                                                     callproperty QName(PackageNamespace(""),"getDungeon"), 0
+                                                                     coerce QName(PackageNamespace("main_game.dungeon"),"Dungeon")
+                                                                     setlocal1
+                                                                     getlocal1
+                                                                     getproperty QName(PackageNamespace(""),"onWin")
+                                                                     getlocal0
+                                                                     getproperty QName(PrivateNamespace(null,"80"),"onWinDungeon")
+                                                                     callpropvoid QName(PackageNamespace(""),"remove"), 1
+                                                                     getlocal1
+                                                                     getproperty QName(PackageNamespace(""),"onLose")
+                                                                     getlocal0
+                                                                     getproperty QName(PrivateNamespace(null,"80"),"onLoseDungeon")
+                                                                     callpropvoid QName(PackageNamespace(""),"remove"), 1
+                                                                     getlex QName(PrivateNamespace(null,"80"),"iceEnemyTipShowed")
+                                                                     iftrue ofs003a
+                                                                     getlocal1
+                                                                     getproperty QName(PackageNamespace(""),"onFight")
+                                                                     getlocal0
+                                                                     getproperty QName(PrivateNamespace(null,"80"),"onFight")
+                                                                     callpropvoid QName(PackageNamespace(""),"remove"), 1
+                                                            ofs003a:
+                                                                     returnvoid
+                                                                  end ; code
+                                                               end ; body
+                                                            end ; method
+                                                         }
+                                                         
+                                                         public function clear() : void
+                                                         {
+                                                            trait method QName(PackageNamespace(""),"clear")
+                                                               dispid 0
+                                                               method
+                                                                  name null
+                                                                  returns QName(PackageNamespace(""),"void")
+                                                                  
+                                                                  body
+                                                                     maxstack 2
+                                                                     localcount 1
+                                                                     initscopedepth 4
+                                                                     maxscopedepth 5
+                                                                     
+                                                                     code
+                                                                        getlocal0
+                                                                        pushscope
+                                                                        getlex QName(PackageNamespace(""),"main")
+                                                                        getproperty QName(PackageNamespace(""),"game")
+                                                                        getproperty QName(PackageNamespace(""),"onDungeon")
+                                                                        getlocal0
+                                                                        getproperty QName(PrivateNamespace(null,"80"),"onDungeon")
+                                                                        callpropvoid QName(PackageNamespace(""),"remove"), 1
+                                                                        getlex QName(PackageNamespace(""),"main")
+                                                                        getproperty QName(PackageNamespace(""),"game")
+                                                                        callproperty QName(PackageNamespace(""),"getMixer"), 0
+                                                                        pushnull
+                                                                        ifeq ofs0037
+                                                                        getlex QName(PackageNamespace(""),"main")
+                                                                        getproperty QName(PackageNamespace(""),"game")
+                                                                        callproperty QName(PackageNamespace(""),"getMixer"), 0
+                                                                        getproperty QName(PackageNamespace(""),"onMixEnd")
+                                                                        getlocal0
+                                                                        getproperty QName(PrivateNamespace(null,"80"),"itemMixed")
+                                                                        callpropvoid QName(PackageNamespace(""),"remove"), 1
+                                                               ofs0037:
+                                                                        getlocal0
+                                                                        getproperty QName(PrivateNamespace(null,"80"),"theLocker")
+                                                                        callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                                                        getlocal0
+                                                                        getproperty QName(PrivateNamespace(null,"80"),"onInteractionSignal")
+                                                                        callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                                                        getlocal0
+                                                                        pushnull
+                                                                        setproperty QName(PrivateNamespace(null,"80"),"onInteractionSignal")
+                                                                        returnvoid
+                                                                     end ; code
+                                                                  end ; body
+                                                               end ; method
+                                                            }
+                                                         }
+                                                      }
+                                                      
+                                                      method
+                                                         name null
+                                                         returns null
+                                                         
+                                                         body
+                                                            maxstack 2
+                                                            localcount 1
+                                                            initscopedepth 1
+                                                            maxscopedepth 3
+                                                            
+                                                            code
+                                                               getlocal0
+                                                               pushscope
+                                                               findpropstrict Multiname("BubblegumPrincess",[PackageNamespace("main_game.bubblegum")])
+                                                               getlex QName(PackageNamespace(""),"Object")
+                                                               pushscope
+                                                               getlex QName(PackageNamespace(""),"Object")
+                                                               newclass 140
+                                                               popscope
+                                                               initproperty QName(PackageNamespace("main_game.bubblegum"),"BubblegumPrincess")
+                                                               returnvoid
+                                                            end ; code
+                                                         end ; body
+                                                      end ; method
+                                                      

@@ -1,0 +1,464 @@
+package cb.display
+{
+   import cb.data.TextLoader;
+   import cb.signals.Signal;
+   import cb.utils.Rule;
+   import flash.utils.Dictionary;
+   
+   public class SwfBulkLoader
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var textLoader:TextLoader;
+      
+      public var loaded:Signal;
+      
+      public var progress:Signal;
+      
+      private var rule:Rule;
+      
+      private var swfs:Dictionary;
+      
+      public var load:Function;
+      
+      public function SwfBulkLoader(param1:*)
+      {
+         method
+            name null
+            param null
+            returns null
+            
+            body
+               maxstack 3
+               localcount 2
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal1
+                  getlex QName(PackageNamespace(""),"String")
+                  istypelate
+                  iffalse ofs0023
+                  getlocal0
+                  getlocal0
+                  getproperty QName(PrivateNamespace(null,"14"),"loadFile")
+                  initproperty QName(PackageNamespace(""),"load")
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("cb.data"),"TextLoader")
+                  getlocal1
+                  constructprop QName(PackageNamespace("cb.data"),"TextLoader"), 1
+                  initproperty QName(PrivateNamespace(null,"14"),"textLoader")
+                  jump ofs0056
+         ofs0023:
+                  getlocal1
+                  getlex QName(PackageNamespace(""),"Array")
+                  istypelate
+                  iffalse ofs004a
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("cb.data"),"TextLoader")
+                  pushstring ""
+                  constructprop QName(PackageNamespace("cb.data"),"TextLoader"), 1
+                  initproperty QName(PrivateNamespace(null,"14"),"textLoader")
+                  getlocal0
+                  getproperty QName(PrivateNamespace(null,"14"),"textLoader")
+                  getlocal1
+                  setproperty QName(PackageNamespace(""),"data")
+                  getlocal0
+                  getlocal0
+                  getproperty QName(PrivateNamespace(null,"14"),"loadArray")
+                  initproperty QName(PackageNamespace(""),"load")
+                  jump ofs0056
+         ofs004a:
+                  findpropstrict QName(PackageNamespace(""),"Error")
+                  getlocal1
+                  pushstring "type unsupported"
+                  constructprop QName(PackageNamespace(""),"Error"), 2
+                  throw
+         ofs0056:
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("cb.signals"),"Signal")
+                  constructprop QName(PackageNamespace("cb.signals"),"Signal"), 0
+                  initproperty QName(PackageNamespace(""),"progress")
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("cb.signals"),"Signal")
+                  constructprop QName(PackageNamespace("cb.signals"),"Signal"), 0
+                  initproperty QName(PackageNamespace(""),"loaded")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      private function loadArray() : void
+      {
+         trait method QName(PrivateNamespace(null,"14"),"loadArray")
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 2
+                  localcount 1
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     pushnull
+                     callpropvoid QName(PrivateNamespace(null,"14"),"fileLoaded"), 1
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         private function loadFile() : void
+         {
+            trait method QName(PrivateNamespace(null,"14"),"loadFile")
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 2
+                     localcount 1
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"14"),"textLoader")
+                        getproperty QName(PackageNamespace(""),"loaded")
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"14"),"fileLoaded")
+                        callpropvoid QName(PackageNamespace(""),"add"), 1
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"14"),"textLoader")
+                        callpropvoid QName(PackageNamespace(""),"load"), 0
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function getClass(param1:String) : Class
+            {
+               trait method QName(PackageNamespace(""),"getClass")
+                  dispid 0
+                  method
+                     name null
+                     param QName(PackageNamespace(""),"String")
+                     returns QName(PackageNamespace(""),"Class")
+                     
+                     body
+                        maxstack 2
+                        localcount 5
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           pushnull
+                           coerce QName(PackageNamespace("cb.display"),"SwfLoader")
+                           setlocal2
+                           pushbyte 0
+                           setlocal3
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"14"),"swfs")
+                           coerce_a
+                           setlocal 4
+                           jump ofs0023
+                  ofs0014:
+                           label
+                           getlocal 4
+                           getlocal3
+                           nextvalue
+                           coerce QName(PackageNamespace("cb.display"),"SwfLoader")
+                           setlocal2
+                           getlocal2
+                           getlocal1
+                           callproperty QName(PackageNamespace(""),"getClass"), 1
+                           returnvalue
+                  ofs0023:
+                           hasnext2 4, 3
+                           iftrue ofs0014
+                           kill 4
+                           kill 3
+                           pushnull
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function getObject(param1:String) : Object
+               {
+                  trait method QName(PackageNamespace(""),"getObject")
+                     dispid 0
+                     method
+                        name null
+                        param QName(PackageNamespace(""),"String")
+                        returns QName(PackageNamespace(""),"Object")
+                        
+                        body
+                           maxstack 2
+                           localcount 5
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              pushnull
+                              coerce QName(PackageNamespace("cb.display"),"SwfLoader")
+                              setlocal2
+                              pushbyte 0
+                              setlocal3
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"14"),"swfs")
+                              coerce_a
+                              setlocal 4
+                              jump ofs0023
+                     ofs0014:
+                              label
+                              getlocal 4
+                              getlocal3
+                              nextvalue
+                              coerce QName(PackageNamespace("cb.display"),"SwfLoader")
+                              setlocal2
+                              getlocal2
+                              getlocal1
+                              callproperty QName(PackageNamespace(""),"getObject"), 1
+                              returnvalue
+                     ofs0023:
+                              hasnext2 4, 3
+                              iftrue ofs0014
+                              kill 4
+                              kill 3
+                              pushnull
+                              returnvalue
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  private function bulkCompleted() : void
+                  {
+                     trait method QName(PrivateNamespace(null,"14"),"bulkCompleted")
+                        dispid 0
+                        method
+                           name null
+                           returns QName(PackageNamespace(""),"void")
+                           
+                           body
+                              maxstack 2
+                              localcount 1
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal0
+                                 getproperty QName(PackageNamespace(""),"loaded")
+                                 getlocal0
+                                 callpropvoid QName(PackageNamespace(""),"emit"), 1
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     private function fileLoaded(param1:TextLoader) : void
+                     {
+                        trait method QName(PrivateNamespace(null,"14"),"fileLoaded")
+                           dispid 0
+                           method
+                              name null
+                              param QName(PackageNamespace("cb.data"),"TextLoader")
+                              returns QName(PackageNamespace(""),"void")
+                              
+                              body
+                                 maxstack 4
+                                 localcount 5
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    pushnull
+                                    coerce_s
+                                    setlocal2
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"14"),"textLoader")
+                                    getproperty QName(PackageNamespace(""),"loaded")
+                                    callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                    getlocal0
+                                    findpropstrict QName(PackageNamespace("cb.utils"),"Rule")
+                                    constructprop QName(PackageNamespace("cb.utils"),"Rule"), 0
+                                    initproperty QName(PrivateNamespace(null,"14"),"rule")
+                                    getlocal0
+                                    findpropstrict QName(PackageNamespace("flash.utils"),"Dictionary")
+                                    constructprop QName(PackageNamespace("flash.utils"),"Dictionary"), 0
+                                    initproperty QName(PrivateNamespace(null,"14"),"swfs")
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"14"),"rule")
+                                    getproperty QName(PackageNamespace(""),"completed")
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"14"),"bulkCompleted")
+                                    callpropvoid QName(PackageNamespace(""),"add"), 1
+                                    pushbyte 0
+                                    setlocal3
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"14"),"textLoader")
+                                    getproperty QName(PackageNamespace(""),"data")
+                                    coerce_a
+                                    setlocal 4
+                                    jump ofs00a2
+                           ofs0044:
+                                    label
+                                    getlocal 4
+                                    getlocal3
+                                    nextvalue
+                                    coerce_s
+                                    setlocal2
+                                    getlocal2
+                                    pushstring ""
+                                    ifne ofs0056
+                                    jump ofs00a2
+                           ofs0056:
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"14"),"rule")
+                                    getlocal2
+                                    callpropvoid QName(PackageNamespace(""),"set"), 1
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"14"),"swfs")
+                                    getlocal2
+                                    findpropstrict QName(PackageNamespace("cb.display"),"SwfLoader")
+                                    getlocal2
+                                    constructprop QName(PackageNamespace("cb.display"),"SwfLoader"), 1
+                                    setproperty MultinameL([PrivateNamespace(null,"14"),PackageNamespace(""),PackageNamespace("cb.display"),PrivateNamespace(null,"180"),PackageInternalNs("cb.display"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("cb.display:SwfBulkLoader"),StaticProtectedNs("cb.display:SwfBulkLoader")])
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"14"),"swfs")
+                                    getlocal2
+                                    getproperty MultinameL([PrivateNamespace(null,"14"),PackageNamespace(""),PackageNamespace("cb.display"),PrivateNamespace(null,"180"),PackageInternalNs("cb.display"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("cb.display:SwfBulkLoader"),StaticProtectedNs("cb.display:SwfBulkLoader")])
+                                    getproperty Multiname("loaded",[PrivateNamespace(null,"14"),PackageNamespace(""),PackageNamespace("cb.display"),PrivateNamespace(null,"180"),PackageInternalNs("cb.display"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("cb.display:SwfBulkLoader"),StaticProtectedNs("cb.display:SwfBulkLoader")])
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"14"),"swfLoaded")
+                                    callpropvoid Multiname("add",[PrivateNamespace(null,"14"),PackageNamespace(""),PackageNamespace("cb.display"),PrivateNamespace(null,"180"),PackageInternalNs("cb.display"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("cb.display:SwfBulkLoader"),StaticProtectedNs("cb.display:SwfBulkLoader")]), 1
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"14"),"swfs")
+                                    getlocal2
+                                    getproperty MultinameL([PrivateNamespace(null,"14"),PackageNamespace(""),PackageNamespace("cb.display"),PrivateNamespace(null,"180"),PackageInternalNs("cb.display"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("cb.display:SwfBulkLoader"),StaticProtectedNs("cb.display:SwfBulkLoader")])
+                                    getproperty Multiname("progress",[PrivateNamespace(null,"14"),PackageNamespace(""),PackageNamespace("cb.display"),PrivateNamespace(null,"180"),PackageInternalNs("cb.display"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("cb.display:SwfBulkLoader"),StaticProtectedNs("cb.display:SwfBulkLoader")])
+                                    getlocal0
+                                    getproperty QName(PackageNamespace(""),"progress")
+                                    getproperty QName(PackageNamespace(""),"emit")
+                                    callpropvoid Multiname("add",[PrivateNamespace(null,"14"),PackageNamespace(""),PackageNamespace("cb.display"),PrivateNamespace(null,"180"),PackageInternalNs("cb.display"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("cb.display:SwfBulkLoader"),StaticProtectedNs("cb.display:SwfBulkLoader")]), 1
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"14"),"swfs")
+                                    getlocal2
+                                    getproperty MultinameL([PrivateNamespace(null,"14"),PackageNamespace(""),PackageNamespace("cb.display"),PrivateNamespace(null,"180"),PackageInternalNs("cb.display"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("cb.display:SwfBulkLoader"),StaticProtectedNs("cb.display:SwfBulkLoader")])
+                                    callpropvoid Multiname("load",[PrivateNamespace(null,"14"),PackageNamespace(""),PackageNamespace("cb.display"),PrivateNamespace(null,"180"),PackageInternalNs("cb.display"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("cb.display:SwfBulkLoader"),StaticProtectedNs("cb.display:SwfBulkLoader")]), 0
+                           ofs00a2:
+                                    hasnext2 4, 3
+                                    iftrue ofs0044
+                                    kill 4
+                                    kill 3
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        private function swfLoaded(param1:SwfLoader) : void
+                        {
+                           trait method QName(PrivateNamespace(null,"14"),"swfLoaded")
+                              dispid 0
+                              method
+                                 name null
+                                 param QName(PackageNamespace("cb.display"),"SwfLoader")
+                                 returns QName(PackageNamespace(""),"void")
+                                 
+                                 body
+                                    maxstack 2
+                                    localcount 2
+                                    initscopedepth 4
+                                    maxscopedepth 5
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       getlocal1
+                                       getproperty QName(PackageNamespace(""),"loaded")
+                                       callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                       getlocal1
+                                       getproperty QName(PackageNamespace(""),"progress")
+                                       callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"14"),"rule")
+                                       getlocal1
+                                       callproperty QName(PackageNamespace(""),"getUrl"), 0
+                                       callpropvoid QName(PackageNamespace(""),"check"), 1
+                                       returnvoid
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                        }
+                     }
+                     
+                     method
+                        name null
+                        returns null
+                        
+                        body
+                           maxstack 2
+                           localcount 1
+                           initscopedepth 1
+                           maxscopedepth 3
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              findpropstrict Multiname("SwfBulkLoader",[PackageNamespace("cb.display")])
+                              getlex QName(PackageNamespace(""),"Object")
+                              pushscope
+                              getlex QName(PackageNamespace(""),"Object")
+                              newclass 11
+                              popscope
+                              initproperty QName(PackageNamespace("cb.display"),"SwfBulkLoader")
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                     

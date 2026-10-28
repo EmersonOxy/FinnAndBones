@@ -1,7 +1,7 @@
 extends RefCounted
 
-# As tabelas permanecem fora do projeto e são lidas sem alterar os originais.
-const ROOT = "C:/Projetos/FinnAndBonesPreservation/"
+# As tabelas versionadas são lidas sem modificar o acervo.
+const ROOT = "res://preservation/"
 var items: Dictionary = {}
 var enemies: Dictionary = {}
 var recipes: Array = []
@@ -33,3 +33,4 @@ func load_all() -> bool:
         for i in range(headers.size()): row[headers[i]] = cells[i]
         first_loot[row.Dungeon] = row
     return items.size() == 83 and recipes.size() == 82 and enemies.size() == 9 and dungeons.size() == 32
+

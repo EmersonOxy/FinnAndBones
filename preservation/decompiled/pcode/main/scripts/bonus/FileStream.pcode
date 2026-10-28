@@ -1,0 +1,257 @@
+package bonus
+{
+   public class FileStream
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var file:String;
+      
+      private var pos:int = 0;
+      
+      private var line:int = 1;
+      
+      public function FileStream(param1:String)
+      {
+         method
+            name null
+            param QName(PackageNamespace(""),"String")
+            returns null
+            
+            body
+               maxstack 2
+               localcount 2
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlocal1
+                  initproperty QName(PrivateNamespace(null,"125"),"file")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function hasData() : Boolean
+      {
+         trait method QName(PackageNamespace(""),"hasData")
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace(""),"Boolean")
+               
+               body
+                  maxstack 2
+                  localcount 1
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"125"),"file")
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"125"),"pos")
+                     callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"charAt"), 1
+                     pushstring ""
+                     equals
+                     not
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function getLineNumber() : int
+         {
+            trait method QName(PackageNamespace(""),"getLineNumber")
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace(""),"int")
+                  
+                  body
+                     maxstack 1
+                     localcount 1
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"125"),"line")
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function getc() : String
+            {
+               trait method QName(PackageNamespace(""),"getc")
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace(""),"String")
+                     
+                     body
+                        maxstack 2
+                        localcount 4
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"125"),"file")
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"125"),"pos")
+                           callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"charAt"), 1
+                           coerce_s
+                           setlocal1
+                           getlocal0
+                           dup
+                           setlocal2
+                           getproperty QName(PrivateNamespace(null,"125"),"pos")
+                           increment_i
+                           setlocal3
+                           getlocal2
+                           getlocal3
+                           setproperty QName(PrivateNamespace(null,"125"),"pos")
+                           kill 3
+                           kill 2
+                           getlocal1
+                           pushstring "\n"
+                           ifne ofs003a
+                           getlocal0
+                           dup
+                           setlocal2
+                           getproperty QName(PrivateNamespace(null,"125"),"line")
+                           increment_i
+                           setlocal3
+                           getlocal2
+                           getlocal3
+                           setproperty QName(PrivateNamespace(null,"125"),"line")
+                           kill 3
+                           kill 2
+                  ofs003a:
+                           getlocal1
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function ungetc() : void
+               {
+                  trait method QName(PackageNamespace(""),"ungetc")
+                     dispid 0
+                     method
+                        name null
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 2
+                           localcount 3
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal0
+                              dup
+                              setlocal1
+                              getproperty QName(PrivateNamespace(null,"125"),"pos")
+                              decrement_i
+                              setlocal2
+                              getlocal1
+                              getlocal2
+                              setproperty QName(PrivateNamespace(null,"125"),"pos")
+                              kill 2
+                              kill 1
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"125"),"file")
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"125"),"pos")
+                              callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"charAt"), 1
+                              pushstring "\n"
+                              ifne ofs0037
+                              getlocal0
+                              dup
+                              setlocal1
+                              getproperty QName(PrivateNamespace(null,"125"),"line")
+                              decrement_i
+                              setlocal2
+                              getlocal1
+                              getlocal2
+                              setproperty QName(PrivateNamespace(null,"125"),"line")
+                              kill 2
+                              kill 1
+                     ofs0037:
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"125"),"pos")
+                              pushbyte 0
+                              ifnlt ofs0047
+                              getlocal0
+                              pushbyte 0
+                              initproperty QName(PrivateNamespace(null,"125"),"pos")
+                     ofs0047:
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+               }
+            }
+            
+            method
+               name null
+               returns null
+               
+               body
+                  maxstack 2
+                  localcount 1
+                  initscopedepth 1
+                  maxscopedepth 3
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getscopeobject 0
+                     getlex QName(PackageNamespace(""),"Object")
+                     pushscope
+                     getlex QName(PackageNamespace(""),"Object")
+                     newclass 216
+                     popscope
+                     initproperty QName(PackageNamespace("bonus"),"FileStream")
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+            

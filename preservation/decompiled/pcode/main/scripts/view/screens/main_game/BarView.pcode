@@ -1,0 +1,360 @@
+package view.screens.main_game
+{
+   import cb.data.Locale;
+   import flash.display.MovieClip;
+   
+   public class BarView
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var mc:MovieClip;
+      
+      private var currentVal:Number;
+      
+      private var totalVal:Number;
+      
+      private var locale:Locale;
+      
+      private var localeText:String;
+      
+      public function BarView(param1:MovieClip, param2:Locale = null, param3:String = "", param4:Number = 0, param5:Number = 100)
+      {
+         method
+            name null
+            flag HAS_OPTIONAL
+            param QName(PackageNamespace("flash.display"),"MovieClip")
+            param QName(PackageNamespace("cb.data"),"Locale")
+            param QName(PackageNamespace(""),"String")
+            param QName(PackageNamespace(""),"Number")
+            param QName(PackageNamespace(""),"Number")
+            optional Null()
+            optional Utf8("")
+            optional Integer(0)
+            optional Integer(100)
+            returns null
+            
+            body
+               maxstack 2
+               localcount 6
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlocal1
+                  initproperty QName(PrivateNamespace(null,"140"),"mc")
+                  getlocal0
+                  getlocal 4
+                  initproperty QName(PrivateNamespace(null,"140"),"currentVal")
+                  getlocal0
+                  getlocal 5
+                  initproperty QName(PrivateNamespace(null,"140"),"totalVal")
+                  getlocal0
+                  getlocal2
+                  initproperty QName(PrivateNamespace(null,"140"),"locale")
+                  getlocal0
+                  getlocal3
+                  initproperty QName(PrivateNamespace(null,"140"),"localeText")
+                  getlocal0
+                  getlocal0
+                  getproperty QName(PrivateNamespace(null,"140"),"currentVal")
+                  initproperty QName(PackageNamespace(""),"current")
+                  getlocal0
+                  getlocal0
+                  getproperty QName(PrivateNamespace(null,"140"),"totalVal")
+                  initproperty QName(PackageNamespace(""),"total")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function get current() : Number
+      {
+         trait getter QName(PackageNamespace(""),"current")
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace(""),"Number")
+               
+               body
+                  maxstack 1
+                  localcount 1
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"140"),"currentVal")
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function get total() : Number
+         {
+            trait getter QName(PackageNamespace(""),"total")
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace(""),"Number")
+                  
+                  body
+                     maxstack 1
+                     localcount 1
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"140"),"totalVal")
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function set current(param1:Number) : void
+            {
+               trait setter QName(PackageNamespace(""),"current")
+                  dispid 0
+                  method
+                     name null
+                     param QName(PackageNamespace(""),"Number")
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 5
+                        localcount 3
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getlex QName(PackageNamespace(""),"Math")
+                           getlocal1
+                           callproperty QName(PackageNamespace(""),"round"), 1
+                           setproperty QName(PrivateNamespace(null,"140"),"currentVal")
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"140"),"locale")
+                           pushnull
+                           equals
+                           not
+                           dup
+                           iffalse ofs0023
+                           pop
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"140"),"localeText")
+                           pushstring ""
+                           equals
+                           not
+                  ofs0023:
+                           iffalse ofs0054
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"140"),"mc")
+                           getproperty Multiname("title",[PrivateNamespace(null,"140"),PackageNamespace(""),PrivateNamespace(null,"301"),PackageNamespace("view.screens.main_game"),PackageInternalNs("view.screens.main_game"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game:BarView"),StaticProtectedNs("view.screens.main_game:BarView")])
+                           getproperty Multiname("title",[PrivateNamespace(null,"140"),PackageNamespace(""),PrivateNamespace(null,"301"),PackageNamespace("view.screens.main_game"),PackageInternalNs("view.screens.main_game"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game:BarView"),StaticProtectedNs("view.screens.main_game:BarView")])
+                           getlex QName(PackageNamespace(""),"main")
+                           getproperty QName(PackageNamespace(""),"locale")
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"140"),"localeText")
+                           getlocal0
+                           getproperty QName(PackageNamespace(""),"current")
+                           callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"toString"), 0
+                           getlocal0
+                           getproperty QName(PackageNamespace(""),"total")
+                           callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"toString"), 0
+                           newarray 2
+                           callproperty QName(PackageNamespace(""),"get"), 2
+                           setproperty Multiname("text",[PrivateNamespace(null,"140"),PackageNamespace(""),PrivateNamespace(null,"301"),PackageNamespace("view.screens.main_game"),PackageInternalNs("view.screens.main_game"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game:BarView"),StaticProtectedNs("view.screens.main_game:BarView")])
+                  ofs0054:
+                           getlex QName(PackageNamespace(""),"Math")
+                           getlocal0
+                           getproperty QName(PackageNamespace(""),"current")
+                           pushbyte 100
+                           multiply
+                           getlocal0
+                           getproperty QName(PackageNamespace(""),"total")
+                           divide
+                           callproperty QName(PackageNamespace(""),"ceil"), 1
+                           convert_u
+                           setlocal2
+                           getlocal0
+                           getproperty QName(PackageNamespace(""),"current")
+                           getlocal0
+                           getproperty QName(PackageNamespace(""),"total")
+                           ifeq ofs0081
+                           getlex QName(PackageNamespace(""),"Math")
+                           pushbyte 99
+                           getlocal2
+                           callproperty QName(PackageNamespace(""),"min"), 2
+                           convert_u
+                           setlocal2
+                  ofs0081:
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"140"),"mc")
+                           getlocal2
+                           callpropvoid QName(PackageNamespace(""),"gotoAndStop"), 1
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function set total(param1:Number) : void
+               {
+                  trait setter QName(PackageNamespace(""),"total")
+                     dispid 0
+                     method
+                        name null
+                        param QName(PackageNamespace(""),"Number")
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 5
+                           localcount 2
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal0
+                              getlex QName(PackageNamespace(""),"Math")
+                              getlocal1
+                              callproperty QName(PackageNamespace(""),"ceil"), 1
+                              setproperty QName(PrivateNamespace(null,"140"),"totalVal")
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"140"),"locale")
+                              pushnull
+                              equals
+                              not
+                              dup
+                              iffalse ofs0023
+                              pop
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"140"),"localeText")
+                              pushstring ""
+                              equals
+                              not
+                     ofs0023:
+                              iffalse ofs0051
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"140"),"mc")
+                              getproperty Multiname("title",[PrivateNamespace(null,"140"),PackageNamespace(""),PrivateNamespace(null,"301"),PackageNamespace("view.screens.main_game"),PackageInternalNs("view.screens.main_game"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game:BarView"),StaticProtectedNs("view.screens.main_game:BarView")])
+                              getlex QName(PackageNamespace(""),"main")
+                              getproperty QName(PackageNamespace(""),"locale")
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"140"),"localeText")
+                              getlocal0
+                              getproperty QName(PackageNamespace(""),"current")
+                              callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"toString"), 0
+                              getlocal0
+                              getproperty QName(PackageNamespace(""),"total")
+                              callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"toString"), 0
+                              newarray 2
+                              callproperty QName(PackageNamespace(""),"get"), 2
+                              setproperty Multiname("text",[PrivateNamespace(null,"140"),PackageNamespace(""),PrivateNamespace(null,"301"),PackageNamespace("view.screens.main_game"),PackageInternalNs("view.screens.main_game"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game:BarView"),StaticProtectedNs("view.screens.main_game:BarView")])
+                     ofs0051:
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"140"),"mc")
+                              getlex QName(PackageNamespace(""),"Math")
+                              getlocal0
+                              getproperty QName(PackageNamespace(""),"current")
+                              pushbyte 100
+                              multiply
+                              getlocal0
+                              getproperty QName(PackageNamespace(""),"total")
+                              divide
+                              callproperty QName(PackageNamespace(""),"ceil"), 1
+                              callpropvoid QName(PackageNamespace(""),"gotoAndStop"), 1
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function clear() : void
+                  {
+                     trait method QName(PackageNamespace(""),"clear")
+                        dispid 0
+                        method
+                           name null
+                           returns QName(PackageNamespace(""),"void")
+                           
+                           body
+                              maxstack 2
+                              localcount 1
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal0
+                                 pushnull
+                                 setproperty QName(PrivateNamespace(null,"140"),"mc")
+                                 getlocal0
+                                 pushnull
+                                 setproperty QName(PrivateNamespace(null,"140"),"locale")
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                  }
+               }
+               
+               method
+                  name null
+                  returns null
+                  
+                  body
+                     maxstack 2
+                     localcount 1
+                     initscopedepth 1
+                     maxscopedepth 3
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getscopeobject 0
+                        getlex QName(PackageNamespace(""),"Object")
+                        pushscope
+                        getlex QName(PackageNamespace(""),"Object")
+                        newclass 243
+                        popscope
+                        initproperty QName(PackageNamespace("view.screens.main_game"),"BarView")
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+               

@@ -1,0 +1,57 @@
+package cb.media
+{
+   public interface SoundMixable
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 0
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 3
+            
+            code
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      function mute() : void;
+      
+      function unmute() : void;
+      
+      function isMuted() : Boolean;
+      
+      function queue(param1:String, param2:cbSound, param3:Boolean = false) : cbSound;
+      
+      function play(param1:String, param2:Number = 0, param3:Boolean = false, param4:Number = -1) : cbSound;
+      
+      function stop(param1:String) : void;
+   }
+}
+
+method
+   name null
+   returns null
+   
+   body
+      maxstack 2
+      localcount 1
+      initscopedepth 1
+      maxscopedepth 2
+      
+      code
+         getlocal0
+         pushscope
+         findpropstrict Multiname("SoundMixable",[PackageNamespace("cb.media")])
+         pushnull
+         newclass 113
+         initproperty QName(PackageNamespace("cb.media"),"SoundMixable")
+         returnvoid
+      end ; code
+   end ; body
+end ; method
+

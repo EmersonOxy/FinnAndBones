@@ -1,0 +1,301 @@
+package main_game.character.stats
+{
+   public class LevelingStragegy
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      protected var maxHPMod:Number;
+      
+      protected var attMod:Number;
+      
+      protected var defMod:Number;
+      
+      protected var luckMod:Number;
+      
+      public function LevelingStragegy(param1:Object)
+      {
+         method
+            name null
+            param QName(PackageNamespace(""),"Object")
+            returns null
+            
+            body
+               maxstack 2
+               localcount 2
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlocal1
+                  getproperty Multiname("maxHPMod",[PrivateNamespace(null,"297"),PrivateNamespace(null,"298"),PackageNamespace(""),PackageNamespace("main_game.character.stats"),PackageInternalNs("main_game.character.stats"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.character.stats:LevelingStragegy"),StaticProtectedNs("main_game.character.stats:LevelingStragegy")])
+                  initproperty QName(ProtectedNamespace("main_game.character.stats:LevelingStragegy"),"maxHPMod")
+                  getlocal0
+                  getlocal1
+                  getproperty Multiname("attMod",[PrivateNamespace(null,"297"),PrivateNamespace(null,"298"),PackageNamespace(""),PackageNamespace("main_game.character.stats"),PackageInternalNs("main_game.character.stats"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.character.stats:LevelingStragegy"),StaticProtectedNs("main_game.character.stats:LevelingStragegy")])
+                  initproperty QName(ProtectedNamespace("main_game.character.stats:LevelingStragegy"),"attMod")
+                  getlocal0
+                  getlocal1
+                  getproperty Multiname("defMod",[PrivateNamespace(null,"297"),PrivateNamespace(null,"298"),PackageNamespace(""),PackageNamespace("main_game.character.stats"),PackageInternalNs("main_game.character.stats"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.character.stats:LevelingStragegy"),StaticProtectedNs("main_game.character.stats:LevelingStragegy")])
+                  initproperty QName(ProtectedNamespace("main_game.character.stats:LevelingStragegy"),"defMod")
+                  getlocal0
+                  getlocal1
+                  getproperty Multiname("luckMod",[PrivateNamespace(null,"297"),PrivateNamespace(null,"298"),PackageNamespace(""),PackageNamespace("main_game.character.stats"),PackageInternalNs("main_game.character.stats"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.character.stats:LevelingStragegy"),StaticProtectedNs("main_game.character.stats:LevelingStragegy")])
+                  initproperty QName(ProtectedNamespace("main_game.character.stats:LevelingStragegy"),"luckMod")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function level(param1:uint, param2:Stats) : uint
+      {
+         trait method QName(PackageNamespace(""),"level")
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace(""),"uint")
+               param QName(PackageNamespace("main_game.character.stats"),"Stats")
+               returns QName(PackageNamespace(""),"uint")
+               
+               body
+                  maxstack 6
+                  localcount 8
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     pushnan
+                     setlocal3
+                     pushnull
+                     coerce QName(PackageNamespace("main_game.character.stats"),"Stat")
+                     setlocal 5
+                     pushnan
+                     setlocal 6
+                     getlocal2
+                     callproperty QName(PackageNamespace(""),"getLevel"), 0
+                     convert_u
+                     setlocal 4
+                     getlocal1
+                     getlocal 4
+                     ifne ofs001e
+                     getlocal1
+                     returnvalue
+            ofs001e:
+                     getlocal2
+                     getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                     getproperty QName(PackageNamespace(""),"LUCK")
+                     callproperty QName(PackageNamespace(""),"getStat"), 1
+                     coerce QName(PackageNamespace("main_game.character.stats"),"Stat")
+                     setlocal 5
+                     getlocal2
+                     getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                     getproperty QName(PackageNamespace(""),"BASE_LUCK")
+                     callproperty QName(PackageNamespace(""),"getStat"), 1
+                     callproperty QName(PackageNamespace(""),"getValue"), 0
+                     convert_d
+                     setlocal 6
+                     getlocal0
+                     getlocal 5
+                     getlocal 6
+                     getlocal0
+                     getproperty QName(ProtectedNamespace("main_game.character.stats:LevelingStragegy"),"luckMod")
+                     getlocal 4
+                     getlocal1
+                     callpropvoid QName(ProtectedNamespace("main_game.character.stats:LevelingStragegy"),"levelUp"), 5
+                     getlocal2
+                     getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                     getproperty QName(PackageNamespace(""),"HEALTH")
+                     callproperty QName(PackageNamespace(""),"getStat"), 1
+                     getlex QName(PackageNamespace("main_game.character.stats"),"HealthStat")
+                     astypelate
+                     coerce QName(PackageNamespace("main_game.character.stats"),"HealthStat")
+                     setlocal 7
+                     getlocal2
+                     getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                     getproperty QName(PackageNamespace(""),"BASE_HEALTH")
+                     callproperty QName(PackageNamespace(""),"getStat"), 1
+                     callproperty QName(PackageNamespace(""),"getValue"), 0
+                     convert_d
+                     setlocal 6
+                     getlocal0
+                     getlocal 7
+                     callproperty QName(PackageNamespace(""),"getUpperBound"), 0
+                     getlocal 6
+                     getlocal0
+                     getproperty QName(ProtectedNamespace("main_game.character.stats:LevelingStragegy"),"maxHPMod")
+                     getlocal 4
+                     getlocal1
+                     callpropvoid QName(ProtectedNamespace("main_game.character.stats:LevelingStragegy"),"levelUp"), 5
+                     getlocal0
+                     getlocal 7
+                     getlocal 6
+                     getlocal0
+                     getproperty QName(ProtectedNamespace("main_game.character.stats:LevelingStragegy"),"maxHPMod")
+                     getlocal 4
+                     getlocal1
+                     callpropvoid QName(ProtectedNamespace("main_game.character.stats:LevelingStragegy"),"levelUp"), 5
+                     getlocal2
+                     getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                     getproperty QName(PackageNamespace(""),"ATTACK")
+                     callproperty QName(PackageNamespace(""),"getStat"), 1
+                     coerce QName(PackageNamespace("main_game.character.stats"),"Stat")
+                     setlocal 5
+                     getlocal2
+                     getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                     getproperty QName(PackageNamespace(""),"BASE_ATTACK")
+                     callproperty QName(PackageNamespace(""),"getStat"), 1
+                     callproperty QName(PackageNamespace(""),"getValue"), 0
+                     convert_d
+                     setlocal 6
+                     getlocal0
+                     getlocal 5
+                     getlocal 6
+                     getlocal0
+                     getproperty QName(ProtectedNamespace("main_game.character.stats:LevelingStragegy"),"attMod")
+                     getlocal 4
+                     getlocal1
+                     callpropvoid QName(ProtectedNamespace("main_game.character.stats:LevelingStragegy"),"levelUp"), 5
+                     getlocal2
+                     getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                     getproperty QName(PackageNamespace(""),"DEFENSE")
+                     callproperty QName(PackageNamespace(""),"getStat"), 1
+                     coerce QName(PackageNamespace("main_game.character.stats"),"Stat")
+                     setlocal 5
+                     getlocal2
+                     getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                     getproperty QName(PackageNamespace(""),"BASE_DEFENSE")
+                     callproperty QName(PackageNamespace(""),"getStat"), 1
+                     callproperty QName(PackageNamespace(""),"getValue"), 0
+                     convert_d
+                     setlocal 6
+                     getlocal0
+                     getlocal 5
+                     getlocal 6
+                     getlocal0
+                     getproperty QName(ProtectedNamespace("main_game.character.stats:LevelingStragegy"),"defMod")
+                     getlocal 4
+                     getlocal1
+                     callpropvoid QName(ProtectedNamespace("main_game.character.stats:LevelingStragegy"),"levelUp"), 5
+                     getlocal1
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         protected function levelUp(param1:Stat, param2:Number, param3:Number, param4:uint, param5:uint) : void
+         {
+            trait method QName(ProtectedNamespace("main_game.character.stats:LevelingStragegy"),"levelUp")
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace("main_game.character.stats"),"Stat")
+                  param QName(PackageNamespace(""),"Number")
+                  param QName(PackageNamespace(""),"Number")
+                  param QName(PackageNamespace(""),"uint")
+                  param QName(PackageNamespace(""),"uint")
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 5
+                     localcount 8
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal 4
+                        getlocal 5
+                        ifne ofs000b
+                        returnvoid
+               ofs000b:
+                        getlocal2
+                        convert_d
+                        setlocal 6
+                        getlocal 4
+                        pushbyte 1
+                        ifngt ofs0027
+                        getlocal2
+                        getlex QName(PackageNamespace(""),"Math")
+                        getlocal3
+                        getlocal 4
+                        decrement
+                        callproperty QName(PackageNamespace(""),"pow"), 2
+                        multiply
+                        convert_d
+                        setlocal 6
+               ofs0027:
+                        getlocal2
+                        getlex QName(PackageNamespace(""),"Math")
+                        getlocal3
+                        getlocal 5
+                        decrement
+                        callproperty QName(PackageNamespace(""),"pow"), 2
+                        multiply
+                        getlocal 6
+                        subtract
+                        convert_d
+                        setlocal 7
+                        getlocal1
+                        getlex QName(PackageNamespace(""),"Math")
+                        getlocal 7
+                        callproperty QName(PackageNamespace(""),"round"), 1
+                        callpropvoid QName(PackageNamespace(""),"modifyValue"), 1
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+         }
+      }
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 1
+            maxscopedepth 3
+            
+            code
+               getlocal0
+               pushscope
+               findpropstrict Multiname("LevelingStragegy",[PackageNamespace("main_game.character.stats")])
+               getlex QName(PackageNamespace(""),"Object")
+               pushscope
+               getlex QName(PackageNamespace(""),"Object")
+               newclass 226
+               popscope
+               initproperty QName(PackageNamespace("main_game.character.stats"),"LevelingStragegy")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      

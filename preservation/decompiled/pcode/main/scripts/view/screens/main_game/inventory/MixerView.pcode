@@ -1,0 +1,508 @@
+package view.screens.main_game.inventory
+{
+   import cb.actions.RemoveFromParent;
+   import cb.data.ButtonInfo;
+   import cb.display.SmartMC;
+   import conditions.EndCurrentLabel;
+   import flash.display.MovieClip;
+   import flash.events.MouseEvent;
+   import main_game.item_containers.Slot;
+   import main_game.mixer.Mixer;
+   import util.Buttons;
+   import view.screens.main_game.slot.AutoSelectSlotView;
+   import view.screens.main_game.slot.SlotView;
+   
+   public class MixerView
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var bg:MovieClip;
+      
+      private var slots:Array;
+      
+      private var clock_view:MixerClockView;
+      
+      private var top:MovieClip = null;
+      
+      public function MixerView()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 2
+               localcount 1
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  findpropstrict QName(PackageNamespace(""),"Array")
+                  constructprop QName(PackageNamespace(""),"Array"), 0
+                  initproperty QName(PrivateNamespace(null,"33"),"slots")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function initialize(param1:MovieClip) : void
+      {
+         trait method QName(PackageNamespace(""),"initialize")
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace("flash.display"),"MovieClip")
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 4
+                  localcount 6
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     pushnull
+                     coerce QName(PackageNamespace("main_game.item_containers"),"Slot")
+                     setlocal 4
+                     pushnull
+                     coerce QName(PackageNamespace("view.screens.main_game.slot"),"SlotView")
+                     setlocal 5
+                     getlocal0
+                     getlocal1
+                     setproperty QName(PrivateNamespace(null,"33"),"bg")
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"33"),"bg")
+                     pushfalse
+                     setproperty QName(PackageNamespace(""),"mouseEnabled")
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"33"),"bg")
+                     getproperty Multiname("mix_button",[PrivateNamespace(null,"33"),PackageNamespace(""),PrivateNamespace(null,"199"),PackageNamespace("view.screens.main_game.inventory"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:MixerView"),StaticProtectedNs("view.screens.main_game.inventory:MixerView")])
+                     getproperty Multiname("title",[PrivateNamespace(null,"33"),PackageNamespace(""),PrivateNamespace(null,"199"),PackageNamespace("view.screens.main_game.inventory"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:MixerView"),StaticProtectedNs("view.screens.main_game.inventory:MixerView")])
+                     getproperty Multiname("title",[PrivateNamespace(null,"33"),PackageNamespace(""),PrivateNamespace(null,"199"),PackageNamespace("view.screens.main_game.inventory"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:MixerView"),StaticProtectedNs("view.screens.main_game.inventory:MixerView")])
+                     getlex QName(PackageNamespace(""),"main")
+                     getproperty QName(PackageNamespace(""),"locale")
+                     pushstring "mix"
+                     callproperty QName(PackageNamespace(""),"get"), 1
+                     setproperty Multiname("text",[PrivateNamespace(null,"33"),PackageNamespace(""),PrivateNamespace(null,"199"),PackageNamespace("view.screens.main_game.inventory"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:MixerView"),StaticProtectedNs("view.screens.main_game.inventory:MixerView")])
+                     getlex QName(PackageNamespace(""),"main")
+                     getproperty QName(PackageNamespace(""),"game")
+                     callproperty QName(PackageNamespace(""),"getMixer"), 0
+                     coerce QName(PackageNamespace("main_game.mixer"),"Mixer")
+                     setlocal2
+                     getlocal0
+                     callpropvoid QName(PrivateNamespace(null,"33"),"refreshButton"), 0
+                     pushbyte 1
+                     setlocal3
+                     jump ofs0092
+            ofs004f:
+                     label
+                     getlocal2
+                     getlocal3
+                     callproperty QName(PackageNamespace(""),"getSlot"), 1
+                     coerce QName(PackageNamespace("main_game.item_containers"),"Slot")
+                     dup
+                     setlocal 4
+                     getproperty QName(PackageNamespace(""),"onChange")
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"33"),"change")
+                     callpropvoid QName(PackageNamespace(""),"add"), 1
+                     findpropstrict QName(PackageNamespace("view.screens.main_game.slot"),"AutoSelectSlotView")
+                     getlocal 4
+                     constructprop QName(PackageNamespace("view.screens.main_game.slot"),"AutoSelectSlotView"), 1
+                     coerce QName(PackageNamespace("view.screens.main_game.slot"),"SlotView")
+                     setlocal 5
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"33"),"slots")
+                     getlocal3
+                     decrement
+                     getlocal 5
+                     setproperty MultinameL([PrivateNamespace(null,"33"),PackageNamespace(""),PrivateNamespace(null,"199"),PackageNamespace("view.screens.main_game.inventory"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:MixerView"),StaticProtectedNs("view.screens.main_game.inventory:MixerView")])
+                     getlocal 5
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"33"),"bg")
+                     pushstring "mix_slot_"
+                     getlocal3
+                     add
+                     getproperty MultinameL([PrivateNamespace(null,"33"),PackageNamespace(""),PrivateNamespace(null,"199"),PackageNamespace("view.screens.main_game.inventory"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:MixerView"),StaticProtectedNs("view.screens.main_game.inventory:MixerView")])
+                     callpropvoid QName(PackageNamespace(""),"initialize"), 1
+                     inclocal_i 3
+            ofs0092:
+                     getlocal3
+                     pushbyte 3
+                     ifle ofs004f
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function disable() : void
+         {
+            trait method QName(PackageNamespace(""),"disable")
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 3
+                     localcount 1
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"33"),"top")
+                        pushnull
+                        ifne ofs0039
+                        getlocal0
+                        getlex QName(PackageNamespace(""),"main")
+                        getproperty QName(PackageNamespace(""),"swfLoader")
+                        pushstring "assets.MixTop"
+                        callproperty QName(PackageNamespace(""),"getObject"), 1
+                        getlex QName(PackageNamespace("flash.display"),"MovieClip")
+                        astypelate
+                        initproperty QName(PrivateNamespace(null,"33"),"top")
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"33"),"top")
+                        pushstring "idle"
+                        callpropvoid QName(PackageNamespace(""),"gotoAndStop"), 1
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"33"),"bg")
+                        getproperty QName(PackageNamespace(""),"parent")
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"33"),"top")
+                        callpropvoid QName(PackageNamespace(""),"addChild"), 1
+               ofs0039:
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function enable() : void
+            {
+               trait method QName(PackageNamespace(""),"enable")
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 3
+                        localcount 1
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"33"),"top")
+                           pushnull
+                           ifeq ofs003b
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"33"),"top")
+                           pushstring "out"
+                           callpropvoid QName(PackageNamespace(""),"gotoAndPlay"), 1
+                           findpropstrict QName(PackageNamespace("cb.display"),"SmartMC")
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"33"),"top")
+                           constructprop QName(PackageNamespace("cb.display"),"SmartMC"), 1
+                           findpropstrict QName(PackageNamespace("conditions"),"EndCurrentLabel")
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"33"),"top")
+                           constructprop QName(PackageNamespace("conditions"),"EndCurrentLabel"), 1
+                           findpropstrict QName(PackageNamespace("cb.actions"),"RemoveFromParent")
+                           constructprop QName(PackageNamespace("cb.actions"),"RemoveFromParent"), 0
+                           callpropvoid QName(PackageNamespace(""),"trigger"), 2
+                           getlocal0
+                           pushnull
+                           initproperty QName(PrivateNamespace(null,"33"),"top")
+                  ofs003b:
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               private function change(param1:* = null) : void
+               {
+                  trait method QName(PrivateNamespace(null,"33"),"change")
+                     dispid 0
+                     method
+                        name null
+                        flag HAS_OPTIONAL
+                        param null
+                        optional Null()
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 1
+                           localcount 2
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal0
+                              callpropvoid QName(PrivateNamespace(null,"33"),"refreshButton"), 0
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function mix(param1:MouseEvent) : void
+                  {
+                     trait method QName(PackageNamespace(""),"mix")
+                        dispid 0
+                        method
+                           name null
+                           param QName(PackageNamespace("flash.events"),"MouseEvent")
+                           returns QName(PackageNamespace(""),"void")
+                           
+                           body
+                              maxstack 3
+                              localcount 3
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlex QName(PackageNamespace(""),"main")
+                                 getproperty QName(PackageNamespace(""),"game")
+                                 callproperty QName(PackageNamespace(""),"getMixer"), 0
+                                 coerce QName(PackageNamespace("main_game.mixer"),"Mixer")
+                                 setlocal2
+                                 getlocal2
+                                 callpropvoid QName(PackageNamespace(""),"startMix"), 0
+                                 getlocal0
+                                 findpropstrict QName(PackageNamespace("view.screens.main_game.inventory"),"MixerClockView")
+                                 getlocal2
+                                 getproperty QName(PackageNamespace(""),"clock")
+                                 constructprop QName(PackageNamespace("view.screens.main_game.inventory"),"MixerClockView"), 1
+                                 setproperty QName(PrivateNamespace(null,"33"),"clock_view")
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"33"),"bg")
+                                 pushstring "mix_slot_3"
+                                 getproperty MultinameL([PrivateNamespace(null,"33"),PackageNamespace(""),PrivateNamespace(null,"199"),PackageNamespace("view.screens.main_game.inventory"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:MixerView"),StaticProtectedNs("view.screens.main_game.inventory:MixerView")])
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"33"),"clock_view")
+                                 callpropvoid Multiname("addChild",[PrivateNamespace(null,"33"),PackageNamespace(""),PrivateNamespace(null,"199"),PackageNamespace("view.screens.main_game.inventory"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:MixerView"),StaticProtectedNs("view.screens.main_game.inventory:MixerView")]), 1
+                                 getlocal0
+                                 callpropvoid QName(PrivateNamespace(null,"33"),"refreshButton"), 0
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     private function refreshButton() : void
+                     {
+                        trait method QName(PrivateNamespace(null,"33"),"refreshButton")
+                           dispid 0
+                           method
+                              name null
+                              returns QName(PackageNamespace(""),"void")
+                              
+                              body
+                                 maxstack 4
+                                 localcount 2
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    getlex QName(PackageNamespace(""),"main")
+                                    getproperty QName(PackageNamespace(""),"game")
+                                    callproperty QName(PackageNamespace(""),"getMixer"), 0
+                                    coerce QName(PackageNamespace("main_game.mixer"),"Mixer")
+                                    setlocal1
+                                    getlex QName(PackageNamespace("util"),"Buttons")
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"33"),"bg")
+                                    pushstring "mix_button"
+                                    newarray 1
+                                    getlocal1
+                                    callproperty QName(PackageNamespace(""),"canMix"), 0
+                                    callpropvoid QName(PackageNamespace(""),"setButtons"), 3
+                                    getlocal1
+                                    callproperty QName(PackageNamespace(""),"canMix"), 0
+                                    iffalse ofs0042
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"33"),"bg")
+                                    pushstring "mix_button"
+                                    getproperty MultinameL([PrivateNamespace(null,"33"),PackageNamespace(""),PrivateNamespace(null,"199"),PackageNamespace("view.screens.main_game.inventory"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:MixerView"),StaticProtectedNs("view.screens.main_game.inventory:MixerView")])
+                                    pushstring "idle"
+                                    callpropvoid Multiname("gotoAndStop",[PrivateNamespace(null,"33"),PackageNamespace(""),PrivateNamespace(null,"199"),PackageNamespace("view.screens.main_game.inventory"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:MixerView"),StaticProtectedNs("view.screens.main_game.inventory:MixerView")]), 1
+                                    jump ofs0053
+                           ofs0042:
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"33"),"bg")
+                                    pushstring "mix_button"
+                                    getproperty MultinameL([PrivateNamespace(null,"33"),PackageNamespace(""),PrivateNamespace(null,"199"),PackageNamespace("view.screens.main_game.inventory"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:MixerView"),StaticProtectedNs("view.screens.main_game.inventory:MixerView")])
+                                    pushstring "locked"
+                                    callpropvoid Multiname("gotoAndStop",[PrivateNamespace(null,"33"),PackageNamespace(""),PrivateNamespace(null,"199"),PackageNamespace("view.screens.main_game.inventory"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:MixerView"),StaticProtectedNs("view.screens.main_game.inventory:MixerView")]), 1
+                           ofs0053:
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        public function mixButtonOut(param1:MouseEvent) : void
+                        {
+                           trait method QName(PackageNamespace(""),"mixButtonOut")
+                              dispid 0
+                              method
+                                 name null
+                                 param QName(PackageNamespace("flash.events"),"MouseEvent")
+                                 returns QName(PackageNamespace(""),"void")
+                                 
+                                 body
+                                    maxstack 3
+                                    localcount 2
+                                    initscopedepth 4
+                                    maxscopedepth 5
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       getlex QName(PackageNamespace(""),"main")
+                                       getproperty QName(PackageNamespace(""),"game")
+                                       callproperty QName(PackageNamespace(""),"getMixer"), 0
+                                       callproperty QName(PackageNamespace(""),"canMix"), 0
+                                       iftrue ofs002e
+                                       getlocal1
+                                       callpropvoid QName(PackageNamespace(""),"stopPropagation"), 0
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"33"),"bg")
+                                       pushstring "mix_button"
+                                       getproperty MultinameL([PrivateNamespace(null,"33"),PackageNamespace(""),PrivateNamespace(null,"199"),PackageNamespace("view.screens.main_game.inventory"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:MixerView"),StaticProtectedNs("view.screens.main_game.inventory:MixerView")])
+                                       pushstring "locked"
+                                       callpropvoid Multiname("gotoAndStop",[PrivateNamespace(null,"33"),PackageNamespace(""),PrivateNamespace(null,"199"),PackageNamespace("view.screens.main_game.inventory"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:MixerView"),StaticProtectedNs("view.screens.main_game.inventory:MixerView")]), 1
+                                       jump ofs003d
+                              ofs002e:
+                                       getlex QName(PackageNamespace("cb.data"),"ButtonInfo")
+                                       pushstring "mouseOut"
+                                       pushtrue
+                                       callproperty QName(PackageNamespace(""),"defaultGoto"), 2
+                                       getglobalscope
+                                       getlocal1
+                                       call 1
+                                       pop
+                              ofs003d:
+                                       returnvoid
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           public function clear() : void
+                           {
+                              trait method QName(PackageNamespace(""),"clear")
+                                 dispid 0
+                                 method
+                                    name null
+                                    returns QName(PackageNamespace(""),"void")
+                                    
+                                    body
+                                       maxstack 2
+                                       localcount 4
+                                       initscopedepth 4
+                                       maxscopedepth 5
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          pushnull
+                                          coerce QName(PackageNamespace("view.screens.main_game.slot"),"SlotView")
+                                          setlocal1
+                                          pushbyte 0
+                                          setlocal2
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"33"),"slots")
+                                          coerce_a
+                                          setlocal3
+                                          jump ofs001f
+                                 ofs0013:
+                                          label
+                                          getlocal3
+                                          getlocal2
+                                          nextvalue
+                                          coerce QName(PackageNamespace("view.screens.main_game.slot"),"SlotView")
+                                          setlocal1
+                                          getlocal1
+                                          callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                 ofs001f:
+                                          hasnext2 3, 2
+                                          iftrue ofs0013
+                                          kill 3
+                                          kill 2
+                                          getlocal0
+                                          pushnull
+                                          initproperty QName(PrivateNamespace(null,"33"),"slots")
+                                          returnvoid
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                           }
+                        }
+                        
+                        method
+                           name null
+                           returns null
+                           
+                           body
+                              maxstack 2
+                              localcount 1
+                              initscopedepth 1
+                              maxscopedepth 3
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 findpropstrict Multiname("MixerView",[PackageNamespace("view.screens.main_game.inventory")])
+                                 getlex QName(PackageNamespace(""),"Object")
+                                 pushscope
+                                 getlex QName(PackageNamespace(""),"Object")
+                                 newclass 42
+                                 popscope
+                                 initproperty QName(PackageNamespace("view.screens.main_game.inventory"),"MixerView")
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                        

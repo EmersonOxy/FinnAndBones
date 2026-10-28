@@ -1,0 +1,51 @@
+package view.screens.main_game.dungeon
+{
+   public interface InnerDungeonView
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 0
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 3
+            
+            code
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      function resume() : void;
+      
+      function pause() : void;
+      
+      function clear() : void;
+   }
+}
+
+method
+   name null
+   returns null
+   
+   body
+      maxstack 2
+      localcount 1
+      initscopedepth 1
+      maxscopedepth 2
+      
+      code
+         getlocal0
+         pushscope
+         findpropstrict Multiname("InnerDungeonView",[PackageNamespace("view.screens.main_game.dungeon")])
+         pushnull
+         newclass 184
+         initproperty QName(PackageNamespace("view.screens.main_game.dungeon"),"InnerDungeonView")
+         returnvoid
+      end ; code
+   end ; body
+end ; method
+

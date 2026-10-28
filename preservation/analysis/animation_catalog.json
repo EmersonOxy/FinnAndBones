@@ -1,0 +1,2727 @@
+{
+  "status": "PARCIAL",
+  "description": "Mapeamento de símbolos; classificação de animações e duração não verificada",
+  "count": 340,
+  "entries": [
+    {
+      "swf": "backgrounds",
+      "character_id": 41,
+      "symbol": "assets.background",
+      "source": "assets/other/backgrounds/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "backgrounds",
+      "character_id": 40,
+      "symbol": "assets.Layer_1",
+      "source": "assets/other/backgrounds/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "backgrounds",
+      "character_id": 37,
+      "symbol": "assets.Layer_2",
+      "source": "assets/other/backgrounds/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "backgrounds",
+      "character_id": 34,
+      "symbol": "assets.Layer_2b",
+      "source": "assets/other/backgrounds/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "backgrounds",
+      "character_id": 31,
+      "symbol": "assets.Layer_2c",
+      "source": "assets/other/backgrounds/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "backgrounds",
+      "character_id": 12,
+      "symbol": "assets.Layer_3",
+      "source": "assets/other/backgrounds/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "backgrounds",
+      "character_id": 9,
+      "symbol": "assets.Layer_3b",
+      "source": "assets/other/backgrounds/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "backgrounds",
+      "character_id": 6,
+      "symbol": "assets.Layer_3c",
+      "source": "assets/other/backgrounds/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "backgrounds",
+      "character_id": 3,
+      "symbol": "assets.Mist",
+      "source": "assets/other/backgrounds/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "boss",
+      "character_id": 255,
+      "symbol": "assets.boss_normal.attack",
+      "source": "assets/other/boss/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "boss",
+      "character_id": 247,
+      "symbol": "assets.boss_normal.die",
+      "source": "assets/other/boss/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "boss",
+      "character_id": 246,
+      "symbol": "boss_fla.body_1_die_130",
+      "source": "assets/other/boss/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "boss",
+      "character_id": 239,
+      "symbol": "boss_fla.pilarAll_die2_126",
+      "source": "assets/other/boss/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "boss",
+      "character_id": 238,
+      "symbol": "boss_fla.clawDie_top1_106",
+      "source": "assets/other/boss/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "boss",
+      "character_id": 237,
+      "symbol": "boss_fla.clawDie_top2_105",
+      "source": "assets/other/boss/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "boss",
+      "character_id": 234,
+      "symbol": "boss_fla.miniclaw_1_die_99",
+      "source": "assets/other/boss/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "boss",
+      "character_id": 232,
+      "symbol": "boss_fla.miniclaw_2_die_98",
+      "source": "assets/other/boss/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "boss",
+      "character_id": 231,
+      "symbol": "boss_fla.pilarAll_die_96",
+      "source": "assets/other/boss/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "boss",
+      "character_id": 230,
+      "symbol": "boss_fla.ClawDie_back_95",
+      "source": "assets/other/boss/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "boss",
+      "character_id": 229,
+      "symbol": "assets.boss_normal.evade",
+      "source": "assets/other/boss/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "boss",
+      "character_id": 225,
+      "symbol": "boss_fla.FX_evade_132",
+      "source": "assets/other/boss/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "boss",
+      "character_id": 224,
+      "symbol": "boss_fla.fx_evade_ice_135",
+      "source": "assets/other/boss/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "boss",
+      "character_id": 223,
+      "symbol": "boss_fla.fx_evade_fire_134",
+      "source": "assets/other/boss/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "boss",
+      "character_id": 222,
+      "symbol": "boss_fla.fx_evade_normal_133",
+      "source": "assets/other/boss/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "boss",
+      "character_id": 221,
+      "symbol": "assets.boss_normal.hurt",
+      "source": "assets/other/boss/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "boss",
+      "character_id": 215,
+      "symbol": "boss_fla.FX_hurt_107",
+      "source": "assets/other/boss/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "boss",
+      "character_id": 204,
+      "symbol": "boss_fla.fx_hurt_fire_114",
+      "source": "assets/other/boss/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "boss",
+      "character_id": 197,
+      "symbol": "boss_fla.fx_hurt_normal_108",
+      "source": "assets/other/boss/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "boss",
+      "character_id": 168,
+      "symbol": "assets.boss_normal.idle",
+      "source": "assets/other/boss/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "combat_fx",
+      "character_id": 87,
+      "symbol": "assets.blocked",
+      "source": "assets/other/combat_fx/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "combat_fx",
+      "character_id": 83,
+      "symbol": "assets.criticalHit",
+      "source": "assets/other/combat_fx/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "combat_fx",
+      "character_id": 79,
+      "symbol": "combat_fx_fla.smoke_9",
+      "source": "assets/other/combat_fx/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "combat_fx",
+      "character_id": 70,
+      "symbol": "assets.elementBonus_fire",
+      "source": "assets/other/combat_fx/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "combat_fx",
+      "character_id": 64,
+      "symbol": "assets.elementBonus_ice",
+      "source": "assets/other/combat_fx/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "combat_fx",
+      "character_id": 53,
+      "symbol": "assets.numberHealth",
+      "source": "assets/other/combat_fx/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "combat_fx",
+      "character_id": 52,
+      "symbol": "assets.numberHealth2",
+      "source": "assets/other/combat_fx/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "combat_fx",
+      "character_id": 44,
+      "symbol": "assets.potionFeedback",
+      "source": "assets/other/combat_fx/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "combat_fx",
+      "character_id": 35,
+      "symbol": "combat_fx_fla.shine_container_4",
+      "source": "assets/other/combat_fx/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy1_fire",
+      "character_id": 176,
+      "symbol": "enemy1_fire_fla.FX_fake_63",
+      "source": "assets/other/enemy1_fire/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy1_fire",
+      "character_id": 174,
+      "symbol": "enemy1_fire_fla.FX_attack_53",
+      "source": "assets/other/enemy1_fire/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy1_fire",
+      "character_id": 173,
+      "symbol": "enemy1_fire_fla.fx_attack_ice_57",
+      "source": "assets/other/enemy1_fire/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy1_fire",
+      "character_id": 155,
+      "symbol": "enemy1_fire_fla.fx_attack_fire_55",
+      "source": "assets/other/enemy1_fire/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy1_fire",
+      "character_id": 145,
+      "symbol": "enemy1_fire_fla.fx_attack_normal_54",
+      "source": "assets/other/enemy1_fire/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy1_fire",
+      "character_id": 134,
+      "symbol": "assets.enemy1_fire.hurt",
+      "source": "assets/other/enemy1_fire/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy1_fire",
+      "character_id": 133,
+      "symbol": "assets.enemy1_fire.attack",
+      "source": "assets/other/enemy1_fire/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy1_fire",
+      "character_id": 113,
+      "symbol": "assets.enemy1_fire.die",
+      "source": "assets/other/enemy1_fire/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy1_fire",
+      "character_id": 112,
+      "symbol": "enemy1_fire_fla.FX_hurt_43",
+      "source": "assets/other/enemy1_fire/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy1_fire",
+      "character_id": 111,
+      "symbol": "enemy1_fire_fla.fx_hurt_ice_50",
+      "source": "assets/other/enemy1_fire/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy1_fire",
+      "character_id": 106,
+      "symbol": "enemy1_fire_fla.fx_hurt_fire_47",
+      "source": "assets/other/enemy1_fire/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy1_fire",
+      "character_id": 101,
+      "symbol": "enemy1_fire_fla.fx_hurt_normal_44",
+      "source": "assets/other/enemy1_fire/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy1_fire",
+      "character_id": 92,
+      "symbol": "assets.enemy1_fire.evade",
+      "source": "assets/other/enemy1_fire/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy1_fire",
+      "character_id": 89,
+      "symbol": "enemy1_fire_fla.FX_evade_30",
+      "source": "assets/other/enemy1_fire/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy1_fire",
+      "character_id": 88,
+      "symbol": "enemy1_fire_fla.fx_evade_ice_37",
+      "source": "assets/other/enemy1_fire/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy1_fire",
+      "character_id": 82,
+      "symbol": "enemy1_fire_fla.fx_evade_fire_35",
+      "source": "assets/other/enemy1_fire/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy1_fire",
+      "character_id": 79,
+      "symbol": "enemy1_fire_fla.fx_evade_normal_31",
+      "source": "assets/other/enemy1_fire/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy1_fire",
+      "character_id": 65,
+      "symbol": "assets.enemy1_fire.idle",
+      "source": "assets/other/enemy1_fire/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy1_ice",
+      "character_id": 122,
+      "symbol": "assets.enemy1_ice.attack",
+      "source": "assets/other/enemy1_ice/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy1_ice",
+      "character_id": 100,
+      "symbol": "assets.enemy1_ice.die",
+      "source": "assets/other/enemy1_ice/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy1_ice",
+      "character_id": 99,
+      "symbol": "assets.enemy1_ice.evade",
+      "source": "assets/other/enemy1_ice/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy1_ice",
+      "character_id": 96,
+      "symbol": "enemy1_ice_fla.FX_evade_55",
+      "source": "assets/other/enemy1_ice/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy1_ice",
+      "character_id": 95,
+      "symbol": "enemy1_ice_fla.fx_evade_ice_58",
+      "source": "assets/other/enemy1_ice/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy1_ice",
+      "character_id": 94,
+      "symbol": "enemy1_ice_fla.fx_evade_fire_57",
+      "source": "assets/other/enemy1_ice/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy1_ice",
+      "character_id": 93,
+      "symbol": "enemy1_ice_fla.fx_evade_normal_56",
+      "source": "assets/other/enemy1_ice/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy1_ice",
+      "character_id": 92,
+      "symbol": "assets.enemy1_ice.hurt",
+      "source": "assets/other/enemy1_ice/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy1_ice",
+      "character_id": 91,
+      "symbol": "enemy1_ice_fla.FX_hurt_40",
+      "source": "assets/other/enemy1_ice/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy1_ice",
+      "character_id": 90,
+      "symbol": "enemy1_ice_fla.fx_hurt_ice_51",
+      "source": "assets/other/enemy1_ice/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy1_ice",
+      "character_id": 83,
+      "symbol": "enemy1_ice_fla.fx_hurt_fire_47",
+      "source": "assets/other/enemy1_ice/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy1_ice",
+      "character_id": 76,
+      "symbol": "enemy1_ice_fla.fx_hurt_normal_41",
+      "source": "assets/other/enemy1_ice/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy1_ice",
+      "character_id": 54,
+      "symbol": "assets.enemy1_ice.idle",
+      "source": "assets/other/enemy1_ice/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy1_normal",
+      "character_id": 121,
+      "symbol": "assets.enemy1_normal.die",
+      "source": "assets/other/enemy1_normal/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy1_normal",
+      "character_id": 120,
+      "symbol": "assets.enemy1_normal.attack",
+      "source": "assets/other/enemy1_normal/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy1_normal",
+      "character_id": 103,
+      "symbol": "assets.enemy1_normal.evade",
+      "source": "assets/other/enemy1_normal/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy1_normal",
+      "character_id": 100,
+      "symbol": "enemy1_normal_fla.FX_evade_52",
+      "source": "assets/other/enemy1_normal/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy1_normal",
+      "character_id": 99,
+      "symbol": "enemy1_normal_fla.fx_evade_ice_55",
+      "source": "assets/other/enemy1_normal/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy1_normal",
+      "character_id": 98,
+      "symbol": "enemy1_normal_fla.fx_evade_fire_54",
+      "source": "assets/other/enemy1_normal/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy1_normal",
+      "character_id": 97,
+      "symbol": "enemy1_normal_fla.fx_evade_normal_53",
+      "source": "assets/other/enemy1_normal/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy1_normal",
+      "character_id": 96,
+      "symbol": "assets.enemy1_normal.hurt",
+      "source": "assets/other/enemy1_normal/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy1_normal",
+      "character_id": 95,
+      "symbol": "enemy1_normal_fla.FX_hurt_28",
+      "source": "assets/other/enemy1_normal/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy1_normal",
+      "character_id": 94,
+      "symbol": "enemy1_normal_fla.fx_hurt_ice_39",
+      "source": "assets/other/enemy1_normal/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy1_normal",
+      "character_id": 84,
+      "symbol": "enemy1_normal_fla.fx_hurt_fire_35",
+      "source": "assets/other/enemy1_normal/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy1_normal",
+      "character_id": 77,
+      "symbol": "enemy1_normal_fla.fx_hurt_normal_29",
+      "source": "assets/other/enemy1_normal/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy1_normal",
+      "character_id": 55,
+      "symbol": "assets.enemy1_normal.idle",
+      "source": "assets/other/enemy1_normal/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_fire",
+      "character_id": 108,
+      "symbol": "assets.enemy2_fire.hurt",
+      "source": "assets/other/enemy2_fire/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_fire",
+      "character_id": 106,
+      "symbol": "assets.enemy2_fire.attack",
+      "source": "assets/other/enemy2_fire/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_fire",
+      "character_id": 88,
+      "symbol": "assets.enemy2_fire.die",
+      "source": "assets/other/enemy2_fire/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_fire",
+      "character_id": 87,
+      "symbol": "enemy2_fire_fla.FX_hurt_24",
+      "source": "assets/other/enemy2_fire/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_fire",
+      "character_id": 86,
+      "symbol": "enemy2_fire_fla.fx_hurt_ice_35",
+      "source": "assets/other/enemy2_fire/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_fire",
+      "character_id": 83,
+      "symbol": "enemy2_fire_fla.fx_hurt_fire_31",
+      "source": "assets/other/enemy2_fire/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_fire",
+      "character_id": 78,
+      "symbol": "enemy2_fire_fla.fx_hurt_normal_25",
+      "source": "assets/other/enemy2_fire/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_fire",
+      "character_id": 73,
+      "symbol": "assets.enemy2_fire.evade",
+      "source": "assets/other/enemy2_fire/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_fire",
+      "character_id": 71,
+      "symbol": "enemy2_fire_fla.FX_evade_48",
+      "source": "assets/other/enemy2_fire/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_fire",
+      "character_id": 70,
+      "symbol": "enemy2_fire_fla.fx_evade_ice_51",
+      "source": "assets/other/enemy2_fire/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_fire",
+      "character_id": 64,
+      "symbol": "enemy2_fire_fla.fx_evade_fire_50",
+      "source": "assets/other/enemy2_fire/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_fire",
+      "character_id": 61,
+      "symbol": "enemy2_fire_fla.fx_evade_normal_49",
+      "source": "assets/other/enemy2_fire/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_fire",
+      "character_id": 47,
+      "symbol": "assets.enemy2_fire.idle",
+      "source": "assets/other/enemy2_fire/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_ice",
+      "character_id": 119,
+      "symbol": "assets.enemy2_ice.evade",
+      "source": "assets/other/enemy2_ice/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_ice",
+      "character_id": 116,
+      "symbol": "enemy2_ice_fla.FX_evade_31",
+      "source": "assets/other/enemy2_ice/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_ice",
+      "character_id": 115,
+      "symbol": "enemy2_ice_fla.fx_evade_ice_38",
+      "source": "assets/other/enemy2_ice/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_ice",
+      "character_id": 114,
+      "symbol": "enemy2_ice_fla.fx_evade_fire_36",
+      "source": "assets/other/enemy2_ice/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_ice",
+      "character_id": 113,
+      "symbol": "enemy2_ice_fla.fx_evade_normal_32",
+      "source": "assets/other/enemy2_ice/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_ice",
+      "character_id": 112,
+      "symbol": "assets.enemy2_ice.attack",
+      "source": "assets/other/enemy2_ice/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_ice",
+      "character_id": 96,
+      "symbol": "assets.enemy2_ice.die",
+      "source": "assets/other/enemy2_ice/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_ice",
+      "character_id": 95,
+      "symbol": "assets.enemy2_ice.hurt",
+      "source": "assets/other/enemy2_ice/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_ice",
+      "character_id": 94,
+      "symbol": "enemy2_ice_fla.FX_hurt_48",
+      "source": "assets/other/enemy2_ice/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_ice",
+      "character_id": 93,
+      "symbol": "enemy2_ice_fla.fx_hurt_ice_55",
+      "source": "assets/other/enemy2_ice/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_ice",
+      "character_id": 86,
+      "symbol": "enemy2_ice_fla.fx_hurt_fire_52",
+      "source": "assets/other/enemy2_ice/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_ice",
+      "character_id": 79,
+      "symbol": "enemy2_ice_fla.fx_hurt_normal_49",
+      "source": "assets/other/enemy2_ice/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_ice",
+      "character_id": 58,
+      "symbol": "assets.enemy2_ice.idle",
+      "source": "assets/other/enemy2_ice/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_normal",
+      "character_id": 113,
+      "symbol": "assets.enemy2_normal.attack",
+      "source": "assets/other/enemy2_normal/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_normal",
+      "character_id": 100,
+      "symbol": "assets.enemy2_normal.die",
+      "source": "assets/other/enemy2_normal/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_normal",
+      "character_id": 99,
+      "symbol": "assets.enemy2_normal.evade",
+      "source": "assets/other/enemy2_normal/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_normal",
+      "character_id": 93,
+      "symbol": "enemy2_normal_fla.FX_evade_47",
+      "source": "assets/other/enemy2_normal/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_normal",
+      "character_id": 92,
+      "symbol": "enemy2_normal_fla.fx_evade_ice_50",
+      "source": "assets/other/enemy2_normal/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_normal",
+      "character_id": 91,
+      "symbol": "enemy2_normal_fla.fx_evade_fire_49",
+      "source": "assets/other/enemy2_normal/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_normal",
+      "character_id": 90,
+      "symbol": "enemy2_normal_fla.fx_evade_normal_48",
+      "source": "assets/other/enemy2_normal/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_normal",
+      "character_id": 89,
+      "symbol": "assets.enemy2_normal.hurt",
+      "source": "assets/other/enemy2_normal/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_normal",
+      "character_id": 88,
+      "symbol": "enemy2_normal_fla.FX_hurt_29",
+      "source": "assets/other/enemy2_normal/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_normal",
+      "character_id": 87,
+      "symbol": "enemy2_normal_fla.fx_hurt_ice_40",
+      "source": "assets/other/enemy2_normal/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_normal",
+      "character_id": 77,
+      "symbol": "enemy2_normal_fla.fx_hurt_fire_36",
+      "source": "assets/other/enemy2_normal/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_normal",
+      "character_id": 70,
+      "symbol": "enemy2_normal_fla.fx_hurt_normal_30",
+      "source": "assets/other/enemy2_normal/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_normal",
+      "character_id": 49,
+      "symbol": "assets.enemy2_normal.idle",
+      "source": "assets/other/enemy2_normal/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_snow",
+      "character_id": 113,
+      "symbol": "assets.enemy2_snow.attack",
+      "source": "assets/other/enemy2_snow/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_snow",
+      "character_id": 97,
+      "symbol": "assets.enemy2_snow.die",
+      "source": "assets/other/enemy2_snow/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_snow",
+      "character_id": 96,
+      "symbol": "assets.enemy2_snow.evade",
+      "source": "assets/other/enemy2_snow/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_snow",
+      "character_id": 93,
+      "symbol": "enemy2_snow_fla.FX_evade_48",
+      "source": "assets/other/enemy2_snow/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_snow",
+      "character_id": 92,
+      "symbol": "enemy2_snow_fla.fx_evade_ice_51",
+      "source": "assets/other/enemy2_snow/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_snow",
+      "character_id": 91,
+      "symbol": "enemy2_snow_fla.fx_evade_fire_50",
+      "source": "assets/other/enemy2_snow/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_snow",
+      "character_id": 90,
+      "symbol": "enemy2_snow_fla.fx_evade_normal_49",
+      "source": "assets/other/enemy2_snow/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_snow",
+      "character_id": 89,
+      "symbol": "assets.enemy2_snow.hurt",
+      "source": "assets/other/enemy2_snow/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_snow",
+      "character_id": 88,
+      "symbol": "enemy2_snow_fla.FX_hurt_34",
+      "source": "assets/other/enemy2_snow/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_snow",
+      "character_id": 87,
+      "symbol": "enemy2_snow_fla.fx_hurt_ice_45",
+      "source": "assets/other/enemy2_snow/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_snow",
+      "character_id": 80,
+      "symbol": "enemy2_snow_fla.fx_hurt_fire_41",
+      "source": "assets/other/enemy2_snow/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_snow",
+      "character_id": 73,
+      "symbol": "enemy2_snow_fla.fx_hurt_normal_35",
+      "source": "assets/other/enemy2_snow/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "enemy2_snow",
+      "character_id": 50,
+      "symbol": "assets.enemy2_snow.idle",
+      "source": "assets/other/enemy2_snow/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "finn",
+      "character_id": 500,
+      "symbol": "assets.FinnSword",
+      "source": "assets/other/finn/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "finn",
+      "character_id": 490,
+      "symbol": "finn_fla.fx_critical_ice_218",
+      "source": "assets/other/finn/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "finn",
+      "character_id": 489,
+      "symbol": "finn_fla.fx_critical_explosion_ice_219",
+      "source": "assets/other/finn/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "finn",
+      "character_id": 483,
+      "symbol": "finn_fla.fx_critical_normal_215",
+      "source": "assets/other/finn/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "finn",
+      "character_id": 482,
+      "symbol": "finn_fla.fx_critical_explosion_normal_216",
+      "source": "assets/other/finn/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "finn",
+      "character_id": 478,
+      "symbol": "finn_fla.fx_critical_fire_210",
+      "source": "assets/other/finn/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "finn",
+      "character_id": 477,
+      "symbol": "finn_fla.fx_critical_explosion_fire_211",
+      "source": "assets/other/finn/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "finn",
+      "character_id": 462,
+      "symbol": "finn_fla.fx_attack_ice_147",
+      "source": "assets/other/finn/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "finn",
+      "character_id": 444,
+      "symbol": "finn_fla.fx_attack_fire_143",
+      "source": "assets/other/finn/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "finn",
+      "character_id": 433,
+      "symbol": "finn_fla.fx_attack_normal_142",
+      "source": "assets/other/finn/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "finn",
+      "character_id": 331,
+      "symbol": "finn_fla.gem_sword5_46",
+      "source": "assets/other/finn/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "finn",
+      "character_id": 296,
+      "symbol": "finn_fla.gem_sword4_33",
+      "source": "assets/other/finn/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "finn",
+      "character_id": 269,
+      "symbol": "finn_fla.gem_17",
+      "source": "assets/other/finn/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "finn",
+      "character_id": 243,
+      "symbol": "assets.FinnHand",
+      "source": "assets/other/finn/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "finn",
+      "character_id": 199,
+      "symbol": "finn_fla.fx_hurt_ice_184",
+      "source": "assets/other/finn/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "finn",
+      "character_id": 196,
+      "symbol": "finn_fla.fx_hurt_fire_182",
+      "source": "assets/other/finn/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "finn",
+      "character_id": 191,
+      "symbol": "finn_fla.fx_hurt_normal_179",
+      "source": "assets/other/finn/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "finn",
+      "character_id": 174,
+      "symbol": "finn_fla.fx_evade_ice_167",
+      "source": "assets/other/finn/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "finn",
+      "character_id": 171,
+      "symbol": "finn_fla.fx_evade_fire_166",
+      "source": "assets/other/finn/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "finn",
+      "character_id": 168,
+      "symbol": "finn_fla.fx_evade_normal_162",
+      "source": "assets/other/finn/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "finn",
+      "character_id": 122,
+      "symbol": "finn_fla.gem_shield3_ice_139",
+      "source": "assets/other/finn/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "finn",
+      "character_id": 115,
+      "symbol": "finn_fla.gem_shield3_fire_135",
+      "source": "assets/other/finn/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "finn",
+      "character_id": 108,
+      "symbol": "finn_fla.gem_shield3_130",
+      "source": "assets/other/finn/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "finn",
+      "character_id": 87,
+      "symbol": "finn_fla.gem_shield2_ice_126",
+      "source": "assets/other/finn/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "finn",
+      "character_id": 67,
+      "symbol": "finn_fla.gem_shield2_119",
+      "source": "assets/other/finn/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "finn",
+      "character_id": 37,
+      "symbol": "finn_fla.gem2_8",
+      "source": "assets/other/finn/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 564,
+      "symbol": "assets.applePie",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 561,
+      "symbol": "assets.bone",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 558,
+      "symbol": "assets.book",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 546,
+      "symbol": "assets.bossPendant",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 540,
+      "symbol": "assets.cannedStuff",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 538,
+      "symbol": "items_fla.gem_cannedStuff_17",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 532,
+      "symbol": "assets.emptyCan",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 527,
+      "symbol": "assets.fireFlame.fire",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 525,
+      "symbol": "items_fla.gem_fire_25",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 518,
+      "symbol": "assets.enemySword.fire.01",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 513,
+      "symbol": "assets.fourLeafClover",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 510,
+      "symbol": "assets.frozenMustache",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 504,
+      "symbol": "assets.iceCreamApple",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 501,
+      "symbol": "assets.iceCreamStrawberry",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 496,
+      "symbol": "assets.iceBlock.ice",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 494,
+      "symbol": "items_fla.gem_iceblock_54",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 483,
+      "symbol": "assets.enemySword.ice.01",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 477,
+      "symbol": "assets.JrPetRock",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 466,
+      "symbol": "assets.luckyBone",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 463,
+      "symbol": "assets.manlyBeard",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 460,
+      "symbol": "assets.manlyMustache",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 457,
+      "symbol": "assets.MissPetRock",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 452,
+      "symbol": "assets.MrPetRock",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 447,
+      "symbol": "assets.niceApple",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 444,
+      "symbol": "assets.paper",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 441,
+      "symbol": "assets.pendant.01",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 439,
+      "symbol": "items_fla.pendant1gem2_90",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 435,
+      "symbol": "items_fla.pendant1gem_86",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 424,
+      "symbol": "assets.pendant.02",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 421,
+      "symbol": "items_fla.pendant2gem_95",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 410,
+      "symbol": "assets.pirateFlag",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 407,
+      "symbol": "assets.poison",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 400,
+      "symbol": "assets.potion.big",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 397,
+      "symbol": "items_fla.liquid2big_112",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 395,
+      "symbol": "items_fla.liquid1big_111",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 389,
+      "symbol": "assets.potion.medium",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 386,
+      "symbol": "items_fla.liquid2medium_119",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 384,
+      "symbol": "items_fla.liquid1medium_118",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 378,
+      "symbol": "assets.potion.small",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 373,
+      "symbol": "items_fla.liquid2small_124",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 364,
+      "symbol": "items_fla.liquid1small_123",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 358,
+      "symbol": "assets.recipe",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 353,
+      "symbol": "assets.ring.01",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 351,
+      "symbol": "items_fla.gem_ring_p1_133",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 345,
+      "symbol": "items_fla.gem_ring_p2_132",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 337,
+      "symbol": "assets.ring.02",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 335,
+      "symbol": "items_fla.ring2gem2_139",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 331,
+      "symbol": "items_fla.ring1gem_137",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 325,
+      "symbol": "assets.rottenApple",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 322,
+      "symbol": "assets.seeds",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 316,
+      "symbol": "assets.shield.normal.01",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 309,
+      "symbol": "assets.shield.fire.01",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 296,
+      "symbol": "assets.shield.ice.01",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 290,
+      "symbol": "assets.shield.normal.02",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 287,
+      "symbol": "assets.shield.fire.02",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 284,
+      "symbol": "items_fla.gem_shield2_158",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 275,
+      "symbol": "assets.shield.ice.02",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 272,
+      "symbol": "items_fla.gem_shield2_ice_165",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 265,
+      "symbol": "assets.shield.normal.03",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 260,
+      "symbol": "assets.shield.fire.03",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 249,
+      "symbol": "assets.shield.ice.03",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 247,
+      "symbol": "items_fla.gem_shield3_169",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 234,
+      "symbol": "assets.snailShell",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 231,
+      "symbol": "assets.strawberry",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 222,
+      "symbol": "assets.sword.normal.01",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 216,
+      "symbol": "assets.sword.fire.01",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 210,
+      "symbol": "assets.sword.ice.01",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 204,
+      "symbol": "assets.sword.normal.02",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 196,
+      "symbol": "assets.sword.normal.03",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 189,
+      "symbol": "assets.sword.fire.03",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 187,
+      "symbol": "items_fla.gem2_100",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 179,
+      "symbol": "assets.sword.ice.03",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 168,
+      "symbol": "assets.sword.normal.04",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 161,
+      "symbol": "assets.sword.fire.04",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 148,
+      "symbol": "assets.sword.ice.04",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 142,
+      "symbol": "assets.sword.normal.05",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 132,
+      "symbol": "assets.sword.fire.05",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 130,
+      "symbol": "items_fla.gem_sword5_227",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 107,
+      "symbol": "assets.sword.ice.05",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 99,
+      "symbol": "items_fla.gem_33",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 89,
+      "symbol": "assets.sword.normal.07",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 55,
+      "symbol": "assets.sword.normal.06",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 53,
+      "symbol": "items_fla.gem_sword4_211",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 20,
+      "symbol": "assets.temporalTattoo",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 14,
+      "symbol": "assets.terry",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 6,
+      "symbol": "assets.water",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "items",
+      "character_id": 4,
+      "symbol": "items_fla.gem_water_286",
+      "source": "assets/other/items/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "loading",
+      "character_id": 67,
+      "symbol": "assets.loadingJakeless",
+      "source": "assets/other/loading/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "loading",
+      "character_id": 66,
+      "symbol": "assets.loading",
+      "source": "assets/other/loading/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "main",
+      "character_id": 0,
+      "symbol": "main",
+      "source": "assets/other/main/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "PreloaderCN",
+      "character_id": 53,
+      "symbol": "assets.PreloaderCN",
+      "source": "assets/other/PreloaderCN/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "PreloaderCN",
+      "character_id": 52,
+      "symbol": "Preloader_fla.PreLoaderOut_6",
+      "source": "assets/other/PreloaderCN/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "PreloaderCN",
+      "character_id": 17,
+      "symbol": "Preloader_fla.LoadingProgress_2",
+      "source": "assets/other/PreloaderCN/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 755,
+      "symbol": "assets.ButtonPause",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 752,
+      "symbol": "assets.Map",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 751,
+      "symbol": "screens_fla.map_pages_8",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 742,
+      "symbol": "screens_fla.button_level_optional_37",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 740,
+      "symbol": "screens_fla.button_level_available_10",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 717,
+      "symbol": "screens_fla.LevelLast_11",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 665,
+      "symbol": "assets.BonusMap",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 661,
+      "symbol": "assets.Bonus",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 655,
+      "symbol": "assets.DungeonNormal",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 653,
+      "symbol": "assets.EndGame",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 652,
+      "symbol": "assets.EnemyBar",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 640,
+      "symbol": "assets.FinnBar",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 626,
+      "symbol": "assets.TimeLineFinn",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 624,
+      "symbol": "assets.Time",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 609,
+      "symbol": "assets.Intro",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 607,
+      "symbol": "screens_fla.button_home_50",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 604,
+      "symbol": "screens_fla.button_green_arrow_container_105",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 565,
+      "symbol": "assets.Inventory",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 548,
+      "symbol": "screens_fla.modifiers_slot_201",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 536,
+      "symbol": "screens_fla.shield_weapon_slot_194",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 533,
+      "symbol": "screens_fla.weapon_slot_192",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 525,
+      "symbol": "screens_fla.modifiers_slot_2_185",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 517,
+      "symbol": "screens_fla.red_slot_186",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 505,
+      "symbol": "screens_fla.big_mix_slot_container_181",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 498,
+      "symbol": "screens_fla.mix_slot_container_178",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 485,
+      "symbol": "screens_fla.princess_machine_anim_135",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 381,
+      "symbol": "screens_fla._3d_cube_132",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 365,
+      "symbol": "screens_fla.recipesButton_container_123",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 364,
+      "symbol": "screens_fla.recipeBook_Icon_124",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 359,
+      "symbol": "screens_fla.trash_container_118",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 354,
+      "symbol": "screens_fla.trash_119",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 343,
+      "symbol": "assets.ItemInformationLeft",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 338,
+      "symbol": "assets.ItemInformationRight",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 316,
+      "symbol": "assets.KillFire",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 314,
+      "symbol": "assets.KillIce",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 312,
+      "symbol": "assets.KillNormal",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 310,
+      "symbol": "assets.LevelIcon",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 303,
+      "symbol": "assets.LevelLose",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 293,
+      "symbol": "assets.LevelWin",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 291,
+      "symbol": "screens_fla.total_xp_container_225",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 288,
+      "symbol": "screens_fla.numbers_container_247",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 274,
+      "symbol": "screens_fla.button_loot_container_240",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 271,
+      "symbol": "screens_fla.button_back_238",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 259,
+      "symbol": "assets.LevelUp",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 244,
+      "symbol": "assets.MainMenu",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 243,
+      "symbol": "screens_fla.main_menu_container_258",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 242,
+      "symbol": "screens_fla.button_large_173",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 226,
+      "symbol": "assets.MapSkullFire",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 225,
+      "symbol": "assets.MapSkullIce",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 224,
+      "symbol": "assets.MapSkullNormal",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 223,
+      "symbol": "assets.MixTop",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 220,
+      "symbol": "assets.NewGamePopup",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 218,
+      "symbol": "screens_fla.button_acept_269",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 209,
+      "symbol": "assets.Outro",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 207,
+      "symbol": "screens_fla.outro_arrow_container_299",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 206,
+      "symbol": "screens_fla.button_green_arrow_containerCaracol_288",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 141,
+      "symbol": "assets.Pause",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 139,
+      "symbol": "screens_fla.button_help_304",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 136,
+      "symbol": "screens_fla.button_select_level_227",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 133,
+      "symbol": "screens_fla.button_replay_229",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 130,
+      "symbol": "screens_fla.button_sound_52",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 129,
+      "symbol": "screens_fla.button_sound_icon_53",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 109,
+      "symbol": "assets.PrincessPopUp",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 100,
+      "symbol": "assets.Recipes",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 98,
+      "symbol": "screens_fla.recipe_container_311",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 97,
+      "symbol": "screens_fla.button_cancel_272",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 94,
+      "symbol": "screens_fla.button_basic_marco_3",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 85,
+      "symbol": "screens_fla.map_arrow_container_45",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 67,
+      "symbol": "assets.RecipesContainer",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 62,
+      "symbol": "screens_fla.inventory_slot_container_111",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 45,
+      "symbol": "assets.SkullsX2",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 44,
+      "symbol": "assets.SkullsX3",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 39,
+      "symbol": "assets.Smoke",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 30,
+      "symbol": "assets.Stars",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 27,
+      "symbol": "assets.TimeLine",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 25,
+      "symbol": "assets.DungeonIce",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 20,
+      "symbol": "assets.DungeonFire",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "screens",
+      "character_id": 5,
+      "symbol": "assets.XpIcon",
+      "source": "assets/other/screens/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "tutorials",
+      "character_id": 100,
+      "symbol": "assets.DragThis",
+      "source": "assets/other/tutorials/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "tutorials",
+      "character_id": 87,
+      "symbol": "assets.Tutorial1",
+      "source": "assets/other/tutorials/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "tutorials",
+      "character_id": 81,
+      "symbol": "assets.Tutorial2",
+      "source": "assets/other/tutorials/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "tutorials",
+      "character_id": 59,
+      "symbol": "assets.Tutorial3",
+      "source": "assets/other/tutorials/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "tutorials",
+      "character_id": 54,
+      "symbol": "assets.Tutorial4",
+      "source": "assets/other/tutorials/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "tutorials",
+      "character_id": 44,
+      "symbol": "assets.Tutorial5",
+      "source": "assets/other/tutorials/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "tutorials",
+      "character_id": 41,
+      "symbol": "assets.Tutorial6",
+      "source": "assets/other/tutorials/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "tutorials",
+      "character_id": 31,
+      "symbol": "tutorials_fla.button_ok_33",
+      "source": "assets/other/tutorials/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    },
+    {
+      "swf": "tutorials",
+      "character_id": 5,
+      "symbol": "tutorials_fla.tuto05_1to2_overlay_55",
+      "source": "assets/other/tutorials/symbolClass/symbols.csv",
+      "status": "CONFIRMADO",
+      "note": "Símbolo exportado; não necessariamente animação"
+    }
+  ]
+}

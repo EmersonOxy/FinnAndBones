@@ -1,0 +1,338 @@
+package main_game.dungeon
+{
+   import main_game.item_containers.OneTimeSlot;
+   import main_game.item_containers.Slot;
+   import main_game.items.Item;
+   import main_game.items.ItemFactory;
+   import util.ProbabilisticSet;
+   
+   public class Loot
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var slots:Vector.<Slot>;
+      
+      public function Loot(param1:DungeonConfigData, param2:ProbabilisticSet)
+      {
+         method
+            name null
+            param QName(PackageNamespace("main_game.dungeon"),"DungeonConfigData")
+            param QName(PackageNamespace("util"),"ProbabilisticSet")
+            returns null
+            
+            body
+               maxstack 4
+               localcount 11
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  pushnull
+                  coerce QName(PackageNamespace(""),"Array")
+                  setlocal 4
+                  pushbyte 0
+                  convert_u
+                  setlocal 5
+                  pushnull
+                  coerce QName(PackageNamespace("main_game.item_containers"),"Slot")
+                  setlocal 6
+                  pushnull
+                  coerce_s
+                  setlocal 8
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlex Multiname("Vector",[PrivateNamespace(null,"103"),PackageNamespace(""),PrivateNamespace(null,"276"),PackageNamespace("main_game.dungeon"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:Loot"),StaticProtectedNs("main_game.dungeon:Loot"),PackageNamespace("__AS3__.vec")])
+                  getlex QName(PackageNamespace("main_game.item_containers"),"Slot")
+                  applytype 1
+                  construct 0
+                  initproperty QName(PrivateNamespace(null,"103"),"slots")
+                  findpropstrict QName(PackageNamespace("util"),"ProbabilisticSet")
+                  constructprop QName(PackageNamespace("util"),"ProbabilisticSet"), 0
+                  coerce QName(PackageNamespace("util"),"ProbabilisticSet")
+                  setlocal3
+                  pushbyte 0
+                  setlocal 9
+                  getlocal1
+                  getproperty QName(Namespace("main_game.dungeon:DungeonConfigData"),"lootData")
+                  coerce_a
+                  setlocal 10
+                  jump ofs0059
+         ofs003c:
+                  label
+                  getlocal 10
+                  getlocal 9
+                  nextvalue
+                  coerce QName(PackageNamespace(""),"Array")
+                  setlocal 4
+                  getlocal3
+                  getlocal 4
+                  pushbyte 0
+                  getproperty MultinameL([PrivateNamespace(null,"103"),PackageNamespace(""),PrivateNamespace(null,"276"),PackageNamespace("main_game.dungeon"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:Loot"),StaticProtectedNs("main_game.dungeon:Loot")])
+                  getlocal 4
+                  pushbyte 1
+                  getproperty MultinameL([PrivateNamespace(null,"103"),PackageNamespace(""),PrivateNamespace(null,"276"),PackageNamespace("main_game.dungeon"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:Loot"),StaticProtectedNs("main_game.dungeon:Loot")])
+                  callpropvoid QName(PackageNamespace(""),"add"), 2
+         ofs0059:
+                  hasnext2 10, 9
+                  iftrue ofs003c
+                  kill 10
+                  kill 9
+                  pushbyte 0
+                  convert_u
+                  setlocal 5
+                  jump ofs008f
+         ofs006d:
+                  label
+                  getlocal0
+                  getlocal2
+                  callproperty QName(PackageNamespace(""),"pop"), 0
+                  getlex QName(PackageNamespace(""),"String")
+                  astypelate
+                  callproperty QName(PrivateNamespace(null,"103"),"makeSlot"), 1
+                  coerce QName(PackageNamespace("main_game.item_containers"),"Slot")
+                  setlocal 6
+                  getlocal0
+                  getproperty QName(PrivateNamespace(null,"103"),"slots")
+                  getlocal 6
+                  callpropvoid QName(Namespace("http://adobe.com/AS3/2006/builtin"),"push"), 1
+                  getlocal 5
+                  increment
+                  convert_u
+                  setlocal 5
+         ofs008f:
+                  getlocal 5
+                  pushbyte 3
+                  lessthan
+                  dup
+                  iffalse ofs00a1
+                  pop
+                  getlocal2
+                  getproperty QName(PackageNamespace(""),"length")
+                  pushbyte 0
+                  greaterthan
+         ofs00a1:
+                  iftrue ofs006d
+                  getlocal 5
+                  convert_i
+                  setlocal 7
+                  jump ofs00d1
+         ofs00ae:
+                  label
+                  getlocal3
+                  callproperty QName(PackageNamespace(""),"pop"), 0
+                  getlex QName(PackageNamespace(""),"String")
+                  astypelate
+                  coerce_s
+                  setlocal 8
+                  getlocal0
+                  getlocal 8
+                  callproperty QName(PrivateNamespace(null,"103"),"makeSlot"), 1
+                  coerce QName(PackageNamespace("main_game.item_containers"),"Slot")
+                  setlocal 6
+                  getlocal0
+                  getproperty QName(PrivateNamespace(null,"103"),"slots")
+                  getlocal 6
+                  callpropvoid QName(Namespace("http://adobe.com/AS3/2006/builtin"),"push"), 1
+                  inclocal_i 7
+         ofs00d1:
+                  getlocal 7
+                  pushbyte 3
+                  iflt ofs00ae
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      private function makeSlot(param1:String = null) : Slot
+      {
+         trait method QName(PrivateNamespace(null,"103"),"makeSlot")
+            dispid 0
+            method
+               name null
+               flag HAS_OPTIONAL
+               param QName(PackageNamespace(""),"String")
+               optional Null()
+               returns QName(PackageNamespace("main_game.item_containers"),"Slot")
+               
+               body
+                  maxstack 2
+                  localcount 3
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     pushnull
+                     coerce QName(PackageNamespace("main_game.items"),"Item")
+                     setlocal2
+                     getlocal1
+                     pushnull
+                     ifeq ofs001a
+                     getlex QName(PackageNamespace("main_game.items"),"ItemFactory")
+                     callproperty QName(PackageNamespace(""),"getInstance"), 0
+                     getlocal1
+                     callproperty QName(PackageNamespace(""),"getItem"), 1
+                     coerce QName(PackageNamespace("main_game.items"),"Item")
+                     setlocal2
+            ofs001a:
+                     findpropstrict QName(PackageNamespace("main_game.item_containers"),"OneTimeSlot")
+                     getlocal2
+                     constructprop QName(PackageNamespace("main_game.item_containers"),"OneTimeSlot"), 1
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function getSlot(param1:int) : Slot
+         {
+            trait method QName(PackageNamespace(""),"getSlot")
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace(""),"int")
+                  returns QName(PackageNamespace("main_game.item_containers"),"Slot")
+                  
+                  body
+                     maxstack 2
+                     localcount 2
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"103"),"slots")
+                        getlocal1
+                        getproperty MultinameL([PrivateNamespace(null,"103"),PackageNamespace(""),PrivateNamespace(null,"276"),PackageNamespace("main_game.dungeon"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:Loot"),StaticProtectedNs("main_game.dungeon:Loot")])
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function getBooty() : Vector.<Slot>
+            {
+               trait method QName(PackageNamespace(""),"getBooty")
+                  dispid 0
+                  method
+                     name null
+                     returns TypeName(QName(PackageNamespace("__AS3__.vec"),"Vector")<QName(PackageNamespace("main_game.item_containers"),"Slot")>)
+                     
+                     body
+                        maxstack 1
+                        localcount 1
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"103"),"slots")
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function clear() : void
+               {
+                  trait method QName(PackageNamespace(""),"clear")
+                     dispid 0
+                     method
+                        name null
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 2
+                           localcount 4
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              pushnull
+                              coerce QName(PackageNamespace("main_game.item_containers"),"OneTimeSlot")
+                              setlocal1
+                              pushbyte 0
+                              setlocal2
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"103"),"slots")
+                              coerce_a
+                              setlocal3
+                              jump ofs0021
+                     ofs0014:
+                              label
+                              getlocal3
+                              getlocal2
+                              nextvalue
+                              coerce QName(PackageNamespace("main_game.item_containers"),"OneTimeSlot")
+                              setlocal1
+                              getlocal1
+                              callpropvoid QName(PackageNamespace(""),"clear"), 0
+                     ofs0021:
+                              hasnext2 3, 2
+                              iftrue ofs0014
+                              kill 3
+                              kill 2
+                              getlocal0
+                              pushnull
+                              setproperty QName(PrivateNamespace(null,"103"),"slots")
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+               }
+            }
+            
+            method
+               name null
+               returns null
+               
+               body
+                  maxstack 2
+                  localcount 1
+                  initscopedepth 1
+                  maxscopedepth 3
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     findpropstrict Multiname("Loot",[PackageNamespace("main_game.dungeon")])
+                     getlex QName(PackageNamespace(""),"Object")
+                     pushscope
+                     getlex QName(PackageNamespace(""),"Object")
+                     newclass 179
+                     popscope
+                     initproperty QName(PackageNamespace("main_game.dungeon"),"Loot")
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+            

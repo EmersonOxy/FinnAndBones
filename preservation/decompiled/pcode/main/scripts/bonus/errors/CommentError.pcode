@@ -1,0 +1,91 @@
+package bonus.errors
+{
+   import bonus.LexicalParser;
+   
+   public class CommentError extends GenericError
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 5
+            maxscopedepth 6
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function CommentError(param1:String, param2:int)
+      {
+         method
+            name null
+            param QName(PackageNamespace(""),"String")
+            param QName(PackageNamespace(""),"int")
+            returns null
+            
+            body
+               maxstack 4
+               localcount 3
+               initscopedepth 6
+               maxscopedepth 7
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  getlex QName(PackageNamespace("bonus"),"LexicalParser")
+                  getproperty QName(PackageNamespace(""),"fileName")
+                  pushstring "Expected \'/\' or \'*\' to start comment, but got"
+                  getlocal1
+                  add
+                  pushstring "."
+                  add
+                  getlocal2
+                  constructsuper 3
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+   }
+}
+
+method
+   name null
+   returns null
+   
+   body
+      maxstack 2
+      localcount 1
+      initscopedepth 1
+      maxscopedepth 5
+      
+      code
+         getlocal0
+         pushscope
+         findpropstrict Multiname("CommentError",[PackageNamespace("bonus.errors")])
+         getlex QName(PackageNamespace(""),"Object")
+         pushscope
+         getlex QName(PackageNamespace(""),"Error")
+         pushscope
+         getlex QName(PackageNamespace("bonus.errors"),"GenericError")
+         pushscope
+         getlex QName(PackageNamespace("bonus.errors"),"GenericError")
+         newclass 284
+         popscope
+         popscope
+         popscope
+         initproperty QName(PackageNamespace("bonus.errors"),"CommentError")
+         returnvoid
+      end ; code
+   end ; body
+end ; method
+

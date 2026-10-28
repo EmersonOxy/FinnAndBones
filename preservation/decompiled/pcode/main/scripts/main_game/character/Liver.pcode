@@ -1,0 +1,680 @@
+package main_game.character
+{
+   import cb.signals.Signal;
+   import cb.utils.cbArray;
+   import drag_and_drop.IDragContainer;
+   import main_game.item_containers.Slot;
+   import main_game.item_containers.SlotChange;
+   import main_game.items.Category;
+   import main_game.items.Consumable;
+   import main_game.items.Item;
+   import sound.GameSounds;
+   
+   public class Liver extends Slot
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 4
+            maxscopedepth 5
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public var fighter:Finn;
+      
+      public var onLock:Signal;
+      
+      public function Liver(param1:Finn)
+      {
+         method
+            name null
+            param QName(PackageNamespace("main_game.character"),"Finn")
+            returns null
+            
+            body
+               maxstack 2
+               localcount 2
+               initscopedepth 5
+               maxscopedepth 6
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("cb.signals"),"Signal")
+                  constructprop QName(PackageNamespace("cb.signals"),"Signal"), 0
+                  initproperty QName(PackageNamespace(""),"onLock")
+                  getlocal0
+                  getlocal1
+                  initproperty QName(PackageNamespace(""),"fighter")
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  callpropvoid QName(PackageNamespace(""),"lock"), 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      override public function lock() : void
+      {
+         trait method QName(PackageNamespace(""),"lock")
+            flag OVERRIDE
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 2
+                  localcount 1
+                  initscopedepth 5
+                  maxscopedepth 6
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     callsupervoid QName(PackageNamespace(""),"lock"), 0
+                     getlocal0
+                     getproperty QName(PackageNamespace(""),"onLock")
+                     pushtrue
+                     callpropvoid QName(PackageNamespace(""),"emit"), 1
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         override public function unlock() : void
+         {
+            trait method QName(PackageNamespace(""),"unlock")
+               flag OVERRIDE
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 2
+                     localcount 1
+                     initscopedepth 5
+                     maxscopedepth 6
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        callsupervoid QName(PackageNamespace(""),"unlock"), 0
+                        getlocal0
+                        getproperty QName(PackageNamespace(""),"onLock")
+                        pushfalse
+                        callpropvoid QName(PackageNamespace(""),"emit"), 1
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            override public function moveFrom(param1:Item, param2:IDragContainer) : void
+            {
+               trait method QName(PackageNamespace(""),"moveFrom")
+                  flag OVERRIDE
+                  dispid 0
+                  method
+                     name null
+                     param QName(PackageNamespace("main_game.items"),"Item")
+                     param QName(PackageNamespace("drag_and_drop"),"IDragContainer")
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 2
+                        localcount 3
+                        initscopedepth 5
+                        maxscopedepth 6
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal2
+                           getlocal1
+                           callpropvoid QName(Namespace("drag_and_drop:IDragContainer"),"remove"), 1
+                           getlocal0
+                           getlocal1
+                           callpropvoid QName(PackageNamespace(""),"add"), 1
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               override public function add(param1:Item) : void
+               {
+                  trait method QName(PackageNamespace(""),"add")
+                     flag OVERRIDE
+                     dispid 0
+                     method
+                        name null
+                        param QName(PackageNamespace("main_game.items"),"Item")
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 5
+                           localcount 3
+                           initscopedepth 5
+                           maxscopedepth 6
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal1
+                              callproperty QName(PackageNamespace(""),"getCategory"), 0
+                              getlex QName(PackageNamespace("main_game.items"),"Consumable")
+                              astypelate
+                              coerce QName(PackageNamespace("main_game.items"),"Consumable")
+                              setlocal2
+                              getlocal2
+                              callproperty QName(PackageNamespace(""),"isInstant"), 0
+                              iftrue ofs0033
+                              getlocal2
+                              getproperty QName(PackageNamespace(""),"atEndEffect")
+                              getlocal0
+                              getproperty QName(PackageNamespace(""),"remove")
+                              callpropvoid QName(PackageNamespace(""),"add"), 1
+                              getlocal2
+                              callpropvoid QName(PackageNamespace(""),"degrade"), 0
+                              getlocal0
+                              getlocal1
+                              callsupervoid QName(PackageNamespace(""),"add"), 1
+                              jump ofs0042
+                     ofs0033:
+                              getlex QName(PackageNamespace(""),"onChange")
+                              findpropstrict QName(PackageNamespace("main_game.item_containers"),"SlotChange")
+                              getlocal0
+                              getlocal1
+                              pushnull
+                              constructprop QName(PackageNamespace("main_game.item_containers"),"SlotChange"), 3
+                              callpropvoid QName(PackageNamespace(""),"emit"), 1
+                     ofs0042:
+                              getlocal0
+                              getproperty QName(PackageNamespace(""),"fighter")
+                              getproperty QName(PackageNamespace(""),"stats")
+                              callproperty QName(PackageNamespace(""),"getEffectGuardian"), 0
+                              getlocal1
+                              callpropvoid QName(PackageNamespace(""),"addEfectsOfItem"), 1
+                              getlocal0
+                              getproperty QName(PackageNamespace(""),"fighter")
+                              getlocal1
+                              callpropvoid QName(PackageNamespace(""),"consumePotion"), 1
+                              getlocal2
+                              callproperty QName(PackageNamespace(""),"isInstant"), 0
+                              iffalse ofs0069
+                              getlocal1
+                              callpropvoid QName(PackageNamespace(""),"clear"), 0
+                     ofs0069:
+                              getlex QName(PackageNamespace(""),"main")
+                              getproperty QName(PackageNamespace(""),"saveSystem")
+                              callpropvoid QName(PackageNamespace(""),"savePendingItems"), 0
+                              getlex QName(PackageNamespace(""),"main")
+                              getproperty QName(PackageNamespace(""),"soundManager")
+                              getlex QName(PackageNamespace("sound"),"GameSounds")
+                              getproperty QName(PackageNamespace(""),"CONSUMABLE")
+                              callpropvoid QName(PackageNamespace(""),"playFx"), 1
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function activeBuffs() : cbArray
+                  {
+                     trait method QName(PackageNamespace(""),"activeBuffs")
+                        dispid 0
+                        method
+                           name null
+                           returns QName(PackageNamespace("cb.utils"),"cbArray")
+                           
+                           body
+                              maxstack 2
+                              localcount 3
+                              initscopedepth 5
+                              maxscopedepth 6
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 pushnull
+                                 coerce QName(PackageNamespace("main_game.items"),"Item")
+                                 setlocal2
+                                 findpropstrict QName(PackageNamespace("cb.utils"),"cbArray")
+                                 constructprop QName(PackageNamespace("cb.utils"),"cbArray"), 0
+                                 coerce QName(PackageNamespace("cb.utils"),"cbArray")
+                                 setlocal1
+                                 findpropstrict QName(PackageNamespace(""),"isEmpty")
+                                 callproperty QName(PackageNamespace(""),"isEmpty"), 0
+                                 iftrue ofs003f
+                                 findpropstrict QName(PackageNamespace(""),"getContent")
+                                 callproperty QName(PackageNamespace(""),"getContent"), 0
+                                 coerce QName(PackageNamespace("main_game.items"),"Item")
+                                 setlocal2
+                                 getlocal1
+                                 getlocal2
+                                 callproperty QName(PackageNamespace(""),"getPrimaryModifier"), 0
+                                 callproperty QName(Namespace("main_game.items.modifiers:IModifier"),"getCategory"), 0
+                                 callpropvoid QName(PackageNamespace(""),"pushIfNotPresent"), 1
+                                 getlocal1
+                                 getlocal2
+                                 callproperty QName(PackageNamespace(""),"getSecondaryModifier"), 0
+                                 callproperty QName(Namespace("main_game.items.modifiers:IModifier"),"getCategory"), 0
+                                 callpropvoid QName(PackageNamespace(""),"pushIfNotPresent"), 1
+                        ofs003f:
+                                 getlocal1
+                                 returnvalue
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     override public function remove(param1:Item) : void
+                     {
+                        trait method QName(PackageNamespace(""),"remove")
+                           flag OVERRIDE
+                           dispid 0
+                           method
+                              name null
+                              param QName(PackageNamespace("main_game.items"),"Item")
+                              returns QName(PackageNamespace(""),"void")
+                              
+                              body
+                                 maxstack 2
+                                 localcount 2
+                                 initscopedepth 5
+                                 maxscopedepth 6
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    getlocal0
+                                    getproperty QName(PackageNamespace(""),"fighter")
+                                    getproperty QName(PackageNamespace(""),"stats")
+                                    callproperty QName(PackageNamespace(""),"getEffectGuardian"), 0
+                                    getlocal1
+                                    callpropvoid QName(PackageNamespace(""),"removeEfectsOfItem"), 1
+                                    getlocal0
+                                    getproperty QName(PackageNamespace(""),"fighter")
+                                    getlocal1
+                                    callpropvoid QName(PackageNamespace(""),"endPotionEffect"), 1
+                                    getlocal0
+                                    getlocal1
+                                    callsupervoid QName(PackageNamespace(""),"remove"), 1
+                                    getlocal1
+                                    callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        override public function canRemove(param1:Item) : Boolean
+                        {
+                           trait method QName(PackageNamespace(""),"canRemove")
+                              flag OVERRIDE
+                              dispid 0
+                              method
+                                 name null
+                                 param QName(PackageNamespace("main_game.items"),"Item")
+                                 returns QName(PackageNamespace(""),"Boolean")
+                                 
+                                 body
+                                    maxstack 1
+                                    localcount 2
+                                    initscopedepth 5
+                                    maxscopedepth 6
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       pushfalse
+                                       returnvalue
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           override public function canMoveFrom(param1:Item, param2:IDragContainer) : Boolean
+                           {
+                              trait method QName(PackageNamespace(""),"canMoveFrom")
+                                 flag OVERRIDE
+                                 dispid 0
+                                 method
+                                    name null
+                                    param QName(PackageNamespace("main_game.items"),"Item")
+                                    param QName(PackageNamespace("drag_and_drop"),"IDragContainer")
+                                    returns QName(PackageNamespace(""),"Boolean")
+                                    
+                                    body
+                                       maxstack 2
+                                       localcount 4
+                                       initscopedepth 5
+                                       maxscopedepth 6
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          getlocal1
+                                          callproperty QName(PackageNamespace(""),"getCategory"), 0
+                                          getproperty QName(PackageNamespace(""),"type")
+                                          getlex QName(PackageNamespace("main_game.items"),"Category")
+                                          getproperty QName(PackageNamespace(""),"CONSUMABLE_CATEGORY")
+                                          equals
+                                          dup
+                                          iffalse ofs0024
+                                          pop
+                                          getlocal1
+                                          callproperty QName(PackageNamespace(""),"getCategory"), 0
+                                          getlex QName(PackageNamespace("main_game.items"),"Consumable")
+                                          astypelate
+                                          callproperty QName(PackageNamespace(""),"isInstant"), 0
+                                          convert_b
+                                 ofs0024:
+                                          convert_b
+                                          setlocal3
+                                          getlocal0
+                                          callproperty QName(PackageNamespace(""),"isLocked"), 0
+                                          not
+                                          dup
+                                          iffalse ofs004f
+                                          pop
+                                          getlocal3
+                                          convert_b
+                                          dup
+                                          iftrue ofs004f
+                                          pop
+                                          findpropstrict QName(PackageNamespace(""),"isEmpty")
+                                          callproperty QName(PackageNamespace(""),"isEmpty"), 0
+                                          convert_b
+                                          dup
+                                          iffalse ofs004f
+                                          pop
+                                          getlocal1
+                                          getlocal0
+                                          callproperty QName(PackageNamespace(""),"canBeContained"), 1
+                                          convert_b
+                                 ofs004f:
+                                          returnvalue
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                              
+                              override public function isLocked() : Boolean
+                              {
+                                 trait method QName(PackageNamespace(""),"isLocked")
+                                    flag OVERRIDE
+                                    dispid 0
+                                    method
+                                       name null
+                                       returns QName(PackageNamespace(""),"Boolean")
+                                       
+                                       body
+                                          maxstack 2
+                                          localcount 1
+                                          initscopedepth 5
+                                          maxscopedepth 6
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             getlocal0
+                                             callsuper QName(PackageNamespace(""),"isLocked"), 0
+                                             convert_b
+                                             dup
+                                             iftrue ofs001a
+                                             pop
+                                             getlocal0
+                                             getproperty QName(PackageNamespace(""),"fighter")
+                                             getproperty QName(PackageNamespace(""),"stats")
+                                             callproperty QName(PackageNamespace(""),"isDead"), 0
+                                             convert_b
+                                    ofs001a:
+                                             returnvalue
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                 }
+                                 
+                                 override public function canSwap(param1:IDragContainer) : Boolean
+                                 {
+                                    trait method QName(PackageNamespace(""),"canSwap")
+                                       flag OVERRIDE
+                                       dispid 0
+                                       method
+                                          name null
+                                          param QName(PackageNamespace("drag_and_drop"),"IDragContainer")
+                                          returns QName(PackageNamespace(""),"Boolean")
+                                          
+                                          body
+                                             maxstack 1
+                                             localcount 2
+                                             initscopedepth 5
+                                             maxscopedepth 6
+                                             
+                                             code
+                                                getlocal0
+                                                pushscope
+                                                pushfalse
+                                                returnvalue
+                                             end ; code
+                                          end ; body
+                                       end ; method
+                                    }
+                                    
+                                    override public function itsCompatible(param1:Item, param2:IDragContainer) : Boolean
+                                    {
+                                       trait method QName(PackageNamespace(""),"itsCompatible")
+                                          flag OVERRIDE
+                                          dispid 0
+                                          method
+                                             name null
+                                             param QName(PackageNamespace("main_game.items"),"Item")
+                                             param QName(PackageNamespace("drag_and_drop"),"IDragContainer")
+                                             returns QName(PackageNamespace(""),"Boolean")
+                                             
+                                             body
+                                                maxstack 2
+                                                localcount 3
+                                                initscopedepth 5
+                                                maxscopedepth 6
+                                                
+                                                code
+                                                   getlocal0
+                                                   pushscope
+                                                   getlocal1
+                                                   getlocal0
+                                                   callproperty QName(PackageNamespace(""),"canBeContained"), 1
+                                                   returnvalue
+                                                end ; code
+                                             end ; body
+                                          end ; method
+                                       }
+                                       
+                                       override public function canContainEquipment() : Boolean
+                                       {
+                                          trait method QName(PackageNamespace(""),"canContainEquipment")
+                                             flag OVERRIDE
+                                             dispid 0
+                                             method
+                                                name null
+                                                returns QName(PackageNamespace(""),"Boolean")
+                                                
+                                                body
+                                                   maxstack 1
+                                                   localcount 1
+                                                   initscopedepth 5
+                                                   maxscopedepth 6
+                                                   
+                                                   code
+                                                      getlocal0
+                                                      pushscope
+                                                      pushfalse
+                                                      returnvalue
+                                                   end ; code
+                                                end ; body
+                                             end ; method
+                                          }
+                                          
+                                          override public function canContainWeapon() : Boolean
+                                          {
+                                             trait method QName(PackageNamespace(""),"canContainWeapon")
+                                                flag OVERRIDE
+                                                dispid 0
+                                                method
+                                                   name null
+                                                   returns QName(PackageNamespace(""),"Boolean")
+                                                   
+                                                   body
+                                                      maxstack 1
+                                                      localcount 1
+                                                      initscopedepth 5
+                                                      maxscopedepth 6
+                                                      
+                                                      code
+                                                         getlocal0
+                                                         pushscope
+                                                         pushfalse
+                                                         returnvalue
+                                                      end ; code
+                                                   end ; body
+                                                end ; method
+                                             }
+                                             
+                                             override public function canContainShield() : Boolean
+                                             {
+                                                trait method QName(PackageNamespace(""),"canContainShield")
+                                                   flag OVERRIDE
+                                                   dispid 0
+                                                   method
+                                                      name null
+                                                      returns QName(PackageNamespace(""),"Boolean")
+                                                      
+                                                      body
+                                                         maxstack 1
+                                                         localcount 1
+                                                         initscopedepth 5
+                                                         maxscopedepth 6
+                                                         
+                                                         code
+                                                            getlocal0
+                                                            pushscope
+                                                            pushfalse
+                                                            returnvalue
+                                                         end ; code
+                                                      end ; body
+                                                   end ; method
+                                                }
+                                                
+                                                public function clearBuffs() : void
+                                                {
+                                                   trait method QName(PackageNamespace(""),"clearBuffs")
+                                                      dispid 0
+                                                      method
+                                                         name null
+                                                         returns QName(PackageNamespace(""),"void")
+                                                         
+                                                         body
+                                                            maxstack 2
+                                                            localcount 1
+                                                            initscopedepth 5
+                                                            maxscopedepth 6
+                                                            
+                                                            code
+                                                               getlocal0
+                                                               pushscope
+                                                               findpropstrict QName(PackageNamespace(""),"isEmpty")
+                                                               callproperty QName(PackageNamespace(""),"isEmpty"), 0
+                                                               iftrue ofs0019
+                                                               getlocal0
+                                                               findpropstrict QName(PackageNamespace(""),"getContent")
+                                                               callproperty QName(PackageNamespace(""),"getContent"), 0
+                                                               callpropvoid QName(PackageNamespace(""),"remove"), 1
+                                                      ofs0019:
+                                                               returnvoid
+                                                            end ; code
+                                                         end ; body
+                                                      end ; method
+                                                   }
+                                                   
+                                                   override public function clear() : void
+                                                   {
+                                                      trait method QName(PackageNamespace(""),"clear")
+                                                         flag OVERRIDE
+                                                         dispid 0
+                                                         method
+                                                            name null
+                                                            returns QName(PackageNamespace(""),"void")
+                                                            
+                                                            body
+                                                               maxstack 2
+                                                               localcount 1
+                                                               initscopedepth 5
+                                                               maxscopedepth 6
+                                                               
+                                                               code
+                                                                  getlocal0
+                                                                  pushscope
+                                                                  getlocal0
+                                                                  callsupervoid QName(PackageNamespace(""),"clear"), 0
+                                                                  getlocal0
+                                                                  getproperty QName(PackageNamespace(""),"onLock")
+                                                                  callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                                                  getlocal0
+                                                                  pushnull
+                                                                  setproperty QName(PackageNamespace(""),"fighter")
+                                                                  returnvoid
+                                                               end ; code
+                                                            end ; body
+                                                         end ; method
+                                                      }
+                                                   }
+                                                }
+                                                
+                                                method
+                                                   name null
+                                                   returns null
+                                                   
+                                                   body
+                                                      maxstack 2
+                                                      localcount 1
+                                                      initscopedepth 1
+                                                      maxscopedepth 4
+                                                      
+                                                      code
+                                                         getlocal0
+                                                         pushscope
+                                                         findpropstrict Multiname("Liver",[PackageNamespace("main_game.character")])
+                                                         getlex QName(PackageNamespace(""),"Object")
+                                                         pushscope
+                                                         getlex QName(PackageNamespace("main_game.item_containers"),"Slot")
+                                                         pushscope
+                                                         getlex QName(PackageNamespace("main_game.item_containers"),"Slot")
+                                                         newclass 205
+                                                         popscope
+                                                         popscope
+                                                         initproperty QName(PackageNamespace("main_game.character"),"Liver")
+                                                         returnvoid
+                                                      end ; code
+                                                   end ; body
+                                                end ; method
+                                                

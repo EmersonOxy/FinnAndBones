@@ -1,0 +1,23 @@
+package assets.enemy2_normal
+{
+   import flash.display.MovieClip;
+   
+   [Embed(source="/_assets/assets.swf", symbol="symbol100")]
+   public dynamic class die extends MovieClip
+   {
+      
+      public var fx:MovieClip;
+      
+      public function die()
+      {
+         super();
+         addFrameScript(19,this.frame20);
+      }
+      
+      internal function frame20() : *
+      {
+         stop();
+      }
+   }
+}
+

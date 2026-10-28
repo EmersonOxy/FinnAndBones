@@ -1,0 +1,87 @@
+package main_game.dungeon
+{
+   import main_game.element.Element;
+   
+   public class ElementBonus
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public var element:Element;
+      
+      public var value:Number;
+      
+      public function ElementBonus(param1:Element, param2:Number)
+      {
+         method
+            name null
+            param QName(PackageNamespace("main_game.element"),"Element")
+            param QName(PackageNamespace(""),"Number")
+            returns null
+            
+            body
+               maxstack 2
+               localcount 3
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlocal1
+                  initproperty QName(PackageNamespace(""),"element")
+                  getlocal0
+                  getlocal2
+                  initproperty QName(PackageNamespace(""),"value")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+   }
+}
+
+method
+   name null
+   returns null
+   
+   body
+      maxstack 2
+      localcount 1
+      initscopedepth 1
+      maxscopedepth 3
+      
+      code
+         getlocal0
+         pushscope
+         findpropstrict Multiname("ElementBonus",[PackageNamespace("main_game.dungeon")])
+         getlex QName(PackageNamespace(""),"Object")
+         pushscope
+         getlex QName(PackageNamespace(""),"Object")
+         newclass 273
+         popscope
+         initproperty QName(PackageNamespace("main_game.dungeon"),"ElementBonus")
+         returnvoid
+      end ; code
+   end ; body
+end ; method
+

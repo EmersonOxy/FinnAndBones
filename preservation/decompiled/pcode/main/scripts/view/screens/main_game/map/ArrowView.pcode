@@ -1,0 +1,424 @@
+package view.screens.main_game.map
+{
+   import cb.actions.Functor;
+   import cb.display.SmartMC;
+   import conditions.EndCurrentLabel;
+   import flash.display.MovieClip;
+   import flash.events.MouseEvent;
+   import sound.GameSounds;
+   
+   public class ArrowView
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var mc:MovieClip;
+      
+      private var showing:Boolean;
+      
+      private var click:Function;
+      
+      public function ArrowView(param1:MovieClip, param2:Function = null, param3:Boolean = false)
+      {
+         method
+            name null
+            flag HAS_OPTIONAL
+            param QName(PackageNamespace("flash.display"),"MovieClip")
+            param QName(PackageNamespace(""),"Function")
+            param QName(PackageNamespace(""),"Boolean")
+            optional Null()
+            optional False()
+            returns null
+            
+            body
+               maxstack 2
+               localcount 4
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlocal2
+                  initproperty QName(PrivateNamespace(null,"75"),"click")
+                  getlocal0
+                  getlocal1
+                  initproperty QName(PrivateNamespace(null,"75"),"mc")
+                  getlocal0
+                  pushfalse
+                  initproperty QName(PrivateNamespace(null,"75"),"showing")
+                  getlocal3
+                  iffalse ofs0025
+                  getlocal1
+                  pushstring "arrowOut"
+                  callpropvoid QName(PackageNamespace(""),"gotoAndStop"), 1
+                  jump ofs002d
+         ofs0025:
+                  getlocal1
+                  pushstring "arrowIn"
+                  callpropvoid QName(PackageNamespace(""),"gotoAndStop"), 1
+         ofs002d:
+                  getlocal1
+                  pushtrue
+                  setproperty QName(PackageNamespace(""),"buttonMode")
+                  getlocal0
+                  getlocal1
+                  callpropvoid QName(PrivateNamespace(null,"75"),"initializeButton"), 1
+                  getlocal0
+                  callpropvoid QName(PrivateNamespace(null,"75"),"refreshAsButton"), 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      private function initializeButton(param1:MovieClip) : void
+      {
+         trait method QName(PrivateNamespace(null,"75"),"initializeButton")
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace("flash.display"),"MovieClip")
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 6
+                  localcount 2
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal1
+                     getproperty Multiname("hitbox",[PrivateNamespace(null,"75"),PackageNamespace(""),PrivateNamespace(null,"246"),PackageNamespace("view.screens.main_game.map"),PackageInternalNs("view.screens.main_game.map"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.map:ArrowView"),StaticProtectedNs("view.screens.main_game.map:ArrowView")])
+                     getlex QName(PackageNamespace("flash.events"),"MouseEvent")
+                     getproperty QName(PackageNamespace(""),"CLICK")
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"75"),"onClick")
+                     pushfalse
+                     pushbyte 0
+                     pushtrue
+                     callpropvoid Multiname("addEventListener",[PrivateNamespace(null,"75"),PackageNamespace(""),PrivateNamespace(null,"246"),PackageNamespace("view.screens.main_game.map"),PackageInternalNs("view.screens.main_game.map"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.map:ArrowView"),StaticProtectedNs("view.screens.main_game.map:ArrowView")]), 5
+                     getlocal1
+                     getproperty Multiname("hitbox",[PrivateNamespace(null,"75"),PackageNamespace(""),PrivateNamespace(null,"246"),PackageNamespace("view.screens.main_game.map"),PackageInternalNs("view.screens.main_game.map"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.map:ArrowView"),StaticProtectedNs("view.screens.main_game.map:ArrowView")])
+                     getlex QName(PackageNamespace("flash.events"),"MouseEvent")
+                     getproperty QName(PackageNamespace(""),"ROLL_OVER")
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"75"),"over")
+                     pushfalse
+                     pushbyte 0
+                     pushtrue
+                     callpropvoid Multiname("addEventListener",[PrivateNamespace(null,"75"),PackageNamespace(""),PrivateNamespace(null,"246"),PackageNamespace("view.screens.main_game.map"),PackageInternalNs("view.screens.main_game.map"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.map:ArrowView"),StaticProtectedNs("view.screens.main_game.map:ArrowView")]), 5
+                     getlocal1
+                     getproperty Multiname("hitbox",[PrivateNamespace(null,"75"),PackageNamespace(""),PrivateNamespace(null,"246"),PackageNamespace("view.screens.main_game.map"),PackageInternalNs("view.screens.main_game.map"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.map:ArrowView"),StaticProtectedNs("view.screens.main_game.map:ArrowView")])
+                     getlex QName(PackageNamespace("flash.events"),"MouseEvent")
+                     getproperty QName(PackageNamespace(""),"ROLL_OUT")
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"75"),"out")
+                     pushfalse
+                     pushbyte 0
+                     pushtrue
+                     callpropvoid Multiname("addEventListener",[PrivateNamespace(null,"75"),PackageNamespace(""),PrivateNamespace(null,"246"),PackageNamespace("view.screens.main_game.map"),PackageInternalNs("view.screens.main_game.map"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.map:ArrowView"),StaticProtectedNs("view.screens.main_game.map:ArrowView")]), 5
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         private function onClick(param1:MouseEvent) : void
+         {
+            trait method QName(PrivateNamespace(null,"75"),"onClick")
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace("flash.events"),"MouseEvent")
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 2
+                     localcount 2
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlex QName(PackageNamespace(""),"main")
+                        getproperty QName(PackageNamespace(""),"soundManager")
+                        getlex QName(PackageNamespace("sound"),"GameSounds")
+                        getproperty QName(PackageNamespace(""),"BUTTON_CLICK")
+                        callpropvoid QName(PackageNamespace(""),"playFx"), 1
+                        getlocal0
+                        callpropvoid QName(PrivateNamespace(null,"75"),"click"), 0
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            private function over(param1:MouseEvent) : void
+            {
+               trait method QName(PrivateNamespace(null,"75"),"over")
+                  dispid 0
+                  method
+                     name null
+                     param QName(PackageNamespace("flash.events"),"MouseEvent")
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 2
+                        localcount 2
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"75"),"showing")
+                           iffalse ofs0025
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"75"),"mc")
+                           pushstring "mouseOver"
+                           callpropvoid QName(PackageNamespace(""),"gotoAndPlay"), 1
+                           getlex QName(PackageNamespace(""),"main")
+                           getproperty QName(PackageNamespace(""),"soundManager")
+                           getlex QName(PackageNamespace("sound"),"GameSounds")
+                           getproperty QName(PackageNamespace(""),"MOUSE_OVER")
+                           callpropvoid QName(PackageNamespace(""),"playFx"), 1
+                  ofs0025:
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               private function out(param1:MouseEvent) : void
+               {
+                  trait method QName(PrivateNamespace(null,"75"),"out")
+                     dispid 0
+                     method
+                        name null
+                        param QName(PackageNamespace("flash.events"),"MouseEvent")
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 2
+                           localcount 2
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"75"),"showing")
+                              iffalse ofs0025
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"75"),"mc")
+                              pushstring "mouseOut"
+                              callpropvoid QName(PackageNamespace(""),"gotoAndPlay"), 1
+                              getlex QName(PackageNamespace(""),"main")
+                              getproperty QName(PackageNamespace(""),"soundManager")
+                              getlex QName(PackageNamespace("sound"),"GameSounds")
+                              getproperty QName(PackageNamespace(""),"MOUSE_OVER")
+                              callpropvoid QName(PackageNamespace(""),"playFx"), 1
+                     ofs0025:
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function hide() : void
+                  {
+                     trait method QName(PackageNamespace(""),"hide")
+                        dispid 0
+                        method
+                           name null
+                           returns QName(PackageNamespace(""),"void")
+                           
+                           body
+                              maxstack 2
+                              localcount 1
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"75"),"showing")
+                                 iffalse ofs001f
+                                 getlocal0
+                                 pushfalse
+                                 initproperty QName(PrivateNamespace(null,"75"),"showing")
+                                 getlocal0
+                                 callpropvoid QName(PrivateNamespace(null,"75"),"refreshAsButton"), 0
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"75"),"mc")
+                                 pushstring "arrowOut"
+                                 callpropvoid QName(PackageNamespace(""),"gotoAndPlay"), 1
+                        ofs001f:
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     public function show() : void
+                     {
+                        trait method QName(PackageNamespace(""),"show")
+                           dispid 0
+                           method
+                              name null
+                              returns QName(PackageNamespace(""),"void")
+                              
+                              body
+                                 maxstack 4
+                                 localcount 1
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"75"),"showing")
+                                    iftrue ofs003e
+                                    getlocal0
+                                    pushtrue
+                                    initproperty QName(PrivateNamespace(null,"75"),"showing")
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"75"),"mc")
+                                    pushstring "arrowIn"
+                                    callpropvoid QName(PackageNamespace(""),"gotoAndPlay"), 1
+                                    findpropstrict QName(PackageNamespace("cb.display"),"SmartMC")
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"75"),"mc")
+                                    constructprop QName(PackageNamespace("cb.display"),"SmartMC"), 1
+                                    findpropstrict QName(PackageNamespace("conditions"),"EndCurrentLabel")
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"75"),"mc")
+                                    constructprop QName(PackageNamespace("conditions"),"EndCurrentLabel"), 1
+                                    getlex QName(PackageNamespace("cb.actions"),"Functor")
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"75"),"refreshAsButton")
+                                    callproperty QName(PackageNamespace(""),"wrap"), 1
+                                    callpropvoid QName(PackageNamespace(""),"trigger"), 2
+                           ofs003e:
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        private function refreshAsButton() : void
+                        {
+                           trait method QName(PrivateNamespace(null,"75"),"refreshAsButton")
+                              dispid 0
+                              method
+                                 name null
+                                 returns QName(PackageNamespace(""),"void")
+                                 
+                                 body
+                                    maxstack 2
+                                    localcount 1
+                                    initscopedepth 4
+                                    maxscopedepth 5
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"75"),"mc")
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"75"),"showing")
+                                       setproperty QName(PackageNamespace(""),"mouseEnabled")
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"75"),"mc")
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"75"),"showing")
+                                       setproperty QName(PackageNamespace(""),"mouseChildren")
+                                       returnvoid
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           public function clear() : void
+                           {
+                              trait method QName(PackageNamespace(""),"clear")
+                                 dispid 0
+                                 method
+                                    name null
+                                    returns QName(PackageNamespace(""),"void")
+                                    
+                                    body
+                                       maxstack 2
+                                       localcount 1
+                                       initscopedepth 4
+                                       maxscopedepth 5
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          getlocal0
+                                          pushnull
+                                          setproperty QName(PrivateNamespace(null,"75"),"mc")
+                                          getlocal0
+                                          pushnull
+                                          setproperty QName(PrivateNamespace(null,"75"),"click")
+                                          returnvoid
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                           }
+                        }
+                        
+                        method
+                           name null
+                           returns null
+                           
+                           body
+                              maxstack 2
+                              localcount 1
+                              initscopedepth 1
+                              maxscopedepth 3
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 findpropstrict Multiname("ArrowView",[PackageNamespace("view.screens.main_game.map")])
+                                 getlex QName(PackageNamespace(""),"Object")
+                                 pushscope
+                                 getlex QName(PackageNamespace(""),"Object")
+                                 newclass 123
+                                 popscope
+                                 initproperty QName(PackageNamespace("view.screens.main_game.map"),"ArrowView")
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                        

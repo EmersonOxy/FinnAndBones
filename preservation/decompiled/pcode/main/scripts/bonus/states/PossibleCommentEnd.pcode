@@ -1,0 +1,201 @@
+package bonus.states
+{
+   public class PossibleCommentEnd extends BaseState
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 5
+            maxscopedepth 6
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function PossibleCommentEnd(param1:BaseState)
+      {
+         method
+            name null
+            param QName(PackageNamespace("bonus.states"),"BaseState")
+            returns null
+            
+            body
+               maxstack 4
+               localcount 2
+               initscopedepth 6
+               maxscopedepth 7
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  pushstring ""
+                  pushnull
+                  getlocal1
+                  constructsuper 3
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      override protected function onMisc(param1:String) : BaseState
+      {
+         trait method QName(ProtectedNamespace("bonus.states:PossibleCommentEnd"),"onMisc")
+            flag OVERRIDE
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace(""),"String")
+               returns QName(PackageNamespace("bonus.states"),"BaseState")
+               
+               body
+                  maxstack 2
+                  localcount 2
+                  initscopedepth 6
+                  maxscopedepth 7
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal1
+                     pushstring "/"
+                     ifne ofs000e
+                     getlex QName(ProtectedNamespace("bonus.states:BaseState"),"parent")
+                     returnvalue
+            ofs000e:
+                     findpropstrict QName(PackageNamespace("bonus.states"),"MultipleLineComment")
+                     getlex QName(ProtectedNamespace("bonus.states:BaseState"),"parent")
+                     constructprop QName(PackageNamespace("bonus.states"),"MultipleLineComment"), 1
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         override protected function onDigit(param1:String) : BaseState
+         {
+            trait method QName(ProtectedNamespace("bonus.states:PossibleCommentEnd"),"onDigit")
+               flag OVERRIDE
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace(""),"String")
+                  returns QName(PackageNamespace("bonus.states"),"BaseState")
+                  
+                  body
+                     maxstack 2
+                     localcount 2
+                     initscopedepth 6
+                     maxscopedepth 7
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        findpropstrict QName(PackageNamespace("bonus.states"),"MultipleLineComment")
+                        getlex QName(ProtectedNamespace("bonus.states:BaseState"),"parent")
+                        constructprop QName(PackageNamespace("bonus.states"),"MultipleLineComment"), 1
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            override protected function onSpace(param1:String) : BaseState
+            {
+               trait method QName(ProtectedNamespace("bonus.states:PossibleCommentEnd"),"onSpace")
+                  flag OVERRIDE
+                  dispid 0
+                  method
+                     name null
+                     param QName(PackageNamespace(""),"String")
+                     returns QName(PackageNamespace("bonus.states"),"BaseState")
+                     
+                     body
+                        maxstack 2
+                        localcount 2
+                        initscopedepth 6
+                        maxscopedepth 7
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           findpropstrict QName(PackageNamespace("bonus.states"),"MultipleLineComment")
+                           getlex QName(ProtectedNamespace("bonus.states:BaseState"),"parent")
+                           constructprop QName(PackageNamespace("bonus.states"),"MultipleLineComment"), 1
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               override protected function onLetter(param1:String) : BaseState
+               {
+                  trait method QName(ProtectedNamespace("bonus.states:PossibleCommentEnd"),"onLetter")
+                     flag OVERRIDE
+                     dispid 0
+                     method
+                        name null
+                        param QName(PackageNamespace(""),"String")
+                        returns QName(PackageNamespace("bonus.states"),"BaseState")
+                        
+                        body
+                           maxstack 2
+                           localcount 2
+                           initscopedepth 6
+                           maxscopedepth 7
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              findpropstrict QName(PackageNamespace("bonus.states"),"MultipleLineComment")
+                              getlex QName(ProtectedNamespace("bonus.states:BaseState"),"parent")
+                              constructprop QName(PackageNamespace("bonus.states"),"MultipleLineComment"), 1
+                              returnvalue
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+               }
+            }
+            
+            method
+               name null
+               returns null
+               
+               body
+                  maxstack 2
+                  localcount 1
+                  initscopedepth 1
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     findpropstrict Multiname("PossibleCommentEnd",[PackageNamespace("bonus.states")])
+                     getlex QName(PackageNamespace(""),"Object")
+                     pushscope
+                     getlex QName(PackageNamespace("flash.events"),"EventDispatcher")
+                     pushscope
+                     getlex QName(PackageNamespace("bonus.states"),"BaseState")
+                     pushscope
+                     getlex QName(PackageNamespace("bonus.states"),"BaseState")
+                     newclass 293
+                     popscope
+                     popscope
+                     popscope
+                     initproperty QName(PackageNamespace("bonus.states"),"PossibleCommentEnd")
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+            

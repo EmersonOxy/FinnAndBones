@@ -1,0 +1,739 @@
+package main_game.element
+{
+   public class Element
+   {
+      
+      private static var fireElement:Element;
+      
+      private static var iceElement:Element;
+      
+      private static var normalElement:Element;
+      
+      public static const FIRE:String = "F";
+      
+      public static const ICE:String = "I";
+      
+      public static const NORMAL:String = "N";
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(PackageNamespace(""),"FIRE")
+               pushstring "F"
+               initproperty QName(PackageNamespace(""),"FIRE")
+               findproperty QName(PackageNamespace(""),"ICE")
+               pushstring "I"
+               initproperty QName(PackageNamespace(""),"ICE")
+               findproperty QName(PackageNamespace(""),"NORMAL")
+               pushstring "N"
+               initproperty QName(PackageNamespace(""),"NORMAL")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function Element(param1:Lock)
+      {
+         method
+            name null
+            param QName(PrivateNamespace(null,"4"),"Lock")
+            returns null
+            
+            body
+               maxstack 1
+               localcount 2
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public static function get fire() : Element
+      {
+         trait getter QName(PackageNamespace(""),"fire")
+            flag FINAL
+            dispid 3
+            method
+               name null
+               returns QName(PackageNamespace("main_game.element"),"Element")
+               
+               body
+                  maxstack 2
+                  localcount 1
+                  initscopedepth 3
+                  maxscopedepth 4
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlex QName(PrivateNamespace(null,"174"),"fireElement")
+                     iftrue ofs0016
+                     findproperty QName(PrivateNamespace(null,"174"),"fireElement")
+                     findpropstrict QName(PrivateNamespace(null,"4"),"Fire")
+                     constructprop QName(PrivateNamespace(null,"4"),"Fire"), 0
+                     setproperty QName(PrivateNamespace(null,"174"),"fireElement")
+            ofs0016:
+                     getlex QName(PrivateNamespace(null,"174"),"fireElement")
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public static function get ice() : Element
+         {
+            trait getter QName(PackageNamespace(""),"ice")
+               flag FINAL
+               dispid 4
+               method
+                  name null
+                  returns QName(PackageNamespace("main_game.element"),"Element")
+                  
+                  body
+                     maxstack 2
+                     localcount 1
+                     initscopedepth 3
+                     maxscopedepth 4
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlex QName(PrivateNamespace(null,"174"),"iceElement")
+                        iftrue ofs0016
+                        findproperty QName(PrivateNamespace(null,"174"),"iceElement")
+                        findpropstrict QName(PrivateNamespace(null,"4"),"Ice")
+                        constructprop QName(PrivateNamespace(null,"4"),"Ice"), 0
+                        setproperty QName(PrivateNamespace(null,"174"),"iceElement")
+               ofs0016:
+                        getlex QName(PrivateNamespace(null,"174"),"iceElement")
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public static function get normal() : Element
+            {
+               trait getter QName(PackageNamespace(""),"normal")
+                  flag FINAL
+                  dispid 5
+                  method
+                     name null
+                     returns QName(PackageNamespace("main_game.element"),"Element")
+                     
+                     body
+                        maxstack 2
+                        localcount 1
+                        initscopedepth 3
+                        maxscopedepth 4
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlex QName(PrivateNamespace(null,"174"),"normalElement")
+                           iftrue ofs0016
+                           findproperty QName(PrivateNamespace(null,"174"),"normalElement")
+                           findpropstrict QName(PrivateNamespace(null,"4"),"Normal")
+                           constructprop QName(PrivateNamespace(null,"4"),"Normal"), 0
+                           setproperty QName(PrivateNamespace(null,"174"),"normalElement")
+                  ofs0016:
+                           getlex QName(PrivateNamespace(null,"174"),"normalElement")
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public static function parseElement(param1:String) : Element
+               {
+                  trait method QName(PackageNamespace(""),"parseElement")
+                     flag FINAL
+                     dispid 6
+                     method
+                        name null
+                        param QName(PackageNamespace(""),"String")
+                        returns QName(PackageNamespace("main_game.element"),"Element")
+                        
+                        body
+                           maxstack 3
+                           localcount 4
+                           initscopedepth 3
+                           maxscopedepth 4
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal1
+                              coerce_s
+                              setlocal2
+                              getlocal2
+                              pushnull
+                              ifne ofs0014
+                              getlex QName(PackageNamespace(""),"NORMAL")
+                              coerce_s
+                              setlocal2
+                              jump ofs0032
+                     ofs0014:
+                              getlocal2
+                              pushstring "Ice"
+                              ifne ofs0025
+                              getlex QName(PackageNamespace(""),"ICE")
+                              coerce_s
+                              setlocal2
+                              jump ofs0032
+                     ofs0025:
+                              getlocal2
+                              pushstring "Fire"
+                              ifne ofs0032
+                              getlex QName(PackageNamespace(""),"FIRE")
+                              coerce_s
+                              setlocal2
+                     ofs0032:
+                              jump ofs0057
+                     ofs0036:
+                              label
+                              getlex QName(PackageNamespace(""),"fire")
+                              returnvalue
+                     ofs003b:
+                              label
+                              getlex QName(PackageNamespace(""),"ice")
+                              returnvalue
+                     ofs0040:
+                              label
+                              getlex QName(PackageNamespace(""),"normal")
+                              returnvalue
+                     ofs0045:
+                              label
+                              findpropstrict QName(PackageNamespace(""),"Error")
+                              pushstring "Cant parse: "
+                              getlocal1
+                              add
+                              constructprop QName(PackageNamespace(""),"Error"), 1
+                              throw
+                              jump ofs0057
+                     ofs0057:
+                              getlocal2
+                              setlocal3
+                              getlex QName(PackageNamespace(""),"FIRE")
+                              getlocal3
+                              ifstrictne ofs0067
+                              pushbyte 0
+                              jump ofs008f
+                     ofs0067:
+                              getlex QName(PackageNamespace(""),"ICE")
+                              getlocal3
+                              ifstrictne ofs0075
+                              pushbyte 1
+                              jump ofs008f
+                     ofs0075:
+                              getlex QName(PackageNamespace(""),"NORMAL")
+                              getlocal3
+                              ifstrictne ofs0083
+                              pushbyte 2
+                              jump ofs008f
+                     ofs0083:
+                              jump ofs008d
+                              pushbyte 3
+                              jump ofs008d
+                     ofs008d:
+                              pushbyte 3
+                     ofs008f:
+                              kill 3
+                              lookupswitch ofs0045, [ofs0036, ofs003b, ofs0040, ofs0045]
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function get isOfFire() : Boolean
+                  {
+                     trait getter QName(PackageNamespace(""),"isOfFire")
+                        dispid 0
+                        method
+                           name null
+                           returns QName(PackageNamespace(""),"Boolean")
+                           
+                           body
+                              maxstack 1
+                              localcount 1
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 pushfalse
+                                 returnvalue
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     public function get isOfIce() : Boolean
+                     {
+                        trait getter QName(PackageNamespace(""),"isOfIce")
+                           dispid 0
+                           method
+                              name null
+                              returns QName(PackageNamespace(""),"Boolean")
+                              
+                              body
+                                 maxstack 1
+                                 localcount 1
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    pushfalse
+                                    returnvalue
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        public function get type() : String
+                        {
+                           trait getter QName(PackageNamespace(""),"type")
+                              dispid 0
+                              method
+                                 name null
+                                 returns QName(PackageNamespace(""),"String")
+                                 
+                                 body
+                                    maxstack 2
+                                    localcount 1
+                                    initscopedepth 4
+                                    maxscopedepth 5
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       findpropstrict QName(PackageNamespace(""),"Error")
+                                       pushstring "AbstractClass"
+                                       constructprop QName(PackageNamespace(""),"Error"), 1
+                                       throw
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           public function clear() : void
+                           {
+                              trait method QName(PackageNamespace(""),"clear")
+                                 dispid 0
+                                 method
+                                    name null
+                                    returns QName(PackageNamespace(""),"void")
+                                    
+                                    body
+                                       maxstack 1
+                                       localcount 1
+                                       initscopedepth 4
+                                       maxscopedepth 5
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          returnvoid
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                           }
+                        }
+                        
+                        import main_game.element.Element;
+                        
+                        class Fire extends Element
+                        {
+                           
+                           method
+                              name null
+                              returns null
+                              
+                              body
+                                 maxstack 1
+                                 localcount 1
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                           
+                           public function Fire()
+                           {
+                              method
+                                 name null
+                                 returns null
+                                 
+                                 body
+                                    maxstack 2
+                                    localcount 1
+                                    initscopedepth 5
+                                    maxscopedepth 6
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       getlocal0
+                                       findpropstrict QName(PrivateNamespace(null,"4"),"Lock")
+                                       constructprop QName(PrivateNamespace(null,"4"),"Lock"), 0
+                                       constructsuper 1
+                                       returnvoid
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           override public function get isOfFire() : Boolean
+                           {
+                              trait getter QName(PackageNamespace(""),"isOfFire")
+                                 flag OVERRIDE
+                                 dispid 0
+                                 method
+                                    name null
+                                    returns QName(PackageNamespace(""),"Boolean")
+                                    
+                                    body
+                                       maxstack 1
+                                       localcount 1
+                                       initscopedepth 5
+                                       maxscopedepth 6
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          pushtrue
+                                          returnvalue
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                              
+                              override public function get type() : String
+                              {
+                                 trait getter QName(PackageNamespace(""),"type")
+                                    flag OVERRIDE
+                                    dispid 0
+                                    method
+                                       name null
+                                       returns QName(PackageNamespace(""),"String")
+                                       
+                                       body
+                                          maxstack 1
+                                          localcount 1
+                                          initscopedepth 5
+                                          maxscopedepth 6
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             getlex QName(PackageNamespace(""),"FIRE")
+                                             returnvalue
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                 }
+                              }
+                              
+                              class Ice extends Element
+                              {
+                                 
+                                 method
+                                    name null
+                                    returns null
+                                    
+                                    body
+                                       maxstack 1
+                                       localcount 1
+                                       initscopedepth 4
+                                       maxscopedepth 5
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          returnvoid
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                                 
+                                 public function Ice()
+                                 {
+                                    method
+                                       name null
+                                       returns null
+                                       
+                                       body
+                                          maxstack 2
+                                          localcount 1
+                                          initscopedepth 5
+                                          maxscopedepth 6
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             getlocal0
+                                             findpropstrict QName(PrivateNamespace(null,"4"),"Lock")
+                                             constructprop QName(PrivateNamespace(null,"4"),"Lock"), 0
+                                             constructsuper 1
+                                             returnvoid
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                 }
+                                 
+                                 override public function get isOfIce() : Boolean
+                                 {
+                                    trait getter QName(PackageNamespace(""),"isOfIce")
+                                       flag OVERRIDE
+                                       dispid 0
+                                       method
+                                          name null
+                                          returns QName(PackageNamespace(""),"Boolean")
+                                          
+                                          body
+                                             maxstack 1
+                                             localcount 1
+                                             initscopedepth 5
+                                             maxscopedepth 6
+                                             
+                                             code
+                                                getlocal0
+                                                pushscope
+                                                pushtrue
+                                                returnvalue
+                                             end ; code
+                                          end ; body
+                                       end ; method
+                                    }
+                                    
+                                    override public function get type() : String
+                                    {
+                                       trait getter QName(PackageNamespace(""),"type")
+                                          flag OVERRIDE
+                                          dispid 0
+                                          method
+                                             name null
+                                             returns QName(PackageNamespace(""),"String")
+                                             
+                                             body
+                                                maxstack 1
+                                                localcount 1
+                                                initscopedepth 5
+                                                maxscopedepth 6
+                                                
+                                                code
+                                                   getlocal0
+                                                   pushscope
+                                                   getlex QName(PackageNamespace(""),"ICE")
+                                                   returnvalue
+                                                end ; code
+                                             end ; body
+                                          end ; method
+                                       }
+                                    }
+                                    
+                                    class Normal extends Element
+                                    {
+                                       
+                                       method
+                                          name null
+                                          returns null
+                                          
+                                          body
+                                             maxstack 1
+                                             localcount 1
+                                             initscopedepth 4
+                                             maxscopedepth 5
+                                             
+                                             code
+                                                getlocal0
+                                                pushscope
+                                                returnvoid
+                                             end ; code
+                                          end ; body
+                                       end ; method
+                                       
+                                       public function Normal()
+                                       {
+                                          method
+                                             name null
+                                             returns null
+                                             
+                                             body
+                                                maxstack 2
+                                                localcount 1
+                                                initscopedepth 5
+                                                maxscopedepth 6
+                                                
+                                                code
+                                                   getlocal0
+                                                   pushscope
+                                                   getlocal0
+                                                   findpropstrict QName(PrivateNamespace(null,"4"),"Lock")
+                                                   constructprop QName(PrivateNamespace(null,"4"),"Lock"), 0
+                                                   constructsuper 1
+                                                   returnvoid
+                                                end ; code
+                                             end ; body
+                                          end ; method
+                                       }
+                                       
+                                       override public function get type() : String
+                                       {
+                                          trait getter QName(PackageNamespace(""),"type")
+                                             flag OVERRIDE
+                                             dispid 0
+                                             method
+                                                name null
+                                                returns QName(PackageNamespace(""),"String")
+                                                
+                                                body
+                                                   maxstack 1
+                                                   localcount 1
+                                                   initscopedepth 5
+                                                   maxscopedepth 6
+                                                   
+                                                   code
+                                                      getlocal0
+                                                      pushscope
+                                                      getlex QName(PackageNamespace(""),"NORMAL")
+                                                      returnvalue
+                                                   end ; code
+                                                end ; body
+                                             end ; method
+                                          }
+                                       }
+                                       
+                                       class Lock
+                                       {
+                                          
+                                          method
+                                             name null
+                                             returns null
+                                             
+                                             body
+                                                maxstack 1
+                                                localcount 1
+                                                initscopedepth 3
+                                                maxscopedepth 4
+                                                
+                                                code
+                                                   getlocal0
+                                                   pushscope
+                                                   returnvoid
+                                                end ; code
+                                             end ; body
+                                          end ; method
+                                          
+                                          public function Lock()
+                                          {
+                                             method
+                                                name null
+                                                returns null
+                                                
+                                                body
+                                                   maxstack 1
+                                                   localcount 1
+                                                   initscopedepth 4
+                                                   maxscopedepth 5
+                                                   
+                                                   code
+                                                      getlocal0
+                                                      pushscope
+                                                      getlocal0
+                                                      constructsuper 0
+                                                      returnvoid
+                                                   end ; code
+                                                end ; body
+                                             end ; method
+                                          }
+                                       }
+                                       
+                                       method
+                                          name null
+                                          returns null
+                                          
+                                          body
+                                             maxstack 2
+                                             localcount 1
+                                             initscopedepth 1
+                                             maxscopedepth 4
+                                             
+                                             code
+                                                getlocal0
+                                                pushscope
+                                                findpropstrict Multiname("Element",[PackageNamespace("main_game.element")])
+                                                getlex QName(PackageNamespace(""),"Object")
+                                                pushscope
+                                                getlex QName(PackageNamespace(""),"Object")
+                                                newclass 128
+                                                popscope
+                                                initproperty QName(PackageNamespace("main_game.element"),"Element")
+                                                findpropstrict Multiname("Fire",[PrivateNamespace(null,"4")])
+                                                getlex QName(PackageNamespace(""),"Object")
+                                                pushscope
+                                                getlex QName(PackageNamespace("main_game.element"),"Element")
+                                                pushscope
+                                                getlex QName(PackageNamespace("main_game.element"),"Element")
+                                                newclass 130
+                                                popscope
+                                                popscope
+                                                initproperty QName(PrivateNamespace(null,"4"),"Fire")
+                                                findpropstrict Multiname("Ice",[PrivateNamespace(null,"4")])
+                                                getlex QName(PackageNamespace(""),"Object")
+                                                pushscope
+                                                getlex QName(PackageNamespace("main_game.element"),"Element")
+                                                pushscope
+                                                getlex QName(PackageNamespace("main_game.element"),"Element")
+                                                newclass 131
+                                                popscope
+                                                popscope
+                                                initproperty QName(PrivateNamespace(null,"4"),"Ice")
+                                                findpropstrict Multiname("Normal",[PrivateNamespace(null,"4")])
+                                                getlex QName(PackageNamespace(""),"Object")
+                                                pushscope
+                                                getlex QName(PackageNamespace("main_game.element"),"Element")
+                                                pushscope
+                                                getlex QName(PackageNamespace("main_game.element"),"Element")
+                                                newclass 132
+                                                popscope
+                                                popscope
+                                                initproperty QName(PrivateNamespace(null,"4"),"Normal")
+                                                findpropstrict Multiname("Lock",[PrivateNamespace(null,"4")])
+                                                getlex QName(PackageNamespace(""),"Object")
+                                                pushscope
+                                                getlex QName(PackageNamespace(""),"Object")
+                                                newclass 129
+                                                popscope
+                                                initproperty QName(PrivateNamespace(null,"4"),"Lock")
+                                                returnvoid
+                                             end ; code
+                                          end ; body
+                                       end ; method
+                                       

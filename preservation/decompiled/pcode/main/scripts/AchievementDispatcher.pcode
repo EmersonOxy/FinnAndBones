@@ -1,0 +1,397 @@
+package
+{
+   import cb.logger.Appender;
+   import cb.logger.JSConsoleAppender;
+   import cb.logger.Log;
+   import com.cartoonnetwork.AchievementSystem.AchievementAS3;
+   import main_game.map.Level;
+   
+   public class AchievementDispatcher
+   {
+      
+      private static const FriendlyJR:String = "200";
+      
+      private static const FirstMap:String = "201";
+      
+      private static const Mix:String = "202";
+      
+      private static const FinalLevel:String = "203";
+      
+      private static const Unequipped:String = "204";
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(PrivateNamespace(null,"25"),"FriendlyJR")
+               pushstring "200"
+               initproperty QName(PrivateNamespace(null,"25"),"FriendlyJR")
+               findproperty QName(PrivateNamespace(null,"25"),"FirstMap")
+               pushstring "201"
+               initproperty QName(PrivateNamespace(null,"25"),"FirstMap")
+               findproperty QName(PrivateNamespace(null,"25"),"Mix")
+               pushstring "202"
+               initproperty QName(PrivateNamespace(null,"25"),"Mix")
+               findproperty QName(PrivateNamespace(null,"25"),"FinalLevel")
+               pushstring "203"
+               initproperty QName(PrivateNamespace(null,"25"),"FinalLevel")
+               findproperty QName(PrivateNamespace(null,"25"),"Unequipped")
+               pushstring "204"
+               initproperty QName(PrivateNamespace(null,"25"),"Unequipped")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var achievementSystem:AchievementAS3;
+      
+      public function AchievementDispatcher()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 2
+               localcount 1
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  callproperty QName(PrivateNamespace(null,"25"),"logger"), 0
+                  findpropstrict QName(PackageNamespace("cb.logger"),"Appender")
+                  constructprop QName(PackageNamespace("cb.logger"),"Appender"), 0
+                  callpropvoid QName(PackageNamespace(""),"addAppender"), 1
+                  getlocal0
+                  callproperty QName(PrivateNamespace(null,"25"),"logger"), 0
+                  findpropstrict QName(PackageNamespace("cb.logger"),"JSConsoleAppender")
+                  constructprop QName(PackageNamespace("cb.logger"),"JSConsoleAppender"), 0
+                  callpropvoid QName(PackageNamespace(""),"addAppender"), 1
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("com.cartoonnetwork.AchievementSystem"),"AchievementAS3")
+                  constructprop QName(PackageNamespace("com.cartoonnetwork.AchievementSystem"),"AchievementAS3"), 0
+                  initproperty QName(PrivateNamespace(null,"25"),"achievementSystem")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      private function logger() : Log
+      {
+         trait method QName(PrivateNamespace(null,"25"),"logger")
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace("cb.logger"),"Log")
+               
+               body
+                  maxstack 2
+                  localcount 1
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlex QName(PackageNamespace("cb.logger"),"Log")
+                     pushstring "achievement"
+                     callproperty QName(PackageNamespace(""),"getLogger"), 1
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function gameLoaded() : void
+         {
+            trait method QName(PackageNamespace(""),"gameLoaded")
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 2
+                     localcount 1
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"25"),"achievementSystem")
+                        callpropvoid QName(PackageNamespace(""),"achievementNotificationGameLoaded"), 0
+                        getlocal0
+                        callproperty QName(PrivateNamespace(null,"25"),"logger"), 0
+                        pushstring "game loaded"
+                        callpropvoid QName(PackageNamespace(""),"log"), 1
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function gamePlayed() : void
+            {
+               trait method QName(PackageNamespace(""),"gamePlayed")
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 2
+                        localcount 1
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"25"),"achievementSystem")
+                           callpropvoid QName(PackageNamespace(""),"achievementNotificationGameStarted"), 0
+                           getlocal0
+                           callproperty QName(PrivateNamespace(null,"25"),"logger"), 0
+                           pushstring "game played"
+                           callpropvoid QName(PackageNamespace(""),"log"), 1
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function gameWon() : void
+               {
+                  trait method QName(PackageNamespace(""),"gameWon")
+                     dispid 0
+                     method
+                        name null
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 2
+                           localcount 1
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"25"),"achievementSystem")
+                              callpropvoid QName(PackageNamespace(""),"achievementNotificationGameEnded"), 0
+                              getlocal0
+                              callproperty QName(PrivateNamespace(null,"25"),"logger"), 0
+                              pushstring "game ended"
+                              callpropvoid QName(PackageNamespace(""),"log"), 1
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function madeMix() : void
+                  {
+                     trait method QName(PackageNamespace(""),"madeMix")
+                        dispid 0
+                        method
+                           name null
+                           returns QName(PackageNamespace(""),"void")
+                           
+                           body
+                              maxstack 3
+                              localcount 1
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"25"),"achievementSystem")
+                                 getlex QName(PrivateNamespace(null,"25"),"Mix")
+                                 pushbyte 1
+                                 callpropvoid QName(PackageNamespace(""),"sendStat"), 2
+                                 getlocal0
+                                 callproperty QName(PrivateNamespace(null,"25"),"logger"), 0
+                                 pushstring "Mix made"
+                                 callpropvoid QName(PackageNamespace(""),"log"), 1
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     public function finishFirstPage() : void
+                     {
+                        trait method QName(PackageNamespace(""),"finishFirstPage")
+                           dispid 0
+                           method
+                              name null
+                              returns QName(PackageNamespace(""),"void")
+                              
+                              body
+                                 maxstack 3
+                                 localcount 1
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"25"),"achievementSystem")
+                                    getlex QName(PrivateNamespace(null,"25"),"FirstMap")
+                                    pushbyte 1
+                                    callpropvoid QName(PackageNamespace(""),"sendStat"), 2
+                                    getlocal0
+                                    callproperty QName(PrivateNamespace(null,"25"),"logger"), 0
+                                    pushstring "Dungeon 8 cleared"
+                                    callpropvoid QName(PackageNamespace(""),"log"), 1
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        public function unequippedDungeonCompleted(param1:Level) : void
+                        {
+                           trait method QName(PackageNamespace(""),"unequippedDungeonCompleted")
+                              dispid 0
+                              method
+                                 name null
+                                 param QName(PackageNamespace("main_game.map"),"Level")
+                                 returns QName(PackageNamespace(""),"void")
+                                 
+                                 body
+                                    maxstack 3
+                                    localcount 2
+                                    initscopedepth 4
+                                    maxscopedepth 5
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"25"),"achievementSystem")
+                                       getlex QName(PrivateNamespace(null,"25"),"Unequipped")
+                                       pushbyte 1
+                                       callpropvoid QName(PackageNamespace(""),"sendStat"), 2
+                                       getlocal0
+                                       callproperty QName(PrivateNamespace(null,"25"),"logger"), 0
+                                       pushstring "Clear 10 different dungeons without equipment"
+                                       callpropvoid QName(PackageNamespace(""),"log"), 1
+                                       returnvoid
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           public function friendlyRockJrObtained() : void
+                           {
+                              trait method QName(PackageNamespace(""),"friendlyRockJrObtained")
+                                 dispid 0
+                                 method
+                                    name null
+                                    returns QName(PackageNamespace(""),"void")
+                                    
+                                    body
+                                       maxstack 3
+                                       localcount 1
+                                       initscopedepth 4
+                                       maxscopedepth 5
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"25"),"achievementSystem")
+                                          getlex QName(PrivateNamespace(null,"25"),"FriendlyJR")
+                                          pushbyte 1
+                                          callpropvoid QName(PackageNamespace(""),"sendStat"), 2
+                                          getlocal0
+                                          callproperty QName(PrivateNamespace(null,"25"),"logger"), 0
+                                          pushstring "FriendlyRockJr created"
+                                          callpropvoid QName(PackageNamespace(""),"log"), 1
+                                          returnvoid
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                              
+                              public function endLastDungeon() : void
+                              {
+                                 trait method QName(PackageNamespace(""),"endLastDungeon")
+                                    dispid 0
+                                    method
+                                       name null
+                                       returns QName(PackageNamespace(""),"void")
+                                       
+                                       body
+                                          maxstack 3
+                                          localcount 1
+                                          initscopedepth 4
+                                          maxscopedepth 5
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             getlocal0
+                                             getproperty QName(PrivateNamespace(null,"25"),"achievementSystem")
+                                             getlex QName(PrivateNamespace(null,"25"),"FinalLevel")
+                                             pushbyte 1
+                                             callpropvoid QName(PackageNamespace(""),"sendStat"), 2
+                                             getlocal0
+                                             callproperty QName(PrivateNamespace(null,"25"),"logger"), 0
+                                             pushstring "Last dungeon cleared"
+                                             callpropvoid QName(PackageNamespace(""),"log"), 1
+                                             returnvoid
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                 }
+                              }
+                           }
+                           
+                           method
+                              name null
+                              returns null
+                              
+                              body
+                                 maxstack 2
+                                 localcount 1
+                                 initscopedepth 1
+                                 maxscopedepth 3
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    findpropstrict Multiname("AchievementDispatcher",[PackageNamespace("")])
+                                    getlex QName(PackageNamespace(""),"Object")
+                                    pushscope
+                                    getlex QName(PackageNamespace(""),"Object")
+                                    newclass 28
+                                    popscope
+                                    initproperty QName(PackageNamespace(""),"AchievementDispatcher")
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                           

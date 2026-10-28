@@ -1,0 +1,10 @@
+00000015:    0. FileAttributes            tagId= 69 len=       4  19 00 00 00
+0000001b:    1. Metadata                  tagId= 77 len=     458  3c 72 64 66 3a 52 44 46 20 78 6d 6c 6e 73 3a 72 64 66 3d 27 68 74 74 70 3a 2f 2f 77 77 77 2e 77 ... 74 65 3e 3c 2f 72 64 66 3a 44 65 73 63 72 69 70 74 69 6f 6e 3e 3c 2f 72 64 66 3a 52 44 46 3e 00
+000001eb:    2. ScriptLimits              tagId= 65 len=       4  e8 03 3c 00
+000001f1:    3. SetBackgroundColor        tagId=  9 len=       3  0a 0a 0a
+000001f6:    4. ProductInfo               tagId= 41 len=      26  03 00 00 00 06 00 00 00 04 05 50 53 00 00 00 00 00 00 8a ac 52 24 42 01 00 00
+00000212:    5. FrameLabel (name: "main") tagId= 43 len=       5  6d 61 69 6e 00
+00000219:    6. DoABC2 (nm: frame1)       tagId= 82 len=  207569  01 00 00 00 66 72 61 6d 65 31 00 10 00 2e 00 15 00 ff ff ff ff 0f 01 64 9a 86 80 07 02 03 04 05 ... 01 05 1b d0 30 5d 82 1a 60 29 30 60 86 05 30 60 68 30 60 68 58 ad 02 1d 1d 1d 68 bc 10 47 00 00
+00032cf0:    7. SymbolClass               tagId= 76 len=       9  01 00 00 00 6d 61 69 6e 00
+00032cfb:    8. ShowFrame                 tagId=  1 len=       0  
+00032cfd:    9. End                       tagId=  0 len=       0  

@@ -1,0 +1,246 @@
+package cb.signals
+{
+   import cb.utils.cbArray;
+   
+   public class Signal
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var slots:cbArray;
+      
+      public function Signal()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 2
+               localcount 1
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("cb.utils"),"cbArray")
+                  constructprop QName(PackageNamespace("cb.utils"),"cbArray"), 0
+                  initproperty QName(PrivateNamespace(null,"41"),"slots")
+                  getlocal0
+                  constructsuper 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function add(param1:Function) : void
+      {
+         trait method QName(PackageNamespace(""),"add")
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace(""),"Function")
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 2
+                  localcount 2
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"41"),"slots")
+                     getlocal1
+                     callpropvoid QName(Namespace("http://adobe.com/AS3/2006/builtin"),"push"), 1
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function addAtFirst(param1:Function) : void
+         {
+            trait method QName(PackageNamespace(""),"addAtFirst")
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace(""),"Function")
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 2
+                     localcount 2
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"41"),"slots")
+                        getlocal1
+                        callpropvoid QName(Namespace("http://adobe.com/AS3/2006/builtin"),"unshift"), 1
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function emit(... rest) : void
+            {
+               trait method QName(PackageNamespace(""),"emit")
+                  dispid 0
+                  method
+                     name null
+                     flag NEED_REST
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 3
+                        localcount 6
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           pushnull
+                           coerce QName(PackageNamespace(""),"Function")
+                           setlocal3
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"41"),"slots")
+                           callproperty QName(PackageNamespace(""),"clone"), 0
+                           coerce QName(PackageNamespace("cb.utils"),"cbArray")
+                           setlocal2
+                           pushbyte 0
+                           setlocal 4
+                           getlocal2
+                           coerce_a
+                           setlocal 5
+                           jump ofs002d
+                  ofs001d:
+                           label
+                           getlocal 5
+                           getlocal 4
+                           nextvalue
+                           coerce QName(PackageNamespace(""),"Function")
+                           setlocal3
+                           getlocal3
+                           pushnull
+                           getlocal1
+                           callpropvoid QName(Namespace("http://adobe.com/AS3/2006/builtin"),"apply"), 2
+                  ofs002d:
+                           hasnext2 5, 4
+                           iftrue ofs001d
+                           kill 5
+                           kill 4
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function clear() : void
+               {
+                  trait method QName(PackageNamespace(""),"clear")
+                     dispid 0
+                     method
+                        name null
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 2
+                           localcount 1
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal0
+                              findpropstrict QName(PackageNamespace("cb.utils"),"cbArray")
+                              constructprop QName(PackageNamespace("cb.utils"),"cbArray"), 0
+                              initproperty QName(PrivateNamespace(null,"41"),"slots")
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function remove(param1:Function) : void
+                  {
+                     trait method QName(PackageNamespace(""),"remove")
+                        dispid 0
+                        method
+                           name null
+                           param QName(PackageNamespace(""),"Function")
+                           returns QName(PackageNamespace(""),"void")
+                           
+                           body
+                              maxstack 2
+                              localcount 2
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"41"),"slots")
+                                 getlocal1
+                                 callpropvoid QName(PackageNamespace(""),"remove"), 1
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                  }
+               }
+               
+               method
+                  name null
+                  returns null
+                  
+                  body
+                     maxstack 2
+                     localcount 1
+                     initscopedepth 1
+                     maxscopedepth 3
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        findpropstrict Multiname("Signal",[PackageNamespace("cb.signals")])
+                        getlex QName(PackageNamespace(""),"Object")
+                        pushscope
+                        getlex QName(PackageNamespace(""),"Object")
+                        newclass 53
+                        popscope
+                        initproperty QName(PackageNamespace("cb.signals"),"Signal")
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+               

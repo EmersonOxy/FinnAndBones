@@ -1,0 +1,633 @@
+package main_game.character.stats
+{
+   import flash.display.MovieClip;
+   
+   public class StatType
+   {
+      
+      public static const NULL:int = -1;
+      
+      public static const LUCK:int = 1;
+      
+      public static const ATTACK:int = 2;
+      
+      public static const DEFENSE:int = 3;
+      
+      public static const HEALTH:int = 4;
+      
+      public static const MAX_HP:int = 5;
+      
+      public static const EXPERIENCE:int = 6;
+      
+      public static const MAX_XP:int = 7;
+      
+      public static const BASE_LUCK:int = 8;
+      
+      public static const BASE_ATTACK:int = 9;
+      
+      public static const BASE_DEFENSE:int = 10;
+      
+      public static const BASE_HEALTH:int = 11;
+      
+      public static const BASE_XP:int = 12;
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(PackageNamespace(""),"NULL")
+               pushbyte -1
+               initproperty QName(PackageNamespace(""),"NULL")
+               findproperty QName(PackageNamespace(""),"LUCK")
+               pushbyte 1
+               initproperty QName(PackageNamespace(""),"LUCK")
+               findproperty QName(PackageNamespace(""),"ATTACK")
+               pushbyte 2
+               initproperty QName(PackageNamespace(""),"ATTACK")
+               findproperty QName(PackageNamespace(""),"DEFENSE")
+               pushbyte 3
+               initproperty QName(PackageNamespace(""),"DEFENSE")
+               findproperty QName(PackageNamespace(""),"HEALTH")
+               pushbyte 4
+               initproperty QName(PackageNamespace(""),"HEALTH")
+               findproperty QName(PackageNamespace(""),"MAX_HP")
+               pushbyte 5
+               initproperty QName(PackageNamespace(""),"MAX_HP")
+               findproperty QName(PackageNamespace(""),"EXPERIENCE")
+               pushbyte 6
+               initproperty QName(PackageNamespace(""),"EXPERIENCE")
+               findproperty QName(PackageNamespace(""),"MAX_XP")
+               pushbyte 7
+               initproperty QName(PackageNamespace(""),"MAX_XP")
+               findproperty QName(PackageNamespace(""),"BASE_LUCK")
+               pushbyte 8
+               initproperty QName(PackageNamespace(""),"BASE_LUCK")
+               findproperty QName(PackageNamespace(""),"BASE_ATTACK")
+               pushbyte 9
+               initproperty QName(PackageNamespace(""),"BASE_ATTACK")
+               findproperty QName(PackageNamespace(""),"BASE_DEFENSE")
+               pushbyte 10
+               initproperty QName(PackageNamespace(""),"BASE_DEFENSE")
+               findproperty QName(PackageNamespace(""),"BASE_HEALTH")
+               pushbyte 11
+               initproperty QName(PackageNamespace(""),"BASE_HEALTH")
+               findproperty QName(PackageNamespace(""),"BASE_XP")
+               pushbyte 12
+               initproperty QName(PackageNamespace(""),"BASE_XP")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function StatType()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 1
+               localcount 1
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public static function getStatTypes() : Array
+      {
+         trait method QName(PackageNamespace(""),"getStatTypes")
+            flag FINAL
+            dispid 3
+            method
+               name null
+               returns QName(PackageNamespace(""),"Array")
+               
+               body
+                  maxstack 5
+                  localcount 1
+                  initscopedepth 3
+                  maxscopedepth 4
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlex QName(PackageNamespace(""),"LUCK")
+                     getlex QName(PackageNamespace(""),"ATTACK")
+                     getlex QName(PackageNamespace(""),"DEFENSE")
+                     getlex QName(PackageNamespace(""),"HEALTH")
+                     getlex QName(PackageNamespace(""),"MAX_HP")
+                     newarray 5
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public static function parse(param1:String) : int
+         {
+            trait method QName(PackageNamespace(""),"parse")
+               flag FINAL
+               dispid 4
+               method
+                  name null
+                  param QName(PackageNamespace(""),"String")
+                  returns QName(PackageNamespace(""),"int")
+                  
+                  body
+                     maxstack 2
+                     localcount 3
+                     initscopedepth 3
+                     maxscopedepth 4
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal1
+                        pushnull
+                        equals
+                        dup
+                        iftrue ofs000f
+                        pop
+                        getlocal1
+                        pushstring ""
+                        equals
+               ofs000f:
+                        iffalse ofs0017
+                        getlex QName(PackageNamespace(""),"NULL")
+                        returnvalue
+               ofs0017:
+                        jump ofs0043
+               ofs001b:
+                        label
+                        getlex QName(PackageNamespace(""),"LUCK")
+                        returnvalue
+               ofs0020:
+                        label
+                        getlex QName(PackageNamespace(""),"ATTACK")
+                        returnvalue
+               ofs0025:
+                        label
+                        getlex QName(PackageNamespace(""),"DEFENSE")
+                        returnvalue
+               ofs002a:
+                        label
+                        getlex QName(PackageNamespace(""),"HEALTH")
+                        returnvalue
+               ofs002f:
+                        label
+                        getlex QName(PackageNamespace(""),"MAX_HP")
+                        returnvalue
+               ofs0034:
+                        label
+                        getlex QName(PackageNamespace(""),"EXPERIENCE")
+                        returnvalue
+               ofs0039:
+                        label
+                        getlex QName(PackageNamespace(""),"MAX_XP")
+                        returnvalue
+               ofs003e:
+                        label
+                        jump ofs00d2
+               ofs0043:
+                        getlocal1
+                        setlocal2
+                        pushstring "L"
+                        getlocal2
+                        ifstrictne ofs0053
+                        pushbyte 0
+                        jump ofs00b3
+               ofs0053:
+                        pushstring "A"
+                        getlocal2
+                        ifstrictne ofs0061
+                        pushbyte 1
+                        jump ofs00b3
+               ofs0061:
+                        pushstring "D"
+                        getlocal2
+                        ifstrictne ofs006f
+                        pushbyte 2
+                        jump ofs00b3
+               ofs006f:
+                        pushstring "H"
+                        getlocal2
+                        ifstrictne ofs007d
+                        pushbyte 3
+                        jump ofs00b3
+               ofs007d:
+                        pushstring "MH"
+                        getlocal2
+                        ifstrictne ofs008b
+                        pushbyte 4
+                        jump ofs00b3
+               ofs008b:
+                        pushstring "XP"
+                        getlocal2
+                        ifstrictne ofs0099
+                        pushbyte 5
+                        jump ofs00b3
+               ofs0099:
+                        pushstring "MX"
+                        getlocal2
+                        ifstrictne ofs00a7
+                        pushbyte 6
+                        jump ofs00b3
+               ofs00a7:
+                        jump ofs00b1
+                        pushbyte 7
+                        jump ofs00b1
+               ofs00b1:
+                        pushbyte 7
+               ofs00b3:
+                        kill 2
+                        lookupswitch ofs003e, [ofs001b, ofs0020, ofs0025, ofs002a, ofs002f, ofs0034, ofs0039, ofs003e]
+               ofs00d2:
+                        findpropstrict QName(PackageNamespace(""),"Error")
+                        pushstring "Parse error"
+                        constructprop QName(PackageNamespace(""),"Error"), 1
+                        throw
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public static function toString(param1:int) : String
+            {
+               trait method QName(PackageNamespace(""),"toString")
+                  flag FINAL
+                  dispid 5
+                  method
+                     name null
+                     param QName(PackageNamespace(""),"int")
+                     returns QName(PackageNamespace(""),"String")
+                     
+                     body
+                        maxstack 2
+                        localcount 3
+                        initscopedepth 3
+                        maxscopedepth 4
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           jump ofs002e
+                  ofs0006:
+                           label
+                           pushstring "L"
+                           returnvalue
+                  ofs000b:
+                           label
+                           pushstring "A"
+                           returnvalue
+                  ofs0010:
+                           label
+                           pushstring "D"
+                           returnvalue
+                  ofs0015:
+                           label
+                           pushstring "H"
+                           returnvalue
+                  ofs001a:
+                           label
+                           pushstring "MH"
+                           returnvalue
+                  ofs001f:
+                           label
+                           pushstring "XP"
+                           returnvalue
+                  ofs0024:
+                           label
+                           pushstring "MX"
+                           returnvalue
+                  ofs0029:
+                           label
+                           jump ofs00bd
+                  ofs002e:
+                           getlocal1
+                           setlocal2
+                           getlex QName(PackageNamespace(""),"LUCK")
+                           getlocal2
+                           ifstrictne ofs003e
+                           pushbyte 0
+                           jump ofs009e
+                  ofs003e:
+                           getlex QName(PackageNamespace(""),"ATTACK")
+                           getlocal2
+                           ifstrictne ofs004c
+                           pushbyte 1
+                           jump ofs009e
+                  ofs004c:
+                           getlex QName(PackageNamespace(""),"DEFENSE")
+                           getlocal2
+                           ifstrictne ofs005a
+                           pushbyte 2
+                           jump ofs009e
+                  ofs005a:
+                           getlex QName(PackageNamespace(""),"HEALTH")
+                           getlocal2
+                           ifstrictne ofs0068
+                           pushbyte 3
+                           jump ofs009e
+                  ofs0068:
+                           getlex QName(PackageNamespace(""),"MAX_HP")
+                           getlocal2
+                           ifstrictne ofs0076
+                           pushbyte 4
+                           jump ofs009e
+                  ofs0076:
+                           getlex QName(PackageNamespace(""),"EXPERIENCE")
+                           getlocal2
+                           ifstrictne ofs0084
+                           pushbyte 5
+                           jump ofs009e
+                  ofs0084:
+                           getlex QName(PackageNamespace(""),"MAX_XP")
+                           getlocal2
+                           ifstrictne ofs0092
+                           pushbyte 6
+                           jump ofs009e
+                  ofs0092:
+                           jump ofs009c
+                           pushbyte 7
+                           jump ofs009c
+                  ofs009c:
+                           pushbyte 7
+                  ofs009e:
+                           kill 2
+                           lookupswitch ofs0029, [ofs0006, ofs000b, ofs0010, ofs0015, ofs001a, ofs001f, ofs0024, ofs0029]
+                  ofs00bd:
+                           findpropstrict QName(PackageNamespace(""),"Error")
+                           pushstring "Parse error"
+                           constructprop QName(PackageNamespace(""),"Error"), 1
+                           throw
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public static function stringOfStat(param1:int) : String
+               {
+                  trait method QName(PackageNamespace(""),"stringOfStat")
+                     flag FINAL
+                     dispid 6
+                     method
+                        name null
+                        param QName(PackageNamespace(""),"int")
+                        returns QName(PackageNamespace(""),"String")
+                        
+                        body
+                           maxstack 2
+                           localcount 3
+                           initscopedepth 3
+                           maxscopedepth 4
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              jump ofs002e
+                     ofs0006:
+                              label
+                              pushstring "Luck"
+                              returnvalue
+                     ofs000b:
+                              label
+                              pushstring "Attack"
+                              returnvalue
+                     ofs0010:
+                              label
+                              pushstring "Defense"
+                              returnvalue
+                     ofs0015:
+                              label
+                              pushstring "Health"
+                              returnvalue
+                     ofs001a:
+                              label
+                              pushstring "Health"
+                              returnvalue
+                     ofs001f:
+                              label
+                              pushstring "Experience"
+                              returnvalue
+                     ofs0024:
+                              label
+                              pushstring "Experience"
+                              returnvalue
+                     ofs0029:
+                              label
+                              jump ofs00bd
+                     ofs002e:
+                              getlocal1
+                              setlocal2
+                              getlex QName(PackageNamespace(""),"LUCK")
+                              getlocal2
+                              ifstrictne ofs003e
+                              pushbyte 0
+                              jump ofs009e
+                     ofs003e:
+                              getlex QName(PackageNamespace(""),"ATTACK")
+                              getlocal2
+                              ifstrictne ofs004c
+                              pushbyte 1
+                              jump ofs009e
+                     ofs004c:
+                              getlex QName(PackageNamespace(""),"DEFENSE")
+                              getlocal2
+                              ifstrictne ofs005a
+                              pushbyte 2
+                              jump ofs009e
+                     ofs005a:
+                              getlex QName(PackageNamespace(""),"HEALTH")
+                              getlocal2
+                              ifstrictne ofs0068
+                              pushbyte 3
+                              jump ofs009e
+                     ofs0068:
+                              getlex QName(PackageNamespace(""),"MAX_HP")
+                              getlocal2
+                              ifstrictne ofs0076
+                              pushbyte 4
+                              jump ofs009e
+                     ofs0076:
+                              getlex QName(PackageNamespace(""),"EXPERIENCE")
+                              getlocal2
+                              ifstrictne ofs0084
+                              pushbyte 5
+                              jump ofs009e
+                     ofs0084:
+                              getlex QName(PackageNamespace(""),"MAX_XP")
+                              getlocal2
+                              ifstrictne ofs0092
+                              pushbyte 6
+                              jump ofs009e
+                     ofs0092:
+                              jump ofs009c
+                              pushbyte 7
+                              jump ofs009c
+                     ofs009c:
+                              pushbyte 7
+                     ofs009e:
+                              kill 2
+                              lookupswitch ofs0029, [ofs0006, ofs000b, ofs0010, ofs0015, ofs001a, ofs001f, ofs0024, ofs0029]
+                     ofs00bd:
+                              findpropstrict QName(PackageNamespace(""),"Error")
+                              pushstring "Parse error"
+                              constructprop QName(PackageNamespace(""),"Error"), 1
+                              throw
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public static function setMcIcon(param1:MovieClip, param2:int) : void
+                  {
+                     trait method QName(PackageNamespace(""),"setMcIcon")
+                        flag FINAL
+                        dispid 7
+                        method
+                           name null
+                           param QName(PackageNamespace("flash.display"),"MovieClip")
+                           param QName(PackageNamespace(""),"int")
+                           returns QName(PackageNamespace(""),"void")
+                           
+                           body
+                              maxstack 2
+                              localcount 4
+                              initscopedepth 3
+                              maxscopedepth 4
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 jump ofs004c
+                        ofs0006:
+                                 label
+                                 getlocal1
+                                 pushstring "luck"
+                                 callpropvoid QName(PackageNamespace(""),"gotoAndStop"), 1
+                                 jump ofs00c8
+                        ofs0013:
+                                 label
+                                 getlocal1
+                                 pushstring "defence"
+                                 callpropvoid QName(PackageNamespace(""),"gotoAndStop"), 1
+                                 jump ofs00c8
+                        ofs0020:
+                                 label
+                                 getlocal1
+                                 pushstring "attack"
+                                 callpropvoid QName(PackageNamespace(""),"gotoAndStop"), 1
+                                 jump ofs00c8
+                        ofs002d:
+                                 label
+                                 getlocal1
+                                 pushstring "health"
+                                 callpropvoid QName(PackageNamespace(""),"gotoAndStop"), 1
+                                 jump ofs00c8
+                        ofs003a:
+                                 label
+                                 getlocal1
+                                 pushstring "max_health"
+                                 callpropvoid QName(PackageNamespace(""),"gotoAndStop"), 1
+                                 jump ofs00c8
+                        ofs0047:
+                                 label
+                                 jump ofs00c8
+                        ofs004c:
+                                 getlocal2
+                                 setlocal3
+                                 getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                                 getproperty QName(PackageNamespace(""),"LUCK")
+                                 getlocal3
+                                 ifstrictne ofs005f
+                                 pushbyte 0
+                                 jump ofs00af
+                        ofs005f:
+                                 getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                                 getproperty QName(PackageNamespace(""),"DEFENSE")
+                                 getlocal3
+                                 ifstrictne ofs0070
+                                 pushbyte 1
+                                 jump ofs00af
+                        ofs0070:
+                                 getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                                 getproperty QName(PackageNamespace(""),"ATTACK")
+                                 getlocal3
+                                 ifstrictne ofs0081
+                                 pushbyte 2
+                                 jump ofs00af
+                        ofs0081:
+                                 getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                                 getproperty QName(PackageNamespace(""),"HEALTH")
+                                 getlocal3
+                                 ifstrictne ofs0092
+                                 pushbyte 3
+                                 jump ofs00af
+                        ofs0092:
+                                 getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                                 getproperty QName(PackageNamespace(""),"MAX_HP")
+                                 getlocal3
+                                 ifstrictne ofs00a3
+                                 pushbyte 4
+                                 jump ofs00af
+                        ofs00a3:
+                                 jump ofs00ad
+                                 pushbyte 5
+                                 jump ofs00ad
+                        ofs00ad:
+                                 pushbyte 5
+                        ofs00af:
+                                 kill 3
+                                 lookupswitch ofs0047, [ofs0006, ofs0013, ofs0020, ofs002d, ofs003a, ofs0047]
+                        ofs00c8:
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                  }
+               }
+               
+               method
+                  name null
+                  returns null
+                  
+                  body
+                     maxstack 2
+                     localcount 1
+                     initscopedepth 1
+                     maxscopedepth 3
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        findpropstrict Multiname("StatType",[PackageNamespace("main_game.character.stats")])
+                        getlex QName(PackageNamespace(""),"Object")
+                        pushscope
+                        getlex QName(PackageNamespace(""),"Object")
+                        newclass 167
+                        popscope
+                        initproperty QName(PackageNamespace("main_game.character.stats"),"StatType")
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+               

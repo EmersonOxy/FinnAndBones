@@ -1,0 +1,262 @@
+package view.screens
+{
+   import bonus.IDailyBonus;
+   import bonus.filter.BonusIcon;
+   import flash.utils.Dictionary;
+   
+   public class DailyBonusView extends AnimatedScreen
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 10
+            maxscopedepth 11
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var message:String;
+      
+      public function DailyBonusView(param1:IDailyBonus, param2:String)
+      {
+         method
+            name null
+            param QName(PackageNamespace("bonus"),"IDailyBonus")
+            param QName(PackageNamespace(""),"String")
+            returns null
+            
+            body
+               maxstack 3
+               localcount 3
+               initscopedepth 11
+               maxscopedepth 12
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  getlex QName(PackageNamespace(""),"main")
+                  getproperty QName(PackageNamespace(""),"swfLoader")
+                  pushstring "assets.Bonus"
+                  callproperty QName(PackageNamespace(""),"getClass"), 1
+                  findpropstrict QName(PackageNamespace("flash.utils"),"Dictionary")
+                  constructprop QName(PackageNamespace("flash.utils"),"Dictionary"), 0
+                  constructsuper 2
+                  findproperty QName(ProtectedNamespace("cb.display:Screen"),"container")
+                  pushstring "bonus"
+                  initproperty QName(ProtectedNamespace("cb.display:Screen"),"container")
+                  getlocal0
+                  getlocal2
+                  initproperty QName(PrivateNamespace(null,"71"),"message")
+                  getlocal0
+                  getlocal1
+                  callpropvoid QName(PrivateNamespace(null,"71"),"initialize"), 1
+                  getlex QName(ProtectedNamespace("cb.display:Screen"),"bg")
+                  pushbyte 0
+                  callpropvoid QName(PackageNamespace(""),"gotoAndStop"), 1
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      private function initialize(param1:IDailyBonus) : void
+      {
+         trait method QName(PrivateNamespace(null,"71"),"initialize")
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace("bonus"),"IDailyBonus")
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 3
+                  localcount 5
+                  initscopedepth 11
+                  maxscopedepth 12
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlex QName(ProtectedNamespace("cb.display:Screen"),"bg")
+                     getlex QName(ProtectedNamespace("cb.display:Screen"),"container")
+                     getproperty MultinameL([PrivateNamespace(null,"71"),PackageNamespace(""),PrivateNamespace(null,"243"),PackageNamespace("view.screens"),PackageInternalNs("view.screens"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens:DailyBonusView"),StaticProtectedNs("view.screens:DailyBonusView"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("title",[PrivateNamespace(null,"71"),PackageNamespace(""),PrivateNamespace(null,"243"),PackageNamespace("view.screens"),PackageInternalNs("view.screens"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens:DailyBonusView"),StaticProtectedNs("view.screens:DailyBonusView"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("title",[PrivateNamespace(null,"71"),PackageNamespace(""),PrivateNamespace(null,"243"),PackageNamespace("view.screens"),PackageInternalNs("view.screens"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens:DailyBonusView"),StaticProtectedNs("view.screens:DailyBonusView"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"71"),"message")
+                     setproperty Multiname("text",[PrivateNamespace(null,"71"),PackageNamespace(""),PrivateNamespace(null,"243"),PackageNamespace("view.screens"),PackageInternalNs("view.screens"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens:DailyBonusView"),StaticProtectedNs("view.screens:DailyBonusView"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getlocal1
+                     callproperty QName(Namespace("bonus:IDailyBonus"),"getIcon"), 0
+                     coerce QName(PackageNamespace("bonus.filter"),"BonusIcon")
+                     setlocal2
+                     getlocal1
+                     callproperty QName(Namespace("bonus:IDailyBonus"),"getFilter"), 0
+                     callproperty QName(Namespace("bonus.filter:IBonusFilter"),"getIcons"), 0
+                     coerce TypeName(QName(PackageNamespace("__AS3__.vec"),"Vector")<QName(PackageNamespace("bonus.filter"),"BonusIcon")>)
+                     setlocal3
+                     jump ofs00df
+            ofs0030:
+                     label
+                     getlocal3
+                     pushbyte 0
+                     getproperty MultinameL([PrivateNamespace(null,"71"),PackageNamespace(""),PrivateNamespace(null,"243"),PackageNamespace("view.screens"),PackageInternalNs("view.screens"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens:DailyBonusView"),StaticProtectedNs("view.screens:DailyBonusView"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getlex QName(ProtectedNamespace("cb.display:Screen"),"bg")
+                     getlex QName(ProtectedNamespace("cb.display:Screen"),"container")
+                     getproperty MultinameL([PrivateNamespace(null,"71"),PackageNamespace(""),PrivateNamespace(null,"243"),PackageNamespace("view.screens"),PackageInternalNs("view.screens"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens:DailyBonusView"),StaticProtectedNs("view.screens:DailyBonusView"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("holder_1a",[PrivateNamespace(null,"71"),PackageNamespace(""),PrivateNamespace(null,"243"),PackageNamespace("view.screens"),PackageInternalNs("view.screens"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens:DailyBonusView"),StaticProtectedNs("view.screens:DailyBonusView"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getlocal1
+                     callproperty QName(Namespace("bonus:IDailyBonus"),"getAction"), 0
+                     callpropvoid QName(PackageNamespace(""),"addToHolder"), 2
+                     getlocal3
+                     pushbyte 1
+                     getproperty MultinameL([PrivateNamespace(null,"71"),PackageNamespace(""),PrivateNamespace(null,"243"),PackageNamespace("view.screens"),PackageInternalNs("view.screens"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens:DailyBonusView"),StaticProtectedNs("view.screens:DailyBonusView"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getlex QName(ProtectedNamespace("cb.display:Screen"),"bg")
+                     getlex QName(ProtectedNamespace("cb.display:Screen"),"container")
+                     getproperty MultinameL([PrivateNamespace(null,"71"),PackageNamespace(""),PrivateNamespace(null,"243"),PackageNamespace("view.screens"),PackageInternalNs("view.screens"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens:DailyBonusView"),StaticProtectedNs("view.screens:DailyBonusView"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("holder_1b",[PrivateNamespace(null,"71"),PackageNamespace(""),PrivateNamespace(null,"243"),PackageNamespace("view.screens"),PackageInternalNs("view.screens"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens:DailyBonusView"),StaticProtectedNs("view.screens:DailyBonusView"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getlocal1
+                     callproperty QName(Namespace("bonus:IDailyBonus"),"getAction"), 0
+                     callpropvoid QName(PackageNamespace(""),"addToHolder"), 2
+                     getlocal3
+                     pushbyte 2
+                     getproperty MultinameL([PrivateNamespace(null,"71"),PackageNamespace(""),PrivateNamespace(null,"243"),PackageNamespace("view.screens"),PackageInternalNs("view.screens"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens:DailyBonusView"),StaticProtectedNs("view.screens:DailyBonusView"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getlex QName(ProtectedNamespace("cb.display:Screen"),"bg")
+                     getlex QName(ProtectedNamespace("cb.display:Screen"),"container")
+                     getproperty MultinameL([PrivateNamespace(null,"71"),PackageNamespace(""),PrivateNamespace(null,"243"),PackageNamespace("view.screens"),PackageInternalNs("view.screens"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens:DailyBonusView"),StaticProtectedNs("view.screens:DailyBonusView"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("holder_1c",[PrivateNamespace(null,"71"),PackageNamespace(""),PrivateNamespace(null,"243"),PackageNamespace("view.screens"),PackageInternalNs("view.screens"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens:DailyBonusView"),StaticProtectedNs("view.screens:DailyBonusView"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getlocal1
+                     callproperty QName(Namespace("bonus:IDailyBonus"),"getAction"), 0
+                     callpropvoid QName(PackageNamespace(""),"addToHolder"), 2
+                     getlocal2
+                     getlex QName(ProtectedNamespace("cb.display:Screen"),"bg")
+                     getlex QName(ProtectedNamespace("cb.display:Screen"),"container")
+                     getproperty MultinameL([PrivateNamespace(null,"71"),PackageNamespace(""),PrivateNamespace(null,"243"),PackageNamespace("view.screens"),PackageInternalNs("view.screens"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens:DailyBonusView"),StaticProtectedNs("view.screens:DailyBonusView"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("holder_1d",[PrivateNamespace(null,"71"),PackageNamespace(""),PrivateNamespace(null,"243"),PackageNamespace("view.screens"),PackageInternalNs("view.screens"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens:DailyBonusView"),StaticProtectedNs("view.screens:DailyBonusView"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     callpropvoid QName(PackageNamespace(""),"addToHolder"), 1
+                     jump ofs012e
+            ofs0097:
+                     label
+                     getlocal3
+                     pushbyte 0
+                     getproperty MultinameL([PrivateNamespace(null,"71"),PackageNamespace(""),PrivateNamespace(null,"243"),PackageNamespace("view.screens"),PackageInternalNs("view.screens"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens:DailyBonusView"),StaticProtectedNs("view.screens:DailyBonusView"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getlex QName(ProtectedNamespace("cb.display:Screen"),"bg")
+                     getlex QName(ProtectedNamespace("cb.display:Screen"),"container")
+                     getproperty MultinameL([PrivateNamespace(null,"71"),PackageNamespace(""),PrivateNamespace(null,"243"),PackageNamespace("view.screens"),PackageInternalNs("view.screens"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens:DailyBonusView"),StaticProtectedNs("view.screens:DailyBonusView"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("holder_2a",[PrivateNamespace(null,"71"),PackageNamespace(""),PrivateNamespace(null,"243"),PackageNamespace("view.screens"),PackageInternalNs("view.screens"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens:DailyBonusView"),StaticProtectedNs("view.screens:DailyBonusView"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getlocal1
+                     callproperty QName(Namespace("bonus:IDailyBonus"),"getAction"), 0
+                     callpropvoid QName(PackageNamespace(""),"addToHolder"), 2
+                     getlocal2
+                     getlex QName(ProtectedNamespace("cb.display:Screen"),"bg")
+                     getlex QName(ProtectedNamespace("cb.display:Screen"),"container")
+                     getproperty MultinameL([PrivateNamespace(null,"71"),PackageNamespace(""),PrivateNamespace(null,"243"),PackageNamespace("view.screens"),PackageInternalNs("view.screens"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens:DailyBonusView"),StaticProtectedNs("view.screens:DailyBonusView"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("holder_2b",[PrivateNamespace(null,"71"),PackageNamespace(""),PrivateNamespace(null,"243"),PackageNamespace("view.screens"),PackageInternalNs("view.screens"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens:DailyBonusView"),StaticProtectedNs("view.screens:DailyBonusView"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     callpropvoid QName(PackageNamespace(""),"addToHolder"), 1
+                     jump ofs012e
+            ofs00c8:
+                     label
+                     getlocal2
+                     getlex QName(ProtectedNamespace("cb.display:Screen"),"bg")
+                     getlex QName(ProtectedNamespace("cb.display:Screen"),"container")
+                     getproperty MultinameL([PrivateNamespace(null,"71"),PackageNamespace(""),PrivateNamespace(null,"243"),PackageNamespace("view.screens"),PackageInternalNs("view.screens"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens:DailyBonusView"),StaticProtectedNs("view.screens:DailyBonusView"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     getproperty Multiname("holder_3b",[PrivateNamespace(null,"71"),PackageNamespace(""),PrivateNamespace(null,"243"),PackageNamespace("view.screens"),PackageInternalNs("view.screens"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens:DailyBonusView"),StaticProtectedNs("view.screens:DailyBonusView"),StaticProtectedNs("view.screens:AnimatedScreen"),StaticProtectedNs("cb.display:Screen"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     callpropvoid QName(PackageNamespace(""),"addToHolder"), 1
+            ofs00da:
+                     label
+                     jump ofs012e
+            ofs00df:
+                     getlocal3
+                     getproperty QName(PackageNamespace(""),"length")
+                     setlocal 4
+                     pushbyte 3
+                     getlocal 4
+                     ifstrictne ofs00f3
+                     pushbyte 0
+                     jump ofs011b
+            ofs00f3:
+                     pushbyte 1
+                     getlocal 4
+                     ifstrictne ofs0101
+                     pushbyte 1
+                     jump ofs011b
+            ofs0101:
+                     pushbyte 0
+                     getlocal 4
+                     ifstrictne ofs010f
+                     pushbyte 2
+                     jump ofs011b
+            ofs010f:
+                     jump ofs0119
+                     pushbyte 3
+                     jump ofs0119
+            ofs0119:
+                     pushbyte 3
+            ofs011b:
+                     kill 4
+                     lookupswitch ofs00da, [ofs0030, ofs0097, ofs00c8, ofs00da]
+            ofs012e:
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+      }
+   }
+   
+   method
+      name null
+      returns null
+      
+      body
+         maxstack 2
+         localcount 1
+         initscopedepth 1
+         maxscopedepth 10
+         
+         code
+            getlocal0
+            pushscope
+            findpropstrict Multiname("DailyBonusView",[PackageNamespace("view.screens")])
+            getlex QName(PackageNamespace(""),"Object")
+            pushscope
+            getlex QName(PackageNamespace("flash.events"),"EventDispatcher")
+            pushscope
+            getlex QName(PackageNamespace("flash.display"),"DisplayObject")
+            pushscope
+            getlex QName(PackageNamespace("flash.display"),"InteractiveObject")
+            pushscope
+            getlex QName(PackageNamespace("flash.display"),"DisplayObjectContainer")
+            pushscope
+            getlex QName(PackageNamespace("flash.display"),"Sprite")
+            pushscope
+            getlex QName(PackageNamespace("cb.display"),"Screen")
+            pushscope
+            getlex QName(PackageNamespace("view.screens"),"AnimatedScreen")
+            pushscope
+            getlex QName(PackageNamespace("view.screens"),"AnimatedScreen")
+            newclass 117
+            popscope
+            popscope
+            popscope
+            popscope
+            popscope
+            popscope
+            popscope
+            popscope
+            initproperty QName(PackageNamespace("view.screens"),"DailyBonusView")
+            returnvoid
+         end ; code
+      end ; body
+   end ; method
+   

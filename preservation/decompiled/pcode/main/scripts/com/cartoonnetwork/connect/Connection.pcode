@@ -1,0 +1,546 @@
+package com.cartoonnetwork.connect
+{
+   import flash.events.StatusEvent;
+   import flash.events.TimerEvent;
+   import flash.net.LocalConnection;
+   import flash.utils.Timer;
+   
+   public class Connection
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public var _rLC:LocalConnection;
+      
+      public var _sLC:LocalConnection;
+      
+      public var _rConnection:String;
+      
+      public var _sConnection:String;
+      
+      public var _connected:Boolean;
+      
+      private var _connectTimer:Timer;
+      
+      private var _unique:*;
+      
+      private var _uniqueClient:*;
+      
+      private var _master:Boolean;
+      
+      public function Connection(param1:String, param2:String, param3:*, param4:Boolean)
+      {
+         method
+            name null
+            param QName(PackageNamespace(""),"String")
+            param QName(PackageNamespace(""),"String")
+            param null
+            param QName(PackageNamespace(""),"Boolean")
+            returns null
+            
+            body
+               maxstack 4
+               localcount 5
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("flash.net"),"LocalConnection")
+                  constructprop QName(PackageNamespace("flash.net"),"LocalConnection"), 0
+                  initproperty QName(PackageNamespace(""),"_rLC")
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("flash.net"),"LocalConnection")
+                  constructprop QName(PackageNamespace("flash.net"),"LocalConnection"), 0
+                  initproperty QName(PackageNamespace(""),"_sLC")
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlocal1
+                  initproperty QName(PackageNamespace(""),"_rConnection")
+                  getlocal0
+                  getlocal2
+                  initproperty QName(PackageNamespace(""),"_sConnection")
+                  getlocal0
+                  getlocal3
+                  initproperty QName(PrivateNamespace(null,"128"),"_uniqueClient")
+                  getlocal0
+                  getlocal 4
+                  initproperty QName(PrivateNamespace(null,"128"),"_master")
+                  getlocal0
+                  getproperty QName(PrivateNamespace(null,"128"),"_master")
+                  iffalse ofs0078
+                  getlocal0
+                  getlex QName(PackageNamespace(""),"Math")
+                  getlex QName(PackageNamespace(""),"Math")
+                  callproperty QName(PackageNamespace(""),"random"), 0
+                  pushshort 10000
+                  multiply
+                  callproperty QName(PackageNamespace(""),"floor"), 1
+                  initproperty QName(PrivateNamespace(null,"128"),"_unique")
+                  getlocal0
+                  getlocal0
+                  getproperty QName(PackageNamespace(""),"_rConnection")
+                  getlocal0
+                  getproperty QName(PrivateNamespace(null,"128"),"_unique")
+                  add
+                  initproperty QName(PackageNamespace(""),"_rConnection")
+                  getlocal0
+                  callpropvoid QName(PackageNamespace(""),"initConnection"), 0
+                  getlocal0
+                  getproperty QName(PackageNamespace(""),"_rLC")
+                  getlocal0
+                  getproperty QName(PackageNamespace(""),"_rConnection")
+                  callpropvoid QName(PackageNamespace(""),"connect"), 1
+                  getlocal0
+                  getproperty QName(PackageNamespace(""),"_rLC")
+                  getlocal0
+                  setproperty QName(PackageNamespace(""),"client")
+                  jump ofs008c
+         ofs0078:
+                  getlocal0
+                  getproperty QName(PackageNamespace(""),"_rLC")
+                  getlocal0
+                  getproperty QName(PackageNamespace(""),"_rConnection")
+                  callpropvoid QName(PackageNamespace(""),"connect"), 1
+                  getlocal0
+                  getproperty QName(PackageNamespace(""),"_rLC")
+                  getlocal0
+                  setproperty QName(PackageNamespace(""),"client")
+         ofs008c:
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function initConnection() : void
+      {
+         trait method QName(PackageNamespace(""),"initConnection")
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 3
+                  localcount 1
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     findpropstrict QName(PackageNamespace("flash.utils"),"Timer")
+                     pushshort 2000
+                     constructprop QName(PackageNamespace("flash.utils"),"Timer"), 1
+                     initproperty QName(PrivateNamespace(null,"128"),"_connectTimer")
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"128"),"_connectTimer")
+                     pushstring "timer"
+                     getlocal0
+                     getproperty QName(PackageNamespace(""),"AttemptConnection")
+                     callpropvoid QName(PackageNamespace(""),"addEventListener"), 2
+                     getlocal0
+                     getproperty QName(PackageNamespace(""),"_sLC")
+                     getlex QName(PackageNamespace("flash.events"),"StatusEvent")
+                     getproperty QName(PackageNamespace(""),"STATUS")
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"128"),"onConnectionStatus")
+                     callpropvoid QName(PackageNamespace(""),"addEventListener"), 2
+                     getlocal0
+                     pushnull
+                     callpropvoid QName(PackageNamespace(""),"AttemptConnection"), 1
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"128"),"_connectTimer")
+                     callpropvoid QName(PackageNamespace(""),"start"), 0
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function AttemptConnection(param1:TimerEvent) : void
+         {
+            trait method QName(PackageNamespace(""),"AttemptConnection")
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace("flash.events"),"TimerEvent")
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 4
+                     localcount 2
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        getproperty QName(PackageNamespace(""),"_sLC")
+                        getlocal0
+                        getproperty QName(PackageNamespace(""),"_sConnection")
+                        pushstring "setUnique"
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"128"),"_unique")
+                        callpropvoid QName(PackageNamespace(""),"send"), 3
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function setUnique(param1:int) : void
+            {
+               trait method QName(PackageNamespace(""),"setUnique")
+                  dispid 0
+                  method
+                     name null
+                     param QName(PackageNamespace(""),"int")
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 3
+                        localcount 2
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getlocal1
+                           initproperty QName(PrivateNamespace(null,"128"),"_unique")
+                           getlocal0
+                           getlocal0
+                           getproperty QName(PackageNamespace(""),"_rConnection")
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"128"),"_unique")
+                           add
+                           initproperty QName(PackageNamespace(""),"_rConnection")
+                           getlocal0
+                           getlocal0
+                           getproperty QName(PackageNamespace(""),"_sConnection")
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"128"),"_unique")
+                           add
+                           initproperty QName(PackageNamespace(""),"_sConnection")
+                           getlocal0
+                           getproperty QName(PackageNamespace(""),"_sLC")
+                           getlocal0
+                           getproperty QName(PackageNamespace(""),"_sConnection")
+                           pushstring "slaveReceivedUnique"
+                           callpropvoid QName(PackageNamespace(""),"send"), 2
+                           getlocal0
+                           getproperty QName(PackageNamespace(""),"_sLC")
+                           getlex QName(PackageNamespace("flash.events"),"StatusEvent")
+                           getproperty QName(PackageNamespace(""),"STATUS")
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"128"),"onStatus")
+                           callpropvoid QName(PackageNamespace(""),"addEventListener"), 2
+                           getlocal0
+                           getproperty QName(PackageNamespace(""),"_rLC")
+                           callpropvoid QName(PackageNamespace(""),"close"), 0
+                           getlocal0
+                           getproperty QName(PackageNamespace(""),"_rLC")
+                           getlocal0
+                           getproperty QName(PackageNamespace(""),"_rConnection")
+                           callpropvoid QName(PackageNamespace(""),"connect"), 1
+                           getlocal0
+                           getproperty QName(PackageNamespace(""),"_rLC")
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"128"),"_uniqueClient")
+                           setproperty QName(PackageNamespace(""),"client")
+                           getlocal0
+                           pushtrue
+                           initproperty QName(PackageNamespace(""),"_connected")
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function slaveReceivedUnique() : void
+               {
+                  trait method QName(PackageNamespace(""),"slaveReceivedUnique")
+                     dispid 0
+                     method
+                        name null
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 3
+                           localcount 1
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal0
+                              getproperty QName(PackageNamespace(""),"_sLC")
+                              getlex QName(PackageNamespace("flash.events"),"StatusEvent")
+                              getproperty QName(PackageNamespace(""),"STATUS")
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"128"),"onConnectionStatus")
+                              callpropvoid QName(PackageNamespace(""),"removeEventListener"), 2
+                              getlocal0
+                              getproperty QName(PackageNamespace(""),"_sLC")
+                              getlex QName(PackageNamespace("flash.events"),"StatusEvent")
+                              getproperty QName(PackageNamespace(""),"STATUS")
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"128"),"onStatus")
+                              callpropvoid QName(PackageNamespace(""),"addEventListener"), 2
+                              getlocal0
+                              pushtrue
+                              initproperty QName(PackageNamespace(""),"_connected")
+                              getlocal0
+                              getlocal0
+                              getproperty QName(PackageNamespace(""),"_sConnection")
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"128"),"_unique")
+                              add
+                              initproperty QName(PackageNamespace(""),"_sConnection")
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"128"),"_connectTimer")
+                              callpropvoid QName(PackageNamespace(""),"stop"), 0
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"128"),"_connectTimer")
+                              pushstring "timer"
+                              getlocal0
+                              getproperty QName(PackageNamespace(""),"AttemptConnection")
+                              callpropvoid QName(PackageNamespace(""),"removeEventListener"), 2
+                              getlocal0
+                              getproperty QName(PackageNamespace(""),"_rLC")
+                              callpropvoid QName(PackageNamespace(""),"close"), 0
+                              getlocal0
+                              getproperty QName(PackageNamespace(""),"_rLC")
+                              getlocal0
+                              getproperty QName(PackageNamespace(""),"_rConnection")
+                              callpropvoid QName(PackageNamespace(""),"connect"), 1
+                              getlocal0
+                              getproperty QName(PackageNamespace(""),"_rLC")
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"128"),"_uniqueClient")
+                              setproperty QName(PackageNamespace(""),"client")
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function send(param1:String, ... rest) : void
+                  {
+                     trait method QName(PackageNamespace(""),"send")
+                        dispid 0
+                        method
+                           name null
+                           flag NEED_REST
+                           param QName(PackageNamespace(""),"String")
+                           returns QName(PackageNamespace(""),"void")
+                           
+                           body
+                              maxstack 4
+                              localcount 3
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal2
+                                 getproperty QName(PackageNamespace(""),"length")
+                                 pushbyte 0
+                                 ifngt ofs001e
+                                 getlocal0
+                                 getproperty QName(PackageNamespace(""),"_sLC")
+                                 getlocal0
+                                 getproperty QName(PackageNamespace(""),"_sConnection")
+                                 getlocal1
+                                 getlocal2
+                                 callpropvoid QName(PackageNamespace(""),"send"), 3
+                                 jump ofs002b
+                        ofs001e:
+                                 getlocal0
+                                 getproperty QName(PackageNamespace(""),"_sLC")
+                                 getlocal0
+                                 getproperty QName(PackageNamespace(""),"_sConnection")
+                                 getlocal1
+                                 callpropvoid QName(PackageNamespace(""),"send"), 2
+                        ofs002b:
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     private function onConnectionStatus(param1:StatusEvent) : void
+                     {
+                        trait method QName(PrivateNamespace(null,"128"),"onConnectionStatus")
+                           dispid 0
+                           method
+                              name null
+                              param QName(PackageNamespace("flash.events"),"StatusEvent")
+                              returns QName(PackageNamespace(""),"void")
+                              
+                              body
+                                 maxstack 2
+                                 localcount 3
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    jump ofs001e
+                           ofs0006:
+                                    label
+                                    getlocal0
+                                    callpropvoid QName(PackageNamespace(""),"slaveReceivedUnique"), 0
+                                    jump ofs005b
+                           ofs0010:
+                                    label
+                                    jump ofs005b
+                           ofs0015:
+                                    label
+                                    jump ofs005b
+                                    jump ofs001e
+                           ofs001e:
+                                    getlocal1
+                                    getproperty QName(PackageNamespace(""),"level")
+                                    setlocal2
+                                    pushstring "status"
+                                    getlocal2
+                                    ifstrictne ofs0031
+                                    pushbyte 0
+                                    jump ofs004b
+                           ofs0031:
+                                    pushstring "error"
+                                    getlocal2
+                                    ifstrictne ofs003f
+                                    pushbyte 1
+                                    jump ofs004b
+                           ofs003f:
+                                    jump ofs0049
+                                    pushbyte 2
+                                    jump ofs0049
+                           ofs0049:
+                                    pushbyte 2
+                           ofs004b:
+                                    kill 2
+                                    lookupswitch ofs0015, [ofs0006, ofs0010, ofs0015]
+                           ofs005b:
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        private function onStatus(param1:StatusEvent) : void
+                        {
+                           trait method QName(PrivateNamespace(null,"128"),"onStatus")
+                              dispid 0
+                              method
+                                 name null
+                                 param QName(PackageNamespace("flash.events"),"StatusEvent")
+                                 returns QName(PackageNamespace(""),"void")
+                                 
+                                 body
+                                    maxstack 2
+                                    localcount 3
+                                    initscopedepth 4
+                                    maxscopedepth 5
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       jump ofs0019
+                              ofs0006:
+                                       label
+                                       jump ofs0056
+                              ofs000b:
+                                       label
+                                       jump ofs0056
+                              ofs0010:
+                                       label
+                                       jump ofs0056
+                                       jump ofs0019
+                              ofs0019:
+                                       getlocal1
+                                       getproperty QName(PackageNamespace(""),"level")
+                                       setlocal2
+                                       pushstring "status"
+                                       getlocal2
+                                       ifstrictne ofs002c
+                                       pushbyte 0
+                                       jump ofs0046
+                              ofs002c:
+                                       pushstring "error"
+                                       getlocal2
+                                       ifstrictne ofs003a
+                                       pushbyte 1
+                                       jump ofs0046
+                              ofs003a:
+                                       jump ofs0044
+                                       pushbyte 2
+                                       jump ofs0044
+                              ofs0044:
+                                       pushbyte 2
+                              ofs0046:
+                                       kill 2
+                                       lookupswitch ofs0010, [ofs0006, ofs000b, ofs0010]
+                              ofs0056:
+                                       returnvoid
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                        }
+                     }
+                     
+                     method
+                        name null
+                        returns null
+                        
+                        body
+                           maxstack 2
+                           localcount 1
+                           initscopedepth 1
+                           maxscopedepth 3
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              findpropstrict Multiname("Connection",[PackageNamespace("com.cartoonnetwork.connect")])
+                              getlex QName(PackageNamespace(""),"Object")
+                              pushscope
+                              getlex QName(PackageNamespace(""),"Object")
+                              newclass 225
+                              popscope
+                              initproperty QName(PackageNamespace("com.cartoonnetwork.connect"),"Connection")
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                     

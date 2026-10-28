@@ -1,0 +1,57 @@
+package aplication
+{
+   public interface State
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 0
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 3
+            
+            code
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      function enter() : void;
+      
+      function leave() : void;
+      
+      function addTransition(param1:State, param2:String) : void;
+      
+      function getName() : String;
+      
+      function getTargetForTransition(param1:String) : State;
+      
+      function clear() : void;
+   }
+}
+
+method
+   name null
+   returns null
+   
+   body
+      maxstack 2
+      localcount 1
+      initscopedepth 1
+      maxscopedepth 2
+      
+      code
+         getlocal0
+         pushscope
+         findpropstrict Multiname("State",[PackageNamespace("aplication")])
+         pushnull
+         newclass 3
+         initproperty QName(PackageNamespace("aplication"),"State")
+         returnvoid
+      end ; code
+   end ; body
+end ; method
+

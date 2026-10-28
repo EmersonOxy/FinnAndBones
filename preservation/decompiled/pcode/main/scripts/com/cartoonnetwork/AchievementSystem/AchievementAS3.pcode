@@ -1,0 +1,414 @@
+package com.cartoonnetwork.AchievementSystem
+{
+   import com.cartoonnetwork.connect.Connection;
+   import flash.display.Loader;
+   import flash.utils.Timer;
+   
+   public class AchievementAS3
+   {
+      
+      public static var STATUS_CONNECTING:int = 0;
+      
+      public static var STATUS_SHOWING_ACHIEVEMENT:int = 1;
+      
+      public static var STATUS_READY:int = 2;
+      
+      public static var _achievementNotificationFinished:Boolean;
+      
+      public static var _uniqueVal:int = -1;
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(PackageNamespace(""),"STATUS_CONNECTING")
+               pushbyte 0
+               setproperty QName(PackageNamespace(""),"STATUS_CONNECTING")
+               findproperty QName(PackageNamespace(""),"STATUS_SHOWING_ACHIEVEMENT")
+               pushbyte 1
+               setproperty QName(PackageNamespace(""),"STATUS_SHOWING_ACHIEVEMENT")
+               findproperty QName(PackageNamespace(""),"STATUS_READY")
+               pushbyte 2
+               setproperty QName(PackageNamespace(""),"STATUS_READY")
+               findproperty QName(PackageNamespace(""),"_uniqueVal")
+               pushbyte -1
+               setproperty QName(PackageNamespace(""),"_uniqueVal")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var _swfLoader:Loader;
+      
+      private var _connectTimer:Timer;
+      
+      private var _connectedToModule:Boolean;
+      
+      public var _xmlLoaded:Boolean = false;
+      
+      public var _status:int;
+      
+      private var _moduleConnection:Connection;
+      
+      private var _displayConnection:Connection;
+      
+      public function AchievementAS3()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 6
+               localcount 1
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("flash.display"),"Loader")
+                  constructprop QName(PackageNamespace("flash.display"),"Loader"), 0
+                  initproperty QName(PrivateNamespace(null,"76"),"_swfLoader")
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("com.cartoonnetwork.connect"),"Connection")
+                  pushstring "fromAchieveModule"
+                  pushstring "toAchieveModule"
+                  getlocal0
+                  pushtrue
+                  constructprop QName(PackageNamespace("com.cartoonnetwork.connect"),"Connection"), 4
+                  initproperty QName(PrivateNamespace(null,"76"),"_moduleConnection")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function sendStat(param1:String, param2:int) : void
+      {
+         trait method QName(PackageNamespace(""),"sendStat")
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace(""),"String")
+               param QName(PackageNamespace(""),"int")
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 4
+                  localcount 3
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"76"),"_moduleConnection")
+                     pushstring "updateStat"
+                     getlocal1
+                     getlocal2
+                     callpropvoid QName(PackageNamespace(""),"send"), 3
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function xmlLoaded() : void
+         {
+            trait method QName(PackageNamespace(""),"xmlLoaded")
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 6
+                     localcount 1
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        pushtrue
+                        initproperty QName(PackageNamespace(""),"_xmlLoaded")
+                        getlocal0
+                        findpropstrict QName(PackageNamespace("com.cartoonnetwork.connect"),"Connection")
+                        pushstring "fromDisplayModule"
+                        pushstring "toDisplayModule"
+                        getlocal0
+                        pushfalse
+                        constructprop QName(PackageNamespace("com.cartoonnetwork.connect"),"Connection"), 4
+                        initproperty QName(PrivateNamespace(null,"76"),"_displayConnection")
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function achievementEarned(param1:Array) : void
+            {
+               trait method QName(PackageNamespace(""),"achievementEarned")
+                  dispid 0
+                  method
+                     name null
+                     param QName(PackageNamespace(""),"Array")
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 4
+                        localcount 2
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getlocal1
+                           pushbyte 0
+                           getproperty MultinameL([PrivateNamespace(null,"76"),PackageNamespace(""),PrivateNamespace(null,"247"),PackageNamespace("com.cartoonnetwork.AchievementSystem"),PackageInternalNs("com.cartoonnetwork.AchievementSystem"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.cartoonnetwork.AchievementSystem:AchievementAS3"),StaticProtectedNs("com.cartoonnetwork.AchievementSystem:AchievementAS3")])
+                           getlocal1
+                           pushbyte 1
+                           getproperty MultinameL([PrivateNamespace(null,"76"),PackageNamespace(""),PrivateNamespace(null,"247"),PackageNamespace("com.cartoonnetwork.AchievementSystem"),PackageInternalNs("com.cartoonnetwork.AchievementSystem"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("com.cartoonnetwork.AchievementSystem:AchievementAS3"),StaticProtectedNs("com.cartoonnetwork.AchievementSystem:AchievementAS3")])
+                           callpropvoid QName(PackageNamespace(""),"showAchievement"), 2
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function toString() : String
+               {
+                  trait method QName(PackageNamespace(""),"toString")
+                     dispid 0
+                     method
+                        name null
+                        returns QName(PackageNamespace(""),"String")
+                        
+                        body
+                           maxstack 1
+                           localcount 1
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              pushstring "<< AchievementAS3 >>"
+                              returnvalue
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function achievementNotificationGameLoaded() : void
+                  {
+                     trait method QName(PackageNamespace(""),"achievementNotificationGameLoaded")
+                        dispid 0
+                        method
+                           name null
+                           returns QName(PackageNamespace(""),"void")
+                           
+                           body
+                              maxstack 2
+                              localcount 1
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"76"),"_moduleConnection")
+                                 pushstring "achievementNotificationGameLoaded"
+                                 callpropvoid QName(PackageNamespace(""),"send"), 1
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     public function achievementNotificationGameStarted() : void
+                     {
+                        trait method QName(PackageNamespace(""),"achievementNotificationGameStarted")
+                           dispid 0
+                           method
+                              name null
+                              returns QName(PackageNamespace(""),"void")
+                              
+                              body
+                                 maxstack 2
+                                 localcount 1
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"76"),"_moduleConnection")
+                                    pushstring "achievementNotificationGameStarted"
+                                    callpropvoid QName(PackageNamespace(""),"send"), 1
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        public function achievementNotificationGameEnded() : void
+                        {
+                           trait method QName(PackageNamespace(""),"achievementNotificationGameEnded")
+                              dispid 0
+                              method
+                                 name null
+                                 returns QName(PackageNamespace(""),"void")
+                                 
+                                 body
+                                    maxstack 2
+                                    localcount 1
+                                    initscopedepth 4
+                                    maxscopedepth 5
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"76"),"_moduleConnection")
+                                       pushstring "achievementNotificationGameEnded"
+                                       callpropvoid QName(PackageNamespace(""),"send"), 1
+                                       returnvoid
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           public function achievementNotificationFinished() : void
+                           {
+                              trait method QName(PackageNamespace(""),"achievementNotificationFinished")
+                                 dispid 0
+                                 method
+                                    name null
+                                    returns QName(PackageNamespace(""),"void")
+                                    
+                                    body
+                                       maxstack 2
+                                       localcount 1
+                                       initscopedepth 4
+                                       maxscopedepth 5
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          getlex QName(PackageNamespace("com.cartoonnetwork.AchievementSystem"),"AchievementAS3")
+                                          pushtrue
+                                          setproperty QName(PackageNamespace(""),"_achievementNotificationFinished")
+                                          returnvoid
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                              
+                              public function isAchievmentNotificationFinished() : Boolean
+                              {
+                                 trait method QName(PackageNamespace(""),"isAchievmentNotificationFinished")
+                                    dispid 0
+                                    method
+                                       name null
+                                       returns QName(PackageNamespace(""),"Boolean")
+                                       
+                                       body
+                                          maxstack 2
+                                          localcount 2
+                                          initscopedepth 4
+                                          maxscopedepth 5
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             getlex QName(PackageNamespace(""),"_achievementNotificationFinished")
+                                             convert_b
+                                             setlocal1
+                                             findproperty QName(PackageNamespace(""),"_achievementNotificationFinished")
+                                             pushfalse
+                                             setproperty QName(PackageNamespace(""),"_achievementNotificationFinished")
+                                             getlocal1
+                                             returnvalue
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                 }
+                                 
+                                 public function showAchievement(param1:String, param2:String) : void
+                                 {
+                                    trait method QName(PackageNamespace(""),"showAchievement")
+                                       dispid 0
+                                       method
+                                          name null
+                                          param QName(PackageNamespace(""),"String")
+                                          param QName(PackageNamespace(""),"String")
+                                          returns QName(PackageNamespace(""),"void")
+                                          
+                                          body
+                                             maxstack 4
+                                             localcount 3
+                                             initscopedepth 4
+                                             maxscopedepth 5
+                                             
+                                             code
+                                                getlocal0
+                                                pushscope
+                                                getlocal0
+                                                getproperty QName(PrivateNamespace(null,"76"),"_displayConnection")
+                                                pushstring "displayAchievement"
+                                                getlocal1
+                                                getlocal2
+                                                callpropvoid QName(PackageNamespace(""),"send"), 3
+                                                returnvoid
+                                             end ; code
+                                          end ; body
+                                       end ; method
+                                    }
+                                 }
+                              }
+                              
+                              method
+                                 name null
+                                 returns null
+                                 
+                                 body
+                                    maxstack 2
+                                    localcount 1
+                                    initscopedepth 1
+                                    maxscopedepth 3
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       findpropstrict Multiname("AchievementAS3",[PackageNamespace("com.cartoonnetwork.AchievementSystem")])
+                                       getlex QName(PackageNamespace(""),"Object")
+                                       pushscope
+                                       getlex QName(PackageNamespace(""),"Object")
+                                       newclass 124
+                                       popscope
+                                       initproperty QName(PackageNamespace("com.cartoonnetwork.AchievementSystem"),"AchievementAS3")
+                                       returnvoid
+                                    end ; code
+                                 end ; body
+                              end ; method
+                              

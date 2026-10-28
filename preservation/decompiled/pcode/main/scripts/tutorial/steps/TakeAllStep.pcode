@@ -1,0 +1,356 @@
+package tutorial.steps
+{
+   import flash.display.MovieClip;
+   import flash.events.MouseEvent;
+   import tutorial.Tutorial;
+   import view.screens.main_game.GameView;
+   import view.screens.main_game.dungeon.WinWindow;
+   
+   public class TakeAllStep extends TutorialStep
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 5
+            maxscopedepth 6
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var listeningClick:Boolean;
+      
+      public function TakeAllStep(param1:uint, param2:Tutorial)
+      {
+         method
+            name null
+            param QName(PackageNamespace(""),"uint")
+            param QName(PackageNamespace("tutorial"),"Tutorial")
+            returns null
+            
+            body
+               maxstack 6
+               localcount 3
+               initscopedepth 6
+               maxscopedepth 7
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  getlocal1
+                  callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"toString"), 0
+                  getlocal2
+                  getlocal1
+                  pushstring "assets.Tutorial"
+                  getlocal1
+                  callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"toString"), 0
+                  add
+                  constructsuper 4
+                  getlocal0
+                  pushfalse
+                  initproperty QName(PrivateNamespace(null,"38"),"listeningClick")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      override public function enter() : void
+      {
+         trait method QName(PackageNamespace(""),"enter")
+            flag OVERRIDE
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 2
+                  localcount 1
+                  initscopedepth 6
+                  maxscopedepth 7
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlex QName(PackageNamespace("view.screens.main_game.dungeon"),"WinWindow")
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"38"),"wonDungeon")
+                     setproperty QName(PackageNamespace(""),"onShow")
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         private function get winWindow() : WinWindow
+         {
+            trait getter QName(PrivateNamespace(null,"38"),"winWindow")
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace("view.screens.main_game.dungeon"),"WinWindow")
+                  
+                  body
+                     maxstack 2
+                     localcount 1
+                     initscopedepth 6
+                     maxscopedepth 7
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlex QName(PackageNamespace(""),"main")
+                        getproperty QName(PackageNamespace(""),"gameHolder")
+                        getproperty Multiname("gameView",[PrivateNamespace(null,"38"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace(""),PrivateNamespace(null,"207"),PackageNamespace("tutorial.steps"),PackageInternalNs("tutorial.steps"),ProtectedNamespace("tutorial.steps:TakeAllStep"),StaticProtectedNs("tutorial.steps:TakeAllStep"),StaticProtectedNs("tutorial.steps:TutorialStep"),StaticProtectedNs("aplication:BasicState")])
+                        getlex QName(PackageNamespace("view.screens.main_game"),"GameView")
+                        astypelate
+                        getproperty QName(PackageNamespace(""),"pauseHolder")
+                        pushstring "window"
+                        getproperty MultinameL([PrivateNamespace(null,"38"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace(""),PrivateNamespace(null,"207"),PackageNamespace("tutorial.steps"),PackageInternalNs("tutorial.steps"),ProtectedNamespace("tutorial.steps:TakeAllStep"),StaticProtectedNs("tutorial.steps:TakeAllStep"),StaticProtectedNs("tutorial.steps:TutorialStep"),StaticProtectedNs("aplication:BasicState")])
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            private function wonDungeon() : void
+            {
+               trait method QName(PrivateNamespace(null,"38"),"wonDungeon")
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 3
+                        localcount 1
+                        initscopedepth 6
+                        maxscopedepth 7
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"38"),"winWindow")
+                           getproperty QName(PackageNamespace(""),"lootMcButton")
+                           getlex QName(PackageNamespace("flash.events"),"MouseEvent")
+                           getproperty QName(PackageNamespace(""),"CLICK")
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"38"),"loot")
+                           callpropvoid QName(PackageNamespace(""),"addEventListener"), 2
+                           getlocal0
+                           pushtrue
+                           initproperty QName(PrivateNamespace(null,"38"),"listeningClick")
+                           getlocal0
+                           callsupervoid QName(PackageNamespace(""),"enter"), 0
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               private function loot(param1:MouseEvent) : void
+               {
+                  trait method QName(PrivateNamespace(null,"38"),"loot")
+                     dispid 0
+                     method
+                        name null
+                        param QName(PackageNamespace("flash.events"),"MouseEvent")
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 1
+                           localcount 2
+                           initscopedepth 6
+                           maxscopedepth 7
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal0
+                              callpropvoid QName(PrivateNamespace(null,"38"),"stopListening"), 0
+                              getlex QName(ProtectedNamespace("tutorial.steps:TutorialStep"),"theView")
+                              callpropvoid QName(PackageNamespace(""),"leave"), 0
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  override public function leave() : void
+                  {
+                     trait method QName(PackageNamespace(""),"leave")
+                        flag OVERRIDE
+                        dispid 0
+                        method
+                           name null
+                           returns QName(PackageNamespace(""),"void")
+                           
+                           body
+                              maxstack 2
+                              localcount 1
+                              initscopedepth 6
+                              maxscopedepth 7
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlex QName(PackageNamespace("view.screens.main_game.dungeon"),"WinWindow")
+                                 pushnull
+                                 setproperty QName(PackageNamespace(""),"onShow")
+                                 getlocal0
+                                 callpropvoid QName(PrivateNamespace(null,"38"),"stopListening"), 0
+                                 getlocal0
+                                 callsupervoid QName(PackageNamespace(""),"leave"), 0
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     override protected function setText(param1:MovieClip) : void
+                     {
+                        trait method QName(ProtectedNamespace("tutorial.steps:TakeAllStep"),"setText")
+                           flag OVERRIDE
+                           dispid 0
+                           method
+                              name null
+                              param QName(PackageNamespace("flash.display"),"MovieClip")
+                              returns QName(PackageNamespace(""),"void")
+                              
+                              body
+                                 maxstack 3
+                                 localcount 2
+                                 initscopedepth 6
+                                 maxscopedepth 7
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    getlocal1
+                                    getproperty Multiname("text",[PrivateNamespace(null,"38"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace(""),PrivateNamespace(null,"207"),PackageNamespace("tutorial.steps"),PackageInternalNs("tutorial.steps"),ProtectedNamespace("tutorial.steps:TakeAllStep"),StaticProtectedNs("tutorial.steps:TakeAllStep"),StaticProtectedNs("tutorial.steps:TutorialStep"),StaticProtectedNs("aplication:BasicState")])
+                                    getproperty Multiname("text",[PrivateNamespace(null,"38"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace(""),PrivateNamespace(null,"207"),PackageNamespace("tutorial.steps"),PackageInternalNs("tutorial.steps"),ProtectedNamespace("tutorial.steps:TakeAllStep"),StaticProtectedNs("tutorial.steps:TakeAllStep"),StaticProtectedNs("tutorial.steps:TutorialStep"),StaticProtectedNs("aplication:BasicState")])
+                                    getlex QName(PackageNamespace(""),"main")
+                                    getproperty QName(PackageNamespace(""),"locale")
+                                    pushstring "tutorialTakeAll"
+                                    callproperty QName(PackageNamespace(""),"get"), 1
+                                    setproperty Multiname("text",[PrivateNamespace(null,"38"),Namespace("http://adobe.com/AS3/2006/builtin"),PackageNamespace(""),PrivateNamespace(null,"207"),PackageNamespace("tutorial.steps"),PackageInternalNs("tutorial.steps"),ProtectedNamespace("tutorial.steps:TakeAllStep"),StaticProtectedNs("tutorial.steps:TakeAllStep"),StaticProtectedNs("tutorial.steps:TutorialStep"),StaticProtectedNs("aplication:BasicState")])
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        private function stopListening() : void
+                        {
+                           trait method QName(PrivateNamespace(null,"38"),"stopListening")
+                              dispid 0
+                              method
+                                 name null
+                                 returns QName(PackageNamespace(""),"void")
+                                 
+                                 body
+                                    maxstack 3
+                                    localcount 1
+                                    initscopedepth 6
+                                    maxscopedepth 7
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"38"),"listeningClick")
+                                       iffalse ofs0023
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"38"),"winWindow")
+                                       getproperty QName(PackageNamespace(""),"lootMcButton")
+                                       getlex QName(PackageNamespace("flash.events"),"MouseEvent")
+                                       getproperty QName(PackageNamespace(""),"CLICK")
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"38"),"loot")
+                                       callpropvoid QName(PackageNamespace(""),"removeEventListener"), 2
+                                       getlocal0
+                                       pushfalse
+                                       initproperty QName(PrivateNamespace(null,"38"),"listeningClick")
+                              ofs0023:
+                                       returnvoid
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           override public function clear() : void
+                           {
+                              trait method QName(PackageNamespace(""),"clear")
+                                 flag OVERRIDE
+                                 dispid 0
+                                 method
+                                    name null
+                                    returns QName(PackageNamespace(""),"void")
+                                    
+                                    body
+                                       maxstack 2
+                                       localcount 1
+                                       initscopedepth 6
+                                       maxscopedepth 7
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          getlocal0
+                                          callpropvoid QName(PrivateNamespace(null,"38"),"stopListening"), 0
+                                          getlex QName(PackageNamespace("view.screens.main_game.dungeon"),"WinWindow")
+                                          pushnull
+                                          setproperty QName(PackageNamespace(""),"onShow")
+                                          getlocal0
+                                          callsupervoid QName(PackageNamespace(""),"clear"), 0
+                                          returnvoid
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                           }
+                        }
+                        
+                        method
+                           name null
+                           returns null
+                           
+                           body
+                              maxstack 2
+                              localcount 1
+                              initscopedepth 1
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 findpropstrict Multiname("TakeAllStep",[PackageNamespace("tutorial.steps")])
+                                 getlex QName(PackageNamespace(""),"Object")
+                                 pushscope
+                                 getlex QName(PackageNamespace("aplication"),"BasicState")
+                                 pushscope
+                                 getlex QName(PackageNamespace("tutorial.steps"),"TutorialStep")
+                                 pushscope
+                                 getlex QName(PackageNamespace("tutorial.steps"),"TutorialStep")
+                                 newclass 49
+                                 popscope
+                                 popscope
+                                 popscope
+                                 initproperty QName(PackageNamespace("tutorial.steps"),"TakeAllStep")
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                        

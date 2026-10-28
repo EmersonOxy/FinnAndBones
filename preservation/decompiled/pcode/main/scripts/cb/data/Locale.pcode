@@ -1,0 +1,382 @@
+package cb.data
+{
+   import flash.events.Event;
+   import flash.net.URLRequest;
+   import flash.utils.Dictionary;
+   import jh.PackedResources;
+   
+   public class Locale extends TextLoader
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 4
+            maxscopedepth 5
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var locale:Dictionary;
+      
+      public function Locale(param1:String)
+      {
+         method
+            name null
+            param QName(PackageNamespace(""),"String")
+            returns null
+            
+            body
+               maxstack 2
+               localcount 2
+               initscopedepth 5
+               maxscopedepth 6
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  getlocal1
+                  constructsuper 1
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      override public function load(param1:PackedResources = null) : void
+      {
+         trait method QName(PackageNamespace(""),"load")
+            flag OVERRIDE
+            dispid 0
+            method
+               name null
+               flag HAS_OPTIONAL
+               param QName(PackageNamespace("jh"),"PackedResources")
+               optional Null()
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 2
+                  localcount 4
+                  initscopedepth 5
+                  maxscopedepth 6
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     pushnull
+                     coerce QName(PackageNamespace(""),"Class")
+                     setlocal3
+                     getlocal1
+                     iffalse ofs0035
+                     getlocal1
+                     getlex QName(ProtectedNamespace("cb.data:TextLoader"),"uri")
+                     callproperty QName(PackageNamespace(""),"get"), 1
+                     coerce QName(PackageNamespace(""),"Class")
+                     setlocal3
+                     findpropstrict QName(ProtectedNamespace("cb.data:TextLoader"),"removeListeners")
+                     callpropvoid QName(ProtectedNamespace("cb.data:TextLoader"),"removeListeners"), 0
+                     findproperty QName(ProtectedNamespace("cb.data:TextLoader"),"loader")
+                     pushnull
+                     initproperty QName(ProtectedNamespace("cb.data:TextLoader"),"loader")
+                     getlocal0
+                     getlocal3
+                     construct 0
+                     callpropvoid QName(PrivateNamespace(null,"32"),"createLocale"), 1
+                     getlex QName(PackageNamespace(""),"loaded")
+                     getlocal0
+                     callpropvoid QName(PackageNamespace(""),"emit"), 1
+                     returnvoid
+            ofs0035:
+                     findpropstrict QName(PackageNamespace("flash.net"),"URLRequest")
+                     getlex QName(ProtectedNamespace("cb.data:TextLoader"),"uri")
+                     constructprop QName(PackageNamespace("flash.net"),"URLRequest"), 1
+                     coerce QName(PackageNamespace("flash.net"),"URLRequest")
+                     setlocal2
+                     getlex QName(ProtectedNamespace("cb.data:TextLoader"),"loader")
+                     getlocal2
+                     callpropvoid QName(PackageNamespace(""),"load"), 1
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         private function createLocale(param1:String) : void
+         {
+            trait method QName(PrivateNamespace(null,"32"),"createLocale")
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace(""),"String")
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 6
+                     localcount 7
+                     initscopedepth 5
+                     maxscopedepth 6
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        pushnull
+                        coerce_s
+                        setlocal2
+                        pushnull
+                        coerce_s
+                        setlocal3
+                        pushnull
+                        coerce QName(PackageNamespace(""),"Array")
+                        setlocal 4
+                        getlocal0
+                        findpropstrict QName(PackageNamespace("flash.utils"),"Dictionary")
+                        constructprop QName(PackageNamespace("flash.utils"),"Dictionary"), 0
+                        initproperty QName(PrivateNamespace(null,"32"),"locale")
+                        findproperty QName(PackageNamespace(""),"data")
+                        findpropstrict QName(PackageNamespace(""),"String")
+                        getlocal1
+                        callproperty QName(PackageNamespace(""),"String"), 1
+                        pushstring "\n"
+                        callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"split"), 1
+                        initproperty QName(PackageNamespace(""),"data")
+                        pushbyte 0
+                        setlocal 5
+                        getlex QName(PackageNamespace(""),"data")
+                        coerce_a
+                        setlocal 6
+                        jump ofs0085
+               ofs0037:
+                        label
+                        getlocal 6
+                        getlocal 5
+                        nextvalue
+                        coerce_s
+                        setlocal3
+                        getlocal3
+                        pushstring ":"
+                        callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"split"), 1
+                        coerce QName(PackageNamespace(""),"Array")
+                        dup
+                        setlocal 4
+                        callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"shift"), 0
+                        coerce_s
+                        setlocal2
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"32"),"locale")
+                        getlocal2
+                        getlocal 4
+                        pushstring ":"
+                        callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"join"), 1
+                        setproperty MultinameL([PrivateNamespace(null,"32"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"198"),PackageNamespace("cb.data"),PackageInternalNs("cb.data"),ProtectedNamespace("cb.data:Locale"),StaticProtectedNs("cb.data:Locale"),StaticProtectedNs("cb.data:TextLoader")])
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"32"),"locale")
+                        getlocal2
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"32"),"locale")
+                        getlocal2
+                        getproperty MultinameL([PrivateNamespace(null,"32"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"198"),PackageNamespace("cb.data"),PackageInternalNs("cb.data"),ProtectedNamespace("cb.data:Locale"),StaticProtectedNs("cb.data:Locale"),StaticProtectedNs("cb.data:TextLoader")])
+                        getlex QName(PackageNamespace(""),"RegExp")
+                        pushstring "^([\\s|\\t|\\n]+)?(.*)([\\s|\\t|\\n]+)?$"
+                        pushstring "gm"
+                        construct 2
+                        pushstring "$2"
+                        callproperty Multiname("replace",[PrivateNamespace(null,"32"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"198"),PackageNamespace("cb.data"),PackageInternalNs("cb.data"),ProtectedNamespace("cb.data:Locale"),StaticProtectedNs("cb.data:Locale"),StaticProtectedNs("cb.data:TextLoader")]), 2
+                        setproperty MultinameL([PrivateNamespace(null,"32"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"198"),PackageNamespace("cb.data"),PackageInternalNs("cb.data"),ProtectedNamespace("cb.data:Locale"),StaticProtectedNs("cb.data:Locale"),StaticProtectedNs("cb.data:TextLoader")])
+               ofs0085:
+                        hasnext2 6, 5
+                        iftrue ofs0037
+                        kill 6
+                        kill 5
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            override protected function loaderCompleteHandler(param1:Event) : void
+            {
+               trait method QName(ProtectedNamespace("cb.data:Locale"),"loaderCompleteHandler")
+                  flag OVERRIDE
+                  dispid 0
+                  method
+                     name null
+                     param QName(PackageNamespace("flash.events"),"Event")
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 2
+                        localcount 2
+                        initscopedepth 5
+                        maxscopedepth 6
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getlex QName(ProtectedNamespace("cb.data:TextLoader"),"loader")
+                           getproperty QName(PackageNamespace(""),"data")
+                           callpropvoid QName(PrivateNamespace(null,"32"),"createLocale"), 1
+                           getlex QName(PackageNamespace(""),"loaded")
+                           getlocal0
+                           callpropvoid QName(PackageNamespace(""),"emit"), 1
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function get(param1:String, param2:Array = null) : String
+               {
+                  trait method QName(PackageNamespace(""),"get")
+                     dispid 0
+                     method
+                        name null
+                        flag HAS_OPTIONAL
+                        flag NEED_ACTIVATION
+                        param QName(PackageNamespace(""),"String")
+                        param QName(PackageNamespace(""),"Array")
+                        optional Null()
+                        returns QName(PackageNamespace(""),"String")
+                        
+                        body
+                           maxstack 4
+                           localcount 4
+                           initscopedepth 6
+                           maxscopedepth 8
+                           trait slot QName(PackageInternalNs("cb.data"),"key")
+                              slotid 1
+                              type QName(PackageNamespace(""),"String")
+                           end ; trait
+                           trait slot QName(PackageInternalNs("cb.data"),"params")
+                              slotid 2
+                              type QName(PackageNamespace(""),"Array")
+                              value Null()
+                           end ; trait
+                           trait slot QName(PackageInternalNs("cb.data"),"s")
+                              slotid 3
+                              type QName(PackageNamespace(""),"String")
+                           end ; trait
+                           trait slot QName(PackageInternalNs("cb.data"),"re")
+                              slotid 4
+                              type QName(PackageNamespace(""),"RegExp")
+                           end ; trait
+                           trait slot QName(PackageInternalNs("cb.data"),"ix")
+                              slotid 5
+                              type QName(PackageNamespace(""),"int")
+                           end ; trait
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              newactivation
+                              dup
+                              setlocal3
+                              pushscope
+                              getscopeobject 1
+                              pushbyte 0
+                              setslot 5
+                              getscopeobject 1
+                              getlocal1
+                              setslot 1
+                              getscopeobject 1
+                              getlocal2
+                              setslot 2
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"32"),"locale")
+                              getscopeobject 1
+                              getslot 1
+                              getproperty MultinameL([PrivateNamespace(null,"32"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"198"),PackageNamespace("cb.data"),PackageInternalNs("cb.data"),ProtectedNamespace("cb.data:Locale"),StaticProtectedNs("cb.data:Locale"),StaticProtectedNs("cb.data:TextLoader")])
+                              getlex QName(PackageNamespace(""),"undefined")
+                              ifne ofs0035
+                              pushstring "missing key ["
+                              getscopeobject 1
+                              getslot 1
+                              add
+                              pushstring "]"
+                              add
+                              returnvalue
+                     ofs0035:
+                              getscopeobject 1
+                              getslot 2
+                              pushnull
+                              ifne ofs004a
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"32"),"locale")
+                              getscopeobject 1
+                              getslot 1
+                              getproperty MultinameL([PrivateNamespace(null,"32"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"198"),PackageNamespace("cb.data"),PackageInternalNs("cb.data"),ProtectedNamespace("cb.data:Locale"),StaticProtectedNs("cb.data:Locale"),StaticProtectedNs("cb.data:TextLoader")])
+                              returnvalue
+                     ofs004a:
+                              getscopeobject 1
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"32"),"locale")
+                              getscopeobject 1
+                              getslot 1
+                              getproperty MultinameL([PrivateNamespace(null,"32"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"198"),PackageNamespace("cb.data"),PackageInternalNs("cb.data"),ProtectedNamespace("cb.data:Locale"),StaticProtectedNs("cb.data:Locale"),StaticProtectedNs("cb.data:TextLoader")])
+                              coerce_s
+                              setslot 3
+                              getscopeobject 1
+                              getlex QName(PackageNamespace(""),"RegExp")
+                              pushstring "\\$+\\d+"
+                              pushstring "g"
+                              construct 2
+                              coerce QName(PackageNamespace(""),"RegExp")
+                              setslot 4
+                              getscopeobject 1
+                              getscopeobject 1
+                              getslot 3
+                              getscopeobject 1
+                              getslot 4
+                              newfunction 477
+                              callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"replace"), 2
+                              coerce_s
+                              setslot 3
+                              getscopeobject 1
+                              getslot 3
+                              returnvalue
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+               }
+            }
+            
+            method
+               name null
+               returns null
+               
+               body
+                  maxstack 2
+                  localcount 1
+                  initscopedepth 1
+                  maxscopedepth 4
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     findpropstrict Multiname("Locale",[PackageNamespace("cb.data")])
+                     getlex QName(PackageNamespace(""),"Object")
+                     pushscope
+                     getlex QName(PackageNamespace("cb.data"),"TextLoader")
+                     pushscope
+                     getlex QName(PackageNamespace("cb.data"),"TextLoader")
+                     newclass 40
+                     popscope
+                     popscope
+                     initproperty QName(PackageNamespace("cb.data"),"Locale")
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+            

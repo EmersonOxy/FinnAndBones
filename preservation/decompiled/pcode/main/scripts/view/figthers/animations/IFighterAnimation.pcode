@@ -1,0 +1,64 @@
+package view.figthers.animations
+{
+   import cb.signals.Signal;
+   import view.figthers.FighterView;
+   
+   public interface IFighterAnimation
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 0
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 3
+            
+            code
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      function make(param1:FighterView) : void;
+      
+      function pause() : void;
+      
+      function resume() : void;
+      
+      function kill() : void;
+      
+      function getAtFinish() : Signal;
+      
+      function mustGoToIdle() : Boolean;
+      
+      function getName() : String;
+      
+      function forceKill() : Boolean;
+   }
+}
+
+method
+   name null
+   returns null
+   
+   body
+      maxstack 2
+      localcount 1
+      initscopedepth 1
+      maxscopedepth 2
+      
+      code
+         getlocal0
+         pushscope
+         findpropstrict Multiname("IFighterAnimation",[PackageNamespace("view.figthers.animations")])
+         pushnull
+         newclass 188
+         initproperty QName(PackageNamespace("view.figthers.animations"),"IFighterAnimation")
+         returnvoid
+      end ; code
+   end ; body
+end ; method
+

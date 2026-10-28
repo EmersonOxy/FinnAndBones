@@ -1,0 +1,1247 @@
+package persistence
+{
+   import cb.gameloop.GameLoop;
+   import flash.display.DisplayObject;
+   import main_game.items.Item;
+   import main_game.items.ItemFactory;
+   import main_game.mixer.Recipe;
+   
+   public class SaveSystem
+   {
+      
+      private static const SAVE_FILE:String = "cbjs";
+      
+      private static const SOUND:String = "m";
+      
+      private static const PLAYED:String = "p";
+      
+      private static const LAST_PLAYED:String = "lp";
+      
+      private static const CLEARED_LEVELS:String = "cl";
+      
+      private static const EXPERIENCE:String = "xp";
+      
+      private static const TUTORIAL:String = "t";
+      
+      private static const RECIPES:String = "r";
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(PrivateNamespace(null,"22"),"SAVE_FILE")
+               pushstring "cbjs"
+               initproperty QName(PrivateNamespace(null,"22"),"SAVE_FILE")
+               findproperty QName(PrivateNamespace(null,"22"),"SOUND")
+               pushstring "m"
+               initproperty QName(PrivateNamespace(null,"22"),"SOUND")
+               findproperty QName(PrivateNamespace(null,"22"),"PLAYED")
+               pushstring "p"
+               initproperty QName(PrivateNamespace(null,"22"),"PLAYED")
+               findproperty QName(PrivateNamespace(null,"22"),"LAST_PLAYED")
+               pushstring "lp"
+               initproperty QName(PrivateNamespace(null,"22"),"LAST_PLAYED")
+               findproperty QName(PrivateNamespace(null,"22"),"CLEARED_LEVELS")
+               pushstring "cl"
+               initproperty QName(PrivateNamespace(null,"22"),"CLEARED_LEVELS")
+               findproperty QName(PrivateNamespace(null,"22"),"EXPERIENCE")
+               pushstring "xp"
+               initproperty QName(PrivateNamespace(null,"22"),"EXPERIENCE")
+               findproperty QName(PrivateNamespace(null,"22"),"TUTORIAL")
+               pushstring "t"
+               initproperty QName(PrivateNamespace(null,"22"),"TUTORIAL")
+               findproperty QName(PrivateNamespace(null,"22"),"RECIPES")
+               pushstring "r"
+               initproperty QName(PrivateNamespace(null,"22"),"RECIPES")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var pendingSaves:Object;
+      
+      private var _recipes:Array;
+      
+      private var gameLoop:GameLoop;
+      
+      private var recipesChange:Boolean;
+      
+      private var lastPlayed:String;
+      
+      public function SaveSystem(param1:DisplayObject)
+      {
+         method
+            name null
+            param QName(PackageNamespace("flash.display"),"DisplayObject")
+            returns null
+            
+            body
+               maxstack 3
+               localcount 2
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  pushfalse
+                  initproperty QName(PrivateNamespace(null,"22"),"recipesChange")
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("cb.gameloop"),"GameLoop")
+                  getlocal1
+                  constructprop QName(PackageNamespace("cb.gameloop"),"GameLoop"), 1
+                  initproperty QName(PrivateNamespace(null,"22"),"gameLoop")
+                  getlocal0
+                  newobject 0
+                  initproperty QName(PrivateNamespace(null,"22"),"pendingSaves")
+                  getlocal0
+                  getproperty QName(PrivateNamespace(null,"22"),"gameLoop")
+                  getproperty QName(PackageNamespace(""),"updated")
+                  getlocal0
+                  getproperty QName(PrivateNamespace(null,"22"),"realSavePending")
+                  callpropvoid QName(PackageNamespace(""),"add"), 1
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      private static function getSaveIdForInventory(param1:uint) : String
+      {
+         trait method QName(PrivateNamespace(null,"22"),"getSaveIdForInventory")
+            flag FINAL
+            dispid 3
+            method
+               name null
+               param QName(PackageNamespace(""),"uint")
+               returns QName(PackageNamespace(""),"String")
+               
+               body
+                  maxstack 2
+                  localcount 2
+                  initscopedepth 3
+                  maxscopedepth 4
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     pushstring "i"
+                     getlocal1
+                     add
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         private static function getSaveIdForGear(param1:uint) : String
+         {
+            trait method QName(PrivateNamespace(null,"22"),"getSaveIdForGear")
+               flag FINAL
+               dispid 4
+               method
+                  name null
+                  param QName(PackageNamespace(""),"uint")
+                  returns QName(PackageNamespace(""),"String")
+                  
+                  body
+                     maxstack 2
+                     localcount 2
+                     initscopedepth 3
+                     maxscopedepth 4
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        pushstring "g"
+                        getlocal1
+                        add
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            private static function getSaveIdForMix(param1:uint) : String
+            {
+               trait method QName(PrivateNamespace(null,"22"),"getSaveIdForMix")
+                  flag FINAL
+                  dispid 5
+                  method
+                     name null
+                     param QName(PackageNamespace(""),"uint")
+                     returns QName(PackageNamespace(""),"String")
+                     
+                     body
+                        maxstack 2
+                        localcount 2
+                        initscopedepth 3
+                        maxscopedepth 4
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           pushstring "m"
+                           getlocal1
+                           add
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               private static function getSaveIdForlevel(param1:String) : String
+               {
+                  trait method QName(PrivateNamespace(null,"22"),"getSaveIdForlevel")
+                     flag FINAL
+                     dispid 6
+                     method
+                        name null
+                        param QName(PackageNamespace(""),"String")
+                        returns QName(PackageNamespace(""),"String")
+                        
+                        body
+                           maxstack 2
+                           localcount 2
+                           initscopedepth 3
+                           maxscopedepth 4
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              pushstring "d"
+                              getlocal1
+                              add
+                              returnvalue
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function hasPlayed() : Boolean
+                  {
+                     trait method QName(PackageNamespace(""),"hasPlayed")
+                        dispid 0
+                        method
+                           name null
+                           returns QName(PackageNamespace(""),"Boolean")
+                           
+                           body
+                              maxstack 4
+                              localcount 1
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 findpropstrict QName(PackageNamespace(""),"Boolean")
+                                 getlex QName(PackageNamespace("persistence"),"SharedUtils")
+                                 getlex QName(PrivateNamespace(null,"22"),"SAVE_FILE")
+                                 getlex QName(PrivateNamespace(null,"22"),"PLAYED")
+                                 callproperty QName(PackageNamespace(""),"load"), 2
+                                 callproperty QName(PackageNamespace(""),"Boolean"), 1
+                                 returnvalue
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     public function onFirstPlay() : void
+                     {
+                        trait method QName(PackageNamespace(""),"onFirstPlay")
+                           dispid 0
+                           method
+                              name null
+                              returns QName(PackageNamespace(""),"void")
+                              
+                              body
+                                 maxstack 4
+                                 localcount 1
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    getlex QName(PackageNamespace("persistence"),"SharedUtils")
+                                    getlex QName(PrivateNamespace(null,"22"),"SAVE_FILE")
+                                    getlex QName(PrivateNamespace(null,"22"),"PLAYED")
+                                    pushtrue
+                                    callpropvoid QName(PackageNamespace(""),"save"), 3
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        public function onTutorialComplete(param1:uint) : void
+                        {
+                           trait method QName(PackageNamespace(""),"onTutorialComplete")
+                              dispid 0
+                              method
+                                 name null
+                                 param QName(PackageNamespace(""),"uint")
+                                 returns QName(PackageNamespace(""),"void")
+                                 
+                                 body
+                                    maxstack 4
+                                    localcount 2
+                                    initscopedepth 4
+                                    maxscopedepth 5
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       getlex QName(PackageNamespace("persistence"),"SharedUtils")
+                                       getlex QName(PrivateNamespace(null,"22"),"SAVE_FILE")
+                                       getlex QName(PrivateNamespace(null,"22"),"TUTORIAL")
+                                       getlocal1
+                                       callpropvoid QName(PackageNamespace(""),"save"), 3
+                                       returnvoid
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           public function tutorialStepCompleted() : uint
+                           {
+                              trait method QName(PackageNamespace(""),"tutorialStepCompleted")
+                                 dispid 0
+                                 method
+                                    name null
+                                    returns QName(PackageNamespace(""),"uint")
+                                    
+                                    body
+                                       maxstack 4
+                                       localcount 1
+                                       initscopedepth 4
+                                       maxscopedepth 5
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          findpropstrict QName(PackageNamespace(""),"uint")
+                                          getlex QName(PackageNamespace("persistence"),"SharedUtils")
+                                          getlex QName(PrivateNamespace(null,"22"),"SAVE_FILE")
+                                          getlex QName(PrivateNamespace(null,"22"),"TUTORIAL")
+                                          callproperty QName(PackageNamespace(""),"load"), 2
+                                          callproperty QName(PackageNamespace(""),"uint"), 1
+                                          returnvalue
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                              
+                              public function savePendingItems() : void
+                              {
+                                 trait method QName(PackageNamespace(""),"savePendingItems")
+                                    dispid 0
+                                    method
+                                       name null
+                                       returns QName(PackageNamespace(""),"void")
+                                       
+                                       body
+                                          maxstack 1
+                                          localcount 1
+                                          initscopedepth 4
+                                          maxscopedepth 5
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             getlocal0
+                                             getproperty QName(PrivateNamespace(null,"22"),"gameLoop")
+                                             callpropvoid QName(PackageNamespace(""),"start"), 0
+                                             returnvoid
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                 }
+                                 
+                                 private function realSavePending(param1:int) : void
+                                 {
+                                    trait method QName(PrivateNamespace(null,"22"),"realSavePending")
+                                       dispid 0
+                                       method
+                                          name null
+                                          param QName(PackageNamespace(""),"int")
+                                          returns QName(PackageNamespace(""),"void")
+                                          
+                                          body
+                                             maxstack 1
+                                             localcount 2
+                                             initscopedepth 4
+                                             maxscopedepth 5
+                                             
+                                             code
+                                                getlocal0
+                                                pushscope
+                                                getlocal0
+                                                callpropvoid QName(PrivateNamespace(null,"22"),"savePending"), 0
+                                                getlocal0
+                                                getproperty QName(PrivateNamespace(null,"22"),"gameLoop")
+                                                callpropvoid QName(PackageNamespace(""),"stop"), 0
+                                                returnvoid
+                                             end ; code
+                                          end ; body
+                                       end ; method
+                                    }
+                                    
+                                    private function savePending() : void
+                                    {
+                                       trait method QName(PrivateNamespace(null,"22"),"savePending")
+                                          dispid 0
+                                          method
+                                             name null
+                                             returns QName(PackageNamespace(""),"void")
+                                             
+                                             body
+                                                maxstack 3
+                                                localcount 1
+                                                initscopedepth 4
+                                                maxscopedepth 5
+                                                
+                                                code
+                                                   getlocal0
+                                                   pushscope
+                                                   getlocal0
+                                                   getproperty QName(PrivateNamespace(null,"22"),"recipesChange")
+                                                   iffalse ofs001d
+                                                   getlocal0
+                                                   getproperty QName(PrivateNamespace(null,"22"),"pendingSaves")
+                                                   getlex QName(PrivateNamespace(null,"22"),"RECIPES")
+                                                   getlocal0
+                                                   getproperty QName(PackageNamespace(""),"recipes")
+                                                   setproperty MultinameL([PrivateNamespace(null,"22"),PackageNamespace(""),PackageNamespace("persistence"),PrivateNamespace(null,"187"),PackageInternalNs("persistence"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("persistence:SaveSystem"),StaticProtectedNs("persistence:SaveSystem")])
+                                                   getlocal0
+                                                   pushfalse
+                                                   initproperty QName(PrivateNamespace(null,"22"),"recipesChange")
+                                          ofs001d:
+                                                   getlex QName(PackageNamespace("persistence"),"SharedUtils")
+                                                   getlex QName(PrivateNamespace(null,"22"),"SAVE_FILE")
+                                                   getlocal0
+                                                   getproperty QName(PrivateNamespace(null,"22"),"pendingSaves")
+                                                   callpropvoid QName(PackageNamespace(""),"saveBulk"), 2
+                                                   getlocal0
+                                                   newobject 0
+                                                   initproperty QName(PrivateNamespace(null,"22"),"pendingSaves")
+                                                   returnvoid
+                                                end ; code
+                                             end ; body
+                                          end ; method
+                                       }
+                                       
+                                       public function saveInventorySlot(param1:uint, param2:Item) : void
+                                       {
+                                          trait method QName(PackageNamespace(""),"saveInventorySlot")
+                                             dispid 0
+                                             method
+                                                name null
+                                                param QName(PackageNamespace(""),"uint")
+                                                param QName(PackageNamespace("main_game.items"),"Item")
+                                                returns QName(PackageNamespace(""),"void")
+                                                
+                                                body
+                                                   maxstack 4
+                                                   localcount 3
+                                                   initscopedepth 4
+                                                   maxscopedepth 5
+                                                   
+                                                   code
+                                                      getlocal0
+                                                      pushscope
+                                                      getlocal0
+                                                      getlocal2
+                                                      findpropstrict QName(PrivateNamespace(null,"22"),"getSaveIdForInventory")
+                                                      getlocal1
+                                                      callproperty QName(PrivateNamespace(null,"22"),"getSaveIdForInventory"), 1
+                                                      callpropvoid QName(PrivateNamespace(null,"22"),"saveItem"), 2
+                                                      returnvoid
+                                                   end ; code
+                                                end ; body
+                                             end ; method
+                                          }
+                                          
+                                          public function loadInventoryItem(param1:uint) : Item
+                                          {
+                                             trait method QName(PackageNamespace(""),"loadInventoryItem")
+                                                dispid 0
+                                                method
+                                                   name null
+                                                   param QName(PackageNamespace(""),"uint")
+                                                   returns QName(PackageNamespace("main_game.items"),"Item")
+                                                   
+                                                   body
+                                                      maxstack 3
+                                                      localcount 2
+                                                      initscopedepth 4
+                                                      maxscopedepth 5
+                                                      
+                                                      code
+                                                         getlocal0
+                                                         pushscope
+                                                         getlocal0
+                                                         findpropstrict QName(PrivateNamespace(null,"22"),"getSaveIdForInventory")
+                                                         getlocal1
+                                                         callproperty QName(PrivateNamespace(null,"22"),"getSaveIdForInventory"), 1
+                                                         callproperty QName(PrivateNamespace(null,"22"),"loadItem"), 1
+                                                         returnvalue
+                                                      end ; code
+                                                   end ; body
+                                                end ; method
+                                             }
+                                             
+                                             public function saveGear(param1:uint, param2:Item) : void
+                                             {
+                                                trait method QName(PackageNamespace(""),"saveGear")
+                                                   dispid 0
+                                                   method
+                                                      name null
+                                                      param QName(PackageNamespace(""),"uint")
+                                                      param QName(PackageNamespace("main_game.items"),"Item")
+                                                      returns QName(PackageNamespace(""),"void")
+                                                      
+                                                      body
+                                                         maxstack 4
+                                                         localcount 3
+                                                         initscopedepth 4
+                                                         maxscopedepth 5
+                                                         
+                                                         code
+                                                            getlocal0
+                                                            pushscope
+                                                            getlocal0
+                                                            getlocal2
+                                                            findpropstrict QName(PrivateNamespace(null,"22"),"getSaveIdForGear")
+                                                            getlocal1
+                                                            callproperty QName(PrivateNamespace(null,"22"),"getSaveIdForGear"), 1
+                                                            callpropvoid QName(PrivateNamespace(null,"22"),"saveItem"), 2
+                                                            getlocal0
+                                                            callpropvoid QName(PackageNamespace(""),"savePendingItems"), 0
+                                                            returnvoid
+                                                         end ; code
+                                                      end ; body
+                                                   end ; method
+                                                }
+                                                
+                                                public function loadGearItem(param1:uint) : Item
+                                                {
+                                                   trait method QName(PackageNamespace(""),"loadGearItem")
+                                                      dispid 0
+                                                      method
+                                                         name null
+                                                         param QName(PackageNamespace(""),"uint")
+                                                         returns QName(PackageNamespace("main_game.items"),"Item")
+                                                         
+                                                         body
+                                                            maxstack 3
+                                                            localcount 2
+                                                            initscopedepth 4
+                                                            maxscopedepth 5
+                                                            
+                                                            code
+                                                               getlocal0
+                                                               pushscope
+                                                               getlocal0
+                                                               findpropstrict QName(PrivateNamespace(null,"22"),"getSaveIdForGear")
+                                                               getlocal1
+                                                               callproperty QName(PrivateNamespace(null,"22"),"getSaveIdForGear"), 1
+                                                               callproperty QName(PrivateNamespace(null,"22"),"loadItem"), 1
+                                                               returnvalue
+                                                            end ; code
+                                                         end ; body
+                                                      end ; method
+                                                   }
+                                                   
+                                                   public function saveMix(param1:uint, param2:Item) : void
+                                                   {
+                                                      trait method QName(PackageNamespace(""),"saveMix")
+                                                         dispid 0
+                                                         method
+                                                            name null
+                                                            param QName(PackageNamespace(""),"uint")
+                                                            param QName(PackageNamespace("main_game.items"),"Item")
+                                                            returns QName(PackageNamespace(""),"void")
+                                                            
+                                                            body
+                                                               maxstack 4
+                                                               localcount 3
+                                                               initscopedepth 4
+                                                               maxscopedepth 5
+                                                               
+                                                               code
+                                                                  getlocal0
+                                                                  pushscope
+                                                                  getlocal0
+                                                                  getlocal2
+                                                                  findpropstrict QName(PrivateNamespace(null,"22"),"getSaveIdForMix")
+                                                                  getlocal1
+                                                                  callproperty QName(PrivateNamespace(null,"22"),"getSaveIdForMix"), 1
+                                                                  callpropvoid QName(PrivateNamespace(null,"22"),"saveItem"), 2
+                                                                  returnvoid
+                                                               end ; code
+                                                            end ; body
+                                                         end ; method
+                                                      }
+                                                      
+                                                      public function loadMixItem(param1:uint) : Item
+                                                      {
+                                                         trait method QName(PackageNamespace(""),"loadMixItem")
+                                                            dispid 0
+                                                            method
+                                                               name null
+                                                               param QName(PackageNamespace(""),"uint")
+                                                               returns QName(PackageNamespace("main_game.items"),"Item")
+                                                               
+                                                               body
+                                                                  maxstack 3
+                                                                  localcount 2
+                                                                  initscopedepth 4
+                                                                  maxscopedepth 5
+                                                                  
+                                                                  code
+                                                                     getlocal0
+                                                                     pushscope
+                                                                     getlocal0
+                                                                     findpropstrict QName(PrivateNamespace(null,"22"),"getSaveIdForMix")
+                                                                     getlocal1
+                                                                     callproperty QName(PrivateNamespace(null,"22"),"getSaveIdForMix"), 1
+                                                                     callproperty QName(PrivateNamespace(null,"22"),"loadItem"), 1
+                                                                     returnvalue
+                                                                  end ; code
+                                                               end ; body
+                                                            end ; method
+                                                         }
+                                                         
+                                                         public function saveRecipe(param1:Recipe) : void
+                                                         {
+                                                            trait method QName(PackageNamespace(""),"saveRecipe")
+                                                               dispid 0
+                                                               method
+                                                                  name null
+                                                                  param QName(PackageNamespace("main_game.mixer"),"Recipe")
+                                                                  returns QName(PackageNamespace(""),"void")
+                                                                  
+                                                                  body
+                                                                     maxstack 2
+                                                                     localcount 3
+                                                                     initscopedepth 4
+                                                                     maxscopedepth 5
+                                                                     
+                                                                     code
+                                                                        getlocal0
+                                                                        pushscope
+                                                                        getlocal0
+                                                                        getproperty QName(PackageNamespace(""),"recipes")
+                                                                        getlocal1
+                                                                        callproperty QName(PackageNamespace(""),"getId"), 0
+                                                                        callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"indexOf"), 1
+                                                                        convert_i
+                                                                        setlocal2
+                                                                        getlocal2
+                                                                        pushbyte 0
+                                                                        ifnlt ofs002a
+                                                                        getlocal0
+                                                                        getproperty QName(PackageNamespace(""),"recipes")
+                                                                        getlocal1
+                                                                        callproperty QName(PackageNamespace(""),"getId"), 0
+                                                                        callpropvoid QName(Namespace("http://adobe.com/AS3/2006/builtin"),"push"), 1
+                                                                        getlocal0
+                                                                        pushtrue
+                                                                        initproperty QName(PrivateNamespace(null,"22"),"recipesChange")
+                                                               ofs002a:
+                                                                        returnvoid
+                                                                     end ; code
+                                                                  end ; body
+                                                               end ; method
+                                                            }
+                                                            
+                                                            public function get recipes() : Array
+                                                            {
+                                                               trait getter QName(PackageNamespace(""),"recipes")
+                                                                  dispid 0
+                                                                  method
+                                                                     name null
+                                                                     returns QName(PackageNamespace(""),"Array")
+                                                                     
+                                                                     body
+                                                                        maxstack 4
+                                                                        localcount 1
+                                                                        initscopedepth 4
+                                                                        maxscopedepth 5
+                                                                        
+                                                                        code
+                                                                           getlocal0
+                                                                           pushscope
+                                                                           getlocal0
+                                                                           getproperty QName(PrivateNamespace(null,"22"),"_recipes")
+                                                                           pushnull
+                                                                           ifne ofs002e
+                                                                           getlocal0
+                                                                           getlex QName(PackageNamespace("persistence"),"SharedUtils")
+                                                                           getlex QName(PrivateNamespace(null,"22"),"SAVE_FILE")
+                                                                           getlex QName(PrivateNamespace(null,"22"),"RECIPES")
+                                                                           callproperty QName(PackageNamespace(""),"load"), 2
+                                                                           setproperty QName(PrivateNamespace(null,"22"),"_recipes")
+                                                                           getlocal0
+                                                                           getproperty QName(PrivateNamespace(null,"22"),"_recipes")
+                                                                           pushnull
+                                                                           ifne ofs002e
+                                                                           getlocal0
+                                                                           findpropstrict QName(PackageNamespace(""),"Array")
+                                                                           constructprop QName(PackageNamespace(""),"Array"), 0
+                                                                           setproperty QName(PrivateNamespace(null,"22"),"_recipes")
+                                                                  ofs002e:
+                                                                           getlocal0
+                                                                           getproperty QName(PrivateNamespace(null,"22"),"_recipes")
+                                                                           returnvalue
+                                                                        end ; code
+                                                                     end ; body
+                                                                  end ; method
+                                                               }
+                                                               
+                                                               private function saveItem(param1:Item, param2:String) : void
+                                                               {
+                                                                  trait method QName(PrivateNamespace(null,"22"),"saveItem")
+                                                                     dispid 0
+                                                                     method
+                                                                        name null
+                                                                        param QName(PackageNamespace("main_game.items"),"Item")
+                                                                        param QName(PackageNamespace(""),"String")
+                                                                        returns QName(PackageNamespace(""),"void")
+                                                                        
+                                                                        body
+                                                                           maxstack 3
+                                                                           localcount 3
+                                                                           initscopedepth 4
+                                                                           maxscopedepth 5
+                                                                           
+                                                                           code
+                                                                              getlocal0
+                                                                              pushscope
+                                                                              getlocal1
+                                                                              pushnull
+                                                                              ifne ofs0015
+                                                                              getlocal0
+                                                                              getproperty QName(PrivateNamespace(null,"22"),"pendingSaves")
+                                                                              getlocal2
+                                                                              pushnull
+                                                                              setproperty MultinameL([PrivateNamespace(null,"22"),PackageNamespace(""),PackageNamespace("persistence"),PrivateNamespace(null,"187"),PackageInternalNs("persistence"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("persistence:SaveSystem"),StaticProtectedNs("persistence:SaveSystem")])
+                                                                              jump ofs0022
+                                                                     ofs0015:
+                                                                              getlocal0
+                                                                              getproperty QName(PrivateNamespace(null,"22"),"pendingSaves")
+                                                                              getlocal2
+                                                                              getlocal1
+                                                                              callproperty QName(PackageNamespace(""),"toObject"), 0
+                                                                              setproperty MultinameL([PrivateNamespace(null,"22"),PackageNamespace(""),PackageNamespace("persistence"),PrivateNamespace(null,"187"),PackageInternalNs("persistence"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("persistence:SaveSystem"),StaticProtectedNs("persistence:SaveSystem")])
+                                                                     ofs0022:
+                                                                              returnvoid
+                                                                           end ; code
+                                                                        end ; body
+                                                                     end ; method
+                                                                  }
+                                                                  
+                                                                  private function loadItem(param1:String) : Item
+                                                                  {
+                                                                     trait method QName(PrivateNamespace(null,"22"),"loadItem")
+                                                                        dispid 0
+                                                                        method
+                                                                           name null
+                                                                           param QName(PackageNamespace(""),"String")
+                                                                           returns QName(PackageNamespace("main_game.items"),"Item")
+                                                                           
+                                                                           body
+                                                                              maxstack 3
+                                                                              localcount 3
+                                                                              initscopedepth 4
+                                                                              maxscopedepth 5
+                                                                              
+                                                                              code
+                                                                                 getlocal0
+                                                                                 pushscope
+                                                                                 getlex QName(PackageNamespace("persistence"),"SharedUtils")
+                                                                                 getlex QName(PrivateNamespace(null,"22"),"SAVE_FILE")
+                                                                                 getlocal1
+                                                                                 callproperty QName(PackageNamespace(""),"load"), 2
+                                                                                 coerce QName(PackageNamespace(""),"Object")
+                                                                                 setlocal2
+                                                                                 getlocal2
+                                                                                 pushnull
+                                                                                 ifne ofs0018
+                                                                                 pushnull
+                                                                                 returnvalue
+                                                                        ofs0018:
+                                                                                 getlex QName(PackageNamespace("main_game.items"),"ItemFactory")
+                                                                                 callproperty QName(PackageNamespace(""),"getInstance"), 0
+                                                                                 getlocal2
+                                                                                 callproperty QName(PackageNamespace(""),"itemFromObject"), 1
+                                                                                 returnvalue
+                                                                              end ; code
+                                                                           end ; body
+                                                                        end ; method
+                                                                     }
+                                                                     
+                                                                     public function getClearedLevels() : Array
+                                                                     {
+                                                                        trait method QName(PackageNamespace(""),"getClearedLevels")
+                                                                           dispid 0
+                                                                           method
+                                                                              name null
+                                                                              returns QName(PackageNamespace(""),"Array")
+                                                                              
+                                                                              body
+                                                                                 maxstack 3
+                                                                                 localcount 2
+                                                                                 initscopedepth 4
+                                                                                 maxscopedepth 5
+                                                                                 
+                                                                                 code
+                                                                                    getlocal0
+                                                                                    pushscope
+                                                                                    getlex QName(PackageNamespace("persistence"),"SharedUtils")
+                                                                                    getlex QName(PrivateNamespace(null,"22"),"SAVE_FILE")
+                                                                                    getlex QName(PrivateNamespace(null,"22"),"CLEARED_LEVELS")
+                                                                                    callproperty QName(PackageNamespace(""),"load"), 2
+                                                                                    coerce QName(PackageNamespace(""),"Object")
+                                                                                    setlocal1
+                                                                                    getlocal1
+                                                                                    pushnull
+                                                                                    ifne ofs001d
+                                                                                    newarray 0
+                                                                                    coerce QName(PackageNamespace(""),"Object")
+                                                                                    setlocal1
+                                                                           ofs001d:
+                                                                                    getlocal1
+                                                                                    getlex QName(PackageNamespace(""),"Array")
+                                                                                    astypelate
+                                                                                    returnvalue
+                                                                                 end ; code
+                                                                              end ; body
+                                                                           end ; method
+                                                                        }
+                                                                        
+                                                                        public function saveClearedLevel(param1:String) : void
+                                                                        {
+                                                                           trait method QName(PackageNamespace(""),"saveClearedLevel")
+                                                                              dispid 0
+                                                                              method
+                                                                                 name null
+                                                                                 param QName(PackageNamespace(""),"String")
+                                                                                 returns QName(PackageNamespace(""),"void")
+                                                                                 
+                                                                                 body
+                                                                                    maxstack 4
+                                                                                    localcount 3
+                                                                                    initscopedepth 4
+                                                                                    maxscopedepth 5
+                                                                                    
+                                                                                    code
+                                                                                       getlocal0
+                                                                                       pushscope
+                                                                                       getlocal0
+                                                                                       callproperty QName(PackageNamespace(""),"getClearedLevels"), 0
+                                                                                       coerce QName(PackageNamespace(""),"Array")
+                                                                                       setlocal2
+                                                                                       getlocal2
+                                                                                       getlocal1
+                                                                                       callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"indexOf"), 1
+                                                                                       pushbyte 0
+                                                                                       ifnlt ofs001c
+                                                                                       getlocal2
+                                                                                       getlocal1
+                                                                                       callpropvoid QName(Namespace("http://adobe.com/AS3/2006/builtin"),"push"), 1
+                                                                              ofs001c:
+                                                                                       getlex QName(PackageNamespace("persistence"),"SharedUtils")
+                                                                                       getlex QName(PrivateNamespace(null,"22"),"SAVE_FILE")
+                                                                                       getlex QName(PrivateNamespace(null,"22"),"CLEARED_LEVELS")
+                                                                                       getlocal2
+                                                                                       callpropvoid QName(PackageNamespace(""),"save"), 3
+                                                                                       returnvoid
+                                                                                    end ; code
+                                                                                 end ; body
+                                                                              end ; method
+                                                                           }
+                                                                           
+                                                                           public function saveLastPlayed(param1:String) : void
+                                                                           {
+                                                                              trait method QName(PackageNamespace(""),"saveLastPlayed")
+                                                                                 dispid 0
+                                                                                 method
+                                                                                    name null
+                                                                                    param QName(PackageNamespace(""),"String")
+                                                                                    returns QName(PackageNamespace(""),"void")
+                                                                                    
+                                                                                    body
+                                                                                       maxstack 3
+                                                                                       localcount 2
+                                                                                       initscopedepth 4
+                                                                                       maxscopedepth 5
+                                                                                       
+                                                                                       code
+                                                                                          getlocal0
+                                                                                          pushscope
+                                                                                          getlocal0
+                                                                                          getlocal1
+                                                                                          setproperty QName(PrivateNamespace(null,"22"),"lastPlayed")
+                                                                                          getlocal0
+                                                                                          getproperty QName(PrivateNamespace(null,"22"),"pendingSaves")
+                                                                                          getlex QName(PrivateNamespace(null,"22"),"LAST_PLAYED")
+                                                                                          getlocal0
+                                                                                          getproperty QName(PrivateNamespace(null,"22"),"lastPlayed")
+                                                                                          setproperty MultinameL([PrivateNamespace(null,"22"),PackageNamespace(""),PackageNamespace("persistence"),PrivateNamespace(null,"187"),PackageInternalNs("persistence"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("persistence:SaveSystem"),StaticProtectedNs("persistence:SaveSystem")])
+                                                                                          returnvoid
+                                                                                       end ; code
+                                                                                    end ; body
+                                                                                 end ; method
+                                                                              }
+                                                                              
+                                                                              public function getLastPlayed() : String
+                                                                              {
+                                                                                 trait method QName(PackageNamespace(""),"getLastPlayed")
+                                                                                    dispid 0
+                                                                                    method
+                                                                                       name null
+                                                                                       returns QName(PackageNamespace(""),"String")
+                                                                                       
+                                                                                       body
+                                                                                          maxstack 4
+                                                                                          localcount 1
+                                                                                          initscopedepth 4
+                                                                                          maxscopedepth 5
+                                                                                          
+                                                                                          code
+                                                                                             getlocal0
+                                                                                             pushscope
+                                                                                             getlocal0
+                                                                                             getproperty QName(PrivateNamespace(null,"22"),"lastPlayed")
+                                                                                             pushnull
+                                                                                             ifne ofs0026
+                                                                                             getlocal0
+                                                                                             getlex QName(PackageNamespace("persistence"),"SharedUtils")
+                                                                                             getlex QName(PrivateNamespace(null,"22"),"SAVE_FILE")
+                                                                                             getlex QName(PrivateNamespace(null,"22"),"LAST_PLAYED")
+                                                                                             callproperty QName(PackageNamespace(""),"load"), 2
+                                                                                             coerce_s
+                                                                                             dup
+                                                                                             iftrue ofs0023
+                                                                                             pop
+                                                                                             pushstring "1"
+                                                                                    ofs0023:
+                                                                                             setproperty QName(PrivateNamespace(null,"22"),"lastPlayed")
+                                                                                    ofs0026:
+                                                                                             getlocal0
+                                                                                             getproperty QName(PrivateNamespace(null,"22"),"lastPlayed")
+                                                                                             returnvalue
+                                                                                          end ; code
+                                                                                       end ; body
+                                                                                    end ; method
+                                                                                 }
+                                                                                 
+                                                                                 public function saveExperience(param1:uint) : void
+                                                                                 {
+                                                                                    trait method QName(PackageNamespace(""),"saveExperience")
+                                                                                       dispid 0
+                                                                                       method
+                                                                                          name null
+                                                                                          param QName(PackageNamespace(""),"uint")
+                                                                                          returns QName(PackageNamespace(""),"void")
+                                                                                          
+                                                                                          body
+                                                                                             maxstack 4
+                                                                                             localcount 2
+                                                                                             initscopedepth 4
+                                                                                             maxscopedepth 5
+                                                                                             
+                                                                                             code
+                                                                                                getlocal0
+                                                                                                pushscope
+                                                                                                getlex QName(PackageNamespace("persistence"),"SharedUtils")
+                                                                                                getlex QName(PrivateNamespace(null,"22"),"SAVE_FILE")
+                                                                                                getlex QName(PrivateNamespace(null,"22"),"EXPERIENCE")
+                                                                                                getlocal1
+                                                                                                callpropvoid QName(PackageNamespace(""),"save"), 3
+                                                                                                returnvoid
+                                                                                             end ; code
+                                                                                          end ; body
+                                                                                       end ; method
+                                                                                    }
+                                                                                    
+                                                                                    public function getExperience() : uint
+                                                                                    {
+                                                                                       trait method QName(PackageNamespace(""),"getExperience")
+                                                                                          dispid 0
+                                                                                          method
+                                                                                             name null
+                                                                                             returns QName(PackageNamespace(""),"uint")
+                                                                                             
+                                                                                             body
+                                                                                                maxstack 4
+                                                                                                localcount 1
+                                                                                                initscopedepth 4
+                                                                                                maxscopedepth 5
+                                                                                                
+                                                                                                code
+                                                                                                   getlocal0
+                                                                                                   pushscope
+                                                                                                   findpropstrict QName(PackageNamespace(""),"uint")
+                                                                                                   getlex QName(PackageNamespace("persistence"),"SharedUtils")
+                                                                                                   getlex QName(PrivateNamespace(null,"22"),"SAVE_FILE")
+                                                                                                   getlex QName(PrivateNamespace(null,"22"),"EXPERIENCE")
+                                                                                                   callproperty QName(PackageNamespace(""),"load"), 2
+                                                                                                   callproperty QName(PackageNamespace(""),"uint"), 1
+                                                                                                   returnvalue
+                                                                                                end ; code
+                                                                                             end ; body
+                                                                                          end ; method
+                                                                                       }
+                                                                                       
+                                                                                       public function saveMuteState(param1:Boolean) : void
+                                                                                       {
+                                                                                          trait method QName(PackageNamespace(""),"saveMuteState")
+                                                                                             dispid 0
+                                                                                             method
+                                                                                                name null
+                                                                                                param QName(PackageNamespace(""),"Boolean")
+                                                                                                returns QName(PackageNamespace(""),"void")
+                                                                                                
+                                                                                                body
+                                                                                                   maxstack 4
+                                                                                                   localcount 2
+                                                                                                   initscopedepth 4
+                                                                                                   maxscopedepth 5
+                                                                                                   
+                                                                                                   code
+                                                                                                      getlocal0
+                                                                                                      pushscope
+                                                                                                      getlex QName(PackageNamespace("persistence"),"SharedUtils")
+                                                                                                      getlex QName(PrivateNamespace(null,"22"),"SAVE_FILE")
+                                                                                                      getlex QName(PrivateNamespace(null,"22"),"SOUND")
+                                                                                                      getlocal1
+                                                                                                      callpropvoid QName(PackageNamespace(""),"save"), 3
+                                                                                                      returnvoid
+                                                                                                   end ; code
+                                                                                                end ; body
+                                                                                             end ; method
+                                                                                          }
+                                                                                          
+                                                                                          public function isSoundMuted() : Boolean
+                                                                                          {
+                                                                                             trait method QName(PackageNamespace(""),"isSoundMuted")
+                                                                                                dispid 0
+                                                                                                method
+                                                                                                   name null
+                                                                                                   returns QName(PackageNamespace(""),"Boolean")
+                                                                                                   
+                                                                                                   body
+                                                                                                      maxstack 4
+                                                                                                      localcount 1
+                                                                                                      initscopedepth 4
+                                                                                                      maxscopedepth 5
+                                                                                                      
+                                                                                                      code
+                                                                                                         getlocal0
+                                                                                                         pushscope
+                                                                                                         findpropstrict QName(PackageNamespace(""),"Boolean")
+                                                                                                         getlex QName(PackageNamespace("persistence"),"SharedUtils")
+                                                                                                         getlex QName(PrivateNamespace(null,"22"),"SAVE_FILE")
+                                                                                                         getlex QName(PrivateNamespace(null,"22"),"SOUND")
+                                                                                                         callproperty QName(PackageNamespace(""),"load"), 2
+                                                                                                         callproperty QName(PackageNamespace(""),"Boolean"), 1
+                                                                                                         returnvalue
+                                                                                                      end ; code
+                                                                                                   end ; body
+                                                                                                end ; method
+                                                                                             }
+                                                                                             
+                                                                                             public function reset() : void
+                                                                                             {
+                                                                                                trait method QName(PackageNamespace(""),"reset")
+                                                                                                   dispid 0
+                                                                                                   method
+                                                                                                      name null
+                                                                                                      returns QName(PackageNamespace(""),"void")
+                                                                                                      
+                                                                                                      body
+                                                                                                         maxstack 5
+                                                                                                         localcount 5
+                                                                                                         initscopedepth 4
+                                                                                                         maxscopedepth 5
+                                                                                                         
+                                                                                                         code
+                                                                                                            getlocal0
+                                                                                                            pushscope
+                                                                                                            getlocal0
+                                                                                                            pushnull
+                                                                                                            setproperty QName(PrivateNamespace(null,"22"),"_recipes")
+                                                                                                            getlocal0
+                                                                                                            pushfalse
+                                                                                                            initproperty QName(PrivateNamespace(null,"22"),"recipesChange")
+                                                                                                            getlocal0
+                                                                                                            pushstring "1"
+                                                                                                            setproperty QName(PrivateNamespace(null,"22"),"lastPlayed")
+                                                                                                            getlocal0
+                                                                                                            callproperty QName(PackageNamespace(""),"isSoundMuted"), 0
+                                                                                                            convert_b
+                                                                                                            setlocal1
+                                                                                                            getlex QName(PackageNamespace("persistence"),"SharedUtils")
+                                                                                                            getlex QName(PrivateNamespace(null,"22"),"SAVE_FILE")
+                                                                                                            callpropvoid QName(PackageNamespace(""),"clear"), 1
+                                                                                                            getlocal0
+                                                                                                            getproperty QName(PrivateNamespace(null,"22"),"pendingSaves")
+                                                                                                            getlex QName(PrivateNamespace(null,"22"),"PLAYED")
+                                                                                                            pushfalse
+                                                                                                            setproperty MultinameL([PrivateNamespace(null,"22"),PackageNamespace(""),PackageNamespace("persistence"),PrivateNamespace(null,"187"),PackageInternalNs("persistence"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("persistence:SaveSystem"),StaticProtectedNs("persistence:SaveSystem")])
+                                                                                                            getlocal0
+                                                                                                            getproperty QName(PrivateNamespace(null,"22"),"pendingSaves")
+                                                                                                            getlex QName(PrivateNamespace(null,"22"),"TUTORIAL")
+                                                                                                            pushbyte 0
+                                                                                                            setproperty MultinameL([PrivateNamespace(null,"22"),PackageNamespace(""),PackageNamespace("persistence"),PrivateNamespace(null,"187"),PackageInternalNs("persistence"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("persistence:SaveSystem"),StaticProtectedNs("persistence:SaveSystem")])
+                                                                                                            getlocal0
+                                                                                                            getproperty QName(PrivateNamespace(null,"22"),"pendingSaves")
+                                                                                                            getlex QName(PrivateNamespace(null,"22"),"RECIPES")
+                                                                                                            getlex QName(PackageNamespace(""),"main")
+                                                                                                            getproperty QName(PackageNamespace(""),"config")
+                                                                                                            pushstring "InitialConfig"
+                                                                                                            callproperty QName(PackageNamespace(""),"get"), 1
+                                                                                                            getproperty Multiname("initialRecipes",[PrivateNamespace(null,"22"),PackageNamespace(""),PackageNamespace("persistence"),PrivateNamespace(null,"187"),PackageInternalNs("persistence"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("persistence:SaveSystem"),StaticProtectedNs("persistence:SaveSystem")])
+                                                                                                            getlex QName(PackageNamespace(""),"Array")
+                                                                                                            astypelate
+                                                                                                            setproperty MultinameL([PrivateNamespace(null,"22"),PackageNamespace(""),PackageNamespace("persistence"),PrivateNamespace(null,"187"),PackageInternalNs("persistence"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("persistence:SaveSystem"),StaticProtectedNs("persistence:SaveSystem")])
+                                                                                                            getlocal0
+                                                                                                            getproperty QName(PrivateNamespace(null,"22"),"pendingSaves")
+                                                                                                            getlex QName(PrivateNamespace(null,"22"),"SOUND")
+                                                                                                            getlocal1
+                                                                                                            setproperty MultinameL([PrivateNamespace(null,"22"),PackageNamespace(""),PackageNamespace("persistence"),PrivateNamespace(null,"187"),PackageInternalNs("persistence"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("persistence:SaveSystem"),StaticProtectedNs("persistence:SaveSystem")])
+                                                                                                            getlocal0
+                                                                                                            getproperty QName(PrivateNamespace(null,"22"),"pendingSaves")
+                                                                                                            getlex QName(PrivateNamespace(null,"22"),"EXPERIENCE")
+                                                                                                            getlex QName(PackageNamespace(""),"main")
+                                                                                                            getproperty QName(PackageNamespace(""),"config")
+                                                                                                            pushstring "InitialConfig"
+                                                                                                            callproperty QName(PackageNamespace(""),"get"), 1
+                                                                                                            getproperty Multiname("initialExperience",[PrivateNamespace(null,"22"),PackageNamespace(""),PackageNamespace("persistence"),PrivateNamespace(null,"187"),PackageInternalNs("persistence"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("persistence:SaveSystem"),StaticProtectedNs("persistence:SaveSystem")])
+                                                                                                            setproperty MultinameL([PrivateNamespace(null,"22"),PackageNamespace(""),PackageNamespace("persistence"),PrivateNamespace(null,"187"),PackageInternalNs("persistence"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("persistence:SaveSystem"),StaticProtectedNs("persistence:SaveSystem")])
+                                                                                                            getlocal0
+                                                                                                            getproperty QName(PrivateNamespace(null,"22"),"pendingSaves")
+                                                                                                            getlex QName(PrivateNamespace(null,"22"),"LAST_PLAYED")
+                                                                                                            pushstring "1"
+                                                                                                            setproperty MultinameL([PrivateNamespace(null,"22"),PackageNamespace(""),PackageNamespace("persistence"),PrivateNamespace(null,"187"),PackageInternalNs("persistence"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("persistence:SaveSystem"),StaticProtectedNs("persistence:SaveSystem")])
+                                                                                                            getlex QName(PackageNamespace(""),"main")
+                                                                                                            getproperty QName(PackageNamespace(""),"config")
+                                                                                                            pushstring "InitialConfig"
+                                                                                                            callproperty QName(PackageNamespace(""),"get"), 1
+                                                                                                            getproperty Multiname("tutorialOn",[PrivateNamespace(null,"22"),PackageNamespace(""),PackageNamespace("persistence"),PrivateNamespace(null,"187"),PackageInternalNs("persistence"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("persistence:SaveSystem"),StaticProtectedNs("persistence:SaveSystem")])
+                                                                                                            iftrue ofs00aa
+                                                                                                            getlocal0
+                                                                                                            getproperty QName(PrivateNamespace(null,"22"),"pendingSaves")
+                                                                                                            getlex QName(PrivateNamespace(null,"22"),"TUTORIAL")
+                                                                                                            pushbyte 6
+                                                                                                            setproperty MultinameL([PrivateNamespace(null,"22"),PackageNamespace(""),PackageNamespace("persistence"),PrivateNamespace(null,"187"),PackageInternalNs("persistence"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("persistence:SaveSystem"),StaticProtectedNs("persistence:SaveSystem")])
+                                                                                                   ofs00aa:
+                                                                                                            getlex QName(PackageNamespace(""),"main")
+                                                                                                            getproperty QName(PackageNamespace(""),"config")
+                                                                                                            pushstring "InitialConfig"
+                                                                                                            callproperty QName(PackageNamespace(""),"get"), 1
+                                                                                                            getproperty Multiname("clearedLevel",[PrivateNamespace(null,"22"),PackageNamespace(""),PackageNamespace("persistence"),PrivateNamespace(null,"187"),PackageInternalNs("persistence"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("persistence:SaveSystem"),StaticProtectedNs("persistence:SaveSystem")])
+                                                                                                            convert_i
+                                                                                                            setlocal2
+                                                                                                            jump ofs00ce
+                                                                                                   ofs00c0:
+                                                                                                            label
+                                                                                                            getlocal0
+                                                                                                            getlocal2
+                                                                                                            callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"toString"), 0
+                                                                                                            callpropvoid QName(PackageNamespace(""),"saveClearedLevel"), 1
+                                                                                                            getlocal2
+                                                                                                            decrement_i
+                                                                                                            setlocal2
+                                                                                                   ofs00ce:
+                                                                                                            getlocal2
+                                                                                                            pushbyte 0
+                                                                                                            ifgt ofs00c0
+                                                                                                            pushbyte 0
+                                                                                                            setlocal3
+                                                                                                            getlex QName(PackageNamespace(""),"main")
+                                                                                                            getproperty QName(PackageNamespace(""),"config")
+                                                                                                            pushstring "InitialConfig"
+                                                                                                            callproperty QName(PackageNamespace(""),"get"), 1
+                                                                                                            getproperty Multiname("inventory",[PrivateNamespace(null,"22"),PackageNamespace(""),PackageNamespace("persistence"),PrivateNamespace(null,"187"),PackageInternalNs("persistence"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("persistence:SaveSystem"),StaticProtectedNs("persistence:SaveSystem")])
+                                                                                                            getlex QName(PackageNamespace(""),"Array")
+                                                                                                            astypelate
+                                                                                                            coerce QName(PackageNamespace(""),"Array")
+                                                                                                            setlocal 4
+                                                                                                            jump ofs010c
+                                                                                                   ofs00f3:
+                                                                                                            label
+                                                                                                            getlocal0
+                                                                                                            getlocal3
+                                                                                                            getlex QName(PackageNamespace("main_game.items"),"ItemFactory")
+                                                                                                            callproperty QName(PackageNamespace(""),"getInstance"), 0
+                                                                                                            getlocal 4
+                                                                                                            getlocal3
+                                                                                                            getproperty MultinameL([PrivateNamespace(null,"22"),PackageNamespace(""),PackageNamespace("persistence"),PrivateNamespace(null,"187"),PackageInternalNs("persistence"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("persistence:SaveSystem"),StaticProtectedNs("persistence:SaveSystem")])
+                                                                                                            callproperty QName(PackageNamespace(""),"getItem"), 1
+                                                                                                            callpropvoid QName(PackageNamespace(""),"saveInventorySlot"), 2
+                                                                                                            inclocal_i 3
+                                                                                                   ofs010c:
+                                                                                                            getlocal3
+                                                                                                            pushbyte 12
+                                                                                                            lessthan
+                                                                                                            dup
+                                                                                                            iffalse ofs011d
+                                                                                                            pop
+                                                                                                            getlocal3
+                                                                                                            getlocal 4
+                                                                                                            getproperty QName(PackageNamespace(""),"length")
+                                                                                                            lessthan
+                                                                                                   ofs011d:
+                                                                                                            iftrue ofs00f3
+                                                                                                            getlocal0
+                                                                                                            callpropvoid QName(PrivateNamespace(null,"22"),"savePending"), 0
+                                                                                                            returnvoid
+                                                                                                         end ; code
+                                                                                                      end ; body
+                                                                                                   end ; method
+                                                                                                }
+                                                                                             }
+                                                                                          }
+                                                                                          
+                                                                                          method
+                                                                                             name null
+                                                                                             returns null
+                                                                                             
+                                                                                             body
+                                                                                                maxstack 2
+                                                                                                localcount 1
+                                                                                                initscopedepth 1
+                                                                                                maxscopedepth 3
+                                                                                                
+                                                                                                code
+                                                                                                   getlocal0
+                                                                                                   pushscope
+                                                                                                   findpropstrict Multiname("SaveSystem",[PackageNamespace("persistence")])
+                                                                                                   getlex QName(PackageNamespace(""),"Object")
+                                                                                                   pushscope
+                                                                                                   getlex QName(PackageNamespace(""),"Object")
+                                                                                                   newclass 23
+                                                                                                   popscope
+                                                                                                   initproperty QName(PackageNamespace("persistence"),"SaveSystem")
+                                                                                                   returnvoid
+                                                                                                end ; code
+                                                                                             end ; body
+                                                                                          end ; method
+                                                                                          

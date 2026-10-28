@@ -1,0 +1,531 @@
+package persistence
+{
+   import cb.logger.Appender;
+   import cb.logger.JSConsoleAppender;
+   import cb.logger.Log;
+   import flash.net.SharedObject;
+   import flash.utils.getQualifiedClassName;
+   
+   public class SharedUtils
+   {
+      
+      private static const logger:Log;
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 4
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(PrivateNamespace(null,"173"),"logger")
+               getlex QName(PackageNamespace("cb.logger"),"Log")
+               findpropstrict QName(PackageNamespace("flash.utils"),"getQualifiedClassName")
+               getlocal0
+               callproperty QName(PackageNamespace("flash.utils"),"getQualifiedClassName"), 1
+               callproperty QName(PackageNamespace(""),"getLogger"), 1
+               initproperty QName(PrivateNamespace(null,"173"),"logger")
+               getlex QName(PrivateNamespace(null,"173"),"logger")
+               findpropstrict QName(PackageNamespace("cb.logger"),"Appender")
+               constructprop QName(PackageNamespace("cb.logger"),"Appender"), 0
+               callpropvoid QName(PackageNamespace(""),"addAppender"), 1
+               getlex QName(PrivateNamespace(null,"173"),"logger")
+               findpropstrict QName(PackageNamespace("cb.logger"),"JSConsoleAppender")
+               constructprop QName(PackageNamespace("cb.logger"),"JSConsoleAppender"), 0
+               callpropvoid QName(PackageNamespace(""),"addAppender"), 1
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function SharedUtils()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 1
+               localcount 1
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public static function load(param1:String, param2:String) : *
+      {
+         trait method QName(PackageNamespace(""),"load")
+            flag FINAL
+            dispid 3
+            method
+               name null
+               flag NEED_ACTIVATION
+               param QName(PackageNamespace(""),"String")
+               param QName(PackageNamespace(""),"String")
+               returns null
+               
+               body
+                  maxstack 3
+                  localcount 5
+                  initscopedepth 4
+                  maxscopedepth 9
+                  trait slot QName(PackageInternalNs("persistence"),"cookie")
+                     slotid 1
+                     type QName(PackageNamespace(""),"String")
+                  end ; trait
+                  trait slot QName(PackageInternalNs("persistence"),"property")
+                     slotid 2
+                     type QName(PackageNamespace(""),"String")
+                  end ; trait
+                  trait slot QName(PackageInternalNs("persistence"),"so")
+                     slotid 3
+                     type QName(PackageNamespace("flash.net"),"SharedObject")
+                  end ; trait
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     newactivation
+                     dup
+                     setlocal3
+                     pushscope
+                     getscopeobject 1
+                     pushnull
+                     coerce QName(PackageNamespace("flash.net"),"SharedObject")
+                     setslot 3
+                     getscopeobject 1
+                     getlocal1
+                     setslot 1
+                     getscopeobject 1
+                     getlocal2
+                     setslot 2
+            ofs0018:
+                     getscopeobject 1
+                     getlex QName(PackageNamespace("flash.net"),"SharedObject")
+                     getscopeobject 1
+                     getslot 1
+                     callproperty QName(PackageNamespace(""),"getLocal"), 1
+                     coerce QName(PackageNamespace("flash.net"),"SharedObject")
+                     setslot 3
+                     getscopeobject 1
+                     getslot 3
+                     getproperty QName(PackageNamespace(""),"data")
+                     getscopeobject 1
+                     getslot 2
+                     getproperty MultinameL([PrivateNamespace(null,"173"),PackageNamespace(""),PrivateNamespace(null,"245"),PackageNamespace("persistence"),PackageInternalNs("persistence"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("persistence:SharedUtils"),StaticProtectedNs("persistence:SharedUtils")])
+                     returnvalue
+            ofs0039:
+                     jump ofs003d
+            ofs003d:
+                     getlocal0
+                     pushscope
+                     getlocal3
+                     pushscope
+                     newcatch 0
+                     dup
+                     setlocal 4
+                     dup
+                     pushscope
+                     swap
+                     setslot 1
+                     getlex QName(PrivateNamespace(null,"173"),"logger")
+                     getscopeobject 2
+                     getslot 1
+                     callproperty Multiname("toString",[PrivateNamespace(null,"173"),PackageNamespace(""),PrivateNamespace(null,"245"),PackageNamespace("persistence"),PackageInternalNs("persistence"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("persistence:SharedUtils"),StaticProtectedNs("persistence:SharedUtils")]), 0
+                     callpropvoid QName(PackageNamespace(""),"log"), 1
+                     popscope
+                     kill 4
+                     pushnull
+                     returnvalue
+                  end ; code
+                  try from ofs0018 to ofs0039 target ofs003d type QName(PackageNamespace(""),"Error") name QName(PackageNamespace(""),"e") end
+               end ; body
+            end ; method
+         }
+         
+         public static function saveBulk(param1:String, param2:Object) : Boolean
+         {
+            trait method QName(PackageNamespace(""),"saveBulk")
+               flag FINAL
+               dispid 4
+               method
+                  name null
+                  flag NEED_ACTIVATION
+                  param QName(PackageNamespace(""),"String")
+                  param QName(PackageNamespace(""),"Object")
+                  returns QName(PackageNamespace(""),"Boolean")
+                  
+                  body
+                     maxstack 3
+                     localcount 6
+                     initscopedepth 4
+                     maxscopedepth 9
+                     trait slot QName(PackageInternalNs("persistence"),"cookie")
+                        slotid 1
+                        type QName(PackageNamespace(""),"String")
+                     end ; trait
+                     trait slot QName(PackageInternalNs("persistence"),"toSave")
+                        slotid 2
+                        type QName(PackageNamespace(""),"Object")
+                     end ; trait
+                     trait slot QName(PackageInternalNs("persistence"),"so")
+                        slotid 3
+                        type QName(PackageNamespace("flash.net"),"SharedObject")
+                     end ; trait
+                     trait slot QName(PackageInternalNs("persistence"),"save")
+                        slotid 4
+                        type QName(PackageNamespace(""),"Boolean")
+                     end ; trait
+                     trait slot QName(PackageInternalNs("persistence"),"property")
+                        slotid 5
+                        type QName(PackageNamespace(""),"String")
+                     end ; trait
+                     trait slot QName(PackageInternalNs("persistence"),"value")
+                        slotid 6
+                        type null
+                     end ; trait
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        newactivation
+                        dup
+                        setlocal3
+                        pushscope
+                        getscopeobject 1
+                        pushnull
+                        coerce QName(PackageNamespace("flash.net"),"SharedObject")
+                        setslot 3
+                        getscopeobject 1
+                        pushfalse
+                        setslot 4
+                        getscopeobject 1
+                        pushnull
+                        coerce_s
+                        setslot 5
+                        getscopeobject 1
+                        pushundefined
+                        coerce_a
+                        setslot 6
+                        getscopeobject 1
+                        getlocal1
+                        setslot 1
+                        getscopeobject 1
+                        getlocal2
+                        setslot 2
+               ofs0029:
+                        getscopeobject 1
+                        getlex QName(PackageNamespace("flash.net"),"SharedObject")
+                        getscopeobject 1
+                        getslot 1
+                        callproperty QName(PackageNamespace(""),"getLocal"), 1
+                        coerce QName(PackageNamespace("flash.net"),"SharedObject")
+                        setslot 3
+                        getscopeobject 1
+                        pushfalse
+                        setslot 4
+                        pushbyte 0
+                        setlocal 4
+                        getscopeobject 1
+                        getslot 2
+                        coerce_a
+                        setlocal 5
+                        jump ofs0081
+               ofs004f:
+                        label
+                        getscopeobject 1
+                        getlocal 5
+                        getlocal 4
+                        nextname
+                        coerce_s
+                        setslot 5
+                        getscopeobject 1
+                        pushtrue
+                        setslot 4
+                        getscopeobject 1
+                        getscopeobject 1
+                        getslot 2
+                        getscopeobject 1
+                        getslot 5
+                        getproperty MultinameL([PrivateNamespace(null,"173"),PackageNamespace(""),PrivateNamespace(null,"245"),PackageNamespace("persistence"),PackageInternalNs("persistence"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("persistence:SharedUtils"),StaticProtectedNs("persistence:SharedUtils")])
+                        coerce_a
+                        setslot 6
+                        getscopeobject 1
+                        getslot 3
+                        getproperty QName(PackageNamespace(""),"data")
+                        getscopeobject 1
+                        getslot 5
+                        getscopeobject 1
+                        getslot 6
+                        setproperty MultinameL([PrivateNamespace(null,"173"),PackageNamespace(""),PrivateNamespace(null,"245"),PackageNamespace("persistence"),PackageInternalNs("persistence"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("persistence:SharedUtils"),StaticProtectedNs("persistence:SharedUtils")])
+               ofs0081:
+                        hasnext2 5, 4
+                        iftrue ofs004f
+                        kill 5
+                        kill 4
+                        getscopeobject 1
+                        getslot 4
+                        iffalse ofs009c
+                        getscopeobject 1
+                        getslot 3
+                        callpropvoid QName(PackageNamespace(""),"flush"), 0
+               ofs009c:
+                        pushtrue
+                        returnvalue
+               ofs009e:
+                        jump ofs00a2
+               ofs00a2:
+                        getlocal0
+                        pushscope
+                        getlocal3
+                        pushscope
+                        newcatch 0
+                        dup
+                        setlocal 4
+                        dup
+                        pushscope
+                        swap
+                        setslot 1
+                        getlex QName(PrivateNamespace(null,"173"),"logger")
+                        getscopeobject 2
+                        getslot 1
+                        callproperty Multiname("toString",[PrivateNamespace(null,"173"),PackageNamespace(""),PrivateNamespace(null,"245"),PackageNamespace("persistence"),PackageInternalNs("persistence"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("persistence:SharedUtils"),StaticProtectedNs("persistence:SharedUtils")]), 0
+                        callpropvoid QName(PackageNamespace(""),"log"), 1
+                        popscope
+                        kill 4
+                        pushfalse
+                        returnvalue
+                     end ; code
+                     try from ofs0029 to ofs009e target ofs00a2 type QName(PackageNamespace(""),"Error") name QName(PackageNamespace(""),"e") end
+                  end ; body
+               end ; method
+            }
+            
+            public static function save(param1:String, param2:String, param3:*) : Boolean
+            {
+               trait method QName(PackageNamespace(""),"save")
+                  flag FINAL
+                  dispid 5
+                  method
+                     name null
+                     flag NEED_ACTIVATION
+                     param QName(PackageNamespace(""),"String")
+                     param QName(PackageNamespace(""),"String")
+                     param null
+                     returns QName(PackageNamespace(""),"Boolean")
+                     
+                     body
+                        maxstack 3
+                        localcount 6
+                        initscopedepth 4
+                        maxscopedepth 9
+                        trait slot QName(PackageInternalNs("persistence"),"cookie")
+                           slotid 1
+                           type QName(PackageNamespace(""),"String")
+                        end ; trait
+                        trait slot QName(PackageInternalNs("persistence"),"property")
+                           slotid 2
+                           type QName(PackageNamespace(""),"String")
+                        end ; trait
+                        trait slot QName(PackageInternalNs("persistence"),"value")
+                           slotid 3
+                           type null
+                        end ; trait
+                        trait slot QName(PackageInternalNs("persistence"),"so")
+                           slotid 4
+                           type QName(PackageNamespace("flash.net"),"SharedObject")
+                        end ; trait
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           newactivation
+                           dup
+                           setlocal 4
+                           pushscope
+                           getscopeobject 1
+                           pushnull
+                           coerce QName(PackageNamespace("flash.net"),"SharedObject")
+                           setslot 4
+                           getscopeobject 1
+                           getlocal1
+                           setslot 1
+                           getscopeobject 1
+                           getlocal2
+                           setslot 2
+                           getscopeobject 1
+                           getlocal3
+                           setslot 3
+                  ofs001e:
+                           getscopeobject 1
+                           getlex QName(PackageNamespace("flash.net"),"SharedObject")
+                           getscopeobject 1
+                           getslot 1
+                           callproperty QName(PackageNamespace(""),"getLocal"), 1
+                           coerce QName(PackageNamespace("flash.net"),"SharedObject")
+                           setslot 4
+                           getscopeobject 1
+                           getslot 4
+                           getproperty QName(PackageNamespace(""),"data")
+                           getscopeobject 1
+                           getslot 2
+                           getscopeobject 1
+                           getslot 3
+                           setproperty MultinameL([PrivateNamespace(null,"173"),PackageNamespace(""),PrivateNamespace(null,"245"),PackageNamespace("persistence"),PackageInternalNs("persistence"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("persistence:SharedUtils"),StaticProtectedNs("persistence:SharedUtils")])
+                           getscopeobject 1
+                           getslot 4
+                           callpropvoid QName(PackageNamespace(""),"flush"), 0
+                           pushtrue
+                           returnvalue
+                  ofs004c:
+                           jump ofs0050
+                  ofs0050:
+                           getlocal0
+                           pushscope
+                           getlocal 4
+                           pushscope
+                           newcatch 0
+                           dup
+                           setlocal 5
+                           dup
+                           pushscope
+                           swap
+                           setslot 1
+                           getlex QName(PrivateNamespace(null,"173"),"logger")
+                           getscopeobject 2
+                           getslot 1
+                           callproperty Multiname("toString",[PrivateNamespace(null,"173"),PackageNamespace(""),PrivateNamespace(null,"245"),PackageNamespace("persistence"),PackageInternalNs("persistence"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("persistence:SharedUtils"),StaticProtectedNs("persistence:SharedUtils")]), 0
+                           callpropvoid QName(PackageNamespace(""),"log"), 1
+                           popscope
+                           kill 5
+                           pushfalse
+                           returnvalue
+                        end ; code
+                        try from ofs001e to ofs004c target ofs0050 type QName(PackageNamespace(""),"Error") name QName(PackageNamespace(""),"e") end
+                     end ; body
+                  end ; method
+               }
+               
+               public static function clear(param1:String) : Boolean
+               {
+                  trait method QName(PackageNamespace(""),"clear")
+                     flag FINAL
+                     dispid 6
+                     method
+                        name null
+                        flag NEED_ACTIVATION
+                        param QName(PackageNamespace(""),"String")
+                        returns QName(PackageNamespace(""),"Boolean")
+                        
+                        body
+                           maxstack 3
+                           localcount 4
+                           initscopedepth 4
+                           maxscopedepth 9
+                           trait slot QName(PackageInternalNs("persistence"),"cookie")
+                              slotid 1
+                              type QName(PackageNamespace(""),"String")
+                           end ; trait
+                           trait slot QName(PackageInternalNs("persistence"),"so")
+                              slotid 2
+                              type QName(PackageNamespace("flash.net"),"SharedObject")
+                           end ; trait
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              newactivation
+                              dup
+                              setlocal2
+                              pushscope
+                              getscopeobject 1
+                              pushnull
+                              coerce QName(PackageNamespace("flash.net"),"SharedObject")
+                              setslot 2
+                              getscopeobject 1
+                              getlocal1
+                              setslot 1
+                     ofs0013:
+                              getscopeobject 1
+                              getlex QName(PackageNamespace("flash.net"),"SharedObject")
+                              getscopeobject 1
+                              getslot 1
+                              callproperty QName(PackageNamespace(""),"getLocal"), 1
+                              coerce QName(PackageNamespace("flash.net"),"SharedObject")
+                              setslot 2
+                              getscopeobject 1
+                              getslot 2
+                              callpropvoid QName(PackageNamespace(""),"clear"), 0
+                              pushtrue
+                              returnvalue
+                     ofs002f:
+                              jump ofs0033
+                     ofs0033:
+                              getlocal0
+                              pushscope
+                              getlocal2
+                              pushscope
+                              newcatch 0
+                              dup
+                              setlocal3
+                              dup
+                              pushscope
+                              swap
+                              setslot 1
+                              getlex QName(PrivateNamespace(null,"173"),"logger")
+                              getscopeobject 2
+                              getslot 1
+                              callproperty Multiname("toString",[PrivateNamespace(null,"173"),PackageNamespace(""),PrivateNamespace(null,"245"),PackageNamespace("persistence"),PackageInternalNs("persistence"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("persistence:SharedUtils"),StaticProtectedNs("persistence:SharedUtils")]), 0
+                              callpropvoid QName(PackageNamespace(""),"log"), 1
+                              popscope
+                              kill 3
+                              pushfalse
+                              returnvalue
+                           end ; code
+                           try from ofs0013 to ofs002f target ofs0033 type QName(PackageNamespace(""),"Error") name QName(PackageNamespace(""),"e") end
+                        end ; body
+                     end ; method
+                  }
+               }
+            }
+            
+            method
+               name null
+               returns null
+               
+               body
+                  maxstack 2
+                  localcount 1
+                  initscopedepth 1
+                  maxscopedepth 3
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     findpropstrict Multiname("SharedUtils",[PackageNamespace("persistence")])
+                     getlex QName(PackageNamespace(""),"Object")
+                     pushscope
+                     getlex QName(PackageNamespace(""),"Object")
+                     newclass 122
+                     popscope
+                     initproperty QName(PackageNamespace("persistence"),"SharedUtils")
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+            

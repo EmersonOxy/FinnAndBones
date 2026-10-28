@@ -1,0 +1,230 @@
+package view.items
+{
+   import flash.display.DisplayObjectContainer;
+   import flash.display.MovieClip;
+   import main_game.items.Item;
+   import view.screens.main_game.slot.SlotView;
+   
+   public class ItemView
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      protected var item:Item;
+      
+      protected var mc:MovieClip;
+      
+      public function ItemView(param1:Item)
+      {
+         method
+            name null
+            param QName(PackageNamespace("main_game.items"),"Item")
+            returns null
+            
+            body
+               maxstack 2
+               localcount 2
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlocal1
+                  initproperty QName(ProtectedNamespace("view.items:ItemView"),"item")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function getMC() : MovieClip
+      {
+         trait method QName(PackageNamespace(""),"getMC")
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace("flash.display"),"MovieClip")
+               
+               body
+                  maxstack 3
+                  localcount 2
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     pushnull
+                     coerce QName(PackageNamespace(""),"Class")
+                     setlocal1
+                     getlocal0
+                     getproperty QName(ProtectedNamespace("view.items:ItemView"),"mc")
+                     pushnull
+                     ifne ofs002f
+                     getlex QName(PackageNamespace(""),"main")
+                     getproperty QName(PackageNamespace(""),"swfLoader")
+                     pushstring "assets."
+                     getlocal0
+                     getproperty QName(ProtectedNamespace("view.items:ItemView"),"item")
+                     callproperty QName(PackageNamespace(""),"getMcName"), 0
+                     add
+                     callproperty QName(PackageNamespace(""),"getClass"), 1
+                     coerce QName(PackageNamespace(""),"Class")
+                     setlocal1
+                     getlocal0
+                     getlocal1
+                     construct 0
+                     setproperty QName(ProtectedNamespace("view.items:ItemView"),"mc")
+            ofs002f:
+                     getlocal0
+                     getproperty QName(ProtectedNamespace("view.items:ItemView"),"mc")
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function putIn(param1:DisplayObjectContainer) : void
+         {
+            trait method QName(PackageNamespace(""),"putIn")
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace("flash.display"),"DisplayObjectContainer")
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 2
+                     localcount 3
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        callproperty QName(PackageNamespace(""),"getMC"), 0
+                        coerce QName(PackageNamespace("flash.display"),"MovieClip")
+                        setlocal2
+                        getlocal1
+                        getlocal2
+                        callpropvoid QName(PackageNamespace(""),"addChild"), 1
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function clear() : void
+            {
+               trait method QName(PackageNamespace(""),"clear")
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 2
+                        localcount 1
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getproperty QName(ProtectedNamespace("view.items:ItemView"),"mc")
+                           getproperty QName(PackageNamespace(""),"parent")
+                           pushnull
+                           ifeq ofs001d
+                           getlocal0
+                           getproperty QName(ProtectedNamespace("view.items:ItemView"),"mc")
+                           getproperty QName(PackageNamespace(""),"parent")
+                           getlocal0
+                           getproperty QName(ProtectedNamespace("view.items:ItemView"),"mc")
+                           callpropvoid QName(PackageNamespace(""),"removeChild"), 1
+                  ofs001d:
+                           getlocal0
+                           pushnull
+                           setproperty QName(ProtectedNamespace("view.items:ItemView"),"item")
+                           getlocal0
+                           pushnull
+                           setproperty QName(ProtectedNamespace("view.items:ItemView"),"mc")
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function getStateForSlot(param1:SlotView) : String
+               {
+                  trait method QName(PackageNamespace(""),"getStateForSlot")
+                     dispid 0
+                     method
+                        name null
+                        param QName(PackageNamespace("view.screens.main_game.slot"),"SlotView")
+                        returns QName(PackageNamespace(""),"String")
+                        
+                        body
+                           maxstack 1
+                           localcount 2
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              pushstring ""
+                              returnvalue
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+               }
+            }
+            
+            method
+               name null
+               returns null
+               
+               body
+                  maxstack 2
+                  localcount 1
+                  initscopedepth 1
+                  maxscopedepth 3
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     findpropstrict Multiname("ItemView",[PackageNamespace("view.items")])
+                     getlex QName(PackageNamespace(""),"Object")
+                     pushscope
+                     getlex QName(PackageNamespace(""),"Object")
+                     newclass 99
+                     popscope
+                     initproperty QName(PackageNamespace("view.items"),"ItemView")
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+            

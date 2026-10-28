@@ -1,0 +1,230 @@
+package bonus.states
+{
+   import bonus.LexicalParser;
+   import bonus.errors.ConstantDefinitionError;
+   
+   public class ConstantDefinition extends BaseState
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 5
+            maxscopedepth 6
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function ConstantDefinition(param1:String)
+      {
+         method
+            name null
+            param QName(PackageNamespace(""),"String")
+            returns null
+            
+            body
+               maxstack 3
+               localcount 2
+               initscopedepth 6
+               maxscopedepth 7
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  getlocal1
+                  pushstring ""
+                  constructsuper 2
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      override protected function onDigit(param1:String) : BaseState
+      {
+         trait method QName(ProtectedNamespace("bonus.states:ConstantDefinition"),"onDigit")
+            flag OVERRIDE
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace(""),"String")
+               returns QName(PackageNamespace("bonus.states"),"BaseState")
+               
+               body
+                  maxstack 2
+                  localcount 2
+                  initscopedepth 6
+                  maxscopedepth 7
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     findpropstrict QName(ProtectedNamespace("bonus.states:BaseState"),"addToValue")
+                     getlocal1
+                     callproperty QName(ProtectedNamespace("bonus.states:BaseState"),"addToValue"), 1
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         override protected function onSpace(param1:String) : BaseState
+         {
+            trait method QName(ProtectedNamespace("bonus.states:ConstantDefinition"),"onSpace")
+               flag OVERRIDE
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace(""),"String")
+                  returns QName(PackageNamespace("bonus.states"),"BaseState")
+                  
+                  body
+                     maxstack 4
+                     localcount 2
+                     initscopedepth 6
+                     maxscopedepth 7
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        findpropstrict QName(ProtectedNamespace("bonus.states:BaseState"),"constantDefinition")
+                        getlex QName(PackageNamespace("bonus"),"LexicalParser")
+                        getproperty QName(PackageNamespace(""),"INTEGER")
+                        findpropstrict QName(PackageNamespace(""),"int")
+                        getlex QName(ProtectedNamespace("bonus.states:BaseState"),"value")
+                        callproperty QName(PackageNamespace(""),"int"), 1
+                        callpropvoid QName(ProtectedNamespace("bonus.states:BaseState"),"constantDefinition"), 2
+                        findpropstrict QName(PackageNamespace("bonus.states"),"WaitingForAttribute")
+                        constructprop QName(PackageNamespace("bonus.states"),"WaitingForAttribute"), 0
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            override protected function onMisc(param1:String) : BaseState
+            {
+               trait method QName(ProtectedNamespace("bonus.states:ConstantDefinition"),"onMisc")
+                  flag OVERRIDE
+                  dispid 0
+                  method
+                     name null
+                     param QName(PackageNamespace(""),"String")
+                     returns QName(PackageNamespace("bonus.states"),"BaseState")
+                     
+                     body
+                        maxstack 4
+                        localcount 2
+                        initscopedepth 6
+                        maxscopedepth 7
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal1
+                           pushstring "}"
+                           ifne ofs002e
+                           getlex QName(ProtectedNamespace("bonus.states:BaseState"),"stream")
+                           callpropvoid QName(PackageNamespace(""),"ungetc"), 0
+                           findpropstrict QName(ProtectedNamespace("bonus.states:BaseState"),"constantDefinition")
+                           getlex QName(PackageNamespace("bonus"),"LexicalParser")
+                           getproperty QName(PackageNamespace(""),"INTEGER")
+                           findpropstrict QName(PackageNamespace(""),"int")
+                           getlex QName(ProtectedNamespace("bonus.states:BaseState"),"value")
+                           callproperty QName(PackageNamespace(""),"int"), 1
+                           callpropvoid QName(ProtectedNamespace("bonus.states:BaseState"),"constantDefinition"), 2
+                           findpropstrict QName(PackageNamespace("bonus.states"),"WaitingForAttribute")
+                           constructprop QName(PackageNamespace("bonus.states"),"WaitingForAttribute"), 0
+                           returnvalue
+                  ofs002e:
+                           getlocal1
+                           pushstring "."
+                           ifne ofs004f
+                           findproperty QName(ProtectedNamespace("bonus.states:BaseState"),"value")
+                           getlex QName(ProtectedNamespace("bonus.states:BaseState"),"value")
+                           getlocal1
+                           add
+                           initproperty QName(ProtectedNamespace("bonus.states:BaseState"),"value")
+                           findpropstrict QName(PackageNamespace("bonus.states"),"FloatConstantDefinition")
+                           getlex QName(ProtectedNamespace("bonus.states:BaseState"),"name")
+                           getlex QName(ProtectedNamespace("bonus.states:BaseState"),"value")
+                           constructprop QName(PackageNamespace("bonus.states"),"FloatConstantDefinition"), 2
+                           returnvalue
+                  ofs004f:
+                           getlocal1
+                           pushstring "-"
+                           equals
+                           dup
+                           iffalse ofs0060
+                           pop
+                           getlex QName(ProtectedNamespace("bonus.states:BaseState"),"value")
+                           pushstring ""
+                           equals
+                  ofs0060:
+                           iffalse ofs0071
+                           findproperty QName(ProtectedNamespace("bonus.states:BaseState"),"value")
+                           getlex QName(ProtectedNamespace("bonus.states:BaseState"),"value")
+                           getlocal1
+                           add
+                           initproperty QName(ProtectedNamespace("bonus.states:BaseState"),"value")
+                           getlocal0
+                           returnvalue
+                  ofs0071:
+                           findpropstrict QName(PackageNamespace("bonus.errors"),"ConstantDefinitionError")
+                           pushstring "Expected a digit. got ["
+                           getlocal1
+                           add
+                           pushstring "]"
+                           add
+                           getlex QName(ProtectedNamespace("bonus.states:BaseState"),"stream")
+                           callproperty QName(PackageNamespace(""),"getLineNumber"), 0
+                           constructprop QName(PackageNamespace("bonus.errors"),"ConstantDefinitionError"), 2
+                           throw
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+            }
+         }
+         
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 2
+               localcount 1
+               initscopedepth 1
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  findpropstrict Multiname("ConstantDefinition",[PackageNamespace("bonus.states")])
+                  getlex QName(PackageNamespace(""),"Object")
+                  pushscope
+                  getlex QName(PackageNamespace("flash.events"),"EventDispatcher")
+                  pushscope
+                  getlex QName(PackageNamespace("bonus.states"),"BaseState")
+                  pushscope
+                  getlex QName(PackageNamespace("bonus.states"),"BaseState")
+                  newclass 288
+                  popscope
+                  popscope
+                  popscope
+                  initproperty QName(PackageNamespace("bonus.states"),"ConstantDefinition")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+         

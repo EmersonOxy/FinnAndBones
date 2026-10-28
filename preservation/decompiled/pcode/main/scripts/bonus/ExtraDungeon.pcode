@@ -1,0 +1,231 @@
+package bonus
+{
+   import bonus.filter.BonusIcon;
+   import bonus.filter.IBonusFilter;
+   import bonus.filter.NoneFilter;
+   import main_game.element.Element;
+   import main_game.map.Level;
+   
+   public class ExtraDungeon implements IDailyBonus
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var dungeonId:String;
+      
+      private var element:String;
+      
+      public function ExtraDungeon(param1:String, param2:String)
+      {
+         method
+            name null
+            param QName(PackageNamespace(""),"String")
+            param QName(PackageNamespace(""),"String")
+            returns null
+            
+            body
+               maxstack 2
+               localcount 3
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlocal1
+                  initproperty QName(PrivateNamespace(null,"77"),"dungeonId")
+                  getlocal0
+                  getlocal2
+                  initproperty QName(PrivateNamespace(null,"77"),"element")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function activate() : void
+      {
+         trait method QName(PackageNamespace(""),"activate")
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 2
+                  localcount 2
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlex QName(PackageNamespace(""),"main")
+                     getproperty QName(PackageNamespace(""),"game")
+                     callproperty QName(PackageNamespace(""),"getMap"), 0
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"77"),"dungeonId")
+                     callproperty QName(PackageNamespace(""),"getLevel"), 1
+                     coerce QName(PackageNamespace("main_game.map"),"Level")
+                     setlocal1
+                     getlocal1
+                     callpropvoid QName(PackageNamespace(""),"unlock"), 0
+                     getlex QName(PackageNamespace(""),"main")
+                     getproperty QName(PackageNamespace(""),"game")
+                     callproperty QName(PackageNamespace(""),"getMap"), 0
+                     callpropvoid QName(PackageNamespace(""),"unlockUnlocked"), 0
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function getElement() : Element
+         {
+            trait method QName(PackageNamespace(""),"getElement")
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace("main_game.element"),"Element")
+                  
+                  body
+                     maxstack 2
+                     localcount 1
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlex QName(PackageNamespace("main_game.element"),"Element")
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"77"),"element")
+                        callproperty QName(PackageNamespace(""),"parseElement"), 1
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function getIcon() : BonusIcon
+            {
+               trait method QName(PackageNamespace(""),"getIcon")
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace("bonus.filter"),"BonusIcon")
+                     
+                     body
+                        maxstack 2
+                        localcount 1
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlex QName(PackageNamespace("bonus.filter"),"BonusIcon")
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"77"),"element")
+                           callproperty QName(PackageNamespace(""),"getExtraDungeon"), 1
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function getFilter() : IBonusFilter
+               {
+                  trait method QName(PackageNamespace(""),"getFilter")
+                     dispid 0
+                     method
+                        name null
+                        returns QName(PackageNamespace("bonus.filter"),"IBonusFilter")
+                        
+                        body
+                           maxstack 1
+                           localcount 1
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              findpropstrict QName(PackageNamespace("bonus.filter"),"NoneFilter")
+                              constructprop QName(PackageNamespace("bonus.filter"),"NoneFilter"), 0
+                              returnvalue
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function getAction() : String
+                  {
+                     trait method QName(PackageNamespace(""),"getAction")
+                        dispid 0
+                        method
+                           name null
+                           returns QName(PackageNamespace(""),"String")
+                           
+                           body
+                              maxstack 1
+                              localcount 1
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 pushstring ""
+                                 returnvalue
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                  }
+               }
+               
+               method
+                  name null
+                  returns null
+                  
+                  body
+                     maxstack 2
+                     localcount 1
+                     initscopedepth 1
+                     maxscopedepth 3
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        findpropstrict Multiname("ExtraDungeon",[PackageNamespace("bonus")])
+                        getlex QName(PackageNamespace(""),"Object")
+                        pushscope
+                        getlex QName(PackageNamespace(""),"Object")
+                        newclass 127
+                        popscope
+                        initproperty QName(PackageNamespace("bonus"),"ExtraDungeon")
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+               

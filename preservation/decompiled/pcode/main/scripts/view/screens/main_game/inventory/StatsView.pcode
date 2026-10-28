@@ -1,0 +1,947 @@
+package view.screens.main_game.inventory
+{
+   import cb.utils.Tween;
+   import drag_and_drop.DragListener;
+   import flash.display.MovieClip;
+   import flash.text.TextField;
+   import main_game.character.Gear;
+   import main_game.character.stats.Experience;
+   import main_game.character.stats.HealthStat;
+   import main_game.character.stats.PersistentExperience;
+   import main_game.character.stats.StatType;
+   import main_game.character.stats.Stats;
+   import util.Util;
+   import view.screens.main_game.BarView;
+   import view.screens.main_game.slot.LeftSlotView;
+   import view.screens.main_game.slot.SlotView;
+   
+   public class StatsView
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var bg:MovieClip;
+      
+      private var drag_listener:DragListener;
+      
+      private var weapon_slot:SlotView;
+      
+      private var shield_slot:SlotView;
+      
+      private var equip_slot_1:SlotView;
+      
+      private var equip_slot_2:SlotView;
+      
+      private var liver:LiverView;
+      
+      private var lastLevel:uint;
+      
+      private var experience:BarView;
+      
+      public function StatsView()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 3
+               localcount 1
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("view.screens.main_game.inventory"),"LiverView")
+                  getlocal0
+                  constructprop QName(PackageNamespace("view.screens.main_game.inventory"),"LiverView"), 1
+                  initproperty QName(PrivateNamespace(null,"84"),"liver")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function initialize(param1:MovieClip) : void
+      {
+         trait method QName(PackageNamespace(""),"initialize")
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace("flash.display"),"MovieClip")
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 7
+                  localcount 4
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     getlocal1
+                     setproperty QName(PrivateNamespace(null,"84"),"bg")
+                     getlocal0
+                     findpropstrict QName(PackageNamespace("drag_and_drop"),"DragListener")
+                     getlocal1
+                     getlex QName(PackageNamespace(""),"main")
+                     getproperty QName(PackageNamespace(""),"game")
+                     callproperty QName(PackageNamespace(""),"getFinn"), 0
+                     getproperty QName(PackageNamespace(""),"liver")
+                     constructprop QName(PackageNamespace("drag_and_drop"),"DragListener"), 2
+                     setproperty QName(PrivateNamespace(null,"84"),"drag_listener")
+                     getlex QName(PackageNamespace(""),"main")
+                     getproperty QName(PackageNamespace(""),"game")
+                     callproperty QName(PackageNamespace(""),"getFinn"), 0
+                     getproperty QName(PackageNamespace(""),"stats")
+                     coerce QName(PackageNamespace("main_game.character.stats"),"Stats")
+                     setlocal2
+                     getlocal2
+                     getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                     getproperty QName(PackageNamespace(""),"EXPERIENCE")
+                     callproperty QName(PackageNamespace(""),"getStat"), 1
+                     getlex QName(PackageNamespace("main_game.character.stats"),"Experience")
+                     astypelate
+                     coerce QName(PackageNamespace("main_game.character.stats"),"Experience")
+                     setlocal3
+                     getlocal0
+                     findpropstrict QName(PackageNamespace("view.screens.main_game"),"BarView")
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"84"),"bg")
+                     getproperty Multiname("xp",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                     getlex QName(PackageNamespace("flash.display"),"MovieClip")
+                     astypelate
+                     getlex QName(PackageNamespace(""),"main")
+                     getproperty QName(PackageNamespace(""),"locale")
+                     pushstring "experience_status"
+                     getlocal3
+                     callproperty QName(PackageNamespace(""),"getValue"), 0
+                     getlocal3
+                     callproperty QName(PackageNamespace(""),"getUpperBound"), 0
+                     constructprop QName(PackageNamespace("view.screens.main_game"),"BarView"), 5
+                     setproperty QName(PrivateNamespace(null,"84"),"experience")
+                     getlocal0
+                     callpropvoid QName(PrivateNamespace(null,"84"),"initializeStats"), 0
+                     getlocal0
+                     callpropvoid QName(PrivateNamespace(null,"84"),"initializeSlots"), 0
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"84"),"liver")
+                     getlex QName(PackageNamespace(""),"main")
+                     getproperty QName(PackageNamespace(""),"game")
+                     callproperty QName(PackageNamespace(""),"getFinn"), 0
+                     getproperty QName(PackageNamespace(""),"liver")
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"84"),"bg")
+                     getproperty Multiname("potion",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                     callpropvoid QName(PackageNamespace(""),"initialize"), 2
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         private function initializeStats() : void
+         {
+            trait method QName(PrivateNamespace(null,"84"),"initializeStats")
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 3
+                     localcount 2
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlex QName(PackageNamespace(""),"main")
+                        getproperty QName(PackageNamespace(""),"game")
+                        callproperty QName(PackageNamespace(""),"getFinn"), 0
+                        getproperty QName(PackageNamespace(""),"stats")
+                        getproperty QName(PackageNamespace(""),"onChange")
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"84"),"refresh")
+                        callpropvoid QName(PackageNamespace(""),"add"), 1
+                        getlex QName(PackageNamespace(""),"main")
+                        getproperty QName(PackageNamespace(""),"game")
+                        callproperty QName(PackageNamespace(""),"getFinn"), 0
+                        getproperty QName(PackageNamespace(""),"stats")
+                        coerce QName(PackageNamespace("main_game.character.stats"),"Stats")
+                        setlocal1
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"84"),"bg")
+                        getproperty Multiname("health",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                        getproperty Multiname("title",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                        getproperty Multiname("title",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                        getlocal1
+                        getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                        getproperty QName(PackageNamespace(""),"HEALTH")
+                        callproperty QName(PackageNamespace(""),"getStat"), 1
+                        getlex QName(PackageNamespace("main_game.character.stats"),"HealthStat")
+                        astypelate
+                        callproperty QName(PackageNamespace(""),"getUpperBound"), 0
+                        callproperty QName(PackageNamespace(""),"getValue"), 0
+                        setproperty Multiname("text",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"84"),"bg")
+                        getproperty Multiname("defence",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                        getproperty Multiname("title",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                        getproperty Multiname("title",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                        getlocal1
+                        callproperty QName(PackageNamespace(""),"getDefense"), 0
+                        setproperty Multiname("text",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"84"),"bg")
+                        getproperty Multiname("weapon",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                        getproperty Multiname("title",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                        getproperty Multiname("title",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                        getlocal1
+                        callproperty QName(PackageNamespace(""),"getAttack"), 0
+                        setproperty Multiname("text",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"84"),"bg")
+                        getproperty Multiname("luck",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                        getproperty Multiname("title",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                        getproperty Multiname("title",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                        getlocal1
+                        callproperty QName(PackageNamespace(""),"getLuck"), 0
+                        setproperty Multiname("text",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                        getlocal0
+                        getlocal1
+                        callproperty QName(PackageNamespace(""),"getLevel"), 0
+                        setproperty QName(PrivateNamespace(null,"84"),"lastLevel")
+                        getlocal0
+                        callpropvoid QName(PrivateNamespace(null,"84"),"refresh"), 0
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            private function refresh() : void
+            {
+               trait method QName(PrivateNamespace(null,"84"),"refresh")
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 4
+                        localcount 2
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlex QName(PackageNamespace(""),"main")
+                           getproperty QName(PackageNamespace(""),"game")
+                           callproperty QName(PackageNamespace(""),"getFinn"), 0
+                           getproperty QName(PackageNamespace(""),"stats")
+                           coerce QName(PackageNamespace("main_game.character.stats"),"Stats")
+                           setlocal1
+                           getlocal0
+                           getlocal1
+                           callproperty QName(PackageNamespace(""),"getLevel"), 0
+                           getlocal1
+                           getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                           getproperty QName(PackageNamespace(""),"EXPERIENCE")
+                           callproperty QName(PackageNamespace(""),"getStat"), 1
+                           getlex QName(PackageNamespace("main_game.character.stats"),"PersistentExperience")
+                           astypelate
+                           callpropvoid QName(PrivateNamespace(null,"84"),"updateLevelAndXp"), 2
+                           getlocal0
+                           getlocal1
+                           getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                           getproperty QName(PackageNamespace(""),"HEALTH")
+                           callproperty QName(PackageNamespace(""),"getStat"), 1
+                           getlex QName(PackageNamespace("main_game.character.stats"),"HealthStat")
+                           astypelate
+                           callproperty QName(PackageNamespace(""),"getUpperBound"), 0
+                           callproperty QName(PackageNamespace(""),"getValue"), 0
+                           callpropvoid QName(PrivateNamespace(null,"84"),"updateHealth"), 1
+                           getlocal0
+                           getlocal1
+                           callproperty QName(PackageNamespace(""),"getDefense"), 0
+                           callpropvoid QName(PrivateNamespace(null,"84"),"updateDefense"), 1
+                           getlocal0
+                           getlocal1
+                           callproperty QName(PackageNamespace(""),"getAttack"), 0
+                           callpropvoid QName(PrivateNamespace(null,"84"),"updateAttack"), 1
+                           getlocal0
+                           getlocal1
+                           callproperty QName(PackageNamespace(""),"getLuck"), 0
+                           callpropvoid QName(PrivateNamespace(null,"84"),"updateLuck"), 1
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               private function initializeSlots() : void
+               {
+                  trait method QName(PrivateNamespace(null,"84"),"initializeSlots")
+                     dispid 0
+                     method
+                        name null
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 3
+                           localcount 2
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlex QName(PackageNamespace(""),"main")
+                              getproperty QName(PackageNamespace(""),"game")
+                              callproperty QName(PackageNamespace(""),"getFinn"), 0
+                              getproperty QName(PackageNamespace(""),"gear")
+                              coerce QName(PackageNamespace("main_game.character"),"Gear")
+                              setlocal1
+                              getlocal0
+                              findpropstrict QName(PackageNamespace("view.screens.main_game.slot"),"LeftSlotView")
+                              getlocal1
+                              getproperty QName(PackageNamespace(""),"weapon")
+                              constructprop QName(PackageNamespace("view.screens.main_game.slot"),"LeftSlotView"), 1
+                              setproperty QName(PrivateNamespace(null,"84"),"weapon_slot")
+                              getlocal0
+                              findpropstrict QName(PackageNamespace("view.screens.main_game.slot"),"LeftSlotView")
+                              getlocal1
+                              getproperty QName(PackageNamespace(""),"shield")
+                              constructprop QName(PackageNamespace("view.screens.main_game.slot"),"LeftSlotView"), 1
+                              setproperty QName(PrivateNamespace(null,"84"),"shield_slot")
+                              getlocal0
+                              findpropstrict QName(PackageNamespace("view.screens.main_game.slot"),"LeftSlotView")
+                              getlocal1
+                              getproperty QName(PackageNamespace(""),"equipment_1")
+                              constructprop QName(PackageNamespace("view.screens.main_game.slot"),"LeftSlotView"), 1
+                              setproperty QName(PrivateNamespace(null,"84"),"equip_slot_1")
+                              getlocal0
+                              findpropstrict QName(PackageNamespace("view.screens.main_game.slot"),"LeftSlotView")
+                              getlocal1
+                              getproperty QName(PackageNamespace(""),"equipment_2")
+                              constructprop QName(PackageNamespace("view.screens.main_game.slot"),"LeftSlotView"), 1
+                              setproperty QName(PrivateNamespace(null,"84"),"equip_slot_2")
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"84"),"equip_slot_1")
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"84"),"bg")
+                              getproperty Multiname("modifiers_slot_1",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                              callpropvoid QName(PackageNamespace(""),"initialize"), 1
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"84"),"equip_slot_2")
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"84"),"bg")
+                              getproperty Multiname("modifiers_slot_2",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                              callpropvoid QName(PackageNamespace(""),"initialize"), 1
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"84"),"weapon_slot")
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"84"),"bg")
+                              getproperty Multiname("weapon_slot_2",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                              callpropvoid QName(PackageNamespace(""),"initialize"), 1
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"84"),"shield_slot")
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"84"),"bg")
+                              getproperty Multiname("weapon_slot_1",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                              callpropvoid QName(PackageNamespace(""),"initialize"), 1
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  private function updateLevelAndXp(param1:uint, param2:PersistentExperience) : void
+                  {
+                     trait method QName(PrivateNamespace(null,"84"),"updateLevelAndXp")
+                        dispid 0
+                        method
+                           name null
+                           param QName(PackageNamespace(""),"uint")
+                           param QName(PackageNamespace("main_game.character.stats"),"PersistentExperience")
+                           returns QName(PackageNamespace(""),"void")
+                           
+                           body
+                              maxstack 4
+                              localcount 3
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"84"),"bg")
+                                 pushstring "level"
+                                 getproperty MultinameL([PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                                 getproperty Multiname("title_1",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                                 getlex QName(PackageNamespace(""),"main")
+                                 getproperty QName(PackageNamespace(""),"locale")
+                                 pushstring "level"
+                                 getlocal1
+                                 newarray 1
+                                 callproperty QName(PackageNamespace(""),"get"), 2
+                                 setproperty Multiname("text",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                                 getlocal1
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"84"),"lastLevel")
+                                 ifeq ofs0040
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"84"),"experience")
+                                 pushbyte 0
+                                 setproperty QName(PackageNamespace(""),"current")
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"84"),"experience")
+                                 getlocal2
+                                 callproperty QName(PackageNamespace(""),"getUpperBound"), 0
+                                 setproperty QName(PackageNamespace(""),"total")
+                        ofs0040:
+                                 getlocal0
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"84"),"experience")
+                                 getlocal2
+                                 callproperty QName(PackageNamespace(""),"getValue"), 0
+                                 getlocal2
+                                 callproperty QName(PackageNamespace(""),"getUpperBound"), 0
+                                 callpropvoid QName(PrivateNamespace(null,"84"),"updateBar"), 3
+                                 getlocal0
+                                 getlocal1
+                                 setproperty QName(PrivateNamespace(null,"84"),"lastLevel")
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     private function updateBar(param1:BarView, param2:Number, param3:Number) : void
+                     {
+                        trait method QName(PrivateNamespace(null,"84"),"updateBar")
+                           dispid 0
+                           method
+                              name null
+                              param QName(PackageNamespace("view.screens.main_game"),"BarView")
+                              param QName(PackageNamespace(""),"Number")
+                              param QName(PackageNamespace(""),"Number")
+                              returns QName(PackageNamespace(""),"void")
+                              
+                              body
+                                 maxstack 7
+                                 localcount 4
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    getlex QName(PackageNamespace("cb.utils"),"Tween")
+                                    getlocal1
+                                    callpropvoid QName(PackageNamespace(""),"killTweensOf"), 1
+                                    getlex QName(PackageNamespace("cb.utils"),"Tween")
+                                    getlocal1
+                                    pushshort 300
+                                    pushstring "current"
+                                    getlocal2
+                                    pushstring "total"
+                                    getlocal3
+                                    newobject 2
+                                    callpropvoid QName(PackageNamespace(""),"to"), 3
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        private function makeGlow(param1:Boolean, param2:TextField) : void
+                        {
+                           trait method QName(PrivateNamespace(null,"84"),"makeGlow")
+                              dispid 0
+                              method
+                                 name null
+                                 param QName(PackageNamespace(""),"Boolean")
+                                 param QName(PackageNamespace("flash.text"),"TextField")
+                                 returns QName(PackageNamespace(""),"void")
+                                 
+                                 body
+                                    maxstack 2
+                                    localcount 3
+                                    initscopedepth 4
+                                    maxscopedepth 5
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       getlocal1
+                                       iffalse ofs0011
+                                       getlocal2
+                                       pushint 16776960
+                                       setproperty QName(PackageNamespace(""),"textColor")
+                                       jump ofs0017
+                              ofs0011:
+                                       getlocal2
+                                       pushint 14605481
+                                       setproperty QName(PackageNamespace(""),"textColor")
+                              ofs0017:
+                                       returnvoid
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           public function glowDefense(param1:Boolean) : void
+                           {
+                              trait method QName(PackageNamespace(""),"glowDefense")
+                                 dispid 0
+                                 method
+                                    name null
+                                    param QName(PackageNamespace(""),"Boolean")
+                                    returns QName(PackageNamespace(""),"void")
+                                    
+                                    body
+                                       maxstack 3
+                                       localcount 2
+                                       initscopedepth 4
+                                       maxscopedepth 5
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          getlocal0
+                                          getlocal1
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"84"),"bg")
+                                          getproperty Multiname("defence",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                                          getproperty Multiname("title",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                                          getproperty Multiname("title",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                                          callpropvoid QName(PrivateNamespace(null,"84"),"makeGlow"), 2
+                                          returnvoid
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                              
+                              public function glowAttack(param1:Boolean) : void
+                              {
+                                 trait method QName(PackageNamespace(""),"glowAttack")
+                                    dispid 0
+                                    method
+                                       name null
+                                       param QName(PackageNamespace(""),"Boolean")
+                                       returns QName(PackageNamespace(""),"void")
+                                       
+                                       body
+                                          maxstack 3
+                                          localcount 2
+                                          initscopedepth 4
+                                          maxscopedepth 5
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             getlocal0
+                                             getlocal1
+                                             getlocal0
+                                             getproperty QName(PrivateNamespace(null,"84"),"bg")
+                                             getproperty Multiname("weapon",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                                             getproperty Multiname("title",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                                             getproperty Multiname("title",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                                             callpropvoid QName(PrivateNamespace(null,"84"),"makeGlow"), 2
+                                             returnvoid
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                 }
+                                 
+                                 public function glowLuck(param1:Boolean) : void
+                                 {
+                                    trait method QName(PackageNamespace(""),"glowLuck")
+                                       dispid 0
+                                       method
+                                          name null
+                                          param QName(PackageNamespace(""),"Boolean")
+                                          returns QName(PackageNamespace(""),"void")
+                                          
+                                          body
+                                             maxstack 3
+                                             localcount 2
+                                             initscopedepth 4
+                                             maxscopedepth 5
+                                             
+                                             code
+                                                getlocal0
+                                                pushscope
+                                                getlocal0
+                                                getlocal1
+                                                getlocal0
+                                                getproperty QName(PrivateNamespace(null,"84"),"bg")
+                                                getproperty Multiname("luck",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                                                getproperty Multiname("title",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                                                getproperty Multiname("title",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                                                callpropvoid QName(PrivateNamespace(null,"84"),"makeGlow"), 2
+                                                returnvoid
+                                             end ; code
+                                          end ; body
+                                       end ; method
+                                    }
+                                    
+                                    private function updateHealth(param1:int) : void
+                                    {
+                                       trait method QName(PrivateNamespace(null,"84"),"updateHealth")
+                                          dispid 0
+                                          method
+                                             name null
+                                             param QName(PackageNamespace(""),"int")
+                                             returns QName(PackageNamespace(""),"void")
+                                             
+                                             body
+                                                maxstack 3
+                                                localcount 2
+                                                initscopedepth 4
+                                                maxscopedepth 5
+                                                
+                                                code
+                                                   getlocal0
+                                                   pushscope
+                                                   getlocal0
+                                                   getlocal0
+                                                   getproperty QName(PrivateNamespace(null,"84"),"bg")
+                                                   getproperty Multiname("health",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                                                   getproperty Multiname("title",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                                                   getproperty Multiname("title",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                                                   getlocal1
+                                                   callpropvoid QName(PrivateNamespace(null,"84"),"updateText"), 2
+                                                   returnvoid
+                                                end ; code
+                                             end ; body
+                                          end ; method
+                                       }
+                                       
+                                       private function updateDefense(param1:int) : void
+                                       {
+                                          trait method QName(PrivateNamespace(null,"84"),"updateDefense")
+                                             dispid 0
+                                             method
+                                                name null
+                                                param QName(PackageNamespace(""),"int")
+                                                returns QName(PackageNamespace(""),"void")
+                                                
+                                                body
+                                                   maxstack 3
+                                                   localcount 2
+                                                   initscopedepth 4
+                                                   maxscopedepth 5
+                                                   
+                                                   code
+                                                      getlocal0
+                                                      pushscope
+                                                      getlocal0
+                                                      getlocal0
+                                                      getproperty QName(PrivateNamespace(null,"84"),"bg")
+                                                      getproperty Multiname("defence",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                                                      getproperty Multiname("title",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                                                      getproperty Multiname("title",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                                                      getlocal1
+                                                      callpropvoid QName(PrivateNamespace(null,"84"),"updateText"), 2
+                                                      returnvoid
+                                                   end ; code
+                                                end ; body
+                                             end ; method
+                                          }
+                                          
+                                          private function updateAttack(param1:int) : void
+                                          {
+                                             trait method QName(PrivateNamespace(null,"84"),"updateAttack")
+                                                dispid 0
+                                                method
+                                                   name null
+                                                   param QName(PackageNamespace(""),"int")
+                                                   returns QName(PackageNamespace(""),"void")
+                                                   
+                                                   body
+                                                      maxstack 3
+                                                      localcount 2
+                                                      initscopedepth 4
+                                                      maxscopedepth 5
+                                                      
+                                                      code
+                                                         getlocal0
+                                                         pushscope
+                                                         getlocal0
+                                                         getlocal0
+                                                         getproperty QName(PrivateNamespace(null,"84"),"bg")
+                                                         getproperty Multiname("weapon",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                                                         getproperty Multiname("title",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                                                         getproperty Multiname("title",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                                                         getlocal1
+                                                         callpropvoid QName(PrivateNamespace(null,"84"),"updateText"), 2
+                                                         returnvoid
+                                                      end ; code
+                                                   end ; body
+                                                end ; method
+                                             }
+                                             
+                                             private function updateLuck(param1:int) : void
+                                             {
+                                                trait method QName(PrivateNamespace(null,"84"),"updateLuck")
+                                                   dispid 0
+                                                   method
+                                                      name null
+                                                      param QName(PackageNamespace(""),"int")
+                                                      returns QName(PackageNamespace(""),"void")
+                                                      
+                                                      body
+                                                         maxstack 3
+                                                         localcount 2
+                                                         initscopedepth 4
+                                                         maxscopedepth 5
+                                                         
+                                                         code
+                                                            getlocal0
+                                                            pushscope
+                                                            getlocal0
+                                                            getlocal0
+                                                            getproperty QName(PrivateNamespace(null,"84"),"bg")
+                                                            getproperty Multiname("luck",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                                                            getproperty Multiname("title",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                                                            getproperty Multiname("title",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                                                            getlocal1
+                                                            callpropvoid QName(PrivateNamespace(null,"84"),"updateText"), 2
+                                                            returnvoid
+                                                         end ; code
+                                                      end ; body
+                                                   end ; method
+                                                }
+                                                
+                                                private function updateText(param1:TextField, param2:Number) : void
+                                                {
+                                                   trait method QName(PrivateNamespace(null,"84"),"updateText")
+                                                      dispid 0
+                                                      method
+                                                         name null
+                                                         param QName(PackageNamespace("flash.text"),"TextField")
+                                                         param QName(PackageNamespace(""),"Number")
+                                                         returns QName(PackageNamespace(""),"void")
+                                                         
+                                                         body
+                                                            maxstack 8
+                                                            localcount 3
+                                                            initscopedepth 4
+                                                            maxscopedepth 5
+                                                            
+                                                            code
+                                                               getlocal0
+                                                               pushscope
+                                                               getlex QName(PackageNamespace("cb.utils"),"Tween")
+                                                               getlocal1
+                                                               callpropvoid QName(PackageNamespace(""),"killTweensOf"), 1
+                                                               getlex QName(PackageNamespace("cb.utils"),"Tween")
+                                                               getlocal1
+                                                               pushshort 300
+                                                               pushstring "text"
+                                                               getlocal2
+                                                               newobject 1
+                                                               pushnull
+                                                               getlex QName(PackageNamespace("util"),"Util")
+                                                               getlocal0
+                                                               getproperty QName(PrivateNamespace(null,"84"),"interize")
+                                                               getlocal1
+                                                               callproperty QName(PackageNamespace(""),"l"), 2
+                                                               callpropvoid QName(PackageNamespace(""),"to"), 5
+                                                               returnvoid
+                                                            end ; code
+                                                         end ; body
+                                                      end ; method
+                                                   }
+                                                   
+                                                   private function interize(param1:TextField) : void
+                                                   {
+                                                      trait method QName(PrivateNamespace(null,"84"),"interize")
+                                                         dispid 0
+                                                         method
+                                                            name null
+                                                            param QName(PackageNamespace("flash.text"),"TextField")
+                                                            returns QName(PackageNamespace(""),"void")
+                                                            
+                                                            body
+                                                               maxstack 3
+                                                               localcount 3
+                                                               initscopedepth 4
+                                                               maxscopedepth 5
+                                                               
+                                                               code
+                                                                  getlocal0
+                                                                  pushscope
+                                                                  getlocal1
+                                                                  getproperty QName(PackageNamespace(""),"text")
+                                                                  coerce_s
+                                                                  setlocal2
+                                                                  getlocal1
+                                                                  getlocal2
+                                                                  pushstring "."
+                                                                  callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"split"), 1
+                                                                  pushbyte 0
+                                                                  getproperty MultinameL([PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                                                                  setproperty QName(PackageNamespace(""),"text")
+                                                                  returnvoid
+                                                               end ; code
+                                                            end ; body
+                                                         end ; method
+                                                      }
+                                                      
+                                                      private function killTweens() : void
+                                                      {
+                                                         trait method QName(PrivateNamespace(null,"84"),"killTweens")
+                                                            dispid 0
+                                                            method
+                                                               name null
+                                                               returns QName(PackageNamespace(""),"void")
+                                                               
+                                                               body
+                                                                  maxstack 2
+                                                                  localcount 1
+                                                                  initscopedepth 4
+                                                                  maxscopedepth 5
+                                                                  
+                                                                  code
+                                                                     getlocal0
+                                                                     pushscope
+                                                                     getlex QName(PackageNamespace("cb.utils"),"Tween")
+                                                                     getlocal0
+                                                                     getproperty QName(PrivateNamespace(null,"84"),"experience")
+                                                                     callpropvoid QName(PackageNamespace(""),"killTweensOf"), 1
+                                                                     getlex QName(PackageNamespace("cb.utils"),"Tween")
+                                                                     getlocal0
+                                                                     getproperty QName(PrivateNamespace(null,"84"),"bg")
+                                                                     getproperty Multiname("health",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                                                                     getproperty Multiname("title",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                                                                     getproperty Multiname("title",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                                                                     callpropvoid QName(PackageNamespace(""),"killTweensOf"), 1
+                                                                     getlex QName(PackageNamespace("cb.utils"),"Tween")
+                                                                     getlocal0
+                                                                     getproperty QName(PrivateNamespace(null,"84"),"bg")
+                                                                     getproperty Multiname("defence",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                                                                     getproperty Multiname("title",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                                                                     getproperty Multiname("title",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                                                                     callpropvoid QName(PackageNamespace(""),"killTweensOf"), 1
+                                                                     getlex QName(PackageNamespace("cb.utils"),"Tween")
+                                                                     getlocal0
+                                                                     getproperty QName(PrivateNamespace(null,"84"),"bg")
+                                                                     getproperty Multiname("weapon",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                                                                     getproperty Multiname("title",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                                                                     getproperty Multiname("title",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                                                                     callpropvoid QName(PackageNamespace(""),"killTweensOf"), 1
+                                                                     getlex QName(PackageNamespace("cb.utils"),"Tween")
+                                                                     getlocal0
+                                                                     getproperty QName(PrivateNamespace(null,"84"),"bg")
+                                                                     getproperty Multiname("luck",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                                                                     getproperty Multiname("title",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                                                                     getproperty Multiname("title",[PrivateNamespace(null,"84"),PackageNamespace("view.screens.main_game.inventory"),PackageNamespace(""),PrivateNamespace(null,"262"),PackageInternalNs("view.screens.main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.inventory:StatsView"),StaticProtectedNs("view.screens.main_game.inventory:StatsView")])
+                                                                     callpropvoid QName(PackageNamespace(""),"killTweensOf"), 1
+                                                                     returnvoid
+                                                                  end ; code
+                                                               end ; body
+                                                            end ; method
+                                                         }
+                                                         
+                                                         public function clear() : void
+                                                         {
+                                                            trait method QName(PackageNamespace(""),"clear")
+                                                               dispid 0
+                                                               method
+                                                                  name null
+                                                                  returns QName(PackageNamespace(""),"void")
+                                                                  
+                                                                  body
+                                                                     maxstack 1
+                                                                     localcount 1
+                                                                     initscopedepth 4
+                                                                     maxscopedepth 5
+                                                                     
+                                                                     code
+                                                                        getlocal0
+                                                                        pushscope
+                                                                        getlocal0
+                                                                        callpropvoid QName(PrivateNamespace(null,"84"),"killTweens"), 0
+                                                                        getlocal0
+                                                                        getproperty QName(PrivateNamespace(null,"84"),"drag_listener")
+                                                                        callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                                                        getlocal0
+                                                                        getproperty QName(PrivateNamespace(null,"84"),"equip_slot_1")
+                                                                        callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                                                        getlocal0
+                                                                        getproperty QName(PrivateNamespace(null,"84"),"equip_slot_2")
+                                                                        callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                                                        getlocal0
+                                                                        getproperty QName(PrivateNamespace(null,"84"),"weapon_slot")
+                                                                        callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                                                        getlocal0
+                                                                        getproperty QName(PrivateNamespace(null,"84"),"shield_slot")
+                                                                        callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                                                        getlocal0
+                                                                        getproperty QName(PrivateNamespace(null,"84"),"liver")
+                                                                        callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                                                        getlocal0
+                                                                        getproperty QName(PrivateNamespace(null,"84"),"experience")
+                                                                        callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                                                        returnvoid
+                                                                     end ; code
+                                                                  end ; body
+                                                               end ; method
+                                                            }
+                                                         }
+                                                      }
+                                                      
+                                                      method
+                                                         name null
+                                                         returns null
+                                                         
+                                                         body
+                                                            maxstack 2
+                                                            localcount 1
+                                                            initscopedepth 1
+                                                            maxscopedepth 3
+                                                            
+                                                            code
+                                                               getlocal0
+                                                               pushscope
+                                                               findpropstrict Multiname("StatsView",[PackageNamespace("view.screens.main_game.inventory")])
+                                                               getlex QName(PackageNamespace(""),"Object")
+                                                               pushscope
+                                                               getlex QName(PackageNamespace(""),"Object")
+                                                               newclass 144
+                                                               popscope
+                                                               initproperty QName(PackageNamespace("view.screens.main_game.inventory"),"StatsView")
+                                                               returnvoid
+                                                            end ; code
+                                                         end ; body
+                                                      end ; method
+                                                      

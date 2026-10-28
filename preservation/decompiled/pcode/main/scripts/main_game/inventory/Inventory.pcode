@@ -1,0 +1,464 @@
+package main_game.inventory
+{
+   import main_game.item_containers.Slot;
+   import main_game.item_containers.SlotChange;
+   import main_game.items.Item;
+   
+   public class Inventory
+   {
+      
+      public static var SLOTS:uint = 12;
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(PackageNamespace(""),"SLOTS")
+               pushbyte 12
+               setproperty QName(PackageNamespace(""),"SLOTS")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var slots:Array;
+      
+      private var trash:Trash;
+      
+      public function Inventory()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 3
+               localcount 2
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("main_game.inventory"),"Trash")
+                  constructprop QName(PackageNamespace("main_game.inventory"),"Trash"), 0
+                  initproperty QName(PrivateNamespace(null,"81"),"trash")
+                  getlocal0
+                  findpropstrict QName(PackageNamespace(""),"Array")
+                  getlex QName(PackageNamespace(""),"SLOTS")
+                  constructprop QName(PackageNamespace(""),"Array"), 1
+                  initproperty QName(PrivateNamespace(null,"81"),"slots")
+                  pushbyte 0
+                  convert_u
+                  setlocal1
+                  jump ofs0034
+         ofs0022:
+                  label
+                  getlocal0
+                  getproperty QName(PrivateNamespace(null,"81"),"slots")
+                  getlocal1
+                  findpropstrict QName(PackageNamespace("main_game.item_containers"),"Slot")
+                  constructprop QName(PackageNamespace("main_game.item_containers"),"Slot"), 0
+                  setproperty MultinameL([PrivateNamespace(null,"81"),PackageNamespace(""),PackageNamespace("main_game.inventory"),PrivateNamespace(null,"259"),PackageInternalNs("main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.inventory:Inventory"),StaticProtectedNs("main_game.inventory:Inventory")])
+                  getlocal1
+                  increment
+                  convert_u
+                  setlocal1
+         ofs0034:
+                  getlocal1
+                  getlex QName(PackageNamespace(""),"SLOTS")
+                  iflt ofs0022
+                  getlocal0
+                  callpropvoid QName(PrivateNamespace(null,"81"),"loadData"), 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      private function loadData() : void
+      {
+         trait method QName(PrivateNamespace(null,"81"),"loadData")
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 3
+                  localcount 3
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     pushnull
+                     coerce QName(PackageNamespace("main_game.items"),"Item")
+                     setlocal1
+                     pushbyte 0
+                     convert_u
+                     setlocal2
+                     jump ofs0049
+            ofs000e:
+                     label
+                     getlex QName(PackageNamespace(""),"main")
+                     getproperty QName(PackageNamespace(""),"saveSystem")
+                     getlocal2
+                     callproperty QName(PackageNamespace(""),"loadInventoryItem"), 1
+                     coerce QName(PackageNamespace("main_game.items"),"Item")
+                     setlocal1
+                     getlocal1
+                     pushnull
+                     ifeq ofs0030
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"81"),"slots")
+                     getlocal2
+                     getproperty MultinameL([PrivateNamespace(null,"81"),PackageNamespace(""),PackageNamespace("main_game.inventory"),PrivateNamespace(null,"259"),PackageInternalNs("main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.inventory:Inventory"),StaticProtectedNs("main_game.inventory:Inventory")])
+                     getlocal1
+                     callpropvoid Multiname("add",[PrivateNamespace(null,"81"),PackageNamespace(""),PackageNamespace("main_game.inventory"),PrivateNamespace(null,"259"),PackageInternalNs("main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.inventory:Inventory"),StaticProtectedNs("main_game.inventory:Inventory")]), 1
+            ofs0030:
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"81"),"slots")
+                     getlocal2
+                     getproperty MultinameL([PrivateNamespace(null,"81"),PackageNamespace(""),PackageNamespace("main_game.inventory"),PrivateNamespace(null,"259"),PackageInternalNs("main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.inventory:Inventory"),StaticProtectedNs("main_game.inventory:Inventory")])
+                     getproperty Multiname("onChange",[PrivateNamespace(null,"81"),PackageNamespace(""),PackageNamespace("main_game.inventory"),PrivateNamespace(null,"259"),PackageInternalNs("main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.inventory:Inventory"),StaticProtectedNs("main_game.inventory:Inventory")])
+                     getlocal0
+                     getlocal2
+                     callproperty QName(PrivateNamespace(null,"81"),"saveSlot"), 1
+                     callpropvoid Multiname("add",[PrivateNamespace(null,"81"),PackageNamespace(""),PackageNamespace("main_game.inventory"),PrivateNamespace(null,"259"),PackageInternalNs("main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.inventory:Inventory"),StaticProtectedNs("main_game.inventory:Inventory")]), 1
+                     getlocal2
+                     increment
+                     convert_u
+                     setlocal2
+            ofs0049:
+                     getlocal2
+                     getlex QName(PackageNamespace(""),"SLOTS")
+                     iflt ofs000e
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         private function saveSlot(param1:uint) : Function
+         {
+            trait method QName(PrivateNamespace(null,"81"),"saveSlot")
+               dispid 0
+               method
+                  name null
+                  flag NEED_ACTIVATION
+                  param QName(PackageNamespace(""),"uint")
+                  returns QName(PackageNamespace(""),"Function")
+                  
+                  body
+                     maxstack 2
+                     localcount 3
+                     initscopedepth 5
+                     maxscopedepth 7
+                     trait slot QName(PackageInternalNs("main_game.inventory"),"i")
+                        slotid 1
+                        type QName(PackageNamespace(""),"uint")
+                     end ; trait
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        newactivation
+                        dup
+                        setlocal2
+                        pushscope
+                        getscopeobject 1
+                        getlocal1
+                        setslot 1
+                        newfunction 1344
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function getEmptySlot() : Slot
+            {
+               trait method QName(PackageNamespace(""),"getEmptySlot")
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace("main_game.item_containers"),"Slot")
+                     
+                     body
+                        maxstack 2
+                        localcount 4
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           pushnull
+                           coerce QName(PackageNamespace("main_game.item_containers"),"Slot")
+                           setlocal1
+                           pushbyte 0
+                           setlocal2
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"81"),"slots")
+                           coerce_a
+                           setlocal3
+                           jump ofs0025
+                  ofs0013:
+                           label
+                           getlocal3
+                           getlocal2
+                           nextvalue
+                           coerce QName(PackageNamespace("main_game.item_containers"),"Slot")
+                           setlocal1
+                           getlocal1
+                           callproperty QName(PackageNamespace(""),"isEmpty"), 0
+                           iffalse ofs0025
+                           getlocal1
+                           returnvalue
+                  ofs0025:
+                           hasnext2 3, 2
+                           iftrue ofs0013
+                           kill 3
+                           kill 2
+                           pushnull
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function getTrash() : Trash
+               {
+                  trait method QName(PackageNamespace(""),"getTrash")
+                     dispid 0
+                     method
+                        name null
+                        returns QName(PackageNamespace("main_game.inventory"),"Trash")
+                        
+                        body
+                           maxstack 1
+                           localcount 1
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"81"),"trash")
+                              returnvalue
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function itemOfSlot(param1:uint) : Item
+                  {
+                     trait method QName(PackageNamespace(""),"itemOfSlot")
+                        dispid 0
+                        method
+                           name null
+                           param QName(PackageNamespace(""),"uint")
+                           returns QName(PackageNamespace("main_game.items"),"Item")
+                           
+                           body
+                              maxstack 2
+                              localcount 2
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"81"),"slots")
+                                 getlocal1
+                                 getproperty MultinameL([PrivateNamespace(null,"81"),PackageNamespace(""),PackageNamespace("main_game.inventory"),PrivateNamespace(null,"259"),PackageInternalNs("main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.inventory:Inventory"),StaticProtectedNs("main_game.inventory:Inventory")])
+                                 getlex QName(PackageNamespace("main_game.item_containers"),"Slot")
+                                 astypelate
+                                 callproperty QName(PackageNamespace(""),"getContent"), 0
+                                 getlex QName(PackageNamespace("main_game.items"),"Item")
+                                 astypelate
+                                 returnvalue
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     public function getSlot(param1:uint) : Slot
+                     {
+                        trait method QName(PackageNamespace(""),"getSlot")
+                           dispid 0
+                           method
+                              name null
+                              param QName(PackageNamespace(""),"uint")
+                              returns QName(PackageNamespace("main_game.item_containers"),"Slot")
+                              
+                              body
+                                 maxstack 2
+                                 localcount 2
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"81"),"slots")
+                                    getlocal1
+                                    getproperty MultinameL([PrivateNamespace(null,"81"),PackageNamespace(""),PackageNamespace("main_game.inventory"),PrivateNamespace(null,"259"),PackageInternalNs("main_game.inventory"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.inventory:Inventory"),StaticProtectedNs("main_game.inventory:Inventory")])
+                                    getlex QName(PackageNamespace("main_game.item_containers"),"Slot")
+                                    astypelate
+                                    returnvalue
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        public function get fullSlots() : uint
+                        {
+                           trait getter QName(PackageNamespace(""),"fullSlots")
+                              dispid 0
+                              method
+                                 name null
+                                 returns QName(PackageNamespace(""),"uint")
+                                 
+                                 body
+                                    maxstack 2
+                                    localcount 5
+                                    initscopedepth 4
+                                    maxscopedepth 5
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       pushnull
+                                       coerce QName(PackageNamespace("main_game.item_containers"),"Slot")
+                                       setlocal2
+                                       pushbyte 0
+                                       convert_u
+                                       setlocal1
+                                       pushbyte 0
+                                       setlocal3
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"81"),"slots")
+                                       coerce_a
+                                       setlocal 4
+                                       jump ofs002d
+                              ofs0018:
+                                       label
+                                       getlocal 4
+                                       getlocal3
+                                       nextvalue
+                                       coerce QName(PackageNamespace("main_game.item_containers"),"Slot")
+                                       setlocal2
+                                       getlocal2
+                                       callproperty QName(PackageNamespace(""),"isEmpty"), 0
+                                       iftrue ofs002d
+                                       getlocal1
+                                       increment
+                                       convert_u
+                                       setlocal1
+                              ofs002d:
+                                       hasnext2 4, 3
+                                       iftrue ofs0018
+                                       kill 4
+                                       kill 3
+                                       getlocal1
+                                       returnvalue
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           public function clear() : void
+                           {
+                              trait method QName(PackageNamespace(""),"clear")
+                                 dispid 0
+                                 method
+                                    name null
+                                    returns QName(PackageNamespace(""),"void")
+                                    
+                                    body
+                                       maxstack 2
+                                       localcount 4
+                                       initscopedepth 4
+                                       maxscopedepth 5
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          pushnull
+                                          coerce QName(PackageNamespace("main_game.item_containers"),"Slot")
+                                          setlocal1
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"81"),"trash")
+                                          callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                          pushbyte 0
+                                          setlocal2
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"81"),"slots")
+                                          coerce_a
+                                          setlocal3
+                                          jump ofs0027
+                                 ofs001b:
+                                          label
+                                          getlocal3
+                                          getlocal2
+                                          nextvalue
+                                          coerce QName(PackageNamespace("main_game.item_containers"),"Slot")
+                                          setlocal1
+                                          getlocal1
+                                          callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                 ofs0027:
+                                          hasnext2 3, 2
+                                          iftrue ofs001b
+                                          kill 3
+                                          kill 2
+                                          returnvoid
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                           }
+                        }
+                        
+                        method
+                           name null
+                           returns null
+                           
+                           body
+                              maxstack 2
+                              localcount 1
+                              initscopedepth 1
+                              maxscopedepth 3
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 findpropstrict Multiname("Inventory",[PackageNamespace("main_game.inventory")])
+                                 getlex QName(PackageNamespace(""),"Object")
+                                 pushscope
+                                 getlex QName(PackageNamespace(""),"Object")
+                                 newclass 141
+                                 popscope
+                                 initproperty QName(PackageNamespace("main_game.inventory"),"Inventory")
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                        

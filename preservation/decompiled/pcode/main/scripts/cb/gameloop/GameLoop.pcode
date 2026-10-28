@@ -1,0 +1,195 @@
+package cb.gameloop
+{
+   import cb.signals.Signal;
+   import flash.display.DisplayObject;
+   import flash.events.Event;
+   import flash.utils.getTimer;
+   
+   public class GameLoop
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var displayObject:DisplayObject;
+      
+      public var updated:Signal;
+      
+      private var lastUpdate:int;
+      
+      public function GameLoop(param1:DisplayObject)
+      {
+         method
+            name null
+            param QName(PackageNamespace("flash.display"),"DisplayObject")
+            returns null
+            
+            body
+               maxstack 2
+               localcount 2
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlocal1
+                  initproperty QName(PrivateNamespace(null,"73"),"displayObject")
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("cb.signals"),"Signal")
+                  constructprop QName(PackageNamespace("cb.signals"),"Signal"), 0
+                  initproperty QName(PackageNamespace(""),"updated")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function start() : void
+      {
+         trait method QName(PackageNamespace(""),"start")
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 3
+                  localcount 1
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     findpropstrict QName(PackageNamespace("flash.utils"),"getTimer")
+                     callproperty QName(PackageNamespace("flash.utils"),"getTimer"), 0
+                     initproperty QName(PrivateNamespace(null,"73"),"lastUpdate")
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"73"),"displayObject")
+                     getlex QName(PackageNamespace("flash.events"),"Event")
+                     getproperty QName(PackageNamespace(""),"ENTER_FRAME")
+                     getlocal0
+                     getproperty QName(PackageNamespace(""),"update")
+                     callpropvoid QName(PackageNamespace(""),"addEventListener"), 2
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function update(param1:Event) : void
+         {
+            trait method QName(PackageNamespace(""),"update")
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace("flash.events"),"Event")
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 2
+                     localcount 3
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        findpropstrict QName(PackageNamespace("flash.utils"),"getTimer")
+                        callproperty QName(PackageNamespace("flash.utils"),"getTimer"), 0
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"73"),"lastUpdate")
+                        subtract
+                        convert_i
+                        setlocal2
+                        getlocal0
+                        findpropstrict QName(PackageNamespace("flash.utils"),"getTimer")
+                        callproperty QName(PackageNamespace("flash.utils"),"getTimer"), 0
+                        initproperty QName(PrivateNamespace(null,"73"),"lastUpdate")
+                        getlocal0
+                        getproperty QName(PackageNamespace(""),"updated")
+                        getlocal2
+                        callpropvoid QName(PackageNamespace(""),"emit"), 1
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function stop() : void
+            {
+               trait method QName(PackageNamespace(""),"stop")
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 3
+                        localcount 1
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"73"),"displayObject")
+                           getlex QName(PackageNamespace("flash.events"),"Event")
+                           getproperty QName(PackageNamespace(""),"ENTER_FRAME")
+                           getlocal0
+                           getproperty QName(PackageNamespace(""),"update")
+                           callpropvoid QName(PackageNamespace(""),"removeEventListener"), 2
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+            }
+         }
+         
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 2
+               localcount 1
+               initscopedepth 1
+               maxscopedepth 3
+               
+               code
+                  getlocal0
+                  pushscope
+                  findpropstrict Multiname("GameLoop",[PackageNamespace("cb.gameloop")])
+                  getlex QName(PackageNamespace(""),"Object")
+                  pushscope
+                  getlex QName(PackageNamespace(""),"Object")
+                  newclass 120
+                  popscope
+                  initproperty QName(PackageNamespace("cb.gameloop"),"GameLoop")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+         

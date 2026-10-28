@@ -1,0 +1,115 @@
+package view.items.modifiers
+{
+   import flash.display.MovieClip;
+   
+   public class ShieldModifier extends SimpleAnimationModifier
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 4
+            maxscopedepth 5
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function ShieldModifier(param1:String, param2:String)
+      {
+         method
+            name null
+            param QName(PackageNamespace(""),"String")
+            param QName(PackageNamespace(""),"String")
+            returns null
+            
+            body
+               maxstack 3
+               localcount 3
+               initscopedepth 5
+               maxscopedepth 6
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  getlocal1
+                  getlocal2
+                  constructsuper 2
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      override protected function setModifier(param1:MovieClip, param2:String) : void
+      {
+         trait method QName(ProtectedNamespace("view.items.modifiers:ShieldModifier"),"setModifier")
+            flag OVERRIDE
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace("flash.display"),"MovieClip")
+               param QName(PackageNamespace(""),"String")
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 3
+                  localcount 3
+                  initscopedepth 5
+                  maxscopedepth 6
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     findpropstrict QName(ProtectedNamespace("view.items.modifiers:SimpleAnimationModifier"),"setIcon")
+                     getlocal1
+                     getproperty Multiname("shield",[PrivateNamespace(null,"237"),PackageNamespace(""),PrivateNamespace(null,"238"),PackageNamespace("view.items.modifiers"),PackageInternalNs("view.items.modifiers"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.items.modifiers:ShieldModifier"),StaticProtectedNs("view.items.modifiers:ShieldModifier"),StaticProtectedNs("view.items.modifiers:SimpleAnimationModifier")])
+                     getproperty Multiname("shield",[PrivateNamespace(null,"237"),PackageNamespace(""),PrivateNamespace(null,"238"),PackageNamespace("view.items.modifiers"),PackageInternalNs("view.items.modifiers"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.items.modifiers:ShieldModifier"),StaticProtectedNs("view.items.modifiers:ShieldModifier"),StaticProtectedNs("view.items.modifiers:SimpleAnimationModifier")])
+                     getproperty Multiname("gem",[PrivateNamespace(null,"237"),PackageNamespace(""),PrivateNamespace(null,"238"),PackageNamespace("view.items.modifiers"),PackageInternalNs("view.items.modifiers"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.items.modifiers:ShieldModifier"),StaticProtectedNs("view.items.modifiers:ShieldModifier"),StaticProtectedNs("view.items.modifiers:SimpleAnimationModifier")])
+                     getlocal2
+                     callpropvoid QName(ProtectedNamespace("view.items.modifiers:SimpleAnimationModifier"),"setIcon"), 2
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+      }
+   }
+   
+   method
+      name null
+      returns null
+      
+      body
+         maxstack 2
+         localcount 1
+         initscopedepth 1
+         maxscopedepth 4
+         
+         code
+            getlocal0
+            pushscope
+            findpropstrict Multiname("ShieldModifier",[PackageNamespace("view.items.modifiers")])
+            getlex QName(PackageNamespace(""),"Object")
+            pushscope
+            getlex QName(PackageNamespace("view.items.modifiers"),"SimpleAnimationModifier")
+            pushscope
+            getlex QName(PackageNamespace("view.items.modifiers"),"SimpleAnimationModifier")
+            newclass 108
+            popscope
+            popscope
+            initproperty QName(PackageNamespace("view.items.modifiers"),"ShieldModifier")
+            returnvoid
+         end ; code
+      end ; body
+   end ; method
+   

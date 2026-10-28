@@ -1,0 +1,785 @@
+[
+  {
+    "path": "archives/finn-bones-gamezip.zip",
+    "size": 22743026,
+    "sha256": "c65abaf1082dc9e878bc679fc6cb45d001e002e4e3f881556c5aec11b734842c",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.0724039Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".zip"
+  },
+  {
+    "path": "extracted/content.json",
+    "size": 79,
+    "sha256": "42eeea697dc823113e02f8cd69dbd88400813a6e589a7d4d681846d1fabecf1a",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.0787988Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".json"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/backgrounds.swf",
+    "size": 958072,
+    "sha256": "f721ca4ddf873fdfe6ea95c3ee0b97b719a7e9b169aef14d28634777f4841a7a",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.0870796Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".swf"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/boss.swf",
+    "size": 145058,
+    "sha256": "d548c79e588dee8f553a3783b42d1c6905974402c9eb6c368fe198fdaced0511",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.0887343Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".swf"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/characters.csv",
+    "size": 425,
+    "sha256": "0152628c4b26aad742080ae0b2838ba16e7278505d9d800cd023244ba2d29031",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.0892623Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".csv"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/combat_fx.swf",
+    "size": 39863,
+    "sha256": "4c27b7b9b63ab5669f364d8425a25c3ad13e77e80c1cb21862ecba901390c588",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.0900551Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".swf"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/combatSounds0.snd",
+    "size": 666,
+    "sha256": "0d457559b961c88ae6d7a36fab02c2c7b7b06013b1a57c19f5b065b38242cc2d",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.0905941Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".snd"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/combatSounds1.snd",
+    "size": 127,
+    "sha256": "1a02fa18961a73423781a5af9238c143e9ec04b0cc6c1191059333331a4bcf91",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.0910864Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".snd"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/combatSounds2.snd",
+    "size": 266,
+    "sha256": "78a96658cf793c6e867e55b29322edb5deb78bd624f36b83dd95a103451e6d86",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.0917269Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".snd"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/combatSounds3.snd",
+    "size": 149,
+    "sha256": "9a091bfcfe7d2d2cc055c441ef79b136de5fe222ad2e7491cc0c52092d5d02f2",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.0927142Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".snd"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/config.di",
+    "size": 1803,
+    "sha256": "c86520b2e72a1cb25a510ef9709180810678b8b32084c8aee1db65aaf7a3f179",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.0936106Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".di"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/dailyBonus.di",
+    "size": 2628,
+    "sha256": "eafb7e0454bcc634e2d3623d3138148c5be377ee17822e4d8d9475616d618d67",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.0941609Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".di"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/dungeons.csv",
+    "size": 8578,
+    "sha256": "9244df6039854b0f673a4a4f2c0fa9f9baf1af546413756d427586570bee453f",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.0946974Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".csv"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/enemy1_fire.swf",
+    "size": 57897,
+    "sha256": "0267a03ea0b6979d5817904ba7994860a3463988941b916c1d05d952a0e95cde",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.0955823Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".swf"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/enemy1_ice.swf",
+    "size": 44842,
+    "sha256": "ba5f1b588e7647b4160b9452f57829e7b4fa3f2e5f6d63a4b7e6a886cebf3c26",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.0963563Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".swf"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/enemy1_normal.swf",
+    "size": 48474,
+    "sha256": "659b1e42068fa2a3fbb0551eadc8fd8e64e7c98872c97efacecdc2569bc936c1",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.0971272Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".swf"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/enemy2_fire.swf",
+    "size": 64739,
+    "sha256": "46673dcba43889caf5c2be978aeeb1285fd23626e8f8aba43bacb62eefa0416c",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.0979881Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".swf"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/enemy2_ice.swf",
+    "size": 62043,
+    "sha256": "cd571613a124a1ee202ce46776978be4eb7ae4e37381e3ca480368fca8d3d245",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.0988343Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".swf"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/enemy2_normal.swf",
+    "size": 69100,
+    "sha256": "2d6f35b7f1d9659ec451e6a9f5ac3548471e76700d48ec8b223c47eaaa946b41",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.0997177Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".swf"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/enemy2_snow.swf",
+    "size": 60206,
+    "sha256": "31ee147b3f5fa6a93610f93cdaef0514f3840ce499d9e675c21fc1c408db2ef0",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.1005377Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".swf"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/finn.swf",
+    "size": 185547,
+    "sha256": "2bcf75964684e8f0b809f5f1cf16819faa26492b813cb12601a7a511a5011336",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.1022444Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".swf"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/finnXP.csv",
+    "size": 159,
+    "sha256": "d065e91fecd0d06b906a577bc85eb536e6c68a26effcdbc30bf7e01676553134",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.1027339Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".csv"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/firstLoot.csv",
+    "size": 3173,
+    "sha256": "877fe96be9c31e8ceaa9321dbe616f6c9b4c2cc97828b9bea828818bb5faef1e",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.1032118Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".csv"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/items.csv",
+    "size": 5630,
+    "sha256": "2ea085bbaa2ee0543af4df932c849ab9ca6ce9618cf8c8e3445bd0c755e14963",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.1037074Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".csv"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/items.swf",
+    "size": 136266,
+    "sha256": "b07f0237aee255fb4823e37f33f728e079163dfa8bb38699a392124fcedc22f7",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.1050037Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".swf"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/loading.swf",
+    "size": 380081,
+    "sha256": "35419ede38f365caee8e4d32261d5c27353cb230b8c383725d681ed18b0a5eb4",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.1078665Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".swf"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/locale.txt",
+    "size": 7423,
+    "sha256": "f06b7e6e6e4b844c8e2a5200914ba077cea457f2dc0f928da3d4f8cf1bb6812e",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.1084102Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".txt"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/main.swf",
+    "size": 105095,
+    "sha256": "537c7be689ae633a581cd6eaf08021ff784e700eb815b71aea6a60e3c77ce443",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.1095753Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".swf"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/mapSounds.snd",
+    "size": 197,
+    "sha256": "1d8656c8bdfe76504d4eab4b18b29e4bcc5b4102bf396607098259af4a166ba7",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.1100851Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".snd"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/mix.csv",
+    "size": 3541,
+    "sha256": "de7eeac1ddd92a5f42b659f5262e55d4b33e4edae5202b2bf3130013a43f0aae",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.1105921Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".csv"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/PreloaderCN.swf",
+    "size": 25094,
+    "sha256": "a86fe57859ce86593a1f78ac3885d00e0448f94c440500320748be5a86a399b8",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.1135491Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".swf"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/screens.swf",
+    "size": 10294010,
+    "sha256": "92ef875ce0238370c239fa9d9b668548c13a3d5f0056108a6c6b1ee0e73d26ec",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.1824962Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".swf"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds.snd",
+    "size": 192,
+    "sha256": "8eb40bd15a759d5e0d9120357b3c8cb163f7dd0e63db38393369e38798f357ae",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.1834109Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".snd"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/swfs.txt",
+    "size": 225,
+    "sha256": "7f7a29aede2561f3eb515bc6ef6d64d3333a90472f88cbf62c77edd2edc307be",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.2718122Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".txt"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/tutorials.swf",
+    "size": 28109,
+    "sha256": "9d587eb9b77e3b9ad582604c7d2be9a00ca52c3d6401474b514e05e356afe96e",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.2731517Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".swf"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/ax_attack.mp3",
+    "size": 34588,
+    "sha256": "be728b5ea03531cd4067eae37a5dcb703461638261095307b639e98edfdaaa5e",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.2750369Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/boss_attack.mp3",
+    "size": 53815,
+    "sha256": "c8e16c2c983586eb0b8cbc500dd4f3d3c148d346874020c6ca71631c3ee545b6",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.2760607Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/boss_die.mp3",
+    "size": 47127,
+    "sha256": "099651e65bdc982fed44c09881532fb16b850dd4ea75a0fb5b848d8ebd2e8dc7",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.2769705Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/boss_hurt_a.mp3",
+    "size": 23721,
+    "sha256": "955c3b0c9626e53debd75281264714be5ac53b9318272d2e528347632ec1c802",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.2777628Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/boss_hurt_b.mp3",
+    "size": 22885,
+    "sha256": "d51ca079831d407382e0b62f88fa7f502983bac2b3b264c0bcd4d802f5d5bc90",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.2784933Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/boss_music.mp3",
+    "size": 1971412,
+    "sha256": "0fc1002ea372bbccf15057c2624d1f84428a16d946d453953741c46afc11faf1",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.2926626Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/button_click.mp3",
+    "size": 50471,
+    "sha256": "96ef6ecea1b06cd6630355d029283db0a90f670497598852b2be52fce67e8482",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.2942768Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/combat_music.mp3",
+    "size": 2322915,
+    "sha256": "b5283d00d0ba47d41da50529e0baad136d1d332939d47d4a512e956ef831c020",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.3179889Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/combat_music2.mp3",
+    "size": 1537570,
+    "sha256": "d380d7d4b53de2f74598a03322edd51a286aad7e6674eab2d0175d905d87ecbd",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.3307358Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/consumable.mp3",
+    "size": 90595,
+    "sha256": "af21f5f39a432f103ceed9cf8fecfee6a54023e0a6494eccc9115ea7d86f5998",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.3332445Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/critical_shield.mp3",
+    "size": 127376,
+    "sha256": "a3148740b367b7baaaa6202b9086354e2a74338e69066e5a804ed52a7963e138",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.3351303Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/critical.mp3",
+    "size": 103134,
+    "sha256": "8e8a506aa9db42a269efbf57fb07ecbebdd8ffea519768a9e043f6b716032566",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.3365467Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/dungeon_completed.mp3",
+    "size": 247748,
+    "sha256": "77d0296eaa7c14d89c2ac5280f4889c21ad530677a381c147a6162a248393464",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.3391317Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/enemy1_hurt_a.mp3",
+    "size": 42112,
+    "sha256": "c23b76cc3143df8fe1ec69a0f007bf8a22141763706a5cf0ac38ec903fde3c81",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.3400676Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/enemy1_hurt_b.mp3",
+    "size": 48799,
+    "sha256": "7dc4f1e207e5889fc2373421a6332487c2d99a35e4612f0b5e48b6442b4057c7",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.3408386Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/enemy1_lose_a.mp3",
+    "size": 60502,
+    "sha256": "caaf7430607c8d582f66f3b025f71c5f0df6a8135b944197ab357131c5090447",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.3452542Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/enemy1_lose_b.mp3",
+    "size": 69697,
+    "sha256": "9f4ce2823575657725e1617e237eb45aee4ba4a98a3fd0ce847c94622b9938cb",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.3463676Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/enemy2_attack_fire.mp3",
+    "size": 105642,
+    "sha256": "1218bcd5b8f7b4d6ad226ab9af3b71ca155fe70d0b70ff16e5b64ad6759ae35f",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.3475201Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/enemy2_attack_ice.mp3",
+    "size": 85580,
+    "sha256": "1c6075c1ca7176fce46ea79c14bdb9004145c6763f136e51ecfa6f7a00a2ba8c",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.3485193Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/enemy2_attack.mp3",
+    "size": 84534,
+    "sha256": "e523521f0a0bb4f318bdfdbae042b2c4df050a67107f58008dce300316b94967",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.3495663Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/enemy2_hurt_a.mp3",
+    "size": 67190,
+    "sha256": "326686bcd399f9c6153f2326b17941f0f4521c0274df4570a035d57316ca1505",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.3505099Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/enemy2_hurt_b.mp3",
+    "size": 21632,
+    "sha256": "239afdfbc55e1603bbde411214af993ffe050d07dc62be7904aae8c32c483556",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.3516349Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/enemy2_lose_a.mp3",
+    "size": 33752,
+    "sha256": "5d3e837fe00048484ae90fba07230bda5b970c77fa82c33aa646b04bd4f20fd3",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.3542717Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/enemy2_lose_b.mp3",
+    "size": 29573,
+    "sha256": "37ce67a6b4c250d080c5e8204069fc7a6e94a61b3aaf7e9bd34f0d06cd5a2452",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.3550494Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/finn_hurt_a.mp3",
+    "size": 24975,
+    "sha256": "3f099d1bfbfd662b8ee5e75fd8366bf0b13dd918a7d241f4fc95c0b261791262",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.3558030Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/finn_hurt_b.mp3",
+    "size": 52979,
+    "sha256": "bd74ee27e5aae4e267f1a4979ceb3e123c9db388f519f9a2898d65b6009e1f81",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.3566937Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/finn_hurt_c.mp3",
+    "size": 20378,
+    "sha256": "2f5b91e85b5d4daa9b2e608755e330ed16341d12376555130bf8621378aea5a7",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.3573262Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/finn_lose.mp3",
+    "size": 175023,
+    "sha256": "3026069b3cbd4f610d0577a9ee41068de44bccd948e57375fd9ff02bfc545b23",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.3590015Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/fire_attack.mp3",
+    "size": 57159,
+    "sha256": "29673b44015f8c772fdfe901c97dc1172ad742b538be13854fcaeb97925ec64a",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.3598492Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/fist_attack.mp3",
+    "size": 32081,
+    "sha256": "37fc9a25a8d0d32d916d9c17fab9dd6e5e428d280aef3519510a03d0e34a9ce4",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.3605145Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/fist_block.mp3",
+    "size": 27065,
+    "sha256": "7077977c22c428a169f22e4cc6837c2b06834815518ab18b4183f316b7196960",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.3613514Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/ice_attack.mp3",
+    "size": 67190,
+    "sha256": "c7760db4902bc5cd1feb18253294a12409e5d7925a715fe21ee582b8e3187f69",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.3625903Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/intro_music.mp3",
+    "size": 487238,
+    "sha256": "0bce4ed9e38ff40c77057301b37e07fe67f6e65461fe75b10d9b38eb93168cc7",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.3662675Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/item_click.mp3",
+    "size": 26229,
+    "sha256": "e68cda0adf99f104ce4386d2b2e164cad1043bf52d862fa5d33b4a7e4015c6a7",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.3670415Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/item_drop_back.mp3",
+    "size": 28737,
+    "sha256": "4760da537c22c9eb9e21de32d4625283bd7c1c96d126a3352818d9a470b5b8cd",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.3676989Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/item_drop_ok.mp3",
+    "size": 26229,
+    "sha256": "733e63bb9e0166e304da2ba1d1092726b7f8cf9a0c4fc695077bd942500e938f",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.3683272Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/item_trash.mp3",
+    "size": 26229,
+    "sha256": "12ebfbcd29e97596d56cc8de0930b963cf4257cfa3d57c3084e1f1f0895df5f6",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.3690694Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/level_up.mp3",
+    "size": 44201,
+    "sha256": "416b894696af9340aa537f043802557d567f520500a4ba5c11c6ba26747ad647",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.3698680Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/loot.mp3",
+    "size": 50471,
+    "sha256": "4f530eaf56effafd5eeee2742320f687d04189302243076526fba0f1fcfa5856",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.3706757Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/map_music.mp3",
+    "size": 1282197,
+    "sha256": "3d9e07c71eda77ddf41dcc3693244fb5e6f2c54c304024bdf415dee4863f7ae1",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.3795856Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/mix_click.mp3",
+    "size": 79728,
+    "sha256": "dbbd27c4ae9d2e1d931e30d6c9490ad47eb256b5c907646581fea66ec82a84a4",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.3807613Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/mix_done.mp3",
+    "size": 34588,
+    "sha256": "2fa112d01254eedd15b6ae5a73f702b3a25ae0edff35555d96f554f7a59cac0d",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.3840926Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/mouse_over.mp3",
+    "size": 7839,
+    "sha256": "eb2b81aa5b63f1608cd762eb88475ed6f942f45ec23807b4c751184c9785f41e",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.3847611Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/pop_up.mp3",
+    "size": 7839,
+    "sha256": "eb2b81aa5b63f1608cd762eb88475ed6f942f45ec23807b4c751184c9785f41e",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.3852748Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/shield_block_fire.mp3",
+    "size": 62174,
+    "sha256": "2add23c909ad61cb49984ea48995ad16f0a0e256b0be6bae3dc2b446343320de",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.3862392Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/shield_block_ice.mp3",
+    "size": 52143,
+    "sha256": "380da5947281a01c258982dc52b126daa0c7eaf59f61ecb23426e53a3ab16b9d",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.3870597Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/shield_block.mp3",
+    "size": 43784,
+    "sha256": "53bd54293071d7a3801b763faac850837f2c1a4089eedfaef3e7a1f3484257e2",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.3878032Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/sorcerer_attack.mp3",
+    "size": 32916,
+    "sha256": "d9e4bd0842d409993491206623292fc4b883a9002175e64eb4651c97213fb7dd",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.3884885Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/sword_attack.mp3",
+    "size": 62174,
+    "sha256": "f450bd1522c86dc79fcc6c4dd4622e5a7628938c1b20dff7721d6217709cfa69",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.3893276Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/transition_close.mp3",
+    "size": 86416,
+    "sha256": "0615f7ea6b3092dba7522300f881527f13c332d88c09449c729f9a29d6f855bf",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.3903956Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/transition_open.mp3",
+    "size": 129883,
+    "sha256": "8cef8561cac9227066706cb32273dca4b8496f0c2b1add8d5c3f3e95f310f5be",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.3952116Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  },
+  {
+    "path": "extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/sounds/youwin_music.mp3",
+    "size": 514405,
+    "sha256": "078ee8620b0c86bbd0d4f4e413b4a339a92742d0d177220b1efb179dcacc5f83",
+    "origin": "https://db-api.unstable.life/get?id=cd5d8a3f-bfa3-4e19-9b3a-a16f1cd1193f",
+    "recovered_utc": "2026-10-28T11:37:17.4079101Z",
+    "relation": "GameZIP e seus membros",
+    "type": ".mp3"
+  }
+]

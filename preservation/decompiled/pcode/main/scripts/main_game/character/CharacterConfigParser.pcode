@@ -1,0 +1,302 @@
+package main_game.character
+{
+   import main_game.element.Element;
+   
+   public class CharacterConfigParser implements CharacterConfigData
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var theBaseHP:Number;
+      
+      private var theBaseAttack:Number;
+      
+      private var theBaseDefense:Number;
+      
+      private var theBaseLuck:Number;
+      
+      private var theBaseXP:Number;
+      
+      private var theElement:Element;
+      
+      private var theNameString:String;
+      
+      public function CharacterConfigParser(param1:Object)
+      {
+         method
+            name null
+            param QName(PackageNamespace(""),"Object")
+            returns null
+            
+            body
+               maxstack 4
+               localcount 2
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlocal1
+                  pushstring "BaseHP"
+                  getproperty MultinameL([PrivateNamespace(null,"60"),PrivateNamespace(null,"221"),PackageNamespace(""),PackageNamespace("main_game.character"),PackageInternalNs("main_game.character"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.character:CharacterConfigParser"),StaticProtectedNs("main_game.character:CharacterConfigParser")])
+                  initproperty QName(PrivateNamespace(null,"60"),"theBaseHP")
+                  getlocal0
+                  getlocal1
+                  pushstring "BaseAttack"
+                  getproperty MultinameL([PrivateNamespace(null,"60"),PrivateNamespace(null,"221"),PackageNamespace(""),PackageNamespace("main_game.character"),PackageInternalNs("main_game.character"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.character:CharacterConfigParser"),StaticProtectedNs("main_game.character:CharacterConfigParser")])
+                  initproperty QName(PrivateNamespace(null,"60"),"theBaseAttack")
+                  getlocal0
+                  getlocal1
+                  pushstring "BaseDefense"
+                  getproperty MultinameL([PrivateNamespace(null,"60"),PrivateNamespace(null,"221"),PackageNamespace(""),PackageNamespace("main_game.character"),PackageInternalNs("main_game.character"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.character:CharacterConfigParser"),StaticProtectedNs("main_game.character:CharacterConfigParser")])
+                  initproperty QName(PrivateNamespace(null,"60"),"theBaseDefense")
+                  getlocal0
+                  getlocal1
+                  pushstring "BaseLuck"
+                  getproperty MultinameL([PrivateNamespace(null,"60"),PrivateNamespace(null,"221"),PackageNamespace(""),PackageNamespace("main_game.character"),PackageInternalNs("main_game.character"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.character:CharacterConfigParser"),StaticProtectedNs("main_game.character:CharacterConfigParser")])
+                  initproperty QName(PrivateNamespace(null,"60"),"theBaseLuck")
+                  getlocal0
+                  getlocal1
+                  pushstring "BaseXP"
+                  getproperty MultinameL([PrivateNamespace(null,"60"),PrivateNamespace(null,"221"),PackageNamespace(""),PackageNamespace("main_game.character"),PackageInternalNs("main_game.character"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.character:CharacterConfigParser"),StaticProtectedNs("main_game.character:CharacterConfigParser")])
+                  initproperty QName(PrivateNamespace(null,"60"),"theBaseXP")
+                  getlocal0
+                  getlex QName(PackageNamespace("main_game.element"),"Element")
+                  getlocal1
+                  pushstring "Element"
+                  getproperty MultinameL([PrivateNamespace(null,"60"),PrivateNamespace(null,"221"),PackageNamespace(""),PackageNamespace("main_game.character"),PackageInternalNs("main_game.character"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.character:CharacterConfigParser"),StaticProtectedNs("main_game.character:CharacterConfigParser")])
+                  callproperty QName(PackageNamespace(""),"parseElement"), 1
+                  initproperty QName(PrivateNamespace(null,"60"),"theElement")
+                  getlocal0
+                  getlocal1
+                  pushstring "NameString"
+                  getproperty MultinameL([PrivateNamespace(null,"60"),PrivateNamespace(null,"221"),PackageNamespace(""),PackageNamespace("main_game.character"),PackageInternalNs("main_game.character"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.character:CharacterConfigParser"),StaticProtectedNs("main_game.character:CharacterConfigParser")])
+                  initproperty QName(PrivateNamespace(null,"60"),"theNameString")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function get baseHP() : Number
+      {
+         trait getter QName(PackageNamespace(""),"baseHP")
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace(""),"Number")
+               
+               body
+                  maxstack 1
+                  localcount 1
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"60"),"theBaseHP")
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function get baseAttack() : Number
+         {
+            trait getter QName(PackageNamespace(""),"baseAttack")
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace(""),"Number")
+                  
+                  body
+                     maxstack 1
+                     localcount 1
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"60"),"theBaseAttack")
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function get baseDefense() : Number
+            {
+               trait getter QName(PackageNamespace(""),"baseDefense")
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace(""),"Number")
+                     
+                     body
+                        maxstack 1
+                        localcount 1
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"60"),"theBaseDefense")
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function get baseLuck() : Number
+               {
+                  trait getter QName(PackageNamespace(""),"baseLuck")
+                     dispid 0
+                     method
+                        name null
+                        returns QName(PackageNamespace(""),"Number")
+                        
+                        body
+                           maxstack 1
+                           localcount 1
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"60"),"theBaseLuck")
+                              returnvalue
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function get baseXP() : Number
+                  {
+                     trait getter QName(PackageNamespace(""),"baseXP")
+                        dispid 0
+                        method
+                           name null
+                           returns QName(PackageNamespace(""),"Number")
+                           
+                           body
+                              maxstack 1
+                              localcount 1
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"60"),"theBaseXP")
+                                 returnvalue
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     public function get element() : Element
+                     {
+                        trait getter QName(PackageNamespace(""),"element")
+                           dispid 0
+                           method
+                              name null
+                              returns QName(PackageNamespace("main_game.element"),"Element")
+                              
+                              body
+                                 maxstack 1
+                                 localcount 1
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"60"),"theElement")
+                                    returnvalue
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        public function get nameString() : String
+                        {
+                           trait getter QName(PackageNamespace(""),"nameString")
+                              dispid 0
+                              method
+                                 name null
+                                 returns QName(PackageNamespace(""),"String")
+                                 
+                                 body
+                                    maxstack 1
+                                    localcount 1
+                                    initscopedepth 4
+                                    maxscopedepth 5
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"60"),"theNameString")
+                                       returnvalue
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                        }
+                     }
+                     
+                     method
+                        name null
+                        returns null
+                        
+                        body
+                           maxstack 2
+                           localcount 1
+                           initscopedepth 1
+                           maxscopedepth 3
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getscopeobject 0
+                              getlex QName(PackageNamespace(""),"Object")
+                              pushscope
+                              getlex QName(PackageNamespace(""),"Object")
+                              newclass 82
+                              popscope
+                              initproperty QName(PackageNamespace("main_game.character"),"CharacterConfigParser")
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                     

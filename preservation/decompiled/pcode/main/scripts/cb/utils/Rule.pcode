@@ -1,0 +1,306 @@
+package cb.utils
+{
+   import cb.signals.Signal;
+   import flash.utils.Dictionary;
+   
+   public class Rule
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public var completed:Signal;
+      
+      private var rules:Dictionary;
+      
+      public function Rule(... rest)
+      {
+         method
+            name null
+            flag NEED_REST
+            returns null
+            
+            body
+               maxstack 2
+               localcount 5
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  pushnull
+                  coerce_s
+                  setlocal2
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("cb.signals"),"Signal")
+                  constructprop QName(PackageNamespace("cb.signals"),"Signal"), 0
+                  initproperty QName(PackageNamespace(""),"completed")
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("flash.utils"),"Dictionary")
+                  constructprop QName(PackageNamespace("flash.utils"),"Dictionary"), 0
+                  initproperty QName(PrivateNamespace(null,"44"),"rules")
+                  getlocal0
+                  constructsuper 0
+                  pushbyte 0
+                  setlocal3
+                  getlocal1
+                  coerce_a
+                  setlocal 4
+                  jump ofs0032
+         ofs0025:
+                  label
+                  getlocal 4
+                  getlocal3
+                  nextvalue
+                  coerce_s
+                  setlocal2
+                  getlocal0
+                  getlocal2
+                  callpropvoid QName(PackageNamespace(""),"set"), 1
+         ofs0032:
+                  hasnext2 4, 3
+                  iftrue ofs0025
+                  kill 4
+                  kill 3
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function isCompleted() : Boolean
+      {
+         trait method QName(PackageNamespace(""),"isCompleted")
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace(""),"Boolean")
+               
+               body
+                  maxstack 2
+                  localcount 4
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     pushfalse
+                     setlocal1
+                     pushbyte 0
+                     setlocal2
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"44"),"rules")
+                     coerce_a
+                     setlocal3
+                     jump ofs001f
+            ofs0011:
+                     label
+                     getlocal3
+                     getlocal2
+                     nextvalue
+                     convert_b
+                     setlocal1
+                     getlocal1
+                     pushfalse
+                     ifstrictne ofs001f
+                     pushfalse
+                     returnvalue
+            ofs001f:
+                     hasnext2 3, 2
+                     iftrue ofs0011
+                     kill 3
+                     kill 2
+                     pushtrue
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function check(param1:String) : void
+         {
+            trait method QName(PackageNamespace(""),"check")
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace(""),"String")
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 3
+                     localcount 2
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"44"),"rules")
+                        getlocal1
+                        pushtrue
+                        setproperty MultinameL([PrivateNamespace(null,"44"),PackageNamespace(""),PrivateNamespace(null,"211"),PackageNamespace("cb.utils"),PackageInternalNs("cb.utils"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("cb.utils:Rule"),StaticProtectedNs("cb.utils:Rule")])
+                        getlocal0
+                        callproperty QName(PackageNamespace(""),"isCompleted"), 0
+                        iffalse ofs001c
+                        getlocal0
+                        getproperty QName(PackageNamespace(""),"completed")
+                        callpropvoid QName(PackageNamespace(""),"emit"), 0
+               ofs001c:
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function set(param1:String, param2:Boolean = false) : void
+            {
+               trait method QName(PackageNamespace(""),"set")
+                  dispid 0
+                  method
+                     name null
+                     flag HAS_OPTIONAL
+                     param QName(PackageNamespace(""),"String")
+                     param QName(PackageNamespace(""),"Boolean")
+                     optional False()
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 3
+                        localcount 3
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"44"),"rules")
+                           getlocal1
+                           getlocal2
+                           setproperty MultinameL([PrivateNamespace(null,"44"),PackageNamespace(""),PrivateNamespace(null,"211"),PackageNamespace("cb.utils"),PackageInternalNs("cb.utils"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("cb.utils:Rule"),StaticProtectedNs("cb.utils:Rule")])
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function reason() : Array
+               {
+                  trait method QName(PackageNamespace(""),"reason")
+                     dispid 0
+                     method
+                        name null
+                        returns QName(PackageNamespace(""),"Array")
+                        
+                        body
+                           maxstack 4
+                           localcount 6
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              pushnull
+                              coerce_s
+                              setlocal3
+                              newarray 0
+                              coerce QName(PackageNamespace(""),"Array")
+                              setlocal1
+                              pushtrue
+                              setlocal2
+                              pushbyte 0
+                              setlocal 4
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"44"),"rules")
+                              coerce_a
+                              setlocal 5
+                              jump ofs0045
+                     ofs001b:
+                              label
+                              getlocal 5
+                              getlocal 4
+                              nextname
+                              coerce_s
+                              setlocal3
+                              pushfalse
+                              setlocal2
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"44"),"rules")
+                              getlocal3
+                              getproperty MultinameL([PrivateNamespace(null,"44"),PackageNamespace(""),PrivateNamespace(null,"211"),PackageNamespace("cb.utils"),PackageInternalNs("cb.utils"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("cb.utils:Rule"),StaticProtectedNs("cb.utils:Rule")])
+                              pushtrue
+                              ifstricteq ofs0045
+                              getlocal1
+                              getlocal3
+                              pushstring " is "
+                              add
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"44"),"rules")
+                              getlocal3
+                              getproperty MultinameL([PrivateNamespace(null,"44"),PackageNamespace(""),PrivateNamespace(null,"211"),PackageNamespace("cb.utils"),PackageInternalNs("cb.utils"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("cb.utils:Rule"),StaticProtectedNs("cb.utils:Rule")])
+                              add
+                              callpropvoid QName(Namespace("http://adobe.com/AS3/2006/builtin"),"push"), 1
+                     ofs0045:
+                              hasnext2 5, 4
+                              iftrue ofs001b
+                              kill 5
+                              kill 4
+                              getlocal2
+                              iffalse ofs005d
+                              getlocal1
+                              pushstring "empty!"
+                              callpropvoid QName(Namespace("http://adobe.com/AS3/2006/builtin"),"push"), 1
+                     ofs005d:
+                              getlocal1
+                              returnvalue
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+               }
+            }
+            
+            method
+               name null
+               returns null
+               
+               body
+                  maxstack 2
+                  localcount 1
+                  initscopedepth 1
+                  maxscopedepth 3
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     findpropstrict Multiname("Rule",[PackageNamespace("cb.utils")])
+                     getlex QName(PackageNamespace(""),"Object")
+                     pushscope
+                     getlex QName(PackageNamespace(""),"Object")
+                     newclass 57
+                     popscope
+                     initproperty QName(PackageNamespace("cb.utils"),"Rule")
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+            

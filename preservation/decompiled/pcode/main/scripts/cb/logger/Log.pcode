@@ -1,0 +1,218 @@
+package cb.logger
+{
+   import flash.utils.Dictionary;
+   
+   public class Log
+   {
+      
+      private static var loggers:Dictionary;
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(PrivateNamespace(null,"12"),"loggers")
+               findpropstrict QName(PackageNamespace("flash.utils"),"Dictionary")
+               constructprop QName(PackageNamespace("flash.utils"),"Dictionary"), 0
+               setproperty QName(PrivateNamespace(null,"12"),"loggers")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var appenders:Array;
+      
+      private var name:String;
+      
+      public function Log(param1:String)
+      {
+         method
+            name null
+            param QName(PackageNamespace(""),"String")
+            returns null
+            
+            body
+               maxstack 2
+               localcount 2
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  newarray 0
+                  initproperty QName(PrivateNamespace(null,"12"),"appenders")
+                  getlocal0
+                  getlocal1
+                  initproperty QName(PrivateNamespace(null,"12"),"name")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public static function getLogger(param1:String) : Log
+      {
+         trait method QName(PackageNamespace(""),"getLogger")
+            flag FINAL
+            dispid 3
+            method
+               name null
+               param QName(PackageNamespace(""),"String")
+               returns QName(PackageNamespace("cb.logger"),"Log")
+               
+               body
+                  maxstack 4
+                  localcount 2
+                  initscopedepth 3
+                  maxscopedepth 4
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlex QName(PrivateNamespace(null,"12"),"loggers")
+                     getlocal1
+                     getproperty MultinameL([PrivateNamespace(null,"12"),PrivateNamespace(null,"179"),PackageNamespace(""),PackageNamespace("cb.logger"),PackageInternalNs("cb.logger"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("cb.logger:Log"),StaticProtectedNs("cb.logger:Log")])
+                     getlex QName(PackageNamespace(""),"undefined")
+                     ifne ofs001b
+                     getlex QName(PrivateNamespace(null,"12"),"loggers")
+                     getlocal1
+                     getlocal0
+                     getlocal1
+                     construct 1
+                     setproperty MultinameL([PrivateNamespace(null,"12"),PrivateNamespace(null,"179"),PackageNamespace(""),PackageNamespace("cb.logger"),PackageInternalNs("cb.logger"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("cb.logger:Log"),StaticProtectedNs("cb.logger:Log")])
+            ofs001b:
+                     getlex QName(PrivateNamespace(null,"12"),"loggers")
+                     getlocal1
+                     getproperty MultinameL([PrivateNamespace(null,"12"),PrivateNamespace(null,"179"),PackageNamespace(""),PackageNamespace("cb.logger"),PackageInternalNs("cb.logger"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("cb.logger:Log"),StaticProtectedNs("cb.logger:Log")])
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function addAppender(param1:Appender) : void
+         {
+            trait method QName(PackageNamespace(""),"addAppender")
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace("cb.logger"),"Appender")
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 2
+                     localcount 2
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"12"),"appenders")
+                        getlocal1
+                        callpropvoid QName(Namespace("http://adobe.com/AS3/2006/builtin"),"push"), 1
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function log(... rest) : void
+            {
+               trait method QName(PackageNamespace(""),"log")
+                  dispid 0
+                  method
+                     name null
+                     flag NEED_REST
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 4
+                        localcount 5
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           pushnull
+                           coerce QName(PackageNamespace("cb.logger"),"Appender")
+                           setlocal2
+                           pushbyte 0
+                           setlocal3
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"12"),"appenders")
+                           coerce_a
+                           setlocal 4
+                           jump ofs0035
+                  ofs0014:
+                           label
+                           getlocal 4
+                           getlocal3
+                           nextvalue
+                           coerce QName(PackageNamespace("cb.logger"),"Appender")
+                           setlocal2
+                           getlocal2
+                           pushstring "["
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"12"),"name")
+                           add
+                           pushstring "] "
+                           add
+                           getlocal1
+                           pushstring ""
+                           callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"join"), 1
+                           add
+                           callpropvoid QName(PackageNamespace(""),"log"), 1
+                  ofs0035:
+                           hasnext2 4, 3
+                           iftrue ofs0014
+                           kill 4
+                           kill 3
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+            }
+         }
+         
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 2
+               localcount 1
+               initscopedepth 1
+               maxscopedepth 3
+               
+               code
+                  getlocal0
+                  pushscope
+                  getscopeobject 0
+                  getlex QName(PackageNamespace(""),"Object")
+                  pushscope
+                  getlex QName(PackageNamespace(""),"Object")
+                  newclass 6
+                  popscope
+                  initproperty QName(PackageNamespace("cb.logger"),"Log")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+         

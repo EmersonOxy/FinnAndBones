@@ -1,0 +1,292 @@
+package cb.data
+{
+   import flash.events.MouseEvent;
+   
+   public class ButtonInfo
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var _click:Function;
+      
+      private var _over:Function;
+      
+      private var _out:Function;
+      
+      private var hitBox:String;
+      
+      public function ButtonInfo(param1:Function, param2:* = null, param3:* = null, param4:Boolean = true, param5:String = null)
+      {
+         method
+            name null
+            flag HAS_OPTIONAL
+            param QName(PackageNamespace(""),"Function")
+            param null
+            param null
+            param QName(PackageNamespace(""),"Boolean")
+            param QName(PackageNamespace(""),"String")
+            optional Null()
+            optional Null()
+            optional True()
+            optional Null()
+            returns null
+            
+            body
+               maxstack 5
+               localcount 6
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlocal1
+                  initproperty QName(PrivateNamespace(null,"65"),"_click")
+                  getlocal2
+                  getlex QName(PackageNamespace(""),"String")
+                  istypelate
+                  iffalse ofs0026
+                  getlocal0
+                  findpropstrict QName(PackageNamespace(""),"defaultGoto")
+                  getlocal2
+                  getlocal 4
+                  getlocal 5
+                  callproperty QName(PackageNamespace(""),"defaultGoto"), 3
+                  initproperty QName(PrivateNamespace(null,"65"),"_over")
+                  jump ofs002b
+         ofs0026:
+                  getlocal0
+                  getlocal2
+                  initproperty QName(PrivateNamespace(null,"65"),"_over")
+         ofs002b:
+                  getlocal3
+                  getlex QName(PackageNamespace(""),"String")
+                  istypelate
+                  iffalse ofs0047
+                  getlocal0
+                  findpropstrict QName(PackageNamespace(""),"defaultGoto")
+                  getlocal3
+                  getlocal 4
+                  getlocal 5
+                  callproperty QName(PackageNamespace(""),"defaultGoto"), 3
+                  initproperty QName(PrivateNamespace(null,"65"),"_out")
+                  jump ofs004c
+         ofs0047:
+                  getlocal0
+                  getlocal3
+                  initproperty QName(PrivateNamespace(null,"65"),"_out")
+         ofs004c:
+                  getlocal0
+                  getlocal 5
+                  initproperty QName(PrivateNamespace(null,"65"),"hitBox")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public static function defaultGoto(param1:String, param2:Boolean = false, param3:String = null) : Function
+      {
+         trait method QName(PackageNamespace(""),"defaultGoto")
+            flag FINAL
+            dispid 3
+            method
+               name null
+               flag HAS_OPTIONAL
+               flag NEED_ACTIVATION
+               param QName(PackageNamespace(""),"String")
+               param QName(PackageNamespace(""),"Boolean")
+               param QName(PackageNamespace(""),"String")
+               optional False()
+               optional Null()
+               returns QName(PackageNamespace(""),"Function")
+               
+               body
+                  maxstack 2
+                  localcount 5
+                  initscopedepth 4
+                  maxscopedepth 6
+                  trait slot QName(PackageInternalNs("cb.data"),"label")
+                     slotid 1
+                     type QName(PackageNamespace(""),"String")
+                  end ; trait
+                  trait slot QName(PackageInternalNs("cb.data"),"playAsDefault")
+                     slotid 2
+                     type QName(PackageNamespace(""),"Boolean")
+                     value False()
+                  end ; trait
+                  trait slot QName(PackageInternalNs("cb.data"),"hitBox")
+                     slotid 3
+                     type QName(PackageNamespace(""),"String")
+                     value Null()
+                  end ; trait
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     newactivation
+                     dup
+                     setlocal 4
+                     pushscope
+                     getscopeobject 1
+                     getlocal1
+                     setslot 1
+                     getscopeobject 1
+                     getlocal2
+                     setslot 2
+                     getscopeobject 1
+                     getlocal3
+                     setslot 3
+                     newfunction 998
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function getHitBox() : String
+         {
+            trait method QName(PackageNamespace(""),"getHitBox")
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace(""),"String")
+                  
+                  body
+                     maxstack 1
+                     localcount 1
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"65"),"hitBox")
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function get click() : Function
+            {
+               trait getter QName(PackageNamespace(""),"click")
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace(""),"Function")
+                     
+                     body
+                        maxstack 1
+                        localcount 1
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"65"),"_click")
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function get over() : Function
+               {
+                  trait getter QName(PackageNamespace(""),"over")
+                     dispid 0
+                     method
+                        name null
+                        returns QName(PackageNamespace(""),"Function")
+                        
+                        body
+                           maxstack 1
+                           localcount 1
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"65"),"_over")
+                              returnvalue
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function get out() : Function
+                  {
+                     trait getter QName(PackageNamespace(""),"out")
+                        dispid 0
+                        method
+                           name null
+                           returns QName(PackageNamespace(""),"Function")
+                           
+                           body
+                              maxstack 1
+                              localcount 1
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"65"),"_out")
+                                 returnvalue
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                  }
+               }
+               
+               method
+                  name null
+                  returns null
+                  
+                  body
+                     maxstack 2
+                     localcount 1
+                     initscopedepth 1
+                     maxscopedepth 3
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        findpropstrict Multiname("ButtonInfo",[PackageNamespace("cb.data")])
+                        getlex QName(PackageNamespace(""),"Object")
+                        pushscope
+                        getlex QName(PackageNamespace(""),"Object")
+                        newclass 94
+                        popscope
+                        initproperty QName(PackageNamespace("cb.data"),"ButtonInfo")
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+               

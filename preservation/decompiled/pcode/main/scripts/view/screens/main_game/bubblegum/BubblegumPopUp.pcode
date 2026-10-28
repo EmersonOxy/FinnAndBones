@@ -1,0 +1,702 @@
+package view.screens.main_game.bubblegum
+{
+   import cb.actions.Functor;
+   import cb.data.ButtonGroup;
+   import cb.display.Screen;
+   import cb.display.SmartMC;
+   import cb.signals.Signal;
+   import conditions.EndCurrentLabel;
+   import flash.display.DisplayObjectContainer;
+   import flash.display.MovieClip;
+   import flash.events.MouseEvent;
+   import flash.utils.Dictionary;
+   import main_game.bubblegum.BubbleGumTip;
+   import sound.GameSounds;
+   import util.Buttons;
+   import util.Util;
+   import view.screens.main_game.slot.SlotView;
+   
+   public class BubblegumPopUp
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var screen:Screen;
+      
+      private var showing:Boolean;
+      
+      private var principalSlot:SlotView;
+      
+      private var secondarySlot:SlotView;
+      
+      private var onCancelSignal:Signal;
+      
+      public function BubblegumPopUp()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 4
+               localcount 1
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("cb.display"),"Screen")
+                  getlex QName(PackageNamespace(""),"main")
+                  getproperty QName(PackageNamespace(""),"swfLoader")
+                  pushstring "assets.PrincessPopUp"
+                  callproperty QName(PackageNamespace(""),"getClass"), 1
+                  getlocal0
+                  callproperty QName(PrivateNamespace(null,"147"),"getButtonInfo"), 0
+                  constructprop QName(PackageNamespace("cb.display"),"Screen"), 2
+                  initproperty QName(PrivateNamespace(null,"147"),"screen")
+                  getlocal0
+                  pushfalse
+                  initproperty QName(PrivateNamespace(null,"147"),"showing")
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("cb.signals"),"Signal")
+                  constructprop QName(PackageNamespace("cb.signals"),"Signal"), 0
+                  initproperty QName(PrivateNamespace(null,"147"),"onCancelSignal")
+                  getlocal0
+                  getproperty QName(PackageNamespace(""),"mc")
+                  pushstring "in"
+                  callpropvoid QName(PackageNamespace(""),"gotoAndStop"), 1
+                  getlocal0
+                  getproperty QName(PackageNamespace(""),"mc")
+                  pushfalse
+                  setproperty QName(PackageNamespace(""),"visible")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function get onCancel() : Signal
+      {
+         trait getter QName(PackageNamespace(""),"onCancel")
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace("cb.signals"),"Signal")
+               
+               body
+                  maxstack 1
+                  localcount 1
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"147"),"onCancelSignal")
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         private function getButtonInfo() : Dictionary
+         {
+            trait method QName(PrivateNamespace(null,"147"),"getButtonInfo")
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace("flash.utils"),"Dictionary")
+                  
+                  body
+                     maxstack 6
+                     localcount 2
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        findpropstrict QName(PackageNamespace("flash.utils"),"Dictionary")
+                        constructprop QName(PackageNamespace("flash.utils"),"Dictionary"), 0
+                        coerce QName(PackageNamespace("flash.utils"),"Dictionary")
+                        setlocal1
+                        getlocal1
+                        pushstring "container.cancel"
+                        getlex QName(PackageNamespace("cb.data"),"ButtonGroup")
+                        pushstring "gui"
+                        callproperty QName(PackageNamespace(""),"get"), 1
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"147"),"cancel")
+                        pushstring "mouseOver"
+                        pushstring "mouseOut"
+                        callproperty QName(PackageNamespace(""),"createButton"), 3
+                        setproperty MultinameL([PrivateNamespace(null,"147"),PackageNamespace(""),PrivateNamespace(null,"305"),PackageNamespace("view.screens.main_game.bubblegum"),PackageInternalNs("view.screens.main_game.bubblegum"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.bubblegum:BubblegumPopUp"),StaticProtectedNs("view.screens.main_game.bubblegum:BubblegumPopUp")])
+                        getlocal1
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            private function cancel(param1:MouseEvent) : void
+            {
+               trait method QName(PrivateNamespace(null,"147"),"cancel")
+                  dispid 0
+                  method
+                     name null
+                     param QName(PackageNamespace("flash.events"),"MouseEvent")
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 1
+                        localcount 2
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getproperty QName(PackageNamespace(""),"onCancel")
+                           callpropvoid QName(PackageNamespace(""),"emit"), 0
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function get mc() : MovieClip
+               {
+                  trait getter QName(PackageNamespace(""),"mc")
+                     dispid 0
+                     method
+                        name null
+                        returns QName(PackageNamespace("flash.display"),"MovieClip")
+                        
+                        body
+                           maxstack 1
+                           localcount 1
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"147"),"screen")
+                              callproperty QName(PackageNamespace(""),"getBg"), 0
+                              returnvalue
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function addIn(param1:DisplayObjectContainer) : void
+                  {
+                     trait method QName(PackageNamespace(""),"addIn")
+                        dispid 0
+                        method
+                           name null
+                           param QName(PackageNamespace("flash.display"),"DisplayObjectContainer")
+                           returns QName(PackageNamespace(""),"void")
+                           
+                           body
+                              maxstack 2
+                              localcount 2
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal1
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"147"),"screen")
+                                 callpropvoid QName(PackageNamespace(""),"addChild"), 1
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     public function hide(param1:Function = null) : void
+                     {
+                        trait method QName(PackageNamespace(""),"hide")
+                           dispid 0
+                           method
+                              name null
+                              flag HAS_OPTIONAL
+                              param QName(PackageNamespace(""),"Function")
+                              optional Null()
+                              returns QName(PackageNamespace(""),"void")
+                              
+                              body
+                                 maxstack 6
+                                 localcount 2
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"147"),"showing")
+                                    iffalse ofs005e
+                                    getlex QName(PackageNamespace("util"),"Buttons")
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"147"),"screen")
+                                    callproperty QName(PackageNamespace(""),"getBg"), 0
+                                    pushstring "container.cancel"
+                                    newarray 1
+                                    pushfalse
+                                    callpropvoid QName(PackageNamespace(""),"setButtons"), 3
+                                    getlocal0
+                                    getproperty QName(PackageNamespace(""),"mc")
+                                    pushstring "out"
+                                    callpropvoid QName(PackageNamespace(""),"gotoAndPlay"), 1
+                                    getlocal0
+                                    pushfalse
+                                    setproperty QName(PrivateNamespace(null,"147"),"showing")
+                                    findpropstrict QName(PackageNamespace("cb.display"),"SmartMC")
+                                    getlocal0
+                                    getproperty QName(PackageNamespace(""),"mc")
+                                    constructprop QName(PackageNamespace("cb.display"),"SmartMC"), 1
+                                    findpropstrict QName(PackageNamespace("conditions"),"EndCurrentLabel")
+                                    getlocal0
+                                    getproperty QName(PackageNamespace(""),"mc")
+                                    constructprop QName(PackageNamespace("conditions"),"EndCurrentLabel"), 1
+                                    getlex QName(PackageNamespace("cb.actions"),"Functor")
+                                    getlex QName(PackageNamespace("util"),"Util")
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"147"),"trueHide")
+                                    getlocal1
+                                    callproperty QName(PackageNamespace(""),"l"), 2
+                                    callproperty QName(PackageNamespace(""),"wrap"), 1
+                                    callpropvoid QName(PackageNamespace(""),"trigger"), 2
+                                    jump ofs0069
+                           ofs005e:
+                                    getlocal1
+                                    pushnull
+                                    ifeq ofs0069
+                                    getlocal1
+                                    getglobalscope
+                                    call 0
+                                    pop
+                           ofs0069:
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        private function trueHide(param1:Function = null) : void
+                        {
+                           trait method QName(PrivateNamespace(null,"147"),"trueHide")
+                              dispid 0
+                              method
+                                 name null
+                                 flag HAS_OPTIONAL
+                                 param QName(PackageNamespace(""),"Function")
+                                 optional Null()
+                                 returns QName(PackageNamespace(""),"void")
+                                 
+                                 body
+                                    maxstack 2
+                                    localcount 2
+                                    initscopedepth 4
+                                    maxscopedepth 5
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       getlocal0
+                                       callpropvoid QName(PrivateNamespace(null,"147"),"clearSlots"), 0
+                                       getlocal0
+                                       getproperty QName(PackageNamespace(""),"mc")
+                                       pushfalse
+                                       setproperty QName(PackageNamespace(""),"visible")
+                                       getlocal1
+                                       pushnull
+                                       ifeq ofs001a
+                                       getlocal1
+                                       getglobalscope
+                                       call 0
+                                       pop
+                              ofs001a:
+                                       returnvoid
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           public function show(param1:Function = null) : void
+                           {
+                              trait method QName(PackageNamespace(""),"show")
+                                 dispid 0
+                                 method
+                                    name null
+                                    flag HAS_OPTIONAL
+                                    param QName(PackageNamespace(""),"Function")
+                                    optional Null()
+                                    returns QName(PackageNamespace(""),"void")
+                                    
+                                    body
+                                       maxstack 4
+                                       localcount 2
+                                       initscopedepth 4
+                                       maxscopedepth 5
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          getlocal0
+                                          getproperty QName(PackageNamespace(""),"mc")
+                                          pushtrue
+                                          setproperty QName(PackageNamespace(""),"visible")
+                                          getlex QName(PackageNamespace("util"),"Buttons")
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"147"),"screen")
+                                          callproperty QName(PackageNamespace(""),"getBg"), 0
+                                          pushstring "container.cancel"
+                                          newarray 1
+                                          pushtrue
+                                          callpropvoid QName(PackageNamespace(""),"setButtons"), 3
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"147"),"showing")
+                                          iftrue ofs0071
+                                          getlocal0
+                                          getproperty QName(PackageNamespace(""),"mc")
+                                          pushstring "in"
+                                          callpropvoid QName(PackageNamespace(""),"gotoAndPlay"), 1
+                                          getlocal1
+                                          pushnull
+                                          ifeq ofs0058
+                                          findpropstrict QName(PackageNamespace("cb.display"),"SmartMC")
+                                          getlocal0
+                                          getproperty QName(PackageNamespace(""),"mc")
+                                          constructprop QName(PackageNamespace("cb.display"),"SmartMC"), 1
+                                          findpropstrict QName(PackageNamespace("conditions"),"EndCurrentLabel")
+                                          getlocal0
+                                          getproperty QName(PackageNamespace(""),"mc")
+                                          constructprop QName(PackageNamespace("conditions"),"EndCurrentLabel"), 1
+                                          getlex QName(PackageNamespace("cb.actions"),"Functor")
+                                          getlocal1
+                                          callproperty QName(PackageNamespace(""),"wrap"), 1
+                                          callpropvoid QName(PackageNamespace(""),"trigger"), 2
+                                 ofs0058:
+                                          getlocal0
+                                          pushtrue
+                                          setproperty QName(PrivateNamespace(null,"147"),"showing")
+                                          getlex QName(PackageNamespace(""),"main")
+                                          getproperty QName(PackageNamespace(""),"soundManager")
+                                          getlex QName(PackageNamespace("sound"),"GameSounds")
+                                          getproperty QName(PackageNamespace(""),"POP_UP")
+                                          callpropvoid QName(PackageNamespace(""),"playFx"), 1
+                                          jump ofs007c
+                                 ofs0071:
+                                          getlocal1
+                                          pushnull
+                                          ifeq ofs007c
+                                          getlocal1
+                                          getglobalscope
+                                          call 0
+                                          pop
+                                 ofs007c:
+                                          returnvoid
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                              
+                              private function get container() : MovieClip
+                              {
+                                 trait getter QName(PrivateNamespace(null,"147"),"container")
+                                    dispid 0
+                                    method
+                                       name null
+                                       returns QName(PackageNamespace("flash.display"),"MovieClip")
+                                       
+                                       body
+                                          maxstack 1
+                                          localcount 1
+                                          initscopedepth 4
+                                          maxscopedepth 5
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             getlocal0
+                                             getproperty QName(PackageNamespace(""),"mc")
+                                             getproperty Multiname("container",[PrivateNamespace(null,"147"),PackageNamespace(""),PrivateNamespace(null,"305"),PackageNamespace("view.screens.main_game.bubblegum"),PackageInternalNs("view.screens.main_game.bubblegum"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.bubblegum:BubblegumPopUp"),StaticProtectedNs("view.screens.main_game.bubblegum:BubblegumPopUp")])
+                                             returnvalue
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                 }
+                                 
+                                 private function clearSlots() : void
+                                 {
+                                    trait method QName(PrivateNamespace(null,"147"),"clearSlots")
+                                       dispid 0
+                                       method
+                                          name null
+                                          returns QName(PackageNamespace(""),"void")
+                                          
+                                          body
+                                             maxstack 2
+                                             localcount 1
+                                             initscopedepth 4
+                                             maxscopedepth 5
+                                             
+                                             code
+                                                getlocal0
+                                                pushscope
+                                                getlocal0
+                                                getproperty QName(PrivateNamespace(null,"147"),"principalSlot")
+                                                pushnull
+                                                ifeq ofs0018
+                                                getlocal0
+                                                getproperty QName(PrivateNamespace(null,"147"),"principalSlot")
+                                                callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                                getlocal0
+                                                pushnull
+                                                setproperty QName(PrivateNamespace(null,"147"),"principalSlot")
+                                       ofs0018:
+                                                getlocal0
+                                                getproperty QName(PrivateNamespace(null,"147"),"secondarySlot")
+                                                pushnull
+                                                ifeq ofs002e
+                                                getlocal0
+                                                getproperty QName(PrivateNamespace(null,"147"),"secondarySlot")
+                                                callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                                getlocal0
+                                                pushnull
+                                                setproperty QName(PrivateNamespace(null,"147"),"secondarySlot")
+                                       ofs002e:
+                                                returnvoid
+                                             end ; code
+                                          end ; body
+                                       end ; method
+                                    }
+                                    
+                                    public function refreshTip(param1:BubbleGumTip) : void
+                                    {
+                                       trait method QName(PackageNamespace(""),"refreshTip")
+                                          dispid 0
+                                          method
+                                             name null
+                                             param QName(PackageNamespace("main_game.bubblegum"),"BubbleGumTip")
+                                             returns QName(PackageNamespace(""),"void")
+                                             
+                                             body
+                                                maxstack 3
+                                                localcount 2
+                                                initscopedepth 4
+                                                maxscopedepth 5
+                                                
+                                                code
+                                                   getlocal0
+                                                   pushscope
+                                                   getlocal0
+                                                   callpropvoid QName(PrivateNamespace(null,"147"),"clearSlots"), 0
+                                                   getlocal1
+                                                   getproperty QName(PackageNamespace(""),"principalSlot")
+                                                   callproperty QName(Namespace("main_game.item_containers:ISlot"),"isEmpty"), 0
+                                                   not
+                                                   dup
+                                                   iffalse ofs001f
+                                                   pop
+                                                   getlocal1
+                                                   getproperty QName(PackageNamespace(""),"secondarySlot")
+                                                   callproperty QName(Namespace("main_game.item_containers:ISlot"),"isEmpty"), 0
+                                                   not
+                                          ofs001f:
+                                                   iffalse ofs0032
+                                                   getlocal0
+                                                   getproperty QName(PrivateNamespace(null,"147"),"container")
+                                                   pushstring "item_2"
+                                                   callpropvoid QName(PackageNamespace(""),"gotoAndStop"), 1
+                                                   jump ofs0068
+                                          ofs0032:
+                                                   getlocal1
+                                                   getproperty QName(PackageNamespace(""),"principalSlot")
+                                                   callproperty QName(Namespace("main_game.item_containers:ISlot"),"isEmpty"), 0
+                                                   not
+                                                   dup
+                                                   iftrue ofs004a
+                                                   pop
+                                                   getlocal1
+                                                   getproperty QName(PackageNamespace(""),"secondarySlot")
+                                                   callproperty QName(Namespace("main_game.item_containers:ISlot"),"isEmpty"), 0
+                                                   not
+                                          ofs004a:
+                                                   iffalse ofs005d
+                                                   getlocal0
+                                                   getproperty QName(PrivateNamespace(null,"147"),"container")
+                                                   pushstring "item"
+                                                   callpropvoid QName(PackageNamespace(""),"gotoAndStop"), 1
+                                                   jump ofs0068
+                                          ofs005d:
+                                                   getlocal0
+                                                   getproperty QName(PrivateNamespace(null,"147"),"container")
+                                                   pushstring "basic"
+                                                   callpropvoid QName(PackageNamespace(""),"gotoAndStop"), 1
+                                          ofs0068:
+                                                   getlocal0
+                                                   findpropstrict QName(PackageNamespace("view.screens.main_game.slot"),"SlotView")
+                                                   getlocal1
+                                                   getproperty QName(PackageNamespace(""),"principalSlot")
+                                                   constructprop QName(PackageNamespace("view.screens.main_game.slot"),"SlotView"), 1
+                                                   initproperty QName(PrivateNamespace(null,"147"),"principalSlot")
+                                                   getlocal0
+                                                   getproperty QName(PrivateNamespace(null,"147"),"principalSlot")
+                                                   getlocal0
+                                                   getproperty QName(PrivateNamespace(null,"147"),"container")
+                                                   getproperty Multiname("slot_1",[PrivateNamespace(null,"147"),PackageNamespace(""),PrivateNamespace(null,"305"),PackageNamespace("view.screens.main_game.bubblegum"),PackageInternalNs("view.screens.main_game.bubblegum"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.bubblegum:BubblegumPopUp"),StaticProtectedNs("view.screens.main_game.bubblegum:BubblegumPopUp")])
+                                                   callpropvoid QName(PackageNamespace(""),"initialize"), 1
+                                                   getlocal0
+                                                   findpropstrict QName(PackageNamespace("view.screens.main_game.slot"),"SlotView")
+                                                   getlocal1
+                                                   getproperty QName(PackageNamespace(""),"secondarySlot")
+                                                   constructprop QName(PackageNamespace("view.screens.main_game.slot"),"SlotView"), 1
+                                                   initproperty QName(PrivateNamespace(null,"147"),"secondarySlot")
+                                                   getlocal0
+                                                   getproperty QName(PrivateNamespace(null,"147"),"secondarySlot")
+                                                   getlocal0
+                                                   getproperty QName(PrivateNamespace(null,"147"),"container")
+                                                   getproperty Multiname("slot_2",[PrivateNamespace(null,"147"),PackageNamespace(""),PrivateNamespace(null,"305"),PackageNamespace("view.screens.main_game.bubblegum"),PackageInternalNs("view.screens.main_game.bubblegum"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.bubblegum:BubblegumPopUp"),StaticProtectedNs("view.screens.main_game.bubblegum:BubblegumPopUp")])
+                                                   callpropvoid QName(PackageNamespace(""),"initialize"), 1
+                                                   getlocal0
+                                                   getproperty QName(PrivateNamespace(null,"147"),"container")
+                                                   getproperty Multiname("slot_1",[PrivateNamespace(null,"147"),PackageNamespace(""),PrivateNamespace(null,"305"),PackageNamespace("view.screens.main_game.bubblegum"),PackageInternalNs("view.screens.main_game.bubblegum"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.bubblegum:BubblegumPopUp"),StaticProtectedNs("view.screens.main_game.bubblegum:BubblegumPopUp")])
+                                                   pushfalse
+                                                   setproperty Multiname("mouseEnabled",[PrivateNamespace(null,"147"),PackageNamespace(""),PrivateNamespace(null,"305"),PackageNamespace("view.screens.main_game.bubblegum"),PackageInternalNs("view.screens.main_game.bubblegum"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.bubblegum:BubblegumPopUp"),StaticProtectedNs("view.screens.main_game.bubblegum:BubblegumPopUp")])
+                                                   getlocal0
+                                                   getproperty QName(PrivateNamespace(null,"147"),"container")
+                                                   getproperty Multiname("slot_1",[PrivateNamespace(null,"147"),PackageNamespace(""),PrivateNamespace(null,"305"),PackageNamespace("view.screens.main_game.bubblegum"),PackageInternalNs("view.screens.main_game.bubblegum"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.bubblegum:BubblegumPopUp"),StaticProtectedNs("view.screens.main_game.bubblegum:BubblegumPopUp")])
+                                                   pushfalse
+                                                   setproperty Multiname("mouseChildren",[PrivateNamespace(null,"147"),PackageNamespace(""),PrivateNamespace(null,"305"),PackageNamespace("view.screens.main_game.bubblegum"),PackageInternalNs("view.screens.main_game.bubblegum"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.bubblegum:BubblegumPopUp"),StaticProtectedNs("view.screens.main_game.bubblegum:BubblegumPopUp")])
+                                                   getlocal0
+                                                   getproperty QName(PrivateNamespace(null,"147"),"container")
+                                                   getproperty Multiname("slot_2",[PrivateNamespace(null,"147"),PackageNamespace(""),PrivateNamespace(null,"305"),PackageNamespace("view.screens.main_game.bubblegum"),PackageInternalNs("view.screens.main_game.bubblegum"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.bubblegum:BubblegumPopUp"),StaticProtectedNs("view.screens.main_game.bubblegum:BubblegumPopUp")])
+                                                   pushfalse
+                                                   setproperty Multiname("mouseEnabled",[PrivateNamespace(null,"147"),PackageNamespace(""),PrivateNamespace(null,"305"),PackageNamespace("view.screens.main_game.bubblegum"),PackageInternalNs("view.screens.main_game.bubblegum"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.bubblegum:BubblegumPopUp"),StaticProtectedNs("view.screens.main_game.bubblegum:BubblegumPopUp")])
+                                                   getlocal0
+                                                   getproperty QName(PrivateNamespace(null,"147"),"container")
+                                                   getproperty Multiname("slot_2",[PrivateNamespace(null,"147"),PackageNamespace(""),PrivateNamespace(null,"305"),PackageNamespace("view.screens.main_game.bubblegum"),PackageInternalNs("view.screens.main_game.bubblegum"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.bubblegum:BubblegumPopUp"),StaticProtectedNs("view.screens.main_game.bubblegum:BubblegumPopUp")])
+                                                   pushfalse
+                                                   setproperty Multiname("mouseChildren",[PrivateNamespace(null,"147"),PackageNamespace(""),PrivateNamespace(null,"305"),PackageNamespace("view.screens.main_game.bubblegum"),PackageInternalNs("view.screens.main_game.bubblegum"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.bubblegum:BubblegumPopUp"),StaticProtectedNs("view.screens.main_game.bubblegum:BubblegumPopUp")])
+                                                   getlocal0
+                                                   getproperty QName(PrivateNamespace(null,"147"),"container")
+                                                   getproperty Multiname("title",[PrivateNamespace(null,"147"),PackageNamespace(""),PrivateNamespace(null,"305"),PackageNamespace("view.screens.main_game.bubblegum"),PackageInternalNs("view.screens.main_game.bubblegum"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.bubblegum:BubblegumPopUp"),StaticProtectedNs("view.screens.main_game.bubblegum:BubblegumPopUp")])
+                                                   getlocal1
+                                                   getproperty QName(PackageNamespace(""),"tipText")
+                                                   setproperty Multiname("text",[PrivateNamespace(null,"147"),PackageNamespace(""),PrivateNamespace(null,"305"),PackageNamespace("view.screens.main_game.bubblegum"),PackageInternalNs("view.screens.main_game.bubblegum"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.bubblegum:BubblegumPopUp"),StaticProtectedNs("view.screens.main_game.bubblegum:BubblegumPopUp")])
+                                                   getlocal1
+                                                   getproperty QName(PackageNamespace(""),"secondarySlot")
+                                                   callproperty QName(Namespace("main_game.item_containers:ISlot"),"isEmpty"), 0
+                                                   iffalse ofs00f5
+                                                   getlocal0
+                                                   getproperty QName(PrivateNamespace(null,"147"),"container")
+                                                   getproperty Multiname("slot_2",[PrivateNamespace(null,"147"),PackageNamespace(""),PrivateNamespace(null,"305"),PackageNamespace("view.screens.main_game.bubblegum"),PackageInternalNs("view.screens.main_game.bubblegum"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.bubblegum:BubblegumPopUp"),StaticProtectedNs("view.screens.main_game.bubblegum:BubblegumPopUp")])
+                                                   pushfalse
+                                                   setproperty Multiname("visible",[PrivateNamespace(null,"147"),PackageNamespace(""),PrivateNamespace(null,"305"),PackageNamespace("view.screens.main_game.bubblegum"),PackageInternalNs("view.screens.main_game.bubblegum"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.bubblegum:BubblegumPopUp"),StaticProtectedNs("view.screens.main_game.bubblegum:BubblegumPopUp")])
+                                                   jump ofs0100
+                                          ofs00f5:
+                                                   getlocal0
+                                                   getproperty QName(PrivateNamespace(null,"147"),"container")
+                                                   getproperty Multiname("slot_2",[PrivateNamespace(null,"147"),PackageNamespace(""),PrivateNamespace(null,"305"),PackageNamespace("view.screens.main_game.bubblegum"),PackageInternalNs("view.screens.main_game.bubblegum"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.bubblegum:BubblegumPopUp"),StaticProtectedNs("view.screens.main_game.bubblegum:BubblegumPopUp")])
+                                                   pushtrue
+                                                   setproperty Multiname("visible",[PrivateNamespace(null,"147"),PackageNamespace(""),PrivateNamespace(null,"305"),PackageNamespace("view.screens.main_game.bubblegum"),PackageInternalNs("view.screens.main_game.bubblegum"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.bubblegum:BubblegumPopUp"),StaticProtectedNs("view.screens.main_game.bubblegum:BubblegumPopUp")])
+                                          ofs0100:
+                                                   returnvoid
+                                                end ; code
+                                             end ; body
+                                          end ; method
+                                       }
+                                       
+                                       public function clear() : void
+                                       {
+                                          trait method QName(PackageNamespace(""),"clear")
+                                             dispid 0
+                                             method
+                                                name null
+                                                returns QName(PackageNamespace(""),"void")
+                                                
+                                                body
+                                                   maxstack 2
+                                                   localcount 1
+                                                   initscopedepth 4
+                                                   maxscopedepth 5
+                                                   
+                                                   code
+                                                      getlocal0
+                                                      pushscope
+                                                      getlocal0
+                                                      getproperty QName(PrivateNamespace(null,"147"),"onCancelSignal")
+                                                      callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                                      getlocal0
+                                                      pushnull
+                                                      setproperty QName(PrivateNamespace(null,"147"),"onCancelSignal")
+                                                      getlocal0
+                                                      getproperty QName(PrivateNamespace(null,"147"),"screen")
+                                                      callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                                      getlocal0
+                                                      pushnull
+                                                      setproperty QName(PrivateNamespace(null,"147"),"screen")
+                                                      getlocal0
+                                                      callpropvoid QName(PrivateNamespace(null,"147"),"clearSlots"), 0
+                                                      returnvoid
+                                                   end ; code
+                                                end ; body
+                                             end ; method
+                                          }
+                                       }
+                                    }
+                                    
+                                    method
+                                       name null
+                                       returns null
+                                       
+                                       body
+                                          maxstack 2
+                                          localcount 1
+                                          initscopedepth 1
+                                          maxscopedepth 3
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             findpropstrict Multiname("BubblegumPopUp",[PackageNamespace("view.screens.main_game.bubblegum")])
+                                             getlex QName(PackageNamespace(""),"Object")
+                                             pushscope
+                                             getlex QName(PackageNamespace(""),"Object")
+                                             newclass 251
+                                             popscope
+                                             initproperty QName(PackageNamespace("view.screens.main_game.bubblegum"),"BubblegumPopUp")
+                                             returnvoid
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                    

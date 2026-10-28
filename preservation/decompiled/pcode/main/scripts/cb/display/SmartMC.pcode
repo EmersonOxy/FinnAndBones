@@ -1,0 +1,414 @@
+package cb.display
+{
+   import cb.actions.Action;
+   import cb.conditions.Condition;
+   import flash.display.MovieClip;
+   import flash.events.Event;
+   
+   public class SmartMC
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var conditions:Array;
+      
+      private var mc:MovieClip;
+      
+      private var actions:Array;
+      
+      public function SmartMC(param1:MovieClip)
+      {
+         method
+            name null
+            param QName(PackageNamespace("flash.display"),"MovieClip")
+            returns null
+            
+            body
+               maxstack 3
+               localcount 2
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal1
+                  getlex QName(PackageNamespace("flash.events"),"Event")
+                  getproperty QName(PackageNamespace(""),"ENTER_FRAME")
+                  getlocal0
+                  getproperty QName(PrivateNamespace(null,"42"),"enterFrame")
+                  callpropvoid QName(PackageNamespace(""),"addEventListener"), 2
+                  getlocal0
+                  findpropstrict QName(PackageNamespace(""),"Array")
+                  constructprop QName(PackageNamespace(""),"Array"), 0
+                  initproperty QName(PrivateNamespace(null,"42"),"conditions")
+                  getlocal0
+                  getlocal1
+                  initproperty QName(PrivateNamespace(null,"42"),"mc")
+                  getlocal0
+                  findpropstrict QName(PackageNamespace(""),"Array")
+                  constructprop QName(PackageNamespace(""),"Array"), 0
+                  initproperty QName(PrivateNamespace(null,"42"),"actions")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      private function enterFrame(param1:Event) : void
+      {
+         trait method QName(PrivateNamespace(null,"42"),"enterFrame")
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace("flash.events"),"Event")
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 3
+                  localcount 7
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     pushnull
+                     coerce QName(PackageNamespace("cb.actions"),"Action")
+                     setlocal3
+                     pushnull
+                     coerce QName(PackageNamespace(""),"Object")
+                     setlocal 4
+                     pushbyte 0
+                     setlocal2
+                     jump ofs004c
+            ofs0012:
+                     label
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"42"),"conditions")
+                     getlocal2
+                     getproperty MultinameL([PrivateNamespace(null,"42"),PackageNamespace(""),PrivateNamespace(null,"210"),PackageNamespace("cb.display"),PackageInternalNs("cb.display"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("cb.display:SmartMC"),StaticProtectedNs("cb.display:SmartMC")])
+                     coerce QName(PackageNamespace(""),"Object")
+                     dup
+                     setlocal 4
+                     getproperty Multiname("condition",[PrivateNamespace(null,"42"),PackageNamespace(""),PrivateNamespace(null,"210"),PackageNamespace("cb.display"),PackageInternalNs("cb.display"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("cb.display:SmartMC"),StaticProtectedNs("cb.display:SmartMC")])
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"42"),"mc")
+                     callproperty Multiname("complete",[PrivateNamespace(null,"42"),PackageNamespace(""),PrivateNamespace(null,"210"),PackageNamespace("cb.display"),PackageInternalNs("cb.display"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("cb.display:SmartMC"),StaticProtectedNs("cb.display:SmartMC")]), 1
+                     iffalse ofs004a
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"42"),"actions")
+                     getlocal 4
+                     getproperty Multiname("action",[PrivateNamespace(null,"42"),PackageNamespace(""),PrivateNamespace(null,"210"),PackageNamespace("cb.display"),PackageInternalNs("cb.display"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("cb.display:SmartMC"),StaticProtectedNs("cb.display:SmartMC")])
+                     callpropvoid QName(Namespace("http://adobe.com/AS3/2006/builtin"),"push"), 1
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"42"),"conditions")
+                     getlocal2
+                     pushbyte 1
+                     callpropvoid QName(Namespace("http://adobe.com/AS3/2006/builtin"),"splice"), 2
+                     getlocal2
+                     decrement_i
+                     setlocal2
+            ofs004a:
+                     inclocal_i 2
+            ofs004c:
+                     getlocal2
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"42"),"conditions")
+                     getproperty QName(PackageNamespace(""),"length")
+                     iflt ofs0012
+                     pushbyte 0
+                     setlocal 5
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"42"),"actions")
+                     coerce_a
+                     setlocal 6
+                     jump ofs0079
+            ofs0067:
+                     label
+                     getlocal 6
+                     getlocal 5
+                     nextvalue
+                     coerce QName(PackageNamespace("cb.actions"),"Action")
+                     setlocal3
+                     getlocal3
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"42"),"mc")
+                     callpropvoid QName(Namespace("cb.actions:Action"),"execute"), 1
+            ofs0079:
+                     hasnext2 6, 5
+                     iftrue ofs0067
+                     kill 6
+                     kill 5
+                     getlocal0
+                     findpropstrict QName(PackageNamespace(""),"Array")
+                     constructprop QName(PackageNamespace(""),"Array"), 0
+                     initproperty QName(PrivateNamespace(null,"42"),"actions")
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"42"),"conditions")
+                     pushnull
+                     equals
+                     dup
+                     iftrue ofs00a3
+                     pop
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"42"),"conditions")
+                     getproperty QName(PackageNamespace(""),"length")
+                     pushbyte 0
+                     equals
+            ofs00a3:
+                     iffalse ofs00b8
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"42"),"mc")
+                     getlex QName(PackageNamespace("flash.events"),"Event")
+                     getproperty QName(PackageNamespace(""),"ENTER_FRAME")
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"42"),"enterFrame")
+                     callpropvoid QName(PackageNamespace(""),"removeEventListener"), 2
+            ofs00b8:
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function trigger(param1:Condition, param2:Action) : void
+         {
+            trait method QName(PackageNamespace(""),"trigger")
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace("cb.conditions"),"Condition")
+                  param QName(PackageNamespace("cb.actions"),"Action")
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 5
+                     localcount 3
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"42"),"conditions")
+                        pushstring "condition"
+                        getlocal1
+                        pushstring "action"
+                        getlocal2
+                        newobject 2
+                        callpropvoid QName(Namespace("http://adobe.com/AS3/2006/builtin"),"push"), 1
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function clear() : void
+            {
+               trait method QName(PackageNamespace(""),"clear")
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 3
+                        localcount 1
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"42"),"mc")
+                           getlex QName(PackageNamespace("flash.events"),"Event")
+                           getproperty QName(PackageNamespace(""),"ENTER_FRAME")
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"42"),"enterFrame")
+                           callpropvoid QName(PackageNamespace(""),"removeEventListener"), 2
+                           getlocal0
+                           pushnull
+                           initproperty QName(PrivateNamespace(null,"42"),"conditions")
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function equals(param1:MovieClip) : Boolean
+               {
+                  trait method QName(PackageNamespace(""),"equals")
+                     dispid 0
+                     method
+                        name null
+                        param QName(PackageNamespace("flash.display"),"MovieClip")
+                        returns QName(PackageNamespace(""),"Boolean")
+                        
+                        body
+                           maxstack 2
+                           localcount 2
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"42"),"mc")
+                              getlocal1
+                              equals
+                              returnvalue
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function rewind() : void
+                  {
+                     trait method QName(PackageNamespace(""),"rewind")
+                        dispid 0
+                        method
+                           name null
+                           returns QName(PackageNamespace(""),"void")
+                           
+                           body
+                              maxstack 3
+                              localcount 1
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"42"),"mc")
+                                 getproperty QName(PackageNamespace(""),"parent")
+                                 getlex QName(PackageNamespace("flash.events"),"Event")
+                                 getproperty QName(PackageNamespace(""),"ENTER_FRAME")
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"42"),"rewindFrame")
+                                 callpropvoid QName(PackageNamespace(""),"addEventListener"), 2
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     public function stopRewind() : void
+                     {
+                        trait method QName(PackageNamespace(""),"stopRewind")
+                           dispid 0
+                           method
+                              name null
+                              returns QName(PackageNamespace(""),"void")
+                              
+                              body
+                                 maxstack 3
+                                 localcount 1
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"42"),"mc")
+                                    getproperty QName(PackageNamespace(""),"parent")
+                                    getlex QName(PackageNamespace("flash.events"),"Event")
+                                    getproperty QName(PackageNamespace(""),"ENTER_FRAME")
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"42"),"rewindFrame")
+                                    callpropvoid QName(PackageNamespace(""),"removeEventListener"), 2
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        private function rewindFrame(param1:Event) : void
+                        {
+                           trait method QName(PrivateNamespace(null,"42"),"rewindFrame")
+                              dispid 0
+                              method
+                                 name null
+                                 param QName(PackageNamespace("flash.events"),"Event")
+                                 returns QName(PackageNamespace(""),"void")
+                                 
+                                 body
+                                    maxstack 2
+                                    localcount 3
+                                    initscopedepth 4
+                                    maxscopedepth 5
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"42"),"mc")
+                                       getproperty QName(PackageNamespace(""),"currentFrame")
+                                       convert_i
+                                       setlocal2
+                                       getlocal2
+                                       pushbyte 1
+                                       ifne ofs0018
+                                       getlocal0
+                                       callpropvoid QName(PackageNamespace(""),"stopRewind"), 0
+                                       returnvoid
+                              ofs0018:
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"42"),"mc")
+                                       callpropvoid QName(PackageNamespace(""),"prevFrame"), 0
+                                       returnvoid
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                        }
+                     }
+                     
+                     method
+                        name null
+                        returns null
+                        
+                        body
+                           maxstack 2
+                           localcount 1
+                           initscopedepth 1
+                           maxscopedepth 3
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              findpropstrict Multiname("SmartMC",[PackageNamespace("cb.display")])
+                              getlex QName(PackageNamespace(""),"Object")
+                              pushscope
+                              getlex QName(PackageNamespace(""),"Object")
+                              newclass 54
+                              popscope
+                              initproperty QName(PackageNamespace("cb.display"),"SmartMC")
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                     

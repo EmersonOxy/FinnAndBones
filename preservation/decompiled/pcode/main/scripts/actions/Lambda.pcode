@@ -1,0 +1,186 @@
+package actions
+{
+   import cb.actions.Action;
+   import flash.display.MovieClip;
+   
+   public class Lambda implements Action
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var f:Function;
+      
+      private var params:Array;
+      
+      public function Lambda(param1:Function, ... rest)
+      {
+         method
+            name null
+            flag NEED_REST
+            param QName(PackageNamespace(""),"Function")
+            returns null
+            
+            body
+               maxstack 2
+               localcount 3
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlocal1
+                  initproperty QName(PrivateNamespace(null,"146"),"f")
+                  getlocal0
+                  getlocal2
+                  initproperty QName(PrivateNamespace(null,"146"),"params")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public static function wrap(param1:Function, ... rest) : Lambda
+      {
+         trait method QName(PackageNamespace(""),"wrap")
+            flag FINAL
+            dispid 3
+            method
+               name null
+               flag NEED_ACTIVATION
+               flag NEED_REST
+               param QName(PackageNamespace(""),"Function")
+               returns QName(PackageNamespace("actions"),"Lambda")
+               
+               body
+                  maxstack 2
+                  localcount 4
+                  initscopedepth 4
+                  maxscopedepth 6
+                  trait slot QName(PackageInternalNs("actions"),"funcToWrap")
+                     slotid 1
+                     type QName(PackageNamespace(""),"Function")
+                  end ; trait
+                  trait slot QName(PackageNamespace(""),"args")
+                     slotid 2
+                     type QName(PackageNamespace(""),"Array")
+                  end ; trait
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     newactivation
+                     dup
+                     setlocal3
+                     pushscope
+                     getscopeobject 1
+                     getlocal1
+                     setslot 1
+                     getscopeobject 1
+                     getlocal2
+                     setslot 2
+                     getlocal0
+                     newfunction 2369
+                     construct 1
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function execute(param1:MovieClip) : void
+         {
+            trait method QName(PackageNamespace(""),"execute")
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace("flash.display"),"MovieClip")
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 4
+                     localcount 2
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"146"),"params")
+                        getproperty QName(PackageNamespace(""),"length")
+                        pushbyte 0
+                        ifne ofs001f
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"146"),"f")
+                        pushnull
+                        getlocal1
+                        newarray 1
+                        callpropvoid QName(Namespace("http://adobe.com/AS3/2006/builtin"),"apply"), 2
+                        jump ofs0038
+               ofs001f:
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"146"),"params")
+                        pushbyte 0
+                        dup
+                        getlocal1
+                        callpropvoid QName(Namespace("http://adobe.com/AS3/2006/builtin"),"splice"), 3
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"146"),"f")
+                        pushnull
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"146"),"params")
+                        callpropvoid QName(Namespace("http://adobe.com/AS3/2006/builtin"),"apply"), 2
+               ofs0038:
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+         }
+      }
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 1
+            maxscopedepth 3
+            
+            code
+               getlocal0
+               pushscope
+               findpropstrict Multiname("Lambda",[PackageNamespace("actions")])
+               getlex QName(PackageNamespace(""),"Object")
+               pushscope
+               getlex QName(PackageNamespace(""),"Object")
+               newclass 249
+               popscope
+               initproperty QName(PackageNamespace("actions"),"Lambda")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      

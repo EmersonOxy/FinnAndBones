@@ -1,0 +1,773 @@
+package sound
+{
+   import cb.data.ButtonGroup;
+   import cb.media.SoundLoader;
+   import cb.media.cbSound;
+   import cb.media.cbSoundMixer;
+   import cb.utils.cbArray;
+   import flash.display.MovieClip;
+   import flash.events.MouseEvent;
+   
+   public class SoundManager
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var soundMixer:cbSoundMixer;
+      
+      private var musicList:cbArray;
+      
+      public function SoundManager()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 2
+               localcount 1
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("cb.utils"),"cbArray")
+                  constructprop QName(PackageNamespace("cb.utils"),"cbArray"), 0
+                  initproperty QName(PrivateNamespace(null,"20"),"musicList")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function addSound(param1:SoundLoader) : void
+      {
+         trait method QName(PackageNamespace(""),"addSound")
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace("cb.media"),"SoundLoader")
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 2
+                  localcount 2
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"20"),"soundMixer")
+                     getlocal1
+                     callpropvoid QName(PackageNamespace(""),"addSoundLoader"), 1
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function start(param1:SoundLoader) : void
+         {
+            trait method QName(PackageNamespace(""),"start")
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace("cb.media"),"SoundLoader")
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 3
+                     localcount 2
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        findpropstrict QName(PackageNamespace("cb.media"),"cbSoundMixer")
+                        getlocal1
+                        constructprop QName(PackageNamespace("cb.media"),"cbSoundMixer"), 1
+                        setproperty QName(PrivateNamespace(null,"20"),"soundMixer")
+                        getlocal0
+                        callpropvoid QName(PrivateNamespace(null,"20"),"initializeSound"), 0
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function ready() : Boolean
+            {
+               trait method QName(PackageNamespace(""),"ready")
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace(""),"Boolean")
+                     
+                     body
+                        maxstack 2
+                        localcount 1
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"20"),"soundMixer")
+                           pushnull
+                           equals
+                           not
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               private function initializeSound() : void
+               {
+                  trait method QName(PrivateNamespace(null,"20"),"initializeSound")
+                     dispid 0
+                     method
+                        name null
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 2
+                           localcount 1
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlex QName(PackageNamespace("cb.data"),"ButtonGroup")
+                              pushstring "gui"
+                              callproperty QName(PackageNamespace(""),"get"), 1
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"20"),"soundMixer")
+                              callproperty QName(PackageNamespace(""),"setSoundMixer"), 1
+                              getlex QName(PackageNamespace("sound"),"GameSounds")
+                              getproperty QName(PackageNamespace(""),"BUTTON_CLICK")
+                              callproperty QName(PackageNamespace(""),"setClickSound"), 1
+                              getlex QName(PackageNamespace("sound"),"GameSounds")
+                              getproperty QName(PackageNamespace(""),"MOUSE_OVER")
+                              callpropvoid QName(PackageNamespace(""),"setOverSound"), 1
+                              getlex QName(PackageNamespace("cb.data"),"ButtonGroup")
+                              pushstring "gui_mix"
+                              callproperty QName(PackageNamespace(""),"get"), 1
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"20"),"soundMixer")
+                              callproperty QName(PackageNamespace(""),"setSoundMixer"), 1
+                              getlex QName(PackageNamespace("sound"),"GameSounds")
+                              getproperty QName(PackageNamespace(""),"MIX_CLICK")
+                              callproperty QName(PackageNamespace(""),"setClickSound"), 1
+                              getlex QName(PackageNamespace("sound"),"GameSounds")
+                              getproperty QName(PackageNamespace(""),"MOUSE_OVER")
+                              callpropvoid QName(PackageNamespace(""),"setOverSound"), 1
+                              getlex QName(PackageNamespace("cb.data"),"ButtonGroup")
+                              pushstring "sound_gui"
+                              callproperty QName(PackageNamespace(""),"get"), 1
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"20"),"soundMixer")
+                              callproperty QName(PackageNamespace(""),"setSoundMixer"), 1
+                              getlex QName(PackageNamespace("sound"),"GameSounds")
+                              getproperty QName(PackageNamespace(""),"BUTTON_CLICK")
+                              callproperty QName(PackageNamespace(""),"setClickSound"), 1
+                              getlex QName(PackageNamespace("sound"),"GameSounds")
+                              getproperty QName(PackageNamespace(""),"MOUSE_OVER")
+                              callproperty QName(PackageNamespace(""),"setOverSound"), 1
+                              getlocal0
+                              getproperty QName(PackageNamespace(""),"onSoundClick")
+                              callpropvoid QName(PackageNamespace(""),"addClick"), 1
+                              getlex QName(PackageNamespace(""),"main")
+                              getproperty QName(PackageNamespace(""),"saveSystem")
+                              callproperty QName(PackageNamespace(""),"isSoundMuted"), 0
+                              iffalse ofs008f
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"20"),"soundMixer")
+                              callpropvoid QName(PackageNamespace(""),"mute"), 0
+                     ofs008f:
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function onSoundClick(param1:MouseEvent) : void
+                  {
+                     trait method QName(PackageNamespace(""),"onSoundClick")
+                        dispid 0
+                        method
+                           name null
+                           param QName(PackageNamespace("flash.events"),"MouseEvent")
+                           returns QName(PackageNamespace(""),"void")
+                           
+                           body
+                              maxstack 3
+                              localcount 3
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 pushnull
+                                 coerce QName(PackageNamespace("sound"),"MusicRequest")
+                                 setlocal2
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"20"),"soundMixer")
+                                 callproperty QName(PackageNamespace(""),"isMuted"), 0
+                                 iffalse ofs0031
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"20"),"soundMixer")
+                                 callpropvoid QName(PackageNamespace(""),"unmute"), 0
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"20"),"actualMusic")
+                                 coerce QName(PackageNamespace("sound"),"MusicRequest")
+                                 setlocal2
+                                 getlocal2
+                                 pushnull
+                                 ifeq ofs002d
+                                 getlocal0
+                                 getlocal2
+                                 callpropvoid QName(PrivateNamespace(null,"20"),"playRequest"), 1
+                        ofs002d:
+                                 jump ofs0039
+                        ofs0031:
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"20"),"soundMixer")
+                                 callpropvoid QName(PackageNamespace(""),"mute"), 0
+                        ofs0039:
+                                 getlex QName(PackageNamespace(""),"main")
+                                 getproperty QName(PackageNamespace(""),"saveSystem")
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"20"),"soundMixer")
+                                 callproperty QName(PackageNamespace(""),"isMuted"), 0
+                                 callpropvoid QName(PackageNamespace(""),"saveMuteState"), 1
+                                 getlocal0
+                                 getlocal1
+                                 getproperty QName(PackageNamespace(""),"currentTarget")
+                                 getlex QName(PackageNamespace("flash.display"),"MovieClip")
+                                 astypelate
+                                 callpropvoid QName(PackageNamespace(""),"updateSoundButton"), 1
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     public function updateSoundButton(param1:MovieClip) : void
+                     {
+                        trait method QName(PackageNamespace(""),"updateSoundButton")
+                           dispid 0
+                           method
+                              name null
+                              param QName(PackageNamespace("flash.display"),"MovieClip")
+                              returns QName(PackageNamespace(""),"void")
+                              
+                              body
+                                 maxstack 2
+                                 localcount 4
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    getlocal1
+                                    pushstring "icon"
+                                    callproperty QName(PackageNamespace(""),"getChildByName"), 1
+                                    getlex QName(PackageNamespace("flash.display"),"MovieClip")
+                                    astypelate
+                                    coerce QName(PackageNamespace("flash.display"),"MovieClip")
+                                    setlocal2
+                                    getlocal1
+                                    pushstring "frame"
+                                    callproperty QName(PackageNamespace(""),"getChildByName"), 1
+                                    getlex QName(PackageNamespace("flash.display"),"MovieClip")
+                                    astypelate
+                                    coerce QName(PackageNamespace("flash.display"),"MovieClip")
+                                    setlocal3
+                                    getlocal2
+                                    iftrue ofs0024
+                                    returnvoid
+                           ofs0024:
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"20"),"soundMixer")
+                                    callproperty QName(PackageNamespace(""),"isMuted"), 0
+                                    iffalse ofs0044
+                                    getlocal2
+                                    pushstring "off"
+                                    callpropvoid QName(PackageNamespace(""),"gotoAndStop"), 1
+                                    getlocal3
+                                    pushstring "off"
+                                    callpropvoid QName(PackageNamespace(""),"gotoAndStop"), 1
+                                    jump ofs0054
+                           ofs0044:
+                                    getlocal2
+                                    pushstring "on"
+                                    callpropvoid QName(PackageNamespace(""),"gotoAndStop"), 1
+                                    getlocal3
+                                    pushstring "on"
+                                    callpropvoid QName(PackageNamespace(""),"gotoAndStop"), 1
+                           ofs0054:
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        public function playMusic(param1:String, param2:Number = 0, param3:Number = -1) : cbSound
+                        {
+                           trait method QName(PackageNamespace(""),"playMusic")
+                              dispid 0
+                              method
+                                 name null
+                                 flag HAS_OPTIONAL
+                                 param QName(PackageNamespace(""),"String")
+                                 param QName(PackageNamespace(""),"Number")
+                                 param QName(PackageNamespace(""),"Number")
+                                 optional Integer(0)
+                                 optional Integer(-1)
+                                 returns QName(PackageNamespace("cb.media"),"cbSound")
+                                 
+                                 body
+                                    maxstack 4
+                                    localcount 6
+                                    initscopedepth 4
+                                    maxscopedepth 5
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       pushnull
+                                       coerce QName(PackageNamespace("sound"),"MusicRequest")
+                                       setlocal 5
+                                       findpropstrict QName(PackageNamespace("sound"),"MusicRequest")
+                                       getlocal1
+                                       getlocal2
+                                       getlocal3
+                                       constructprop QName(PackageNamespace("sound"),"MusicRequest"), 3
+                                       coerce QName(PackageNamespace("sound"),"MusicRequest")
+                                       setlocal 4
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"20"),"musicList")
+                                       getproperty QName(PackageNamespace(""),"length")
+                                       pushbyte 0
+                                       ifeq ofs0040
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"20"),"actualMusic")
+                                       coerce QName(PackageNamespace("sound"),"MusicRequest")
+                                       dup
+                                       setlocal 5
+                                       getlocal 4
+                                       callproperty QName(PackageNamespace(""),"equal"), 1
+                                       iffalse ofs0035
+                                       pushnull
+                                       returnvalue
+                              ofs0035:
+                                       getlocal0
+                                       getlocal 5
+                                       callproperty QName(PackageNamespace(""),"getName"), 0
+                                       callpropvoid QName(PackageNamespace(""),"stopMusic"), 1
+                              ofs0040:
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"20"),"musicList")
+                                       getlocal 4
+                                       callpropvoid QName(Namespace("http://adobe.com/AS3/2006/builtin"),"push"), 1
+                                       getlocal0
+                                       getlocal 4
+                                       callproperty QName(PrivateNamespace(null,"20"),"playRequest"), 1
+                                       returnvalue
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           public function stopMusic(param1:String = "") : void
+                           {
+                              trait method QName(PackageNamespace(""),"stopMusic")
+                                 dispid 0
+                                 method
+                                    name null
+                                    flag HAS_OPTIONAL
+                                    param QName(PackageNamespace(""),"String")
+                                    optional Utf8("")
+                                    returns QName(PackageNamespace(""),"void")
+                                    
+                                    body
+                                       maxstack 2
+                                       localcount 4
+                                       initscopedepth 4
+                                       maxscopedepth 5
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          pushbyte 0
+                                          setlocal3
+                                          getlocal1
+                                          pushstring ""
+                                          equals
+                                          dup
+                                          iffalse ofs0016
+                                          pop
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"20"),"actualMusic")
+                                          pushnull
+                                          equals
+                                          not
+                                 ofs0016:
+                                          iffalse ofs0024
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"20"),"actualMusic")
+                                          callproperty QName(PackageNamespace(""),"getName"), 0
+                                          coerce_s
+                                          setlocal1
+                                 ofs0024:
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"20"),"musicList")
+                                          getproperty QName(PackageNamespace(""),"length")
+                                          pushbyte 0
+                                          ifne ofs0032
+                                          returnvoid
+                                 ofs0032:
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"20"),"actualMusic")
+                                          coerce QName(PackageNamespace("sound"),"MusicRequest")
+                                          setlocal2
+                                          getlocal2
+                                          callproperty QName(PackageNamespace(""),"getName"), 0
+                                          getlocal1
+                                          ifeq ofs0084
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"20"),"musicList")
+                                          getproperty QName(PackageNamespace(""),"length")
+                                          pushbyte 2
+                                          subtract
+                                          convert_i
+                                          setlocal3
+                                          jump ofs0079
+                                 ofs0053:
+                                          label
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"20"),"musicList")
+                                          getlocal3
+                                          getproperty MultinameL([PrivateNamespace(null,"20"),PackageNamespace(""),PackageNamespace("sound"),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"184"),PackageInternalNs("sound"),ProtectedNamespace("sound:SoundManager"),StaticProtectedNs("sound:SoundManager")])
+                                          coerce QName(PackageNamespace("sound"),"MusicRequest")
+                                          setlocal2
+                                          getlocal2
+                                          callproperty QName(PackageNamespace(""),"getName"), 0
+                                          getlocal1
+                                          ifne ofs0076
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"20"),"musicList")
+                                          getlocal2
+                                          callpropvoid QName(PackageNamespace(""),"remove"), 1
+                                          jump ofs0080
+                                 ofs0076:
+                                          getlocal3
+                                          decrement_i
+                                          setlocal3
+                                 ofs0079:
+                                          getlocal3
+                                          pushbyte 0
+                                          ifge ofs0053
+                                 ofs0080:
+                                          jump ofs00a8
+                                 ofs0084:
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"20"),"musicList")
+                                          callpropvoid QName(Namespace("http://adobe.com/AS3/2006/builtin"),"pop"), 0
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"20"),"soundMixer")
+                                          getlocal1
+                                          callpropvoid QName(PackageNamespace(""),"stop"), 1
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"20"),"actualMusic")
+                                          coerce QName(PackageNamespace("sound"),"MusicRequest")
+                                          setlocal2
+                                          getlocal2
+                                          pushnull
+                                          ifeq ofs00a8
+                                          getlocal0
+                                          getlocal2
+                                          callpropvoid QName(PrivateNamespace(null,"20"),"playRequest"), 1
+                                 ofs00a8:
+                                          returnvoid
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                              
+                              private function get actualMusic() : MusicRequest
+                              {
+                                 trait getter QName(PrivateNamespace(null,"20"),"actualMusic")
+                                    dispid 0
+                                    method
+                                       name null
+                                       returns QName(PackageNamespace("sound"),"MusicRequest")
+                                       
+                                       body
+                                          maxstack 3
+                                          localcount 1
+                                          initscopedepth 4
+                                          maxscopedepth 5
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             getlocal0
+                                             getproperty QName(PrivateNamespace(null,"20"),"musicList")
+                                             getproperty QName(PackageNamespace(""),"length")
+                                             pushbyte 0
+                                             ifne ofs0011
+                                             pushnull
+                                             returnvalue
+                                    ofs0011:
+                                             getlocal0
+                                             getproperty QName(PrivateNamespace(null,"20"),"musicList")
+                                             getlocal0
+                                             getproperty QName(PrivateNamespace(null,"20"),"musicList")
+                                             getproperty QName(PackageNamespace(""),"length")
+                                             decrement
+                                             getproperty MultinameL([PrivateNamespace(null,"20"),PackageNamespace(""),PackageNamespace("sound"),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"184"),PackageInternalNs("sound"),ProtectedNamespace("sound:SoundManager"),StaticProtectedNs("sound:SoundManager")])
+                                             returnvalue
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                 }
+                                 
+                                 public function playFx(param1:String, param2:Number = 0, param3:Number = -1) : cbSound
+                                 {
+                                    trait method QName(PackageNamespace(""),"playFx")
+                                       dispid 0
+                                       method
+                                          name null
+                                          flag HAS_OPTIONAL
+                                          param QName(PackageNamespace(""),"String")
+                                          param QName(PackageNamespace(""),"Number")
+                                          param QName(PackageNamespace(""),"Number")
+                                          optional Integer(0)
+                                          optional Integer(-1)
+                                          returns QName(PackageNamespace("cb.media"),"cbSound")
+                                          
+                                          body
+                                             maxstack 5
+                                             localcount 4
+                                             initscopedepth 4
+                                             maxscopedepth 5
+                                             
+                                             code
+                                                getlocal0
+                                                pushscope
+                                                getlocal0
+                                                getproperty QName(PrivateNamespace(null,"20"),"soundMixer")
+                                                getlocal1
+                                                getlocal2
+                                                pushfalse
+                                                getlocal3
+                                                callproperty QName(PackageNamespace(""),"play"), 4
+                                                returnvalue
+                                             end ; code
+                                          end ; body
+                                       end ; method
+                                    }
+                                    
+                                    public function stopFx(param1:String) : void
+                                    {
+                                       trait method QName(PackageNamespace(""),"stopFx")
+                                          dispid 0
+                                          method
+                                             name null
+                                             param QName(PackageNamespace(""),"String")
+                                             returns QName(PackageNamespace(""),"void")
+                                             
+                                             body
+                                                maxstack 2
+                                                localcount 2
+                                                initscopedepth 4
+                                                maxscopedepth 5
+                                                
+                                                code
+                                                   getlocal0
+                                                   pushscope
+                                                   getlocal0
+                                                   getproperty QName(PrivateNamespace(null,"20"),"soundMixer")
+                                                   getlocal1
+                                                   callpropvoid QName(PackageNamespace(""),"stop"), 1
+                                                   returnvoid
+                                                end ; code
+                                             end ; body
+                                          end ; method
+                                       }
+                                       
+                                       private function playRequest(param1:MusicRequest) : cbSound
+                                       {
+                                          trait method QName(PrivateNamespace(null,"20"),"playRequest")
+                                             dispid 0
+                                             method
+                                                name null
+                                                param QName(PackageNamespace("sound"),"MusicRequest")
+                                                returns QName(PackageNamespace("cb.media"),"cbSound")
+                                                
+                                                body
+                                                   maxstack 5
+                                                   localcount 2
+                                                   initscopedepth 4
+                                                   maxscopedepth 5
+                                                   
+                                                   code
+                                                      getlocal0
+                                                      pushscope
+                                                      getlocal0
+                                                      getproperty QName(PrivateNamespace(null,"20"),"soundMixer")
+                                                      getlocal1
+                                                      callproperty QName(PackageNamespace(""),"getName"), 0
+                                                      getlocal1
+                                                      callproperty QName(PackageNamespace(""),"getStartTime"), 0
+                                                      pushtrue
+                                                      getlocal1
+                                                      callproperty QName(PackageNamespace(""),"getVolume"), 0
+                                                      callproperty QName(PackageNamespace(""),"play"), 4
+                                                      returnvalue
+                                                   end ; code
+                                                end ; body
+                                             end ; method
+                                          }
+                                          
+                                          public function resumeSound(param1:String) : void
+                                          {
+                                             trait method QName(PackageNamespace(""),"resumeSound")
+                                                dispid 0
+                                                method
+                                                   name null
+                                                   param QName(PackageNamespace(""),"String")
+                                                   returns QName(PackageNamespace(""),"void")
+                                                   
+                                                   body
+                                                      maxstack 2
+                                                      localcount 2
+                                                      initscopedepth 4
+                                                      maxscopedepth 5
+                                                      
+                                                      code
+                                                         getlocal0
+                                                         pushscope
+                                                         getlocal0
+                                                         getproperty QName(PrivateNamespace(null,"20"),"soundMixer")
+                                                         getlocal1
+                                                         callpropvoid QName(PackageNamespace(""),"resumeSound"), 1
+                                                         returnvoid
+                                                      end ; code
+                                                   end ; body
+                                                end ; method
+                                             }
+                                             
+                                             public function pauseSound(param1:String) : void
+                                             {
+                                                trait method QName(PackageNamespace(""),"pauseSound")
+                                                   dispid 0
+                                                   method
+                                                      name null
+                                                      param QName(PackageNamespace(""),"String")
+                                                      returns QName(PackageNamespace(""),"void")
+                                                      
+                                                      body
+                                                         maxstack 2
+                                                         localcount 2
+                                                         initscopedepth 4
+                                                         maxscopedepth 5
+                                                         
+                                                         code
+                                                            getlocal0
+                                                            pushscope
+                                                            getlocal0
+                                                            getproperty QName(PrivateNamespace(null,"20"),"soundMixer")
+                                                            getlocal1
+                                                            callpropvoid QName(PackageNamespace(""),"pauseSound"), 1
+                                                            returnvoid
+                                                         end ; code
+                                                      end ; body
+                                                   end ; method
+                                                }
+                                                
+                                                public function isPlaying(param1:String) : Boolean
+                                                {
+                                                   trait method QName(PackageNamespace(""),"isPlaying")
+                                                      dispid 0
+                                                      method
+                                                         name null
+                                                         param QName(PackageNamespace(""),"String")
+                                                         returns QName(PackageNamespace(""),"Boolean")
+                                                         
+                                                         body
+                                                            maxstack 2
+                                                            localcount 2
+                                                            initscopedepth 4
+                                                            maxscopedepth 5
+                                                            
+                                                            code
+                                                               getlocal0
+                                                               pushscope
+                                                               getlocal0
+                                                               getproperty QName(PrivateNamespace(null,"20"),"soundMixer")
+                                                               getlocal1
+                                                               callproperty QName(PackageNamespace(""),"isPlaying"), 1
+                                                               returnvalue
+                                                            end ; code
+                                                         end ; body
+                                                      end ; method
+                                                   }
+                                                }
+                                             }
+                                             
+                                             method
+                                                name null
+                                                returns null
+                                                
+                                                body
+                                                   maxstack 2
+                                                   localcount 1
+                                                   initscopedepth 1
+                                                   maxscopedepth 3
+                                                   
+                                                   code
+                                                      getlocal0
+                                                      pushscope
+                                                      findpropstrict Multiname("SoundManager",[PackageNamespace("sound")])
+                                                      getlex QName(PackageNamespace(""),"Object")
+                                                      pushscope
+                                                      getlex QName(PackageNamespace(""),"Object")
+                                                      newclass 20
+                                                      popscope
+                                                      initproperty QName(PackageNamespace("sound"),"SoundManager")
+                                                      returnvoid
+                                                   end ; code
+                                                end ; body
+                                             end ; method
+                                             

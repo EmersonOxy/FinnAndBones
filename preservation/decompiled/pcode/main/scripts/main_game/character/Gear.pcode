@@ -1,0 +1,463 @@
+package main_game.character
+{
+   import main_game.character.stats.StatsEffectGuardian;
+   import main_game.item_containers.EquipmentSlot;
+   import main_game.item_containers.ShieldSlot;
+   import main_game.item_containers.Slot;
+   import main_game.item_containers.SlotChange;
+   import main_game.item_containers.WeaponSlot;
+   import main_game.items.Item;
+   
+   public class Gear
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var locked:Boolean;
+      
+      private var fighter:Fighter;
+      
+      public var weapon:Slot;
+      
+      public var shield:Slot;
+      
+      public var equipment_1:Slot;
+      
+      public var equipment_2:Slot;
+      
+      public function Gear(param1:Fighter)
+      {
+         method
+            name null
+            param QName(PackageNamespace("main_game.character"),"Fighter")
+            returns null
+            
+            body
+               maxstack 2
+               localcount 2
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlocal1
+                  initproperty QName(PrivateNamespace(null,"100"),"fighter")
+                  getlocal0
+                  pushfalse
+                  initproperty QName(PrivateNamespace(null,"100"),"locked")
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("main_game.item_containers"),"WeaponSlot")
+                  constructprop QName(PackageNamespace("main_game.item_containers"),"WeaponSlot"), 0
+                  initproperty QName(PackageNamespace(""),"weapon")
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("main_game.item_containers"),"ShieldSlot")
+                  constructprop QName(PackageNamespace("main_game.item_containers"),"ShieldSlot"), 0
+                  initproperty QName(PackageNamespace(""),"shield")
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("main_game.item_containers"),"EquipmentSlot")
+                  constructprop QName(PackageNamespace("main_game.item_containers"),"EquipmentSlot"), 0
+                  initproperty QName(PackageNamespace(""),"equipment_1")
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("main_game.item_containers"),"EquipmentSlot")
+                  constructprop QName(PackageNamespace("main_game.item_containers"),"EquipmentSlot"), 0
+                  initproperty QName(PackageNamespace(""),"equipment_2")
+                  getlocal0
+                  getproperty QName(PackageNamespace(""),"weapon")
+                  getproperty QName(PackageNamespace(""),"onChange")
+                  getlocal0
+                  getproperty QName(PrivateNamespace(null,"100"),"change")
+                  callpropvoid QName(PackageNamespace(""),"add"), 1
+                  getlocal0
+                  getproperty QName(PackageNamespace(""),"shield")
+                  getproperty QName(PackageNamespace(""),"onChange")
+                  getlocal0
+                  getproperty QName(PrivateNamespace(null,"100"),"change")
+                  callpropvoid QName(PackageNamespace(""),"add"), 1
+                  getlocal0
+                  getproperty QName(PackageNamespace(""),"equipment_1")
+                  getproperty QName(PackageNamespace(""),"onChange")
+                  getlocal0
+                  getproperty QName(PrivateNamespace(null,"100"),"change")
+                  callpropvoid QName(PackageNamespace(""),"add"), 1
+                  getlocal0
+                  getproperty QName(PackageNamespace(""),"equipment_2")
+                  getproperty QName(PackageNamespace(""),"onChange")
+                  getlocal0
+                  getproperty QName(PrivateNamespace(null,"100"),"change")
+                  callpropvoid QName(PackageNamespace(""),"add"), 1
+                  getlocal0
+                  callpropvoid QName(PrivateNamespace(null,"100"),"loadData"), 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      private function loadData() : void
+      {
+         trait method QName(PrivateNamespace(null,"100"),"loadData")
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 3
+                  localcount 2
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     pushnull
+                     coerce QName(PackageNamespace("main_game.items"),"Item")
+                     setlocal1
+                     getlex QName(PackageNamespace(""),"main")
+                     getproperty QName(PackageNamespace(""),"saveSystem")
+                     pushbyte 1
+                     callproperty QName(PackageNamespace(""),"loadGearItem"), 1
+                     coerce QName(PackageNamespace("main_game.items"),"Item")
+                     setlocal1
+                     getlocal1
+                     pushnull
+                     ifeq ofs0024
+                     getlocal0
+                     getproperty QName(PackageNamespace(""),"weapon")
+                     getlocal1
+                     callpropvoid QName(PackageNamespace(""),"add"), 1
+            ofs0024:
+                     getlocal0
+                     getproperty QName(PackageNamespace(""),"weapon")
+                     getproperty QName(PackageNamespace(""),"onChange")
+                     getlocal0
+                     pushbyte 1
+                     callproperty QName(PrivateNamespace(null,"100"),"saveSlot"), 1
+                     callpropvoid QName(PackageNamespace(""),"add"), 1
+                     getlex QName(PackageNamespace(""),"main")
+                     getproperty QName(PackageNamespace(""),"saveSystem")
+                     pushbyte 2
+                     callproperty QName(PackageNamespace(""),"loadGearItem"), 1
+                     coerce QName(PackageNamespace("main_game.items"),"Item")
+                     setlocal1
+                     getlocal1
+                     pushnull
+                     ifeq ofs0054
+                     getlocal0
+                     getproperty QName(PackageNamespace(""),"shield")
+                     getlocal1
+                     callpropvoid QName(PackageNamespace(""),"add"), 1
+            ofs0054:
+                     getlocal0
+                     getproperty QName(PackageNamespace(""),"shield")
+                     getproperty QName(PackageNamespace(""),"onChange")
+                     getlocal0
+                     pushbyte 2
+                     callproperty QName(PrivateNamespace(null,"100"),"saveSlot"), 1
+                     callpropvoid QName(PackageNamespace(""),"add"), 1
+                     getlex QName(PackageNamespace(""),"main")
+                     getproperty QName(PackageNamespace(""),"saveSystem")
+                     pushbyte 3
+                     callproperty QName(PackageNamespace(""),"loadGearItem"), 1
+                     coerce QName(PackageNamespace("main_game.items"),"Item")
+                     setlocal1
+                     getlocal1
+                     pushnull
+                     ifeq ofs0084
+                     getlocal0
+                     getproperty QName(PackageNamespace(""),"equipment_1")
+                     getlocal1
+                     callpropvoid QName(PackageNamespace(""),"add"), 1
+            ofs0084:
+                     getlocal0
+                     getproperty QName(PackageNamespace(""),"equipment_1")
+                     getproperty QName(PackageNamespace(""),"onChange")
+                     getlocal0
+                     pushbyte 3
+                     callproperty QName(PrivateNamespace(null,"100"),"saveSlot"), 1
+                     callpropvoid QName(PackageNamespace(""),"add"), 1
+                     getlex QName(PackageNamespace(""),"main")
+                     getproperty QName(PackageNamespace(""),"saveSystem")
+                     pushbyte 4
+                     callproperty QName(PackageNamespace(""),"loadGearItem"), 1
+                     coerce QName(PackageNamespace("main_game.items"),"Item")
+                     setlocal1
+                     getlocal1
+                     pushnull
+                     ifeq ofs00b4
+                     getlocal0
+                     getproperty QName(PackageNamespace(""),"equipment_2")
+                     getlocal1
+                     callpropvoid QName(PackageNamespace(""),"add"), 1
+            ofs00b4:
+                     getlocal0
+                     getproperty QName(PackageNamespace(""),"equipment_2")
+                     getproperty QName(PackageNamespace(""),"onChange")
+                     getlocal0
+                     pushbyte 4
+                     callproperty QName(PrivateNamespace(null,"100"),"saveSlot"), 1
+                     callpropvoid QName(PackageNamespace(""),"add"), 1
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         private function saveSlot(param1:uint) : Function
+         {
+            trait method QName(PrivateNamespace(null,"100"),"saveSlot")
+               dispid 0
+               method
+                  name null
+                  flag NEED_ACTIVATION
+                  param QName(PackageNamespace(""),"uint")
+                  returns QName(PackageNamespace(""),"Function")
+                  
+                  body
+                     maxstack 2
+                     localcount 3
+                     initscopedepth 5
+                     maxscopedepth 7
+                     trait slot QName(PackageInternalNs("main_game.character"),"i")
+                        slotid 1
+                        type QName(PackageNamespace(""),"uint")
+                     end ; trait
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        newactivation
+                        dup
+                        setlocal2
+                        pushscope
+                        getscopeobject 1
+                        getlocal1
+                        setslot 1
+                        newfunction 1682
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            private function change(param1:SlotChange) : void
+            {
+               trait method QName(PrivateNamespace(null,"100"),"change")
+                  dispid 0
+                  method
+                     name null
+                     param QName(PackageNamespace("main_game.item_containers"),"SlotChange")
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 2
+                        localcount 3
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"100"),"fighter")
+                           getproperty QName(PackageNamespace(""),"stats")
+                           callproperty QName(PackageNamespace(""),"getEffectGuardian"), 0
+                           coerce QName(PackageNamespace("main_game.character.stats"),"StatsEffectGuardian")
+                           setlocal2
+                           getlocal2
+                           getlocal1
+                           callproperty QName(PackageNamespace(""),"getOldItem"), 0
+                           callpropvoid QName(PackageNamespace(""),"removeEfectsOfItem"), 1
+                           getlocal2
+                           getlocal1
+                           callproperty QName(PackageNamespace(""),"getNewItem"), 0
+                           callpropvoid QName(PackageNamespace(""),"addEfectsOfItem"), 1
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function lock() : void
+               {
+                  trait method QName(PackageNamespace(""),"lock")
+                     dispid 0
+                     method
+                        name null
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 2
+                           localcount 1
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"100"),"locked")
+                              iffalse ofs000b
+                              returnvoid
+                     ofs000b:
+                              getlocal0
+                              pushtrue
+                              setproperty QName(PrivateNamespace(null,"100"),"locked")
+                              getlocal0
+                              getproperty QName(PackageNamespace(""),"weapon")
+                              callpropvoid QName(PackageNamespace(""),"lock"), 0
+                              getlocal0
+                              getproperty QName(PackageNamespace(""),"shield")
+                              callpropvoid QName(PackageNamespace(""),"lock"), 0
+                              getlocal0
+                              getproperty QName(PackageNamespace(""),"equipment_1")
+                              callpropvoid QName(PackageNamespace(""),"lock"), 0
+                              getlocal0
+                              getproperty QName(PackageNamespace(""),"equipment_2")
+                              callpropvoid QName(PackageNamespace(""),"lock"), 0
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function unlock() : void
+                  {
+                     trait method QName(PackageNamespace(""),"unlock")
+                        dispid 0
+                        method
+                           name null
+                           returns QName(PackageNamespace(""),"void")
+                           
+                           body
+                              maxstack 2
+                              localcount 1
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"100"),"locked")
+                                 iftrue ofs000b
+                                 returnvoid
+                        ofs000b:
+                                 getlocal0
+                                 pushfalse
+                                 setproperty QName(PrivateNamespace(null,"100"),"locked")
+                                 getlocal0
+                                 getproperty QName(PackageNamespace(""),"weapon")
+                                 callpropvoid QName(PackageNamespace(""),"unlock"), 0
+                                 getlocal0
+                                 getproperty QName(PackageNamespace(""),"shield")
+                                 callpropvoid QName(PackageNamespace(""),"unlock"), 0
+                                 getlocal0
+                                 getproperty QName(PackageNamespace(""),"equipment_1")
+                                 callpropvoid QName(PackageNamespace(""),"unlock"), 0
+                                 getlocal0
+                                 getproperty QName(PackageNamespace(""),"equipment_2")
+                                 callpropvoid QName(PackageNamespace(""),"unlock"), 0
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     public function clear() : void
+                     {
+                        trait method QName(PackageNamespace(""),"clear")
+                           dispid 0
+                           method
+                              name null
+                              returns QName(PackageNamespace(""),"void")
+                              
+                              body
+                                 maxstack 2
+                                 localcount 1
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    getlocal0
+                                    getproperty QName(PackageNamespace(""),"equipment_1")
+                                    callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                    getlocal0
+                                    pushnull
+                                    setproperty QName(PackageNamespace(""),"equipment_1")
+                                    getlocal0
+                                    getproperty QName(PackageNamespace(""),"equipment_2")
+                                    callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                    getlocal0
+                                    pushnull
+                                    setproperty QName(PackageNamespace(""),"equipment_2")
+                                    getlocal0
+                                    pushnull
+                                    setproperty QName(PrivateNamespace(null,"100"),"fighter")
+                                    getlocal0
+                                    getproperty QName(PackageNamespace(""),"shield")
+                                    callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                    getlocal0
+                                    pushnull
+                                    setproperty QName(PackageNamespace(""),"shield")
+                                    getlocal0
+                                    getproperty QName(PackageNamespace(""),"weapon")
+                                    callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                    getlocal0
+                                    pushnull
+                                    setproperty QName(PackageNamespace(""),"weapon")
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                     }
+                  }
+                  
+                  method
+                     name null
+                     returns null
+                     
+                     body
+                        maxstack 2
+                        localcount 1
+                        initscopedepth 1
+                        maxscopedepth 3
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           findpropstrict Multiname("Gear",[PackageNamespace("main_game.character")])
+                           getlex QName(PackageNamespace(""),"Object")
+                           pushscope
+                           getlex QName(PackageNamespace(""),"Object")
+                           newclass 175
+                           popscope
+                           initproperty QName(PackageNamespace("main_game.character"),"Gear")
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+                  

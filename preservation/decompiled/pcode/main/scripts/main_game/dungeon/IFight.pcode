@@ -1,0 +1,74 @@
+package main_game.dungeon
+{
+   import cb.signals.Signal;
+   import main_game.character.Enemy;
+   
+   public interface IFight
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 0
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 3
+            
+            code
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      function getEnemy() : Enemy;
+      
+      function leave(param1:Function) : void;
+      
+      function fight() : void;
+      
+      function start() : void;
+      
+      function suddenDeath() : void;
+      
+      function deactivate() : void;
+      
+      function clear() : void;
+      
+      function isFirst() : Boolean;
+      
+      function get onEnter() : Signal;
+      
+      function get onExit() : Signal;
+      
+      function get onHit() : Signal;
+      
+      function get onLose() : Signal;
+      
+      function get onWin() : Signal;
+   }
+}
+
+method
+   name null
+   returns null
+   
+   body
+      maxstack 2
+      localcount 1
+      initscopedepth 1
+      maxscopedepth 2
+      
+      code
+         getlocal0
+         pushscope
+         findpropstrict Multiname("IFight",[PackageNamespace("main_game.dungeon")])
+         pushnull
+         newclass 176
+         initproperty QName(PackageNamespace("main_game.dungeon"),"IFight")
+         returnvoid
+      end ; code
+   end ; body
+end ; method
+

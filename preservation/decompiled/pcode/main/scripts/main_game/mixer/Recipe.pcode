@@ -1,0 +1,332 @@
+package main_game.mixer
+{
+   import main_game.items.Item;
+   
+   public class Recipe
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var id:int;
+      
+      private var i1:String;
+      
+      private var i2:String;
+      
+      private var res:String;
+      
+      private var show:Boolean;
+      
+      public function Recipe(param1:int, param2:String, param3:String, param4:String, param5:Boolean)
+      {
+         method
+            name null
+            param QName(PackageNamespace(""),"int")
+            param QName(PackageNamespace(""),"String")
+            param QName(PackageNamespace(""),"String")
+            param QName(PackageNamespace(""),"String")
+            param QName(PackageNamespace(""),"Boolean")
+            returns null
+            
+            body
+               maxstack 2
+               localcount 6
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlocal1
+                  initproperty QName(PrivateNamespace(null,"74"),"id")
+                  getlocal0
+                  getlocal2
+                  initproperty QName(PrivateNamespace(null,"74"),"i1")
+                  getlocal0
+                  getlocal3
+                  initproperty QName(PrivateNamespace(null,"74"),"i2")
+                  getlocal0
+                  getlocal 4
+                  initproperty QName(PrivateNamespace(null,"74"),"res")
+                  getlocal0
+                  getlocal 5
+                  initproperty QName(PrivateNamespace(null,"74"),"show")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function getId() : int
+      {
+         trait method QName(PackageNamespace(""),"getId")
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace(""),"int")
+               
+               body
+                  maxstack 1
+                  localcount 1
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"74"),"id")
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function get mustShow() : Boolean
+         {
+            trait getter QName(PackageNamespace(""),"mustShow")
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace(""),"Boolean")
+                  
+                  body
+                     maxstack 1
+                     localcount 1
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"74"),"show")
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function areIngredients(param1:Item, param2:Item, param3:Boolean = false) : Boolean
+            {
+               trait method QName(PackageNamespace(""),"areIngredients")
+                  dispid 0
+                  method
+                     name null
+                     flag HAS_OPTIONAL
+                     param QName(PackageNamespace("main_game.items"),"Item")
+                     param QName(PackageNamespace("main_game.items"),"Item")
+                     param QName(PackageNamespace(""),"Boolean")
+                     optional False()
+                     returns QName(PackageNamespace(""),"Boolean")
+                     
+                     body
+                        maxstack 2
+                        localcount 6
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlex QName(PackageNamespace("main_game.mixer"),"MixStrategy")
+                           getlocal1
+                           callproperty QName(PackageNamespace(""),"getID"), 0
+                           callproperty QName(PackageNamespace(""),"removeMix"), 1
+                           coerce_s
+                           setlocal 4
+                           getlex QName(PackageNamespace("main_game.mixer"),"MixStrategy")
+                           getlocal2
+                           callproperty QName(PackageNamespace(""),"getID"), 0
+                           callproperty QName(PackageNamespace(""),"removeMix"), 1
+                           coerce_s
+                           setlocal 5
+                           getlocal 4
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"74"),"i1")
+                           equals
+                           dup
+                           iffalse ofs0034
+                           pop
+                           getlocal 5
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"74"),"i2")
+                           equals
+                  ofs0034:
+                           dup
+                           iftrue ofs0056
+                           pop
+                           getlocal3
+                           not
+                           dup
+                           iffalse ofs0049
+                           pop
+                           getlocal 5
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"74"),"i1")
+                           equals
+                  ofs0049:
+                           dup
+                           iffalse ofs0056
+                           pop
+                           getlocal 4
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"74"),"i2")
+                           equals
+                  ofs0056:
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function isResult(param1:Item) : Boolean
+               {
+                  trait method QName(PackageNamespace(""),"isResult")
+                     dispid 0
+                     method
+                        name null
+                        param QName(PackageNamespace("main_game.items"),"Item")
+                        returns QName(PackageNamespace(""),"Boolean")
+                        
+                        body
+                           maxstack 2
+                           localcount 2
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal1
+                              callproperty QName(PackageNamespace(""),"getID"), 0
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"74"),"res")
+                              equals
+                              returnvalue
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function get primary() : String
+                  {
+                     trait getter QName(PackageNamespace(""),"primary")
+                        dispid 0
+                        method
+                           name null
+                           returns QName(PackageNamespace(""),"String")
+                           
+                           body
+                              maxstack 1
+                              localcount 1
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"74"),"i1")
+                                 returnvalue
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     public function get secondary() : String
+                     {
+                        trait getter QName(PackageNamespace(""),"secondary")
+                           dispid 0
+                           method
+                              name null
+                              returns QName(PackageNamespace(""),"String")
+                              
+                              body
+                                 maxstack 1
+                                 localcount 1
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"74"),"i2")
+                                    returnvalue
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        public function get result() : String
+                        {
+                           trait getter QName(PackageNamespace(""),"result")
+                              dispid 0
+                              method
+                                 name null
+                                 returns QName(PackageNamespace(""),"String")
+                                 
+                                 body
+                                    maxstack 1
+                                    localcount 1
+                                    initscopedepth 4
+                                    maxscopedepth 5
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"74"),"res")
+                                       returnvalue
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                        }
+                     }
+                     
+                     method
+                        name null
+                        returns null
+                        
+                        body
+                           maxstack 2
+                           localcount 1
+                           initscopedepth 1
+                           maxscopedepth 3
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              findpropstrict Multiname("Recipe",[PackageNamespace("main_game.mixer")])
+                              getlex QName(PackageNamespace(""),"Object")
+                              pushscope
+                              getlex QName(PackageNamespace(""),"Object")
+                              newclass 121
+                              popscope
+                              initproperty QName(PackageNamespace("main_game.mixer"),"Recipe")
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                     

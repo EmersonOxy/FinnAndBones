@@ -1,0 +1,91 @@
+package bonus.errors
+{
+   public class WaitingForConstantError extends Error
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 4
+            maxscopedepth 5
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function WaitingForConstantError(param1:String, param2:String, param3:int)
+      {
+         method
+            name null
+            param QName(PackageNamespace(""),"String")
+            param QName(PackageNamespace(""),"String")
+            param QName(PackageNamespace(""),"int")
+            returns null
+            
+            body
+               maxstack 3
+               localcount 4
+               initscopedepth 5
+               maxscopedepth 6
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  getlocal1
+                  pushstring ":"
+                  add
+                  getlocal3
+                  add
+                  pushstring ": Expected Constant. "
+                  add
+                  getlocal2
+                  add
+                  pushstring "."
+                  add
+                  pushbyte 1
+                  constructsuper 2
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+   }
+}
+
+method
+   name null
+   returns null
+   
+   body
+      maxstack 2
+      localcount 1
+      initscopedepth 1
+      maxscopedepth 4
+      
+      code
+         getlocal0
+         pushscope
+         findpropstrict Multiname("WaitingForConstantError",[PackageNamespace("bonus.errors")])
+         getlex QName(PackageNamespace(""),"Object")
+         pushscope
+         getlex QName(PackageNamespace(""),"Error")
+         pushscope
+         getlex QName(PackageNamespace(""),"Error")
+         newclass 291
+         popscope
+         popscope
+         initproperty QName(PackageNamespace("bonus.errors"),"WaitingForConstantError")
+         returnvoid
+      end ; code
+   end ; body
+end ; method
+

@@ -1,0 +1,652 @@
+package tutorial
+{
+   import aplication.BasicState;
+   import aplication.FSM;
+   import aplication.State;
+   import tutorial.steps.ConsumePotionStep;
+   import tutorial.steps.FirstTutorialStep;
+   import tutorial.steps.MixInformationStep;
+   import tutorial.steps.MixTutorialStep;
+   import tutorial.steps.StatTutorialStep;
+   import tutorial.steps.TakeAllStep;
+   import view.screens.main_game.inventory.MixerView;
+   
+   public class Tutorial
+   {
+      
+      private static const NEXT:String = "next";
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(PrivateNamespace(null,"9"),"NEXT")
+               pushstring "next"
+               initproperty QName(PrivateNamespace(null,"9"),"NEXT")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var fsm:FSM;
+      
+      private var mixKnown:Boolean;
+      
+      public function Tutorial()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 4
+               localcount 1
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  callpropvoid QName(PrivateNamespace(null,"9"),"initializeFSM"), 0
+                  getlocal0
+                  getproperty QName(PrivateNamespace(null,"9"),"fsm")
+                  pushstring "init"
+                  getlex QName(PackageNamespace(""),"main")
+                  getproperty QName(PackageNamespace(""),"saveSystem")
+                  callproperty QName(PackageNamespace(""),"tutorialStepCompleted"), 0
+                  pushbyte 1
+                  add
+                  callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"toString"), 0
+                  getlex QName(PrivateNamespace(null,"9"),"NEXT")
+                  callpropvoid QName(PackageNamespace(""),"addTransition"), 3
+                  getlocal0
+                  getproperty QName(PrivateNamespace(null,"9"),"fsm")
+                  callpropvoid QName(PackageNamespace(""),"start"), 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      private function initializeFSM() : void
+      {
+         trait method QName(PrivateNamespace(null,"9"),"initializeFSM")
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 4
+                  localcount 2
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     findpropstrict QName(PackageNamespace("aplication"),"BasicState")
+                     pushstring "init"
+                     pushnull
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"9"),"startTutorial")
+                     constructprop QName(PackageNamespace("aplication"),"BasicState"), 3
+                     coerce QName(PackageNamespace("aplication"),"State")
+                     setlocal1
+                     getlocal0
+                     findpropstrict QName(PackageNamespace("aplication"),"FSM")
+                     getlocal1
+                     constructprop QName(PackageNamespace("aplication"),"FSM"), 1
+                     setproperty QName(PrivateNamespace(null,"9"),"fsm")
+                     findpropstrict QName(PackageNamespace("tutorial.steps"),"FirstTutorialStep")
+                     pushbyte 1
+                     getlocal0
+                     constructprop QName(PackageNamespace("tutorial.steps"),"FirstTutorialStep"), 2
+                     coerce QName(PackageNamespace("aplication"),"State")
+                     setlocal1
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"9"),"fsm")
+                     getlocal1
+                     callpropvoid QName(PackageNamespace(""),"addState"), 1
+                     findpropstrict QName(PackageNamespace("tutorial.steps"),"StatTutorialStep")
+                     pushbyte 2
+                     getlocal0
+                     constructprop QName(PackageNamespace("tutorial.steps"),"StatTutorialStep"), 2
+                     coerce QName(PackageNamespace("aplication"),"State")
+                     setlocal1
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"9"),"fsm")
+                     getlocal1
+                     callpropvoid QName(PackageNamespace(""),"addState"), 1
+                     findpropstrict QName(PackageNamespace("tutorial.steps"),"ConsumePotionStep")
+                     pushbyte 3
+                     getlocal0
+                     constructprop QName(PackageNamespace("tutorial.steps"),"ConsumePotionStep"), 2
+                     coerce QName(PackageNamespace("aplication"),"State")
+                     setlocal1
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"9"),"fsm")
+                     getlocal1
+                     callpropvoid QName(PackageNamespace(""),"addState"), 1
+                     findpropstrict QName(PackageNamespace("tutorial.steps"),"TakeAllStep")
+                     pushbyte 4
+                     getlocal0
+                     constructprop QName(PackageNamespace("tutorial.steps"),"TakeAllStep"), 2
+                     coerce QName(PackageNamespace("aplication"),"State")
+                     setlocal1
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"9"),"fsm")
+                     getlocal1
+                     callpropvoid QName(PackageNamespace(""),"addState"), 1
+                     findpropstrict QName(PackageNamespace("tutorial.steps"),"MixInformationStep")
+                     pushbyte 5
+                     getlocal0
+                     constructprop QName(PackageNamespace("tutorial.steps"),"MixInformationStep"), 2
+                     coerce QName(PackageNamespace("aplication"),"State")
+                     setlocal1
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"9"),"fsm")
+                     getlocal1
+                     callpropvoid QName(PackageNamespace(""),"addState"), 1
+                     findpropstrict QName(PackageNamespace("tutorial.steps"),"MixTutorialStep")
+                     pushbyte 6
+                     getlocal0
+                     constructprop QName(PackageNamespace("tutorial.steps"),"MixTutorialStep"), 2
+                     coerce QName(PackageNamespace("aplication"),"State")
+                     setlocal1
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"9"),"fsm")
+                     getlocal1
+                     callpropvoid QName(PackageNamespace(""),"addState"), 1
+                     findpropstrict QName(PackageNamespace("aplication"),"BasicState")
+                     pushstring "7"
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"9"),"endTutorial")
+                     constructprop QName(PackageNamespace("aplication"),"BasicState"), 2
+                     coerce QName(PackageNamespace("aplication"),"State")
+                     setlocal1
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"9"),"fsm")
+                     getlocal1
+                     callpropvoid QName(PackageNamespace(""),"addState"), 1
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"9"),"fsm")
+                     pushstring "1"
+                     pushstring "2"
+                     getlex QName(PrivateNamespace(null,"9"),"NEXT")
+                     callpropvoid QName(PackageNamespace(""),"addTransition"), 3
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"9"),"fsm")
+                     pushstring "2"
+                     pushstring "3"
+                     getlex QName(PrivateNamespace(null,"9"),"NEXT")
+                     callpropvoid QName(PackageNamespace(""),"addTransition"), 3
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"9"),"fsm")
+                     pushstring "3"
+                     pushstring "4"
+                     getlex QName(PrivateNamespace(null,"9"),"NEXT")
+                     callpropvoid QName(PackageNamespace(""),"addTransition"), 3
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"9"),"fsm")
+                     pushstring "4"
+                     pushstring "5"
+                     getlex QName(PrivateNamespace(null,"9"),"NEXT")
+                     callpropvoid QName(PackageNamespace(""),"addTransition"), 3
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"9"),"fsm")
+                     pushstring "5"
+                     pushstring "6"
+                     getlex QName(PrivateNamespace(null,"9"),"NEXT")
+                     callpropvoid QName(PackageNamespace(""),"addTransition"), 3
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"9"),"fsm")
+                     pushstring "6"
+                     pushstring "7"
+                     getlex QName(PrivateNamespace(null,"9"),"NEXT")
+                     callpropvoid QName(PackageNamespace(""),"addTransition"), 3
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         private function startTutorial() : void
+         {
+            trait method QName(PrivateNamespace(null,"9"),"startTutorial")
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 2
+                     localcount 2
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        pushfalse
+                        setproperty QName(PrivateNamespace(null,"9"),"mixKnown")
+                        getlex QName(PackageNamespace(""),"main")
+                        getproperty QName(PackageNamespace(""),"saveSystem")
+                        callproperty QName(PackageNamespace(""),"tutorialStepCompleted"), 0
+                        convert_i
+                        setlocal1
+                        getlocal1
+                        pushbyte 3
+                        ifnlt ofs001f
+                        getlocal0
+                        callpropvoid QName(PrivateNamespace(null,"9"),"lockPotions"), 0
+               ofs001f:
+                        getlocal1
+                        pushbyte 5
+                        ifnlt ofs002b
+                        getlocal0
+                        callpropvoid QName(PrivateNamespace(null,"9"),"disableMix"), 0
+               ofs002b:
+                        getlocal1
+                        pushbyte 6
+                        ifnlt ofs0037
+                        getlocal0
+                        callpropvoid QName(PrivateNamespace(null,"9"),"lockTrash"), 0
+               ofs0037:
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function isMixKnown() : Boolean
+            {
+               trait method QName(PackageNamespace(""),"isMixKnown")
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace(""),"Boolean")
+                     
+                     body
+                        maxstack 1
+                        localcount 1
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"9"),"mixKnown")
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               private function lockTrash() : void
+               {
+                  trait method QName(PrivateNamespace(null,"9"),"lockTrash")
+                     dispid 0
+                     method
+                        name null
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 1
+                           localcount 1
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlex QName(PackageNamespace(""),"main")
+                              getproperty QName(PackageNamespace(""),"game")
+                              callproperty QName(PackageNamespace(""),"getInventory"), 0
+                              callproperty QName(PackageNamespace(""),"getTrash"), 0
+                              callpropvoid QName(PackageNamespace(""),"lock"), 0
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function unlockTrash() : void
+                  {
+                     trait method QName(PackageNamespace(""),"unlockTrash")
+                        dispid 0
+                        method
+                           name null
+                           returns QName(PackageNamespace(""),"void")
+                           
+                           body
+                              maxstack 1
+                              localcount 1
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlex QName(PackageNamespace(""),"main")
+                                 getproperty QName(PackageNamespace(""),"game")
+                                 callproperty QName(PackageNamespace(""),"getInventory"), 0
+                                 callproperty QName(PackageNamespace(""),"getTrash"), 0
+                                 callpropvoid QName(PackageNamespace(""),"unlock"), 0
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     private function get mixerView() : MixerView
+                     {
+                        trait getter QName(PrivateNamespace(null,"9"),"mixerView")
+                           dispid 0
+                           method
+                              name null
+                              returns QName(PackageNamespace("view.screens.main_game.inventory"),"MixerView")
+                              
+                              body
+                                 maxstack 1
+                                 localcount 1
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    getlex QName(PackageNamespace(""),"main")
+                                    getproperty QName(PackageNamespace(""),"gameHolder")
+                                    getproperty Multiname("gameView",[PrivateNamespace(null,"9"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"176"),PackageNamespace("tutorial"),PackageInternalNs("tutorial"),ProtectedNamespace("tutorial:Tutorial"),StaticProtectedNs("tutorial:Tutorial")])
+                                    getproperty Multiname("mixing",[PrivateNamespace(null,"9"),PackageNamespace(""),Namespace("http://adobe.com/AS3/2006/builtin"),PrivateNamespace(null,"176"),PackageNamespace("tutorial"),PackageInternalNs("tutorial"),ProtectedNamespace("tutorial:Tutorial"),StaticProtectedNs("tutorial:Tutorial")])
+                                    returnvalue
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        public function enableMix() : void
+                        {
+                           trait method QName(PackageNamespace(""),"enableMix")
+                              dispid 0
+                              method
+                                 name null
+                                 returns QName(PackageNamespace(""),"void")
+                                 
+                                 body
+                                    maxstack 2
+                                    localcount 1
+                                    initscopedepth 4
+                                    maxscopedepth 5
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       getlocal0
+                                       pushtrue
+                                       setproperty QName(PrivateNamespace(null,"9"),"mixKnown")
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"9"),"mixerView")
+                                       callpropvoid QName(PackageNamespace(""),"enable"), 0
+                                       returnvoid
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           private function disableMix() : void
+                           {
+                              trait method QName(PrivateNamespace(null,"9"),"disableMix")
+                                 dispid 0
+                                 method
+                                    name null
+                                    returns QName(PackageNamespace(""),"void")
+                                    
+                                    body
+                                       maxstack 1
+                                       localcount 1
+                                       initscopedepth 4
+                                       maxscopedepth 5
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"9"),"mixerView")
+                                          callpropvoid QName(PackageNamespace(""),"disable"), 0
+                                          returnvoid
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                              
+                              private function lockPotions() : void
+                              {
+                                 trait method QName(PrivateNamespace(null,"9"),"lockPotions")
+                                    dispid 0
+                                    method
+                                       name null
+                                       returns QName(PackageNamespace(""),"void")
+                                       
+                                       body
+                                          maxstack 2
+                                          localcount 1
+                                          initscopedepth 4
+                                          maxscopedepth 5
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             getlex QName(PackageNamespace(""),"main")
+                                             getproperty QName(PackageNamespace(""),"game")
+                                             callproperty QName(PackageNamespace(""),"getFinn"), 0
+                                             getproperty QName(PackageNamespace(""),"liver")
+                                             getproperty QName(PackageNamespace(""),"onLock")
+                                             getlocal0
+                                             getproperty QName(PrivateNamespace(null,"9"),"lockLiver")
+                                             callpropvoid QName(PackageNamespace(""),"add"), 1
+                                             getlocal0
+                                             callpropvoid QName(PrivateNamespace(null,"9"),"lockLiver"), 0
+                                             returnvoid
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                 }
+                                 
+                                 private function lockLiver(param1:Boolean = false) : void
+                                 {
+                                    trait method QName(PrivateNamespace(null,"9"),"lockLiver")
+                                       dispid 0
+                                       method
+                                          name null
+                                          flag HAS_OPTIONAL
+                                          param QName(PackageNamespace(""),"Boolean")
+                                          optional False()
+                                          returns QName(PackageNamespace(""),"void")
+                                          
+                                          body
+                                             maxstack 1
+                                             localcount 2
+                                             initscopedepth 4
+                                             maxscopedepth 5
+                                             
+                                             code
+                                                getlocal0
+                                                pushscope
+                                                getlocal1
+                                                iftrue ofs0018
+                                                getlex QName(PackageNamespace(""),"main")
+                                                getproperty QName(PackageNamespace(""),"game")
+                                                callproperty QName(PackageNamespace(""),"getFinn"), 0
+                                                getproperty QName(PackageNamespace(""),"liver")
+                                                callpropvoid QName(PackageNamespace(""),"lock"), 0
+                                       ofs0018:
+                                                returnvoid
+                                             end ; code
+                                          end ; body
+                                       end ; method
+                                    }
+                                    
+                                    public function unlockPotions() : void
+                                    {
+                                       trait method QName(PackageNamespace(""),"unlockPotions")
+                                          dispid 0
+                                          method
+                                             name null
+                                             returns QName(PackageNamespace(""),"void")
+                                             
+                                             body
+                                                maxstack 2
+                                                localcount 1
+                                                initscopedepth 4
+                                                maxscopedepth 5
+                                                
+                                                code
+                                                   getlocal0
+                                                   pushscope
+                                                   getlex QName(PackageNamespace(""),"main")
+                                                   getproperty QName(PackageNamespace(""),"game")
+                                                   callproperty QName(PackageNamespace(""),"getFinn"), 0
+                                                   getproperty QName(PackageNamespace(""),"liver")
+                                                   getproperty QName(PackageNamespace(""),"onLock")
+                                                   getlocal0
+                                                   getproperty QName(PrivateNamespace(null,"9"),"lockLiver")
+                                                   callpropvoid QName(PackageNamespace(""),"remove"), 1
+                                                   getlex QName(PackageNamespace(""),"main")
+                                                   getproperty QName(PackageNamespace(""),"game")
+                                                   callproperty QName(PackageNamespace(""),"getFinn"), 0
+                                                   getproperty QName(PackageNamespace(""),"liver")
+                                                   callpropvoid QName(PackageNamespace(""),"unlock"), 0
+                                                   returnvoid
+                                                end ; code
+                                             end ; body
+                                          end ; method
+                                       }
+                                       
+                                       public function next() : void
+                                       {
+                                          trait method QName(PackageNamespace(""),"next")
+                                             dispid 0
+                                             method
+                                                name null
+                                                returns QName(PackageNamespace(""),"void")
+                                                
+                                                body
+                                                   maxstack 2
+                                                   localcount 1
+                                                   initscopedepth 4
+                                                   maxscopedepth 5
+                                                   
+                                                   code
+                                                      getlocal0
+                                                      pushscope
+                                                      getlocal0
+                                                      getproperty QName(PrivateNamespace(null,"9"),"fsm")
+                                                      getlex QName(PrivateNamespace(null,"9"),"NEXT")
+                                                      callpropvoid QName(PackageNamespace(""),"takeTransition"), 1
+                                                      returnvoid
+                                                   end ; code
+                                                end ; body
+                                             end ; method
+                                          }
+                                          
+                                          private function endTutorial() : void
+                                          {
+                                             trait method QName(PrivateNamespace(null,"9"),"endTutorial")
+                                                dispid 0
+                                                method
+                                                   name null
+                                                   returns QName(PackageNamespace(""),"void")
+                                                   
+                                                   body
+                                                      maxstack 1
+                                                      localcount 1
+                                                      initscopedepth 4
+                                                      maxscopedepth 5
+                                                      
+                                                      code
+                                                         getlocal0
+                                                         pushscope
+                                                         getlocal0
+                                                         callpropvoid QName(PackageNamespace(""),"unlockTrash"), 0
+                                                         getlocal0
+                                                         callpropvoid QName(PackageNamespace(""),"enableMix"), 0
+                                                         getlex QName(PackageNamespace(""),"main")
+                                                         getproperty QName(PackageNamespace(""),"game")
+                                                         callproperty QName(PackageNamespace(""),"getBubblegum"), 0
+                                                         callproperty QName(PackageNamespace(""),"getLocker"), 0
+                                                         callpropvoid QName(PackageNamespace(""),"unlock"), 0
+                                                         returnvoid
+                                                      end ; code
+                                                   end ; body
+                                                end ; method
+                                             }
+                                             
+                                             public function clear() : void
+                                             {
+                                                trait method QName(PackageNamespace(""),"clear")
+                                                   dispid 0
+                                                   method
+                                                      name null
+                                                      returns QName(PackageNamespace(""),"void")
+                                                      
+                                                      body
+                                                         maxstack 1
+                                                         localcount 1
+                                                         initscopedepth 4
+                                                         maxscopedepth 5
+                                                         
+                                                         code
+                                                            getlocal0
+                                                            pushscope
+                                                            getlocal0
+                                                            getproperty QName(PrivateNamespace(null,"9"),"fsm")
+                                                            callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                                            returnvoid
+                                                         end ; code
+                                                      end ; body
+                                                   end ; method
+                                                }
+                                             }
+                                          }
+                                          
+                                          method
+                                             name null
+                                             returns null
+                                             
+                                             body
+                                                maxstack 2
+                                                localcount 1
+                                                initscopedepth 1
+                                                maxscopedepth 3
+                                                
+                                                code
+                                                   getlocal0
+                                                   pushscope
+                                                   findpropstrict Multiname("Tutorial",[PackageNamespace("tutorial")])
+                                                   getlex QName(PackageNamespace(""),"Object")
+                                                   pushscope
+                                                   getlex QName(PackageNamespace(""),"Object")
+                                                   newclass 2
+                                                   popscope
+                                                   initproperty QName(PackageNamespace("tutorial"),"Tutorial")
+                                                   returnvoid
+                                                end ; code
+                                             end ; body
+                                          end ; method
+                                          

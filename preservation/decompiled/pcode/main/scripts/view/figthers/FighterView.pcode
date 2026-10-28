@@ -1,0 +1,605 @@
+package view.figthers
+{
+   import flash.display.DisplayObjectContainer;
+   import flash.display.MovieClip;
+   import main_game.character.Fighter;
+   import main_game.dungeon.Damage;
+   import sound.FighterSoundManager;
+   import util.Util;
+   import view.figthers.animations.HitAnimation;
+   import view.figthers.animations.IFighterAnimation;
+   import view.figthers.animations.IdleAnimation;
+   import view.figthers.animations.NoneAnimation;
+   
+   public class FighterView
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      protected var fighter:Fighter;
+      
+      private var currentAnimation:IFighterAnimation;
+      
+      private var nextAnimation:IFighterAnimation;
+      
+      protected var soundManager:FighterSoundManager;
+      
+      public function FighterView(param1:Fighter)
+      {
+         method
+            name null
+            param QName(PackageNamespace("main_game.character"),"Fighter")
+            returns null
+            
+            body
+               maxstack 2
+               localcount 2
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlocal1
+                  initproperty QName(ProtectedNamespace("view.figthers:FighterView"),"fighter")
+                  getlocal0
+                  callpropvoid QName(ProtectedNamespace("view.figthers:FighterView"),"setSoundManager"), 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function getFighter() : Fighter
+      {
+         trait method QName(PackageNamespace(""),"getFighter")
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace("main_game.character"),"Fighter")
+               
+               body
+                  maxstack 1
+                  localcount 1
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     getproperty QName(ProtectedNamespace("view.figthers:FighterView"),"fighter")
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         protected function setSoundManager() : void
+         {
+            trait method QName(ProtectedNamespace("view.figthers:FighterView"),"setSoundManager")
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 2
+                     localcount 1
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        findpropstrict QName(PackageNamespace(""),"Error")
+                        pushstring "Abstract Class"
+                        constructprop QName(PackageNamespace(""),"Error"), 1
+                        throw
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function get fighterSoundManager() : FighterSoundManager
+            {
+               trait getter QName(PackageNamespace(""),"fighterSoundManager")
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace("sound"),"FighterSoundManager")
+                     
+                     body
+                        maxstack 1
+                        localcount 1
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getproperty QName(ProtectedNamespace("view.figthers:FighterView"),"soundManager")
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function animate(param1:IFighterAnimation) : void
+               {
+                  trait method QName(PackageNamespace(""),"animate")
+                     dispid 0
+                     method
+                        name null
+                        param QName(PackageNamespace("view.figthers.animations"),"IFighterAnimation")
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 2
+                           localcount 2
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal0
+                              getlocal1
+                              initproperty QName(PrivateNamespace(null,"56"),"nextAnimation")
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"56"),"currentAnimation")
+                              pushnull
+                              ifne ofs001a
+                              getlocal0
+                              pushnull
+                              callpropvoid QName(ProtectedNamespace("view.figthers:FighterView"),"endCurrentAnimation"), 1
+                              jump ofs0037
+                     ofs001a:
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"56"),"nextAnimation")
+                              callproperty QName(Namespace("view.figthers.animations:IFighterAnimation"),"forceKill"), 0
+                              iffalse ofs0037
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"56"),"currentAnimation")
+                              callpropvoid QName(Namespace("view.figthers.animations:IFighterAnimation"),"kill"), 0
+                              getlocal0
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"56"),"currentAnimation")
+                              callpropvoid QName(ProtectedNamespace("view.figthers:FighterView"),"endCurrentAnimation"), 1
+                     ofs0037:
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  protected function endCurrentAnimation(param1:IFighterAnimation) : void
+                  {
+                     trait method QName(ProtectedNamespace("view.figthers:FighterView"),"endCurrentAnimation")
+                        dispid 0
+                        method
+                           name null
+                           param QName(PackageNamespace("view.figthers.animations"),"IFighterAnimation")
+                           returns QName(PackageNamespace(""),"void")
+                           
+                           body
+                              maxstack 2
+                              localcount 2
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"56"),"nextAnimation")
+                                 pushnull
+                                 ifne ofs002e
+                                 getlocal1
+                                 callproperty QName(Namespace("view.figthers.animations:IFighterAnimation"),"mustGoToIdle"), 0
+                                 iffalse ofs0023
+                                 getlocal0
+                                 findpropstrict QName(PackageNamespace("view.figthers.animations"),"IdleAnimation")
+                                 constructprop QName(PackageNamespace("view.figthers.animations"),"IdleAnimation"), 0
+                                 initproperty QName(PrivateNamespace(null,"56"),"nextAnimation")
+                                 jump ofs002e
+                        ofs0023:
+                                 getlocal0
+                                 findpropstrict QName(PackageNamespace("view.figthers.animations"),"NoneAnimation")
+                                 constructprop QName(PackageNamespace("view.figthers.animations"),"NoneAnimation"), 0
+                                 initproperty QName(PrivateNamespace(null,"56"),"nextAnimation")
+                        ofs002e:
+                                 getlocal0
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"56"),"nextAnimation")
+                                 initproperty QName(PrivateNamespace(null,"56"),"currentAnimation")
+                                 getlocal0
+                                 pushnull
+                                 initproperty QName(PrivateNamespace(null,"56"),"nextAnimation")
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"56"),"currentAnimation")
+                                 callproperty QName(Namespace("view.figthers.animations:IFighterAnimation"),"getAtFinish"), 0
+                                 getlocal0
+                                 getproperty QName(ProtectedNamespace("view.figthers:FighterView"),"endCurrentAnimation")
+                                 callpropvoid QName(PackageNamespace(""),"addAtFirst"), 1
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"56"),"currentAnimation")
+                                 getlocal0
+                                 callpropvoid QName(Namespace("view.figthers.animations:IFighterAnimation"),"make"), 1
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     public function pause() : void
+                     {
+                        trait method QName(PackageNamespace(""),"pause")
+                           dispid 0
+                           method
+                              name null
+                              returns QName(PackageNamespace(""),"void")
+                              
+                              body
+                                 maxstack 1
+                                 localcount 1
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"56"),"currentAnimation")
+                                    callpropvoid QName(Namespace("view.figthers.animations:IFighterAnimation"),"pause"), 0
+                                    getlocal0
+                                    getproperty QName(ProtectedNamespace("view.figthers:FighterView"),"soundManager")
+                                    callpropvoid QName(PackageNamespace(""),"pause"), 0
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        public function resume() : void
+                        {
+                           trait method QName(PackageNamespace(""),"resume")
+                              dispid 0
+                              method
+                                 name null
+                                 returns QName(PackageNamespace(""),"void")
+                                 
+                                 body
+                                    maxstack 1
+                                    localcount 1
+                                    initscopedepth 4
+                                    maxscopedepth 5
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"56"),"currentAnimation")
+                                       callpropvoid QName(Namespace("view.figthers.animations:IFighterAnimation"),"resume"), 0
+                                       getlocal0
+                                       getproperty QName(ProtectedNamespace("view.figthers:FighterView"),"soundManager")
+                                       callpropvoid QName(PackageNamespace(""),"resume"), 0
+                                       returnvoid
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           public function clear() : void
+                           {
+                              trait method QName(PackageNamespace(""),"clear")
+                                 dispid 0
+                                 method
+                                    name null
+                                    returns QName(PackageNamespace(""),"void")
+                                    
+                                    body
+                                       maxstack 2
+                                       localcount 1
+                                       initscopedepth 4
+                                       maxscopedepth 5
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"56"),"currentAnimation")
+                                          callpropvoid QName(Namespace("view.figthers.animations:IFighterAnimation"),"kill"), 0
+                                          getlocal0
+                                          pushnull
+                                          initproperty QName(PrivateNamespace(null,"56"),"currentAnimation")
+                                          returnvoid
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                              
+                              public function playAnimation(param1:IFighterAnimation) : void
+                              {
+                                 trait method QName(PackageNamespace(""),"playAnimation")
+                                    dispid 0
+                                    method
+                                       name null
+                                       param QName(PackageNamespace("view.figthers.animations"),"IFighterAnimation")
+                                       returns QName(PackageNamespace(""),"void")
+                                       
+                                       body
+                                          maxstack 1
+                                          localcount 2
+                                          initscopedepth 4
+                                          maxscopedepth 5
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             returnvoid
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                 }
+                                 
+                                 public function set x(param1:Number) : void
+                                 {
+                                    trait setter QName(PackageNamespace(""),"x")
+                                       dispid 0
+                                       method
+                                          name null
+                                          param QName(PackageNamespace(""),"Number")
+                                          returns QName(PackageNamespace(""),"void")
+                                          
+                                          body
+                                             maxstack 1
+                                             localcount 2
+                                             initscopedepth 4
+                                             maxscopedepth 5
+                                             
+                                             code
+                                                getlocal0
+                                                pushscope
+                                                returnvoid
+                                             end ; code
+                                          end ; body
+                                       end ; method
+                                    }
+                                    
+                                    public function get x() : Number
+                                    {
+                                       trait getter QName(PackageNamespace(""),"x")
+                                          dispid 0
+                                          method
+                                             name null
+                                             returns QName(PackageNamespace(""),"Number")
+                                             
+                                             body
+                                                maxstack 1
+                                                localcount 1
+                                                initscopedepth 4
+                                                maxscopedepth 5
+                                                
+                                                code
+                                                   getlocal0
+                                                   pushscope
+                                                   pushbyte 0
+                                                   returnvalue
+                                                end ; code
+                                             end ; body
+                                          end ; method
+                                       }
+                                       
+                                       public function set y(param1:Number) : void
+                                       {
+                                          trait setter QName(PackageNamespace(""),"y")
+                                             dispid 0
+                                             method
+                                                name null
+                                                param QName(PackageNamespace(""),"Number")
+                                                returns QName(PackageNamespace(""),"void")
+                                                
+                                                body
+                                                   maxstack 1
+                                                   localcount 2
+                                                   initscopedepth 4
+                                                   maxscopedepth 5
+                                                   
+                                                   code
+                                                      getlocal0
+                                                      pushscope
+                                                      returnvoid
+                                                   end ; code
+                                                end ; body
+                                             end ; method
+                                          }
+                                          
+                                          public function get y() : Number
+                                          {
+                                             trait getter QName(PackageNamespace(""),"y")
+                                                dispid 0
+                                                method
+                                                   name null
+                                                   returns QName(PackageNamespace(""),"Number")
+                                                   
+                                                   body
+                                                      maxstack 1
+                                                      localcount 1
+                                                      initscopedepth 4
+                                                      maxscopedepth 5
+                                                      
+                                                      code
+                                                         getlocal0
+                                                         pushscope
+                                                         pushbyte 0
+                                                         returnvalue
+                                                      end ; code
+                                                   end ; body
+                                                end ; method
+                                             }
+                                             
+                                             public function getMC() : MovieClip
+                                             {
+                                                trait method QName(PackageNamespace(""),"getMC")
+                                                   dispid 0
+                                                   method
+                                                      name null
+                                                      returns QName(PackageNamespace("flash.display"),"MovieClip")
+                                                      
+                                                      body
+                                                         maxstack 1
+                                                         localcount 1
+                                                         initscopedepth 4
+                                                         maxscopedepth 5
+                                                         
+                                                         code
+                                                            getlocal0
+                                                            pushscope
+                                                            pushnull
+                                                            returnvalue
+                                                         end ; code
+                                                      end ; body
+                                                   end ; method
+                                                }
+                                                
+                                                public function putIn(param1:DisplayObjectContainer) : void
+                                                {
+                                                   trait method QName(PackageNamespace(""),"putIn")
+                                                      dispid 0
+                                                      method
+                                                         name null
+                                                         param QName(PackageNamespace("flash.display"),"DisplayObjectContainer")
+                                                         returns QName(PackageNamespace(""),"void")
+                                                         
+                                                         body
+                                                            maxstack 1
+                                                            localcount 2
+                                                            initscopedepth 4
+                                                            maxscopedepth 5
+                                                            
+                                                            code
+                                                               getlocal0
+                                                               pushscope
+                                                               returnvoid
+                                                            end ; code
+                                                         end ; body
+                                                      end ; method
+                                                   }
+                                                   
+                                                   public function onHit(param1:FighterView, param2:Damage, param3:Function, param4:Function = null) : void
+                                                   {
+                                                      trait method QName(PackageNamespace(""),"onHit")
+                                                         dispid 0
+                                                         method
+                                                            name null
+                                                            flag HAS_OPTIONAL
+                                                            param QName(PackageNamespace("view.figthers"),"FighterView")
+                                                            param QName(PackageNamespace("main_game.dungeon"),"Damage")
+                                                            param QName(PackageNamespace(""),"Function")
+                                                            param QName(PackageNamespace(""),"Function")
+                                                            optional Null()
+                                                            returns QName(PackageNamespace(""),"void")
+                                                            
+                                                            body
+                                                               maxstack 5
+                                                               localcount 6
+                                                               initscopedepth 4
+                                                               maxscopedepth 5
+                                                               
+                                                               code
+                                                                  getlocal0
+                                                                  pushscope
+                                                                  getlocal0
+                                                                  callpropvoid QName(ProtectedNamespace("view.figthers:FighterView"),"bringToFront"), 0
+                                                                  findpropstrict QName(PackageNamespace("view.figthers.animations"),"HitAnimation")
+                                                                  getlocal1
+                                                                  getlocal2
+                                                                  getlocal3
+                                                                  getlocal 4
+                                                                  constructprop QName(PackageNamespace("view.figthers.animations"),"HitAnimation"), 4
+                                                                  coerce QName(PackageNamespace("view.figthers.animations"),"HitAnimation")
+                                                                  setlocal 5
+                                                                  getlocal0
+                                                                  getlocal 5
+                                                                  callpropvoid QName(PackageNamespace(""),"animate"), 1
+                                                                  returnvoid
+                                                               end ; code
+                                                            end ; body
+                                                         end ; method
+                                                      }
+                                                      
+                                                      protected function bringToFront() : void
+                                                      {
+                                                         trait method QName(ProtectedNamespace("view.figthers:FighterView"),"bringToFront")
+                                                            dispid 0
+                                                            method
+                                                               name null
+                                                               returns QName(PackageNamespace(""),"void")
+                                                               
+                                                               body
+                                                                  maxstack 2
+                                                                  localcount 1
+                                                                  initscopedepth 4
+                                                                  maxscopedepth 5
+                                                                  
+                                                                  code
+                                                                     getlocal0
+                                                                     pushscope
+                                                                     getlex QName(PackageNamespace("util"),"Util")
+                                                                     getlocal0
+                                                                     callproperty QName(PackageNamespace(""),"getMC"), 0
+                                                                     callpropvoid QName(PackageNamespace(""),"bringToFront"), 1
+                                                                     returnvoid
+                                                                  end ; code
+                                                               end ; body
+                                                            end ; method
+                                                         }
+                                                      }
+                                                   }
+                                                   
+                                                   method
+                                                      name null
+                                                      returns null
+                                                      
+                                                      body
+                                                         maxstack 2
+                                                         localcount 1
+                                                         initscopedepth 1
+                                                         maxscopedepth 3
+                                                         
+                                                         code
+                                                            getlocal0
+                                                            pushscope
+                                                            findpropstrict Multiname("FighterView",[PackageNamespace("view.figthers")])
+                                                            getlex QName(PackageNamespace(""),"Object")
+                                                            pushscope
+                                                            getlex QName(PackageNamespace(""),"Object")
+                                                            newclass 77
+                                                            popscope
+                                                            initproperty QName(PackageNamespace("view.figthers"),"FighterView")
+                                                            returnvoid
+                                                         end ; code
+                                                      end ; body
+                                                   end ; method
+                                                   

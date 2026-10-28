@@ -1,0 +1,747 @@
+package drag_and_drop
+{
+   import cb.signals.Signal;
+   import cb.utils.Tween;
+   import flash.display.MovieClip;
+   import flash.display.Sprite;
+   import flash.display.Stage;
+   import flash.events.MouseEvent;
+   import flash.geom.Point;
+   import flash.ui.Mouse;
+   import flash.ui.MouseCursor;
+   import main_game.items.Item;
+   import main_game.items.ItemFactory;
+   import sound.GameSounds;
+   
+   public class DragDispatcher
+   {
+      
+      private static var ROLLBACK_VELOCITY:Number = 0.6;
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(PrivateNamespace(null,"16"),"ROLLBACK_VELOCITY")
+               pushdouble 0.6
+               setproperty QName(PrivateNamespace(null,"16"),"ROLLBACK_VELOCITY")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public var beginDrag:Signal;
+      
+      public var stopDrag:Signal;
+      
+      private var stage:Stage;
+      
+      private var content:Item;
+      
+      private var firstContainer:IDragContainer;
+      
+      private var dragging:Boolean;
+      
+      private var tmp_view:Sprite;
+      
+      private var initial_x:int;
+      
+      private var initial_y:int;
+      
+      private var snapped:Boolean = false;
+      
+      public function DragDispatcher(param1:Stage)
+      {
+         method
+            name null
+            param QName(PackageNamespace("flash.display"),"Stage")
+            returns null
+            
+            body
+               maxstack 2
+               localcount 2
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlocal1
+                  initproperty QName(PrivateNamespace(null,"16"),"stage")
+                  getlocal0
+                  pushfalse
+                  initproperty QName(PrivateNamespace(null,"16"),"dragging")
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("cb.signals"),"Signal")
+                  constructprop QName(PackageNamespace("cb.signals"),"Signal"), 0
+                  initproperty QName(PackageNamespace(""),"beginDrag")
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("cb.signals"),"Signal")
+                  constructprop QName(PackageNamespace("cb.signals"),"Signal"), 0
+                  initproperty QName(PackageNamespace(""),"stopDrag")
+                  getlocal0
+                  getproperty QName(PackageNamespace(""),"beginDrag")
+                  getlocal0
+                  getproperty QName(PrivateNamespace(null,"16"),"start")
+                  callpropvoid QName(PackageNamespace(""),"add"), 1
+                  getlocal0
+                  getproperty QName(PackageNamespace(""),"stopDrag")
+                  getlocal0
+                  getproperty QName(PrivateNamespace(null,"16"),"end")
+                  callpropvoid QName(PackageNamespace(""),"add"), 1
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      private function start(param1:IDragContainer, param2:Item) : void
+      {
+         trait method QName(PrivateNamespace(null,"16"),"start")
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace("drag_and_drop"),"IDragContainer")
+               param QName(PackageNamespace("main_game.items"),"Item")
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 6
+                  localcount 4
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"16"),"tmp_view")
+                     pushnull
+                     ifeq ofs0010
+                     getlocal0
+                     callpropvoid QName(PrivateNamespace(null,"16"),"killTween"), 0
+            ofs0010:
+                     findpropstrict QName(PackageNamespace(""),"assert")
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"16"),"dragging")
+                     not
+                     pushstring "No se termino el ultimo drag"
+                     callpropvoid QName(PackageNamespace(""),"assert"), 2
+                     getlocal0
+                     getlocal2
+                     setproperty QName(PrivateNamespace(null,"16"),"content")
+                     getlocal0
+                     getlocal1
+                     setproperty QName(PrivateNamespace(null,"16"),"firstContainer")
+                     getlocal0
+                     pushtrue
+                     setproperty QName(PrivateNamespace(null,"16"),"dragging")
+                     getlex QName(PackageNamespace("main_game.items"),"ItemFactory")
+                     callproperty QName(PackageNamespace(""),"getInstance"), 0
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"16"),"content")
+                     callproperty QName(PackageNamespace(""),"getView"), 1
+                     coerce_a
+                     setlocal3
+                     getlocal0
+                     getlocal3
+                     callproperty Multiname("getMC",[PrivateNamespace(null,"16"),PackageNamespace(""),PrivateNamespace(null,"182"),PackageNamespace("drag_and_drop"),PackageInternalNs("drag_and_drop"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("drag_and_drop:DragDispatcher"),StaticProtectedNs("drag_and_drop:DragDispatcher")]), 0
+                     setproperty QName(PrivateNamespace(null,"16"),"tmp_view")
+                     getlocal0
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"16"),"stage")
+                     getproperty QName(PackageNamespace(""),"mouseX")
+                     setproperty QName(PrivateNamespace(null,"16"),"initial_x")
+                     getlocal0
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"16"),"stage")
+                     getproperty QName(PackageNamespace(""),"mouseY")
+                     setproperty QName(PrivateNamespace(null,"16"),"initial_y")
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"16"),"stage")
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"16"),"tmp_view")
+                     callpropvoid QName(PackageNamespace(""),"addChild"), 1
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"16"),"tmp_view")
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"16"),"initial_x")
+                     setproperty QName(PackageNamespace(""),"x")
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"16"),"tmp_view")
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"16"),"initial_y")
+                     setproperty QName(PackageNamespace(""),"y")
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"16"),"tmp_view")
+                     pushfalse
+                     setproperty QName(PackageNamespace(""),"mouseEnabled")
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"16"),"tmp_view")
+                     pushfalse
+                     setproperty QName(PackageNamespace(""),"mouseChildren")
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"16"),"stage")
+                     getlex QName(PackageNamespace("flash.events"),"MouseEvent")
+                     getproperty QName(PackageNamespace(""),"MOUSE_UP")
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"16"),"mouseUpStage")
+                     pushfalse
+                     pushbyte 0
+                     pushtrue
+                     callpropvoid QName(PackageNamespace(""),"addEventListener"), 5
+                     getlex QName(PackageNamespace("flash.ui"),"Mouse")
+                     callpropvoid QName(PackageNamespace(""),"hide"), 0
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"16"),"stage")
+                     getlex QName(PackageNamespace("flash.events"),"MouseEvent")
+                     getproperty QName(PackageNamespace(""),"MOUSE_MOVE")
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"16"),"move")
+                     pushfalse
+                     pushbyte 0
+                     pushfalse
+                     callpropvoid QName(PackageNamespace(""),"addEventListener"), 5
+                     getlex QName(PackageNamespace(""),"main")
+                     getproperty QName(PackageNamespace(""),"soundManager")
+                     getlex QName(PackageNamespace("sound"),"GameSounds")
+                     getproperty QName(PackageNamespace(""),"ITEM_CLICK")
+                     callpropvoid QName(PackageNamespace(""),"playFx"), 1
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         private function move(param1:MouseEvent) : void
+         {
+            trait method QName(PrivateNamespace(null,"16"),"move")
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace("flash.events"),"MouseEvent")
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 3
+                     localcount 2
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        findpropstrict QName(PackageNamespace(""),"assert")
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"16"),"dragging")
+                        pushstring "No se está dragueando"
+                        callpropvoid QName(PackageNamespace(""),"assert"), 2
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"16"),"snapped")
+                        iftrue ofs0034
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"16"),"tmp_view")
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"16"),"stage")
+                        getproperty QName(PackageNamespace(""),"mouseX")
+                        setproperty QName(PackageNamespace(""),"x")
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"16"),"tmp_view")
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"16"),"stage")
+                        getproperty QName(PackageNamespace(""),"mouseY")
+                        setproperty QName(PackageNamespace(""),"y")
+               ofs0034:
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            private function mouseUpStage(param1:MouseEvent) : void
+            {
+               trait method QName(PrivateNamespace(null,"16"),"mouseUpStage")
+                  dispid 0
+                  method
+                     name null
+                     param QName(PackageNamespace("flash.events"),"MouseEvent")
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 3
+                        localcount 2
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"16"),"dragging")
+                           iffalse ofs0013
+                           getlocal0
+                           getproperty QName(PackageNamespace(""),"stopDrag")
+                           pushnull
+                           callpropvoid QName(PackageNamespace(""),"emit"), 1
+                  ofs0013:
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"16"),"stage")
+                           getlex QName(PackageNamespace("flash.events"),"MouseEvent")
+                           getproperty QName(PackageNamespace(""),"MOUSE_UP")
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"16"),"mouseUpStage")
+                           callpropvoid QName(PackageNamespace(""),"removeEventListener"), 2
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               private function end(param1:IDragContainer) : void
+               {
+                  trait method QName(PrivateNamespace(null,"16"),"end")
+                     dispid 0
+                     method
+                        name null
+                        param QName(PackageNamespace("drag_and_drop"),"IDragContainer")
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 7
+                           localcount 3
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              pushnan
+                              setlocal2
+                              findpropstrict QName(PackageNamespace(""),"assert")
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"16"),"dragging")
+                              pushstring "No se está dragueando"
+                              callpropvoid QName(PackageNamespace(""),"assert"), 2
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"16"),"stage")
+                              getlex QName(PackageNamespace("flash.events"),"MouseEvent")
+                              getproperty QName(PackageNamespace(""),"MOUSE_MOVE")
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"16"),"move")
+                              callpropvoid QName(PackageNamespace(""),"removeEventListener"), 2
+                              getlocal1
+                              pushnull
+                              equals
+                              not
+                              dup
+                              iffalse ofs003b
+                              pop
+                              getlocal1
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"16"),"content")
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"16"),"firstContainer")
+                              callproperty QName(Namespace("drag_and_drop:IDragContainer"),"canMoveFrom"), 2
+                              convert_b
+                     ofs003b:
+                              iffalse ofs0065
+                              getlocal0
+                              callpropvoid QName(PrivateNamespace(null,"16"),"removeTempView"), 0
+                              getlocal1
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"16"),"content")
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"16"),"firstContainer")
+                              callpropvoid QName(Namespace("drag_and_drop:IDragContainer"),"moveFrom"), 2
+                              getlex QName(PackageNamespace(""),"main")
+                              getproperty QName(PackageNamespace(""),"soundManager")
+                              getlex QName(PackageNamespace("sound"),"GameSounds")
+                              getproperty QName(PackageNamespace(""),"ITEM_DROP_OK")
+                              callpropvoid QName(PackageNamespace(""),"playFx"), 1
+                              jump ofs00c2
+                     ofs0065:
+                              getlex QName(PrivateNamespace(null,"16"),"ROLLBACK_VELOCITY")
+                              getlex QName(PackageNamespace(""),"Math")
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"16"),"stage")
+                              getproperty QName(PackageNamespace(""),"mouseX")
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"16"),"initial_x")
+                              subtract
+                              callproperty QName(PackageNamespace(""),"abs"), 1
+                              getlex QName(PackageNamespace(""),"Math")
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"16"),"stage")
+                              getproperty QName(PackageNamespace(""),"mouseY")
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"16"),"initial_y")
+                              subtract
+                              callproperty QName(PackageNamespace(""),"abs"), 1
+                              add
+                              multiply
+                              convert_d
+                              setlocal2
+                              getlex QName(PackageNamespace("cb.utils"),"Tween")
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"16"),"tmp_view")
+                              getlocal2
+                              pushstring "x"
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"16"),"initial_x")
+                              pushstring "y"
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"16"),"initial_y")
+                              newobject 2
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"16"),"removeTempView")
+                              callpropvoid QName(PackageNamespace(""),"to"), 4
+                              getlex QName(PackageNamespace(""),"main")
+                              getproperty QName(PackageNamespace(""),"soundManager")
+                              getlex QName(PackageNamespace("sound"),"GameSounds")
+                              getproperty QName(PackageNamespace(""),"ITEM_DROP_FAIL")
+                              callpropvoid QName(PackageNamespace(""),"playFx"), 1
+                     ofs00c2:
+                              getlex QName(PackageNamespace("flash.ui"),"Mouse")
+                              getlex QName(PackageNamespace("flash.ui"),"MouseCursor")
+                              getproperty QName(PackageNamespace(""),"AUTO")
+                              setproperty QName(PackageNamespace(""),"cursor")
+                              getlex QName(PackageNamespace("flash.ui"),"Mouse")
+                              callpropvoid QName(PackageNamespace(""),"show"), 0
+                              getlocal0
+                              pushfalse
+                              setproperty QName(PrivateNamespace(null,"16"),"dragging")
+                              getlocal0
+                              pushnull
+                              setproperty QName(PrivateNamespace(null,"16"),"content")
+                              getlocal0
+                              pushnull
+                              setproperty QName(PrivateNamespace(null,"16"),"firstContainer")
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function clear() : void
+                  {
+                     trait method QName(PackageNamespace(""),"clear")
+                        dispid 0
+                        method
+                           name null
+                           returns QName(PackageNamespace(""),"void")
+                           
+                           body
+                              maxstack 3
+                              localcount 1
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal0
+                                 getproperty QName(PackageNamespace(""),"beginDrag")
+                                 callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                 getlocal0
+                                 getproperty QName(PackageNamespace(""),"stopDrag")
+                                 callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                 getlocal0
+                                 getproperty QName(PackageNamespace(""),"beginDrag")
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"16"),"start")
+                                 callpropvoid QName(PackageNamespace(""),"add"), 1
+                                 getlocal0
+                                 getproperty QName(PackageNamespace(""),"stopDrag")
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"16"),"end")
+                                 callpropvoid QName(PackageNamespace(""),"add"), 1
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"16"),"dragging")
+                                 iffalse ofs0048
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"16"),"stage")
+                                 getlex QName(PackageNamespace("flash.events"),"MouseEvent")
+                                 getproperty QName(PackageNamespace(""),"MOUSE_MOVE")
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"16"),"move")
+                                 callpropvoid QName(PackageNamespace(""),"removeEventListener"), 2
+                                 getlocal0
+                                 pushfalse
+                                 setproperty QName(PrivateNamespace(null,"16"),"dragging")
+                        ofs0048:
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"16"),"tmp_view")
+                                 pushnull
+                                 ifeq ofs0056
+                                 getlocal0
+                                 callpropvoid QName(PrivateNamespace(null,"16"),"killTween"), 0
+                        ofs0056:
+                                 getlocal0
+                                 pushnull
+                                 setproperty QName(PrivateNamespace(null,"16"),"content")
+                                 getlocal0
+                                 pushnull
+                                 setproperty QName(PrivateNamespace(null,"16"),"firstContainer")
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     private function killTween() : void
+                     {
+                        trait method QName(PrivateNamespace(null,"16"),"killTween")
+                           dispid 0
+                           method
+                              name null
+                              returns QName(PackageNamespace(""),"void")
+                              
+                              body
+                                 maxstack 2
+                                 localcount 1
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    getlex QName(PackageNamespace("cb.utils"),"Tween")
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"16"),"tmp_view")
+                                    callpropvoid QName(PackageNamespace(""),"killTweensOf"), 1
+                                    getlocal0
+                                    callpropvoid QName(PrivateNamespace(null,"16"),"removeTempView"), 0
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        private function removeTempView() : void
+                        {
+                           trait method QName(PrivateNamespace(null,"16"),"removeTempView")
+                              dispid 0
+                              method
+                                 name null
+                                 returns QName(PackageNamespace(""),"void")
+                                 
+                                 body
+                                    maxstack 2
+                                    localcount 1
+                                    initscopedepth 4
+                                    maxscopedepth 5
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"16"),"tmp_view")
+                                       pushnull
+                                       ifeq ofs0017
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"16"),"stage")
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"16"),"tmp_view")
+                                       callpropvoid QName(PackageNamespace(""),"removeChild"), 1
+                              ofs0017:
+                                       getlocal0
+                                       pushnull
+                                       initproperty QName(PrivateNamespace(null,"16"),"tmp_view")
+                                       returnvoid
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           public function onMouseOver(param1:IDragContainer, param2:MovieClip) : void
+                           {
+                              trait method QName(PackageNamespace(""),"onMouseOver")
+                                 dispid 0
+                                 method
+                                    name null
+                                    param QName(PackageNamespace("drag_and_drop"),"IDragContainer")
+                                    param QName(PackageNamespace("flash.display"),"MovieClip")
+                                    returns QName(PackageNamespace(""),"void")
+                                    
+                                    body
+                                       maxstack 3
+                                       localcount 3
+                                       initscopedepth 4
+                                       maxscopedepth 5
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"16"),"tmp_view")
+                                          pushnull
+                                          equals
+                                          not
+                                          dup
+                                          iffalse ofs001d
+                                          pop
+                                          getlocal1
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"16"),"content")
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"16"),"firstContainer")
+                                          callproperty QName(Namespace("drag_and_drop:IDragContainer"),"canMoveFrom"), 2
+                                          convert_b
+                                 ofs001d:
+                                          iffalse ofs0027
+                                          getlocal0
+                                          getlocal2
+                                          callpropvoid QName(PrivateNamespace(null,"16"),"snapTo"), 1
+                                 ofs0027:
+                                          returnvoid
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                              
+                              public function onMouseOut(param1:IDragContainer, param2:MovieClip) : void
+                              {
+                                 trait method QName(PackageNamespace(""),"onMouseOut")
+                                    dispid 0
+                                    method
+                                       name null
+                                       param QName(PackageNamespace("drag_and_drop"),"IDragContainer")
+                                       param QName(PackageNamespace("flash.display"),"MovieClip")
+                                       returns QName(PackageNamespace(""),"void")
+                                       
+                                       body
+                                          maxstack 2
+                                          localcount 3
+                                          initscopedepth 4
+                                          maxscopedepth 5
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             getlocal0
+                                             getlocal2
+                                             callpropvoid QName(PrivateNamespace(null,"16"),"unSnapFrom"), 1
+                                             returnvoid
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                 }
+                                 
+                                 private function snapTo(param1:MovieClip) : void
+                                 {
+                                    trait method QName(PrivateNamespace(null,"16"),"snapTo")
+                                       dispid 0
+                                       method
+                                          name null
+                                          param QName(PackageNamespace("flash.display"),"MovieClip")
+                                          returns QName(PackageNamespace(""),"void")
+                                          
+                                          body
+                                             maxstack 4
+                                             localcount 3
+                                             initscopedepth 4
+                                             maxscopedepth 5
+                                             
+                                             code
+                                                getlocal0
+                                                pushscope
+                                                getlocal0
+                                                pushtrue
+                                                initproperty QName(PrivateNamespace(null,"16"),"snapped")
+                                                getlocal1
+                                                findpropstrict QName(PackageNamespace("flash.geom"),"Point")
+                                                pushbyte 0
+                                                dup
+                                                constructprop QName(PackageNamespace("flash.geom"),"Point"), 2
+                                                callproperty QName(PackageNamespace(""),"localToGlobal"), 1
+                                                coerce QName(PackageNamespace("flash.geom"),"Point")
+                                                setlocal2
+                                                getlocal0
+                                                getproperty QName(PrivateNamespace(null,"16"),"tmp_view")
+                                                getproperty QName(PackageNamespace(""),"parent")
+                                                getlocal2
+                                                callproperty QName(PackageNamespace(""),"globalToLocal"), 1
+                                                coerce QName(PackageNamespace("flash.geom"),"Point")
+                                                setlocal2
+                                                getlocal0
+                                                getproperty QName(PrivateNamespace(null,"16"),"tmp_view")
+                                                getlocal2
+                                                getproperty QName(PackageNamespace(""),"x")
+                                                setproperty QName(PackageNamespace(""),"x")
+                                                getlocal0
+                                                getproperty QName(PrivateNamespace(null,"16"),"tmp_view")
+                                                getlocal2
+                                                getproperty QName(PackageNamespace(""),"y")
+                                                setproperty QName(PackageNamespace(""),"y")
+                                                returnvoid
+                                             end ; code
+                                          end ; body
+                                       end ; method
+                                    }
+                                    
+                                    private function unSnapFrom(param1:MovieClip) : void
+                                    {
+                                       trait method QName(PrivateNamespace(null,"16"),"unSnapFrom")
+                                          dispid 0
+                                          method
+                                             name null
+                                             param QName(PackageNamespace("flash.display"),"MovieClip")
+                                             returns QName(PackageNamespace(""),"void")
+                                             
+                                             body
+                                                maxstack 2
+                                                localcount 2
+                                                initscopedepth 4
+                                                maxscopedepth 5
+                                                
+                                                code
+                                                   getlocal0
+                                                   pushscope
+                                                   getlocal0
+                                                   pushfalse
+                                                   initproperty QName(PrivateNamespace(null,"16"),"snapped")
+                                                   returnvoid
+                                                end ; code
+                                             end ; body
+                                          end ; method
+                                       }
+                                    }
+                                 }
+                                 
+                                 method
+                                    name null
+                                    returns null
+                                    
+                                    body
+                                       maxstack 2
+                                       localcount 1
+                                       initscopedepth 1
+                                       maxscopedepth 3
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          findpropstrict Multiname("DragDispatcher",[PackageNamespace("drag_and_drop")])
+                                          getlex QName(PackageNamespace(""),"Object")
+                                          pushscope
+                                          getlex QName(PackageNamespace(""),"Object")
+                                          newclass 13
+                                          popscope
+                                          initproperty QName(PackageNamespace("drag_and_drop"),"DragDispatcher")
+                                          returnvoid
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                                 

@@ -1,0 +1,519 @@
+package main_game.dungeon
+{
+   import main_game.character.Enemy;
+   import main_game.character.Fighter;
+   import main_game.character.Finn;
+   import main_game.character.stats.StatType;
+   import main_game.element.Element;
+   import main_game.item_containers.Slot;
+   import main_game.items.Item;
+   
+   public class DamageCalculator
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function DamageCalculator()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 1
+               localcount 1
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public static function calculateDamage(param1:Fighter, param2:Fighter) : Damage
+      {
+         trait method QName(PackageNamespace(""),"calculateDamage")
+            flag FINAL
+            dispid 3
+            method
+               name null
+               param QName(PackageNamespace("main_game.character"),"Fighter")
+               param QName(PackageNamespace("main_game.character"),"Fighter")
+               returns QName(PackageNamespace("main_game.dungeon"),"Damage")
+               
+               body
+                  maxstack 8
+                  localcount 33
+                  initscopedepth 3
+                  maxscopedepth 4
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     pushnull
+                     coerce QName(PackageNamespace("main_game.element"),"Element")
+                     setlocal 5
+                     pushnull
+                     coerce_s
+                     setlocal 21
+                     pushnull
+                     coerce QName(PackageNamespace("main_game.items"),"Item")
+                     setlocal 28
+                     pushnull
+                     coerce_s
+                     setlocal 29
+                     pushnull
+                     coerce_s
+                     setlocal 30
+                     pushnull
+                     coerce QName(PackageNamespace("main_game.item_containers"),"Slot")
+                     setlocal 31
+                     pushnan
+                     setlocal 32
+                     pushfalse
+                     setlocal3
+                     pushfalse
+                     setlocal 4
+                     pushfalse
+                     setlocal 6
+                     getlocal1
+                     getproperty QName(PackageNamespace(""),"stats")
+                     callproperty QName(PackageNamespace(""),"getLuck"), 0
+                     convert_d
+                     setlocal 7
+                     getlocal2
+                     getproperty QName(PackageNamespace(""),"stats")
+                     callproperty QName(PackageNamespace(""),"getLuck"), 0
+                     convert_d
+                     setlocal 8
+                     getlocal1
+                     getproperty QName(PackageNamespace(""),"stats")
+                     callproperty QName(PackageNamespace(""),"getLevel"), 0
+                     pushbyte 1
+                     add
+                     convert_d
+                     setlocal 9
+                     getlocal2
+                     getproperty QName(PackageNamespace(""),"stats")
+                     callproperty QName(PackageNamespace(""),"getLevel"), 0
+                     pushbyte 1
+                     add
+                     convert_d
+                     setlocal 10
+                     getlex QName(PackageNamespace(""),"main")
+                     getproperty QName(PackageNamespace(""),"config")
+                     pushstring "Damage"
+                     callproperty QName(PackageNamespace(""),"get"), 1
+                     coerce_a
+                     dup
+                     setlocal 11
+                     pushstring "VariableAttackPercentage"
+                     getproperty MultinameL([PrivateNamespace(null,"309"),PackageNamespace(""),PrivateNamespace(null,"310"),PackageNamespace("main_game.dungeon"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:DamageCalculator"),StaticProtectedNs("main_game.dungeon:DamageCalculator")])
+                     pushstring ":"
+                     callproperty Multiname("split",[PrivateNamespace(null,"309"),PackageNamespace(""),PrivateNamespace(null,"310"),PackageNamespace("main_game.dungeon"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:DamageCalculator"),StaticProtectedNs("main_game.dungeon:DamageCalculator")]), 1
+                     coerce QName(PackageNamespace(""),"Array")
+                     dup
+                     setlocal 12
+                     pushbyte 0
+                     findpropstrict QName(PackageNamespace(""),"Number")
+                     getlocal 12
+                     pushbyte 0
+                     getproperty MultinameL([PrivateNamespace(null,"309"),PackageNamespace(""),PrivateNamespace(null,"310"),PackageNamespace("main_game.dungeon"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:DamageCalculator"),StaticProtectedNs("main_game.dungeon:DamageCalculator")])
+                     callproperty QName(PackageNamespace(""),"Number"), 1
+                     pushbyte 100
+                     divide
+                     setproperty MultinameL([PrivateNamespace(null,"309"),PackageNamespace(""),PrivateNamespace(null,"310"),PackageNamespace("main_game.dungeon"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:DamageCalculator"),StaticProtectedNs("main_game.dungeon:DamageCalculator")])
+                     getlocal 12
+                     pushbyte 1
+                     findpropstrict QName(PackageNamespace(""),"Number")
+                     getlocal 12
+                     pushbyte 1
+                     getproperty MultinameL([PrivateNamespace(null,"309"),PackageNamespace(""),PrivateNamespace(null,"310"),PackageNamespace("main_game.dungeon"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:DamageCalculator"),StaticProtectedNs("main_game.dungeon:DamageCalculator")])
+                     callproperty QName(PackageNamespace(""),"Number"), 1
+                     pushbyte 100
+                     divide
+                     setproperty MultinameL([PrivateNamespace(null,"309"),PackageNamespace(""),PrivateNamespace(null,"310"),PackageNamespace("main_game.dungeon"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:DamageCalculator"),StaticProtectedNs("main_game.dungeon:DamageCalculator")])
+                     getlocal 11
+                     pushstring "CriticalMultiplier"
+                     getproperty MultinameL([PrivateNamespace(null,"309"),PackageNamespace(""),PrivateNamespace(null,"310"),PackageNamespace("main_game.dungeon"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:DamageCalculator"),StaticProtectedNs("main_game.dungeon:DamageCalculator")])
+                     convert_d
+                     setlocal 13
+                     getlocal 11
+                     pushstring "EvadeFactor"
+                     getproperty MultinameL([PrivateNamespace(null,"309"),PackageNamespace(""),PrivateNamespace(null,"310"),PackageNamespace("main_game.dungeon"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:DamageCalculator"),StaticProtectedNs("main_game.dungeon:DamageCalculator")])
+                     convert_d
+                     setlocal 14
+                     getlocal 11
+                     pushstring "CriticalFactor"
+                     getproperty MultinameL([PrivateNamespace(null,"309"),PackageNamespace(""),PrivateNamespace(null,"310"),PackageNamespace("main_game.dungeon"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:DamageCalculator"),StaticProtectedNs("main_game.dungeon:DamageCalculator")])
+                     convert_d
+                     setlocal 15
+                     getlocal 11
+                     pushstring "MinimumCritical"
+                     getproperty MultinameL([PrivateNamespace(null,"309"),PackageNamespace(""),PrivateNamespace(null,"310"),PackageNamespace("main_game.dungeon"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:DamageCalculator"),StaticProtectedNs("main_game.dungeon:DamageCalculator")])
+                     pushbyte 100
+                     divide
+                     convert_d
+                     setlocal 16
+                     getlocal 11
+                     pushstring "MinimumEvade"
+                     getproperty MultinameL([PrivateNamespace(null,"309"),PackageNamespace(""),PrivateNamespace(null,"310"),PackageNamespace("main_game.dungeon"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:DamageCalculator"),StaticProtectedNs("main_game.dungeon:DamageCalculator")])
+                     pushbyte 100
+                     divide
+                     convert_d
+                     setlocal 17
+                     getlocal 11
+                     pushstring "LuckCap"
+                     getproperty MultinameL([PrivateNamespace(null,"309"),PackageNamespace(""),PrivateNamespace(null,"310"),PackageNamespace("main_game.dungeon"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:DamageCalculator"),StaticProtectedNs("main_game.dungeon:DamageCalculator")])
+                     pushbyte 100
+                     divide
+                     convert_d
+                     setlocal 18
+                     pushbyte 0
+                     convert_d
+                     setlocal 19
+                     getlocal 7
+                     getlocal 8
+                     ifnlt ofs011f
+                     getlex QName(PackageNamespace(""),"Math")
+                     getlocal 17
+                     getlex QName(PackageNamespace(""),"Math")
+                     getlocal 18
+                     getlocal 14
+                     pushbyte 1
+                     getlocal 7
+                     getlocal 8
+                     divide
+                     subtract
+                     multiply
+                     callproperty QName(PackageNamespace(""),"min"), 2
+                     callproperty QName(PackageNamespace(""),"max"), 2
+                     convert_d
+                     setlocal 19
+            ofs011f:
+                     getlex QName(PackageNamespace(""),"Math")
+                     callproperty QName(PackageNamespace(""),"random"), 0
+                     getlocal 19
+                     lessthan
+                     setlocal 4
+                     pushbyte 1
+                     convert_d
+                     setlocal 20
+                     getlocal2
+                     callproperty QName(PackageNamespace(""),"isFinn"), 0
+                     iffalse ofs01be
+                     getlocal2
+                     getlex QName(PackageNamespace("main_game.character"),"Finn")
+                     astypelate
+                     getproperty QName(PackageNamespace(""),"gear")
+                     getproperty QName(PackageNamespace(""),"shield")
+                     callproperty QName(PackageNamespace(""),"getContent"), 0
+                     coerce QName(PackageNamespace("main_game.items"),"Item")
+                     setlocal 28
+                     pushstring "N"
+                     setlocal 29
+                     getlocal 28
+                     pushnull
+                     ifeq ofs0163
+                     getlocal 28
+                     callproperty QName(PackageNamespace(""),"getElement"), 0
+                     getproperty QName(PackageNamespace(""),"type")
+                     coerce_s
+                     setlocal 29
+            ofs0163:
+                     getlocal1
+                     getlex QName(PackageNamespace("main_game.character"),"Enemy")
+                     astypelate
+                     callproperty QName(PackageNamespace(""),"getElement"), 0
+                     coerce QName(PackageNamespace("main_game.element"),"Element")
+                     dup
+                     setlocal 5
+                     getproperty QName(PackageNamespace(""),"type")
+                     coerce_s
+                     setlocal 21
+                     getlocal 11
+                     getlocal 29
+                     pushstring "vs"
+                     add
+                     getlocal 21
+                     add
+                     pushstring "_defence"
+                     add
+                     getproperty MultinameL([PrivateNamespace(null,"309"),PackageNamespace(""),PrivateNamespace(null,"310"),PackageNamespace("main_game.dungeon"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:DamageCalculator"),StaticProtectedNs("main_game.dungeon:DamageCalculator")])
+                     convert_d
+                     setlocal 20
+                     getlocal 29
+                     getlocal 21
+                     add
+                     getlex QName(PackageNamespace("main_game.element"),"Element")
+                     getproperty QName(PackageNamespace(""),"FIRE")
+                     getlex QName(PackageNamespace("main_game.element"),"Element")
+                     getproperty QName(PackageNamespace(""),"ICE")
+                     add
+                     equals
+                     dup
+                     iftrue ofs01b3
+                     pop
+                     getlocal 29
+                     getlocal 21
+                     add
+                     getlex QName(PackageNamespace("main_game.element"),"Element")
+                     getproperty QName(PackageNamespace(""),"ICE")
+                     getlex QName(PackageNamespace("main_game.element"),"Element")
+                     getproperty QName(PackageNamespace(""),"FIRE")
+                     add
+                     equals
+            ofs01b3:
+                     iffalse ofs01ba
+                     pushtrue
+                     setlocal 6
+            ofs01ba:
+                     jump ofs0282
+            ofs01be:
+                     getlocal1
+                     callproperty QName(PackageNamespace(""),"isFinn"), 0
+                     iffalse ofs0282
+                     getlocal2
+                     getlex QName(PackageNamespace("main_game.character"),"Enemy")
+                     astypelate
+                     callproperty QName(PackageNamespace(""),"getElement"), 0
+                     getproperty QName(PackageNamespace(""),"type")
+                     coerce_s
+                     setlocal 21
+                     pushstring "N"
+                     setlocal 30
+                     getlocal1
+                     getlex QName(PackageNamespace("main_game.character"),"Finn")
+                     astypelate
+                     getproperty QName(PackageNamespace(""),"gear")
+                     getproperty QName(PackageNamespace(""),"weapon")
+                     coerce QName(PackageNamespace("main_game.item_containers"),"Slot")
+                     dup
+                     setlocal 31
+                     callproperty QName(PackageNamespace(""),"isEmpty"), 0
+                     iftrue ofs023e
+                     getlocal 31
+                     callproperty QName(PackageNamespace(""),"getContent"), 0
+                     callproperty QName(PackageNamespace(""),"getElement"), 0
+                     coerce QName(PackageNamespace("main_game.element"),"Element")
+                     dup
+                     setlocal 5
+                     getproperty QName(PackageNamespace(""),"type")
+                     coerce_s
+                     setlocal 30
+                     pushbyte 0
+                     convert_d
+                     setlocal 32
+                     getlocal 7
+                     getlocal 8
+                     ifngt ofs0233
+                     getlex QName(PackageNamespace(""),"Math")
+                     getlocal 16
+                     getlex QName(PackageNamespace(""),"Math")
+                     getlocal 18
+                     getlocal 15
+                     pushbyte 1
+                     getlocal 8
+                     getlocal 7
+                     divide
+                     subtract
+                     multiply
+                     callproperty QName(PackageNamespace(""),"min"), 2
+                     callproperty QName(PackageNamespace(""),"max"), 2
+                     convert_d
+                     setlocal 32
+            ofs0233:
+                     getlex QName(PackageNamespace(""),"Math")
+                     callproperty QName(PackageNamespace(""),"random"), 0
+                     getlocal 32
+                     lessthan
+                     setlocal3
+            ofs023e:
+                     getlocal 11
+                     getlocal 30
+                     pushstring "vs"
+                     add
+                     getlocal 21
+                     add
+                     pushstring "_attack"
+                     add
+                     getproperty MultinameL([PrivateNamespace(null,"309"),PackageNamespace(""),PrivateNamespace(null,"310"),PackageNamespace("main_game.dungeon"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:DamageCalculator"),StaticProtectedNs("main_game.dungeon:DamageCalculator")])
+                     convert_d
+                     setlocal 20
+                     getlocal 30
+                     getlocal 21
+                     add
+                     getlex QName(PackageNamespace("main_game.element"),"Element")
+                     getproperty QName(PackageNamespace(""),"FIRE")
+                     getlex QName(PackageNamespace("main_game.element"),"Element")
+                     getproperty QName(PackageNamespace(""),"ICE")
+                     add
+                     equals
+                     dup
+                     iftrue ofs027b
+                     pop
+                     getlocal 30
+                     getlocal 21
+                     add
+                     getlex QName(PackageNamespace("main_game.element"),"Element")
+                     getproperty QName(PackageNamespace(""),"ICE")
+                     getlex QName(PackageNamespace("main_game.element"),"Element")
+                     getproperty QName(PackageNamespace(""),"FIRE")
+                     add
+                     equals
+            ofs027b:
+                     iffalse ofs0282
+                     pushtrue
+                     setlocal 6
+            ofs0282:
+                     getlocal1
+                     getproperty QName(PackageNamespace(""),"stats")
+                     getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                     getproperty QName(PackageNamespace(""),"ATTACK")
+                     callproperty QName(PackageNamespace(""),"getStat"), 1
+                     callproperty QName(PackageNamespace(""),"getValue"), 0
+                     convert_i
+                     setlocal 22
+                     getlocal2
+                     getproperty QName(PackageNamespace(""),"stats")
+                     getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                     getproperty QName(PackageNamespace(""),"DEFENSE")
+                     callproperty QName(PackageNamespace(""),"getStat"), 1
+                     callproperty QName(PackageNamespace(""),"getValue"), 0
+                     convert_i
+                     setlocal 23
+                     getlocal 22
+                     getlocal 23
+                     subtract
+                     getlocal 20
+                     multiply
+                     convert_d
+                     dup
+                     dup
+                     setlocal 24
+                     getlocal 12
+                     pushbyte 0
+                     getproperty MultinameL([PrivateNamespace(null,"309"),PackageNamespace(""),PrivateNamespace(null,"310"),PackageNamespace("main_game.dungeon"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:DamageCalculator"),StaticProtectedNs("main_game.dungeon:DamageCalculator")])
+                     multiply
+                     subtract
+                     convert_d
+                     setlocal 24
+                     getlocal 12
+                     pushbyte 0
+                     getproperty MultinameL([PrivateNamespace(null,"309"),PackageNamespace(""),PrivateNamespace(null,"310"),PackageNamespace("main_game.dungeon"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:DamageCalculator"),StaticProtectedNs("main_game.dungeon:DamageCalculator")])
+                     getlocal 12
+                     pushbyte 1
+                     getproperty MultinameL([PrivateNamespace(null,"309"),PackageNamespace(""),PrivateNamespace(null,"310"),PackageNamespace("main_game.dungeon"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:DamageCalculator"),StaticProtectedNs("main_game.dungeon:DamageCalculator")])
+                     add
+                     convert_d
+                     dup
+                     setlocal 25
+                     getlex QName(PackageNamespace(""),"Math")
+                     callproperty QName(PackageNamespace(""),"random"), 0
+                     multiply
+                     convert_d
+                     setlocal 25
+                     getlocal 24
+                     getlocal 24
+                     getlocal 25
+                     multiply
+                     add
+                     convert_d
+                     setlocal 24
+                     getlex QName(PackageNamespace(""),"Math")
+                     pushbyte 1
+                     getlex QName(PackageNamespace(""),"Math")
+                     getlocal 24
+                     callproperty QName(PackageNamespace(""),"round"), 1
+                     callproperty QName(PackageNamespace(""),"max"), 2
+                     convert_i
+                     setlocal 26
+                     getlocal 4
+                     iffalse ofs0311
+                     pushbyte 0
+                     setlocal 26
+                     jump ofs031e
+            ofs0311:
+                     getlocal3
+                     iffalse ofs031e
+                     getlocal 26
+                     getlocal 13
+                     multiply
+                     convert_i
+                     setlocal 26
+            ofs031e:
+                     pushnull
+                     coerce QName(PackageNamespace("main_game.dungeon"),"ElementBonus")
+                     setlocal 27
+                     getlocal 6
+                     iffalse ofs033a
+                     findpropstrict QName(PackageNamespace("main_game.dungeon"),"ElementBonus")
+                     getlocal 5
+                     getlocal 20
+                     constructprop QName(PackageNamespace("main_game.dungeon"),"ElementBonus"), 2
+                     coerce QName(PackageNamespace("main_game.dungeon"),"ElementBonus")
+                     setlocal 27
+            ofs033a:
+                     findpropstrict QName(PackageNamespace("main_game.dungeon"),"Damage")
+                     getlocal 26
+                     getlocal 4
+                     not
+                     getlocal3
+                     getlocal2
+                     getlocal 27
+                     constructprop QName(PackageNamespace("main_game.dungeon"),"Damage"), 5
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+      }
+   }
+   
+   method
+      name null
+      returns null
+      
+      body
+         maxstack 2
+         localcount 1
+         initscopedepth 1
+         maxscopedepth 3
+         
+         code
+            getlocal0
+            pushscope
+            findpropstrict Multiname("DamageCalculator",[PackageNamespace("main_game.dungeon")])
+            getlex QName(PackageNamespace(""),"Object")
+            pushscope
+            getlex QName(PackageNamespace(""),"Object")
+            newclass 262
+            popscope
+            initproperty QName(PackageNamespace("main_game.dungeon"),"DamageCalculator")
+            returnvoid
+         end ; code
+      end ; body
+   end ; method
+   

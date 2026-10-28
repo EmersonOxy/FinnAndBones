@@ -1,0 +1,140 @@
+package conditions
+{
+   import cb.conditions.AnimationFrameAt;
+   import flash.display.FrameLabel;
+   import flash.display.MovieClip;
+   
+   public class EndCurrentLabel extends AnimationFrameAt
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 4
+            maxscopedepth 5
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function EndCurrentLabel(param1:MovieClip)
+      {
+         method
+            name null
+            param QName(PackageNamespace("flash.display"),"MovieClip")
+            returns null
+            
+            body
+               maxstack 3
+               localcount 9
+               initscopedepth 5
+               maxscopedepth 6
+               
+               code
+                  getlocal0
+                  pushscope
+                  pushnull
+                  coerce QName(PackageNamespace("flash.display"),"FrameLabel")
+                  setlocal 5
+                  pushbyte 0
+                  setlocal 6
+                  getlocal1
+                  getproperty QName(PackageNamespace(""),"currentLabel")
+                  coerce_s
+                  setlocal2
+                  getlocal1
+                  getproperty QName(PackageNamespace(""),"currentFrame")
+                  convert_i
+                  setlocal3
+                  getlocal1
+                  getproperty QName(PackageNamespace(""),"totalFrames")
+                  pushbyte 1
+                  add
+                  convert_i
+                  setlocal 4
+                  pushbyte 0
+                  setlocal 7
+                  getlocal1
+                  getproperty QName(PackageNamespace(""),"currentLabels")
+                  coerce_a
+                  setlocal 8
+                  jump ofs005d
+         ofs0031:
+                  label
+                  getlocal 8
+                  getlocal 7
+                  nextvalue
+                  coerce QName(PackageNamespace("flash.display"),"FrameLabel")
+                  dup
+                  setlocal 5
+                  getproperty QName(PackageNamespace(""),"frame")
+                  convert_i
+                  dup
+                  setlocal 6
+                  getlocal 4
+                  lessthan
+                  dup
+                  iffalse ofs0054
+                  pop
+                  getlocal 6
+                  getlocal1
+                  getproperty QName(PackageNamespace(""),"currentFrame")
+                  greaterthan
+         ofs0054:
+                  iffalse ofs005d
+                  getlocal 6
+                  convert_i
+                  setlocal 4
+         ofs005d:
+                  hasnext2 8, 7
+                  iftrue ofs0031
+                  kill 8
+                  kill 7
+                  getlocal0
+                  getlocal 4
+                  decrement
+                  constructsuper 1
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+   }
+}
+
+method
+   name null
+   returns null
+   
+   body
+      maxstack 2
+      localcount 1
+      initscopedepth 1
+      maxscopedepth 4
+      
+      code
+         getlocal0
+         pushscope
+         findpropstrict Multiname("EndCurrentLabel",[PackageNamespace("conditions")])
+         getlex QName(PackageNamespace(""),"Object")
+         pushscope
+         getlex QName(PackageNamespace("cb.conditions"),"AnimationFrameAt")
+         pushscope
+         getlex QName(PackageNamespace("cb.conditions"),"AnimationFrameAt")
+         newclass 95
+         popscope
+         popscope
+         initproperty QName(PackageNamespace("conditions"),"EndCurrentLabel")
+         returnvoid
+      end ; code
+   end ; body
+end ; method
+

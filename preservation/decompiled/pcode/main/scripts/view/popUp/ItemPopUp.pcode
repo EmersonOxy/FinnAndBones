@@ -1,0 +1,329 @@
+package view.popUp
+{
+   import flash.display.MovieClip;
+   import main_game.items.Item;
+   import main_game.mixer.MixStrategy;
+   
+   public class ItemPopUp extends PopUp
+   {
+      
+      public static var LEFT:String = "Left";
+      
+      public static var RIGHT:String = "Right";
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 4
+            maxscopedepth 5
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(PackageNamespace(""),"LEFT")
+               pushstring "Left"
+               setproperty QName(PackageNamespace(""),"LEFT")
+               findproperty QName(PackageNamespace(""),"RIGHT")
+               pushstring "Right"
+               setproperty QName(PackageNamespace(""),"RIGHT")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var item:Item;
+      
+      public function ItemPopUp(param1:String = "Left")
+      {
+         method
+            name null
+            flag HAS_OPTIONAL
+            param QName(PackageNamespace(""),"String")
+            optional Utf8("Left")
+            returns null
+            
+            body
+               maxstack 3
+               localcount 3
+               initscopedepth 5
+               maxscopedepth 6
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlex QName(PackageNamespace(""),"main")
+                  getproperty QName(PackageNamespace(""),"swfLoader")
+                  pushstring "assets.ItemInformation"
+                  getlocal1
+                  add
+                  callproperty QName(PackageNamespace(""),"getObject"), 1
+                  getlex QName(PackageNamespace("flash.display"),"MovieClip")
+                  astypelate
+                  coerce QName(PackageNamespace("flash.display"),"MovieClip")
+                  setlocal2
+                  getlocal0
+                  getlocal2
+                  constructsuper 1
+                  getlocal0
+                  pushnull
+                  initproperty QName(PrivateNamespace(null,"150"),"item")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function refreshItem(param1:Item) : void
+      {
+         trait method QName(PackageNamespace(""),"refreshItem")
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace("main_game.items"),"Item")
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 2
+                  localcount 2
+                  initscopedepth 5
+                  maxscopedepth 6
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     getlocal1
+                     setproperty QName(PrivateNamespace(null,"150"),"item")
+                     getlocal1
+                     iffalse ofs0012
+                     getlocal0
+                     getlocal1
+                     callpropvoid QName(PrivateNamespace(null,"150"),"refreshInfo"), 1
+            ofs0012:
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         private function refreshInfo(param1:Item) : void
+         {
+            trait method QName(PrivateNamespace(null,"150"),"refreshInfo")
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace("main_game.items"),"Item")
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 3
+                     localcount 3
+                     initscopedepth 5
+                     maxscopedepth 6
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlex QName(PackageNamespace(""),"mc")
+                        getproperty Multiname("container",[PrivateNamespace(null,"150"),PackageNamespace(""),PrivateNamespace(null,"307"),PackageNamespace("view.popUp"),PackageInternalNs("view.popUp"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.popUp:ItemPopUp"),StaticProtectedNs("view.popUp:ItemPopUp"),StaticProtectedNs("view.popUp:PopUp")])
+                        getproperty Multiname("title",[PrivateNamespace(null,"150"),PackageNamespace(""),PrivateNamespace(null,"307"),PackageNamespace("view.popUp"),PackageInternalNs("view.popUp"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.popUp:ItemPopUp"),StaticProtectedNs("view.popUp:ItemPopUp"),StaticProtectedNs("view.popUp:PopUp")])
+                        getproperty Multiname("title",[PrivateNamespace(null,"150"),PackageNamespace(""),PrivateNamespace(null,"307"),PackageNamespace("view.popUp"),PackageInternalNs("view.popUp"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.popUp:ItemPopUp"),StaticProtectedNs("view.popUp:ItemPopUp"),StaticProtectedNs("view.popUp:PopUp")])
+                        getlocal1
+                        callproperty QName(PackageNamespace(""),"getNameToShow"), 0
+                        setproperty Multiname("text",[PrivateNamespace(null,"150"),PackageNamespace(""),PrivateNamespace(null,"307"),PackageNamespace("view.popUp"),PackageInternalNs("view.popUp"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.popUp:ItemPopUp"),StaticProtectedNs("view.popUp:ItemPopUp"),StaticProtectedNs("view.popUp:PopUp")])
+                        getlocal1
+                        callproperty QName(PackageNamespace(""),"getMaxMod"), 0
+                        convert_i
+                        setlocal2
+                        getlocal1
+                        callproperty QName(PackageNamespace(""),"getPrimaryModifier"), 0
+                        getlex QName(PackageNamespace(""),"mc")
+                        getproperty Multiname("container",[PrivateNamespace(null,"150"),PackageNamespace(""),PrivateNamespace(null,"307"),PackageNamespace("view.popUp"),PackageInternalNs("view.popUp"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.popUp:ItemPopUp"),StaticProtectedNs("view.popUp:ItemPopUp"),StaticProtectedNs("view.popUp:PopUp")])
+                        getproperty Multiname("armor_icon_1",[PrivateNamespace(null,"150"),PackageNamespace(""),PrivateNamespace(null,"307"),PackageNamespace("view.popUp"),PackageInternalNs("view.popUp"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.popUp:ItemPopUp"),StaticProtectedNs("view.popUp:ItemPopUp"),StaticProtectedNs("view.popUp:PopUp")])
+                        callpropvoid QName(Namespace("main_game.items.modifiers:IModifier"),"modifyIcon"), 1
+                        getlocal1
+                        callproperty QName(PackageNamespace(""),"getPrimaryModifier"), 0
+                        getlex QName(PackageNamespace(""),"mc")
+                        getproperty Multiname("container",[PrivateNamespace(null,"150"),PackageNamespace(""),PrivateNamespace(null,"307"),PackageNamespace("view.popUp"),PackageInternalNs("view.popUp"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.popUp:ItemPopUp"),StaticProtectedNs("view.popUp:ItemPopUp"),StaticProtectedNs("view.popUp:PopUp")])
+                        getproperty Multiname("numbers_1",[PrivateNamespace(null,"150"),PackageNamespace(""),PrivateNamespace(null,"307"),PackageNamespace("view.popUp"),PackageInternalNs("view.popUp"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.popUp:ItemPopUp"),StaticProtectedNs("view.popUp:ItemPopUp"),StaticProtectedNs("view.popUp:PopUp")])
+                        getproperty Multiname("title",[PrivateNamespace(null,"150"),PackageNamespace(""),PrivateNamespace(null,"307"),PackageNamespace("view.popUp"),PackageInternalNs("view.popUp"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.popUp:ItemPopUp"),StaticProtectedNs("view.popUp:ItemPopUp"),StaticProtectedNs("view.popUp:PopUp")])
+                        getlocal2
+                        callpropvoid QName(Namespace("main_game.items.modifiers:IModifier"),"modifyValue"), 2
+                        getlocal1
+                        callproperty QName(PackageNamespace(""),"getSecondaryModifier"), 0
+                        getlex QName(PackageNamespace(""),"mc")
+                        getproperty Multiname("container",[PrivateNamespace(null,"150"),PackageNamespace(""),PrivateNamespace(null,"307"),PackageNamespace("view.popUp"),PackageInternalNs("view.popUp"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.popUp:ItemPopUp"),StaticProtectedNs("view.popUp:ItemPopUp"),StaticProtectedNs("view.popUp:PopUp")])
+                        getproperty Multiname("armor_icon_2",[PrivateNamespace(null,"150"),PackageNamespace(""),PrivateNamespace(null,"307"),PackageNamespace("view.popUp"),PackageInternalNs("view.popUp"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.popUp:ItemPopUp"),StaticProtectedNs("view.popUp:ItemPopUp"),StaticProtectedNs("view.popUp:PopUp")])
+                        callpropvoid QName(Namespace("main_game.items.modifiers:IModifier"),"modifyIcon"), 1
+                        getlex QName(PackageNamespace(""),"Math")
+                        getlocal2
+                        getlex QName(PackageNamespace("main_game.mixer"),"MixStrategy")
+                        getproperty QName(PackageNamespace(""),"mixConfig")
+                        getproperty Multiname("secondModMaxPercent",[PrivateNamespace(null,"150"),PackageNamespace(""),PrivateNamespace(null,"307"),PackageNamespace("view.popUp"),PackageInternalNs("view.popUp"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.popUp:ItemPopUp"),StaticProtectedNs("view.popUp:ItemPopUp"),StaticProtectedNs("view.popUp:PopUp")])
+                        multiply
+                        pushbyte 100
+                        divide
+                        callproperty QName(PackageNamespace(""),"round"), 1
+                        convert_i
+                        setlocal2
+                        getlocal1
+                        callproperty QName(PackageNamespace(""),"getSecondaryModifier"), 0
+                        getlex QName(PackageNamespace(""),"mc")
+                        getproperty Multiname("container",[PrivateNamespace(null,"150"),PackageNamespace(""),PrivateNamespace(null,"307"),PackageNamespace("view.popUp"),PackageInternalNs("view.popUp"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.popUp:ItemPopUp"),StaticProtectedNs("view.popUp:ItemPopUp"),StaticProtectedNs("view.popUp:PopUp")])
+                        getproperty Multiname("numbers_2",[PrivateNamespace(null,"150"),PackageNamespace(""),PrivateNamespace(null,"307"),PackageNamespace("view.popUp"),PackageInternalNs("view.popUp"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.popUp:ItemPopUp"),StaticProtectedNs("view.popUp:ItemPopUp"),StaticProtectedNs("view.popUp:PopUp")])
+                        getproperty Multiname("title",[PrivateNamespace(null,"150"),PackageNamespace(""),PrivateNamespace(null,"307"),PackageNamespace("view.popUp"),PackageInternalNs("view.popUp"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.popUp:ItemPopUp"),StaticProtectedNs("view.popUp:ItemPopUp"),StaticProtectedNs("view.popUp:PopUp")])
+                        getlocal2
+                        callpropvoid QName(Namespace("main_game.items.modifiers:IModifier"),"modifyValue"), 2
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            override public function hide(param1:Function = null) : void
+            {
+               trait method QName(PackageNamespace(""),"hide")
+                  flag OVERRIDE
+                  dispid 0
+                  method
+                     name null
+                     flag HAS_OPTIONAL
+                     param QName(PackageNamespace(""),"Function")
+                     optional Null()
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 2
+                        localcount 2
+                        initscopedepth 5
+                        maxscopedepth 6
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"150"),"item")
+                           iffalse ofs0013
+                           getlocal0
+                           callsupervoid QName(PackageNamespace(""),"hide"), 0
+                           jump ofs001e
+                  ofs0013:
+                           getlocal1
+                           pushnull
+                           ifeq ofs001e
+                           getlocal1
+                           getglobalscope
+                           call 0
+                           pop
+                  ofs001e:
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               override public function show(param1:Function = null) : void
+               {
+                  trait method QName(PackageNamespace(""),"show")
+                     flag OVERRIDE
+                     dispid 0
+                     method
+                        name null
+                        flag HAS_OPTIONAL
+                        param QName(PackageNamespace(""),"Function")
+                        optional Null()
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 2
+                           localcount 2
+                           initscopedepth 5
+                           maxscopedepth 6
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"150"),"item")
+                              iffalse ofs0013
+                              getlocal0
+                              callsupervoid QName(PackageNamespace(""),"show"), 0
+                              jump ofs001e
+                     ofs0013:
+                              getlocal1
+                              pushnull
+                              ifeq ofs001e
+                              getlocal1
+                              getglobalscope
+                              call 0
+                              pop
+                     ofs001e:
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  override public function clear() : void
+                  {
+                     trait method QName(PackageNamespace(""),"clear")
+                        flag OVERRIDE
+                        dispid 0
+                        method
+                           name null
+                           returns QName(PackageNamespace(""),"void")
+                           
+                           body
+                              maxstack 2
+                              localcount 1
+                              initscopedepth 5
+                              maxscopedepth 6
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal0
+                                 pushnull
+                                 setproperty QName(PrivateNamespace(null,"150"),"item")
+                                 getlocal0
+                                 callsupervoid QName(PackageNamespace(""),"clear"), 0
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                  }
+               }
+               
+               method
+                  name null
+                  returns null
+                  
+                  body
+                     maxstack 2
+                     localcount 1
+                     initscopedepth 1
+                     maxscopedepth 4
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        findpropstrict Multiname("ItemPopUp",[PackageNamespace("view.popUp")])
+                        getlex QName(PackageNamespace(""),"Object")
+                        pushscope
+                        getlex QName(PackageNamespace("view.popUp"),"PopUp")
+                        pushscope
+                        getlex QName(PackageNamespace("view.popUp"),"PopUp")
+                        newclass 255
+                        popscope
+                        popscope
+                        initproperty QName(PackageNamespace("view.popUp"),"ItemPopUp")
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+               

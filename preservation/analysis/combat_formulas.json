@@ -1,0 +1,8 @@
+{
+  "status": "CONFIRMADO_ESTATICO",
+  "source": "decompiled/actionscript/main/scripts/main_game/dungeon/DamageCalculator.as:calculateDamage; original/extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/config.di",
+  "formula": "x=(attack-defense)*element*0.9; x=x*(1+0.2*random); damage=max(1,round(x)); evade => 0; critical => damage*2",
+  "evade": "attackerLuck < defenderLuck ? max(0.10,min(0.20,0.3*(1-attackerLuck/defenderLuck))) : 0",
+  "critical": "Finn with weapon and attackerLuck > defenderLuck ? max(0.10,min(0.20,0.2*(1-defenderLuck/attackerLuck))) : 0",
+  "caveat": "Confirmar arredondamento ActionScript, P-code e runtime"
+}

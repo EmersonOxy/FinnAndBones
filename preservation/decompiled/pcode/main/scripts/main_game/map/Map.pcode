@@ -1,0 +1,723 @@
+package main_game.map
+{
+   import bonus.DailyBonus;
+   import cb.utils.cbArray;
+   import flash.utils.Dictionary;
+   import main_game.dungeon.DungeonFactory;
+   import main_game.element.Element;
+   
+   public class Map
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var levels:Dictionary;
+      
+      public function Map()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 2
+               localcount 1
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  callpropvoid QName(PrivateNamespace(null,"82"),"initializeLevels"), 0
+                  getlocal0
+                  callpropvoid QName(PrivateNamespace(null,"82"),"setConections"), 0
+                  getlocal0
+                  pushstring "1"
+                  callproperty QName(PackageNamespace(""),"getLevel"), 1
+                  callpropvoid QName(PackageNamespace(""),"unlock"), 0
+                  getlocal0
+                  callpropvoid QName(PrivateNamespace(null,"82"),"loadSave"), 0
+                  getlocal0
+                  callpropvoid QName(PackageNamespace(""),"unlockUnlocked"), 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function getNextLevel(param1:Level) : Level
+      {
+         trait method QName(PackageNamespace(""),"getNextLevel")
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace("main_game.map"),"Level")
+               returns QName(PackageNamespace("main_game.map"),"Level")
+               
+               body
+                  maxstack 2
+                  localcount 3
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal1
+                     callproperty QName(PackageNamespace(""),"getCorrelative"), 0
+                     coerce TypeName(QName(PackageNamespace("__AS3__.vec"),"Vector")<QName(PackageNamespace("main_game.map"),"Level")>)
+                     setlocal2
+                     getlocal2
+                     getproperty QName(PackageNamespace(""),"length")
+                     pushbyte 0
+                     ifngt ofs001b
+                     getlocal2
+                     pushbyte 0
+                     getproperty MultinameL([PrivateNamespace(null,"82"),PackageNamespace(""),PackageNamespace("main_game.map"),PrivateNamespace(null,"260"),PackageInternalNs("main_game.map"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.map:Map"),StaticProtectedNs("main_game.map:Map")])
+                     returnvalue
+            ofs001b:
+                     pushnull
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function getPreviousLevel(param1:String) : Level
+         {
+            trait method QName(PackageNamespace(""),"getPreviousLevel")
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace(""),"String")
+                  returns QName(PackageNamespace("main_game.map"),"Level")
+                  
+                  body
+                     maxstack 3
+                     localcount 5
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        pushnull
+                        coerce QName(PackageNamespace("main_game.map"),"Level")
+                        setlocal2
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"82"),"levels")
+                        getlocal1
+                        getproperty MultinameL([PrivateNamespace(null,"82"),PackageNamespace(""),PackageNamespace("main_game.map"),PrivateNamespace(null,"260"),PackageInternalNs("main_game.map"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.map:Map"),StaticProtectedNs("main_game.map:Map")])
+                        iftrue ofs0014
+                        pushnull
+                        returnvalue
+               ofs0014:
+                        pushbyte 0
+                        setlocal3
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"82"),"levels")
+                        coerce_a
+                        setlocal 4
+                        jump ofs0043
+               ofs0022:
+                        label
+                        getlocal 4
+                        getlocal3
+                        nextvalue
+                        coerce QName(PackageNamespace("main_game.map"),"Level")
+                        setlocal2
+                        getlocal2
+                        callproperty QName(PackageNamespace(""),"getCorrelative"), 0
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"82"),"levels")
+                        getlocal1
+                        getproperty MultinameL([PrivateNamespace(null,"82"),PackageNamespace(""),PackageNamespace("main_game.map"),PrivateNamespace(null,"260"),PackageInternalNs("main_game.map"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.map:Map"),StaticProtectedNs("main_game.map:Map")])
+                        callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"indexOf"), 1
+                        pushbyte 0
+                        ifnge ofs0043
+                        getlocal2
+                        returnvalue
+               ofs0043:
+                        hasnext2 4, 3
+                        iftrue ofs0022
+                        kill 4
+                        kill 3
+                        pushnull
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function biggestUnlockedLevel() : Level
+            {
+               trait method QName(PackageNamespace(""),"biggestUnlockedLevel")
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace("main_game.map"),"Level")
+                     
+                     body
+                        maxstack 2
+                        localcount 3
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           pushnull
+                           coerce QName(PackageNamespace("main_game.map"),"Level")
+                           setlocal1
+                           pushbyte 1
+                           setlocal2
+                           jump ofs002e
+                  ofs000d:
+                           label
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"82"),"levels")
+                           getlocal2
+                           getproperty MultinameL([PrivateNamespace(null,"82"),PackageNamespace(""),PackageNamespace("main_game.map"),PrivateNamespace(null,"260"),PackageInternalNs("main_game.map"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.map:Map"),StaticProtectedNs("main_game.map:Map")])
+                           getlex QName(PackageNamespace("main_game.map"),"Level")
+                           astypelate
+                           callproperty QName(PackageNamespace(""),"isUnlocked"), 0
+                           iffalse ofs002c
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"82"),"levels")
+                           getlocal2
+                           getproperty MultinameL([PrivateNamespace(null,"82"),PackageNamespace(""),PackageNamespace("main_game.map"),PrivateNamespace(null,"260"),PackageInternalNs("main_game.map"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.map:Map"),StaticProtectedNs("main_game.map:Map")])
+                           coerce QName(PackageNamespace("main_game.map"),"Level")
+                           setlocal1
+                  ofs002c:
+                           inclocal_i 2
+                  ofs002e:
+                           getlocal2
+                           pushbyte 25
+                           ifle ofs000d
+                           getlocal1
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function getLevel(param1:String) : Level
+               {
+                  trait method QName(PackageNamespace(""),"getLevel")
+                     dispid 0
+                     method
+                        name null
+                        param QName(PackageNamespace(""),"String")
+                        returns QName(PackageNamespace("main_game.map"),"Level")
+                        
+                        body
+                           maxstack 2
+                           localcount 2
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"82"),"levels")
+                              getlocal1
+                              getproperty MultinameL([PrivateNamespace(null,"82"),PackageNamespace(""),PackageNamespace("main_game.map"),PrivateNamespace(null,"260"),PackageInternalNs("main_game.map"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.map:Map"),StaticProtectedNs("main_game.map:Map")])
+                              returnvalue
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function getLevels() : Dictionary
+                  {
+                     trait method QName(PackageNamespace(""),"getLevels")
+                        dispid 0
+                        method
+                           name null
+                           returns QName(PackageNamespace("flash.utils"),"Dictionary")
+                           
+                           body
+                              maxstack 1
+                              localcount 1
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"82"),"levels")
+                                 returnvalue
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     private function initializeLevels() : void
+                     {
+                        trait method QName(PrivateNamespace(null,"82"),"initializeLevels")
+                           dispid 0
+                           method
+                              name null
+                              returns QName(PackageNamespace(""),"void")
+                              
+                              body
+                                 maxstack 6
+                                 localcount 4
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    pushnull
+                                    coerce_s
+                                    setlocal1
+                                    getlocal0
+                                    findpropstrict QName(PackageNamespace("flash.utils"),"Dictionary")
+                                    constructprop QName(PackageNamespace("flash.utils"),"Dictionary"), 0
+                                    setproperty QName(PrivateNamespace(null,"82"),"levels")
+                                    pushbyte 0
+                                    setlocal2
+                                    getlex QName(PackageNamespace("main_game.dungeon"),"DungeonFactory")
+                                    callproperty QName(PackageNamespace(""),"getInstance"), 0
+                                    callproperty QName(PackageNamespace(""),"getDungeonsIds"), 0
+                                    coerce_a
+                                    setlocal3
+                                    jump ofs00b3
+                           ofs0021:
+                                    label
+                                    getlocal3
+                                    getlocal2
+                                    nextvalue
+                                    coerce_s
+                                    setlocal1
+                                    getlocal1
+                                    pushstring "31"
+                                    ifne ofs0051
+                                    getlocal0
+                                    findpropstrict QName(PackageNamespace("main_game.map"),"LegendaryLevel")
+                                    getlocal1
+                                    getlex QName(PackageNamespace("main_game.element"),"Element")
+                                    getproperty QName(PackageNamespace(""),"ice")
+                                    getlex QName(PackageNamespace("bonus"),"DailyBonus")
+                                    getlex QName(PackageNamespace("main_game.element"),"Element")
+                                    getproperty QName(PackageNamespace(""),"ice")
+                                    callproperty QName(PackageNamespace(""),"getNextSpecialDungeonDate"), 1
+                                    constructprop QName(PackageNamespace("main_game.map"),"LegendaryLevel"), 3
+                                    callpropvoid QName(PackageNamespace(""),"addLevel"), 1
+                                    jump ofs00b3
+                           ofs0051:
+                                    getlocal1
+                                    pushstring "32"
+                                    ifne ofs007b
+                                    getlocal0
+                                    findpropstrict QName(PackageNamespace("main_game.map"),"LegendaryLevel")
+                                    getlocal1
+                                    getlex QName(PackageNamespace("main_game.element"),"Element")
+                                    getproperty QName(PackageNamespace(""),"fire")
+                                    getlex QName(PackageNamespace("bonus"),"DailyBonus")
+                                    getlex QName(PackageNamespace("main_game.element"),"Element")
+                                    getproperty QName(PackageNamespace(""),"fire")
+                                    callproperty QName(PackageNamespace(""),"getNextSpecialDungeonDate"), 1
+                                    constructprop QName(PackageNamespace("main_game.map"),"LegendaryLevel"), 3
+                                    callpropvoid QName(PackageNamespace(""),"addLevel"), 1
+                                    jump ofs00b3
+                           ofs007b:
+                                    pushstring "26"
+                                    pushstring "27"
+                                    pushstring "28"
+                                    pushstring "29"
+                                    pushstring "30"
+                                    newarray 5
+                                    getlocal1
+                                    callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"indexOf"), 1
+                                    pushbyte 0
+                                    ifnge ofs00a8
+                                    getlocal0
+                                    findpropstrict QName(PackageNamespace("main_game.map"),"SpecialLevel")
+                                    getlocal1
+                                    constructprop QName(PackageNamespace("main_game.map"),"SpecialLevel"), 1
+                                    callpropvoid QName(PackageNamespace(""),"addLevel"), 1
+                                    jump ofs00b3
+                           ofs00a8:
+                                    getlocal0
+                                    findpropstrict QName(PackageNamespace("main_game.map"),"Level")
+                                    getlocal1
+                                    constructprop QName(PackageNamespace("main_game.map"),"Level"), 1
+                                    callpropvoid QName(PackageNamespace(""),"addLevel"), 1
+                           ofs00b3:
+                                    hasnext2 3, 2
+                                    iftrue ofs0021
+                                    kill 3
+                                    kill 2
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        public function addLevel(param1:Level) : void
+                        {
+                           trait method QName(PackageNamespace(""),"addLevel")
+                              dispid 0
+                              method
+                                 name null
+                                 param QName(PackageNamespace("main_game.map"),"Level")
+                                 returns QName(PackageNamespace(""),"void")
+                                 
+                                 body
+                                    maxstack 3
+                                    localcount 2
+                                    initscopedepth 4
+                                    maxscopedepth 5
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"82"),"levels")
+                                       getlocal1
+                                       callproperty QName(PackageNamespace(""),"getDungeonId"), 0
+                                       getlocal1
+                                       setproperty MultinameL([PrivateNamespace(null,"82"),PackageNamespace(""),PackageNamespace("main_game.map"),PrivateNamespace(null,"260"),PackageInternalNs("main_game.map"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.map:Map"),StaticProtectedNs("main_game.map:Map")])
+                                       returnvoid
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           private function setConections() : void
+                           {
+                              trait method QName(PrivateNamespace(null,"82"),"setConections")
+                                 dispid 0
+                                 method
+                                    name null
+                                    returns QName(PackageNamespace(""),"void")
+                                    
+                                    body
+                                       maxstack 4
+                                       localcount 2
+                                       initscopedepth 4
+                                       maxscopedepth 5
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          pushbyte 1
+                                          setlocal1
+                                          jump ofs0023
+                                 ofs0009:
+                                          label
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"82"),"levels")
+                                          getlocal1
+                                          getproperty MultinameL([PrivateNamespace(null,"82"),PackageNamespace(""),PackageNamespace("main_game.map"),PrivateNamespace(null,"260"),PackageInternalNs("main_game.map"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.map:Map"),StaticProtectedNs("main_game.map:Map")])
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"82"),"levels")
+                                          getlocal1
+                                          pushbyte 1
+                                          add
+                                          getproperty MultinameL([PrivateNamespace(null,"82"),PackageNamespace(""),PackageNamespace("main_game.map"),PrivateNamespace(null,"260"),PackageInternalNs("main_game.map"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.map:Map"),StaticProtectedNs("main_game.map:Map")])
+                                          callpropvoid Multiname("addCorrelative",[PrivateNamespace(null,"82"),PackageNamespace(""),PackageNamespace("main_game.map"),PrivateNamespace(null,"260"),PackageInternalNs("main_game.map"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.map:Map"),StaticProtectedNs("main_game.map:Map")]), 1
+                                          inclocal_i 1
+                                 ofs0023:
+                                          getlocal1
+                                          pushbyte 25
+                                          iflt ofs0009
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"82"),"levels")
+                                          pushbyte 4
+                                          getproperty MultinameL([PrivateNamespace(null,"82"),PackageNamespace(""),PackageNamespace("main_game.map"),PrivateNamespace(null,"260"),PackageInternalNs("main_game.map"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.map:Map"),StaticProtectedNs("main_game.map:Map")])
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"82"),"levels")
+                                          pushbyte 26
+                                          getproperty MultinameL([PrivateNamespace(null,"82"),PackageNamespace(""),PackageNamespace("main_game.map"),PrivateNamespace(null,"260"),PackageInternalNs("main_game.map"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.map:Map"),StaticProtectedNs("main_game.map:Map")])
+                                          callpropvoid Multiname("addCorrelative",[PrivateNamespace(null,"82"),PackageNamespace(""),PackageNamespace("main_game.map"),PrivateNamespace(null,"260"),PackageInternalNs("main_game.map"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.map:Map"),StaticProtectedNs("main_game.map:Map")]), 1
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"82"),"levels")
+                                          pushbyte 15
+                                          getproperty MultinameL([PrivateNamespace(null,"82"),PackageNamespace(""),PackageNamespace("main_game.map"),PrivateNamespace(null,"260"),PackageInternalNs("main_game.map"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.map:Map"),StaticProtectedNs("main_game.map:Map")])
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"82"),"levels")
+                                          pushbyte 27
+                                          getproperty MultinameL([PrivateNamespace(null,"82"),PackageNamespace(""),PackageNamespace("main_game.map"),PrivateNamespace(null,"260"),PackageInternalNs("main_game.map"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.map:Map"),StaticProtectedNs("main_game.map:Map")])
+                                          callpropvoid Multiname("addCorrelative",[PrivateNamespace(null,"82"),PackageNamespace(""),PackageNamespace("main_game.map"),PrivateNamespace(null,"260"),PackageInternalNs("main_game.map"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.map:Map"),StaticProtectedNs("main_game.map:Map")]), 1
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"82"),"levels")
+                                          pushbyte 19
+                                          getproperty MultinameL([PrivateNamespace(null,"82"),PackageNamespace(""),PackageNamespace("main_game.map"),PrivateNamespace(null,"260"),PackageInternalNs("main_game.map"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.map:Map"),StaticProtectedNs("main_game.map:Map")])
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"82"),"levels")
+                                          pushbyte 28
+                                          getproperty MultinameL([PrivateNamespace(null,"82"),PackageNamespace(""),PackageNamespace("main_game.map"),PrivateNamespace(null,"260"),PackageInternalNs("main_game.map"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.map:Map"),StaticProtectedNs("main_game.map:Map")])
+                                          callpropvoid Multiname("addCorrelative",[PrivateNamespace(null,"82"),PackageNamespace(""),PackageNamespace("main_game.map"),PrivateNamespace(null,"260"),PackageInternalNs("main_game.map"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.map:Map"),StaticProtectedNs("main_game.map:Map")]), 1
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"82"),"levels")
+                                          pushbyte 23
+                                          getproperty MultinameL([PrivateNamespace(null,"82"),PackageNamespace(""),PackageNamespace("main_game.map"),PrivateNamespace(null,"260"),PackageInternalNs("main_game.map"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.map:Map"),StaticProtectedNs("main_game.map:Map")])
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"82"),"levels")
+                                          pushbyte 29
+                                          getproperty MultinameL([PrivateNamespace(null,"82"),PackageNamespace(""),PackageNamespace("main_game.map"),PrivateNamespace(null,"260"),PackageInternalNs("main_game.map"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.map:Map"),StaticProtectedNs("main_game.map:Map")])
+                                          callpropvoid Multiname("addCorrelative",[PrivateNamespace(null,"82"),PackageNamespace(""),PackageNamespace("main_game.map"),PrivateNamespace(null,"260"),PackageInternalNs("main_game.map"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.map:Map"),StaticProtectedNs("main_game.map:Map")]), 1
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"82"),"levels")
+                                          pushbyte 29
+                                          getproperty MultinameL([PrivateNamespace(null,"82"),PackageNamespace(""),PackageNamespace("main_game.map"),PrivateNamespace(null,"260"),PackageInternalNs("main_game.map"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.map:Map"),StaticProtectedNs("main_game.map:Map")])
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"82"),"levels")
+                                          pushbyte 30
+                                          getproperty MultinameL([PrivateNamespace(null,"82"),PackageNamespace(""),PackageNamespace("main_game.map"),PrivateNamespace(null,"260"),PackageInternalNs("main_game.map"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.map:Map"),StaticProtectedNs("main_game.map:Map")])
+                                          callpropvoid Multiname("addCorrelative",[PrivateNamespace(null,"82"),PackageNamespace(""),PackageNamespace("main_game.map"),PrivateNamespace(null,"260"),PackageInternalNs("main_game.map"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.map:Map"),StaticProtectedNs("main_game.map:Map")]), 1
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"82"),"levels")
+                                          pushbyte 26
+                                          getproperty MultinameL([PrivateNamespace(null,"82"),PackageNamespace(""),PackageNamespace("main_game.map"),PrivateNamespace(null,"260"),PackageInternalNs("main_game.map"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.map:Map"),StaticProtectedNs("main_game.map:Map")])
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"82"),"levels")
+                                          pushbyte 6
+                                          getproperty MultinameL([PrivateNamespace(null,"82"),PackageNamespace(""),PackageNamespace("main_game.map"),PrivateNamespace(null,"260"),PackageInternalNs("main_game.map"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.map:Map"),StaticProtectedNs("main_game.map:Map")])
+                                          callpropvoid Multiname("addCorrelative",[PrivateNamespace(null,"82"),PackageNamespace(""),PackageNamespace("main_game.map"),PrivateNamespace(null,"260"),PackageInternalNs("main_game.map"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.map:Map"),StaticProtectedNs("main_game.map:Map")]), 1
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"82"),"levels")
+                                          pushbyte 27
+                                          getproperty MultinameL([PrivateNamespace(null,"82"),PackageNamespace(""),PackageNamespace("main_game.map"),PrivateNamespace(null,"260"),PackageInternalNs("main_game.map"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.map:Map"),StaticProtectedNs("main_game.map:Map")])
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"82"),"levels")
+                                          pushbyte 16
+                                          getproperty MultinameL([PrivateNamespace(null,"82"),PackageNamespace(""),PackageNamespace("main_game.map"),PrivateNamespace(null,"260"),PackageInternalNs("main_game.map"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.map:Map"),StaticProtectedNs("main_game.map:Map")])
+                                          callpropvoid Multiname("addCorrelative",[PrivateNamespace(null,"82"),PackageNamespace(""),PackageNamespace("main_game.map"),PrivateNamespace(null,"260"),PackageInternalNs("main_game.map"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.map:Map"),StaticProtectedNs("main_game.map:Map")]), 1
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"82"),"levels")
+                                          pushbyte 28
+                                          getproperty MultinameL([PrivateNamespace(null,"82"),PackageNamespace(""),PackageNamespace("main_game.map"),PrivateNamespace(null,"260"),PackageInternalNs("main_game.map"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.map:Map"),StaticProtectedNs("main_game.map:Map")])
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"82"),"levels")
+                                          pushbyte 20
+                                          getproperty MultinameL([PrivateNamespace(null,"82"),PackageNamespace(""),PackageNamespace("main_game.map"),PrivateNamespace(null,"260"),PackageInternalNs("main_game.map"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.map:Map"),StaticProtectedNs("main_game.map:Map")])
+                                          callpropvoid Multiname("addCorrelative",[PrivateNamespace(null,"82"),PackageNamespace(""),PackageNamespace("main_game.map"),PrivateNamespace(null,"260"),PackageInternalNs("main_game.map"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.map:Map"),StaticProtectedNs("main_game.map:Map")]), 1
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"82"),"levels")
+                                          pushbyte 30
+                                          getproperty MultinameL([PrivateNamespace(null,"82"),PackageNamespace(""),PackageNamespace("main_game.map"),PrivateNamespace(null,"260"),PackageInternalNs("main_game.map"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.map:Map"),StaticProtectedNs("main_game.map:Map")])
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"82"),"levels")
+                                          pushbyte 24
+                                          getproperty MultinameL([PrivateNamespace(null,"82"),PackageNamespace(""),PackageNamespace("main_game.map"),PrivateNamespace(null,"260"),PackageInternalNs("main_game.map"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.map:Map"),StaticProtectedNs("main_game.map:Map")])
+                                          callpropvoid Multiname("addCorrelative",[PrivateNamespace(null,"82"),PackageNamespace(""),PackageNamespace("main_game.map"),PrivateNamespace(null,"260"),PackageInternalNs("main_game.map"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.map:Map"),StaticProtectedNs("main_game.map:Map")]), 1
+                                          returnvoid
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                              
+                              private function loadSave() : void
+                              {
+                                 trait method QName(PrivateNamespace(null,"82"),"loadSave")
+                                    dispid 0
+                                    method
+                                       name null
+                                       returns QName(PackageNamespace(""),"void")
+                                       
+                                       body
+                                          maxstack 2
+                                          localcount 5
+                                          initscopedepth 4
+                                          maxscopedepth 5
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             pushnull
+                                             coerce_s
+                                             setlocal2
+                                             getlex QName(PackageNamespace(""),"main")
+                                             getproperty QName(PackageNamespace(""),"saveSystem")
+                                             callproperty QName(PackageNamespace(""),"getClearedLevels"), 0
+                                             coerce QName(PackageNamespace(""),"Array")
+                                             setlocal1
+                                             pushbyte 0
+                                             setlocal3
+                                             getlocal1
+                                             coerce_a
+                                             setlocal 4
+                                             jump ofs002e
+                                    ofs001d:
+                                             label
+                                             getlocal 4
+                                             getlocal3
+                                             nextvalue
+                                             coerce_s
+                                             setlocal2
+                                             getlocal0
+                                             getlocal2
+                                             callproperty QName(PackageNamespace(""),"getLevel"), 1
+                                             callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                    ofs002e:
+                                             hasnext2 4, 3
+                                             iftrue ofs001d
+                                             kill 4
+                                             kill 3
+                                             returnvoid
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                 }
+                                 
+                                 public function unlockUnlocked() : cbArray
+                                 {
+                                    trait method QName(PackageNamespace(""),"unlockUnlocked")
+                                       dispid 0
+                                       method
+                                          name null
+                                          returns QName(PackageNamespace("cb.utils"),"cbArray")
+                                          
+                                          body
+                                             maxstack 2
+                                             localcount 8
+                                             initscopedepth 4
+                                             maxscopedepth 5
+                                             
+                                             code
+                                                getlocal0
+                                                pushscope
+                                                pushnull
+                                                coerce QName(PackageNamespace("main_game.map"),"Level")
+                                                setlocal2
+                                                pushnull
+                                                coerce QName(PackageNamespace("main_game.map"),"Level")
+                                                setlocal3
+                                                findpropstrict QName(PackageNamespace("cb.utils"),"cbArray")
+                                                constructprop QName(PackageNamespace("cb.utils"),"cbArray"), 0
+                                                coerce QName(PackageNamespace("cb.utils"),"cbArray")
+                                                setlocal1
+                                                pushbyte 0
+                                                setlocal 4
+                                                getlocal0
+                                                getproperty QName(PrivateNamespace(null,"82"),"levels")
+                                                coerce_a
+                                                setlocal 5
+                                                jump ofs006b
+                                       ofs0021:
+                                                label
+                                                getlocal 5
+                                                getlocal 4
+                                                nextvalue
+                                                coerce QName(PackageNamespace("main_game.map"),"Level")
+                                                setlocal2
+                                                getlocal2
+                                                callproperty QName(PackageNamespace(""),"isCleared"), 0
+                                                iffalse ofs006b
+                                                pushbyte 0
+                                                setlocal 6
+                                                getlocal2
+                                                callproperty QName(PackageNamespace(""),"getCorrelative"), 0
+                                                coerce_a
+                                                setlocal 7
+                                                jump ofs0060
+                                       ofs0043:
+                                                label
+                                                getlocal 7
+                                                getlocal 6
+                                                nextvalue
+                                                coerce QName(PackageNamespace("main_game.map"),"Level")
+                                                setlocal3
+                                                getlocal3
+                                                callproperty QName(PackageNamespace(""),"isLocked"), 0
+                                                iffalse ofs0060
+                                                getlocal3
+                                                callpropvoid QName(PackageNamespace(""),"unlock"), 0
+                                                getlocal1
+                                                getlocal3
+                                                callpropvoid QName(PackageNamespace(""),"pushIfNotPresent"), 1
+                                       ofs0060:
+                                                hasnext2 7, 6
+                                                iftrue ofs0043
+                                                kill 7
+                                                kill 6
+                                       ofs006b:
+                                                hasnext2 5, 4
+                                                iftrue ofs0021
+                                                kill 5
+                                                kill 4
+                                                getlocal1
+                                                returnvalue
+                                             end ; code
+                                          end ; body
+                                       end ; method
+                                    }
+                                    
+                                    public function clear() : void
+                                    {
+                                       trait method QName(PackageNamespace(""),"clear")
+                                          dispid 0
+                                          method
+                                             name null
+                                             returns QName(PackageNamespace(""),"void")
+                                             
+                                             body
+                                                maxstack 2
+                                                localcount 1
+                                                initscopedepth 4
+                                                maxscopedepth 5
+                                                
+                                                code
+                                                   getlocal0
+                                                   pushscope
+                                                   getlocal0
+                                                   pushnull
+                                                   setproperty QName(PrivateNamespace(null,"82"),"levels")
+                                                   returnvoid
+                                                end ; code
+                                             end ; body
+                                          end ; method
+                                       }
+                                    }
+                                 }
+                                 
+                                 method
+                                    name null
+                                    returns null
+                                    
+                                    body
+                                       maxstack 2
+                                       localcount 1
+                                       initscopedepth 1
+                                       maxscopedepth 3
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          findpropstrict Multiname("Map",[PackageNamespace("main_game.map")])
+                                          getlex QName(PackageNamespace(""),"Object")
+                                          pushscope
+                                          getlex QName(PackageNamespace(""),"Object")
+                                          newclass 142
+                                          popscope
+                                          initproperty QName(PackageNamespace("main_game.map"),"Map")
+                                          returnvoid
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                                 

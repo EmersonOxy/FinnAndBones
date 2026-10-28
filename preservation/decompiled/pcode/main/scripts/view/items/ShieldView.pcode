@@ -1,0 +1,144 @@
+package view.items
+{
+   import flash.display.MovieClip;
+   import main_game.items.Item;
+   import view.screens.main_game.slot.SlotView;
+   
+   public class ShieldView extends ItemView
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 4
+            maxscopedepth 5
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function ShieldView(param1:Item)
+      {
+         method
+            name null
+            param QName(PackageNamespace("main_game.items"),"Item")
+            returns null
+            
+            body
+               maxstack 2
+               localcount 2
+               initscopedepth 5
+               maxscopedepth 6
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  getlocal1
+                  constructsuper 1
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      override public function getMC() : MovieClip
+      {
+         trait method QName(PackageNamespace(""),"getMC")
+            flag OVERRIDE
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace("flash.display"),"MovieClip")
+               
+               body
+                  maxstack 2
+                  localcount 2
+                  initscopedepth 5
+                  maxscopedepth 6
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     callsuper QName(PackageNamespace(""),"getMC"), 0
+                     coerce QName(PackageNamespace("flash.display"),"MovieClip")
+                     setlocal1
+                     getlex QName(ProtectedNamespace("view.items:ItemView"),"item")
+                     callproperty QName(PackageNamespace(""),"getSecondaryModifier"), 0
+                     getlocal1
+                     getproperty Multiname("sword",[PrivateNamespace(null,"230"),PackageNamespace(""),PrivateNamespace(null,"231"),PackageNamespace("view.items"),PackageInternalNs("view.items"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.items:ShieldView"),StaticProtectedNs("view.items:ShieldView"),StaticProtectedNs("view.items:ItemView")])
+                     getproperty Multiname("gem",[PrivateNamespace(null,"230"),PackageNamespace(""),PrivateNamespace(null,"231"),PackageNamespace("view.items"),PackageInternalNs("view.items"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.items:ShieldView"),StaticProtectedNs("view.items:ShieldView"),StaticProtectedNs("view.items:ItemView")])
+                     callpropvoid QName(Namespace("main_game.items.modifiers:IModifier"),"modifyIcon"), 1
+                     getlocal1
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         override public function getStateForSlot(param1:SlotView) : String
+         {
+            trait method QName(PackageNamespace(""),"getStateForSlot")
+               flag OVERRIDE
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace("view.screens.main_game.slot"),"SlotView")
+                  returns QName(PackageNamespace(""),"String")
+                  
+                  body
+                     maxstack 1
+                     localcount 2
+                     initscopedepth 5
+                     maxscopedepth 6
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlex QName(PackageNamespace("view.screens.main_game.slot"),"SlotView")
+                        getproperty QName(PackageNamespace(""),"WEAPONS")
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+         }
+      }
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 1
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               findpropstrict Multiname("ShieldView",[PackageNamespace("view.items")])
+               getlex QName(PackageNamespace(""),"Object")
+               pushscope
+               getlex QName(PackageNamespace("view.items"),"ItemView")
+               pushscope
+               getlex QName(PackageNamespace("view.items"),"ItemView")
+               newclass 104
+               popscope
+               popscope
+               initproperty QName(PackageNamespace("view.items"),"ShieldView")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      

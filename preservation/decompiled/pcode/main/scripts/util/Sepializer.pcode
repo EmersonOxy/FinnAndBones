@@ -1,0 +1,304 @@
+package util
+{
+   import flash.display.Sprite;
+   import flash.filters.ColorMatrixFilter;
+   
+   public class Sepializer
+   {
+      
+      private static var instance:Sepializer;
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var filter:ColorMatrixFilter;
+      
+      private var filter2:ColorMatrixFilter;
+      
+      public function Sepializer(param1:SingletonLock)
+      {
+         method
+            name null
+            param QName(PrivateNamespace(null,"5"),"SingletonLock")
+            returns null
+            
+            body
+               maxstack 22
+               localcount 2
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("flash.filters"),"ColorMatrixFilter")
+                  pushdouble 0.39
+                  pushdouble 0.76
+                  pushdouble 0.189
+                  pushdouble 0.01
+                  pushbyte 0
+                  pushdouble 0.35
+                  pushdouble 0.686
+                  pushdouble 0.168
+                  pushdouble 0.01
+                  pushbyte 0
+                  pushdouble 0.27
+                  pushdouble 0.534
+                  pushdouble 0.131
+                  pushdouble 0.01
+                  pushbyte -10
+                  pushbyte 0
+                  dup
+                  dup
+                  pushbyte 1
+                  pushbyte 0
+                  newarray 20
+                  constructprop QName(PackageNamespace("flash.filters"),"ColorMatrixFilter"), 1
+                  initproperty QName(PrivateNamespace(null,"88"),"filter")
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("flash.filters"),"ColorMatrixFilter")
+                  pushdouble 0.39
+                  pushdouble 0.76
+                  pushdouble 0.189
+                  pushdouble 0.01
+                  pushbyte -80
+                  pushdouble 0.35
+                  pushdouble 0.686
+                  pushdouble 0.168
+                  pushdouble 0.01
+                  pushbyte -80
+                  pushdouble 0.27
+                  pushdouble 0.534
+                  pushdouble 0.131
+                  pushdouble 0.01
+                  pushbyte -70
+                  pushbyte 0
+                  dup
+                  dup
+                  pushbyte 1
+                  pushbyte 0
+                  newarray 20
+                  constructprop QName(PackageNamespace("flash.filters"),"ColorMatrixFilter"), 1
+                  initproperty QName(PrivateNamespace(null,"88"),"filter2")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public static function getInstance() : Sepializer
+      {
+         trait method QName(PackageNamespace(""),"getInstance")
+            flag FINAL
+            dispid 3
+            method
+               name null
+               returns QName(PackageNamespace("util"),"Sepializer")
+               
+               body
+                  maxstack 3
+                  localcount 1
+                  initscopedepth 3
+                  maxscopedepth 4
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlex QName(PrivateNamespace(null,"88"),"instance")
+                     iftrue ofs0019
+                     findproperty QName(PrivateNamespace(null,"88"),"instance")
+                     getlocal0
+                     findpropstrict QName(PrivateNamespace(null,"5"),"SingletonLock")
+                     constructprop QName(PrivateNamespace(null,"5"),"SingletonLock"), 0
+                     construct 1
+                     setproperty QName(PrivateNamespace(null,"88"),"instance")
+            ofs0019:
+                     getlex QName(PrivateNamespace(null,"88"),"instance")
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function sepialize(param1:Sprite) : void
+         {
+            trait method QName(PackageNamespace(""),"sepialize")
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace("flash.display"),"Sprite")
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 2
+                     localcount 2
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal1
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"88"),"filter")
+                        newarray 1
+                        setproperty QName(PackageNamespace(""),"filters")
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function sepializeDark(param1:Sprite) : void
+            {
+               trait method QName(PackageNamespace(""),"sepializeDark")
+                  dispid 0
+                  method
+                     name null
+                     param QName(PackageNamespace("flash.display"),"Sprite")
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 2
+                        localcount 2
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal1
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"88"),"filter2")
+                           newarray 1
+                           setproperty QName(PackageNamespace(""),"filters")
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function unsepialize(param1:Sprite) : void
+               {
+                  trait method QName(PackageNamespace(""),"unsepialize")
+                     dispid 0
+                     method
+                        name null
+                        param QName(PackageNamespace("flash.display"),"Sprite")
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 2
+                           localcount 2
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal1
+                              newarray 0
+                              setproperty QName(PackageNamespace(""),"filters")
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+               }
+            }
+            
+            class SingletonLock
+            {
+               
+               method
+                  name null
+                  returns null
+                  
+                  body
+                     maxstack 1
+                     localcount 1
+                     initscopedepth 3
+                     maxscopedepth 4
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+               
+               public function SingletonLock()
+               {
+                  method
+                     name null
+                     returns null
+                     
+                     body
+                        maxstack 1
+                        localcount 1
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           constructsuper 0
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+            }
+            
+            method
+               name null
+               returns null
+               
+               body
+                  maxstack 2
+                  localcount 1
+                  initscopedepth 1
+                  maxscopedepth 3
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     findpropstrict Multiname("Sepializer",[PackageNamespace("util")])
+                     getlex QName(PackageNamespace(""),"Object")
+                     pushscope
+                     getlex QName(PackageNamespace(""),"Object")
+                     newclass 148
+                     popscope
+                     initproperty QName(PackageNamespace("util"),"Sepializer")
+                     findpropstrict Multiname("SingletonLock",[PrivateNamespace(null,"5")])
+                     getlex QName(PackageNamespace(""),"Object")
+                     pushscope
+                     getlex QName(PackageNamespace(""),"Object")
+                     newclass 149
+                     popscope
+                     initproperty QName(PrivateNamespace(null,"5"),"SingletonLock")
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+            

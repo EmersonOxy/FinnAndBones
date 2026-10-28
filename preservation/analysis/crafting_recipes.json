@@ -1,0 +1,582 @@
+{
+  "status": "CONFIRMADO",
+  "source": "original/extracted/content/i.cartoonnetwork.com/games/adventuretime/finn-and-bones/mix.csv",
+  "notice": "Valores brutos da tabela; sem interpretação de semântica",
+  "count": 82,
+  "rows": [
+    {
+      "index": "1",
+      "item1": "SwordStarter",
+      "item2": "FireFlame",
+      "itemResult": "SwordStarterFire",
+      "showAdvice": "true"
+    },
+    {
+      "index": "2",
+      "item1": "SwordSimple",
+      "item2": "FireFlame",
+      "itemResult": "SwordSimpleFire",
+      "showAdvice": "true"
+    },
+    {
+      "index": "3",
+      "item1": "SwordMedium",
+      "item2": "FireFlame",
+      "itemResult": "SwordMediumFire",
+      "showAdvice": "true"
+    },
+    {
+      "index": "4",
+      "item1": "SwordHeavy",
+      "item2": "FireFlame",
+      "itemResult": "SwordHeavyFire",
+      "showAdvice": "true"
+    },
+    {
+      "index": "5",
+      "item1": "ShieldSimple",
+      "item2": "FireFlame",
+      "itemResult": "ShieldSimpleFire",
+      "showAdvice": "true"
+    },
+    {
+      "index": "6",
+      "item1": "ShieldMedium",
+      "item2": "FireFlame",
+      "itemResult": "ShieldMediumFire",
+      "showAdvice": "true"
+    },
+    {
+      "index": "7",
+      "item1": "ShieldHeavy",
+      "item2": "FireFlame",
+      "itemResult": "ShieldHeavyFire",
+      "showAdvice": "true"
+    },
+    {
+      "index": "8",
+      "item1": "SwordStarter",
+      "item2": "IceBlock",
+      "itemResult": "SwordStarterIce",
+      "showAdvice": "true"
+    },
+    {
+      "index": "9",
+      "item1": "SwordSimple",
+      "item2": "IceBlock",
+      "itemResult": "SwordSimpleIce",
+      "showAdvice": "true"
+    },
+    {
+      "index": "10",
+      "item1": "SwordMedium",
+      "item2": "IceBlock",
+      "itemResult": "SwordMediumIce",
+      "showAdvice": "true"
+    },
+    {
+      "index": "11",
+      "item1": "SwordHeavy",
+      "item2": "IceBlock",
+      "itemResult": "SwordHeavyIce",
+      "showAdvice": "true"
+    },
+    {
+      "index": "12",
+      "item1": "ShieldSimple",
+      "item2": "IceBlock",
+      "itemResult": "ShieldSimpleIce",
+      "showAdvice": "true"
+    },
+    {
+      "index": "13",
+      "item1": "ShieldMedium",
+      "item2": "IceBlock",
+      "itemResult": "ShieldMediumIce",
+      "showAdvice": "true"
+    },
+    {
+      "index": "14",
+      "item1": "ShieldHeavy",
+      "item2": "IceBlock",
+      "itemResult": "ShieldHeavyIce",
+      "showAdvice": "true"
+    },
+    {
+      "index": "15",
+      "item1": "RottenApple",
+      "item2": "HPPotionSmall",
+      "itemResult": "NiceApple",
+      "showAdvice": "true"
+    },
+    {
+      "index": "16",
+      "item1": "RottenApple",
+      "item2": "HPPotionMedium",
+      "itemResult": "NiceApple",
+      "showAdvice": "true"
+    },
+    {
+      "index": "17",
+      "item1": "RottenApple",
+      "item2": "HPPotionBig",
+      "itemResult": "NiceApple",
+      "showAdvice": "true"
+    },
+    {
+      "index": "18",
+      "item1": "NiceApple",
+      "item2": "NiceApple",
+      "itemResult": "ApplePie",
+      "showAdvice": "true"
+    },
+    {
+      "index": "19",
+      "item1": "FireFlame",
+      "item2": "IceBlock",
+      "itemResult": "Water",
+      "showAdvice": "true"
+    },
+    {
+      "index": "20",
+      "item1": "SwordStarterFire",
+      "item2": "Water",
+      "itemResult": "SwordStarter",
+      "showAdvice": "false"
+    },
+    {
+      "index": "21",
+      "item1": "SwordSimpleFire",
+      "item2": "Water",
+      "itemResult": "SwordSimple",
+      "showAdvice": "false"
+    },
+    {
+      "index": "22",
+      "item1": "SwordMediumFire",
+      "item2": "Water",
+      "itemResult": "SwordMedium",
+      "showAdvice": "false"
+    },
+    {
+      "index": "23",
+      "item1": "SwordHeavyFire",
+      "item2": "Water",
+      "itemResult": "SwordHeavy",
+      "showAdvice": "false"
+    },
+    {
+      "index": "24",
+      "item1": "ShieldSimpleFire",
+      "item2": "Water",
+      "itemResult": "ShieldSimple",
+      "showAdvice": "false"
+    },
+    {
+      "index": "25",
+      "item1": "ShieldMediumFire",
+      "item2": "Water",
+      "itemResult": "ShieldMedium",
+      "showAdvice": "false"
+    },
+    {
+      "index": "26",
+      "item1": "ShieldHeavyFire",
+      "item2": "Water",
+      "itemResult": "ShieldHeavy",
+      "showAdvice": "false"
+    },
+    {
+      "index": "27",
+      "item1": "SwordStarterFire",
+      "item2": "IceBlock",
+      "itemResult": "SwordStarter",
+      "showAdvice": "false"
+    },
+    {
+      "index": "28",
+      "item1": "SwordSimpleFire",
+      "item2": "IceBlock",
+      "itemResult": "SwordSimple",
+      "showAdvice": "false"
+    },
+    {
+      "index": "29",
+      "item1": "SwordMediumFire",
+      "item2": "IceBlock",
+      "itemResult": "SwordMedium",
+      "showAdvice": "false"
+    },
+    {
+      "index": "30",
+      "item1": "SwordHeavyFire",
+      "item2": "IceBlock",
+      "itemResult": "SwordHeavy",
+      "showAdvice": "false"
+    },
+    {
+      "index": "31",
+      "item1": "ShieldSimpleFire",
+      "item2": "IceBlock",
+      "itemResult": "ShieldSimple",
+      "showAdvice": "false"
+    },
+    {
+      "index": "32",
+      "item1": "ShieldMediumFire",
+      "item2": "IceBlock",
+      "itemResult": "ShieldMedium",
+      "showAdvice": "false"
+    },
+    {
+      "index": "33",
+      "item1": "ShieldHeavyFire",
+      "item2": "IceBlock",
+      "itemResult": "ShieldHeavy",
+      "showAdvice": "false"
+    },
+    {
+      "index": "34",
+      "item1": "SwordStarterIce",
+      "item2": "FireFlame",
+      "itemResult": "SwordStarter",
+      "showAdvice": "false"
+    },
+    {
+      "index": "35",
+      "item1": "SwordSimpleIce",
+      "item2": "FireFlame",
+      "itemResult": "SwordSimple",
+      "showAdvice": "false"
+    },
+    {
+      "index": "36",
+      "item1": "SwordMediumIce",
+      "item2": "FireFlame",
+      "itemResult": "SwordMedium",
+      "showAdvice": "false"
+    },
+    {
+      "index": "37",
+      "item1": "SwordHeavyIce",
+      "item2": "FireFlame",
+      "itemResult": "SwordHeavy",
+      "showAdvice": "false"
+    },
+    {
+      "index": "38",
+      "item1": "ShieldSimpleIce",
+      "item2": "FireFlame",
+      "itemResult": "ShieldSimple",
+      "showAdvice": "false"
+    },
+    {
+      "index": "39",
+      "item1": "ShieldMediumIce",
+      "item2": "FireFlame",
+      "itemResult": "ShieldMedium",
+      "showAdvice": "false"
+    },
+    {
+      "index": "40",
+      "item1": "SwordHeavyIce",
+      "item2": "FireFlame",
+      "itemResult": "ShieldHeavy",
+      "showAdvice": "false"
+    },
+    {
+      "index": "41",
+      "item1": "Bone",
+      "item2": "LuckPotionSmall",
+      "itemResult": "LuckyBone",
+      "showAdvice": "true"
+    },
+    {
+      "index": "42",
+      "item1": "Bone",
+      "item2": "LuckPotionMedium",
+      "itemResult": "LuckyBone",
+      "showAdvice": "true"
+    },
+    {
+      "index": "43",
+      "item1": "Bone",
+      "item2": "LuckPotionBig",
+      "itemResult": "LuckyBone",
+      "showAdvice": "true"
+    },
+    {
+      "index": "44",
+      "item1": "ManlyMustache",
+      "item2": "IceBlock",
+      "itemResult": "FrozenMustache",
+      "showAdvice": "true"
+    },
+    {
+      "index": "45",
+      "item1": "FrozenMustache",
+      "item2": "FireFlame",
+      "itemResult": "ManlyMustache",
+      "showAdvice": "false"
+    },
+    {
+      "index": "46",
+      "item1": "EmptyCan",
+      "item2": "HPPotionSmall",
+      "itemResult": "CannedHP",
+      "showAdvice": "true"
+    },
+    {
+      "index": "47",
+      "item1": "EmptyCan",
+      "item2": "HPPotionMedium",
+      "itemResult": "CannedHP",
+      "showAdvice": "true"
+    },
+    {
+      "index": "48",
+      "item1": "EmptyCan",
+      "item2": "HPPotionBig",
+      "itemResult": "CannedHP",
+      "showAdvice": "true"
+    },
+    {
+      "index": "49",
+      "item1": "EmptyCan",
+      "item2": "MaxHPRing",
+      "itemResult": "CannedHP",
+      "showAdvice": "true"
+    },
+    {
+      "index": "50",
+      "item1": "EmptyCan",
+      "item2": "MaxHPRing2",
+      "itemResult": "CannedHP",
+      "showAdvice": "true"
+    },
+    {
+      "index": "51",
+      "item1": "EmptyCan",
+      "item2": "MaxHPPendant",
+      "itemResult": "CannedHP",
+      "showAdvice": "true"
+    },
+    {
+      "index": "52",
+      "item1": "EmptyCan",
+      "item2": "MaxHPPendant2",
+      "itemResult": "CannedHP",
+      "showAdvice": "true"
+    },
+    {
+      "index": "53",
+      "item1": "EmptyCan",
+      "item2": "DefPotionSmall",
+      "itemResult": "CannedDefense",
+      "showAdvice": "true"
+    },
+    {
+      "index": "54",
+      "item1": "EmptyCan",
+      "item2": "DefPotionMedium",
+      "itemResult": "CannedDefense",
+      "showAdvice": "true"
+    },
+    {
+      "index": "55",
+      "item1": "EmptyCan",
+      "item2": "DefPotionBig",
+      "itemResult": "CannedDefense",
+      "showAdvice": "true"
+    },
+    {
+      "index": "56",
+      "item1": "EmptyCan",
+      "item2": "DefRing",
+      "itemResult": "CannedDefense",
+      "showAdvice": "true"
+    },
+    {
+      "index": "57",
+      "item1": "EmptyCan",
+      "item2": "DefRing2",
+      "itemResult": "CannedDefense",
+      "showAdvice": "true"
+    },
+    {
+      "index": "58",
+      "item1": "EmptyCan",
+      "item2": "DefPendant",
+      "itemResult": "CannedDefense",
+      "showAdvice": "true"
+    },
+    {
+      "index": "59",
+      "item1": "EmptyCan",
+      "item2": "DefPendant2",
+      "itemResult": "CannedDefense",
+      "showAdvice": "true"
+    },
+    {
+      "index": "60",
+      "item1": "EmptyCan",
+      "item2": "AttPotionSmall",
+      "itemResult": "CannedAttack",
+      "showAdvice": "true"
+    },
+    {
+      "index": "61",
+      "item1": "EmptyCan",
+      "item2": "AttPotionMedium",
+      "itemResult": "CannedAttack",
+      "showAdvice": "true"
+    },
+    {
+      "index": "62",
+      "item1": "EmptyCan",
+      "item2": "AttPotionBig",
+      "itemResult": "CannedAttack",
+      "showAdvice": "true"
+    },
+    {
+      "index": "63",
+      "item1": "EmptyCan",
+      "item2": "AttRing",
+      "itemResult": "CannedAttack",
+      "showAdvice": "true"
+    },
+    {
+      "index": "64",
+      "item1": "EmptyCan",
+      "item2": "AttRing2",
+      "itemResult": "CannedAttack",
+      "showAdvice": "true"
+    },
+    {
+      "index": "65",
+      "item1": "EmptyCan",
+      "item2": "AttPendant",
+      "itemResult": "CannedAttack",
+      "showAdvice": "true"
+    },
+    {
+      "index": "66",
+      "item1": "EmptyCan",
+      "item2": "AttPendant2",
+      "itemResult": "CannedAttack",
+      "showAdvice": "true"
+    },
+    {
+      "index": "67",
+      "item1": "EmptyCan",
+      "item2": "LuckPotionSmall",
+      "itemResult": "CannedLuck",
+      "showAdvice": "true"
+    },
+    {
+      "index": "68",
+      "item1": "EmptyCan",
+      "item2": "LuckPotionMedium",
+      "itemResult": "CannedLuck",
+      "showAdvice": "true"
+    },
+    {
+      "index": "69",
+      "item1": "EmptyCan",
+      "item2": "LuckPotionBig",
+      "itemResult": "CannedLuck",
+      "showAdvice": "true"
+    },
+    {
+      "index": "70",
+      "item1": "EmptyCan",
+      "item2": "LuckRing",
+      "itemResult": "CannedLuck",
+      "showAdvice": "true"
+    },
+    {
+      "index": "71",
+      "item1": "EmptyCan",
+      "item2": "LuckRing2",
+      "itemResult": "CannedLuck",
+      "showAdvice": "true"
+    },
+    {
+      "index": "72",
+      "item1": "EmptyCan",
+      "item2": "LuckPendant",
+      "itemResult": "CannedLuck",
+      "showAdvice": "true"
+    },
+    {
+      "index": "73",
+      "item1": "EmptyCan",
+      "item2": "LuckPendant2",
+      "itemResult": "CannedLuck",
+      "showAdvice": "true"
+    },
+    {
+      "index": "74",
+      "item1": "NiceApple",
+      "item2": "Poison",
+      "itemResult": "RottenApple",
+      "showAdvice": "false"
+    },
+    {
+      "index": "75",
+      "item1": "NiceApple",
+      "item2": "IceBlock",
+      "itemResult": "AppleIceCream",
+      "showAdvice": "true"
+    },
+    {
+      "index": "76",
+      "item1": "Strawberry",
+      "item2": "IceBlock",
+      "itemResult": "StrawberryIceCream",
+      "showAdvice": "true"
+    },
+    {
+      "index": "77",
+      "item1": "ManlyMustache",
+      "item2": "ManlyMustache",
+      "itemResult": "ManlyBeard",
+      "showAdvice": "true"
+    },
+    {
+      "index": "78",
+      "item1": "TemporalTattoo",
+      "item2": "Water",
+      "itemResult": "Paper",
+      "showAdvice": "true"
+    },
+    {
+      "index": "79",
+      "item1": "Paper",
+      "item2": "Paper",
+      "itemResult": "PaperBook",
+      "showAdvice": "true"
+    },
+    {
+      "index": "80",
+      "item1": "Water",
+      "item2": "Seeds",
+      "itemResult": "Strawberry",
+      "showAdvice": "true"
+    },
+    {
+      "index": "81",
+      "item1": "Bone",
+      "item2": "Poison",
+      "itemResult": "PirateFlag",
+      "showAdvice": "true"
+    },
+    {
+      "index": "82",
+      "item1": "MrFriendlyRock",
+      "item2": "MsFriendlyRock",
+      "itemResult": "FriendlyRockJr",
+      "showAdvice": "true"
+    }
+  ]
+}

@@ -1,0 +1,1130 @@
+package
+{
+   import aplication.BasicState;
+   import aplication.FSM;
+   import bonus.ClassLoader;
+   import bonus.DailyBonus;
+   import bonus.IDailyBonus;
+   import cb.data.Locale;
+   import cb.display.SwfBulkLoader;
+   import cb.logger.Appender;
+   import cb.logger.JSConsoleAppender;
+   import cb.logger.Log;
+   import cb.media.SoundLoader;
+   import drag_and_drop.DragDispatcher;
+   import flash.display.MovieClip;
+   import flash.display.Sprite;
+   import flash.events.Event;
+   import flash.utils.Dictionary;
+   import loader.DynamicLoader;
+   import loader.PostLoader;
+   import loader.Preloader;
+   import loader.SoundResourceLoader;
+   import main_game.Game;
+   import main_game.character.CharacterFactory;
+   import main_game.dungeon.DungeonFactory;
+   import main_game.items.ItemFactory;
+   import persistence.SaveSystem;
+   import sound.GameSounds;
+   import sound.SoundManager;
+   import tutorial.Tutorial;
+   import util.Util;
+   import view.screens.Intro;
+   import view.screens.MainMenu;
+   import view.screens.Outro;
+   import view.screens.main_game.GameView;
+   import view.screens.main_game.TransitionWindow;
+   import view.screens.main_game.TransitionWindowJakeLess;
+   
+   public class main extends Sprite
+   {
+      
+      public static var locale:Locale;
+      
+      public static var swfLoader:SwfBulkLoader;
+      
+      public static var soundManager:SoundManager;
+      
+      public static var config:ClassLoader;
+      
+      public static var levels:ClassLoader;
+      
+      public static var game:Game;
+      
+      public static var drag:DragDispatcher;
+      
+      public static var saveSystem:SaveSystem;
+      
+      public static var activeBonus:IDailyBonus;
+      
+      public static var theTutorial:Tutorial;
+      
+      public static var achievementDispatcher:AchievementDispatcher;
+      
+      public static var gameHolder:MovieClip;
+      
+      public static var popUpHolder:MovieClip;
+      
+      public static var tutorialHolder:MovieClip;
+      
+      public static var transitionHolder:MovieClip;
+      
+      private static var postLoader:PostLoader;
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 8
+            maxscopedepth 9
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var fsmAplication:FSM;
+      
+      public function main()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 3
+               localcount 1
+               initscopedepth 9
+               maxscopedepth 10
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlex QName(PackageNamespace("cb.logger"),"Log")
+                  pushstring "debug"
+                  callproperty QName(PackageNamespace(""),"getLogger"), 1
+                  findpropstrict QName(PackageNamespace("cb.logger"),"JSConsoleAppender")
+                  constructprop QName(PackageNamespace("cb.logger"),"JSConsoleAppender"), 0
+                  callpropvoid QName(PackageNamespace(""),"addAppender"), 1
+                  getlex QName(PackageNamespace("cb.logger"),"Log")
+                  pushstring "debug"
+                  callproperty QName(PackageNamespace(""),"getLogger"), 1
+                  findpropstrict QName(PackageNamespace("cb.logger"),"Appender")
+                  constructprop QName(PackageNamespace("cb.logger"),"Appender"), 0
+                  callpropvoid QName(PackageNamespace(""),"addAppender"), 1
+                  getlex QName(PackageNamespace(""),"stage")
+                  iffalse ofs003b
+                  getlocal0
+                  callpropvoid QName(PrivateNamespace(null,"8"),"init"), 0
+                  jump ofs004b
+         ofs003b:
+                  findpropstrict QName(PackageNamespace(""),"addEventListener")
+                  getlex QName(PackageNamespace("flash.events"),"Event")
+                  getproperty QName(PackageNamespace(""),"ADDED_TO_STAGE")
+                  getlocal0
+                  getproperty QName(PrivateNamespace(null,"8"),"init")
+                  callpropvoid QName(PackageNamespace(""),"addEventListener"), 2
+         ofs004b:
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public static function get theLoader() : DynamicLoader
+      {
+         trait getter QName(PackageNamespace(""),"theLoader")
+            flag FINAL
+            dispid 3
+            method
+               name null
+               returns QName(PackageNamespace("loader"),"DynamicLoader")
+               
+               body
+                  maxstack 1
+                  localcount 1
+                  initscopedepth 8
+                  maxscopedepth 9
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlex QName(PrivateNamespace(null,"8"),"postLoader")
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public static function setDailyBonus(param1:ClassLoader) : void
+         {
+            trait method QName(PackageNamespace(""),"setDailyBonus")
+               flag FINAL
+               dispid 4
+               method
+                  name null
+                  param QName(PackageNamespace("bonus"),"ClassLoader")
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 3
+                     localcount 2
+                     initscopedepth 8
+                     maxscopedepth 9
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlex QName(PackageNamespace("bonus"),"DailyBonus")
+                        getlocal1
+                        setproperty QName(PackageNamespace(""),"config")
+                        findproperty QName(PackageNamespace(""),"activeBonus")
+                        getlex QName(PackageNamespace("bonus"),"DailyBonus")
+                        findpropstrict QName(PackageNamespace(""),"Date")
+                        constructprop QName(PackageNamespace(""),"Date"), 0
+                        callproperty QName(PackageNamespace(""),"getBonusOfDate"), 1
+                        setproperty QName(PackageNamespace(""),"activeBonus")
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public static function waitForResourcesJakeLess(param1:Array, param2:Function, param3:Function = null) : void
+            {
+               trait method QName(PackageNamespace(""),"waitForResourcesJakeLess")
+                  flag FINAL
+                  dispid 5
+                  method
+                     name null
+                     flag HAS_OPTIONAL
+                     param QName(PackageNamespace(""),"Array")
+                     param QName(PackageNamespace(""),"Function")
+                     param QName(PackageNamespace(""),"Function")
+                     optional Null()
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 4
+                        localcount 5
+                        initscopedepth 8
+                        maxscopedepth 9
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           findpropstrict QName(PackageNamespace("view.screens.main_game"),"TransitionWindowJakeLess")
+                           getlocal1
+                           getlocal2
+                           getlocal3
+                           constructprop QName(PackageNamespace("view.screens.main_game"),"TransitionWindowJakeLess"), 3
+                           coerce QName(PackageNamespace("view.screens.main_game"),"TransitionWindow")
+                           dup
+                           setlocal 4
+                           getlex QName(PackageNamespace(""),"transitionHolder")
+                           callpropvoid QName(PackageNamespace(""),"start"), 1
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public static function waitForResources(param1:Array, param2:Function, param3:Function = null) : void
+               {
+                  trait method QName(PackageNamespace(""),"waitForResources")
+                     flag FINAL
+                     dispid 6
+                     method
+                        name null
+                        flag HAS_OPTIONAL
+                        param QName(PackageNamespace(""),"Array")
+                        param QName(PackageNamespace(""),"Function")
+                        param QName(PackageNamespace(""),"Function")
+                        optional Null()
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 4
+                           localcount 5
+                           initscopedepth 8
+                           maxscopedepth 9
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              findpropstrict QName(PackageNamespace("view.screens.main_game"),"TransitionWindow")
+                              getlocal1
+                              getlocal2
+                              getlocal3
+                              constructprop QName(PackageNamespace("view.screens.main_game"),"TransitionWindow"), 3
+                              coerce QName(PackageNamespace("view.screens.main_game"),"TransitionWindow")
+                              dup
+                              setlocal 4
+                              getlex QName(PackageNamespace(""),"transitionHolder")
+                              callpropvoid QName(PackageNamespace(""),"start"), 1
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  private function init(param1:Event = null) : void
+                  {
+                     trait method QName(PrivateNamespace(null,"8"),"init")
+                        dispid 0
+                        method
+                           name null
+                           flag HAS_OPTIONAL
+                           flag NEED_ACTIVATION
+                           param QName(PackageNamespace("flash.events"),"Event")
+                           optional Null()
+                           returns QName(PackageNamespace(""),"void")
+                           
+                           body
+                              maxstack 6
+                              localcount 3
+                              initscopedepth 10
+                              maxscopedepth 12
+                              trait slot QName(PackageInternalNs(""),"e")
+                                 slotid 1
+                                 type QName(PackageNamespace("flash.events"),"Event")
+                                 value Null()
+                              end ; trait
+                              trait slot QName(PackageInternalNs(""),"preloader")
+                                 slotid 2
+                                 type QName(PackageNamespace("loader"),"Preloader")
+                              end ; trait
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 newactivation
+                                 dup
+                                 setlocal2
+                                 pushscope
+                                 getscopeobject 1
+                                 getlocal1
+                                 setslot 1
+                                 findproperty QName(PackageNamespace(""),"popUpHolder")
+                                 findpropstrict QName(PackageNamespace("flash.display"),"MovieClip")
+                                 constructprop QName(PackageNamespace("flash.display"),"MovieClip"), 0
+                                 setproperty QName(PackageNamespace(""),"popUpHolder")
+                                 findproperty QName(PackageNamespace(""),"tutorialHolder")
+                                 findpropstrict QName(PackageNamespace("flash.display"),"MovieClip")
+                                 constructprop QName(PackageNamespace("flash.display"),"MovieClip"), 0
+                                 setproperty QName(PackageNamespace(""),"tutorialHolder")
+                                 findproperty QName(PackageNamespace(""),"gameHolder")
+                                 findpropstrict QName(PackageNamespace("flash.display"),"MovieClip")
+                                 constructprop QName(PackageNamespace("flash.display"),"MovieClip"), 0
+                                 setproperty QName(PackageNamespace(""),"gameHolder")
+                                 findproperty QName(PackageNamespace(""),"transitionHolder")
+                                 findpropstrict QName(PackageNamespace("flash.display"),"MovieClip")
+                                 constructprop QName(PackageNamespace("flash.display"),"MovieClip"), 0
+                                 setproperty QName(PackageNamespace(""),"transitionHolder")
+                                 getlocal0
+                                 getlex QName(PackageNamespace(""),"gameHolder")
+                                 callpropvoid QName(PackageNamespace(""),"addChild"), 1
+                                 getlocal0
+                                 getlex QName(PackageNamespace(""),"tutorialHolder")
+                                 callpropvoid QName(PackageNamespace(""),"addChild"), 1
+                                 getlocal0
+                                 getlex QName(PackageNamespace(""),"popUpHolder")
+                                 callpropvoid QName(PackageNamespace(""),"addChild"), 1
+                                 getlex QName(PackageNamespace(""),"popUpHolder")
+                                 pushfalse
+                                 setproperty QName(PackageNamespace(""),"mouseChildren")
+                                 getlex QName(PackageNamespace(""),"popUpHolder")
+                                 pushfalse
+                                 setproperty QName(PackageNamespace(""),"mouseEnabled")
+                                 getlocal0
+                                 getlex QName(PackageNamespace(""),"transitionHolder")
+                                 callpropvoid QName(PackageNamespace(""),"addChild"), 1
+                                 getlocal0
+                                 callpropvoid QName(PrivateNamespace(null,"8"),"disableKeyboard"), 0
+                                 findpropstrict QName(PackageNamespace(""),"removeEventListener")
+                                 getlex QName(PackageNamespace("flash.events"),"Event")
+                                 getproperty QName(PackageNamespace(""),"ADDED_TO_STAGE")
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"8"),"init")
+                                 callpropvoid QName(PackageNamespace(""),"removeEventListener"), 2
+                                 findproperty QName(PackageNamespace(""),"drag")
+                                 findpropstrict QName(PackageNamespace("drag_and_drop"),"DragDispatcher")
+                                 getlex QName(PackageNamespace(""),"stage")
+                                 constructprop QName(PackageNamespace("drag_and_drop"),"DragDispatcher"), 1
+                                 setproperty QName(PackageNamespace(""),"drag")
+                                 findproperty QName(PackageNamespace(""),"soundManager")
+                                 findpropstrict QName(PackageNamespace("sound"),"SoundManager")
+                                 constructprop QName(PackageNamespace("sound"),"SoundManager"), 0
+                                 setproperty QName(PackageNamespace(""),"soundManager")
+                                 findproperty QName(PackageNamespace(""),"saveSystem")
+                                 findpropstrict QName(PackageNamespace("persistence"),"SaveSystem")
+                                 getlex QName(PackageNamespace(""),"stage")
+                                 constructprop QName(PackageNamespace("persistence"),"SaveSystem"), 1
+                                 setproperty QName(PackageNamespace(""),"saveSystem")
+                                 getscopeobject 1
+                                 findpropstrict QName(PackageNamespace("loader"),"Preloader")
+                                 getlex QName(PackageNamespace(""),"gameHolder")
+                                 constructprop QName(PackageNamespace("loader"),"Preloader"), 1
+                                 coerce QName(PackageNamespace("loader"),"Preloader")
+                                 setslot 2
+                                 getscopeobject 1
+                                 getslot 2
+                                 getproperty QName(PackageNamespace(""),"onLocaleLoaded")
+                                 newfunction 6
+                                 callpropvoid QName(PackageNamespace(""),"add"), 1
+                                 getscopeobject 1
+                                 getslot 2
+                                 getproperty QName(PackageNamespace(""),"onConfigLoaded")
+                                 newfunction 7
+                                 callpropvoid QName(PackageNamespace(""),"add"), 1
+                                 getscopeobject 1
+                                 getslot 2
+                                 getproperty QName(PackageNamespace(""),"onCharactersLoaded")
+                                 newfunction 8
+                                 callpropvoid QName(PackageNamespace(""),"add"), 1
+                                 getscopeobject 1
+                                 getslot 2
+                                 getproperty QName(PackageNamespace(""),"onItemsLoaded")
+                                 newfunction 9
+                                 callpropvoid QName(PackageNamespace(""),"add"), 1
+                                 getscopeobject 1
+                                 getslot 2
+                                 getproperty QName(PackageNamespace(""),"onDungeonsLoaded")
+                                 newfunction 10
+                                 callpropvoid QName(PackageNamespace(""),"add"), 1
+                                 getscopeobject 1
+                                 getslot 2
+                                 getproperty QName(PackageNamespace(""),"onLevelsLoaded")
+                                 newfunction 11
+                                 callpropvoid QName(PackageNamespace(""),"add"), 1
+                                 getscopeobject 1
+                                 getslot 2
+                                 getproperty QName(PackageNamespace(""),"onSwfLoaded")
+                                 newfunction 12
+                                 callpropvoid QName(PackageNamespace(""),"add"), 1
+                                 getscopeobject 1
+                                 getslot 2
+                                 getproperty QName(PackageNamespace(""),"onSoundLoaded")
+                                 newfunction 13
+                                 callpropvoid QName(PackageNamespace(""),"add"), 1
+                                 getscopeobject 1
+                                 getslot 2
+                                 getproperty QName(PackageNamespace(""),"onFinishLoading")
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"8"),"preloadingComplete")
+                                 callpropvoid QName(PackageNamespace(""),"add"), 1
+                                 findproperty QName(PackageNamespace(""),"achievementDispatcher")
+                                 findpropstrict QName(PackageNamespace(""),"AchievementDispatcher")
+                                 constructprop QName(PackageNamespace(""),"AchievementDispatcher"), 0
+                                 setproperty QName(PackageNamespace(""),"achievementDispatcher")
+                                 getlocal0
+                                 findpropstrict QName(PackageNamespace("aplication"),"FSM")
+                                 findpropstrict QName(PackageNamespace("aplication"),"BasicState")
+                                 pushstring "preloading"
+                                 getscopeobject 1
+                                 getslot 2
+                                 getproperty QName(PackageNamespace(""),"start")
+                                 getlex QName(PackageNamespace(""),"achievementDispatcher")
+                                 getproperty QName(PackageNamespace(""),"gameLoaded")
+                                 constructprop QName(PackageNamespace("aplication"),"BasicState"), 3
+                                 constructprop QName(PackageNamespace("aplication"),"FSM"), 1
+                                 initproperty QName(PrivateNamespace(null,"8"),"fsmAplication")
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"8"),"fsmAplication")
+                                 findpropstrict QName(PackageNamespace("aplication"),"BasicState")
+                                 pushstring "mainMenu"
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"8"),"showMainMenu")
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"8"),"removeMainMenu")
+                                 constructprop QName(PackageNamespace("aplication"),"BasicState"), 3
+                                 callpropvoid QName(PackageNamespace(""),"addState"), 1
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"8"),"fsmAplication")
+                                 findpropstrict QName(PackageNamespace("aplication"),"BasicState")
+                                 pushstring "intro"
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"8"),"showIntro")
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"8"),"removeIntro")
+                                 constructprop QName(PackageNamespace("aplication"),"BasicState"), 3
+                                 callpropvoid QName(PackageNamespace(""),"addState"), 1
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"8"),"fsmAplication")
+                                 findpropstrict QName(PackageNamespace("aplication"),"BasicState")
+                                 pushstring "game"
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"8"),"loadGame")
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"8"),"leaveGame")
+                                 constructprop QName(PackageNamespace("aplication"),"BasicState"), 3
+                                 callpropvoid QName(PackageNamespace(""),"addState"), 1
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"8"),"fsmAplication")
+                                 findpropstrict QName(PackageNamespace("aplication"),"BasicState")
+                                 pushstring "outro"
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"8"),"showOutro")
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"8"),"removeOutro")
+                                 constructprop QName(PackageNamespace("aplication"),"BasicState"), 3
+                                 callpropvoid QName(PackageNamespace(""),"addState"), 1
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"8"),"fsmAplication")
+                                 pushstring "preloading"
+                                 pushstring "mainMenu"
+                                 pushstring "loaded"
+                                 callpropvoid QName(PackageNamespace(""),"addTransition"), 3
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"8"),"fsmAplication")
+                                 pushstring "mainMenu"
+                                 pushstring "intro"
+                                 pushstring "newGame"
+                                 callpropvoid QName(PackageNamespace(""),"addTransition"), 3
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"8"),"fsmAplication")
+                                 pushstring "mainMenu"
+                                 pushstring "game"
+                                 pushstring "continueGame"
+                                 callpropvoid QName(PackageNamespace(""),"addTransition"), 3
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"8"),"fsmAplication")
+                                 pushstring "intro"
+                                 pushstring "game"
+                                 pushstring "next"
+                                 callpropvoid QName(PackageNamespace(""),"addTransition"), 3
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"8"),"fsmAplication")
+                                 pushstring "intro"
+                                 pushstring "mainMenu"
+                                 pushstring "back"
+                                 callpropvoid QName(PackageNamespace(""),"addTransition"), 3
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"8"),"fsmAplication")
+                                 pushstring "game"
+                                 pushstring "mainMenu"
+                                 pushstring "toMainMenu"
+                                 callpropvoid QName(PackageNamespace(""),"addTransition"), 3
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"8"),"fsmAplication")
+                                 pushstring "game"
+                                 pushstring "outro"
+                                 pushstring "endGame"
+                                 callpropvoid QName(PackageNamespace(""),"addTransition"), 3
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"8"),"fsmAplication")
+                                 pushstring "outro"
+                                 pushstring "game"
+                                 pushstring "next"
+                                 callpropvoid QName(PackageNamespace(""),"addTransition"), 3
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"8"),"fsmAplication")
+                                 callpropvoid QName(PackageNamespace(""),"start"), 0
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     private function disableKeyboard() : void
+                     {
+                        trait method QName(PrivateNamespace(null,"8"),"disableKeyboard")
+                           dispid 0
+                           method
+                              name null
+                              returns QName(PackageNamespace(""),"void")
+                              
+                              body
+                                 maxstack 2
+                                 localcount 1
+                                 initscopedepth 9
+                                 maxscopedepth 10
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    getlex QName(PackageNamespace(""),"gameHolder")
+                                    pushfalse
+                                    setproperty QName(PackageNamespace(""),"tabEnabled")
+                                    getlex QName(PackageNamespace(""),"gameHolder")
+                                    pushfalse
+                                    setproperty QName(PackageNamespace(""),"tabChildren")
+                                    getlex QName(PackageNamespace(""),"tutorialHolder")
+                                    pushfalse
+                                    setproperty QName(PackageNamespace(""),"tabEnabled")
+                                    getlex QName(PackageNamespace(""),"tutorialHolder")
+                                    pushfalse
+                                    setproperty QName(PackageNamespace(""),"tabChildren")
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        private function preloadingComplete(param1:Preloader) : void
+                        {
+                           trait method QName(PrivateNamespace(null,"8"),"preloadingComplete")
+                              dispid 0
+                              method
+                                 name null
+                                 param QName(PackageNamespace("loader"),"Preloader")
+                                 returns QName(PackageNamespace(""),"void")
+                                 
+                                 body
+                                    maxstack 5
+                                    localcount 2
+                                    initscopedepth 9
+                                    maxscopedepth 10
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       findpropstrict QName(PackageNamespace(""),"assert")
+                                       getlex QName(PackageNamespace(""),"swfLoader")
+                                       pushnull
+                                       equals
+                                       not
+                                       pushstring "swfLoader is missing!"
+                                       callpropvoid QName(PackageNamespace(""),"assert"), 2
+                                       findpropstrict QName(PackageNamespace(""),"assert")
+                                       getlex QName(PackageNamespace(""),"locale")
+                                       pushnull
+                                       equals
+                                       not
+                                       pushstring "Locale is missing!"
+                                       callpropvoid QName(PackageNamespace(""),"assert"), 2
+                                       findpropstrict QName(PackageNamespace(""),"assert")
+                                       getlex QName(PackageNamespace(""),"soundManager")
+                                       callproperty QName(PackageNamespace(""),"ready"), 0
+                                       pushstring "soundMixer is missing!"
+                                       callpropvoid QName(PackageNamespace(""),"assert"), 2
+                                       findpropstrict QName(PackageNamespace(""),"assert")
+                                       getlex QName(PackageNamespace(""),"config")
+                                       pushnull
+                                       equals
+                                       not
+                                       pushstring "config is missing!"
+                                       callpropvoid QName(PackageNamespace(""),"assert"), 2
+                                       findpropstrict QName(PackageNamespace(""),"assert")
+                                       getlex QName(PackageNamespace("bonus"),"DailyBonus")
+                                       getproperty QName(PackageNamespace(""),"config")
+                                       pushnull
+                                       equals
+                                       not
+                                       pushstring "dailybonus is missing!"
+                                       callpropvoid QName(PackageNamespace(""),"assert"), 2
+                                       findproperty QName(PrivateNamespace(null,"8"),"postLoader")
+                                       findpropstrict QName(PackageNamespace("loader"),"PostLoader")
+                                       getlex QName(PackageNamespace("sound"),"GameSounds")
+                                       getproperty QName(PackageNamespace(""),"soundsToLoad")
+                                       findpropstrict QName(PackageNamespace("loader"),"SoundResourceLoader")
+                                       getlex QName(PackageNamespace(""),"soundManager")
+                                       constructprop QName(PackageNamespace("loader"),"SoundResourceLoader"), 1
+                                       constructprop QName(PackageNamespace("loader"),"PostLoader"), 2
+                                       setproperty QName(PrivateNamespace(null,"8"),"postLoader")
+                                       getlex QName(PrivateNamespace(null,"8"),"postLoader")
+                                       callpropvoid QName(PackageNamespace(""),"start"), 0
+                                       getlocal1
+                                       callpropvoid QName(PackageNamespace(""),"pop"), 0
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"8"),"fsmAplication")
+                                       pushstring "loaded"
+                                       callpropvoid QName(PackageNamespace(""),"takeTransition"), 1
+                                       returnvoid
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           private function showMainMenu() : void
+                           {
+                              trait method QName(PrivateNamespace(null,"8"),"showMainMenu")
+                                 dispid 0
+                                 method
+                                    name null
+                                    flag NEED_ACTIVATION
+                                    returns QName(PackageNamespace(""),"void")
+                                    
+                                    body
+                                       maxstack 5
+                                       localcount 2
+                                       initscopedepth 10
+                                       maxscopedepth 12
+                                       trait slot QName(PackageInternalNs(""),"mm")
+                                          slotid 1
+                                          type QName(PackageNamespace("view.screens"),"MainMenu")
+                                       end ; trait
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          newactivation
+                                          dup
+                                          setlocal1
+                                          pushscope
+                                          getscopeobject 1
+                                          findpropstrict QName(PackageNamespace("view.screens"),"MainMenu")
+                                          constructprop QName(PackageNamespace("view.screens"),"MainMenu"), 0
+                                          coerce QName(PackageNamespace("view.screens"),"MainMenu")
+                                          setslot 1
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"8"),"fsmAplication")
+                                          callproperty QName(PackageNamespace(""),"getActualState"), 0
+                                          getlex QName(PackageNamespace("aplication"),"BasicState")
+                                          astypelate
+                                          getscopeobject 1
+                                          getslot 1
+                                          setproperty QName(PackageNamespace(""),"persistency")
+                                          getlex QName(PackageNamespace(""),"gameHolder")
+                                          getscopeobject 1
+                                          getslot 1
+                                          callpropvoid QName(PackageNamespace(""),"addChild"), 1
+                                          getscopeobject 1
+                                          getslot 1
+                                          getproperty QName(PackageNamespace(""),"onNewGame")
+                                          getlex QName(PackageNamespace("util"),"Util")
+                                          getlex QName(PackageNamespace(""),"waitForResourcesJakeLess")
+                                          newarray 0
+                                          newfunction 17
+                                          callproperty QName(PackageNamespace(""),"l"), 3
+                                          callpropvoid QName(PackageNamespace(""),"add"), 1
+                                          getscopeobject 1
+                                          getslot 1
+                                          getproperty QName(PackageNamespace(""),"onContinueGame")
+                                          getlex QName(PackageNamespace("util"),"Util")
+                                          getlex QName(PackageNamespace(""),"waitForResources")
+                                          getlex QName(PackageNamespace("sound"),"GameSounds")
+                                          getproperty QName(PackageNamespace(""),"mapSounds")
+                                          newfunction 18
+                                          callproperty QName(PackageNamespace(""),"l"), 3
+                                          callpropvoid QName(PackageNamespace(""),"add"), 1
+                                          getscopeobject 1
+                                          getslot 1
+                                          callpropvoid QName(PackageNamespace(""),"enter"), 0
+                                          returnvoid
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                              
+                              private function removeMainMenu() : void
+                              {
+                                 trait method QName(PrivateNamespace(null,"8"),"removeMainMenu")
+                                    dispid 0
+                                    method
+                                       name null
+                                       returns QName(PackageNamespace(""),"void")
+                                       
+                                       body
+                                          maxstack 2
+                                          localcount 2
+                                          initscopedepth 9
+                                          maxscopedepth 10
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             getlocal0
+                                             getproperty QName(PrivateNamespace(null,"8"),"fsmAplication")
+                                             callproperty QName(PackageNamespace(""),"getActualState"), 0
+                                             getlex QName(PackageNamespace("aplication"),"BasicState")
+                                             astypelate
+                                             getproperty QName(PackageNamespace(""),"persistency")
+                                             getlex QName(PackageNamespace("view.screens"),"MainMenu")
+                                             astypelate
+                                             coerce QName(PackageNamespace("view.screens"),"MainMenu")
+                                             setlocal1
+                                             getlocal1
+                                             callpropvoid QName(PackageNamespace(""),"exit"), 0
+                                             returnvoid
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                 }
+                                 
+                                 private function showIntro() : void
+                                 {
+                                    trait method QName(PrivateNamespace(null,"8"),"showIntro")
+                                       dispid 0
+                                       method
+                                          name null
+                                          flag NEED_ACTIVATION
+                                          returns QName(PackageNamespace(""),"void")
+                                          
+                                          body
+                                             maxstack 5
+                                             localcount 2
+                                             initscopedepth 10
+                                             maxscopedepth 12
+                                             trait slot QName(PackageInternalNs(""),"intro")
+                                                slotid 1
+                                                type QName(PackageNamespace("view.screens"),"Intro")
+                                             end ; trait
+                                             
+                                             code
+                                                getlocal0
+                                                pushscope
+                                                newactivation
+                                                dup
+                                                setlocal1
+                                                pushscope
+                                                getlex QName(PackageNamespace(""),"saveSystem")
+                                                callpropvoid QName(PackageNamespace(""),"reset"), 0
+                                                getscopeobject 1
+                                                findpropstrict QName(PackageNamespace("view.screens"),"Intro")
+                                                constructprop QName(PackageNamespace("view.screens"),"Intro"), 0
+                                                coerce QName(PackageNamespace("view.screens"),"Intro")
+                                                setslot 1
+                                                getlocal0
+                                                getproperty QName(PrivateNamespace(null,"8"),"fsmAplication")
+                                                callproperty QName(PackageNamespace(""),"getActualState"), 0
+                                                getlex QName(PackageNamespace("aplication"),"BasicState")
+                                                astypelate
+                                                getscopeobject 1
+                                                getslot 1
+                                                setproperty QName(PackageNamespace(""),"persistency")
+                                                getlex QName(PackageNamespace(""),"gameHolder")
+                                                getscopeobject 1
+                                                getslot 1
+                                                callpropvoid QName(PackageNamespace(""),"addChild"), 1
+                                                getscopeobject 1
+                                                getslot 1
+                                                getproperty QName(PackageNamespace(""),"onNext")
+                                                getlex QName(PackageNamespace("util"),"Util")
+                                                getlex QName(PackageNamespace(""),"waitForResources")
+                                                getlex QName(PackageNamespace("sound"),"GameSounds")
+                                                getproperty QName(PackageNamespace(""),"mapSounds")
+                                                newfunction 21
+                                                callproperty QName(PackageNamespace(""),"l"), 3
+                                                callpropvoid QName(PackageNamespace(""),"add"), 1
+                                                getscopeobject 1
+                                                getslot 1
+                                                getproperty QName(PackageNamespace(""),"onBack")
+                                                getlex QName(PackageNamespace("util"),"Util")
+                                                getlex QName(PackageNamespace(""),"waitForResourcesJakeLess")
+                                                newarray 0
+                                                newfunction 22
+                                                callproperty QName(PackageNamespace(""),"l"), 3
+                                                callpropvoid QName(PackageNamespace(""),"add"), 1
+                                                getscopeobject 1
+                                                getslot 1
+                                                callpropvoid QName(PackageNamespace(""),"enter"), 0
+                                                returnvoid
+                                             end ; code
+                                          end ; body
+                                       end ; method
+                                    }
+                                    
+                                    private function removeIntro() : void
+                                    {
+                                       trait method QName(PrivateNamespace(null,"8"),"removeIntro")
+                                          dispid 0
+                                          method
+                                             name null
+                                             returns QName(PackageNamespace(""),"void")
+                                             
+                                             body
+                                                maxstack 2
+                                                localcount 2
+                                                initscopedepth 9
+                                                maxscopedepth 10
+                                                
+                                                code
+                                                   getlocal0
+                                                   pushscope
+                                                   getlocal0
+                                                   getproperty QName(PrivateNamespace(null,"8"),"fsmAplication")
+                                                   callproperty QName(PackageNamespace(""),"getActualState"), 0
+                                                   getlex QName(PackageNamespace("aplication"),"BasicState")
+                                                   astypelate
+                                                   getproperty QName(PackageNamespace(""),"persistency")
+                                                   getlex QName(PackageNamespace("view.screens"),"Intro")
+                                                   astypelate
+                                                   coerce QName(PackageNamespace("view.screens"),"Intro")
+                                                   setlocal1
+                                                   getlocal1
+                                                   callpropvoid QName(PackageNamespace(""),"exit"), 0
+                                                   returnvoid
+                                                end ; code
+                                             end ; body
+                                          end ; method
+                                       }
+                                       
+                                       private function showOutro() : void
+                                       {
+                                          trait method QName(PrivateNamespace(null,"8"),"showOutro")
+                                             dispid 0
+                                             method
+                                                name null
+                                                flag NEED_ACTIVATION
+                                                returns QName(PackageNamespace(""),"void")
+                                                
+                                                body
+                                                   maxstack 5
+                                                   localcount 2
+                                                   initscopedepth 10
+                                                   maxscopedepth 12
+                                                   trait slot QName(PackageInternalNs(""),"outro")
+                                                      slotid 1
+                                                      type QName(PackageNamespace("view.screens"),"Outro")
+                                                   end ; trait
+                                                   
+                                                   code
+                                                      getlocal0
+                                                      pushscope
+                                                      newactivation
+                                                      dup
+                                                      setlocal1
+                                                      pushscope
+                                                      getlex QName(PackageNamespace(""),"achievementDispatcher")
+                                                      callpropvoid QName(PackageNamespace(""),"gameWon"), 0
+                                                      getscopeobject 1
+                                                      findpropstrict QName(PackageNamespace("view.screens"),"Outro")
+                                                      constructprop QName(PackageNamespace("view.screens"),"Outro"), 0
+                                                      coerce QName(PackageNamespace("view.screens"),"Outro")
+                                                      setslot 1
+                                                      getlocal0
+                                                      getproperty QName(PrivateNamespace(null,"8"),"fsmAplication")
+                                                      callproperty QName(PackageNamespace(""),"getActualState"), 0
+                                                      getlex QName(PackageNamespace("aplication"),"BasicState")
+                                                      astypelate
+                                                      getscopeobject 1
+                                                      getslot 1
+                                                      setproperty QName(PackageNamespace(""),"persistency")
+                                                      getlex QName(PackageNamespace(""),"gameHolder")
+                                                      getscopeobject 1
+                                                      getslot 1
+                                                      callpropvoid QName(PackageNamespace(""),"addChild"), 1
+                                                      getscopeobject 1
+                                                      getslot 1
+                                                      getproperty QName(PackageNamespace(""),"onNext")
+                                                      getlex QName(PackageNamespace("util"),"Util")
+                                                      getlex QName(PackageNamespace(""),"waitForResourcesJakeLess")
+                                                      newarray 0
+                                                      newfunction 25
+                                                      callproperty QName(PackageNamespace(""),"l"), 3
+                                                      callpropvoid QName(PackageNamespace(""),"add"), 1
+                                                      getscopeobject 1
+                                                      getslot 1
+                                                      getproperty QName(PackageNamespace(""),"onBack")
+                                                      getlex QName(PackageNamespace("util"),"Util")
+                                                      getlex QName(PackageNamespace(""),"waitForResources")
+                                                      newarray 0
+                                                      newfunction 26
+                                                      callproperty QName(PackageNamespace(""),"l"), 3
+                                                      callpropvoid QName(PackageNamespace(""),"add"), 1
+                                                      getscopeobject 1
+                                                      getslot 1
+                                                      callpropvoid QName(PackageNamespace(""),"enter"), 0
+                                                      returnvoid
+                                                   end ; code
+                                                end ; body
+                                             end ; method
+                                          }
+                                          
+                                          private function removeOutro() : void
+                                          {
+                                             trait method QName(PrivateNamespace(null,"8"),"removeOutro")
+                                                dispid 0
+                                                method
+                                                   name null
+                                                   returns QName(PackageNamespace(""),"void")
+                                                   
+                                                   body
+                                                      maxstack 2
+                                                      localcount 2
+                                                      initscopedepth 9
+                                                      maxscopedepth 10
+                                                      
+                                                      code
+                                                         getlocal0
+                                                         pushscope
+                                                         getlocal0
+                                                         getproperty QName(PrivateNamespace(null,"8"),"fsmAplication")
+                                                         callproperty QName(PackageNamespace(""),"getActualState"), 0
+                                                         getlex QName(PackageNamespace("aplication"),"BasicState")
+                                                         astypelate
+                                                         getproperty QName(PackageNamespace(""),"persistency")
+                                                         getlex QName(PackageNamespace("view.screens"),"Outro")
+                                                         astypelate
+                                                         coerce QName(PackageNamespace("view.screens"),"Outro")
+                                                         setlocal1
+                                                         getlocal1
+                                                         callpropvoid QName(PackageNamespace(""),"exit"), 0
+                                                         returnvoid
+                                                      end ; code
+                                                   end ; body
+                                                end ; method
+                                             }
+                                             
+                                             private function loadGame() : void
+                                             {
+                                                trait method QName(PrivateNamespace(null,"8"),"loadGame")
+                                                   dispid 0
+                                                   method
+                                                      name null
+                                                      flag NEED_ACTIVATION
+                                                      returns QName(PackageNamespace(""),"void")
+                                                      
+                                                      body
+                                                         maxstack 5
+                                                         localcount 2
+                                                         initscopedepth 10
+                                                         maxscopedepth 12
+                                                         trait slot QName(PackageInternalNs(""),"gameView")
+                                                            slotid 1
+                                                            type QName(PackageNamespace("view.screens.main_game"),"GameView")
+                                                         end ; trait
+                                                         
+                                                         code
+                                                            getlocal0
+                                                            pushscope
+                                                            newactivation
+                                                            dup
+                                                            setlocal1
+                                                            pushscope
+                                                            findproperty QName(PackageNamespace(""),"theTutorial")
+                                                            findpropstrict QName(PackageNamespace("tutorial"),"Tutorial")
+                                                            constructprop QName(PackageNamespace("tutorial"),"Tutorial"), 0
+                                                            setproperty QName(PackageNamespace(""),"theTutorial")
+                                                            findproperty QName(PackageNamespace(""),"game")
+                                                            findpropstrict QName(PackageNamespace("main_game"),"Game")
+                                                            constructprop QName(PackageNamespace("main_game"),"Game"), 0
+                                                            setproperty QName(PackageNamespace(""),"game")
+                                                            getlex QName(PackageNamespace(""),"game")
+                                                            callpropvoid QName(PackageNamespace(""),"enter"), 0
+                                                            getlex QName(PackageNamespace(""),"activeBonus")
+                                                            pushnull
+                                                            ifeq ofs0034
+                                                            getlex QName(PackageNamespace(""),"activeBonus")
+                                                            callpropvoid QName(Namespace("bonus:IDailyBonus"),"activate"), 0
+                                                   ofs0034:
+                                                            getscopeobject 1
+                                                            findpropstrict QName(PackageNamespace("view.screens.main_game"),"GameView")
+                                                            constructprop QName(PackageNamespace("view.screens.main_game"),"GameView"), 0
+                                                            coerce QName(PackageNamespace("view.screens.main_game"),"GameView")
+                                                            setslot 1
+                                                            getlex QName(PackageNamespace(""),"gameHolder")
+                                                            pushstring "gameView"
+                                                            getscopeobject 1
+                                                            getslot 1
+                                                            setproperty MultinameL([PrivateNamespace(null,"8"),PackageNamespace(""),PackageInternalNs(""),PrivateNamespace(null,"175"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main"),StaticProtectedNs("main"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                                            getlex QName(PackageNamespace(""),"gameHolder")
+                                                            getscopeobject 1
+                                                            getslot 1
+                                                            callpropvoid QName(PackageNamespace(""),"addChild"), 1
+                                                            getscopeobject 1
+                                                            getslot 1
+                                                            getproperty QName(PackageNamespace(""),"onExit")
+                                                            getlex QName(PackageNamespace("util"),"Util")
+                                                            getlex QName(PackageNamespace(""),"waitForResources")
+                                                            newarray 0
+                                                            newfunction 29
+                                                            callproperty QName(PackageNamespace(""),"l"), 3
+                                                            callpropvoid QName(PackageNamespace(""),"add"), 1
+                                                            getscopeobject 1
+                                                            getslot 1
+                                                            getproperty QName(PackageNamespace(""),"onEnd")
+                                                            getlex QName(PackageNamespace("util"),"Util")
+                                                            getlex QName(PackageNamespace(""),"waitForResources")
+                                                            newarray 0
+                                                            newfunction 30
+                                                            callproperty QName(PackageNamespace(""),"l"), 3
+                                                            callpropvoid QName(PackageNamespace(""),"add"), 1
+                                                            getscopeobject 1
+                                                            getslot 1
+                                                            callpropvoid QName(PackageNamespace(""),"start"), 0
+                                                            getlex QName(PackageNamespace(""),"theTutorial")
+                                                            callpropvoid QName(PackageNamespace(""),"next"), 0
+                                                            getlex QName(PackageNamespace(""),"achievementDispatcher")
+                                                            callpropvoid QName(PackageNamespace(""),"gamePlayed"), 0
+                                                            returnvoid
+                                                         end ; code
+                                                      end ; body
+                                                   end ; method
+                                                }
+                                                
+                                                private function leaveGame() : void
+                                                {
+                                                   trait method QName(PrivateNamespace(null,"8"),"leaveGame")
+                                                      dispid 0
+                                                      method
+                                                         name null
+                                                         returns QName(PackageNamespace(""),"void")
+                                                         
+                                                         body
+                                                            maxstack 2
+                                                            localcount 2
+                                                            initscopedepth 9
+                                                            maxscopedepth 10
+                                                            
+                                                            code
+                                                               getlocal0
+                                                               pushscope
+                                                               getlex QName(PackageNamespace(""),"gameHolder")
+                                                               pushstring "gameView"
+                                                               getproperty MultinameL([PrivateNamespace(null,"8"),PackageNamespace(""),PackageInternalNs(""),PrivateNamespace(null,"175"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main"),StaticProtectedNs("main"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                                               coerce QName(PackageNamespace("view.screens.main_game"),"GameView")
+                                                               setlocal1
+                                                               getlocal1
+                                                               callpropvoid QName(PackageNamespace(""),"exit"), 0
+                                                               getlex QName(PackageNamespace(""),"drag")
+                                                               callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                                               getlex QName(PackageNamespace(""),"game")
+                                                               callpropvoid QName(PackageNamespace(""),"exit"), 0
+                                                               returnvoid
+                                                            end ; code
+                                                         end ; body
+                                                      end ; method
+                                                   }
+                                                }
+                                             }
+                                             
+                                             method
+                                                name null
+                                                returns null
+                                                
+                                                body
+                                                   maxstack 2
+                                                   localcount 1
+                                                   initscopedepth 1
+                                                   maxscopedepth 8
+                                                   
+                                                   code
+                                                      getlocal0
+                                                      pushscope
+                                                      findpropstrict Multiname("main",[PackageNamespace("")])
+                                                      getlex QName(PackageNamespace(""),"Object")
+                                                      pushscope
+                                                      getlex QName(PackageNamespace("flash.events"),"EventDispatcher")
+                                                      pushscope
+                                                      getlex QName(PackageNamespace("flash.display"),"DisplayObject")
+                                                      pushscope
+                                                      getlex QName(PackageNamespace("flash.display"),"InteractiveObject")
+                                                      pushscope
+                                                      getlex QName(PackageNamespace("flash.display"),"DisplayObjectContainer")
+                                                      pushscope
+                                                      getlex QName(PackageNamespace("flash.display"),"Sprite")
+                                                      pushscope
+                                                      getlex QName(PackageNamespace("flash.display"),"Sprite")
+                                                      newclass 0
+                                                      popscope
+                                                      popscope
+                                                      popscope
+                                                      popscope
+                                                      popscope
+                                                      popscope
+                                                      initproperty QName(PackageNamespace(""),"main")
+                                                      returnvoid
+                                                   end ; code
+                                                end ; body
+                                             end ; method
+                                             

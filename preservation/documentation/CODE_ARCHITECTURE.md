@@ -1,0 +1,5 @@
+# Arquitetura
+
+CONFIRMADO em `decompiled/actionscript/main/scripts/main.as`: classe `main extends Sprite`, inicialização no stage, `SaveSystem`, `Preloader`, `PostLoader` e máquina `aplication.FSM` com estados preloading, mainMenu, intro, game e outro. `main_game.Game` agrega Finn, mapa, inventário, mixer e masmorra. `DungeonFactory` constrói masmorra normal ou BossDungeon; `Dungeon` constrói uma luta para cada entrada de inimigos; `Fight` coordena ataques e sinais. `cb.signals.Signal` conecta os componentes. `persistence.SharedUtils` utiliza Flash SharedObject; formato e recuperação precisam ser investigados. `analysis/class_index.json` indexa os 291 arquivos decompilados; `dependency_map.json` lista imports, não um grafo completo de chamadas.
+
+Preloader.as lê swfs.txt, locale.txt, characters.csv, finnXP.csv, mix.csv, items.csv, config.di, dungeons.csv e firstLoot.csv; os arquivos estão presentes no pacote. Isso confirma dependências estáticas, mas não exclui requisições adicionais em caminhos condicionais.

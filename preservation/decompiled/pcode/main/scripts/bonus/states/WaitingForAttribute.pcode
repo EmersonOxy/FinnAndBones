@@ -1,0 +1,217 @@
+package bonus.states
+{
+   import bonus.LexicalParser;
+   import bonus.errors.WaitingForAttributeError;
+   import bonus.events.ParseEvent;
+   
+   public class WaitingForAttribute extends BaseState
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 5
+            maxscopedepth 6
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function WaitingForAttribute(param1:BaseState = null)
+      {
+         method
+            name null
+            flag HAS_OPTIONAL
+            param QName(PackageNamespace("bonus.states"),"BaseState")
+            optional Null()
+            returns null
+            
+            body
+               maxstack 4
+               localcount 2
+               initscopedepth 6
+               maxscopedepth 7
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  pushnull
+                  pushnull
+                  getlocal1
+                  constructsuper 3
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      override protected function onSpace(param1:String) : BaseState
+      {
+         trait method QName(ProtectedNamespace("bonus.states:WaitingForAttribute"),"onSpace")
+            flag OVERRIDE
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace(""),"String")
+               returns QName(PackageNamespace("bonus.states"),"BaseState")
+               
+               body
+                  maxstack 1
+                  localcount 2
+                  initscopedepth 6
+                  maxscopedepth 7
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         override protected function onMisc(param1:String) : BaseState
+         {
+            trait method QName(ProtectedNamespace("bonus.states:WaitingForAttribute"),"onMisc")
+               flag OVERRIDE
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace(""),"String")
+                  returns QName(PackageNamespace("bonus.states"),"BaseState")
+                  
+                  body
+                     maxstack 3
+                     localcount 3
+                     initscopedepth 6
+                     maxscopedepth 7
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        pushnull
+                        coerce QName(PackageNamespace("bonus.events"),"ParseEvent")
+                        setlocal2
+                        getlocal1
+                        pushstring "}"
+                        ifne ofs003e
+                        getlex QName(ProtectedNamespace("bonus.states:BaseState"),"parent")
+                        iffalse ofs0020
+                        getlex QName(ProtectedNamespace("bonus.states:BaseState"),"stream")
+                        callpropvoid QName(PackageNamespace(""),"ungetc"), 0
+                        getlex QName(ProtectedNamespace("bonus.states:BaseState"),"parent")
+                        returnvalue
+               ofs0020:
+                        findpropstrict QName(PackageNamespace("bonus.events"),"ParseEvent")
+                        getlex QName(PackageNamespace("bonus"),"LexicalParser")
+                        getproperty QName(PackageNamespace(""),"END_CLASS")
+                        constructprop QName(PackageNamespace("bonus.events"),"ParseEvent"), 1
+                        coerce QName(PackageNamespace("bonus.events"),"ParseEvent")
+                        setlocal2
+                        findpropstrict QName(PackageNamespace(""),"dispatchEvent")
+                        getlocal2
+                        callpropvoid QName(PackageNamespace(""),"dispatchEvent"), 1
+                        findpropstrict QName(PackageNamespace("bonus.states"),"WaitingForClass")
+                        constructprop QName(PackageNamespace("bonus.states"),"WaitingForClass"), 0
+                        returnvalue
+               ofs003e:
+                        getlocal1
+                        pushstring ","
+                        ifne ofs0052
+                        findpropstrict QName(PackageNamespace("bonus.states"),"WaitingForConstant")
+                        pushnull
+                        getlex QName(ProtectedNamespace("bonus.states:BaseState"),"parent")
+                        constructprop QName(PackageNamespace("bonus.states"),"WaitingForConstant"), 2
+                        returnvalue
+               ofs0052:
+                        getlocal1
+                        pushstring "/"
+                        ifne ofs0063
+                        findpropstrict QName(PackageNamespace("bonus.states"),"PossibleComment")
+                        getlocal0
+                        constructprop QName(PackageNamespace("bonus.states"),"PossibleComment"), 1
+                        returnvalue
+               ofs0063:
+                        findpropstrict QName(PackageNamespace("bonus.errors"),"WaitingForAttributeError")
+                        getlocal1
+                        getlex QName(ProtectedNamespace("bonus.states:BaseState"),"stream")
+                        callproperty QName(PackageNamespace(""),"getLineNumber"), 0
+                        constructprop QName(PackageNamespace("bonus.errors"),"WaitingForAttributeError"), 2
+                        throw
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            override protected function onLetter(param1:String) : BaseState
+            {
+               trait method QName(ProtectedNamespace("bonus.states:WaitingForAttribute"),"onLetter")
+                  flag OVERRIDE
+                  dispid 0
+                  method
+                     name null
+                     param QName(PackageNamespace(""),"String")
+                     returns QName(PackageNamespace("bonus.states"),"BaseState")
+                     
+                     body
+                        maxstack 1
+                        localcount 2
+                        initscopedepth 6
+                        maxscopedepth 7
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlex QName(ProtectedNamespace("bonus.states:BaseState"),"stream")
+                           callpropvoid QName(PackageNamespace(""),"ungetc"), 0
+                           findpropstrict QName(PackageNamespace("bonus.states"),"AttributeDefinition")
+                           constructprop QName(PackageNamespace("bonus.states"),"AttributeDefinition"), 0
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+            }
+         }
+         
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 2
+               localcount 1
+               initscopedepth 1
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  findpropstrict Multiname("WaitingForAttribute",[PackageNamespace("bonus.states")])
+                  getlex QName(PackageNamespace(""),"Object")
+                  pushscope
+                  getlex QName(PackageNamespace("flash.events"),"EventDispatcher")
+                  pushscope
+                  getlex QName(PackageNamespace("bonus.states"),"BaseState")
+                  pushscope
+                  getlex QName(PackageNamespace("bonus.states"),"BaseState")
+                  newclass 217
+                  popscope
+                  popscope
+                  popscope
+                  initproperty QName(PackageNamespace("bonus.states"),"WaitingForAttribute")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+         

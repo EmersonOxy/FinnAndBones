@@ -1,0 +1,323 @@
+package aplication
+{
+   import cb.logger.Log;
+   import flash.utils.Dictionary;
+   
+   public class BasicState implements State
+   {
+      
+      private static var log:Log;
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 3
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(PrivateNamespace(null,"10"),"log")
+               getlex QName(PackageNamespace("cb.logger"),"Log")
+               pushstring "FSMLogger"
+               callproperty QName(PackageNamespace(""),"getLogger"), 1
+               setproperty QName(PrivateNamespace(null,"10"),"log")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var name:String;
+      
+      private var transitions:Dictionary;
+      
+      private var onEnter:Function;
+      
+      private var onLeave:Function;
+      
+      public var persistency:Object;
+      
+      public function BasicState(param1:String, param2:Function = null, param3:Function = null)
+      {
+         method
+            name null
+            flag HAS_OPTIONAL
+            param QName(PackageNamespace(""),"String")
+            param QName(PackageNamespace(""),"Function")
+            param QName(PackageNamespace(""),"Function")
+            optional Null()
+            optional Null()
+            returns null
+            
+            body
+               maxstack 2
+               localcount 4
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  newobject 0
+                  initproperty QName(PackageNamespace(""),"persistency")
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlocal1
+                  initproperty QName(PrivateNamespace(null,"10"),"name")
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("flash.utils"),"Dictionary")
+                  constructprop QName(PackageNamespace("flash.utils"),"Dictionary"), 0
+                  initproperty QName(PrivateNamespace(null,"10"),"transitions")
+                  getlocal0
+                  getlocal2
+                  initproperty QName(PrivateNamespace(null,"10"),"onEnter")
+                  getlocal0
+                  getlocal3
+                  initproperty QName(PrivateNamespace(null,"10"),"onLeave")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function enter() : void
+      {
+         trait method QName(PackageNamespace(""),"enter")
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 3
+                  localcount 1
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlex QName(PrivateNamespace(null,"10"),"log")
+                     pushstring "Enter to state: "
+                     getlocal0
+                     callproperty QName(PackageNamespace(""),"getName"), 0
+                     add
+                     callpropvoid QName(PackageNamespace(""),"log"), 1
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"10"),"onEnter")
+                     pushnull
+                     ifeq ofs0020
+                     getlocal0
+                     callpropvoid QName(PrivateNamespace(null,"10"),"onEnter"), 0
+            ofs0020:
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function leave() : void
+         {
+            trait method QName(PackageNamespace(""),"leave")
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 3
+                     localcount 1
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlex QName(PrivateNamespace(null,"10"),"log")
+                        pushstring "Leave from state: "
+                        getlocal0
+                        callproperty QName(PackageNamespace(""),"getName"), 0
+                        add
+                        callpropvoid QName(PackageNamespace(""),"log"), 1
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"10"),"onLeave")
+                        pushnull
+                        ifeq ofs0020
+                        getlocal0
+                        callpropvoid QName(PrivateNamespace(null,"10"),"onLeave"), 0
+               ofs0020:
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function addTransition(param1:State, param2:String) : void
+            {
+               trait method QName(PackageNamespace(""),"addTransition")
+                  dispid 0
+                  method
+                     name null
+                     param QName(PackageNamespace("aplication"),"State")
+                     param QName(PackageNamespace(""),"String")
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 3
+                        localcount 3
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"10"),"transitions")
+                           getlocal2
+                           getlocal1
+                           setproperty MultinameL([PrivateNamespace(null,"10"),PackageNamespace(""),PrivateNamespace(null,"177"),PackageNamespace("aplication"),PackageInternalNs("aplication"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("aplication:BasicState"),StaticProtectedNs("aplication:BasicState")])
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function getName() : String
+               {
+                  trait method QName(PackageNamespace(""),"getName")
+                     dispid 0
+                     method
+                        name null
+                        returns QName(PackageNamespace(""),"String")
+                        
+                        body
+                           maxstack 1
+                           localcount 1
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"10"),"name")
+                              returnvalue
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function getTargetForTransition(param1:String) : State
+                  {
+                     trait method QName(PackageNamespace(""),"getTargetForTransition")
+                        dispid 0
+                        method
+                           name null
+                           param QName(PackageNamespace(""),"String")
+                           returns QName(PackageNamespace("aplication"),"State")
+                           
+                           body
+                              maxstack 3
+                              localcount 3
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"10"),"transitions")
+                                 getlocal1
+                                 getproperty MultinameL([PrivateNamespace(null,"10"),PackageNamespace(""),PrivateNamespace(null,"177"),PackageNamespace("aplication"),PackageInternalNs("aplication"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("aplication:BasicState"),StaticProtectedNs("aplication:BasicState")])
+                                 coerce QName(PackageNamespace("aplication"),"State")
+                                 setlocal2
+                                 getlocal2
+                                 pushnull
+                                 ifne ofs002a
+                                 findpropstrict QName(PackageNamespace(""),"Error")
+                                 pushstring "Transicion "
+                                 getlocal1
+                                 add
+                                 pushstring " no definida para estado "
+                                 add
+                                 getlocal0
+                                 callproperty QName(PackageNamespace(""),"getName"), 0
+                                 add
+                                 constructprop QName(PackageNamespace(""),"Error"), 1
+                                 throw
+                        ofs002a:
+                                 getlocal2
+                                 returnvalue
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     public function clear() : void
+                     {
+                        trait method QName(PackageNamespace(""),"clear")
+                           dispid 0
+                           method
+                              name null
+                              returns QName(PackageNamespace(""),"void")
+                              
+                              body
+                                 maxstack 2
+                                 localcount 1
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    getlocal0
+                                    pushnull
+                                    setproperty QName(PrivateNamespace(null,"10"),"onEnter")
+                                    getlocal0
+                                    pushnull
+                                    setproperty QName(PrivateNamespace(null,"10"),"onLeave")
+                                    getlocal0
+                                    pushnull
+                                    setproperty QName(PrivateNamespace(null,"10"),"transitions")
+                                    getlocal0
+                                    pushnull
+                                    initproperty QName(PackageNamespace(""),"persistency")
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                     }
+                  }
+                  
+                  method
+                     name null
+                     returns null
+                     
+                     body
+                        maxstack 2
+                        localcount 1
+                        initscopedepth 1
+                        maxscopedepth 3
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getscopeobject 0
+                           getlex QName(PackageNamespace(""),"Object")
+                           pushscope
+                           getlex QName(PackageNamespace(""),"Object")
+                           newclass 4
+                           popscope
+                           initproperty QName(PackageNamespace("aplication"),"BasicState")
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+                  

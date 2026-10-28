@@ -1,0 +1,369 @@
+package main_game.dungeon
+{
+   import util.Util;
+   
+   public class DungeonConfigParser implements DungeonConfigData
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var enemies:Array;
+      
+      private var loot:Array;
+      
+      private var backgrounds:Array;
+      
+      public function DungeonConfigParser(param1:Object)
+      {
+         method
+            name null
+            param QName(PackageNamespace(""),"Object")
+            returns null
+            
+            body
+               maxstack 3
+               localcount 2
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlocal1
+                  callpropvoid QName(PrivateNamespace(null,"54"),"parseEnemies"), 1
+                  getlocal0
+                  findpropstrict QName(PackageNamespace(""),"parseLootData")
+                  getlocal1
+                  callproperty QName(PackageNamespace(""),"parseLootData"), 1
+                  initproperty QName(PrivateNamespace(null,"54"),"loot")
+                  getlocal0
+                  getlocal1
+                  callpropvoid QName(PrivateNamespace(null,"54"),"parseBackground"), 1
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public static function parseLootData(param1:Object) : Array
+      {
+         trait method QName(PackageNamespace(""),"parseLootData")
+            flag FINAL
+            dispid 3
+            method
+               name null
+               param QName(PackageNamespace(""),"Object")
+               returns QName(PackageNamespace(""),"Array")
+               
+               body
+                  maxstack 4
+                  localcount 5
+                  initscopedepth 3
+                  maxscopedepth 4
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     pushnull
+                     coerce QName(PackageNamespace(""),"Array")
+                     setlocal 4
+                     findpropstrict QName(PackageNamespace(""),"Array")
+                     constructprop QName(PackageNamespace(""),"Array"), 0
+                     coerce QName(PackageNamespace(""),"Array")
+                     setlocal2
+                     pushbyte 1
+                     convert_u
+                     setlocal3
+                     jump ofs005a
+            ofs0017:
+                     label
+                     getlocal1
+                     pushstring "lootDrop"
+                     getlocal3
+                     add
+                     getproperty MultinameL([PrivateNamespace(null,"54"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("main_game.dungeon"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:DungeonConfigParser"),StaticProtectedNs("main_game.dungeon:DungeonConfigParser")])
+                     pushstring ":"
+                     callproperty Multiname("split",[PrivateNamespace(null,"54"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("main_game.dungeon"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:DungeonConfigParser"),StaticProtectedNs("main_game.dungeon:DungeonConfigParser")]), 1
+                     coerce QName(PackageNamespace(""),"Array")
+                     dup
+                     setlocal 4
+                     pushbyte 0
+                     getproperty MultinameL([PrivateNamespace(null,"54"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("main_game.dungeon"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:DungeonConfigParser"),StaticProtectedNs("main_game.dungeon:DungeonConfigParser")])
+                     pushstring "null"
+                     ifeq ofs0052
+                     getlocal2
+                     getlocal 4
+                     pushbyte 0
+                     getproperty MultinameL([PrivateNamespace(null,"54"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("main_game.dungeon"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:DungeonConfigParser"),StaticProtectedNs("main_game.dungeon:DungeonConfigParser")])
+                     getlocal 4
+                     pushbyte 1
+                     getproperty MultinameL([PrivateNamespace(null,"54"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("main_game.dungeon"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:DungeonConfigParser"),StaticProtectedNs("main_game.dungeon:DungeonConfigParser")])
+                     newarray 2
+                     callpropvoid QName(Namespace("http://adobe.com/AS3/2006/builtin"),"push"), 1
+                     jump ofs0056
+            ofs0052:
+                     jump ofs0061
+            ofs0056:
+                     getlocal3
+                     increment
+                     convert_u
+                     setlocal3
+            ofs005a:
+                     getlocal3
+                     pushbyte 10
+                     ifle ofs0017
+            ofs0061:
+                     getlocal2
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         private function parseEnemies(param1:Object) : void
+         {
+            trait method QName(PrivateNamespace(null,"54"),"parseEnemies")
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace(""),"Object")
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 4
+                     localcount 4
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        pushnull
+                        coerce QName(PackageNamespace(""),"Array")
+                        setlocal3
+                        getlocal0
+                        findpropstrict QName(PackageNamespace(""),"Array")
+                        constructprop QName(PackageNamespace(""),"Array"), 0
+                        setproperty QName(PrivateNamespace(null,"54"),"enemies")
+                        pushbyte 1
+                        convert_u
+                        setlocal2
+                        jump ofs005a
+               ofs0017:
+                        label
+                        getlocal1
+                        pushstring "enemy"
+                        getlocal2
+                        add
+                        getproperty MultinameL([PrivateNamespace(null,"54"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("main_game.dungeon"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:DungeonConfigParser"),StaticProtectedNs("main_game.dungeon:DungeonConfigParser")])
+                        pushstring ":"
+                        callproperty Multiname("split",[PrivateNamespace(null,"54"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("main_game.dungeon"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:DungeonConfigParser"),StaticProtectedNs("main_game.dungeon:DungeonConfigParser")]), 1
+                        coerce QName(PackageNamespace(""),"Array")
+                        setlocal3
+                        getlocal3
+                        pushbyte 0
+                        getproperty MultinameL([PrivateNamespace(null,"54"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("main_game.dungeon"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:DungeonConfigParser"),StaticProtectedNs("main_game.dungeon:DungeonConfigParser")])
+                        pushstring "null"
+                        ifeq ofs0052
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"54"),"enemies")
+                        getlocal3
+                        pushbyte 0
+                        getproperty MultinameL([PrivateNamespace(null,"54"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("main_game.dungeon"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:DungeonConfigParser"),StaticProtectedNs("main_game.dungeon:DungeonConfigParser")])
+                        getlocal3
+                        pushbyte 1
+                        getproperty MultinameL([PrivateNamespace(null,"54"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("main_game.dungeon"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:DungeonConfigParser"),StaticProtectedNs("main_game.dungeon:DungeonConfigParser")])
+                        newarray 2
+                        callpropvoid QName(Namespace("http://adobe.com/AS3/2006/builtin"),"push"), 1
+                        jump ofs0056
+               ofs0052:
+                        jump ofs0061
+               ofs0056:
+                        getlocal2
+                        increment
+                        convert_u
+                        setlocal2
+               ofs005a:
+                        getlocal2
+                        pushbyte 10
+                        ifle ofs0017
+               ofs0061:
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            private function parseBackground(param1:Object) : void
+            {
+               trait method QName(PrivateNamespace(null,"54"),"parseBackground")
+                  dispid 0
+                  method
+                     name null
+                     param QName(PackageNamespace(""),"Object")
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 5
+                        localcount 3
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           findpropstrict QName(PackageNamespace(""),"Array")
+                           constructprop QName(PackageNamespace(""),"Array"), 0
+                           setproperty QName(PrivateNamespace(null,"54"),"backgrounds")
+                           pushbyte 1
+                           convert_u
+                           setlocal2
+                           jump ofs0030
+                  ofs0013:
+                           label
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"54"),"backgrounds")
+                           getlex QName(PackageNamespace("util"),"Util")
+                           getlocal1
+                           pushstring "layer"
+                           getlocal2
+                           add
+                           getproperty MultinameL([PrivateNamespace(null,"54"),PackageNamespace(""),PrivateNamespace(null,"218"),PackageNamespace("main_game.dungeon"),PackageInternalNs("main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.dungeon:DungeonConfigParser"),StaticProtectedNs("main_game.dungeon:DungeonConfigParser")])
+                           callproperty QName(PackageNamespace(""),"parseArray"), 1
+                           callpropvoid QName(Namespace("http://adobe.com/AS3/2006/builtin"),"push"), 1
+                           getlocal2
+                           increment
+                           convert_u
+                           setlocal2
+                  ofs0030:
+                           getlocal2
+                           pushbyte 3
+                           ifle ofs0013
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function get enemiesData() : Array
+               {
+                  trait getter QName(PackageNamespace(""),"enemiesData")
+                     dispid 0
+                     method
+                        name null
+                        returns QName(PackageNamespace(""),"Array")
+                        
+                        body
+                           maxstack 1
+                           localcount 1
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"54"),"enemies")
+                              returnvalue
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function get lootData() : Array
+                  {
+                     trait getter QName(PackageNamespace(""),"lootData")
+                        dispid 0
+                        method
+                           name null
+                           returns QName(PackageNamespace(""),"Array")
+                           
+                           body
+                              maxstack 1
+                              localcount 1
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"54"),"loot")
+                                 returnvalue
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     public function get backgroundsData() : Array
+                     {
+                        trait getter QName(PackageNamespace(""),"backgroundsData")
+                           dispid 0
+                           method
+                              name null
+                              returns QName(PackageNamespace(""),"Array")
+                              
+                              body
+                                 maxstack 1
+                                 localcount 1
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"54"),"backgrounds")
+                                    returnvalue
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                     }
+                  }
+                  
+                  method
+                     name null
+                     returns null
+                     
+                     body
+                        maxstack 2
+                        localcount 1
+                        initscopedepth 1
+                        maxscopedepth 3
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getscopeobject 0
+                           getlex QName(PackageNamespace(""),"Object")
+                           pushscope
+                           getlex QName(PackageNamespace(""),"Object")
+                           newclass 74
+                           popscope
+                           initproperty QName(PackageNamespace("main_game.dungeon"),"DungeonConfigParser")
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+                  

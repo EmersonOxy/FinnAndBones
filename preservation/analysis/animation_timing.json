@@ -1,0 +1,217 @@
+{
+  "finn": {
+    "243": {
+      "frames": 265,
+      "labels": [
+        {
+          "label": "idle",
+          "frame": 1
+        },
+        {
+          "label": "end_animation",
+          "frame": 23
+        },
+        {
+          "label": "attack",
+          "frame": 25
+        },
+        {
+          "label": "hit",
+          "frame": 38
+        },
+        {
+          "label": "end_animation",
+          "frame": 66
+        },
+        {
+          "label": "evade",
+          "frame": 70
+        },
+        {
+          "label": "end_animation",
+          "frame": 100
+        },
+        {
+          "label": "hurt",
+          "frame": 103
+        },
+        {
+          "label": "end_animation",
+          "frame": 140
+        },
+        {
+          "label": "die",
+          "frame": 144
+        },
+        {
+          "label": "end_animation",
+          "frame": 180
+        },
+        {
+          "label": "win",
+          "frame": 181
+        },
+        {
+          "label": "end_animation",
+          "frame": 213
+        },
+        {
+          "label": "idle2run",
+          "frame": 214
+        },
+        {
+          "label": "end_animation",
+          "frame": 218
+        },
+        {
+          "label": "run",
+          "frame": 219
+        },
+        {
+          "label": "end_animation",
+          "frame": 242
+        },
+        {
+          "label": "run2idle",
+          "frame": 243
+        },
+        {
+          "label": "end_animation",
+          "frame": 257
+        }
+      ]
+    },
+    "500": {
+      "frames": 410,
+      "labels": [
+        {
+          "label": "idle",
+          "frame": 1
+        },
+        {
+          "label": "end_animation",
+          "frame": 23
+        },
+        {
+          "label": "attack",
+          "frame": 25
+        },
+        {
+          "label": "hit",
+          "frame": 38
+        },
+        {
+          "label": "end_animation",
+          "frame": 58
+        },
+        {
+          "label": "evade",
+          "frame": 60
+        },
+        {
+          "label": "end_animation",
+          "frame": 92
+        },
+        {
+          "label": "hurt",
+          "frame": 94
+        },
+        {
+          "label": "end_animation",
+          "frame": 132
+        },
+        {
+          "label": "die",
+          "frame": 134
+        },
+        {
+          "label": "end_animation",
+          "frame": 169
+        },
+        {
+          "label": "win",
+          "frame": 170
+        },
+        {
+          "label": "end_animation",
+          "frame": 200
+        },
+        {
+          "label": "idle2run",
+          "frame": 203
+        },
+        {
+          "label": "end_animation",
+          "frame": 207
+        },
+        {
+          "label": "run",
+          "frame": 208
+        },
+        {
+          "label": "end_animation",
+          "frame": 231
+        },
+        {
+          "label": "run2idle",
+          "frame": 232
+        },
+        {
+          "label": "end_animation",
+          "frame": 247
+        },
+        {
+          "label": "critical",
+          "frame": 252
+        },
+        {
+          "label": "hit",
+          "frame": 305
+        },
+        {
+          "label": "end_animation",
+          "frame": 345
+        },
+        {
+          "label": "critical_sword",
+          "frame": 346
+        },
+        {
+          "label": "hit",
+          "frame": 377
+        },
+        {
+          "label": "end_animation",
+          "frame": 410
+        }
+      ]
+    }
+  },
+  "enemy1_normal": {
+    "55": {
+      "frames": 21,
+      "labels": []
+    },
+    "96": {
+      "frames": 18,
+      "labels": []
+    },
+    "103": {
+      "frames": 25,
+      "labels": []
+    },
+    "120": {
+      "frames": 29,
+      "labels": [
+        {
+          "label": "hit",
+          "frame": 17
+        }
+      ]
+    },
+    "121": {
+      "frames": 18,
+      "labels": []
+    }
+  }
+}

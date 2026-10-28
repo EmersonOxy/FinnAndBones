@@ -1,0 +1,162 @@
+package view.items
+{
+   import flash.display.MovieClip;
+   import main_game.items.Item;
+   import view.screens.main_game.slot.SlotView;
+   
+   public class ConsumableView extends ItemView
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 4
+            maxscopedepth 5
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function ConsumableView(param1:Item)
+      {
+         method
+            name null
+            param QName(PackageNamespace("main_game.items"),"Item")
+            returns null
+            
+            body
+               maxstack 2
+               localcount 2
+               initscopedepth 5
+               maxscopedepth 6
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  getlocal1
+                  constructsuper 1
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      override public function getMC() : MovieClip
+      {
+         trait method QName(PackageNamespace(""),"getMC")
+            flag OVERRIDE
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace("flash.display"),"MovieClip")
+               
+               body
+                  maxstack 2
+                  localcount 2
+                  initscopedepth 5
+                  maxscopedepth 6
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     callsuper QName(PackageNamespace(""),"getMC"), 0
+                     coerce QName(PackageNamespace("flash.display"),"MovieClip")
+                     setlocal1
+                     getlocal1
+                     getproperty Multiname("potion",[PrivateNamespace(null,"232"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("view.items"),PackageInternalNs("view.items"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.items:ConsumableView"),StaticProtectedNs("view.items:ConsumableView"),StaticProtectedNs("view.items:ItemView")])
+                     pushstring "liquid1"
+                     callproperty Multiname("hasOwnProperty",[PrivateNamespace(null,"232"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("view.items"),PackageInternalNs("view.items"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.items:ConsumableView"),StaticProtectedNs("view.items:ConsumableView"),StaticProtectedNs("view.items:ItemView")]), 1
+                     iffalse ofs002b
+                     getlex QName(ProtectedNamespace("view.items:ItemView"),"item")
+                     callproperty QName(PackageNamespace(""),"getPrimaryModifier"), 0
+                     getlocal1
+                     getproperty Multiname("potion",[PrivateNamespace(null,"232"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("view.items"),PackageInternalNs("view.items"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.items:ConsumableView"),StaticProtectedNs("view.items:ConsumableView"),StaticProtectedNs("view.items:ItemView")])
+                     getproperty Multiname("liquid1",[PrivateNamespace(null,"232"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("view.items"),PackageInternalNs("view.items"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.items:ConsumableView"),StaticProtectedNs("view.items:ConsumableView"),StaticProtectedNs("view.items:ItemView")])
+                     callpropvoid QName(Namespace("main_game.items.modifiers:IModifier"),"modifyIcon"), 1
+            ofs002b:
+                     getlocal1
+                     getproperty Multiname("potion",[PrivateNamespace(null,"232"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("view.items"),PackageInternalNs("view.items"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.items:ConsumableView"),StaticProtectedNs("view.items:ConsumableView"),StaticProtectedNs("view.items:ItemView")])
+                     pushstring "liquid2"
+                     callproperty Multiname("hasOwnProperty",[PrivateNamespace(null,"232"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("view.items"),PackageInternalNs("view.items"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.items:ConsumableView"),StaticProtectedNs("view.items:ConsumableView"),StaticProtectedNs("view.items:ItemView")]), 1
+                     iffalse ofs004c
+                     getlex QName(ProtectedNamespace("view.items:ItemView"),"item")
+                     callproperty QName(PackageNamespace(""),"getSecondaryModifier"), 0
+                     getlocal1
+                     getproperty Multiname("potion",[PrivateNamespace(null,"232"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("view.items"),PackageInternalNs("view.items"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.items:ConsumableView"),StaticProtectedNs("view.items:ConsumableView"),StaticProtectedNs("view.items:ItemView")])
+                     getproperty Multiname("liquid2",[PrivateNamespace(null,"232"),PackageNamespace(""),PrivateNamespace(null,"233"),PackageNamespace("view.items"),PackageInternalNs("view.items"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.items:ConsumableView"),StaticProtectedNs("view.items:ConsumableView"),StaticProtectedNs("view.items:ItemView")])
+                     callpropvoid QName(Namespace("main_game.items.modifiers:IModifier"),"modifyIcon"), 1
+            ofs004c:
+                     getlocal1
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         override public function getStateForSlot(param1:SlotView) : String
+         {
+            trait method QName(PackageNamespace(""),"getStateForSlot")
+               flag OVERRIDE
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace("view.screens.main_game.slot"),"SlotView")
+                  returns QName(PackageNamespace(""),"String")
+                  
+                  body
+                     maxstack 1
+                     localcount 2
+                     initscopedepth 5
+                     maxscopedepth 6
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlex QName(PackageNamespace("view.screens.main_game.slot"),"SlotView")
+                        getproperty QName(PackageNamespace(""),"CONSUMABLE")
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+         }
+      }
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 1
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               findpropstrict Multiname("ConsumableView",[PackageNamespace("view.items")])
+               getlex QName(PackageNamespace(""),"Object")
+               pushscope
+               getlex QName(PackageNamespace("view.items"),"ItemView")
+               pushscope
+               getlex QName(PackageNamespace("view.items"),"ItemView")
+               newclass 105
+               popscope
+               popscope
+               initproperty QName(PackageNamespace("view.items"),"ConsumableView")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      

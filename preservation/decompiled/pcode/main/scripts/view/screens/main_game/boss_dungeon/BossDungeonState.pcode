@@ -1,0 +1,128 @@
+package view.screens.main_game.boss_dungeon
+{
+   import cb.signals.Signal;
+   import view.screens.main_game.GameView;
+   import view.screens.main_game.states.DungeonState;
+   
+   public class BossDungeonState extends DungeonState
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 6
+            maxscopedepth 7
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var _onToOutro:Signal;
+      
+      public function BossDungeonState(param1:String, param2:GameView, param3:Function = null, param4:Function = null)
+      {
+         method
+            name null
+            flag HAS_OPTIONAL
+            param QName(PackageNamespace(""),"String")
+            param QName(PackageNamespace("view.screens.main_game"),"GameView")
+            param QName(PackageNamespace(""),"Function")
+            param QName(PackageNamespace(""),"Function")
+            optional Null()
+            optional Null()
+            returns null
+            
+            body
+               maxstack 5
+               localcount 5
+               initscopedepth 7
+               maxscopedepth 8
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  findpropstrict QName(PackageNamespace("cb.signals"),"Signal")
+                  constructprop QName(PackageNamespace("cb.signals"),"Signal"), 0
+                  initproperty QName(PrivateNamespace(null,"85"),"_onToOutro")
+                  getlocal0
+                  getlocal1
+                  getlocal2
+                  getlocal3
+                  getlocal 4
+                  constructsuper 4
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function get onToOutro() : Signal
+      {
+         trait getter QName(PackageNamespace(""),"onToOutro")
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace("cb.signals"),"Signal")
+               
+               body
+                  maxstack 1
+                  localcount 1
+                  initscopedepth 7
+                  maxscopedepth 8
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"85"),"_onToOutro")
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+      }
+   }
+   
+   method
+      name null
+      returns null
+      
+      body
+         maxstack 2
+         localcount 1
+         initscopedepth 1
+         maxscopedepth 6
+         
+         code
+            getlocal0
+            pushscope
+            findpropstrict Multiname("BossDungeonState",[PackageNamespace("view.screens.main_game.boss_dungeon")])
+            getlex QName(PackageNamespace(""),"Object")
+            pushscope
+            getlex QName(PackageNamespace("aplication"),"BasicState")
+            pushscope
+            getlex QName(PackageNamespace("view.screens.main_game.states"),"BasicPausableState")
+            pushscope
+            getlex QName(PackageNamespace("view.screens.main_game.states"),"DungeonState")
+            pushscope
+            getlex QName(PackageNamespace("view.screens.main_game.states"),"DungeonState")
+            newclass 145
+            popscope
+            popscope
+            popscope
+            popscope
+            initproperty QName(PackageNamespace("view.screens.main_game.boss_dungeon"),"BossDungeonState")
+            returnvoid
+         end ; code
+      end ; body
+   end ; method
+   

@@ -1,0 +1,330 @@
+package tutorial.steps
+{
+   import aplication.BasicState;
+   import flash.display.MovieClip;
+   import tutorial.Tutorial;
+   import tutorial.view.TutorialView;
+   
+   public class TutorialStep extends BasicState
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 4
+            maxscopedepth 5
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var step:uint;
+      
+      protected var tut:Tutorial;
+      
+      protected var theView:TutorialView;
+      
+      public function TutorialStep(param1:String, param2:Tutorial, param3:uint, param4:String)
+      {
+         method
+            name null
+            param QName(PackageNamespace(""),"String")
+            param QName(PackageNamespace("tutorial"),"Tutorial")
+            param QName(PackageNamespace(""),"uint")
+            param QName(PackageNamespace(""),"String")
+            returns null
+            
+            body
+               maxstack 3
+               localcount 5
+               initscopedepth 5
+               maxscopedepth 6
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  getlocal3
+                  initproperty QName(PrivateNamespace(null,"34"),"step")
+                  getlocal0
+                  getlocal2
+                  initproperty QName(ProtectedNamespace("tutorial.steps:TutorialStep"),"tut")
+                  getlocal0
+                  getlocal0
+                  getlocal 4
+                  callproperty QName(ProtectedNamespace("tutorial.steps:TutorialStep"),"createView"), 1
+                  initproperty QName(ProtectedNamespace("tutorial.steps:TutorialStep"),"theView")
+                  getlocal0
+                  getproperty QName(ProtectedNamespace("tutorial.steps:TutorialStep"),"theView")
+                  getproperty QName(PackageNamespace(""),"onEnd")
+                  getlocal0
+                  getproperty QName(ProtectedNamespace("tutorial.steps:TutorialStep"),"endStep")
+                  callpropvoid QName(PackageNamespace(""),"add"), 1
+                  getlocal0
+                  getlocal1
+                  constructsuper 1
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      override public function enter() : void
+      {
+         trait method QName(PackageNamespace(""),"enter")
+            flag OVERRIDE
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 1
+                  localcount 1
+                  initscopedepth 5
+                  maxscopedepth 6
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     callpropvoid QName(ProtectedNamespace("tutorial.steps:TutorialStep"),"showView"), 0
+                     getlocal0
+                     callsupervoid QName(PackageNamespace(""),"enter"), 0
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         protected function createView(param1:String) : TutorialView
+         {
+            trait method QName(ProtectedNamespace("tutorial.steps:TutorialStep"),"createView")
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace(""),"String")
+                  returns QName(PackageNamespace("tutorial.view"),"TutorialView")
+                  
+                  body
+                     maxstack 3
+                     localcount 3
+                     initscopedepth 5
+                     maxscopedepth 6
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        findpropstrict QName(PackageNamespace("tutorial.view"),"TutorialView")
+                        getlex QName(PackageNamespace(""),"main")
+                        getproperty QName(PackageNamespace(""),"swfLoader")
+                        getlocal1
+                        callproperty QName(PackageNamespace(""),"getClass"), 1
+                        constructprop QName(PackageNamespace("tutorial.view"),"TutorialView"), 1
+                        coerce QName(PackageNamespace("tutorial.view"),"TutorialView")
+                        setlocal2
+                        getlocal2
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            protected function showView() : void
+            {
+               trait method QName(ProtectedNamespace("tutorial.steps:TutorialStep"),"showView")
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 2
+                        localcount 1
+                        initscopedepth 5
+                        maxscopedepth 6
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlex QName(PackageNamespace(""),"main")
+                           getproperty QName(PackageNamespace(""),"game")
+                           callproperty QName(PackageNamespace(""),"getBubblegum"), 0
+                           callproperty QName(PackageNamespace(""),"getLocker"), 0
+                           callpropvoid QName(PackageNamespace(""),"lock"), 0
+                           getlex QName(PackageNamespace(""),"main")
+                           getproperty QName(PackageNamespace(""),"tutorialHolder")
+                           getlocal0
+                           getproperty QName(ProtectedNamespace("tutorial.steps:TutorialStep"),"theView")
+                           callpropvoid QName(PackageNamespace(""),"addChild"), 1
+                           getlocal0
+                           getproperty QName(ProtectedNamespace("tutorial.steps:TutorialStep"),"theView")
+                           callpropvoid QName(PackageNamespace(""),"enter"), 0
+                           getlocal0
+                           getlocal0
+                           getproperty QName(ProtectedNamespace("tutorial.steps:TutorialStep"),"theView")
+                           callproperty QName(PackageNamespace(""),"getBg"), 0
+                           callpropvoid QName(ProtectedNamespace("tutorial.steps:TutorialStep"),"setText"), 1
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               protected function setText(param1:MovieClip) : void
+               {
+                  trait method QName(ProtectedNamespace("tutorial.steps:TutorialStep"),"setText")
+                     dispid 0
+                     method
+                        name null
+                        param QName(PackageNamespace("flash.display"),"MovieClip")
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 1
+                           localcount 2
+                           initscopedepth 5
+                           maxscopedepth 6
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  protected function endStep() : void
+                  {
+                     trait method QName(ProtectedNamespace("tutorial.steps:TutorialStep"),"endStep")
+                        dispid 0
+                        method
+                           name null
+                           returns QName(PackageNamespace(""),"void")
+                           
+                           body
+                              maxstack 1
+                              localcount 1
+                              initscopedepth 5
+                              maxscopedepth 6
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal0
+                                 getproperty QName(ProtectedNamespace("tutorial.steps:TutorialStep"),"tut")
+                                 callpropvoid QName(PackageNamespace(""),"next"), 0
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     override public function leave() : void
+                     {
+                        trait method QName(PackageNamespace(""),"leave")
+                           flag OVERRIDE
+                           dispid 0
+                           method
+                              name null
+                              returns QName(PackageNamespace(""),"void")
+                              
+                              body
+                                 maxstack 2
+                                 localcount 1
+                                 initscopedepth 5
+                                 maxscopedepth 6
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    getlex QName(PackageNamespace(""),"main")
+                                    getproperty QName(PackageNamespace(""),"game")
+                                    callproperty QName(PackageNamespace(""),"getBubblegum"), 0
+                                    callproperty QName(PackageNamespace(""),"getLocker"), 0
+                                    callpropvoid QName(PackageNamespace(""),"unlock"), 0
+                                    getlex QName(PackageNamespace(""),"main")
+                                    getproperty QName(PackageNamespace(""),"saveSystem")
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"34"),"step")
+                                    callpropvoid QName(PackageNamespace(""),"onTutorialComplete"), 1
+                                    returnvoid
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        override public function clear() : void
+                        {
+                           trait method QName(PackageNamespace(""),"clear")
+                              flag OVERRIDE
+                              dispid 0
+                              method
+                                 name null
+                                 returns QName(PackageNamespace(""),"void")
+                                 
+                                 body
+                                    maxstack 2
+                                    localcount 1
+                                    initscopedepth 5
+                                    maxscopedepth 6
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       getlocal0
+                                       callsupervoid QName(PackageNamespace(""),"clear"), 0
+                                       getlocal0
+                                       getproperty QName(ProtectedNamespace("tutorial.steps:TutorialStep"),"theView")
+                                       callpropvoid QName(PackageNamespace(""),"clear"), 0
+                                       getlocal0
+                                       pushnull
+                                       setproperty QName(ProtectedNamespace("tutorial.steps:TutorialStep"),"tut")
+                                       getlocal0
+                                       pushnull
+                                       setproperty QName(ProtectedNamespace("tutorial.steps:TutorialStep"),"theView")
+                                       returnvoid
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                        }
+                     }
+                     
+                     method
+                        name null
+                        returns null
+                        
+                        body
+                           maxstack 2
+                           localcount 1
+                           initscopedepth 1
+                           maxscopedepth 4
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              findpropstrict Multiname("TutorialStep",[PackageNamespace("tutorial.steps")])
+                              getlex QName(PackageNamespace(""),"Object")
+                              pushscope
+                              getlex QName(PackageNamespace("aplication"),"BasicState")
+                              pushscope
+                              getlex QName(PackageNamespace("aplication"),"BasicState")
+                              newclass 43
+                              popscope
+                              popscope
+                              initproperty QName(PackageNamespace("tutorial.steps"),"TutorialStep")
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                     

@@ -1,0 +1,61 @@
+package main_game.character
+{
+   import main_game.element.Element;
+   
+   public interface CharacterConfigData
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 0
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 3
+            
+            code
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      function get baseHP() : Number;
+      
+      function get baseAttack() : Number;
+      
+      function get baseDefense() : Number;
+      
+      function get baseLuck() : Number;
+      
+      function get baseXP() : Number;
+      
+      function get element() : Element;
+      
+      function get nameString() : String;
+   }
+}
+
+method
+   name null
+   returns null
+   
+   body
+      maxstack 2
+      localcount 1
+      initscopedepth 1
+      maxscopedepth 2
+      
+      code
+         getlocal0
+         pushscope
+         findpropstrict Multiname("CharacterConfigData",[PackageNamespace("main_game.character")])
+         pushnull
+         newclass 76
+         initproperty QName(PackageNamespace("main_game.character"),"CharacterConfigData")
+         returnvoid
+      end ; code
+   end ; body
+end ; method
+

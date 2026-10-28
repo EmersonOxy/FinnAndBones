@@ -1,0 +1,217 @@
+package view.effect
+{
+   import cb.actions.RemoveFromParent;
+   import cb.conditions.EndAnimation;
+   import cb.display.SmartMC;
+   import flash.display.DisplayObjectContainer;
+   import flash.display.MovieClip;
+   import flash.geom.Point;
+   
+   public class Effect
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      protected var effect:MovieClip;
+      
+      public function Effect(param1:MovieClip)
+      {
+         method
+            name null
+            param QName(PackageNamespace("flash.display"),"MovieClip")
+            returns null
+            
+            body
+               maxstack 2
+               localcount 2
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlocal1
+                  initproperty QName(ProtectedNamespace("view.effect:Effect"),"effect")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function playOn(param1:DisplayObjectContainer, param2:DisplayObjectContainer = null) : void
+      {
+         trait method QName(PackageNamespace(""),"playOn")
+            dispid 0
+            method
+               name null
+               flag HAS_OPTIONAL
+               param QName(PackageNamespace("flash.display"),"DisplayObjectContainer")
+               param QName(PackageNamespace("flash.display"),"DisplayObjectContainer")
+               optional Null()
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 4
+                  localcount 7
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     pushnull
+                     coerce QName(PackageNamespace("flash.geom"),"Point")
+                     setlocal 4
+                     pushnull
+                     coerce QName(PackageNamespace("flash.display"),"MovieClip")
+                     setlocal 5
+                     pushnull
+                     coerce QName(PackageNamespace("flash.geom"),"Point")
+                     setlocal 6
+                     getlocal2
+                     pushnull
+                     ifne ofs0060
+                     getlocal1
+                     findpropstrict QName(PackageNamespace("flash.geom"),"Point")
+                     pushbyte 0
+                     dup
+                     constructprop QName(PackageNamespace("flash.geom"),"Point"), 2
+                     callproperty QName(PackageNamespace(""),"localToGlobal"), 1
+                     coerce QName(PackageNamespace("flash.geom"),"Point")
+                     setlocal 4
+                     getlex QName(PackageNamespace(""),"main")
+                     getproperty QName(PackageNamespace(""),"popUpHolder")
+                     coerce QName(PackageNamespace("flash.display"),"MovieClip")
+                     dup
+                     setlocal 5
+                     getlocal 4
+                     callproperty QName(PackageNamespace(""),"globalToLocal"), 1
+                     coerce QName(PackageNamespace("flash.geom"),"Point")
+                     setlocal 6
+                     getlocal0
+                     getproperty QName(ProtectedNamespace("view.effect:Effect"),"effect")
+                     getlocal 6
+                     getproperty QName(PackageNamespace(""),"x")
+                     setproperty QName(PackageNamespace(""),"x")
+                     getlocal0
+                     getproperty QName(ProtectedNamespace("view.effect:Effect"),"effect")
+                     getlocal 6
+                     getproperty QName(PackageNamespace(""),"y")
+                     setproperty QName(PackageNamespace(""),"y")
+                     getlocal 5
+                     coerce QName(PackageNamespace("flash.display"),"DisplayObjectContainer")
+                     setlocal2
+            ofs0060:
+                     getlocal2
+                     getlocal0
+                     getproperty QName(ProtectedNamespace("view.effect:Effect"),"effect")
+                     callpropvoid QName(PackageNamespace(""),"addChild"), 1
+                     getlocal0
+                     getproperty QName(ProtectedNamespace("view.effect:Effect"),"effect")
+                     pushbyte 1
+                     callpropvoid QName(PackageNamespace(""),"gotoAndPlay"), 1
+                     findpropstrict QName(PackageNamespace("cb.display"),"SmartMC")
+                     getlocal0
+                     getproperty QName(ProtectedNamespace("view.effect:Effect"),"effect")
+                     constructprop QName(PackageNamespace("cb.display"),"SmartMC"), 1
+                     coerce QName(PackageNamespace("cb.display"),"SmartMC")
+                     setlocal3
+                     getlocal3
+                     findpropstrict QName(PackageNamespace("cb.conditions"),"EndAnimation")
+                     constructprop QName(PackageNamespace("cb.conditions"),"EndAnimation"), 0
+                     findpropstrict QName(PackageNamespace("cb.actions"),"RemoveFromParent")
+                     constructprop QName(PackageNamespace("cb.actions"),"RemoveFromParent"), 0
+                     callpropvoid QName(PackageNamespace(""),"trigger"), 2
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function clear() : void
+         {
+            trait method QName(PackageNamespace(""),"clear")
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 2
+                     localcount 1
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        getproperty QName(ProtectedNamespace("view.effect:Effect"),"effect")
+                        getproperty QName(PackageNamespace(""),"parent")
+                        pushnull
+                        ifeq ofs0025
+                        getlocal0
+                        getproperty QName(ProtectedNamespace("view.effect:Effect"),"effect")
+                        callpropvoid QName(PackageNamespace(""),"stop"), 0
+                        getlocal0
+                        getproperty QName(ProtectedNamespace("view.effect:Effect"),"effect")
+                        getproperty QName(PackageNamespace(""),"parent")
+                        getlocal0
+                        getproperty QName(ProtectedNamespace("view.effect:Effect"),"effect")
+                        callpropvoid QName(PackageNamespace(""),"removeChild"), 1
+               ofs0025:
+                        getlocal0
+                        pushnull
+                        setproperty QName(ProtectedNamespace("view.effect:Effect"),"effect")
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+         }
+      }
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 1
+            maxscopedepth 3
+            
+            code
+               getlocal0
+               pushscope
+               findpropstrict Multiname("Effect",[PackageNamespace("view.effect")])
+               getlex QName(PackageNamespace(""),"Object")
+               pushscope
+               getlex QName(PackageNamespace(""),"Object")
+               newclass 253
+               popscope
+               initproperty QName(PackageNamespace("view.effect"),"Effect")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      

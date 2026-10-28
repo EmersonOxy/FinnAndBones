@@ -1,0 +1,781 @@
+package bonus
+{
+   import bonus.filter.AllFilter;
+   import bonus.filter.FireFilter;
+   import bonus.filter.IBonusFilter;
+   import bonus.filter.IceFilter;
+   import bonus.filter.NoneFilter;
+   import bonus.filter.NormalFilter;
+   import flash.globalization.DateTimeFormatter;
+   import main_game.element.Element;
+   
+   public class DailyBonus
+   {
+      
+      private static const specialDungeonName:String = "specialDungeon";
+      
+      private static const xpBonusName:String = "xpPercent";
+      
+      private static const xtraLevelName:String = "enemyExtraLevel";
+      
+      private static const filterName:String = "filter";
+      
+      private static const elementName:String = "element";
+      
+      public static var config:ClassLoader;
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(PrivateNamespace(null,"170"),"specialDungeonName")
+               pushstring "specialDungeon"
+               initproperty QName(PrivateNamespace(null,"170"),"specialDungeonName")
+               findproperty QName(PrivateNamespace(null,"170"),"xpBonusName")
+               pushstring "xpPercent"
+               initproperty QName(PrivateNamespace(null,"170"),"xpBonusName")
+               findproperty QName(PrivateNamespace(null,"170"),"xtraLevelName")
+               pushstring "enemyExtraLevel"
+               initproperty QName(PrivateNamespace(null,"170"),"xtraLevelName")
+               findproperty QName(PrivateNamespace(null,"170"),"filterName")
+               pushstring "filter"
+               initproperty QName(PrivateNamespace(null,"170"),"filterName")
+               findproperty QName(PrivateNamespace(null,"170"),"elementName")
+               pushstring "element"
+               initproperty QName(PrivateNamespace(null,"170"),"elementName")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function DailyBonus()
+      {
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 1
+               localcount 1
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public static function getBonusOfDate(param1:Date) : IDailyBonus
+      {
+         trait method QName(PackageNamespace(""),"getBonusOfDate")
+            flag FINAL
+            dispid 3
+            method
+               name null
+               param QName(PackageNamespace(""),"Date")
+               returns QName(PackageNamespace("bonus"),"IDailyBonus")
+               
+               body
+                  maxstack 2
+                  localcount 3
+                  initscopedepth 3
+                  maxscopedepth 4
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     findpropstrict QName(PrivateNamespace(null,"170"),"getBonusConfigOfDate")
+                     getlocal1
+                     callproperty QName(PrivateNamespace(null,"170"),"getBonusConfigOfDate"), 1
+                     coerce QName(PackageNamespace(""),"Object")
+                     setlocal2
+                     getlocal2
+                     iffalse ofs001b
+                     getlex QName(PackageNamespace("bonus"),"DailyBonus")
+                     getlocal2
+                     callproperty QName(PrivateNamespace(null,"170"),"getBonus"), 1
+                     returnvalue
+            ofs001b:
+                     pushnull
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         private static function getBonusConfigOfDate(param1:Date) : Object
+         {
+            trait method QName(PrivateNamespace(null,"170"),"getBonusConfigOfDate")
+               flag FINAL
+               dispid 4
+               method
+                  name null
+                  param QName(PackageNamespace(""),"Date")
+                  returns QName(PackageNamespace(""),"Object")
+                  
+                  body
+                     maxstack 3
+                     localcount 6
+                     initscopedepth 3
+                     maxscopedepth 4
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        pushnull
+                        coerce QName(PackageNamespace(""),"Object")
+                        setlocal 5
+                        getlex QName(PackageNamespace(""),"config")
+                        pushstring "SpecialEvents"
+                        callproperty QName(PackageNamespace(""),"get"), 1
+                        coerce QName(PackageNamespace(""),"Object")
+                        setlocal2
+                        findpropstrict QName(PackageNamespace("flash.globalization"),"DateTimeFormatter")
+                        pushstring "en-US"
+                        constructprop QName(PackageNamespace("flash.globalization"),"DateTimeFormatter"), 1
+                        coerce QName(PackageNamespace("flash.globalization"),"DateTimeFormatter")
+                        setlocal3
+                        getlocal3
+                        pushstring "\'date_\'MM_dd_yyyy"
+                        callpropvoid QName(PackageNamespace(""),"setDateTimePattern"), 1
+                        getlocal2
+                        getlocal3
+                        getlocal1
+                        callproperty QName(PackageNamespace(""),"format"), 1
+                        getproperty MultinameL([PrivateNamespace(null,"170"),PackageNamespace(""),PackageNamespace("bonus"),PrivateNamespace(null,"193"),PackageInternalNs("bonus"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("bonus:DailyBonus"),StaticProtectedNs("bonus:DailyBonus")])
+                        coerce QName(PackageNamespace(""),"Object")
+                        dup
+                        setlocal 4
+                        iftrue ofs0062
+                        getlex QName(PackageNamespace(""),"config")
+                        pushstring "Weekly"
+                        callproperty QName(PackageNamespace(""),"get"), 1
+                        coerce QName(PackageNamespace(""),"Object")
+                        setlocal 5
+                        getlocal3
+                        pushstring "EEEE"
+                        callpropvoid QName(PackageNamespace(""),"setDateTimePattern"), 1
+                        getlocal 5
+                        getlocal3
+                        getlocal1
+                        callproperty QName(PackageNamespace(""),"format"), 1
+                        getproperty MultinameL([PrivateNamespace(null,"170"),PackageNamespace(""),PackageNamespace("bonus"),PrivateNamespace(null,"193"),PackageInternalNs("bonus"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("bonus:DailyBonus"),StaticProtectedNs("bonus:DailyBonus")])
+                        coerce QName(PackageNamespace(""),"Object")
+                        setlocal 4
+               ofs0062:
+                        getlocal 4
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            private static function getBonus(param1:Object) : IDailyBonus
+            {
+               trait method QName(PrivateNamespace(null,"170"),"getBonus")
+                  flag FINAL
+                  dispid 5
+                  method
+                     name null
+                     param QName(PackageNamespace(""),"Object")
+                     returns QName(PackageNamespace("bonus"),"IDailyBonus")
+                     
+                     body
+                        maxstack 4
+                        localcount 3
+                        initscopedepth 3
+                        maxscopedepth 4
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           pushnull
+                           coerce QName(PackageNamespace("bonus.filter"),"IBonusFilter")
+                           setlocal2
+                           getlocal1
+                           getlex QName(PrivateNamespace(null,"170"),"specialDungeonName")
+                           callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"hasOwnProperty"), 1
+                           iffalse ofs0028
+                           findpropstrict QName(PackageNamespace("bonus"),"ExtraDungeon")
+                           getlocal1
+                           getlex QName(PrivateNamespace(null,"170"),"specialDungeonName")
+                           getproperty MultinameL([PrivateNamespace(null,"170"),PackageNamespace(""),PackageNamespace("bonus"),PrivateNamespace(null,"193"),PackageInternalNs("bonus"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("bonus:DailyBonus"),StaticProtectedNs("bonus:DailyBonus")])
+                           getlocal1
+                           getlex QName(PrivateNamespace(null,"170"),"elementName")
+                           getproperty MultinameL([PrivateNamespace(null,"170"),PackageNamespace(""),PackageNamespace("bonus"),PrivateNamespace(null,"193"),PackageInternalNs("bonus"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("bonus:DailyBonus"),StaticProtectedNs("bonus:DailyBonus")])
+                           constructprop QName(PackageNamespace("bonus"),"ExtraDungeon"), 2
+                           returnvalue
+                  ofs0028:
+                           getlocal1
+                           getlex QName(PrivateNamespace(null,"170"),"filterName")
+                           callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"hasOwnProperty"), 1
+                           iffalse ofs007d
+                           findpropstrict QName(PrivateNamespace(null,"170"),"parseFilter")
+                           getlocal1
+                           getlex QName(PrivateNamespace(null,"170"),"filterName")
+                           getproperty MultinameL([PrivateNamespace(null,"170"),PackageNamespace(""),PackageNamespace("bonus"),PrivateNamespace(null,"193"),PackageInternalNs("bonus"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("bonus:DailyBonus"),StaticProtectedNs("bonus:DailyBonus")])
+                           callproperty QName(PrivateNamespace(null,"170"),"parseFilter"), 1
+                           coerce QName(PackageNamespace("bonus.filter"),"IBonusFilter")
+                           setlocal2
+                           getlocal1
+                           getlex QName(PrivateNamespace(null,"170"),"xpBonusName")
+                           callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"hasOwnProperty"), 1
+                           iffalse ofs0061
+                           findpropstrict QName(PackageNamespace("bonus"),"XpBonus")
+                           getlocal1
+                           getlex QName(PrivateNamespace(null,"170"),"xpBonusName")
+                           getproperty MultinameL([PrivateNamespace(null,"170"),PackageNamespace(""),PackageNamespace("bonus"),PrivateNamespace(null,"193"),PackageInternalNs("bonus"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("bonus:DailyBonus"),StaticProtectedNs("bonus:DailyBonus")])
+                           getlocal2
+                           constructprop QName(PackageNamespace("bonus"),"XpBonus"), 2
+                           returnvalue
+                  ofs0061:
+                           getlocal1
+                           getlex QName(PrivateNamespace(null,"170"),"xtraLevelName")
+                           callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"hasOwnProperty"), 1
+                           iffalse ofs007d
+                           findpropstrict QName(PackageNamespace("bonus"),"ExtraLevelBonus")
+                           getlocal1
+                           getlex QName(PrivateNamespace(null,"170"),"xtraLevelName")
+                           getproperty MultinameL([PrivateNamespace(null,"170"),PackageNamespace(""),PackageNamespace("bonus"),PrivateNamespace(null,"193"),PackageInternalNs("bonus"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("bonus:DailyBonus"),StaticProtectedNs("bonus:DailyBonus")])
+                           getlocal2
+                           constructprop QName(PackageNamespace("bonus"),"ExtraLevelBonus"), 2
+                           returnvalue
+                  ofs007d:
+                           pushnull
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               private static function isConfigOfSpecialDungeon(param1:Object, param2:Element) : Boolean
+               {
+                  trait method QName(PrivateNamespace(null,"170"),"isConfigOfSpecialDungeon")
+                     flag FINAL
+                     dispid 6
+                     method
+                        name null
+                        param QName(PackageNamespace(""),"Object")
+                        param QName(PackageNamespace("main_game.element"),"Element")
+                        returns QName(PackageNamespace(""),"Boolean")
+                        
+                        body
+                           maxstack 3
+                           localcount 3
+                           initscopedepth 3
+                           maxscopedepth 4
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal1
+                              convert_b
+                              dup
+                              iffalse ofs0013
+                              pop
+                              getlocal1
+                              getlex QName(PrivateNamespace(null,"170"),"specialDungeonName")
+                              callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"hasOwnProperty"), 1
+                              convert_b
+                     ofs0013:
+                              dup
+                              iffalse ofs0028
+                              pop
+                              getlex QName(PackageNamespace("main_game.element"),"Element")
+                              getlocal1
+                              getlex QName(PrivateNamespace(null,"170"),"elementName")
+                              getproperty MultinameL([PrivateNamespace(null,"170"),PackageNamespace(""),PackageNamespace("bonus"),PrivateNamespace(null,"193"),PackageInternalNs("bonus"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("bonus:DailyBonus"),StaticProtectedNs("bonus:DailyBonus")])
+                              callproperty QName(PackageNamespace(""),"parseElement"), 1
+                              getlocal2
+                              equals
+                     ofs0028:
+                              returnvalue
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public static function getNextSpecialDungeonDate(param1:Element) : Date
+                  {
+                     trait method QName(PackageNamespace(""),"getNextSpecialDungeonDate")
+                        flag FINAL
+                        dispid 7
+                        method
+                           name null
+                           param QName(PackageNamespace("main_game.element"),"Element")
+                           returns QName(PackageNamespace(""),"Date")
+                           
+                           body
+                              maxstack 7
+                              localcount 10
+                              initscopedepth 3
+                              maxscopedepth 4
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 pushnull
+                                 coerce_s
+                                 setlocal 6
+                                 pushnull
+                                 coerce QName(PackageNamespace(""),"Array")
+                                 setlocal 7
+                                 findpropstrict QName(PackageNamespace(""),"Date")
+                                 constructprop QName(PackageNamespace(""),"Date"), 0
+                                 coerce QName(PackageNamespace(""),"Date")
+                                 setlocal2
+                                 pushnull
+                                 coerce QName(PackageNamespace(""),"Object")
+                                 setlocal3
+                                 pushbyte 0
+                                 setlocal 4
+                                 jump ofs0055
+                        ofs001f:
+                                 label
+                                 getlex QName(PackageNamespace("bonus"),"DailyBonus")
+                                 getlocal2
+                                 callproperty QName(PrivateNamespace(null,"170"),"getBonusConfigOfDate"), 1
+                                 coerce QName(PackageNamespace(""),"Object")
+                                 setlocal3
+                                 findpropstrict QName(PrivateNamespace(null,"170"),"isConfigOfSpecialDungeon")
+                                 getlocal3
+                                 getlocal1
+                                 callproperty QName(PrivateNamespace(null,"170"),"isConfigOfSpecialDungeon"), 2
+                                 iffalse ofs003a
+                                 getlocal2
+                                 returnvalue
+                        ofs003a:
+                                 findpropstrict QName(PackageNamespace(""),"Date")
+                                 getlocal2
+                                 getproperty QName(PackageNamespace(""),"time")
+                                 pushshort 1000
+                                 pushbyte 60
+                                 multiply
+                                 pushbyte 60
+                                 multiply
+                                 pushbyte 24
+                                 multiply
+                                 add
+                                 constructprop QName(PackageNamespace(""),"Date"), 1
+                                 coerce QName(PackageNamespace(""),"Date")
+                                 setlocal2
+                                 inclocal_i 4
+                        ofs0055:
+                                 getlocal 4
+                                 pushbyte 7
+                                 iflt ofs001f
+                                 pushnull
+                                 coerce QName(PackageNamespace(""),"Date")
+                                 setlocal2
+                                 getlex QName(PackageNamespace(""),"config")
+                                 pushstring "SpecialEvents"
+                                 callproperty QName(PackageNamespace(""),"get"), 1
+                                 coerce QName(PackageNamespace(""),"Object")
+                                 setlocal 5
+                                 pushbyte 0
+                                 setlocal 8
+                                 getlocal 5
+                                 coerce_a
+                                 setlocal 9
+                                 jump ofs00ff
+                        ofs007c:
+                                 label
+                                 getlocal 9
+                                 getlocal 8
+                                 nextname
+                                 coerce_s
+                                 setlocal 6
+                                 findpropstrict QName(PrivateNamespace(null,"170"),"isConfigOfSpecialDungeon")
+                                 getlocal 5
+                                 getlocal 6
+                                 getproperty MultinameL([PrivateNamespace(null,"170"),PackageNamespace(""),PackageNamespace("bonus"),PrivateNamespace(null,"193"),PackageInternalNs("bonus"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("bonus:DailyBonus"),StaticProtectedNs("bonus:DailyBonus")])
+                                 getlocal1
+                                 callproperty QName(PrivateNamespace(null,"170"),"isConfigOfSpecialDungeon"), 2
+                                 iffalse ofs00ff
+                                 getlocal 6
+                                 pushstring "_"
+                                 callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"split"), 1
+                                 coerce QName(PackageNamespace(""),"Array")
+                                 setlocal 7
+                                 getlocal2
+                                 pushnull
+                                 equals
+                                 dup
+                                 iftrue ofs00dd
+                                 pop
+                                 findpropstrict QName(PrivateNamespace(null,"170"),"isAfter")
+                                 getlocal 7
+                                 pushbyte 3
+                                 getproperty MultinameL([PrivateNamespace(null,"170"),PackageNamespace(""),PackageNamespace("bonus"),PrivateNamespace(null,"193"),PackageInternalNs("bonus"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("bonus:DailyBonus"),StaticProtectedNs("bonus:DailyBonus")])
+                                 getlocal 7
+                                 pushbyte 1
+                                 getproperty MultinameL([PrivateNamespace(null,"170"),PackageNamespace(""),PackageNamespace("bonus"),PrivateNamespace(null,"193"),PackageInternalNs("bonus"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("bonus:DailyBonus"),StaticProtectedNs("bonus:DailyBonus")])
+                                 getlocal 7
+                                 pushbyte 2
+                                 getproperty MultinameL([PrivateNamespace(null,"170"),PackageNamespace(""),PackageNamespace("bonus"),PrivateNamespace(null,"193"),PackageInternalNs("bonus"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("bonus:DailyBonus"),StaticProtectedNs("bonus:DailyBonus")])
+                                 getlocal2
+                                 callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"getFullYear"), 0
+                                 getlocal2
+                                 callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"getMonth"), 0
+                                 pushbyte 1
+                                 add
+                                 getlocal2
+                                 callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"getDate"), 0
+                                 callproperty QName(PrivateNamespace(null,"170"),"isAfter"), 6
+                                 not
+                        ofs00dd:
+                                 iffalse ofs00ff
+                                 findpropstrict QName(PackageNamespace(""),"Date")
+                                 getlocal 7
+                                 pushbyte 3
+                                 getproperty MultinameL([PrivateNamespace(null,"170"),PackageNamespace(""),PackageNamespace("bonus"),PrivateNamespace(null,"193"),PackageInternalNs("bonus"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("bonus:DailyBonus"),StaticProtectedNs("bonus:DailyBonus")])
+                                 getlocal 7
+                                 pushbyte 1
+                                 getproperty MultinameL([PrivateNamespace(null,"170"),PackageNamespace(""),PackageNamespace("bonus"),PrivateNamespace(null,"193"),PackageInternalNs("bonus"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("bonus:DailyBonus"),StaticProtectedNs("bonus:DailyBonus")])
+                                 decrement
+                                 getlocal 7
+                                 pushbyte 2
+                                 getproperty MultinameL([PrivateNamespace(null,"170"),PackageNamespace(""),PackageNamespace("bonus"),PrivateNamespace(null,"193"),PackageInternalNs("bonus"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("bonus:DailyBonus"),StaticProtectedNs("bonus:DailyBonus")])
+                                 constructprop QName(PackageNamespace(""),"Date"), 3
+                                 coerce QName(PackageNamespace(""),"Date")
+                                 setlocal2
+                        ofs00ff:
+                                 hasnext2 9, 8
+                                 iftrue ofs007c
+                                 kill 9
+                                 kill 8
+                                 getlocal2
+                                 returnvalue
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     private static function parseFilter(param1:String) : IBonusFilter
+                     {
+                        trait method QName(PrivateNamespace(null,"170"),"parseFilter")
+                           flag FINAL
+                           dispid 8
+                           method
+                              name null
+                              param QName(PackageNamespace(""),"String")
+                              returns QName(PackageNamespace("bonus.filter"),"IBonusFilter")
+                              
+                              body
+                                 maxstack 2
+                                 localcount 3
+                                 initscopedepth 3
+                                 maxscopedepth 4
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    jump ofs0037
+                           ofs0006:
+                                    label
+                                    findpropstrict QName(PackageNamespace("bonus.filter"),"AllFilter")
+                                    constructprop QName(PackageNamespace("bonus.filter"),"AllFilter"), 0
+                                    returnvalue
+                           ofs000f:
+                                    label
+                                    findpropstrict QName(PackageNamespace("bonus.filter"),"IceFilter")
+                                    constructprop QName(PackageNamespace("bonus.filter"),"IceFilter"), 0
+                                    returnvalue
+                           ofs0018:
+                                    label
+                                    findpropstrict QName(PackageNamespace("bonus.filter"),"FireFilter")
+                                    constructprop QName(PackageNamespace("bonus.filter"),"FireFilter"), 0
+                                    returnvalue
+                           ofs0021:
+                                    label
+                                    findpropstrict QName(PackageNamespace("bonus.filter"),"NormalFilter")
+                                    constructprop QName(PackageNamespace("bonus.filter"),"NormalFilter"), 0
+                                    returnvalue
+                           ofs002a:
+                                    label
+                                    findpropstrict QName(PackageNamespace("bonus.filter"),"NoneFilter")
+                                    constructprop QName(PackageNamespace("bonus.filter"),"NoneFilter"), 0
+                                    returnvalue
+                                    jump ofs0037
+                           ofs0037:
+                                    getlocal1
+                                    setlocal2
+                                    pushstring "All"
+                                    getlocal2
+                                    ifstrictne ofs0047
+                                    pushbyte 0
+                                    jump ofs007d
+                           ofs0047:
+                                    pushstring "Ice"
+                                    getlocal2
+                                    ifstrictne ofs0055
+                                    pushbyte 1
+                                    jump ofs007d
+                           ofs0055:
+                                    pushstring "Fire"
+                                    getlocal2
+                                    ifstrictne ofs0063
+                                    pushbyte 2
+                                    jump ofs007d
+                           ofs0063:
+                                    pushstring "Normal"
+                                    getlocal2
+                                    ifstrictne ofs0071
+                                    pushbyte 3
+                                    jump ofs007d
+                           ofs0071:
+                                    jump ofs007b
+                                    pushbyte 4
+                                    jump ofs007b
+                           ofs007b:
+                                    pushbyte 4
+                           ofs007d:
+                                    kill 2
+                                    lookupswitch ofs002a, [ofs0006, ofs000f, ofs0018, ofs0021, ofs002a]
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        public static function getNextSpecialBonusDate(param1:Date) : Date
+                        {
+                           trait method QName(PackageNamespace(""),"getNextSpecialBonusDate")
+                              flag FINAL
+                              dispid 9
+                              method
+                                 name null
+                                 param QName(PackageNamespace(""),"Date")
+                                 returns QName(PackageNamespace(""),"Date")
+                                 
+                                 body
+                                    maxstack 7
+                                    localcount 11
+                                    initscopedepth 3
+                                    maxscopedepth 4
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       pushnull
+                                       coerce_s
+                                       setlocal 7
+                                       pushnull
+                                       coerce QName(PackageNamespace(""),"Array")
+                                       setlocal 8
+                                       getlocal1
+                                       callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"getFullYear"), 0
+                                       convert_i
+                                       setlocal2
+                                       getlocal1
+                                       callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"getMonth"), 0
+                                       pushbyte 1
+                                       add
+                                       convert_i
+                                       setlocal3
+                                       getlocal1
+                                       callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"getDate"), 0
+                                       convert_i
+                                       setlocal 4
+                                       getlex QName(PackageNamespace(""),"config")
+                                       pushstring "SpecialEvents"
+                                       callproperty QName(PackageNamespace(""),"get"), 1
+                                       coerce QName(PackageNamespace(""),"Object")
+                                       setlocal 5
+                                       pushnull
+                                       coerce QName(PackageNamespace(""),"Date")
+                                       setlocal 6
+                                       pushbyte 0
+                                       setlocal 9
+                                       getlocal 5
+                                       coerce_a
+                                       setlocal 10
+                                       jump ofs00dc
+                              ofs0044:
+                                       label
+                                       getlocal 10
+                                       getlocal 9
+                                       nextname
+                                       coerce_s
+                                       dup
+                                       setlocal 7
+                                       pushstring "_"
+                                       callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"split"), 1
+                                       coerce QName(PackageNamespace(""),"Array")
+                                       setlocal 8
+                                       findpropstrict QName(PrivateNamespace(null,"170"),"isAfter")
+                                       getlocal 8
+                                       pushbyte 3
+                                       getproperty MultinameL([PrivateNamespace(null,"170"),PackageNamespace(""),PackageNamespace("bonus"),PrivateNamespace(null,"193"),PackageInternalNs("bonus"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("bonus:DailyBonus"),StaticProtectedNs("bonus:DailyBonus")])
+                                       getlocal 8
+                                       pushbyte 1
+                                       getproperty MultinameL([PrivateNamespace(null,"170"),PackageNamespace(""),PackageNamespace("bonus"),PrivateNamespace(null,"193"),PackageInternalNs("bonus"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("bonus:DailyBonus"),StaticProtectedNs("bonus:DailyBonus")])
+                                       getlocal 8
+                                       pushbyte 2
+                                       getproperty MultinameL([PrivateNamespace(null,"170"),PackageNamespace(""),PackageNamespace("bonus"),PrivateNamespace(null,"193"),PackageInternalNs("bonus"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("bonus:DailyBonus"),StaticProtectedNs("bonus:DailyBonus")])
+                                       getlocal2
+                                       getlocal3
+                                       getlocal 4
+                                       callproperty QName(PrivateNamespace(null,"170"),"isAfter"), 6
+                                       iffalse ofs00dc
+                                       getlocal 6
+                                       pushnull
+                                       equals
+                                       dup
+                                       iftrue ofs00b9
+                                       pop
+                                       findpropstrict QName(PrivateNamespace(null,"170"),"isAfter")
+                                       getlocal 8
+                                       pushbyte 3
+                                       getproperty MultinameL([PrivateNamespace(null,"170"),PackageNamespace(""),PackageNamespace("bonus"),PrivateNamespace(null,"193"),PackageInternalNs("bonus"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("bonus:DailyBonus"),StaticProtectedNs("bonus:DailyBonus")])
+                                       getlocal 8
+                                       pushbyte 1
+                                       getproperty MultinameL([PrivateNamespace(null,"170"),PackageNamespace(""),PackageNamespace("bonus"),PrivateNamespace(null,"193"),PackageInternalNs("bonus"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("bonus:DailyBonus"),StaticProtectedNs("bonus:DailyBonus")])
+                                       getlocal 8
+                                       pushbyte 2
+                                       getproperty MultinameL([PrivateNamespace(null,"170"),PackageNamespace(""),PackageNamespace("bonus"),PrivateNamespace(null,"193"),PackageInternalNs("bonus"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("bonus:DailyBonus"),StaticProtectedNs("bonus:DailyBonus")])
+                                       getlocal 6
+                                       callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"getFullYear"), 0
+                                       getlocal 6
+                                       callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"getMonth"), 0
+                                       pushbyte 1
+                                       add
+                                       getlocal 6
+                                       callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"getDate"), 0
+                                       callproperty QName(PrivateNamespace(null,"170"),"isAfter"), 6
+                                       not
+                              ofs00b9:
+                                       iffalse ofs00dc
+                                       findpropstrict QName(PackageNamespace(""),"Date")
+                                       getlocal 8
+                                       pushbyte 3
+                                       getproperty MultinameL([PrivateNamespace(null,"170"),PackageNamespace(""),PackageNamespace("bonus"),PrivateNamespace(null,"193"),PackageInternalNs("bonus"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("bonus:DailyBonus"),StaticProtectedNs("bonus:DailyBonus")])
+                                       getlocal 8
+                                       pushbyte 1
+                                       getproperty MultinameL([PrivateNamespace(null,"170"),PackageNamespace(""),PackageNamespace("bonus"),PrivateNamespace(null,"193"),PackageInternalNs("bonus"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("bonus:DailyBonus"),StaticProtectedNs("bonus:DailyBonus")])
+                                       decrement
+                                       getlocal 8
+                                       pushbyte 2
+                                       getproperty MultinameL([PrivateNamespace(null,"170"),PackageNamespace(""),PackageNamespace("bonus"),PrivateNamespace(null,"193"),PackageInternalNs("bonus"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("bonus:DailyBonus"),StaticProtectedNs("bonus:DailyBonus")])
+                                       constructprop QName(PackageNamespace(""),"Date"), 3
+                                       coerce QName(PackageNamespace(""),"Date")
+                                       setlocal 6
+                              ofs00dc:
+                                       hasnext2 10, 9
+                                       iftrue ofs0044
+                                       kill 10
+                                       kill 9
+                                       getlocal 6
+                                       returnvalue
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           private static function isAfter(param1:int, param2:int, param3:int, param4:int, param5:int, param6:int) : Boolean
+                           {
+                              trait method QName(PrivateNamespace(null,"170"),"isAfter")
+                                 flag FINAL
+                                 dispid 10
+                                 method
+                                    name null
+                                    param QName(PackageNamespace(""),"int")
+                                    param QName(PackageNamespace(""),"int")
+                                    param QName(PackageNamespace(""),"int")
+                                    param QName(PackageNamespace(""),"int")
+                                    param QName(PackageNamespace(""),"int")
+                                    param QName(PackageNamespace(""),"int")
+                                    returns QName(PackageNamespace(""),"Boolean")
+                                    
+                                    body
+                                       maxstack 2
+                                       localcount 7
+                                       initscopedepth 3
+                                       maxscopedepth 4
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          getlocal1
+                                          getlocal 4
+                                          greaterthan
+                                          dup
+                                          iftrue ofs001a
+                                          pop
+                                          getlocal1
+                                          getlocal 4
+                                          equals
+                                          dup
+                                          iffalse ofs001a
+                                          pop
+                                          getlocal2
+                                          getlocal 5
+                                          greaterthan
+                                 ofs001a:
+                                          dup
+                                          iftrue ofs0038
+                                          pop
+                                          getlocal1
+                                          getlocal 4
+                                          equals
+                                          dup
+                                          iffalse ofs002e
+                                          pop
+                                          getlocal2
+                                          getlocal 5
+                                          equals
+                                 ofs002e:
+                                          dup
+                                          iffalse ofs0038
+                                          pop
+                                          getlocal3
+                                          getlocal 6
+                                          greaterthan
+                                 ofs0038:
+                                          returnvalue
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                           }
+                        }
+                        
+                        method
+                           name null
+                           returns null
+                           
+                           body
+                              maxstack 2
+                              localcount 1
+                              initscopedepth 1
+                              maxscopedepth 3
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 findpropstrict Multiname("DailyBonus",[PackageNamespace("bonus")])
+                                 getlex QName(PackageNamespace(""),"Object")
+                                 pushscope
+                                 getlex QName(PackageNamespace(""),"Object")
+                                 newclass 33
+                                 popscope
+                                 initproperty QName(PackageNamespace("bonus"),"DailyBonus")
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                        

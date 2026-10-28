@@ -1,0 +1,176 @@
+package main_game.character
+{
+   import main_game.character.stats.EnemyStats;
+   import main_game.character.stats.Stats;
+   import main_game.element.Element;
+   
+   public class Enemy extends Fighter
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 4
+            maxscopedepth 5
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      protected var element:Element;
+      
+      public function Enemy(param1:String, param2:CharacterConfigData, param3:Number)
+      {
+         method
+            name null
+            param QName(PackageNamespace(""),"String")
+            param QName(PackageNamespace("main_game.character"),"CharacterConfigData")
+            param QName(PackageNamespace(""),"Number")
+            returns null
+            
+            body
+               maxstack 3
+               localcount 4
+               initscopedepth 5
+               maxscopedepth 6
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  getlocal2
+                  getproperty QName(Namespace("main_game.character:CharacterConfigData"),"element")
+                  initproperty QName(ProtectedNamespace("main_game.character:Enemy"),"element")
+                  getlocal0
+                  getlocal1
+                  getlocal2
+                  constructsuper 2
+                  getlocal0
+                  getproperty QName(PackageNamespace(""),"stats")
+                  getlocal3
+                  callpropvoid QName(PackageNamespace(""),"leveling"), 1
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      override protected function createStats(param1:CharacterConfigData) : Stats
+      {
+         trait method QName(ProtectedNamespace("main_game.character:Enemy"),"createStats")
+            flag OVERRIDE
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace("main_game.character"),"CharacterConfigData")
+               returns QName(PackageNamespace("main_game.character.stats"),"Stats")
+               
+               body
+                  maxstack 3
+                  localcount 2
+                  initscopedepth 5
+                  maxscopedepth 6
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     findpropstrict QName(PackageNamespace("main_game.character.stats"),"EnemyStats")
+                     getlocal1
+                     getlocal0
+                     constructprop QName(PackageNamespace("main_game.character.stats"),"EnemyStats"), 2
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function getElement() : Element
+         {
+            trait method QName(PackageNamespace(""),"getElement")
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace("main_game.element"),"Element")
+                  
+                  body
+                     maxstack 1
+                     localcount 1
+                     initscopedepth 5
+                     maxscopedepth 6
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        getproperty QName(ProtectedNamespace("main_game.character:Enemy"),"element")
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function getType() : String
+            {
+               trait method QName(PackageNamespace(""),"getType")
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace(""),"String")
+                     
+                     body
+                        maxstack 2
+                        localcount 1
+                        initscopedepth 5
+                        maxscopedepth 6
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           callproperty QName(PackageNamespace(""),"getName"), 0
+                           pushbyte 5
+                           callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"charAt"), 1
+                           returnvalue
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+            }
+         }
+         
+         method
+            name null
+            returns null
+            
+            body
+               maxstack 2
+               localcount 1
+               initscopedepth 1
+               maxscopedepth 4
+               
+               code
+                  getlocal0
+                  pushscope
+                  findpropstrict Multiname("Enemy",[PackageNamespace("main_game.character")])
+                  getlex QName(PackageNamespace(""),"Object")
+                  pushscope
+                  getlex QName(PackageNamespace("main_game.character"),"Fighter")
+                  pushscope
+                  getlex QName(PackageNamespace("main_game.character"),"Fighter")
+                  newclass 81
+                  popscope
+                  popscope
+                  initproperty QName(PackageNamespace("main_game.character"),"Enemy")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+         

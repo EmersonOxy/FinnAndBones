@@ -1,0 +1,194 @@
+package main_game.items
+{
+   import main_game.character.stats.StatType;
+   
+   public class MixItem extends Item
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 4
+            maxscopedepth 5
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      public function MixItem(param1:String, param2:Object)
+      {
+         method
+            name null
+            param QName(PackageNamespace(""),"String")
+            param QName(PackageNamespace(""),"Object")
+            returns null
+            
+            body
+               maxstack 3
+               localcount 3
+               initscopedepth 5
+               maxscopedepth 6
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  getlocal1
+                  getlocal2
+                  constructsuper 2
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      override public function getNameToShow() : String
+      {
+         trait method QName(PackageNamespace(""),"getNameToShow")
+            flag OVERRIDE
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace(""),"String")
+               
+               body
+                  maxstack 4
+                  localcount 2
+                  initscopedepth 5
+                  maxscopedepth 6
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     getproperty QName(ProtectedNamespace("main_game.items:Item"),"secondaryModifier")
+                     callproperty QName(Namespace("main_game.items.modifiers:IModifier"),"getCategory"), 0
+                     convert_i
+                     setlocal1
+                     getlocal1
+                     getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                     getproperty QName(PackageNamespace(""),"NULL")
+                     ifne ofs0021
+                     getlocal0
+                     getproperty QName(ProtectedNamespace("main_game.items:Item"),"primaryModifier")
+                     callproperty QName(Namespace("main_game.items.modifiers:IModifier"),"getCategory"), 0
+                     convert_i
+                     setlocal1
+            ofs0021:
+                     getlex QName(PackageNamespace(""),"main")
+                     getproperty QName(PackageNamespace(""),"locale")
+                     pushstring "mix"
+                     getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                     getlocal1
+                     callproperty QName(PackageNamespace(""),"stringOfStat"), 1
+                     add
+                     getlocal0
+                     callsuper QName(PackageNamespace(""),"getNameToShow"), 0
+                     newarray 1
+                     callproperty QName(PackageNamespace(""),"get"), 2
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         override public function toObject() : Object
+         {
+            trait method QName(PackageNamespace(""),"toObject")
+               flag OVERRIDE
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace(""),"Object")
+                  
+                  body
+                     maxstack 20
+                     localcount 2
+                     initscopedepth 5
+                     maxscopedepth 6
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        pushstring "id"
+                        getlocal0
+                        getproperty QName(ProtectedNamespace("main_game.items:Item"),"id")
+                        pushstring "NameString"
+                        getlocal0
+                        getproperty QName(PackageNamespace(""),"name")
+                        pushstring "Category"
+                        getlocal0
+                        getproperty QName(ProtectedNamespace("main_game.items:Item"),"category")
+                        getproperty QName(PackageNamespace(""),"type")
+                        pushstring "MovieClip"
+                        getlocal0
+                        getproperty QName(ProtectedNamespace("main_game.items:Item"),"mc_name")
+                        pushstring "FirstModifier"
+                        getlex QName(ProtectedNamespace("main_game.items:Item"),"primaryModifier")
+                        callproperty QName(Namespace("main_game.items.modifiers:IModifier"),"toObject"), 0
+                        pushstring "SecondModifier"
+                        getlex QName(ProtectedNamespace("main_game.items:Item"),"secondaryModifier")
+                        callproperty QName(Namespace("main_game.items.modifiers:IModifier"),"toObject"), 0
+                        pushstring "Element"
+                        getlocal0
+                        getproperty QName(ProtectedNamespace("main_game.items:Item"),"element")
+                        getproperty QName(PackageNamespace(""),"type")
+                        pushstring "MixTime"
+                        getlocal0
+                        getproperty QName(ProtectedNamespace("main_game.items:Item"),"mix_time")
+                        pushstring "MaxMod"
+                        getlocal0
+                        getproperty QName(ProtectedNamespace("main_game.items:Item"),"maxMod")
+                        pushstring "Duration"
+                        getlocal0
+                        getproperty QName(ProtectedNamespace("main_game.items:Item"),"duration")
+                        newobject 10
+                        coerce_a
+                        setlocal1
+                        pushstring "mix"
+                        getlocal1
+                        newobject 1
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+         }
+      }
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 1
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               findpropstrict Multiname("MixItem",[PackageNamespace("main_game.items")])
+               getlex QName(PackageNamespace(""),"Object")
+               pushscope
+               getlex QName(PackageNamespace("main_game.items"),"Item")
+               pushscope
+               getlex QName(PackageNamespace("main_game.items"),"Item")
+               newclass 109
+               popscope
+               popscope
+               initproperty QName(PackageNamespace("main_game.items"),"MixItem")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      

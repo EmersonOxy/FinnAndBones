@@ -1,0 +1,721 @@
+package view.screens.main_game.dungeon
+{
+   import cb.utils.Tween;
+   import flash.display.MovieClip;
+   import main_game.character.Enemy;
+   import main_game.dungeon.Dungeon;
+   import main_game.dungeon.IFight;
+   import main_game.element.Element;
+   import main_game.map.LegendaryLevel;
+   import main_game.map.Level;
+   import util.Util;
+   
+   public class TimeLine extends MovieClip
+   {
+      
+      private static const finnStart:Number = 74;
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 2
+            localcount 1
+            initscopedepth 9
+            maxscopedepth 10
+            
+            code
+               getlocal0
+               pushscope
+               findproperty QName(PrivateNamespace(null,"106"),"finnStart")
+               pushbyte 74
+               initproperty QName(PrivateNamespace(null,"106"),"finnStart")
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var dungeonView:DungeonView;
+      
+      private var finn:MovieClip;
+      
+      private var scale:Number;
+      
+      private var fight:Number;
+      
+      private var distance:Number;
+      
+      private var skulls:Array;
+      
+      private var alphalize:Boolean = false;
+      
+      public function TimeLine(param1:DungeonView)
+      {
+         method
+            name null
+            param QName(PackageNamespace("view.screens.main_game.dungeon"),"DungeonView")
+            returns null
+            
+            body
+               maxstack 3
+               localcount 2
+               initscopedepth 10
+               maxscopedepth 11
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  findpropstrict QName(PackageNamespace(""),"Array")
+                  constructprop QName(PackageNamespace(""),"Array"), 0
+                  initproperty QName(PrivateNamespace(null,"106"),"skulls")
+                  getlocal0
+                  getlocal1
+                  initproperty QName(PrivateNamespace(null,"106"),"dungeonView")
+                  getlocal0
+                  pushbyte 0
+                  initproperty QName(PrivateNamespace(null,"106"),"fight")
+                  getlocal0
+                  pushbyte 0
+                  initproperty QName(PrivateNamespace(null,"106"),"distance")
+                  getlocal0
+                  getlex QName(PackageNamespace(""),"main")
+                  getproperty QName(PackageNamespace(""),"swfLoader")
+                  pushstring "assets.TimeLineFinn"
+                  callproperty QName(PackageNamespace(""),"getObject"), 1
+                  getlex QName(PackageNamespace("flash.display"),"MovieClip")
+                  astypelate
+                  initproperty QName(PrivateNamespace(null,"106"),"finn")
+                  getlocal0
+                  callpropvoid QName(PackageNamespace(""),"initialize"), 0
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      private static function get positionX() : Number
+      {
+         trait getter QName(PrivateNamespace(null,"106"),"positionX")
+            flag FINAL
+            dispid 3
+            method
+               name null
+               returns QName(PackageNamespace(""),"Number")
+               
+               body
+                  maxstack 2
+                  localcount 1
+                  initscopedepth 9
+                  maxscopedepth 10
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlex QName(PackageNamespace(""),"main")
+                     getproperty QName(PackageNamespace(""),"config")
+                     pushstring "TimelineConfig"
+                     callproperty QName(PackageNamespace(""),"get"), 1
+                     pushstring "x"
+                     getproperty MultinameL([PrivateNamespace(null,"106"),PackageNamespace(""),PrivateNamespace(null,"279"),PackageNamespace("view.screens.main_game.dungeon"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:TimeLine"),StaticProtectedNs("view.screens.main_game.dungeon:TimeLine"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     returnvalue
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         private static function get positionY() : Number
+         {
+            trait getter QName(PrivateNamespace(null,"106"),"positionY")
+               flag FINAL
+               dispid 4
+               method
+                  name null
+                  returns QName(PackageNamespace(""),"Number")
+                  
+                  body
+                     maxstack 2
+                     localcount 1
+                     initscopedepth 9
+                     maxscopedepth 10
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlex QName(PackageNamespace(""),"main")
+                        getproperty QName(PackageNamespace(""),"config")
+                        pushstring "TimelineConfig"
+                        callproperty QName(PackageNamespace(""),"get"), 1
+                        pushstring "y"
+                        getproperty MultinameL([PrivateNamespace(null,"106"),PackageNamespace(""),PrivateNamespace(null,"279"),PackageNamespace("view.screens.main_game.dungeon"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:TimeLine"),StaticProtectedNs("view.screens.main_game.dungeon:TimeLine"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function initialize() : void
+            {
+               trait method QName(PackageNamespace(""),"initialize")
+                  dispid 0
+                  method
+                     name null
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 6
+                        localcount 8
+                        initscopedepth 10
+                        maxscopedepth 11
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           pushnull
+                           coerce QName(PackageNamespace("flash.display"),"MovieClip")
+                           setlocal 7
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"106"),"dungeonView")
+                           getproperty QName(PackageNamespace(""),"dungeon")
+                           callproperty QName(Namespace("view.screens.main_game.states:IDungeonState"),"getDungeon"), 0
+                           coerce QName(PackageNamespace("main_game.dungeon"),"Dungeon")
+                           setlocal1
+                           getlocal1
+                           getproperty QName(PackageNamespace(""),"onFight")
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"106"),"nextFight")
+                           callpropvoid QName(PackageNamespace(""),"add"), 1
+                           getlocal1
+                           getproperty QName(PackageNamespace(""),"enemies")
+                           coerce TypeName(QName(PackageNamespace("__AS3__.vec"),"Vector")<QName(PackageNamespace("main_game.character"),"Enemy")>)
+                           setlocal2
+                           getlocal0
+                           getlex QName(PrivateNamespace(null,"106"),"positionY")
+                           setproperty QName(PackageNamespace(""),"y")
+                           getlex QName(PackageNamespace(""),"main")
+                           getproperty QName(PackageNamespace(""),"swfLoader")
+                           pushstring "assets.TimeLine"
+                           callproperty QName(PackageNamespace(""),"getObject"), 1
+                           getlex QName(PackageNamespace("flash.display"),"MovieClip")
+                           astypelate
+                           coerce QName(PackageNamespace("flash.display"),"MovieClip")
+                           setlocal3
+                           getlocal0
+                           getlocal3
+                           getlocal1
+                           callproperty QName(PackageNamespace(""),"getLevel"), 0
+                           callpropvoid QName(PrivateNamespace(null,"106"),"setLevel"), 2
+                           getlocal0
+                           getlex QName(PrivateNamespace(null,"106"),"positionX")
+                           getlocal3
+                           getproperty QName(PackageNamespace(""),"width")
+                           pushbyte 2
+                           divide
+                           subtract
+                           setproperty QName(PackageNamespace(""),"x")
+                           getlocal3
+                           getlocal3
+                           getproperty QName(PackageNamespace(""),"width")
+                           pushbyte 2
+                           divide
+                           setproperty QName(PackageNamespace(""),"x")
+                           findpropstrict QName(PackageNamespace(""),"addChild")
+                           getlocal3
+                           callpropvoid QName(PackageNamespace(""),"addChild"), 1
+                           getlocal3
+                           getproperty QName(PackageNamespace(""),"width")
+                           pushbyte 80
+                           subtract
+                           convert_d
+                           setlocal 4
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"106"),"dungeonView")
+                           getproperty QName(PackageNamespace(""),"background")
+                           getproperty QName(PackageNamespace(""),"onMove")
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"106"),"move")
+                           callpropvoid QName(PackageNamespace(""),"add"), 1
+                           getlocal0
+                           getlocal 4
+                           getlocal2
+                           getproperty QName(PackageNamespace(""),"length")
+                           divide
+                           setproperty QName(PrivateNamespace(null,"106"),"distance")
+                           getlex QName(PackageNamespace("main_game.dungeon"),"Dungeon")
+                           getproperty QName(PackageNamespace(""),"DungeonConfig")
+                           pushstring "lenght_step"
+                           getproperty MultinameL([PrivateNamespace(null,"106"),PackageNamespace(""),PrivateNamespace(null,"279"),PackageNamespace("view.screens.main_game.dungeon"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:TimeLine"),StaticProtectedNs("view.screens.main_game.dungeon:TimeLine"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           getlex QName(PackageNamespace("main_game.dungeon"),"Dungeon")
+                           getproperty QName(PackageNamespace(""),"DungeonConfig")
+                           pushstring "steps_to_find_enemy"
+                           getproperty MultinameL([PrivateNamespace(null,"106"),PackageNamespace(""),PrivateNamespace(null,"279"),PackageNamespace("view.screens.main_game.dungeon"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:TimeLine"),StaticProtectedNs("view.screens.main_game.dungeon:TimeLine"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           multiply
+                           convert_d
+                           setlocal 5
+                           getlocal0
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"106"),"distance")
+                           getlocal 5
+                           divide
+                           setproperty QName(PrivateNamespace(null,"106"),"scale")
+                           pushbyte 0
+                           setlocal 6
+                           jump ofs00f6
+                  ofs00c3:
+                           label
+                           getlocal0
+                           getlocal2
+                           getlocal 6
+                           getproperty MultinameL([PrivateNamespace(null,"106"),PackageNamespace(""),PrivateNamespace(null,"279"),PackageNamespace("view.screens.main_game.dungeon"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:TimeLine"),StaticProtectedNs("view.screens.main_game.dungeon:TimeLine"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           callproperty QName(PrivateNamespace(null,"106"),"newStep"), 1
+                           coerce QName(PackageNamespace("flash.display"),"MovieClip")
+                           dup
+                           setlocal 7
+                           getlocal0
+                           getlocal 6
+                           pushbyte 1
+                           add
+                           callproperty QName(PrivateNamespace(null,"106"),"positionOfFight"), 1
+                           setproperty QName(PackageNamespace(""),"x")
+                           findpropstrict QName(PackageNamespace(""),"addChild")
+                           getlocal 7
+                           callpropvoid QName(PackageNamespace(""),"addChild"), 1
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"106"),"skulls")
+                           getlocal 7
+                           callpropvoid QName(Namespace("http://adobe.com/AS3/2006/builtin"),"push"), 1
+                           inclocal_i 6
+                  ofs00f6:
+                           getlocal 6
+                           getlocal2
+                           getproperty QName(PackageNamespace(""),"length")
+                           iflt ofs00c3
+                           findpropstrict QName(PackageNamespace(""),"addChild")
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"106"),"finn")
+                           callpropvoid QName(PackageNamespace(""),"addChild"), 1
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"106"),"finn")
+                           getlex QName(PrivateNamespace(null,"106"),"finnStart")
+                           setproperty QName(PackageNamespace(""),"x")
+                           getlocal1
+                           getproperty QName(PackageNamespace(""),"onWin")
+                           getlex QName(PackageNamespace("util"),"Util")
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"106"),"removeSkull")
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"106"),"skulls")
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"106"),"skulls")
+                           getproperty QName(PackageNamespace(""),"length")
+                           decrement
+                           getproperty MultinameL([PrivateNamespace(null,"106"),PackageNamespace(""),PrivateNamespace(null,"279"),PackageNamespace("view.screens.main_game.dungeon"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:TimeLine"),StaticProtectedNs("view.screens.main_game.dungeon:TimeLine"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                           callproperty QName(PackageNamespace(""),"l"), 2
+                           callpropvoid QName(PackageNamespace(""),"add"), 1
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               private function setLevel(param1:MovieClip, param2:Level) : void
+               {
+                  trait method QName(PrivateNamespace(null,"106"),"setLevel")
+                     dispid 0
+                     method
+                        name null
+                        param QName(PackageNamespace("flash.display"),"MovieClip")
+                        param QName(PackageNamespace("main_game.map"),"Level")
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 3
+                           localcount 3
+                           initscopedepth 10
+                           maxscopedepth 11
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal2
+                              callproperty QName(PackageNamespace(""),"isLegendary"), 0
+                              iffalse ofs0022
+                              getlocal1
+                              getproperty Multiname("level",[PrivateNamespace(null,"106"),PackageNamespace(""),PrivateNamespace(null,"279"),PackageNamespace("view.screens.main_game.dungeon"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:TimeLine"),StaticProtectedNs("view.screens.main_game.dungeon:TimeLine"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                              getlocal2
+                              getlex QName(PackageNamespace("main_game.map"),"LegendaryLevel")
+                              astypelate
+                              getproperty QName(PackageNamespace(""),"element")
+                              getproperty QName(PackageNamespace(""),"type")
+                              callpropvoid Multiname("gotoAndStop",[PrivateNamespace(null,"106"),PackageNamespace(""),PrivateNamespace(null,"279"),PackageNamespace("view.screens.main_game.dungeon"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:TimeLine"),StaticProtectedNs("view.screens.main_game.dungeon:TimeLine"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 1
+                              jump ofs0054
+                     ofs0022:
+                              getlocal2
+                              callproperty QName(PackageNamespace(""),"isSpecial"), 0
+                              iffalse ofs003a
+                              getlocal1
+                              getproperty Multiname("level",[PrivateNamespace(null,"106"),PackageNamespace(""),PrivateNamespace(null,"279"),PackageNamespace("view.screens.main_game.dungeon"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:TimeLine"),StaticProtectedNs("view.screens.main_game.dungeon:TimeLine"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                              pushstring "special"
+                              callpropvoid Multiname("gotoAndStop",[PrivateNamespace(null,"106"),PackageNamespace(""),PrivateNamespace(null,"279"),PackageNamespace("view.screens.main_game.dungeon"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:TimeLine"),StaticProtectedNs("view.screens.main_game.dungeon:TimeLine"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 1
+                              jump ofs0054
+                     ofs003a:
+                              getlocal1
+                              getproperty Multiname("level",[PrivateNamespace(null,"106"),PackageNamespace(""),PrivateNamespace(null,"279"),PackageNamespace("view.screens.main_game.dungeon"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:TimeLine"),StaticProtectedNs("view.screens.main_game.dungeon:TimeLine"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                              pushstring "level"
+                              callpropvoid Multiname("gotoAndStop",[PrivateNamespace(null,"106"),PackageNamespace(""),PrivateNamespace(null,"279"),PackageNamespace("view.screens.main_game.dungeon"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:TimeLine"),StaticProtectedNs("view.screens.main_game.dungeon:TimeLine"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")]), 1
+                              getlocal1
+                              getproperty Multiname("level",[PrivateNamespace(null,"106"),PackageNamespace(""),PrivateNamespace(null,"279"),PackageNamespace("view.screens.main_game.dungeon"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:TimeLine"),StaticProtectedNs("view.screens.main_game.dungeon:TimeLine"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                              getproperty Multiname("text",[PrivateNamespace(null,"106"),PackageNamespace(""),PrivateNamespace(null,"279"),PackageNamespace("view.screens.main_game.dungeon"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:TimeLine"),StaticProtectedNs("view.screens.main_game.dungeon:TimeLine"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                              getlocal2
+                              callproperty QName(PackageNamespace(""),"getDungeonId"), 0
+                              setproperty Multiname("text",[PrivateNamespace(null,"106"),PackageNamespace(""),PrivateNamespace(null,"279"),PackageNamespace("view.screens.main_game.dungeon"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:TimeLine"),StaticProtectedNs("view.screens.main_game.dungeon:TimeLine"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                     ofs0054:
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  private function nextFight(param1:IFight) : void
+                  {
+                     trait method QName(PrivateNamespace(null,"106"),"nextFight")
+                        dispid 0
+                        method
+                           name null
+                           param QName(PackageNamespace("main_game.dungeon"),"IFight")
+                           returns QName(PackageNamespace(""),"void")
+                           
+                           body
+                              maxstack 3
+                              localcount 2
+                              initscopedepth 10
+                              maxscopedepth 11
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal0
+                                 pushtrue
+                                 initproperty QName(PrivateNamespace(null,"106"),"alphalize")
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"106"),"fight")
+                                 pushbyte 0
+                                 ifeq ofs0021
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"106"),"finn")
+                                 getlocal0
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"106"),"fight")
+                                 callproperty QName(PrivateNamespace(null,"106"),"positionOfFight"), 1
+                                 setproperty QName(PackageNamespace(""),"x")
+                        ofs0021:
+                                 getlocal0
+                                 getlocal0
+                                 getproperty QName(PrivateNamespace(null,"106"),"fight")
+                                 pushbyte 1
+                                 add
+                                 initproperty QName(PrivateNamespace(null,"106"),"fight")
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     private function positionOfFight(param1:uint) : Number
+                     {
+                        trait method QName(PrivateNamespace(null,"106"),"positionOfFight")
+                           dispid 0
+                           method
+                              name null
+                              param QName(PackageNamespace(""),"uint")
+                              returns QName(PackageNamespace(""),"Number")
+                              
+                              body
+                                 maxstack 2
+                                 localcount 2
+                                 initscopedepth 10
+                                 maxscopedepth 11
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    getlocal1
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"106"),"distance")
+                                    multiply
+                                    pushbyte 40
+                                    add
+                                    returnvalue
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        private function move(param1:Number) : void
+                        {
+                           trait method QName(PrivateNamespace(null,"106"),"move")
+                              dispid 0
+                              method
+                                 name null
+                                 param QName(PackageNamespace(""),"Number")
+                                 returns QName(PackageNamespace(""),"void")
+                                 
+                                 body
+                                    maxstack 5
+                                    localcount 2
+                                    initscopedepth 10
+                                    maxscopedepth 11
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"106"),"alphalize")
+                                       convert_b
+                                       dup
+                                       iffalse ofs0014
+                                       pop
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"106"),"fight")
+                                       pushbyte 1
+                                       greaterthan
+                              ofs0014:
+                                       iffalse ofs0030
+                                       getlocal0
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"106"),"skulls")
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"106"),"fight")
+                                       pushbyte 2
+                                       subtract
+                                       getproperty MultinameL([PrivateNamespace(null,"106"),PackageNamespace(""),PrivateNamespace(null,"279"),PackageNamespace("view.screens.main_game.dungeon"),PackageInternalNs("view.screens.main_game.dungeon"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("view.screens.main_game.dungeon:TimeLine"),StaticProtectedNs("view.screens.main_game.dungeon:TimeLine"),StaticProtectedNs("flash.display:MovieClip"),StaticProtectedNs("flash.display:Sprite"),StaticProtectedNs("flash.display:DisplayObjectContainer"),StaticProtectedNs("flash.display:InteractiveObject"),StaticProtectedNs("flash.display:DisplayObject"),StaticProtectedNs("flash.events:EventDispatcher")])
+                                       callpropvoid QName(PrivateNamespace(null,"106"),"removeSkull"), 1
+                                       getlocal0
+                                       pushfalse
+                                       initproperty QName(PrivateNamespace(null,"106"),"alphalize")
+                              ofs0030:
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"106"),"finn")
+                                       getlex QName(PackageNamespace(""),"Math")
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"106"),"finn")
+                                       getproperty QName(PackageNamespace(""),"x")
+                                       getlocal1
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"106"),"scale")
+                                       multiply
+                                       add
+                                       getlocal0
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"106"),"fight")
+                                       callproperty QName(PrivateNamespace(null,"106"),"positionOfFight"), 1
+                                       callproperty QName(PackageNamespace(""),"min"), 2
+                                       setproperty QName(PackageNamespace(""),"x")
+                                       returnvoid
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           private function removeSkull(param1:MovieClip) : void
+                           {
+                              trait method QName(PrivateNamespace(null,"106"),"removeSkull")
+                                 dispid 0
+                                 method
+                                    name null
+                                    param QName(PackageNamespace("flash.display"),"MovieClip")
+                                    returns QName(PackageNamespace(""),"void")
+                                    
+                                    body
+                                       maxstack 7
+                                       localcount 2
+                                       initscopedepth 10
+                                       maxscopedepth 11
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          getlex QName(PackageNamespace("cb.utils"),"Tween")
+                                          getlocal1
+                                          pushshort 800
+                                          pushstring "rotation"
+                                          pushshort 1080
+                                          pushstring "y"
+                                          pushbyte 108
+                                          newobject 2
+                                          getlex QName(PackageNamespace("util"),"Util")
+                                          getlex QName(PackageNamespace(""),"removeChild")
+                                          getlocal1
+                                          callproperty QName(PackageNamespace(""),"l"), 2
+                                          callpropvoid QName(PackageNamespace(""),"to"), 4
+                                          returnvoid
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                              
+                              private function newStep(param1:Enemy) : MovieClip
+                              {
+                                 trait method QName(PrivateNamespace(null,"106"),"newStep")
+                                    dispid 0
+                                    method
+                                       name null
+                                       param QName(PackageNamespace("main_game.character"),"Enemy")
+                                       returns QName(PackageNamespace("flash.display"),"MovieClip")
+                                       
+                                       body
+                                          maxstack 2
+                                          localcount 4
+                                          initscopedepth 10
+                                          maxscopedepth 11
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             pushnull
+                                             coerce QName(PackageNamespace(""),"Class")
+                                             setlocal3
+                                             getlocal1
+                                             callproperty QName(PackageNamespace(""),"getElement"), 0
+                                             coerce QName(PackageNamespace("main_game.element"),"Element")
+                                             setlocal2
+                                             getlocal2
+                                             getproperty QName(PackageNamespace(""),"isOfFire")
+                                             iffalse ofs002a
+                                             getlex QName(PackageNamespace(""),"main")
+                                             getproperty QName(PackageNamespace(""),"swfLoader")
+                                             pushstring "assets.MapSkullFire"
+                                             callproperty QName(PackageNamespace(""),"getClass"), 1
+                                             coerce QName(PackageNamespace(""),"Class")
+                                             setlocal3
+                                             jump ofs0056
+                                    ofs002a:
+                                             getlocal2
+                                             getproperty QName(PackageNamespace(""),"isOfIce")
+                                             iffalse ofs0046
+                                             getlex QName(PackageNamespace(""),"main")
+                                             getproperty QName(PackageNamespace(""),"swfLoader")
+                                             pushstring "assets.MapSkullIce"
+                                             callproperty QName(PackageNamespace(""),"getClass"), 1
+                                             coerce QName(PackageNamespace(""),"Class")
+                                             setlocal3
+                                             jump ofs0056
+                                    ofs0046:
+                                             getlex QName(PackageNamespace(""),"main")
+                                             getproperty QName(PackageNamespace(""),"swfLoader")
+                                             pushstring "assets.MapSkullNormal"
+                                             callproperty QName(PackageNamespace(""),"getClass"), 1
+                                             coerce QName(PackageNamespace(""),"Class")
+                                             setlocal3
+                                    ofs0056:
+                                             getlocal3
+                                             construct 0
+                                             returnvalue
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                 }
+                                 
+                                 public function clear() : void
+                                 {
+                                    trait method QName(PackageNamespace(""),"clear")
+                                       dispid 0
+                                       method
+                                          name null
+                                          returns QName(PackageNamespace(""),"void")
+                                          
+                                          body
+                                             maxstack 2
+                                             localcount 4
+                                             initscopedepth 10
+                                             maxscopedepth 11
+                                             
+                                             code
+                                                getlocal0
+                                                pushscope
+                                                pushnull
+                                                coerce QName(PackageNamespace("flash.display"),"MovieClip")
+                                                setlocal1
+                                                pushbyte 0
+                                                setlocal2
+                                                getlocal0
+                                                getproperty QName(PrivateNamespace(null,"106"),"skulls")
+                                                coerce_a
+                                                setlocal3
+                                                jump ofs0022
+                                       ofs0013:
+                                                label
+                                                getlocal3
+                                                getlocal2
+                                                nextvalue
+                                                coerce QName(PackageNamespace("flash.display"),"MovieClip")
+                                                setlocal1
+                                                getlex QName(PackageNamespace("cb.utils"),"Tween")
+                                                getlocal1
+                                                callpropvoid QName(PackageNamespace(""),"killTweensOf"), 1
+                                       ofs0022:
+                                                hasnext2 3, 2
+                                                iftrue ofs0013
+                                                kill 3
+                                                kill 2
+                                                getlex QName(PackageNamespace(""),"parent")
+                                                pushnull
+                                                ifeq ofs003d
+                                                getlex QName(PackageNamespace(""),"parent")
+                                                getlocal0
+                                                callpropvoid QName(PackageNamespace(""),"removeChild"), 1
+                                       ofs003d:
+                                                returnvoid
+                                             end ; code
+                                          end ; body
+                                       end ; method
+                                    }
+                                 }
+                              }
+                              
+                              method
+                                 name null
+                                 returns null
+                                 
+                                 body
+                                    maxstack 2
+                                    localcount 1
+                                    initscopedepth 1
+                                    maxscopedepth 9
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       findpropstrict Multiname("TimeLine",[PackageNamespace("view.screens.main_game.dungeon")])
+                                       getlex QName(PackageNamespace(""),"Object")
+                                       pushscope
+                                       getlex QName(PackageNamespace("flash.events"),"EventDispatcher")
+                                       pushscope
+                                       getlex QName(PackageNamespace("flash.display"),"DisplayObject")
+                                       pushscope
+                                       getlex QName(PackageNamespace("flash.display"),"InteractiveObject")
+                                       pushscope
+                                       getlex QName(PackageNamespace("flash.display"),"DisplayObjectContainer")
+                                       pushscope
+                                       getlex QName(PackageNamespace("flash.display"),"Sprite")
+                                       pushscope
+                                       getlex QName(PackageNamespace("flash.display"),"MovieClip")
+                                       pushscope
+                                       getlex QName(PackageNamespace("flash.display"),"MovieClip")
+                                       newclass 183
+                                       popscope
+                                       popscope
+                                       popscope
+                                       popscope
+                                       popscope
+                                       popscope
+                                       popscope
+                                       initproperty QName(PackageNamespace("view.screens.main_game.dungeon"),"TimeLine")
+                                       returnvoid
+                                    end ; code
+                                 end ; body
+                              end ; method
+                              

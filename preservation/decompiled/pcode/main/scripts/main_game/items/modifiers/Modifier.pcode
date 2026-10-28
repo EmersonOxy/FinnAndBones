@@ -1,0 +1,387 @@
+package main_game.items.modifiers
+{
+   import flash.display.MovieClip;
+   import flash.text.TextField;
+   import main_game.character.stats.Stat;
+   import main_game.character.stats.StatType;
+   import main_game.character.stats.Stats;
+   
+   public class Modifier implements IModifier
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      protected var characteristic:int;
+      
+      protected var value:Number;
+      
+      public function Modifier(param1:Object)
+      {
+         method
+            name null
+            param QName(PackageNamespace(""),"Object")
+            returns null
+            
+            body
+               maxstack 3
+               localcount 2
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                  getlocal1
+                  getproperty Multiname("Category",[PrivateNamespace(null,"294"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("main_game.items.modifiers"),PackageInternalNs("main_game.items.modifiers"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.items.modifiers:Modifier"),StaticProtectedNs("main_game.items.modifiers:Modifier")])
+                  callproperty QName(PackageNamespace(""),"parse"), 1
+                  initproperty QName(ProtectedNamespace("main_game.items.modifiers:Modifier"),"characteristic")
+                  getlocal0
+                  getlocal1
+                  getproperty Multiname("Value",[PrivateNamespace(null,"294"),PrivateNamespace(null,"295"),PackageNamespace(""),PackageNamespace("main_game.items.modifiers"),PackageInternalNs("main_game.items.modifiers"),Namespace("http://adobe.com/AS3/2006/builtin"),ProtectedNamespace("main_game.items.modifiers:Modifier"),StaticProtectedNs("main_game.items.modifiers:Modifier")])
+                  initproperty QName(ProtectedNamespace("main_game.items.modifiers:Modifier"),"value")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function modifyIcon(param1:MovieClip) : void
+      {
+         trait method QName(PackageNamespace(""),"modifyIcon")
+            dispid 0
+            method
+               name null
+               param QName(PackageNamespace("flash.display"),"MovieClip")
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 3
+                  localcount 2
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal1
+                     pushtrue
+                     setproperty QName(PackageNamespace(""),"visible")
+                     getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                     getlocal1
+                     getlocal0
+                     getproperty QName(ProtectedNamespace("main_game.items.modifiers:Modifier"),"characteristic")
+                     callpropvoid QName(PackageNamespace(""),"setMcIcon"), 2
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function modifyValue(param1:TextField, param2:int) : void
+         {
+            trait method QName(PackageNamespace(""),"modifyValue")
+               dispid 0
+               method
+                  name null
+                  param QName(PackageNamespace("flash.text"),"TextField")
+                  param QName(PackageNamespace(""),"int")
+                  returns QName(PackageNamespace(""),"void")
+                  
+                  body
+                     maxstack 5
+                     localcount 3
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal1
+                        getlex QName(PackageNamespace(""),"main")
+                        getproperty QName(PackageNamespace(""),"locale")
+                        pushstring "popUpValue"
+                        getlocal0
+                        getproperty QName(ProtectedNamespace("main_game.items.modifiers:Modifier"),"value")
+                        callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"toString"), 0
+                        getlocal2
+                        callproperty QName(Namespace("http://adobe.com/AS3/2006/builtin"),"toString"), 0
+                        newarray 2
+                        callproperty QName(PackageNamespace(""),"get"), 2
+                        setproperty QName(PackageNamespace(""),"text")
+                        returnvoid
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            public function affect(param1:Stats) : void
+            {
+               trait method QName(PackageNamespace(""),"affect")
+                  dispid 0
+                  method
+                     name null
+                     param QName(PackageNamespace("main_game.character.stats"),"Stats")
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 2
+                        localcount 3
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getlocal1
+                           callproperty QName(ProtectedNamespace("main_game.items.modifiers:Modifier"),"getStat"), 1
+                           coerce QName(PackageNamespace("main_game.character.stats"),"Stat")
+                           setlocal2
+                           getlocal2
+                           getlocal0
+                           getproperty QName(ProtectedNamespace("main_game.items.modifiers:Modifier"),"value")
+                           callpropvoid QName(PackageNamespace(""),"modifyValue"), 1
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               public function disaffect(param1:Stats) : void
+               {
+                  trait method QName(PackageNamespace(""),"disaffect")
+                     dispid 0
+                     method
+                        name null
+                        param QName(PackageNamespace("main_game.character.stats"),"Stats")
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 2
+                           localcount 3
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal0
+                              getlocal1
+                              callproperty QName(ProtectedNamespace("main_game.items.modifiers:Modifier"),"getStat"), 1
+                              coerce QName(PackageNamespace("main_game.character.stats"),"Stat")
+                              setlocal2
+                              getlocal2
+                              getlocal0
+                              getproperty QName(ProtectedNamespace("main_game.items.modifiers:Modifier"),"value")
+                              negate
+                              callpropvoid QName(PackageNamespace(""),"modifyValue"), 1
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  protected function getStat(param1:Stats) : Stat
+                  {
+                     trait method QName(ProtectedNamespace("main_game.items.modifiers:Modifier"),"getStat")
+                        dispid 0
+                        method
+                           name null
+                           param QName(PackageNamespace("main_game.character.stats"),"Stats")
+                           returns QName(PackageNamespace("main_game.character.stats"),"Stat")
+                           
+                           body
+                              maxstack 2
+                              localcount 2
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal1
+                                 getlocal0
+                                 getproperty QName(ProtectedNamespace("main_game.items.modifiers:Modifier"),"characteristic")
+                                 callproperty QName(PackageNamespace(""),"getStat"), 1
+                                 returnvalue
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     public function getValue() : Number
+                     {
+                        trait method QName(PackageNamespace(""),"getValue")
+                           dispid 0
+                           method
+                              name null
+                              returns QName(PackageNamespace(""),"Number")
+                              
+                              body
+                                 maxstack 1
+                                 localcount 1
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    getlocal0
+                                    getproperty QName(ProtectedNamespace("main_game.items.modifiers:Modifier"),"value")
+                                    returnvalue
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        public function getCategory() : int
+                        {
+                           trait method QName(PackageNamespace(""),"getCategory")
+                              dispid 0
+                              method
+                                 name null
+                                 returns QName(PackageNamespace(""),"int")
+                                 
+                                 body
+                                    maxstack 1
+                                    localcount 1
+                                    initscopedepth 4
+                                    maxscopedepth 5
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       getlocal0
+                                       getproperty QName(ProtectedNamespace("main_game.items.modifiers:Modifier"),"characteristic")
+                                       returnvalue
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           public function isInstant() : Boolean
+                           {
+                              trait method QName(PackageNamespace(""),"isInstant")
+                                 dispid 0
+                                 method
+                                    name null
+                                    returns QName(PackageNamespace(""),"Boolean")
+                                    
+                                    body
+                                       maxstack 1
+                                       localcount 1
+                                       initscopedepth 4
+                                       maxscopedepth 5
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          pushfalse
+                                          returnvalue
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                              
+                              public function clear() : void
+                              {
+                                 trait method QName(PackageNamespace(""),"clear")
+                                    dispid 0
+                                    method
+                                       name null
+                                       returns QName(PackageNamespace(""),"void")
+                                       
+                                       body
+                                          maxstack 1
+                                          localcount 1
+                                          initscopedepth 4
+                                          maxscopedepth 5
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             returnvoid
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                 }
+                                 
+                                 public function toObject() : *
+                                 {
+                                    trait method QName(PackageNamespace(""),"toObject")
+                                       dispid 0
+                                       method
+                                          name null
+                                          returns null
+                                          
+                                          body
+                                             maxstack 4
+                                             localcount 1
+                                             initscopedepth 4
+                                             maxscopedepth 5
+                                             
+                                             code
+                                                getlocal0
+                                                pushscope
+                                                pushstring "Category"
+                                                getlex QName(PackageNamespace("main_game.character.stats"),"StatType")
+                                                getlocal0
+                                                getproperty QName(ProtectedNamespace("main_game.items.modifiers:Modifier"),"characteristic")
+                                                callproperty QName(PackageNamespace(""),"toString"), 1
+                                                pushstring "Value"
+                                                getlocal0
+                                                getproperty QName(ProtectedNamespace("main_game.items.modifiers:Modifier"),"value")
+                                                newobject 2
+                                                returnvalue
+                                             end ; code
+                                          end ; body
+                                       end ; method
+                                    }
+                                 }
+                              }
+                              
+                              method
+                                 name null
+                                 returns null
+                                 
+                                 body
+                                    maxstack 2
+                                    localcount 1
+                                    initscopedepth 1
+                                    maxscopedepth 3
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       findpropstrict Multiname("Modifier",[PackageNamespace("main_game.items.modifiers")])
+                                       getlex QName(PackageNamespace(""),"Object")
+                                       pushscope
+                                       getlex QName(PackageNamespace(""),"Object")
+                                       newclass 220
+                                       popscope
+                                       initproperty QName(PackageNamespace("main_game.items.modifiers"),"Modifier")
+                                       returnvoid
+                                    end ; code
+                                 end ; body
+                              end ; method
+                              

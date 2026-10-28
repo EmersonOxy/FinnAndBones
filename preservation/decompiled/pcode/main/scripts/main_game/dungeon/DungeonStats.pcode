@@ -1,0 +1,446 @@
+package main_game.dungeon
+{
+   import main_game.character.Enemy;
+   import main_game.character.Finn;
+   import main_game.map.Level;
+   import main_game.mixer.MixResult;
+   
+   public class DungeonStats
+   {
+      
+      method
+         name null
+         returns null
+         
+         body
+            maxstack 1
+            localcount 1
+            initscopedepth 3
+            maxscopedepth 4
+            
+            code
+               getlocal0
+               pushscope
+               returnvoid
+            end ; code
+         end ; body
+      end ; method
+      
+      private var defeated:Array;
+      
+      private var mixesDone:int;
+      
+      private var criticalHits:int;
+      
+      private var theLevel:Level;
+      
+      private var active:Boolean;
+      
+      public function DungeonStats(param1:Level)
+      {
+         method
+            name null
+            param QName(PackageNamespace("main_game.map"),"Level")
+            returns null
+            
+            body
+               maxstack 2
+               localcount 2
+               initscopedepth 4
+               maxscopedepth 5
+               
+               code
+                  getlocal0
+                  pushscope
+                  getlocal0
+                  constructsuper 0
+                  getlocal0
+                  pushfalse
+                  initproperty QName(PrivateNamespace(null,"101"),"active")
+                  getlocal0
+                  getlocal1
+                  initproperty QName(PrivateNamespace(null,"101"),"theLevel")
+                  getlocal0
+                  pushbyte 0
+                  initproperty QName(PrivateNamespace(null,"101"),"mixesDone")
+                  getlocal0
+                  pushbyte 0
+                  initproperty QName(PrivateNamespace(null,"101"),"criticalHits")
+                  returnvoid
+               end ; code
+            end ; body
+         end ; method
+      }
+      
+      public function start() : void
+      {
+         trait method QName(PackageNamespace(""),"start")
+            dispid 0
+            method
+               name null
+               returns QName(PackageNamespace(""),"void")
+               
+               body
+                  maxstack 2
+                  localcount 1
+                  initscopedepth 4
+                  maxscopedepth 5
+                  
+                  code
+                     getlocal0
+                     pushscope
+                     getlocal0
+                     pushtrue
+                     setproperty QName(PrivateNamespace(null,"101"),"active")
+                     getlex QName(PackageNamespace(""),"main")
+                     getproperty QName(PackageNamespace(""),"game")
+                     callproperty QName(PackageNamespace(""),"getMixer"), 0
+                     getproperty QName(PackageNamespace(""),"onMixEnd")
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"101"),"onMix")
+                     callpropvoid QName(PackageNamespace(""),"add"), 1
+                     getlex QName(PackageNamespace(""),"main")
+                     getproperty QName(PackageNamespace(""),"game")
+                     callproperty QName(PackageNamespace(""),"getFinn"), 0
+                     getproperty QName(PackageNamespace(""),"onHit")
+                     getlocal0
+                     getproperty QName(PrivateNamespace(null,"101"),"onHit")
+                     callpropvoid QName(PackageNamespace(""),"add"), 1
+                     returnvoid
+                  end ; code
+               end ; body
+            end ; method
+         }
+         
+         public function get level() : Level
+         {
+            trait getter QName(PackageNamespace(""),"level")
+               dispid 0
+               method
+                  name null
+                  returns QName(PackageNamespace("main_game.map"),"Level")
+                  
+                  body
+                     maxstack 1
+                     localcount 1
+                     initscopedepth 4
+                     maxscopedepth 5
+                     
+                     code
+                        getlocal0
+                        pushscope
+                        getlocal0
+                        getproperty QName(PrivateNamespace(null,"101"),"theLevel")
+                        returnvalue
+                     end ; code
+                  end ; body
+               end ; method
+            }
+            
+            private function onMix(param1:MixResult) : void
+            {
+               trait method QName(PrivateNamespace(null,"101"),"onMix")
+                  dispid 0
+                  method
+                     name null
+                     param QName(PackageNamespace("main_game.mixer"),"MixResult")
+                     returns QName(PackageNamespace(""),"void")
+                     
+                     body
+                        maxstack 3
+                        localcount 2
+                        initscopedepth 4
+                        maxscopedepth 5
+                        
+                        code
+                           getlocal0
+                           pushscope
+                           getlocal0
+                           getlocal0
+                           getproperty QName(PrivateNamespace(null,"101"),"mixesDone")
+                           pushbyte 1
+                           add
+                           setproperty QName(PrivateNamespace(null,"101"),"mixesDone")
+                           returnvoid
+                        end ; code
+                     end ; body
+                  end ; method
+               }
+               
+               private function onHit(param1:Finn, param2:Enemy, param3:Damage, param4:Function) : void
+               {
+                  trait method QName(PrivateNamespace(null,"101"),"onHit")
+                     dispid 0
+                     method
+                        name null
+                        param QName(PackageNamespace("main_game.character"),"Finn")
+                        param QName(PackageNamespace("main_game.character"),"Enemy")
+                        param QName(PackageNamespace("main_game.dungeon"),"Damage")
+                        param QName(PackageNamespace(""),"Function")
+                        returns QName(PackageNamespace(""),"void")
+                        
+                        body
+                           maxstack 3
+                           localcount 5
+                           initscopedepth 4
+                           maxscopedepth 5
+                           
+                           code
+                              getlocal0
+                              pushscope
+                              getlocal3
+                              callproperty QName(PackageNamespace(""),"isCritical"), 0
+                              iffalse ofs0016
+                              getlocal0
+                              getlocal0
+                              getproperty QName(PrivateNamespace(null,"101"),"criticalHits")
+                              pushbyte 1
+                              add
+                              initproperty QName(PrivateNamespace(null,"101"),"criticalHits")
+                     ofs0016:
+                              returnvoid
+                           end ; code
+                        end ; body
+                     end ; method
+                  }
+                  
+                  public function end(param1:Array) : void
+                  {
+                     trait method QName(PackageNamespace(""),"end")
+                        dispid 0
+                        method
+                           name null
+                           param QName(PackageNamespace(""),"Array")
+                           returns QName(PackageNamespace(""),"void")
+                           
+                           body
+                              maxstack 2
+                              localcount 2
+                              initscopedepth 4
+                              maxscopedepth 5
+                              
+                              code
+                                 getlocal0
+                                 pushscope
+                                 getlocal0
+                                 getlocal1
+                                 setproperty QName(PrivateNamespace(null,"101"),"defeated")
+                                 getlocal0
+                                 callpropvoid QName(PrivateNamespace(null,"101"),"deactivate"), 0
+                                 returnvoid
+                              end ; code
+                           end ; body
+                        end ; method
+                     }
+                     
+                     public function getCombatExperience() : Number
+                     {
+                        trait method QName(PackageNamespace(""),"getCombatExperience")
+                           dispid 0
+                           method
+                              name null
+                              returns QName(PackageNamespace(""),"Number")
+                              
+                              body
+                                 maxstack 2
+                                 localcount 1
+                                 initscopedepth 4
+                                 maxscopedepth 5
+                                 
+                                 code
+                                    getlocal0
+                                    pushscope
+                                    getlex QName(PackageNamespace("main_game.dungeon"),"Dungeon")
+                                    getproperty QName(PackageNamespace(""),"xpCalulator")
+                                    getlocal0
+                                    getproperty QName(PrivateNamespace(null,"101"),"defeated")
+                                    callproperty QName(Namespace("main_game.dungeon:IXpCalculator"),"getXp"), 1
+                                    returnvalue
+                                 end ; code
+                              end ; body
+                           end ; method
+                        }
+                        
+                        public function getMixExperience() : Number
+                        {
+                           trait method QName(PackageNamespace(""),"getMixExperience")
+                              dispid 0
+                              method
+                                 name null
+                                 returns QName(PackageNamespace(""),"Number")
+                                 
+                                 body
+                                    maxstack 2
+                                    localcount 1
+                                    initscopedepth 4
+                                    maxscopedepth 5
+                                    
+                                    code
+                                       getlocal0
+                                       pushscope
+                                       getlex QName(PackageNamespace("main_game.dungeon"),"Dungeon")
+                                       getproperty QName(PackageNamespace(""),"xpCalulator")
+                                       getlocal0
+                                       getproperty QName(PrivateNamespace(null,"101"),"mixesDone")
+                                       callproperty QName(Namespace("main_game.dungeon:IXpCalculator"),"getMixXp"), 1
+                                       returnvalue
+                                    end ; code
+                                 end ; body
+                              end ; method
+                           }
+                           
+                           public function getCriticalExperience() : Number
+                           {
+                              trait method QName(PackageNamespace(""),"getCriticalExperience")
+                                 dispid 0
+                                 method
+                                    name null
+                                    returns QName(PackageNamespace(""),"Number")
+                                    
+                                    body
+                                       maxstack 2
+                                       localcount 1
+                                       initscopedepth 4
+                                       maxscopedepth 5
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          getlex QName(PackageNamespace("main_game.dungeon"),"Dungeon")
+                                          getproperty QName(PackageNamespace(""),"xpCalulator")
+                                          getlocal0
+                                          getproperty QName(PrivateNamespace(null,"101"),"criticalHits")
+                                          callproperty QName(Namespace("main_game.dungeon:IXpCalculator"),"getCriticalXp"), 1
+                                          returnvalue
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                              }
+                              
+                              public function getDungeonExperience() : Number
+                              {
+                                 trait method QName(PackageNamespace(""),"getDungeonExperience")
+                                    dispid 0
+                                    method
+                                       name null
+                                       returns QName(PackageNamespace(""),"Number")
+                                       
+                                       body
+                                          maxstack 2
+                                          localcount 1
+                                          initscopedepth 4
+                                          maxscopedepth 5
+                                          
+                                          code
+                                             getlocal0
+                                             pushscope
+                                             getlocal0
+                                             callproperty QName(PackageNamespace(""),"getCombatExperience"), 0
+                                             getlocal0
+                                             callproperty QName(PackageNamespace(""),"getCriticalExperience"), 0
+                                             add
+                                             getlocal0
+                                             callproperty QName(PackageNamespace(""),"getMixExperience"), 0
+                                             add
+                                             returnvalue
+                                          end ; code
+                                       end ; body
+                                    end ; method
+                                 }
+                                 
+                                 private function deactivate() : void
+                                 {
+                                    trait method QName(PrivateNamespace(null,"101"),"deactivate")
+                                       dispid 0
+                                       method
+                                          name null
+                                          returns QName(PackageNamespace(""),"void")
+                                          
+                                          body
+                                             maxstack 2
+                                             localcount 1
+                                             initscopedepth 4
+                                             maxscopedepth 5
+                                             
+                                             code
+                                                getlocal0
+                                                pushscope
+                                                getlocal0
+                                                getproperty QName(PrivateNamespace(null,"101"),"active")
+                                                iffalse ofs0039
+                                                getlex QName(PackageNamespace(""),"main")
+                                                getproperty QName(PackageNamespace(""),"game")
+                                                callproperty QName(PackageNamespace(""),"getMixer"), 0
+                                                getproperty QName(PackageNamespace(""),"onMixEnd")
+                                                getlocal0
+                                                getproperty QName(PrivateNamespace(null,"101"),"onMix")
+                                                callpropvoid QName(PackageNamespace(""),"remove"), 1
+                                                getlex QName(PackageNamespace(""),"main")
+                                                getproperty QName(PackageNamespace(""),"game")
+                                                callproperty QName(PackageNamespace(""),"getFinn"), 0
+                                                getproperty QName(PackageNamespace(""),"onHit")
+                                                getlocal0
+                                                getproperty QName(PrivateNamespace(null,"101"),"onHit")
+                                                callpropvoid QName(PackageNamespace(""),"remove"), 1
+                                                getlocal0
+                                                pushfalse
+                                                initproperty QName(PrivateNamespace(null,"101"),"active")
+                                       ofs0039:
+                                                returnvoid
+                                             end ; code
+                                          end ; body
+                                       end ; method
+                                    }
+                                    
+                                    public function clear() : void
+                                    {
+                                       trait method QName(PackageNamespace(""),"clear")
+                                          dispid 0
+                                          method
+                                             name null
+                                             returns QName(PackageNamespace(""),"void")
+                                             
+                                             body
+                                                maxstack 1
+                                                localcount 1
+                                                initscopedepth 4
+                                                maxscopedepth 5
+                                                
+                                                code
+                                                   getlocal0
+                                                   pushscope
+                                                   getlocal0
+                                                   callpropvoid QName(PrivateNamespace(null,"101"),"deactivate"), 0
+                                                   returnvoid
+                                                end ; code
+                                             end ; body
+                                          end ; method
+                                       }
+                                    }
+                                 }
+                                 
+                                 method
+                                    name null
+                                    returns null
+                                    
+                                    body
+                                       maxstack 2
+                                       localcount 1
+                                       initscopedepth 1
+                                       maxscopedepth 3
+                                       
+                                       code
+                                          getlocal0
+                                          pushscope
+                                          findpropstrict Multiname("DungeonStats",[PackageNamespace("main_game.dungeon")])
+                                          getlex QName(PackageNamespace(""),"Object")
+                                          pushscope
+                                          getlex QName(PackageNamespace(""),"Object")
+                                          newclass 177
+                                          popscope
+                                          initproperty QName(PackageNamespace("main_game.dungeon"),"DungeonStats")
+                                          returnvoid
+                                       end ; code
+                                    end ; body
+                                 end ; method
+                                 
