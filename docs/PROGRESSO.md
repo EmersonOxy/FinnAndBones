@@ -17,3 +17,12 @@ Parcial: interface e animações visuais ainda são provisórias; recompensas da
 - Correção: exportação de quadros-base do Finn sem as subcamadas animadas, e ícones separados escolhidos pelo `MovieClip` do item lógico equipado. O Finn recebe apenas a arma e o escudo que constam em `game.gear`; a colocação das imagens é aproximada, não a montagem vetorial original por frame.
 - UI agora usa `PanelContainer`, `GridContainer`, `Button`, `TextureRect`, `ProgressBar` e `Label`, em vez de desenhar painéis/textos com `_draw`. Molduras de slot e ícones de itens são arte extraída identificada; composição, botões e estilo geral são provisórios.
 - O fundo completo da tela de inventário e o menu foram localizados (`assets.Inventory`/`assets.MainMenu`), mas ainda não foram montados como telas fiéis. Sem testes automatizados ou visuais executados nesta retomada; validação manual fica para a próxima sessão.
+
+## Reconstrução visual — combate (28/10/2026)
+
+- O `background/1.png` usado pela cena era uma textura vazia de 1×1. O cenário agora usa as camadas originais `assets.Layer_1`, `assets.Layer_2` e `assets.Layer_3` de `backgrounds.swf`, na ordem de profundidade do `BackgroundView`.
+- Finn e o esqueleto foram ampliados/reposicionados; os overlays de arma e escudo continuam ligados a `game.gear`.
+- As barras de HP usam os 100 frames originais dos sprites `Bar` 634/647 de `screens.swf`; a regra de cálculo de HP não foi alterada. Feedback de dano, crítico e esquiva foi adicionado à cena.
+- Validação: inicialização headless e `test_core`, `test_scene`, `test_timeline`, `test_vertical_slice` passaram.
+
+Pendente: validar a composição em janela Godot, exportar o restante dos frames de Finn em resolução maior, integrar efeitos originais de `combat_fx.swf` e concluir telas de inventário, vitória e derrota.

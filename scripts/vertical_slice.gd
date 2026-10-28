@@ -21,9 +21,10 @@ var weapon_layer: TextureRect
 var shield_layer: TextureRect
 var enemy_actor: Control
 var enemy_sprite: TextureRect
-var finn_hp_bar: ProgressBar
-var enemy_hp_bar: ProgressBar
+var finn_hp_bar: TextureRect
+var enemy_hp_bar: TextureRect
 var status_label: Label
+var damage_label: Label
 var item_cells: Array[Button] = []
 var selected_item := 0
 var attack_from := ""
@@ -61,6 +62,8 @@ func _on_action_start(attacker: String, _result: Dictionary) -> void:
     attack_from = attacker
     reaction = ""
     damage_text = ""
+    if damage_label != null:
+        damage_label.visible = false
 
 func _on_contact(result: Dictionary) -> void:
     reaction_elapsed = 0.0
@@ -68,10 +71,18 @@ func _on_contact(result: Dictionary) -> void:
     if game.phase == "victory" or game.phase == "defeat": reaction = "die"
     damage_text = "ESQUIVA" if result.evaded else str(result.damage)
     if result.critical: damage_text += " CRÍTICO"
+    if damage_label != null:
+        damage_label.text = damage_text
+        damage_label.modulate = Color("#63f3ff") if result.evaded else (Color("#ffd76a") if result.critical else Color.WHITE)
+        damage_label.scale = Vector2.ONE * (1.2 if result.critical else 1.0)
+        damage_label.position = Vector2(355, 70) if attack_from == "finn" else Vector2(190, 70)
+        damage_label.visible = true
 
 func _on_action_end(_attacker: String) -> void:
     reaction = ""
     attack_from = ""
+    if damage_label != null:
+        damage_label.visible = false
 
 func _on_fight_end(outcome: String) -> void:
     if outcome == "victory" and enemy_number < encounter_ids.size():
@@ -121,6 +132,13 @@ func rebuild_ui() -> void:
     if ui != null:
         remove_child(ui)
         ui.queue_free()
+    if world == "menu":
+        ui = Control.new()
+        ui.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+        add_child(ui)
+        _build_main_menu()
+        return
+
     ui = MarginContainer.new()
     ui.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
     ui.add_theme_constant_override("margin_left", 8)
@@ -147,33 +165,46 @@ func rebuild_ui() -> void:
     finn_status.size_flags_horizontal = Control.SIZE_EXPAND_FILL
     hp_row.add_child(finn_status)
     finn_status.add_child(_panel_label("FINN  ·  %d / %d HP" % [game.hp, game.max_hp], 13))
-    finn_hp_bar = ProgressBar.new()
-    finn_hp_bar.max_value = game.max_hp
-    finn_hp_bar.value = game.hp
+    finn_hp_bar = TextureRect.new()
+    finn_hp_bar.texture = _health_bar_texture(false, game.hp, game.max_hp)
+    finn_hp_bar.custom_minimum_size = Vector2(154, 30)
+    finn_hp_bar.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+    finn_hp_bar.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+    finn_hp_bar.stretch_mode = TextureRect.STRETCH_SCALE
     finn_status.add_child(finn_hp_bar)
     var enemy_status := VBoxContainer.new()
     enemy_status.size_flags_horizontal = Control.SIZE_EXPAND_FILL
     hp_row.add_child(enemy_status)
     enemy_status.add_child(_panel_label("ESQUELETO  ·  %d HP" % game.enemy_hp, 13))
-    enemy_hp_bar = ProgressBar.new()
-    enemy_hp_bar.max_value = maxf(float(game.enemy.get("BaseHP", 1)), 1.0)
-    enemy_hp_bar.value = game.enemy_hp
+    enemy_hp_bar = TextureRect.new()
+    enemy_hp_bar.texture = _health_bar_texture(true, game.enemy_hp, maxf(float(game.enemy.get("BaseHP", 1)), 1.0))
+    enemy_hp_bar.custom_minimum_size = Vector2(154, 30)
+    enemy_hp_bar.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+    enemy_hp_bar.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+    enemy_hp_bar.stretch_mode = TextureRect.STRETCH_SCALE
     enemy_status.add_child(enemy_hp_bar)
 
     battlefield = Control.new()
     battlefield.custom_minimum_size = Vector2(680, 195)
     battlefield.clip_contents = true
     fight_column.add_child(battlefield)
-    var background := TextureRect.new()
-    background.texture = _load_texture("res://private/frames/background/1.png")
-    background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-    background.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
-    battlefield.add_child(background)
+    var stage_fill := ColorRect.new()
+    stage_fill.color = Color("#211f28")
+    stage_fill.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+    stage_fill.mouse_filter = Control.MOUSE_FILTER_IGNORE
+    battlefield.add_child(stage_fill)
+    _make_battle_background_layer(battlefield, "layer_3.png")
+    _make_battle_background_layer(battlefield, "layer_2.png")
+
+    var arena := Control.new()
+    arena.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+    arena.mouse_filter = Control.MOUSE_FILTER_IGNORE
+    battlefield.add_child(arena)
 
     finn_actor = Control.new()
-    finn_actor.position = Vector2(260, 210) - Vector2(347.85, 487.25) * 0.7
-    finn_actor.scale = Vector2(2, 2)
-    battlefield.add_child(finn_actor)
+    finn_actor.scale = Vector2(3, 3)
+    finn_actor.position = Vector2(260, 177) - Vector2(347.85, 487.25) * 1.05
+    arena.add_child(finn_actor)
     finn_base = TextureRect.new()
     finn_base.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
     finn_base.stretch_mode = TextureRect.STRETCH_SCALE
@@ -187,16 +218,25 @@ func rebuild_ui() -> void:
     shield_layer.scale = Vector2(0.46, 0.46)
 
     enemy_actor = Control.new()
-    enemy_actor.position = Vector2(430, 210) - Vector2(56.7, 116.1) * 0.7
-    enemy_actor.scale = Vector2(2, 2)
-    battlefield.add_child(enemy_actor)
+    enemy_actor.position = Vector2(430, 177) - Vector2(56.7, 116.1) * 0.875
+    enemy_actor.scale = Vector2(2.5, 2.5)
+    arena.add_child(enemy_actor)
     enemy_sprite = TextureRect.new()
     enemy_sprite.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
     enemy_sprite.stretch_mode = TextureRect.STRETCH_SCALE
     enemy_actor.add_child(enemy_sprite)
 
+    _make_battle_background_layer(battlefield, "layer_1.png")
+
+    damage_label = Label.new()
+    damage_label.visible = false
+    damage_label.add_theme_font_size_override("font_size", 24)
+    damage_label.add_theme_color_override("font_outline_color", Color("#21151d"))
+    damage_label.add_theme_constant_override("outline_size", 3)
+    battlefield.add_child(damage_label)
+
     var lower := HBoxContainer.new()
-    lower.custom_minimum_size.y = 178
+    lower.custom_minimum_size.y = 208
     lower.add_theme_constant_override("separation", 6)
     columns.add_child(lower)
     var stats_panel := _new_panel(lower, 150)
@@ -207,41 +247,50 @@ func rebuild_ui() -> void:
     stats_panel.add_child(_gear_row("Arma", "weapon"))
     stats_panel.add_child(_gear_row("Escudo", "shield"))
 
-    var inventory_panel := _new_panel(lower, 300)
-    inventory_panel.add_child(_panel_label("INVENTÁRIO  ·  12 ESPAÇOS", 13))
-    var inventory_grid := GridContainer.new()
-    inventory_grid.columns = 4
-    inventory_grid.add_theme_constant_override("h_separation", 2)
-    inventory_grid.add_theme_constant_override("v_separation", 1)
-    inventory_panel.add_child(inventory_grid)
+    var inventory_panel := Control.new()
+    inventory_panel.custom_minimum_size = Vector2(300, lower.custom_minimum_size.y)
+    inventory_panel.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+    lower.add_child(inventory_panel)
+
+    var inventory_art := TextureRect.new()
+    inventory_art.texture = _load_texture("res://private/ui/inventory_panel.png")
+    inventory_art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+    inventory_art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+    inventory_art.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+    inventory_art.mouse_filter = Control.MOUSE_FILTER_IGNORE
+    inventory_panel.add_child(inventory_art)
+
+    var inventory_scale := minf(300.0 / 312.0, lower.custom_minimum_size.y / 259.0)
+    var inventory_art_offset := Vector2((300.0 - 312.0 * inventory_scale) * 0.5, 0.0)
+    var slot_centers: Array[Vector2] = [
+        Vector2(52, 93), Vector2(120, 93), Vector2(188, 93), Vector2(256, 93),
+        Vector2(52, 157), Vector2(120, 157), Vector2(188, 157), Vector2(256, 157),
+        Vector2(52, 221), Vector2(120, 221), Vector2(188, 221), Vector2(256, 221)
+    ]
     item_cells.clear()
     for index in range(12):
         var cell := Button.new()
-        cell.custom_minimum_size = Vector2(48, 43)
+        cell.position = inventory_art_offset + (slot_centers[index] - Vector2(28, 28)) * inventory_scale
+        cell.size = Vector2(56, 56) * inventory_scale
         cell.tooltip_text = game.inventory[index] if game.inventory[index] != "" else "Espaço vazio"
         cell.add_theme_stylebox_override("normal", StyleBoxEmpty.new())
         cell.add_theme_stylebox_override("hover", StyleBoxEmpty.new())
+        cell.add_theme_stylebox_override("pressed", StyleBoxEmpty.new())
+        cell.add_theme_stylebox_override("focus", StyleBoxEmpty.new())
         cell.pressed.connect(_select_item.bind(index))
-        var slot_frame := TextureRect.new()
-        slot_frame.texture = _load_texture("res://private/ui/inventory_slot.png")
-        slot_frame.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-        slot_frame.stretch_mode = TextureRect.STRETCH_SCALE
-        slot_frame.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-        slot_frame.mouse_filter = Control.MOUSE_FILTER_IGNORE
-        cell.add_child(slot_frame)
         var icon := TextureRect.new()
         icon.name = "ItemIcon"
         icon.texture = _item_texture(game.inventory[index])
         icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
         icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
         icon.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-        icon.offset_left = 4
-        icon.offset_top = 3
-        icon.offset_right = -4
-        icon.offset_bottom = -3
+        icon.offset_left = 4.0 * inventory_scale
+        icon.offset_top = 4.0 * inventory_scale
+        icon.offset_right = -4.0 * inventory_scale
+        icon.offset_bottom = -4.0 * inventory_scale
         icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
         cell.add_child(icon)
-        inventory_grid.add_child(cell)
+        inventory_panel.add_child(cell)
         item_cells.append(cell)
 
     var actions_panel := _new_panel(lower, 196)
@@ -251,9 +300,7 @@ func rebuild_ui() -> void:
     add_button_to(actions_panel, "Equipar selecionado", func(): _equip_selected())
     add_button_to(actions_panel, "Remover arma", func(): _remove_gear("weapon"))
     add_button_to(actions_panel, "Remover escudo", func(): _remove_gear("shield"))
-    if world == "menu":
-        add_button_to(actions_panel, "Iniciar fase 1", func(): start_level(1))
-    elif world == "victory":
+    if world == "victory":
         for reward in game.loot.duplicate():
             var reward_id: String = reward
             add_button_to(actions_panel, "Coletar " + reward_id, func():
@@ -267,6 +314,67 @@ func rebuild_ui() -> void:
     elif world == "defeat":
         add_button_to(actions_panel, "Tentar novamente", func(): world = "menu"; rebuild_ui())
     refresh_visuals()
+
+func _build_main_menu() -> void:
+    var artwork := TextureRect.new()
+    artwork.texture = _load_texture("res://private/ui/main_menu.png")
+    artwork.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+    artwork.stretch_mode = TextureRect.STRETCH_SCALE
+    artwork.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+    artwork.mouse_filter = Control.MOUSE_FILTER_IGNORE
+    ui.add_child(artwork)
+
+    # The Flash button captions are dynamic text fields; Godot supplies their runtime labels.
+    # Continue's original locked artwork is baked into the menu image.
+    _add_main_menu_button("New Game", Vector2(257, 349), Vector2(188, 65), func(): start_level(1))
+    _add_main_menu_button("Continue", Vector2(255, 420), Vector2(190, 65), Callable(), true)
+
+func _add_main_menu_button(text: String, button_position: Vector2, button_size: Vector2, action: Callable, locked := false) -> void:
+    var button := Button.new()
+    button.text = text
+    button.position = button_position
+    button.size = button_size
+    button.flat = true
+    button.disabled = locked
+    button.add_theme_font_size_override("font_size", 25)
+    button.add_theme_color_override("font_color", Color.WHITE)
+    button.add_theme_color_override("font_hover_color", Color.WHITE)
+    button.add_theme_color_override("font_pressed_color", Color.WHITE)
+    button.add_theme_color_override("font_disabled_color", Color.WHITE)
+    for state in ["normal", "hover", "pressed", "disabled", "focus"]:
+        button.add_theme_stylebox_override(state, StyleBoxEmpty.new())
+    if action.is_valid():
+        button.pressed.connect(action)
+    ui.add_child(button)
+
+func _make_battle_background_layer(parent: Control, filename: String) -> TextureRect:
+    var layer := TextureRect.new()
+    layer.texture = _load_texture("res://private/frames/background/original/" + filename)
+    layer.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+    layer.stretch_mode = TextureRect.STRETCH_SCALE
+    layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
+    if layer.texture != null:
+        var source_size := layer.texture.get_size()
+        var scale := 0.8
+        layer.size = Vector2(source_size) * scale
+        layer.position = Vector2(0, 195.0 - layer.size.y)
+    parent.add_child(layer)
+    return layer
+
+func _health_bar_texture(enemy_bar: bool, current: float, total: float) -> Texture2D:
+    var percent := clampi(ceili(current * 100.0 / maxf(total, 1.0)), 1, 100)
+    if current < total:
+        percent = mini(percent, 99)
+    var family := "enemy" if enemy_bar else "finn"
+    var key := "health_bar_%s_%d" % [family, percent]
+    if cache.has(key):
+        return cache[key]
+    var atlas := AtlasTexture.new()
+    var atlas_path := "res://private/ui/hud_health_enemy.png" if enemy_bar else "res://private/ui/hud_health_finn.png"
+    atlas.atlas = _load_texture(atlas_path)
+    atlas.region = Rect2(Vector2(((percent - 1) % 10) * 154, floori((percent - 1) / 10.0) * 30), Vector2(154, 30))
+    cache[key] = atlas
+    return atlas
 
 func _make_layer(parent: Control) -> TextureRect:
     var layer := TextureRect.new()
@@ -375,10 +483,8 @@ func refresh_visuals() -> void:
     if weapon_layer.texture != null: weapon_layer.size = weapon_layer.texture.get_size()
     if shield_layer.texture != null: shield_layer.size = shield_layer.texture.get_size()
     if finn_hp_bar != null:
-        finn_hp_bar.max_value = game.max_hp
-        finn_hp_bar.value = game.hp
-        enemy_hp_bar.max_value = maxf(float(game.enemy.get("BaseHP", 1)), 1.0)
-        enemy_hp_bar.value = game.enemy_hp
+        finn_hp_bar.texture = _health_bar_texture(false, game.hp, game.max_hp)
+        enemy_hp_bar.texture = _health_bar_texture(true, game.enemy_hp, maxf(float(game.enemy.get("BaseHP", 1)), 1.0))
     if status_label != null: status_label.text = message
     if enemy_sprite != null:
         var enemy_set := "enemy_idle"
