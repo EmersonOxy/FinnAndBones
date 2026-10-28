@@ -32,3 +32,8 @@ private/
 # Não versionar exportações volumosas; o pacote original permite recuperá-las.
 /preservation/assets/
 
+
+# Apenas catálogo de tradução próprio.
+!/translations/
+!/translations/messages.csv
+

@@ -13,3 +13,6 @@ godot --headless --path . --script res://tests/test_vertical_slice.gd
 `preservation/original` contém o pacote histórico e sua extração; `preservation/analysis` e `preservation/decompiled` contêm dados e código recuperados; `preservation/documentation` contém registros anteriores. `private/` contém cópias dos recursos convertidos para uso pelo protótipo. Este repositório público contém recursos e código do jogo original por solicitação do proprietário. A licença dos recursos originais pertence aos respectivos titulares.
 
 Fatia atual: combate automático, primeira fase, transição limitada à segunda, inventário e equipamentos parciais. Painéis são provisórios e ainda faltam mistura geral, consumíveis, persistência, recompensas completas e validação visual sistemática. Os scripts de reexportação foram criados para o acervo completo no computador original e ainda têm caminhos locais; não são necessários para executar as imagens já incluídas. Consulte `docs/PROGRESSO.md` e `docs/ARQUITETURA_E_LIMITACOES.md`.
+
+
+Localização: inglês, português brasileiro e espanhol. Veja docs/LOCALIZACAO.md para configuração, testes, limites e inclusão de novos idiomas.

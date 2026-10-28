@@ -9,7 +9,13 @@ var level := 1
 var enemy_number := 1
 var encounter_ids: Array[String] = []
 var world := "menu"
-var message := "Escolha a espada e equipe antes de iniciar."
+var message := ""
+var message_key := "MESSAGE.INITIAL"
+var message_args: Array = []
+var settings_open := false
+var last_damage: Dictionary = {}
+var finn_status_label: Label
+var enemy_status_label: Label
 var ui: Control
 var item_list: OptionButton
 var gear_list: OptionButton
@@ -35,9 +41,14 @@ var last_frame := -1
 var normal_rng := 0.0
 
 func _ready() -> void:
+    Localization.language_changed.connect(_on_language_changed)
+    _set_message("MESSAGE.INITIAL")
     data = Store.new()
     if not data.load_all():
-        message = "Dados locais indisponíveis. Leia README.md."
+        _set_message("MESSAGE.MISSING_DATA")
+        var error_label := _panel_label(message, 16)
+        error_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+        add_child(error_label)
         return
     game = Model.new(data)
     timeline = Timeline.new(game)
@@ -62,6 +73,7 @@ func _on_action_start(attacker: String, _result: Dictionary) -> void:
     attack_from = attacker
     reaction = ""
     damage_text = ""
+    last_damage.clear()
     if damage_label != null:
         damage_label.visible = false
 
@@ -69,8 +81,8 @@ func _on_contact(result: Dictionary) -> void:
     reaction_elapsed = 0.0
     reaction = "evade" if result.evaded else "hurt"
     if game.phase == "victory" or game.phase == "defeat": reaction = "die"
-    damage_text = "ESQUIVA" if result.evaded else str(result.damage)
-    if result.critical: damage_text += " CRÍTICO"
+    last_damage = result.duplicate()
+    _update_damage_text()
     if damage_label != null:
         damage_label.text = damage_text
         damage_label.modulate = Color("#63f3ff") if result.evaded else (Color("#ffd76a") if result.critical else Color.WHITE)
@@ -88,17 +100,17 @@ func _on_fight_end(outcome: String) -> void:
     if outcome == "victory" and enemy_number < encounter_ids.size():
         enemy_number += 1
         game.start_encounter(encounter_ids[enemy_number - 1], false)
-        message = "Fase %d — encontro %d de %d" % [level, enemy_number, encounter_ids.size()]
+        _set_message("MESSAGE.ENCOUNTER", [level, enemy_number, encounter_ids.size()])
         timeline.start()
     else:
         world = "victory" if outcome == "victory" else "defeat"
-        message = "Selecione recompensas para o inventário." if outcome == "victory" else "Finn foi derrotado."
+        _set_message("MESSAGE.WIN" if outcome == "victory" else "MESSAGE.LOSE")
         rebuild_ui()
     queue_redraw()
 
 func start_level(number: int) -> void:
     if number < 1 or number > 2:
-        message = "Esta versão integra apenas as fases 1 e 2."
+        _set_message("MESSAGE.LEVEL_LIMIT")
         return
     var dungeon: Dictionary = data.dungeons.get(str(number), {})
     encounter_ids.clear()
@@ -108,23 +120,23 @@ func start_level(number: int) -> void:
         if fields.is_empty() or fields[0] == "null":
             break
         if not data.enemies.has(fields[0]):
-            message = "Inimigo ausente nos dados da fase %d." % number
+            _set_message("MESSAGE.ENEMY_MISSING", [number])
             return
         encounter_ids.append(fields[0])
     if encounter_ids.is_empty():
-        message = "A fase %d não tem encontros disponíveis." % number
+        _set_message("MESSAGE.NO_ENCOUNTERS", [number])
         return
 
     level = number
     enemy_number = 1
     var saved_hp: int = game.hp
     if not game.start_encounter(encounter_ids[0], number == 1):
-        message = "Não foi possível iniciar a fase %d." % number
+        _set_message("MESSAGE.START_FAILED", [number])
         return
     if number != 1:
         game.hp = saved_hp
     world = "battle"
-    message = "Fase %d — encontro %d de %d" % [level, enemy_number, encounter_ids.size()]
+    _set_message("MESSAGE.ENCOUNTER", [level, enemy_number, encounter_ids.size()])
     timeline.start()
     rebuild_ui()
 
@@ -150,7 +162,18 @@ func rebuild_ui() -> void:
     var columns := VBoxContainer.new()
     columns.add_theme_constant_override("separation", 6)
     ui.add_child(columns)
-    columns.add_child(_panel_label("FINN & BONES  ·  VERTICAL SLICE", 20))
+    var heading := HBoxContainer.new()
+    columns.add_child(heading)
+    var title := _panel_label(tr("MENU.TITLE"), 17)
+    title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+    heading.add_child(title)
+    var settings_button := Button.new()
+    settings_button.text = tr("SETTINGS.CLOSE") if settings_open else tr("SETTINGS.OPEN")
+    settings_button.pressed.connect(func(): settings_open = not settings_open; rebuild_ui())
+    heading.add_child(settings_button)
+    if settings_open:
+        var selector := _language_selector()
+        heading.add_child(selector)
 
     var fight_panel := PanelContainer.new()
     fight_panel.visible = world != "menu"
@@ -164,7 +187,8 @@ func rebuild_ui() -> void:
     var finn_status := VBoxContainer.new()
     finn_status.size_flags_horizontal = Control.SIZE_EXPAND_FILL
     hp_row.add_child(finn_status)
-    finn_status.add_child(_panel_label("FINN  ·  %d / %d HP" % [game.hp, game.max_hp], 13))
+    finn_status_label = _panel_label("", 13)
+    finn_status.add_child(finn_status_label)
     finn_hp_bar = TextureRect.new()
     finn_hp_bar.texture = _health_bar_texture(false, game.hp, game.max_hp)
     finn_hp_bar.custom_minimum_size = Vector2(154, 30)
@@ -175,7 +199,8 @@ func rebuild_ui() -> void:
     var enemy_status := VBoxContainer.new()
     enemy_status.size_flags_horizontal = Control.SIZE_EXPAND_FILL
     hp_row.add_child(enemy_status)
-    enemy_status.add_child(_panel_label("ESQUELETO  ·  %d HP" % game.enemy_hp, 13))
+    enemy_status_label = _panel_label("", 13)
+    enemy_status.add_child(enemy_status_label)
     enemy_hp_bar = TextureRect.new()
     enemy_hp_bar.texture = _health_bar_texture(true, game.enemy_hp, maxf(float(game.enemy.get("BaseHP", 1)), 1.0))
     enemy_hp_bar.custom_minimum_size = Vector2(154, 30)
@@ -229,23 +254,28 @@ func rebuild_ui() -> void:
     _make_battle_background_layer(battlefield, "layer_1.png")
 
     damage_label = Label.new()
-    damage_label.visible = false
+    damage_label.text = damage_text
+    damage_label.visible = world == "battle" and attack_from != "" and not last_damage.is_empty()
+    if damage_label.visible:
+        damage_label.modulate = Color("#63f3ff") if last_damage.get("evaded", false) else (Color("#ffd76a") if last_damage.get("critical", false) else Color.WHITE)
+        damage_label.scale = Vector2.ONE * (1.2 if last_damage.get("critical", false) else 1.0)
+        damage_label.position = Vector2(355, 70) if attack_from == "finn" else Vector2(190, 70)
     damage_label.add_theme_font_size_override("font_size", 24)
     damage_label.add_theme_color_override("font_outline_color", Color("#21151d"))
     damage_label.add_theme_constant_override("outline_size", 3)
     battlefield.add_child(damage_label)
 
     var lower := HBoxContainer.new()
-    lower.custom_minimum_size.y = 208
+    lower.custom_minimum_size.y = 200
     lower.add_theme_constant_override("separation", 6)
     columns.add_child(lower)
     var stats_panel := _new_panel(lower, 150)
-    stats_panel.add_child(_panel_label("EQUIPAMENTO", 13))
-    stats_panel.add_child(_panel_label("ATQ  %d" % game.stats().attack, 12))
-    stats_panel.add_child(_panel_label("DEF  %d" % game.stats().defense, 12))
-    stats_panel.add_child(_panel_label("SORTE  %d" % game.stats().luck, 12))
-    stats_panel.add_child(_gear_row("Arma", "weapon"))
-    stats_panel.add_child(_gear_row("Escudo", "shield"))
+    stats_panel.add_child(_panel_label(tr("GEAR.TITLE"), 13))
+    stats_panel.add_child(_panel_label(tr("HUD.ATTACK") % game.stats().attack, 12))
+    stats_panel.add_child(_panel_label(tr("HUD.DEFENSE") % game.stats().defense, 12))
+    stats_panel.add_child(_panel_label(tr("HUD.LUCK") % game.stats().luck, 12))
+    stats_panel.add_child(_gear_row(tr("GEAR.WEAPON"), "weapon"))
+    stats_panel.add_child(_gear_row(tr("GEAR.SHIELD"), "shield"))
 
     var inventory_panel := Control.new()
     inventory_panel.custom_minimum_size = Vector2(300, lower.custom_minimum_size.y)
@@ -272,7 +302,7 @@ func rebuild_ui() -> void:
         var cell := Button.new()
         cell.position = inventory_art_offset + (slot_centers[index] - Vector2(28, 28)) * inventory_scale
         cell.size = Vector2(56, 56) * inventory_scale
-        cell.tooltip_text = game.inventory[index] if game.inventory[index] != "" else "Espaço vazio"
+        cell.tooltip_text = Localization.item_name(game.inventory[index])
         cell.add_theme_stylebox_override("normal", StyleBoxEmpty.new())
         cell.add_theme_stylebox_override("hover", StyleBoxEmpty.new())
         cell.add_theme_stylebox_override("pressed", StyleBoxEmpty.new())
@@ -293,26 +323,27 @@ func rebuild_ui() -> void:
         inventory_panel.add_child(cell)
         item_cells.append(cell)
 
-    var actions_panel := _new_panel(lower, 196)
+    var actions_panel := _new_panel(lower, 220)
     status_label = _panel_label(message, 12)
     status_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
     actions_panel.add_child(status_label)
-    add_button_to(actions_panel, "Equipar selecionado", func(): _equip_selected())
-    add_button_to(actions_panel, "Remover arma", func(): _remove_gear("weapon"))
-    add_button_to(actions_panel, "Remover escudo", func(): _remove_gear("shield"))
+    add_button_to(actions_panel, tr("GEAR.EQUIP"), func(): _equip_selected())
+    add_button_to(actions_panel, tr("GEAR.REMOVE_WEAPON"), func(): _remove_gear("weapon"))
+    add_button_to(actions_panel, tr("GEAR.REMOVE_SHIELD"), func(): _remove_gear("shield"))
     if world == "victory":
         for reward in game.loot.duplicate():
             var reward_id: String = reward
-            add_button_to(actions_panel, "Coletar " + reward_id, func():
-                message = "Coletado: " + reward_id if game.collect_reward(reward_id) else "Inventário cheio"
+            add_button_to(actions_panel, tr("REWARD.COLLECT") % Localization.item_name(reward_id), func():
+                if game.collect_reward(reward_id): _set_message("MESSAGE.COLLECTED", [reward_id])
+                else: _set_message("MESSAGE.INVENTORY_FULL")
                 rebuild_ui()
             )
         if level == 1:
-            add_button_to(actions_panel, "Avançar à fase 2", func(): start_level(2))
+            add_button_to(actions_panel, tr("MENU.NEXT"), func(): start_level(2))
         else:
-            add_button_to(actions_panel, "Voltar ao início", func(): world = "menu"; rebuild_ui())
+            add_button_to(actions_panel, tr("MENU.RETURN"), func(): world = "menu"; rebuild_ui())
     elif world == "defeat":
-        add_button_to(actions_panel, "Tentar novamente", func(): world = "menu"; rebuild_ui())
+        add_button_to(actions_panel, tr("MENU.RETRY"), func(): world = "menu"; rebuild_ui())
     refresh_visuals()
 
 func _build_main_menu() -> void:
@@ -326,8 +357,12 @@ func _build_main_menu() -> void:
 
     # The Flash button captions are dynamic text fields; Godot supplies their runtime labels.
     # Continue's original locked artwork is baked into the menu image.
-    _add_main_menu_button("New Game", Vector2(257, 349), Vector2(188, 65), func(): start_level(1))
-    _add_main_menu_button("Continue", Vector2(255, 420), Vector2(190, 65), Callable(), true)
+    _add_main_menu_button(tr("MENU.NEW_GAME"), Vector2(257, 349), Vector2(188, 65), func(): start_level(1))
+    _add_main_menu_button(tr("MENU.CONTINUE"), Vector2(255, 420), Vector2(190, 65), Callable(), true)
+    var selector := _language_selector()
+    selector.position = Vector2(490, 8)
+    selector.size = Vector2(200, 32)
+    ui.add_child(selector)
 
 func _add_main_menu_button(text: String, button_position: Vector2, button_size: Vector2, action: Callable, locked := false) -> void:
     var button := Button.new()
@@ -391,12 +426,20 @@ func _new_panel(parent: Control, width: float) -> VBoxContainer:
     parent.add_child(panel)
     var content := VBoxContainer.new()
     content.add_theme_constant_override("separation", 3)
-    panel.add_child(content)
+    var scroll := ScrollContainer.new()
+    scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+    scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+    panel.add_child(scroll)
+    content.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+    scroll.add_child(content)
     return content
 
 func _panel_label(text: String, size: int) -> Label:
     var label := Label.new()
     label.text = text
+    label.clip_text = true
+    label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+    label.tooltip_text = text
     label.add_theme_font_size_override("font_size", size)
     return label
 
@@ -415,12 +458,20 @@ func _gear_row(title: String, slot: String) -> HBoxContainer:
     icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
     icon.texture = _item_texture(game.gear[slot])
     row.add_child(icon)
-    row.add_child(_panel_label(title + ": " + (game.gear[slot] if game.gear[slot] != "" else "—"), 11))
+    var gear_label := _panel_label(title + ": " + (Localization.item_name(game.gear[slot]) if game.gear[slot] != "" else "—"), 11)
+    gear_label.clip_text = false
+    gear_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+    gear_label.custom_minimum_size.x = 35
+    gear_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+    row.add_child(gear_label)
     return row
 
 func add_button_to(parent: Control, title: String, callback: Callable) -> void:
     var button := Button.new()
     button.text = title
+    button.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+    button.tooltip_text = title
+    button.add_theme_font_size_override("font_size", 11)
     button.custom_minimum_size.y = 25
     button.disabled = world == "battle"
     button.pressed.connect(callback)
@@ -428,18 +479,20 @@ func add_button_to(parent: Control, title: String, callback: Callable) -> void:
 
 func _select_item(index: int) -> void:
     selected_item = index
-    message = "Selecionado: " + game.inventory[index] if game.inventory[index] != "" else "Espaço vazio"
+    if game.inventory[index] != "": _set_message("MESSAGE.SELECTED", [game.inventory[index]])
+    else: _set_message("INVENTORY.EMPTY")
     rebuild_ui()
 
 func _equip_selected() -> void:
     var id: String = game.inventory[selected_item]
     var category := str(data.items.get(id, {}).get("Category", ""))
     var slot := "weapon" if category == "W" else ("shield" if category == "S" else "")
-    message = "Equipado: " + id if slot != "" and game.equip(selected_item, slot) else "Selecione uma arma ou escudo compatível."
+    if slot != "" and game.equip(selected_item, slot): _set_message("MESSAGE.EQUIPPED", [id])
+    else: _set_message("MESSAGE.EQUIP_INVALID")
     rebuild_ui()
 
 func _remove_gear(slot: String) -> void:
-    message = "Equipamento removido." if game.unequip(slot) else "Slot vazio ou inventário cheio."
+    _set_message("MESSAGE.REMOVED" if game.unequip(slot) else "MESSAGE.REMOVE_INVALID")
     rebuild_ui()
 
 func _item_texture(item_id: String) -> Texture2D:
@@ -485,7 +538,12 @@ func refresh_visuals() -> void:
     if finn_hp_bar != null:
         finn_hp_bar.texture = _health_bar_texture(false, game.hp, game.max_hp)
         enemy_hp_bar.texture = _health_bar_texture(true, game.enemy_hp, maxf(float(game.enemy.get("BaseHP", 1)), 1.0))
-    if status_label != null: status_label.text = message
+    if status_label != null:
+        status_label.text = message
+        status_label.tooltip_text = message
+    if finn_status_label != null: finn_status_label.text = tr("HUD.FINN") % [game.hp, game.max_hp]
+    if enemy_status_label != null: enemy_status_label.text = tr("HUD.ENEMY") % [Localization.enemy_name(str(game.enemy.get("Character", ""))), game.enemy_hp]
+    if damage_label != null: damage_label.text = damage_text
     if enemy_sprite != null:
         var enemy_set := "enemy_idle"
         var enemy_frame := 1 + int(normal_rng * 30.0) % 21
@@ -504,3 +562,36 @@ func refresh_visuals() -> void:
 
 func _draw() -> void:
     pass
+
+func _language_selector() -> OptionButton:
+    var selector := OptionButton.new()
+    selector.tooltip_text = tr("LANGUAGE.LABEL")
+    for code in Localization.languages:
+        selector.add_item(Localization.language_name(code))
+        selector.set_item_metadata(selector.item_count - 1, code)
+        if code == TranslationServer.get_locale(): selector.select(selector.item_count - 1)
+    selector.item_selected.connect(func(index: int): Localization.set_language(str(selector.get_item_metadata(index))))
+    return selector
+
+func _set_message(key: String, args: Array = []) -> void:
+    message_key = key
+    message_args = args.duplicate()
+    _refresh_message()
+
+func _refresh_message() -> void:
+    var translated_args := message_args.duplicate()
+    if message_key in ["MESSAGE.COLLECTED", "MESSAGE.SELECTED", "MESSAGE.EQUIPPED"] and not translated_args.is_empty():
+        translated_args[0] = Localization.item_name(str(translated_args[0]))
+    message = tr(message_key) if translated_args.is_empty() else tr(message_key) % translated_args
+
+func _update_damage_text() -> void:
+    if last_damage.is_empty():
+        damage_text = ""
+        return
+    damage_text = tr("HUD.EVADE") if last_damage.get("evaded", false) else str(last_damage.get("damage", 0))
+    if last_damage.get("critical", false): damage_text += tr("HUD.CRITICAL")
+
+func _on_language_changed(_locale: String) -> void:
+    _refresh_message()
+    _update_damage_text()
+    if game != null: rebuild_ui()

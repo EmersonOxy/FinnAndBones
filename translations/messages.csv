@@ -1,0 +1,177 @@
+id,en,pt_BR,es
+MENU.NEW_GAME,New Game,Novo jogo,Nueva partida
+MENU.CONTINUE,Continue,Continuar,Continuar
+LANGUAGE.NAME.en,English,Inglês,Inglés
+LANGUAGE.NAME.pt_BR,Brazilian Portuguese,Português (Brasil),Portugués (Brasil)
+LANGUAGE.NAME.es,Spanish,Espanhol,Español
+LANGUAGE.LABEL,Language,Idioma,Idioma
+SETTINGS.TITLE,Settings,Configurações,Configuración
+SETTINGS.OPEN,Settings,Configurações,Configuración
+SETTINGS.CLOSE,Close,Fechar,Cerrar
+MENU.TITLE,FINN & BONES · VERTICAL SLICE,FINN & BONES · FATIA JOGÁVEL,FINN & BONES · VERSIÓN PARCIAL
+MENU.START,Start level 1,Iniciar fase 1,Iniciar nivel 1
+MENU.RETRY,Try again,Tentar novamente,Volver a intentar
+MENU.RETURN,Back to start,Voltar ao início,Volver al inicio
+MENU.NEXT,Go to level 2,Avançar à fase 2,Avanzar al nivel 2
+HUD.FINN,FINN · %d / %d HP,FINN · %d / %d VIDA,FINN · %d / %d VIDA
+HUD.ENEMY,%s · %d HP,%s · %d VIDA,%s · %d VIDA
+HUD.ATTACK,ATK %d,ATQ %d,ATQ %d
+HUD.DEFENSE,DEF %d,DEF %d,DEF %d
+HUD.LUCK,LUCK %d,SORTE %d,SUERTE %d
+HUD.EVADE,DODGE,ESQUIVA,ESQUIVA
+HUD.CRITICAL, CRITICAL, CRÍTICO, CRÍTICO
+INVENTORY.TITLE,INVENTORY · 12 SLOTS,INVENTÁRIO · 12 ESPAÇOS,INVENTARIO · 12 ESPACIOS
+INVENTORY.EMPTY,Empty slot,Espaço vazio,Espacio vacío
+GEAR.TITLE,EQUIPMENT,EQUIPAMENTO,EQUIPAMIENTO
+GEAR.WEAPON,Weapon,Arma,Arma
+GEAR.SHIELD,Shield,Escudo,Escudo
+GEAR.EQUIP,Equip selected,Equipar selecionado,Equipar selección
+GEAR.REMOVE_WEAPON,Remove weapon,Remover arma,Quitar arma
+GEAR.REMOVE_SHIELD,Remove shield,Remover escudo,Quitar escudo
+REWARD.COLLECT,Collect %s,Coletar %s,Recoger %s
+MESSAGE.INITIAL,Select and equip the sword before starting.,Escolha a espada e equipe antes de iniciar.,Selecciona y equipa la espada antes de empezar.
+MESSAGE.MISSING_DATA,Local data unavailable. See README.md.,Dados locais indisponíveis. Leia README.md.,Datos locales no disponibles. Consulta README.md.
+MESSAGE.ENCOUNTER,Level %d — encounter %d of %d,Fase %d — encontro %d de %d,Nivel %d — encuentro %d de %d
+MESSAGE.WIN,Select rewards for the inventory.,Selecione recompensas para o inventário.,Selecciona recompensas para el inventario.
+MESSAGE.LOSE,Finn was defeated.,Finn foi derrotado.,Finn fue derrotado.
+MESSAGE.LEVEL_LIMIT,Only levels 1 and 2 are available.,Esta versão integra apenas as fases 1 e 2.,Solo están disponibles los niveles 1 y 2.
+MESSAGE.ENEMY_MISSING,Enemy missing from level %d data.,Inimigo ausente nos dados da fase %d.,Falta un enemigo en los datos del nivel %d.
+MESSAGE.NO_ENCOUNTERS,Level %d has no available encounters.,A fase %d não tem encontros disponíveis.,El nivel %d no tiene encuentros disponibles.
+MESSAGE.START_FAILED,Could not start level %d.,Não foi possível iniciar a fase %d.,No se pudo iniciar el nivel %d.
+MESSAGE.COLLECTED,Collected: %s,Coletado: %s,Recogido: %s
+MESSAGE.INVENTORY_FULL,Inventory full,Inventário cheio,Inventario lleno
+MESSAGE.SELECTED,Selected: %s,Selecionado: %s,Seleccionado: %s
+MESSAGE.EQUIPPED,Equipped: %s,Equipado: %s,Equipado: %s
+MESSAGE.EQUIP_INVALID,Select a compatible weapon or shield.,Selecione uma arma ou escudo compatível.,Selecciona un arma o escudo compatible.
+MESSAGE.REMOVED,Equipment removed.,Equipamento removido.,Equipamiento retirado.
+MESSAGE.REMOVE_INVALID,Slot empty or inventory full.,Slot vazio ou inventário cheio.,Espacio vacío o inventario lleno.
+DEBUG.TITLE,FINN & BONES — LABORATORY,FINN & BONES — LABORATÓRIO,FINN & BONES — LABORATORIO
+DEBUG.DESCRIPTION,Rules prototype; temporary visuals and step-by-step combat.,Protótipo funcional de regras; visuais temporários e combate por etapas.,Prototipo de reglas; imágenes temporales y combate por pasos.
+DEBUG.START,Start first level,Iniciar primeira missão,Iniciar primer nivel
+DEBUG.INVENTORY,Inventory and equipment,Inventário e equipamento,Inventario y equipamiento
+DEBUG.NO_SAVE,Game data is read locally. Saving is not available.,Os dados do jogo são lidos localmente. Não há salvamento.,Los datos se leen localmente. No hay guardado.
+DEBUG.PROTOTYPE,FINN & BONES | PROTOTYPE (700 × 500),FINN & BONES | PROTÓTIPO (700 × 500),FINN & BONES | PROTOTIPO (700 × 500)
+DEBUG.STATS,Finn: %d/%d HP  ATK %d  DEF %d  LUCK %d,Finn: %d/%d VIDA  ATQ %d  DEF %d  SORTE %d,Finn: %d/%d VIDA  ATQ %d  DEF %d  SUERTE %d
+DEBUG.ENEMY,Enemy: %s  HP %d | State: %s | Turn: %s,Inimigo: %s  VIDA %d | Estado: %s | Vez: %s,Enemigo: %s  VIDA %d | Estado: %s | Turno: %s
+DEBUG.ATTACK,Advance one attack (timing not validated),Avançar um ataque (temporização não validada),Avanzar un ataque (tiempo no validado)
+DEBUG.HIT,%s dealt %d damage%s%s,%s causou %d de dano%s%s,%s causó %d de daño%s%s
+DEBUG.DODGED, (dodge), (evasão), (esquiva)
+DEBUG.CRITICAL, (critical), (crítico), (crítico)
+DEBUG.VICTORY,Victory — first-clear rewards: %s,Vitória — recompensas da primeira conclusão: %s,Victoria — recompensas de la primera victoria: %s
+DEBUG.COLLECT,Collect first reward,Coletar primeira recompensa,Recoger primera recompensa
+DEBUG.DEFEAT,Defeat,Derrota,Derrota
+DEBUG.GEAR,Equipment: %s,Equipamentos: %s,Equipamiento: %s
+DEBUG.EQUIP,Equip / swap,Equipar / trocar,Equipar / cambiar
+DEBUG.EQUIPPED,Equipped.,Equipado.,Equipado.
+DEBUG.EQUIP_INVALID,Empty slot or incompatible category.,Slot vazio ou categoria incompatível.,Espacio vacío o categoría incompatible.
+DEBUG.REMOVE,Remove selected equipment,Remover equipamento selecionado,Quitar equipamiento seleccionado
+DEBUG.REMOVED,Removed.,Removido.,Retirado.
+DEBUG.RECIPES,Look up special recipe,Consultar receita especial,Consultar receta especial
+DEBUG.BACK,Back,Voltar,Volver
+DEBUG.RECIPE_TITLE,Recipe lookup (no items consumed),Consulta de receitas (sem consumir itens),Consulta de recetas (sin consumir objetos)
+DEBUG.RECIPE_NOTE,Mixing and generic combinations are not implemented yet.,Combinação de itens e a regra genérica ainda não estão implementadas.,La mezcla y las combinaciones genéricas aún no están implementadas.
+DEBUG.RECIPE_FIRST,"First ID, e.g. SwordStarter","Primeiro ID, por exemplo SwordStarter","Primer ID, por ejemplo SwordStarter"
+DEBUG.RECIPE_SECOND,"Second ID, e.g. FireFlame","Segundo ID, por exemplo FireFlame","Segundo ID, por ejemplo FireFlame"
+DEBUG.SEARCH,Look up,Consultar,Consultar
+DEBUG.RECIPE_FOUND,Special recipe: %s,Receita especial: %s,Receta especial: %s
+DEBUG.RECIPE_MISSING,Not found; generic combination not verified,Não encontrada; combinação genérica não verificada,No encontrada; combinación genérica no verificada
+DEBUG.EQUIP_1,Equipment 1,Equipamento 1,Equipamiento 1
+DEBUG.EQUIP_2,Equipment 2,Equipamento 2,Equipamiento 2
+STATE.menu,Menu,Menu,Menú
+STATE.fight,Fight,Combate,Combate
+STATE.victory,Victory,Vitória,Victoria
+STATE.defeat,Defeat,Derrota,Derrota
+ACTOR.finn,Finn,Finn,Finn
+ACTOR.enemy,Enemy,Inimigo,Enemigo
+ITEM.HPPotionSmall,Small Health Potion,Poção pequena de vida,Poción pequeña de salud
+ITEM.DefPotionSmall,Small Defense Potion,Poção pequena de defesa,Poción pequeña de defensa
+ITEM.AttPotionSmall,Small Attack Potion,Poção pequena de ataque,Poción pequeña de ataque
+ITEM.LuckPotionSmall,Small Luck Potion,Poção pequena de sorte,Poción pequeña de suerte
+ITEM.HPPotionMedium,Big Health Potion,Poção grande de vida,Poción grande de salud
+ITEM.DefPotionMedium,Big Defense Potion,Poção grande de defesa,Poción grande de defensa
+ITEM.AttPotionMedium,Big Attack Potion,Poção grande de ataque,Poción grande de ataque
+ITEM.LuckPotionMedium,Big Luck Potion,Poção grande de sorte,Poción grande de suerte
+ITEM.HPPotionBig,Elixir of Life,Elixir da vida,Elixir de vida
+ITEM.DefPotionBig,Elixir of Protection,Elixir da proteção,Elixir de protección
+ITEM.AttPotionBig,Elixir of Power,Elixir do poder,Elixir de poder
+ITEM.LuckPotionBig,Elixir of Fortune,Elixir da fortuna,Elixir de fortuna
+ITEM.MaxHPRing,Ring of Health,Anel da saúde,Anillo de salud
+ITEM.DefRing,Ring of Defense,Anel da defesa,Anillo de defensa
+ITEM.AttRing,Ring of Attack,Anel do ataque,Anillo de ataque
+ITEM.LuckRing,Ring of Luck,Anel da sorte,Anillo de suerte
+ITEM.MaxHPRing2,Ring of Life,Anel da vida,Anillo de vida
+ITEM.DefRing2,Ring of Protection,Anel da proteção,Anillo de protección
+ITEM.AttRing2,Ring of Power,Anel do poder,Anillo de poder
+ITEM.LuckRing2,Ring of Fortune,Anel da fortuna,Anillo de fortuna
+ITEM.MaxHPPendant,Health Pendant,Pingente da saúde,Colgante de salud
+ITEM.DefPendant,Defense Pendant,Pingente da defesa,Colgante de defensa
+ITEM.AttPendant,Attack Pendant,Pingente do ataque,Colgante de ataque
+ITEM.LuckPendant,Luck Pendant,Pingente da sorte,Colgante de suerte
+ITEM.MaxHPPendant2,Life Jewelry,Joia da vida,Joya de vida
+ITEM.DefPendant2,Protection Jewelry,Joia da proteção,Joya de protección
+ITEM.AttPendant2,Power Jewelry,Joia do poder,Joya de poder
+ITEM.LuckPendant2,Fortune Jewelry,Joia da fortuna,Joya de fortuna
+ITEM.SwordStarter,Finn's Sword,Espada do Finn,Espada de Finn
+ITEM.SwordSimple,Iron  Blade,Lâmina de ferro,Hoja de hierro
+ITEM.SwordMedium,Ninja Sword,Espada ninja,Espada ninja
+ITEM.SwordHeavy,Scimitar,Cimitarra,Cimitarra
+ITEM.SwordStarterFire,Finn's Fire Sword,Espada de fogo do Finn,Espada de fuego de Finn
+ITEM.SwordSimpleFire,Flaming Blade,Lâmina flamejante,Hoja ardiente
+ITEM.SwordMediumFire,Flaming Ninja Sword,Espada ninja flamejante,Espada ninja ardiente
+ITEM.SwordHeavyFire,Flaming Scimitar,Cimitarra flamejante,Cimitarra ardiente
+ITEM.SwordStarterIce,Finn's Ice Sword,Espada de gelo do Finn,Espada de hielo de Finn
+ITEM.SwordSimpleIce,Frozen Blade,Lâmina congelada,Hoja congelada
+ITEM.SwordMediumIce,Frozen Ninja Sword,Espada ninja congelada,Espada ninja congelada
+ITEM.SwordHeavyIce,Frozen Scimitar,Cimitarra congelada,Cimitarra congelada
+ITEM.ShieldSimple,Wooden Shield,Escudo de madeira,Escudo de madera
+ITEM.ShieldMedium,Armored Shield,Escudo blindado,Escudo blindado
+ITEM.ShieldHeavy,Skull Shield,Escudo de caveira,Escudo de calavera
+ITEM.ShieldSimpleFire,Flaming Wooden Shield,Escudo de madeira flamejante,Escudo de madera ardiente
+ITEM.ShieldMediumFire,Flaming Armored Shield,Escudo blindado flamejante,Escudo blindado ardiente
+ITEM.ShieldHeavyFire,Flaming Skull Shield,Escudo de caveira flamejante,Escudo de calavera ardiente
+ITEM.ShieldSimpleIce,Frozen Wooden Shield,Escudo de madeira congelado,Escudo de madera congelado
+ITEM.ShieldMediumIce,Frozen Armored Shield,Escudo blindado congelado,Escudo blindado congelado
+ITEM.ShieldHeavyIce,Frozen Skull Shield,Escudo de caveira congelado,Escudo de calavera congelado
+ITEM.FireFlame,Burning Flame,Chama ardente,Llama ardiente
+ITEM.IceBlock,Block of Ice,Bloco de gelo,Bloque de hielo
+ITEM.RottenApple,Rotten Apple,Maçã podre,Manzana podrida
+ITEM.NiceApple,Shiny Apple,Maçã brilhante,Manzana brillante
+ITEM.Bone,Bone,Osso,Hueso
+ITEM.LuckyBone,Lucky Bone,Osso da sorte,Hueso de la suerte
+ITEM.FourLeafClover,Four-leaf Clover,Trevo de quatro folhas,Trébol de cuatro hojas
+ITEM.ManlyMustache,Manly Moustache,Bigode másculo,Bigote varonil
+ITEM.ApplePie,Apple Pie,Torta de maçã,Pastel de manzana
+ITEM.SnailShell,Snail Shell,Concha de caracol,Caparazón de caracol
+ITEM.Poison,Poison,Veneno,Veneno
+ITEM.Water,Water,Água,Agua
+ITEM.FrozenMustache,Frozen Moustache,Bigode congelado,Bigote congelado
+ITEM.TemporalTattoo,Temporary Tattoo,Tatuagem temporária,Tatuaje temporal
+ITEM.EmptyCan,Empty Can,Lata vazia,Lata vacía
+ITEM.CannedDefense,Canned Protection,Proteção enlatada,Protección enlatada
+ITEM.CannedAttack,Canned Power,Poder enlatado,Poder enlatado
+ITEM.CannedLuck,Canned Fortune,Fortuna enlatada,Fortuna enlatada
+ITEM.CannedHP,Canned Health,Saúde enlatada,Salud enlatada
+ITEM.MrFriendlyRock,Mr. Jolly Stone,Senhor Pedra Alegre,Señor Piedra Alegre
+ITEM.MsFriendlyRock,Mrs. Merry Stone,Senhora Pedra Feliz,Señora Piedra Feliz
+ITEM.FriendlyRockJr,Little Rocky Jr.,Pedrinha Jr.,Pequeña Piedra Jr.
+ITEM.AppleIceCream,Apple Ice Cream,Sorvete de maçã,Helado de manzana
+ITEM.PirateFlag,Skeleton Flag,Bandeira de caveira,Bandera de calavera
+ITEM.ManlyBeard,Manly Beard,Barba máscula,Barba varonil
+ITEM.Seeds,Mystery Seeds,Sementes misteriosas,Semillas misteriosas
+ITEM.Strawberry,Underworld Strawberry,Morango do Submundo,Fresa del Inframundo
+ITEM.StrawberryIceCream,Strawberry Ice Cream,Sorvete de morango,Helado de fresa
+ITEM.Paper,Notebook Paper,Folha de caderno,Hoja de cuaderno
+ITEM.PaperBook,Swordplay Encyclopedia,Enciclopédia de esgrima,Enciclopedia de esgrima
+ITEM.Recipe,Recipe,Receita,Receta
+ITEM.BossPendant,Boss Pendant,Pingente do chefe,Colgante del jefe
+ITEM.LegendarySword,Sorcerer's Blade,Lâmina do Feiticeiro,Hoja del Hechicero
+ITEM.MarcelineBass,Ax Bass,Baixo-machado,Bajo hacha
+ENEMY.Finn,Finn,Finn,Finn
+ENEMY.enemy1_normal,Skeleton Guard,Guarda Esqueleto,Guardia Esqueleto
+ENEMY.enemy1_ice,Icy Guard,Guarda de Gelo,Guardia de Hielo
+ENEMY.enemy1_fire,Flame Guard,Guarda de Fogo,Guardia de Fuego
+ENEMY.enemy2_normal,Skeleton Sentinel,Sentinela Esqueleto,Centinela Esqueleto
+ENEMY.enemy2_ice,Chilly Sentinel,Sentinela Gelada,Centinela Gélido
+ENEMY.enemy2_fire,Blazing Sentinel,Sentinela Flamejante,Centinela Ardiente
+ENEMY.boss_normal,Underworld Sorcerer,Feiticeiro do Submundo,Hechicero del Inframundo
+ENEMY.enemy2_snow,Snow Sentinel,Sentinela de Neve,Centinela de Nieve

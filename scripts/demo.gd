@@ -7,13 +7,18 @@ var layout: VBoxContainer
 var status: Label
 var equip_slot: OptionButton
 var selected_item: OptionButton
-var message := "Laboratório: leia as limitações antes de comparar."
+var message_key := "DEBUG.DESCRIPTION"
+var message_args: Array = []
+var message := ""
+var current_screen := "menu"
 
 func _ready() -> void:
+    Localization.language_changed.connect(_on_language_changed)
+    _set_message("DEBUG.DESCRIPTION")
     store = Store.new()
     if not store.load_all():
         var err = Label.new()
-        err.text = "Dados locais não encontrados ou incompletos. Consulte README.md."
+        err.text = tr("MESSAGE.MISSING_DATA")
         add_child(err)
         return
     model = Model.new(store)
@@ -41,76 +46,109 @@ func button(text: String, action: Callable) -> void:
     layout.add_child(b)
 
 func show_menu() -> void:
+    current_screen = "menu"
     reset_ui()
-    label("FINN & BONES — LABORATÓRIO", 23)
-    label("Protótipo funcional de regras; visuais temporários e ritmo de combate por etapas.")
-    button("Iniciar primeira missão", func(): model.start_first(); show_game())
-    button("Inventário e equipamento", show_game)
-    label("Os dados do jogo permanecem no acervo local. Sem salvamento nesta versão.")
+    var selector := OptionButton.new()
+    for code in Localization.languages:
+        selector.add_item(Localization.language_name(code))
+        selector.set_item_metadata(selector.item_count - 1, code)
+        if code == TranslationServer.get_locale(): selector.select(selector.item_count - 1)
+    selector.item_selected.connect(func(index: int): Localization.set_language(str(selector.get_item_metadata(index))))
+    layout.add_child(selector)
+    label(tr("DEBUG.TITLE"), 23)
+    label(tr("DEBUG.DESCRIPTION"))
+    button(tr("DEBUG.START"), func(): model.start_first(); show_game())
+    button(tr("DEBUG.INVENTORY"), show_game)
+    label(tr("DEBUG.NO_SAVE"))
 
 func show_game() -> void:
+    current_screen = "game"
     reset_ui()
-    label("FINN & BONES  |  PROTÓTIPO (700 × 500)", 18)
+    label(tr("DEBUG.PROTOTYPE"), 18)
     var st = model.stats()
-    label("Finn: %d/%d HP   ATQ %d  DEF %d  SORTE %d" % [model.hp, model.max_hp, st.attack, st.defense, st.luck])
-    label("Inimigo: %s   HP %d   |   Estado: %s   Vez: %s" % [model.enemy.get("Character", "—"), model.enemy_hp, model.phase, model.turn])
+    label(tr("DEBUG.STATS") % [model.hp, model.max_hp, st.attack, st.defense, st.luck])
+    label(tr("DEBUG.ENEMY") % [Localization.enemy_name(str(model.enemy.get("Character", ""))), model.enemy_hp, tr("STATE." + model.phase), tr("ACTOR." + model.turn)])
     label(message)
     if model.phase == "fight":
-        button("Avançar um ataque (temporização ainda não validada)", func():
+        button(tr("DEBUG.ATTACK"), func():
             var r = model.attack_once()
-            message = "%s causou %d de dano%s%s" % [r.attacker, r.damage, " (evasão)" if r.evaded else "", " (crítico)" if r.critical else ""]
+            _set_message("DEBUG.HIT", [r.attacker, r.damage, r.evaded, r.critical])
             show_game()
         )
     elif model.phase == "victory":
-        label("Vitória — recompensas da primeira conclusão: " + str(model.loot))
+        label(tr("DEBUG.VICTORY") % ", ".join(model.loot.map(func(id): return Localization.item_name(str(id)))))
         if not model.loot.is_empty():
-            button("Coletar primeira recompensa", func():
+            button(tr("DEBUG.COLLECT"), func():
                 var id: String = model.loot[0]
-                message = "Coletado: " + id if model.collect_reward(id) else "Inventário cheio."
+                if model.collect_reward(id): _set_message("MESSAGE.COLLECTED", [id])
+                else: _set_message("MESSAGE.INVENTORY_FULL")
                 show_game()
             )
-    elif model.phase == "defeat": label("Derrota")
-    label("Equipamentos: " + str(model.gear), 13)
+    elif model.phase == "defeat": label(tr("DEBUG.DEFEAT"))
+    label(tr("DEBUG.GEAR") % ", ".join(model.gear.values().map(func(id): return Localization.item_name(str(id)))), 13)
     var row = HBoxContainer.new()
     layout.add_child(row)
     selected_item = OptionButton.new()
     selected_item.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-    for i in range(12): selected_item.add_item("%02d: %s" % [i + 1, model.inventory[i] if model.inventory[i] != "" else "—"])
+    for i in range(12): selected_item.add_item("%02d: %s" % [i + 1, Localization.item_name(model.inventory[i]) if model.inventory[i] != "" else "—"])
     row.add_child(selected_item)
     equip_slot = OptionButton.new()
-    for s in ["weapon", "shield", "equipment_1", "equipment_2"]: equip_slot.add_item(s)
+    for entry in [["GEAR.WEAPON", "weapon"], ["GEAR.SHIELD", "shield"], ["DEBUG.EQUIP_1", "equipment_1"], ["DEBUG.EQUIP_2", "equipment_2"]]:
+        equip_slot.add_item(tr(entry[0]))
+        equip_slot.set_item_metadata(equip_slot.item_count - 1, entry[1])
     row.add_child(equip_slot)
     var equip_button = Button.new()
-    equip_button.text = "Equipar / trocar"
+    equip_button.text = tr("DEBUG.EQUIP")
     equip_button.pressed.connect(func():
-        var slot = equip_slot.get_item_text(equip_slot.selected)
-        message = "Equipado." if model.equip(selected_item.selected, slot) else "Slot vazio ou categoria incompatível."
+        var slot = str(equip_slot.get_item_metadata(equip_slot.selected))
+        _set_message("DEBUG.EQUIPPED" if model.equip(selected_item.selected, slot) else "DEBUG.EQUIP_INVALID")
         show_game()
     )
     row.add_child(equip_button)
-    button("Remover equipamento selecionado", func():
-        var slot = equip_slot.get_item_text(equip_slot.selected)
-        message = "Removido." if model.unequip(slot) else "Slot vazio ou inventário cheio."
+    button(tr("DEBUG.REMOVE"), func():
+        var slot = str(equip_slot.get_item_metadata(equip_slot.selected))
+        _set_message("DEBUG.REMOVED" if model.unequip(slot) else "MESSAGE.REMOVE_INVALID")
         show_game()
     )
-    button("Consultar receita especial", show_recipe)
-    button("Voltar ao início", show_menu)
+    button(tr("DEBUG.RECIPES"), show_recipe)
+    button(tr("MENU.RETURN"), show_menu)
 
 func show_recipe() -> void:
+    current_screen = "recipe"
     reset_ui()
-    label("Consulta de receitas (sem consumir itens)", 20)
-    label("Combinação de itens e a regra genérica ainda não estão implementadas.")
+    label(tr("DEBUG.RECIPE_TITLE"), 20)
+    label(tr("DEBUG.RECIPE_NOTE"))
     var a = LineEdit.new()
     var b = LineEdit.new()
-    a.placeholder_text = "Primeiro ID, por exemplo SwordStarter"
-    b.placeholder_text = "Segundo ID, por exemplo FireFlame"
+    a.placeholder_text = tr("DEBUG.RECIPE_FIRST")
+    b.placeholder_text = tr("DEBUG.RECIPE_SECOND")
     layout.add_child(a)
     layout.add_child(b)
     var out = Label.new()
-    button("Consultar", func():
+    button(tr("DEBUG.SEARCH"), func():
         var recipe = model.find_recipe(a.text.strip_edges(), b.text.strip_edges())
-        out.text = "Receita especial: " + str(recipe.get("itemResult", "não encontrada; combinação genérica não verificada"))
+        out.text = tr("DEBUG.RECIPE_FOUND") % (Localization.item_name(str(recipe.itemResult)) if not recipe.is_empty() else tr("DEBUG.RECIPE_MISSING"))
     )
     layout.add_child(out)
-    button("Voltar", show_game)
+    button(tr("DEBUG.BACK"), show_game)
 
+
+func _set_message(key: String, args: Array = []) -> void:
+    message_key = key
+    message_args = args.duplicate()
+    _refresh_message()
+
+func _refresh_message() -> void:
+    var args := message_args.duplicate()
+    if message_key == "MESSAGE.COLLECTED" and not args.is_empty(): args[0] = Localization.item_name(str(args[0]))
+    if message_key == "DEBUG.HIT" and args.size() == 4:
+        args = [tr("ACTOR." + str(args[0])), args[1], tr("DEBUG.DODGED") if args[2] else "", tr("DEBUG.CRITICAL") if args[3] else ""]
+    message = tr(message_key) if args.is_empty() else tr(message_key) % args
+
+func _on_language_changed(_locale: String) -> void:
+    _refresh_message()
+    if model == null: return
+    match current_screen:
+        "menu": show_menu()
+        "game": show_game()
+        "recipe": show_recipe()
