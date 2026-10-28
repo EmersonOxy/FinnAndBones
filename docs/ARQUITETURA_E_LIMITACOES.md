@@ -1,0 +1,7 @@
+# Arquitetura e estado
+
+O acervo permanece fora de `reconstruction`. `data_store.gd` lê tabelas locais, `damage.gd` calcula o golpe, `game_model.gd` mantém estado da bancada, `rewards.gd` implementa sorteio ponderado sem reposição, `progression.gd` representa ligações conhecidas e `demo.gd` apresenta controles temporários. Sorteios são argumentos explícitos no cálculo de dano para testar limites. O original usa callbacks de animação; nenhum cronômetro de ataque foi inventado.
+
+Confirmado estaticamente: alternância de turnos, cálculo base de dano e probabilidades, inventário de 12 posições, categorias de slot, atributos A/D/L dos equipamentos, primeira lista de loot e ligações do mapa. Parcial: classe GameModel concentra o fluxo da primeira luta; não é ainda a arquitetura final separada de estados, persistência e UI. Consulta de 82 receitas e um caso básico executável em teste não constituem sistema completo de combinação. As entradas de firstLoot não provam a regra visual de escolha. HP máximo, buffs, velocidade, IA especial, persistência, itens modificados e progressão jogável não foram portados.
+
+Os 630 arquivos ActionScript foram percorridos por varredura lexical e indexados em `../analysis/actionscript_inventory_all.json`; isso não é leitura e compreensão semântica exaustiva. Foram revisadas diretamente classes centrais e dependências usadas aqui. O projeto não inclui ramificação Expanded.
